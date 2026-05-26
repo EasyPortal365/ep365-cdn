@@ -30,7 +30,12 @@ různé hashe = různé soubory.
 
 - **Staré soubory NEMAZAT.** Tenanti na starší verzi appky odkazují bundle podle
   hashe — smazáním bys jim appku rozbil.
-- Sem se commitují jen build outputy (`*.js`, `*.js.map`). Žádný zdrojový kód.
+- **Jen naprosté minimum a NIC citlivého.** Sem patří **pouze zkompilované `*.js`
+  bundly** (+ `CNAME`/`README`). **Žádné source-mapy** (`*.js.map` odhalují zdroják),
+  žádné zdrojáky (`.ts`), configy, `.env` ani secrets. Hlídá to allowlist
+  `.gitignore` (ignoruje vše kromě povolených typů).
+- Bundle je veřejně/anonymně stažitelný — je to neutajitelný front-end kód; secrets
+  do něj nikdy nepatří (anonymní endpointy ano, klíče/hesla ne).
 - Release postup viz `RELEASE.md` v repu příslušné appky.
 
 ## Setup (jednorázově)

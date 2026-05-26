@@ -1,0 +1,13 @@
+# ============================================================================
+# ep365-cdn je VEŘEJNÝ repo (GitHub Pages → cdn.easyportal365.cz).
+# Allowlist: ignoruj VŠE a povol jen zkompilované bundly + meta soubory.
+# Nikdy sem nesmí: source-mapy (*.js.map odhalují zdroják), zdrojáky (.ts),
+# configy, .env, secrets, ani cokoli jiného.
+# ============================================================================
+*
+!*/
+!*.js
+!CNAME
+!README.md
+!.gitignore
+!.gitkeep
