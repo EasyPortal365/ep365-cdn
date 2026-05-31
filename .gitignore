@@ -8,6 +8,7 @@
 !*/
 !*.js
 !versions.json
+!licenses/*.json
 !CNAME
 !README.md
 !.gitignore
