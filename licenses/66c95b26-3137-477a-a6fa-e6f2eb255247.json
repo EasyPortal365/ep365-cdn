@@ -1,7 +1,7 @@
 {
   "tenantName": "EasyPortal 365 (demo)",
   "apps": {
-    "ep365-homepage": { "status": "active" },
+    "ep365-homepage": { "status": "readonly", "message": "TEST režimu jen pro čtení (faktura po splatnosti)" },
     "ep365-ai-chat": { "status": "active" },
     "ep365-fleet": { "status": "active" },
     "ep365-documents": { "status": "active" },
