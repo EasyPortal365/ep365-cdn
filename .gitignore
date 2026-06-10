@@ -13,3 +13,12 @@
 !README.md
 !.gitignore
 !.gitkeep
+
+# Brand assets (loga, ikony) — veřejné statické obrázky pro newslettery, web, decky.
+# Bezpečné: jen obrázkové formáty, žádné zdrojáky/secrets.
+!brand/**/*.png
+!brand/**/*.svg
+!brand/**/*.jpg
+!brand/**/*.jpeg
+!brand/**/*.ico
+!brand/**/*.webp
