@@ -22,3 +22,7 @@
 !brand/**/*.jpeg
 !brand/**/*.ico
 !brand/**/*.webp
+
+# Diagnostický nástroj (veřejná statická stránka cdn.easyportal365.cz/diag/).
+# Bezpečné: jen statické HTML bez secrets/zdrojáků.
+!diag/index.html

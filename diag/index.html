@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Test připojení — EasyPortal 365</title>
+<style>
+  :root{
+    --navy:#002163; --teal:#00CED7; --teal7:#00A8B0;
+    --bg:#F4F7FB; --card:#ffffff; --line:#E0E6EF; --line2:#C7D0DC;
+    --muted:#4A5874; --soft:#7A8499;
+    --green:#1F9D57; --green-bg:#E6F7EE; --green-ln:#BFE7CF;
+    --red:#C0392B; --red-bg:#FCEBEA; --red-ln:#F3C6C1;
+    --amber:#8A5A00; --amber-bg:#FEF6E7; --amber-ln:#F2D79A;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;
+    background:var(--bg); color:var(--navy); line-height:1.5;
+    -webkit-font-smoothing:antialiased; padding:32px 16px;
+  }
+  .wrap{max-width:720px; margin:0 auto}
+  .brand{display:flex; align-items:center; gap:12px; margin-bottom:22px}
+  .mark{width:40px; height:40px; border-radius:10px; flex:0 0 auto;
+    background:linear-gradient(135deg,var(--teal),var(--teal7));
+    display:grid; place-items:center; color:#00333B; font-weight:800; font-size:15px;
+    box-shadow:0 4px 12px -4px rgba(0,206,215,.5)}
+  .brand b{font-size:17px; font-weight:800; letter-spacing:-.01em}
+  .brand span{display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); font-weight:700; margin-top:1px}
+  h1{font-size:24px; font-weight:800; letter-spacing:-.02em; margin:0 0 6px}
+  .lead{color:var(--muted); font-size:14.5px; margin:0 0 22px; max-width:620px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px;
+    box-shadow:0 1px 2px rgba(0,33,99,.04); padding:18px 20px; margin-bottom:16px}
+  .verdict{border-radius:14px; padding:20px 22px; margin-bottom:18px; border:1px solid var(--line);
+    background:var(--card); display:flex; gap:16px; align-items:flex-start}
+  .verdict .ic{width:40px;height:40px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;font-size:22px;font-weight:800}
+  .verdict h2{margin:0 0 4px; font-size:18px; font-weight:800}
+  .verdict p{margin:0; font-size:14px; color:var(--muted)}
+  .verdict.running{background:#EEF3FA}
+  .verdict.running .ic{background:#D9E4F3; color:var(--navy)}
+  .verdict.ok{background:var(--green-bg); border-color:var(--green-ln)}
+  .verdict.ok .ic{background:var(--green); color:#fff}
+  .verdict.ok h2{color:var(--green)}
+  .verdict.warn{background:var(--amber-bg); border-color:var(--amber-ln)}
+  .verdict.warn .ic{background:var(--amber); color:#fff}
+  .verdict.warn h2{color:var(--amber)}
+  .verdict.fail{background:var(--red-bg); border-color:var(--red-ln)}
+  .verdict.fail .ic{background:var(--red); color:#fff}
+  .verdict.fail h2{color:var(--red)}
+  .ctitle{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--soft); font-weight:700; margin:0 0 12px}
+  .test{display:flex; align-items:flex-start; gap:12px; padding:11px 0; border-top:1px solid var(--line)}
+  .test:first-of-type{border-top:0}
+  .test .dot{width:22px;height:22px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;font-size:13px;font-weight:800;margin-top:1px;
+    background:#EEF3FA;color:var(--soft)}
+  .test.ok .dot{background:var(--green);color:#fff}
+  .test.fail .dot{background:var(--red);color:#fff}
+  .test.warn .dot{background:var(--amber);color:#fff}
+  .test .tx{flex:1; min-width:0}
+  .test .nm{font-weight:700; font-size:14px}
+  .test .ds{font-size:12.5px; color:var(--muted); margin-top:1px; word-break:break-word}
+  .test .ms{font-size:11px; color:var(--soft); font-variant-numeric:tabular-nums; white-space:nowrap; margin-top:2px}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px}
+  .app{display:flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--line); border-radius:10px; font-size:13px}
+  .app .s{width:9px;height:9px;border-radius:50%;flex:0 0 auto;background:var(--soft)}
+  .app.ok .s{background:var(--green)} .app.fail .s{background:var(--red)}
+  .app .nm{font-weight:600} .app .st{margin-left:auto; font-size:11px; color:var(--soft); font-variant-numeric:tabular-nums}
+  .kv{font-size:12.5px; color:var(--muted)}
+  .kv div{padding:5px 0; border-top:1px solid var(--line); word-break:break-all}
+  .kv div:first-child{border-top:0}
+  .kv b{color:var(--navy); font-weight:600; display:inline-block; min-width:96px}
+  .btn{display:inline-flex; align-items:center; gap:8px; cursor:pointer; border:1px solid var(--line2);
+    background:#fff; color:var(--navy); font-weight:700; font-size:13.5px; padding:10px 16px; border-radius:999px;
+    font-family:inherit; transition:.15s}
+  .btn:hover{background:var(--bg)}
+  .btn.primary{background:var(--navy); color:#fff; border-color:var(--navy)}
+  .btn.primary:hover{filter:brightness(1.12)}
+  .row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:4px}
+  .note{font-size:13px; color:var(--muted); background:var(--amber-bg); border:1px solid var(--amber-ln);
+    border-radius:12px; padding:14px 16px}
+  .note b{color:var(--amber)}
+  details{font-size:13px; color:var(--muted)}
+  details summary{cursor:pointer; font-weight:700; color:var(--navy); font-size:13.5px; padding:4px 0}
+  code{font-family:Consolas,"Courier New",monospace; background:#EEF3FA; padding:1px 6px; border-radius:5px; font-size:12.5px; color:var(--navy)}
+  .foot{text-align:center; color:var(--soft); font-size:12px; margin-top:24px}
+  .hostwarn{display:none; font-size:12.5px; color:var(--red); background:var(--red-bg); border:1px solid var(--red-ln); border-radius:10px; padding:10px 14px; margin-bottom:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <div class="mark">EP</div>
+    <div><b>EasyPortal&nbsp;365</b><span>Test připojení</span></div>
+  </div>
+
+  <h1>Kontrola dostupnosti aplikací</h1>
+  <p class="lead">
+    Tato stránka ověří, zda se z tohoto počítače a z této sítě správně načítají
+    aplikace EasyPortal&nbsp;365. Test proběhne automaticky během několika sekund —
+    není potřeba nic vyplňovat ani instalovat.
+  </p>
+
+  <div id="hostwarn" class="hostwarn"></div>
+
+  <div id="verdict" class="verdict running">
+    <div class="ic" id="vic">…</div>
+    <div>
+      <h2 id="vtitle">Probíhá test připojení…</h2>
+      <p id="vtext">Ověřuji spojení s cdn.easyportal365.cz. Vyčkejte prosím.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="ctitle">Provedené kontroly</p>
+    <div id="tests"></div>
+  </div>
+
+  <div class="card">
+    <p class="ctitle">Dostupnost jednotlivých aplikací</p>
+    <div id="apps" class="grid"></div>
+  </div>
+
+  <div class="card">
+    <p class="ctitle">Technické údaje</p>
+    <div class="kv" id="kv"></div>
+    <div class="row" style="margin-top:14px">
+      <button class="btn primary" id="copy">Zkopírovat výsledky</button>
+      <button class="btn" id="rerun">Spustit test znovu</button>
+    </div>
+  </div>
+
+  <div class="note" style="margin-bottom:16px">
+    <b>Důležité:</b> Pokud se vám <b>před</b> zobrazením této stránky objevilo upozornění
+    o zabezpečení nebo certifikátu (např. „Vaše připojení není soukromé" /
+    „Your connection is not private"), je to právě ten problém — stránka by se v tom
+    případě nezobrazila vůbec. Prosíme, dejte nám o tom vědět.
+  </div>
+
+  <details class="card">
+    <summary>Informace pro IT oddělení (když test selže)</summary>
+    <p style="margin:10px 0 6px">
+      Aplikace EasyPortal&nbsp;365 stahují svůj kód z níže uvedené domény. Pokud síť provádí
+      SSL/TLS inspekci, je potřeba tuto doménu zařadit mezi výjimky (SSL inspection bypass /
+      allowlist) — stejně, jako se běžně nastavují domény Microsoft&nbsp;365 — nebo zajistit,
+      aby klientská zařízení důvěřovala kořenovému certifikátu inspekčního firewallu.
+    </p>
+    <div class="kv">
+      <div><b>Doména (SNI):</b> <code>cdn.easyportal365.cz</code></div>
+      <div><b>Hosting:</b> GitHub Pages, TCP&nbsp;443</div>
+      <div><b>IP rozsah:</b> 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153</div>
+    </div>
+  </details>
+
+  <p class="foot">© EasyPortal&nbsp;365 s.r.o. · Diagnostický nástroj</p>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var APPS = ["fleet","documents","hub","ai-chat","homepage","lifecenter","identity","multimedia","crm"];
+  var TIMEOUT = 12000;
+  var state = { tests: [], apps: [] };
+
+  function el(id){ return document.getElementById(id); }
+  function now(){ return (new Date()).getTime(); }
+
+  // ---- render helpers ----
+  function setVerdict(kind, title, text, icon){
+    var v = el("verdict");
+    v.className = "verdict " + kind;
+    el("vic").textContent = icon;
+    el("vtitle").textContent = title;
+    el("vtext").textContent = text;
+  }
+
+  function renderTests(){
+    var c = el("tests"); c.innerHTML = "";
+    state.tests.forEach(function(t){
+      var d = document.createElement("div");
+      d.className = "test " + (t.status||"");
+      var sym = t.status === "ok" ? "✓" : (t.status === "fail" ? "✕" : (t.status === "warn" ? "!" : "•"));
+      d.innerHTML =
+        '<div class="dot">'+sym+'</div>' +
+        '<div class="tx"><div class="nm"></div><div class="ds"></div></div>' +
+        '<div class="ms"></div>';
+      d.querySelector(".nm").textContent = t.name;
+      d.querySelector(".ds").textContent = t.detail || "";
+      d.querySelector(".ms").textContent = (t.ms != null ? t.ms + " ms" : "");
+      c.appendChild(d);
+    });
+  }
+
+  function renderApps(){
+    var c = el("apps"); c.innerHTML = "";
+    state.apps.forEach(function(a){
+      var d = document.createElement("div");
+      d.className = "app " + (a.reachable ? "ok" : "fail");
+      d.innerHTML = '<span class="s"></span><span class="nm"></span><span class="st"></span>';
+      d.querySelector(".nm").textContent = a.app;
+      d.querySelector(".st").textContent = a.reachable ? ("HTTP " + a.status) : "nedostupné";
+      c.appendChild(d);
+    });
+  }
+
+  function renderKv(){
+    var rows = [
+      ["Adresa", location.href],
+      ["Protokol", location.protocol],
+      ["Prohlížeč", navigator.userAgent],
+      ["Čas testu", (new Date()).toLocaleString("cs-CZ")]
+    ];
+    var html = "";
+    rows.forEach(function(r){ html += "<div><b>"+r[0]+":</b> "+escapeHtml(r[1])+"</div>"; });
+    el("kv").innerHTML = html;
+  }
+  function escapeHtml(s){ return String(s).replace(/[&<>"]/g, function(c){ return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]; }); }
+
+  // ---- tests ----
+  // Test A: load + EXECUTE a script from the CDN (this is what the apps do)
+  function testScript(){
+    return new Promise(function(resolve){
+      var done = false;
+      var t0 = now();
+      var to = setTimeout(function(){ finish(false, "Časový limit vypršel — skript se nestihl načíst (možné blokování/inspekce)."); }, TIMEOUT);
+      function finish(ok, detail){
+        if (done) return; done = true; clearTimeout(to);
+        resolve({ ok: ok, ms: now()-t0, detail: detail });
+      }
+      window.__ep365OnProbe = function(){ finish(true, "Skript z CDN se načetl a úspěšně spustil."); };
+      var s = document.createElement("script");
+      s.src = "probe.js?cb=" + now();
+      s.onerror = function(){ finish(false, "Skript se nepodařilo načíst (chyba spojení nebo nedůvěryhodný certifikát)."); };
+      s.onload = function(){
+        setTimeout(function(){
+          if (window.__ep365Probe && window.__ep365Probe.ok) finish(true, "Skript z CDN se načetl a úspěšně spustil.");
+          else finish(false, "Soubor se stáhl, ale nešlo ho spustit jako skript (mohl ho nahradit blokovací proxy).");
+        }, 60);
+      };
+      document.head.appendChild(s);
+    });
+  }
+
+  // Test B: fetch the file and verify it really is ours (marker present)
+  function testFetch(){
+    var t0 = now();
+    return fetch("probe.js?cb=" + now(), { cache: "no-store" }).then(function(r){
+      return r.text().then(function(txt){
+        var hasMarker = txt.indexOf("EP365_PROBE_OK") !== -1;
+        var ok = r.ok && hasMarker;
+        var detail = ok
+          ? "Soubor stažen přímo z CDN a ověřen (HTTP " + r.status + ")."
+          : (!r.ok ? ("Server vrátil HTTP " + r.status + ".")
+                   : "Stažený obsah neodpovídá — pravděpodobně ho nahradila proxy/firewall.");
+        return { ok: ok, ms: now()-t0, status: r.status, detail: detail };
+      });
+    }).catch(function(e){
+      return { ok: false, ms: now()-t0, detail: "Stažení selhalo: " + e + " (typicky nedůvěryhodný certifikát nebo zablokované spojení)." };
+    });
+  }
+
+  // Test C: reachability of each app folder
+  function pingApp(app){
+    var t0 = now();
+    return fetch("/" + app + "/?cb=" + now(), { cache: "no-store" }).then(function(r){
+      return { app: app, reachable: true, status: r.status, ms: now()-t0 };
+    }).catch(function(e){
+      return { app: app, reachable: false, error: String(e), ms: now()-t0 };
+    });
+  }
+
+  function run(){
+    // reset
+    state.tests = [
+      { name: "Načtení této stránky z CDN", detail: "Stránka běží z cdn.easyportal365.cz → certifikát je na tomto počítači důvěryhodný.", status: "ok", ms: null },
+      { name: "Stažení a spuštění skriptu z CDN", detail: "Probíhá…", status: "", ms: null },
+      { name: "Přímé stažení a ověření souboru", detail: "Probíhá…", status: "", ms: null }
+    ];
+    state.apps = APPS.map(function(a){ return { app: a, reachable: false, status: "…" }; });
+    setVerdict("running", "Probíhá test připojení…", "Ověřuji spojení s cdn.easyportal365.cz. Vyčkejte prosím.", "…");
+    renderTests(); renderApps(); renderKv();
+    checkHost();
+
+    testScript().then(function(a){
+      state.tests[1].status = a.ok ? "ok" : "fail";
+      state.tests[1].detail = a.detail; state.tests[1].ms = a.ms;
+      renderTests();
+
+      testFetch().then(function(b){
+        state.tests[2].status = b.ok ? "ok" : "warn";
+        state.tests[2].detail = b.detail; state.tests[2].ms = b.ms;
+        renderTests();
+        decide(a, b);
+      });
+
+      Promise.all(APPS.map(pingApp)).then(function(list){
+        state.apps = list; renderApps();
+      });
+    });
+  }
+
+  function decide(scriptRes, fetchRes){
+    if (!scriptRes.ok){
+      setVerdict("fail", "Zjištěn problém s připojením",
+        "Z tohoto počítače se nepodařilo načíst kód aplikací z naší CDN. Aplikace EasyPortal 365 se zde pravděpodobně nenačtou. Zkopírujte prosím výsledky (tlačítko níže) a pošlete nám je — případně předejte informace pro IT.", "✕");
+    } else if (fetchRes.ok){
+      setVerdict("ok", "Připojení je v pořádku",
+        "Tento počítač se k naší CDN dostane bez problémů — aplikace EasyPortal 365 se zde načtou správně.", "✓");
+    } else {
+      setVerdict("warn", "Připojení pravděpodobně v pořádku",
+        "Kód aplikací se z CDN načíst podařilo, ale jedna doplňková kontrola neprošla. Aplikace by měly fungovat; pro jistotu nám prosím pošlete zkopírované výsledky.", "!");
+    }
+  }
+
+  function checkHost(){
+    if (location.hostname !== "cdn.easyportal365.cz"){
+      var w = el("hostwarn");
+      w.style.display = "block";
+      w.textContent = "Pozn.: Tuto stránku otevřete prosím na adrese https://cdn.easyportal365.cz/diag/ — jen tam test odpovídá reálnému chování aplikací.";
+    }
+  }
+
+  function buildReport(){
+    var lines = [];
+    lines.push("EasyPortal 365 — test připojení");
+    lines.push("Čas: " + (new Date()).toLocaleString("cs-CZ"));
+    lines.push("Adresa: " + location.href);
+    lines.push("Prohlížeč: " + navigator.userAgent);
+    lines.push("");
+    lines.push("VERDIKT: " + el("vtitle").textContent);
+    lines.push("");
+    lines.push("Kontroly:");
+    state.tests.forEach(function(t){
+      var sym = t.status === "ok" ? "[OK]" : (t.status === "fail" ? "[CHYBA]" : (t.status === "warn" ? "[!]" : "[…]"));
+      lines.push("  " + sym + " " + t.name + (t.ms!=null?(" ("+t.ms+" ms)"):"") + " — " + (t.detail||""));
+    });
+    lines.push("");
+    lines.push("Aplikace:");
+    state.apps.forEach(function(a){
+      lines.push("  " + (a.reachable?"[OK]":"[CHYBA]") + " " + a.app + " — " + (a.reachable?("HTTP "+a.status):("nedostupné "+(a.error||""))));
+    });
+    return lines.join("\n");
+  }
+
+  el("copy").addEventListener("click", function(){
+    var txt = buildReport();
+    var btn = el("copy");
+    function ok(){ var old = btn.textContent; btn.textContent = "✓ Zkopírováno"; setTimeout(function(){ btn.textContent = old; }, 1800); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(ok, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement("textarea"); ta.value = txt;
+      ta.style.position = "fixed"; ta.style.left = "-9999px"; document.body.appendChild(ta);
+      ta.select(); try { document.execCommand("copy"); ok(); } catch(e){ alert(txt); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  el("rerun").addEventListener("click", run);
+
+  run();
+})();
+</script>
+</body>
+</html>
