@@ -22,13 +22,10 @@
     -webkit-font-smoothing:antialiased; padding:32px 16px;
   }
   .wrap{max-width:720px; margin:0 auto}
-  .brand{display:flex; align-items:center; gap:12px; margin-bottom:22px}
-  .mark{width:40px; height:40px; border-radius:10px; flex:0 0 auto;
-    background:linear-gradient(135deg,var(--teal),var(--teal7));
-    display:grid; place-items:center; color:#00333B; font-weight:800; font-size:15px;
-    box-shadow:0 4px 12px -4px rgba(0,206,215,.5)}
-  .brand b{font-size:17px; font-weight:800; letter-spacing:-.01em}
-  .brand span{display:block; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); font-weight:700; margin-top:1px}
+  .brand{display:flex; align-items:center; gap:14px; margin-bottom:22px}
+  .logo{height:38px; width:auto; display:block}
+  .badge{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--soft); font-weight:700;
+    padding:5px 11px; border:1px solid var(--line); border-radius:999px; background:#fff; white-space:nowrap}
   h1{font-size:24px; font-weight:800; letter-spacing:-.02em; margin:0 0 6px}
   .lead{color:var(--muted); font-size:14.5px; margin:0 0 22px; max-width:620px}
   .card{background:var(--card); border:1px solid var(--line); border-radius:14px;
@@ -91,8 +88,8 @@
 <div class="wrap">
 
   <div class="brand">
-    <div class="mark">EP</div>
-    <div><b>EasyPortal&nbsp;365</b><span>Test připojení</span></div>
+    <img class="logo" src="https://cdn.easyportal365.cz/brand/logo/ep365-logo-blue-horizontal.png" alt="EasyPortal 365" />
+    <span class="badge">Test připojení</span>
   </div>
 
   <h1>Kontrola dostupnosti aplikací</h1>
@@ -141,7 +138,7 @@
   <details class="card">
     <summary>Informace pro IT oddělení (když test selže)</summary>
     <p style="margin:10px 0 6px">
-      Aplikace EasyPortal&nbsp;365 stahují svůj kód z níže uvedené domény. Pokud síť provádí
+      Aplikace EasyPortal&nbsp;365 stahují části svého kódu z níže uvedené domény. Pokud síť provádí
       SSL/TLS inspekci, je potřeba tuto doménu zařadit mezi výjimky (SSL inspection bypass /
       allowlist) — stejně, jako se běžně nastavují domény Microsoft&nbsp;365 — nebo zajistit,
       aby klientská zařízení důvěřovala kořenovému certifikátu inspekčního firewallu.
@@ -306,7 +303,7 @@
         "Z tohoto počítače se nepodařilo načíst kód aplikací z naší CDN. Aplikace EasyPortal 365 se zde pravděpodobně nenačtou. Zkopírujte prosím výsledky (tlačítko níže) a pošlete nám je — případně předejte informace pro IT.", "✕");
     } else if (fetchRes.ok){
       setVerdict("ok", "Připojení je v pořádku",
-        "Tento počítač se k naší CDN dostane bez problémů — aplikace EasyPortal 365 se zde načtou správně.", "✓");
+        "Tento počítač se k EasyPortal 365 CDN dostane bez problémů — aplikace EasyPortal 365 se zde načtou správně.", "✓");
     } else {
       setVerdict("warn", "Připojení pravděpodobně v pořádku",
         "Kód aplikací se z CDN načíst podařilo, ale jedna doplňková kontrola neprošla. Aplikace by měly fungovat; pro jistotu nám prosím pošlete zkopírované výsledky.", "!");
