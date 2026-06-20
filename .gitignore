@@ -26,3 +26,11 @@
 # Diagnostický nástroj (veřejná statická stránka cdn.easyportal365.cz/diag/).
 # Bezpečné: jen statické HTML bez secrets/zdrojáků.
 !diag/index.html
+
+# Browser doplňky ke stažení (cdn.easyportal365.cz/browser-addons/...).
+# Bezpečné: zabalené rozšíření (klientský JS, který tak jako tak běží v prohlížeči),
+# instalační stránka a ikony. Žádné .pem/secrets.
+!browser-addons/**/*.zip
+!browser-addons/**/*.crx
+!browser-addons/**/*.html
+!browser-addons/**/*.png
