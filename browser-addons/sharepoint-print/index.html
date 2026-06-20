@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SharePoint Print — instalace</title>
+<style>
+  :root{
+    --teal:#00CED7; --teal-dark:#00A8B0; --navy:#002163;
+    --ink:#1b1f24; --muted:#5a6571; --line:#e3e8ee; --bg-soft:#f5f8fb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; font-family:"Segoe UI",system-ui,-apple-system,sans-serif; color:var(--ink); background:#fff; line-height:1.6}
+  .wrap{max-width:680px; margin:0 auto; padding:48px 22px 64px}
+  .head{display:flex; align-items:center; gap:16px; margin-bottom:24px}
+  .logo{width:64px; height:64px; border-radius:16px; flex-shrink:0; box-shadow:0 8px 22px -8px rgba(0,33,99,.45)}
+  h1{font-size:26px; margin:0 0 2px; letter-spacing:-.02em}
+  .sub{color:var(--muted); font-size:14px}
+  .lead{font-size:15.5px; color:#33404f; margin:0 0 28px}
+  .dl{display:inline-flex; align-items:center; gap:10px; background:var(--navy); color:#fff; text-decoration:none;
+      font-weight:700; font-size:15px; padding:13px 24px; border-radius:999px; transition:background .15s}
+  .dl:hover{background:#001550}
+  .dl svg{flex-shrink:0}
+  .meta{font-size:12.5px; color:var(--muted); margin-top:9px}
+  h2{font-size:16px; margin:34px 0 12px; letter-spacing:-.01em}
+  ol{margin:0; padding-left:20px}
+  ol li{margin-bottom:9px; font-size:14.5px}
+  code{font-family:Consolas,"Cascadia Code",monospace; font-size:13px; background:var(--bg-soft);
+       border:1px solid var(--line); border-radius:5px; padding:1px 6px; color:var(--teal-dark)}
+  kbd{font-family:inherit; font-size:12px; font-weight:600; background:var(--bg-soft); border:1px solid var(--line);
+      border-bottom-width:2px; border-radius:5px; padding:1px 6px}
+  .tip{background:var(--bg-soft); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-top:18px; font-size:14px}
+  .tip b{color:var(--navy)}
+  .foot{margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted)}
+  .foot a{color:var(--teal-dark); font-weight:700; text-decoration:none}
+  .foot a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="head">
+    <img class="logo" src="icon128.png" alt="SharePoint Print">
+    <div>
+      <h1>SharePoint Print</h1>
+      <div class="sub">Doplněk do Chrome / Edge · EasyPortal&nbsp;365</div>
+    </div>
+  </div>
+
+  <p class="lead">Vytiskne dokument z knihovny <b>pravým tlačítkem</b>. PDF a obrázky pošle na tisk
+  rovnou; <b>Word, Excel a PowerPoint</b> nechá SharePoint převést na PDF a vytiskne je taky —
+  bez otevírání aplikace.</p>
+
+  <a class="dl" href="SharePoint-Print.zip" download>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="M7 11l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    Stáhnout ZIP
+  </a>
+  <div class="meta">SharePoint-Print.zip · ~17 KB · Manifest V3</div>
+
+  <h2>Instalace (Chrome / Edge)</h2>
+  <ol>
+    <li>Stáhněte <b>SharePoint-Print.zip</b> a <b>rozbalte</b> do trvalé složky (např. <code>Dokumenty\SharePoint-Print</code>).</li>
+    <li>Otevřete <code>chrome://extensions</code> (v Edge <code>edge://extensions</code>).</li>
+    <li>Vpravo nahoře zapněte <b>Režim pro vývojáře</b>.</li>
+    <li>Klikněte <b>Načíst rozbalenou</b> a vyberte rozbalenou složku (tu s <code>manifest.json</code>).</li>
+    <li>Hotovo — v liště se objeví ikona tiskárny.</li>
+  </ol>
+
+  <div class="tip">
+    <b>Jak na to:</b> v knihovně klikni <b>pravým tlačítkem</b> přímo na řádek dokumentu a zvol
+    <b>„Vytisknout dokument"</b>. PDF a obrázky se vytisknou hned; u Office počkej chviličku na
+    převod na PDF a vyskočí tiskový dialog. Stejně to umí i ikona doplňku, když máš dokument označený.
+  </div>
+
+  <div class="foot">
+    Doplněk od <a href="https://www.easyportal365.cz" target="_blank" rel="noopener">EasyPortal365.cz</a>
+    · privátní podpisový klíč není součástí balíčku
+  </div>
+
+</div>
+</body>
+</html>
