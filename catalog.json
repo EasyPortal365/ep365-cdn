@@ -1,0 +1,44 @@
+{
+  "ep365-ai-chat": {
+    "description": "Firemní AI chat nad vašimi daty v Microsoft 365 — odpovídá z dokumentů, e-mailů a znalostní báze. Data zůstávají u vás.",
+    "webUrl": "https://easyportal365.cz/aplikace/osobni-zabezpecena-ai/"
+  },
+  "ep365-fleet": {
+    "description": "Správa vozového parku — vozidla, rezervace, STK, servisní kniha a přehled vytížení i nákladů.",
+    "webUrl": "https://easyportal365.cz/aplikace/vozovy-park/"
+  },
+  "ep365-documents": {
+    "description": "Řízené dokumenty — schvalování, verzování, seznamování a kompletní audit trail.",
+    "webUrl": "https://easyportal365.cz/aplikace/rizene-dokumenty/"
+  },
+  "ep365-lifecenter": {
+    "description": "Centrum životních situací — rozcestník životních a pracovních situací krok za krokem."
+  },
+  "ep365-homepage": {
+    "description": "Intranetová homepage — oznámení, aktuality, události, ankety a osobní přehled na jednom místě.",
+    "webUrl": "https://easyportal365.cz/aplikace/homepage-firemniho-intranetu/"
+  },
+  "ep365-hub": {
+    "description": "EP365 Hub — launchpad aplikací, úkoly a globální prompty."
+  },
+  "ep365-identity": {
+    "description": "Správa EntraID skupin a uživatelů — klasifikace, správci, taxonomie a přehled celého adresáře.",
+    "webUrl": "https://easyportal365.cz/aplikace/identity-manager/"
+  },
+  "ep365-multimedia": {
+    "description": "Mediální centrum — firemní fotky, videa a brand materiály na jednom místě. Procházení, přehrávání a stahování.",
+    "webUrl": "https://easyportal365.cz/aplikace/multimedialni-centrum/"
+  },
+  "ep365-crm": {
+    "description": "CRM pro Microsoft 365 – kontakty, firmy, nabídky a obchodní pipeline. Sledování komunikace a e-mailů přímo ve vašem tenantu.",
+    "webUrl": "https://easyportal365.cz/aplikace/crm/"
+  },
+  "ep365-worklog": {
+    "description": "Výkaznictví hodin pro zákazníky – projekty, milníky, schvalování a fakturace. Měsíční výkazy s exportem do Wordu i CSV.",
+    "webUrl": "https://easyportal365.cz/aplikace/worklog/"
+  },
+  "ep365-site-manager": {
+    "description": "Řízené zakládání a životní cyklus SharePoint a Teams webů – žádosti, schválení, metadata, zámek a archivace. Podchytí i weby, které už v tenantu jsou.",
+    "webUrl": "https://easyportal365.cz/aplikace/rizene-weby/"
+  }
+}
