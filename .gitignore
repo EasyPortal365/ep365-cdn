@@ -28,6 +28,11 @@
 # Bezpečné: jen statické HTML bez secrets/zdrojáků.
 !diag/index.html
 
+# Deployment Portal (cdn.easyportal365.cz/deploy/) — průvodce nasazením AI Chatu
+# pro zákazníky. Bezpečné: statické HTML bez secrets; žádosti a schvalování jdou
+# přes ep365-functions (GitHub Issues v private repu ep365-deploy-requests).
+!deploy/index.html
+
 # Browser doplňky ke stažení (cdn.easyportal365.cz/browser-addons/...).
 # Bezpečné: zabalené rozšíření (klientský JS, který tak jako tak běží v prohlížeči),
 # instalační stránka a ikony. Žádné .pem/secrets.

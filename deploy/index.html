@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>EP365 AI Asistent – Portál nasazení</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Fraunces:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================================
+   EP365 Deployment Portal — pruvodce nasazenim AI Asistenta (light only)
+   Brand tokeny dle EP365 Design System
+   ========================================================================= */
+:root{
+  --navy:#002163;
+  --navy-strong:#0A1850;
+  --teal:#00CED7;
+  --teal7:#00A8B0;
+  --teal-soft:#E0FAFB;
+  --bg:#FFFFFF;
+  --bg2:#F4F7FB;
+  --bg3:#EAEFF6;
+  --line:#E0E6EF;
+  --line2:#C7D0DC;
+  --muted:#4A5874;
+  --soft:#7A8499;
+  --green:#34B36A;
+  --amber:#E6A23C;
+  --red:#D14343;
+  --font-display:"Manrope",system-ui,sans-serif;
+  --font-body:"Plus Jakarta Sans","Manrope",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+  --r-sm:8px;
+  --r-md:14px;
+  --r-pill:999px;
+  --shadow-sm:0 1px 2px rgba(11,30,63,.06),0 1px 1px rgba(11,30,63,.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg2);
+  color:var(--navy);
+  font-family:var(--font-body);
+  font-size:14.5px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--font-display);letter-spacing:-0.02em;color:var(--navy)}
+a{color:inherit}
+a.ext{color:var(--teal7);text-decoration:underline;text-underline-offset:2px}
+a.ext:hover{color:var(--navy)}
+code{
+  font-family:var(--font-mono);
+  font-size:.86em;
+  background:var(--bg2);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:1px 6px;
+  color:var(--navy);
+  white-space:nowrap;
+}
+strong{color:var(--navy)}
+p{color:var(--muted);margin:0 0 12px}
+
+.layout{max-width:960px;margin:0 auto;padding:28px 24px 80px}
+
+.kicker{
+  font-family:var(--font-mono);
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.12em;
+  color:var(--teal7);
+}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  box-shadow:var(--shadow-sm);
+  padding:30px 34px 26px;
+  margin-bottom:20px;
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(244,247,251,.55) 100%),
+    repeating-linear-gradient(0deg,rgba(0,33,99,.025) 0,rgba(0,33,99,.025) 1px,transparent 1px,transparent 28px),
+    repeating-linear-gradient(90deg,rgba(0,33,99,.025) 0,rgba(0,33,99,.025) 1px,transparent 1px,transparent 28px);
+}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-0.03em;line-height:1.14;margin:12px 0 12px}
+.hero h1 .fr{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;color:var(--teal)}
+.hero .lead{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:760px;margin-bottom:0}
+
+/* ---------- fáze stepper ---------- */
+.stepper{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  margin:18px 0 22px;
+}
+.stp{
+  display:flex;align-items:center;gap:8px;
+  padding:7px 14px;
+  border-radius:var(--r-pill);
+  border:1px solid var(--line);
+  background:var(--bg);
+  font-size:12.5px;font-weight:600;color:var(--soft);
+}
+.stp .n{
+  width:20px;height:20px;border-radius:7px;
+  background:var(--bg3);color:var(--navy);
+  font-family:var(--font-mono);font-size:11px;font-weight:700;
+  display:grid;place-items:center;
+}
+.stp.active{background:var(--teal-soft);border-color:#99EAEE;color:var(--navy)}
+.stp.active .n{background:var(--teal);color:#fff}
+.stp.done{color:var(--green)}
+.stp.done .n{background:#E6F7EE;color:var(--green)}
+.stp-arrow{color:var(--line2);flex-shrink:0}
+
+/* ---------- sections ---------- */
+main section.card{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  box-shadow:var(--shadow-sm);
+  padding:26px 32px 24px;
+  margin-bottom:22px;
+}
+h2{font-size:19px;font-weight:800;display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.sec-badge{
+  flex-shrink:0;width:30px;height:30px;border-radius:9px;
+  background:var(--teal-soft);color:var(--teal7);
+  font-family:var(--font-mono);font-size:13px;font-weight:700;
+  display:grid;place-items:center;
+}
+h3{font-size:15px;font-weight:700;margin:20px 0 10px}
+
+ul.plain{margin:0 0 14px 0;padding-left:0;list-style:none}
+ul.plain li{position:relative;padding-left:20px;margin-bottom:7px;color:var(--muted)}
+ul.plain li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+
+/* ---------- tabulky ---------- */
+.twrap{overflow-x:auto;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{
+  font-family:var(--font-mono);font-size:10.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--soft);
+  text-align:left;padding:9px 12px;border-bottom:2px solid var(--line);
+}
+td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+tbody tr:nth-child(even){background:#F8FAFD}
+td strong{color:var(--navy)}
+td code{white-space:normal;word-break:break-word}
+
+/* ---------- formulář ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.field{margin-bottom:14px}
+.field label{
+  display:block;
+  font-family:var(--font-mono);font-size:10.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;color:var(--soft);
+  margin-bottom:6px;
+}
+.field label .req{color:var(--red)}
+.field input[type=text],.field input[type=email],.field select,.field textarea{
+  width:100%;
+  padding:9px 12px;
+  border:1px solid var(--line2);
+  border-radius:var(--r-sm);
+  font-family:var(--font-body);
+  font-size:13.5px;
+  color:var(--navy);
+  background:var(--bg);
+  outline:none;
+}
+.field textarea{min-height:70px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal7);box-shadow:0 0 0 3px rgba(0,206,215,.12)}
+.field .hint{font-size:12px;color:var(--soft);margin-top:5px;line-height:1.5}
+.field .err{display:none;font-size:12px;color:var(--red);margin-top:5px;font-weight:600}
+.field.invalid input,.field.invalid select{border-color:var(--red)}
+.field.invalid .err{display:block}
+
+/* radio karty (cesty) */
+.pathopts{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:6px}
+.pathopt{
+  display:flex;gap:12px;align-items:flex-start;
+  border:1px solid var(--line);border-radius:10px;
+  padding:12px 14px;cursor:pointer;background:var(--bg);
+}
+.pathopt:hover{border-color:var(--line2)}
+.pathopt.sel{border-color:var(--teal7);background:#F7FDFE;box-shadow:0 0 0 3px rgba(0,206,215,.10)}
+.pathopt input{margin-top:3px;accent-color:var(--teal7)}
+.pathopt .pt{font-weight:700;color:var(--navy);font-size:13.5px}
+.pathopt .pd{font-size:12.5px;color:var(--muted);line-height:1.5}
+
+.chkline{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:var(--muted);font-size:13.5px;cursor:pointer}
+.chkline input{margin-top:3px;accent-color:var(--teal7)}
+.chkline strong{color:var(--navy)}
+
+/* honeypot */
+.hp-field{position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;overflow:hidden}
+
+/* ---------- tlačítka ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 22px;
+  border-radius:var(--r-pill);
+  border:1px solid transparent;
+  font-family:var(--font-body);font-size:13.5px;font-weight:700;
+  cursor:pointer;text-decoration:none;
+}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--navy-strong)}
+.btn.accent{background:var(--teal);color:#00333B}
+.btn.accent:hover{filter:brightness(1.05)}
+.btn.ghost{background:var(--bg);border-color:var(--line2);color:var(--navy)}
+.btn.ghost:hover{border-color:var(--navy)}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.btnrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.btnrow .status{font-size:12.5px;color:var(--soft)}
+
+/* ---------- code bloky ---------- */
+pre.code{
+  position:relative;
+  background:var(--navy-strong);
+  color:#E6ECFF;
+  border-radius:var(--r-md);
+  padding:38px 20px 16px;
+  margin:12px 0 16px;
+  overflow-x:auto;
+  font-family:var(--font-mono);
+  font-size:12.5px;line-height:1.6;
+}
+pre.code code{background:transparent;border:none;padding:0;border-radius:0;color:#E6ECFF;font-size:inherit;white-space:pre;display:block}
+.copy-btn{
+  position:absolute;top:9px;right:9px;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 13px;border-radius:var(--r-pill);
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.07);
+  color:#E6ECFF;font-family:var(--font-body);font-size:11px;font-weight:600;
+  cursor:pointer;white-space:nowrap;line-height:1.4;
+}
+.copy-btn:hover{background:rgba(255,255,255,.16)}
+.copy-btn.copied{border-color:#4DDCE2;color:#4DDCE2}
+
+/* ---------- callouty ---------- */
+.callout{
+  display:flex;gap:12px;
+  padding:14px 16px;border-radius:10px;
+  border:1px solid var(--line);border-left:4px solid var(--line2);
+  margin:14px 0;font-size:13.5px;line-height:1.6;color:var(--muted);
+}
+.callout .ic{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.callout.info{background:#F3F8FF;border-color:#CFE0F5;border-left-color:#3D6BCC;color:#3A4A6B}
+.callout.info .ic{color:#3D6BCC}
+.callout.warn{background:#FDF6E9;border-color:#F2D9A8;border-left-color:var(--amber);color:#6B5524}
+.callout.warn .ic{color:var(--amber)}
+.callout.warn strong{color:#4A3D18}
+.callout.ok{background:#F0FBF4;border-color:#BFE7CF;border-left-color:var(--green);color:#2C5A3E}
+.callout.ok .ic{color:var(--green)}
+
+/* ---------- waiting stav ---------- */
+.wait-card{text-align:center;padding:14px 10px 6px}
+.spinner{
+  width:44px;height:44px;margin:0 auto 14px;border-radius:50%;
+  border:4px solid var(--bg3);border-top-color:var(--teal);
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reqid{
+  font-family:var(--font-mono);font-size:12px;color:var(--soft);
+  background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:6px 12px;display:inline-block;margin-top:6px;word-break:break-all;
+}
+
+/* ---------- checklist kroky ---------- */
+ol.steps{list-style:none;margin:12px 0 16px;padding:0}
+.step{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 14px;border:1px solid var(--line);border-radius:10px;
+  background:var(--bg);margin-bottom:8px;
+}
+.step.done{background:#F7FCFD;border-color:#CFEFF2}
+.step.done .step-body,.step.done .step-body strong,.step.done .step-body code{color:var(--soft)}
+.step-check{
+  appearance:none;-webkit-appearance:none;
+  width:20px;height:20px;border:2px solid var(--line2);border-radius:6px;
+  cursor:pointer;flex-shrink:0;margin-top:2px;position:relative;background:var(--bg);
+}
+.step-check:hover{border-color:var(--teal7)}
+.step-check:checked{background:var(--teal);border-color:var(--teal)}
+.step-check:checked::after{
+  content:"";position:absolute;left:4.5px;top:1px;width:5px;height:10px;
+  border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg);
+}
+.step-num{
+  flex-shrink:0;width:22px;height:22px;border-radius:7px;
+  background:var(--bg3);color:var(--navy);
+  font-family:var(--font-mono);font-size:11.5px;font-weight:700;
+  display:grid;place-items:center;margin-top:1px;
+}
+.step-body{flex:1;min-width:0;font-size:13.8px;line-height:1.6;color:var(--muted)}
+.step-body p:last-child{margin-bottom:0}
+.step-body pre.code{margin:10px 0}
+.step-body .twrap{margin:10px 0 4px}
+
+/* ---------- patička ---------- */
+.foot{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+  padding:18px 6px 0;border-top:1px solid var(--line);margin-top:8px;
+}
+.foot-text{font-family:var(--font-mono);font-size:10.5px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em}
+#reset-link{font-size:12px;color:var(--soft);cursor:pointer;text-decoration:underline;text-underline-offset:2px;background:none;border:none;font-family:var(--font-body)}
+#reset-link:hover{color:var(--red)}
+
+.phase{display:none}
+.phase.active{display:block}
+
+@media (max-width:760px){
+  .layout{padding:16px 12px 60px}
+  .hero{padding:24px 20px}
+  .hero h1{font-size:24px}
+  main section.card{padding:20px 16px}
+  .grid2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="kicker">EasyPortal 365 · Portál nasazení</div>
+  <h1>EP365 AI Asistent. <span class="fr">Nasazení krok za krokem.</span></h1>
+  <p class="lead">Tento portál vás provede nasazením AI Asistenta do vašeho prostředí.
+    Vyplníte základní údaje, my žádost ověříme a schválíme (typicky do jednoho pracovního
+    dne) – a portál vám pak připraví postup na míru, včetně příkazů s vašimi hodnotami.
+    Vše se nasazuje <strong>do vašeho Microsoft 365 a Azure</strong> – data zůstávají u vás.</p>
+</header>
+
+<!-- ===================== STEPPER ===================== -->
+<div class="stepper" id="stepper">
+  <div class="stp" data-stp="1"><span class="n">1</span>Žádost</div>
+  <span class="stp-arrow">→</span>
+  <div class="stp" data-stp="2"><span class="n">2</span>Schválení</div>
+  <span class="stp-arrow">→</span>
+  <div class="stp" data-stp="3"><span class="n">3</span>Nasazení</div>
+</div>
+
+<main>
+
+<!-- ===================== FÁZE: FORMULÁŘ ===================== -->
+<div class="phase" id="phase-form">
+
+<section class="card">
+  <h2><span class="sec-badge">i</span>Jak to funguje</h2>
+  <ul class="plain">
+    <li><strong>1 · Žádost</strong> – vyplníte údaje o vaší organizaci a prostředí (nic
+      se zatím nikam nenasazuje; nezadávají se žádná hesla ani klíče).</li>
+    <li><strong>2 · Schválení</strong> – žádost ručně ověříme (ochrana před zneužitím)
+      a aktivujeme licenci pro váš tenant. O schválení se dozvíte přímo tady – odkaz
+      na tuto stránku si uložte.</li>
+    <li><strong>3 · Nasazení</strong> – portál vám sestaví postup na míru: připravené
+      příkazy pro Azure Cloud Shell nebo formulář v Azure Portalu, volitelnou Znalostní
+      přípravu a závěrečný kontrolní test.</li>
+  </ul>
+  <p style="margin-bottom:0">Doporučujeme mít po ruce vyplněný
+    <strong>preflight checklist</strong>, který jste od nás dostali – většinu hodnot
+    z něj sem jen přepíšete. Cokoli nebude jasné:
+    <a class="ext" href="https://easyportal365.cz/kontakt/" target="_blank" rel="noopener">kontaktujte nás</a>.</p>
+</section>
+
+<section class="card">
+  <h2><span class="sec-badge">1</span>Údaje pro nasazení</h2>
+
+  <h3>Organizace a kontakt</h3>
+  <div class="grid2">
+    <div class="field" id="f-company">
+      <label>Název firmy <span class="req">*</span></label>
+      <input type="text" id="in-company" maxlength="120" placeholder="Contoso s.r.o." autocomplete="organization">
+      <div class="err">Vyplňte název firmy (min. 2 znaky).</div>
+    </div>
+    <div class="field" id="f-email">
+      <label>Kontaktní e-mail <span class="req">*</span></label>
+      <input type="email" id="in-email" maxlength="160" placeholder="jan.novak@contoso.cz" autocomplete="email">
+      <div class="hint">Na tento e-mail pošleme instalační balíček aplikace a příručku.</div>
+      <div class="err">Zadejte platný e-mail.</div>
+    </div>
+  </div>
+
+  <h3>Microsoft 365</h3>
+  <div class="grid2">
+    <div class="field" id="f-tenant">
+      <label>Tenant ID <span class="req">*</span></label>
+      <input type="text" id="in-tenant" maxlength="40" placeholder="00000000-0000-0000-0000-000000000000" spellcheck="false">
+      <div class="hint">Najdete na <a class="ext" href="https://entra.microsoft.com" target="_blank" rel="noopener">entra.microsoft.com</a> → Overview → Tenant ID (identifikátor vaší M365 organizace ve tvaru GUID).</div>
+      <div class="err">Tenant ID musí být GUID (8-4-4-4-12 znaků).</div>
+    </div>
+    <div class="field" id="f-origin">
+      <label>Adresa vašeho SharePointu <span class="req">*</span></label>
+      <input type="text" id="in-origin" maxlength="120" placeholder="https://contoso.sharepoint.com" spellcheck="false">
+      <div class="hint">Část adresy před /sites/… – backend bude přijímat požadavky výhradně z ní (CORS).</div>
+      <div class="err">Očekávám tvar https://vasefirma.sharepoint.com</div>
+    </div>
+  </div>
+  <div class="field" id="f-site">
+    <label>SharePoint web, kde aplikace poběží</label>
+    <input type="text" id="in-site" maxlength="300" placeholder="https://contoso.sharepoint.com/sites/intranet" spellcheck="false">
+    <div class="hint">Nepovinné (jde doplnit později). Kdo má přístup na tento web, dostane se k AI Asistentovi.</div>
+    <div class="err">Web musí začínat adresou SharePointu výše.</div>
+  </div>
+
+  <h3>Cesta nasazení Azure části</h3>
+  <div class="pathopts" id="pathopts">
+    <label class="pathopt sel"><input type="radio" name="path" value="1" checked>
+      <span><span class="pt">1 · Skript v Azure Cloud Shellu (doporučeno)</span><br>
+      <span class="pd">Váš admin spustí v prohlížeči (portal.azure.com) dva připravené řádky – nic se neinstaluje. Skript založí vše včetně Azure OpenAI a sám ověří, že AI odpovídá.</span></span>
+    </label>
+    <label class="pathopt"><input type="radio" name="path" value="2">
+      <span><span class="pt">2 · Formulář v Azure Portalu (Deploy to Azure)</span><br>
+      <span class="pd">Klikací cesta bez příkazové řádky. Službu Azure OpenAI + model je potřeba založit předem ručně.</span></span>
+    </label>
+    <label class="pathopt"><input type="radio" name="path" value="3">
+      <span><span class="pt">3 · Asistovaně (nasadí EasyPortal365)</span><br>
+      <span class="pd">Nasadíme to za vás ve vaší subscription – připravíte nám dočasný přístup (guest účet s rolí Contributor), který pak odeberete.</span></span>
+    </label>
+  </div>
+
+  <h3>Azure</h3>
+  <div class="grid2">
+    <div class="field" id="f-rg">
+      <label>Název resource group <span class="req">*</span></label>
+      <input type="text" id="in-rg" maxlength="64" placeholder="rg-contoso-ai" spellcheck="false">
+      <div class="hint">„Složka" pro služby AI Asistenta – vytvoří se, pokud neexistuje.</div>
+      <div class="err">Jen malá písmena, číslice a pomlčky (3–60 znaků).</div>
+    </div>
+    <div class="field" id="f-func">
+      <label>Název Function App <span class="req">*</span></label>
+      <input type="text" id="in-func" maxlength="60" placeholder="func-contoso-ai" spellcheck="false">
+      <div class="hint">Musí být celosvětově unikátní; jen malá písmena, číslice, pomlčky.</div>
+      <div class="err">Jen malá písmena, číslice a pomlčky (3–60 znaků).</div>
+    </div>
+    <div class="field">
+      <label>Region Function App</label>
+      <select id="in-location">
+        <option value="westeurope" selected>West Europe (výchozí)</option>
+        <option value="germanywestcentral">Germany West Central</option>
+        <option value="northeurope">North Europe</option>
+        <option value="swedencentral">Sweden Central</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Region Azure OpenAI</label>
+      <select id="in-oailoc">
+        <option value="swedencentral" selected>Sweden Central (výchozí)</option>
+        <option value="westeurope">West Europe</option>
+        <option value="francecentral">France Central</option>
+        <option value="eastus">East US</option>
+      </select>
+    </div>
+  </div>
+
+  <label class="chkline"><input type="checkbox" id="in-hasoai">
+    <span><strong>Azure OpenAI už máme</strong> – použije se existující služba (jinak ji založí deployment skript).</span>
+  </label>
+  <div class="grid2" id="oai-fields" style="display:none">
+    <div class="field" id="f-oaiep">
+      <label>Azure OpenAI endpoint</label>
+      <input type="text" id="in-oaiep" maxlength="200" placeholder="https://contoso-openai.openai.azure.com" spellcheck="false">
+      <div class="hint">Portál → váš Azure OpenAI resource → Keys and Endpoint. Klíč sem NEzadávejte – použije se až při nasazení.</div>
+      <div class="err">Očekávám https adresu.</div>
+    </div>
+    <div class="field">
+      <label>Název model deploymentu</label>
+      <input type="text" id="in-oaidep" maxlength="64" placeholder="gpt-4o" spellcheck="false">
+      <div class="hint">Azure AI Foundry → Deployments.</div>
+    </div>
+  </div>
+
+  <h3>Volitelné funkce</h3>
+  <label class="chkline"><input type="checkbox" id="in-enrich">
+    <span><strong>Znalostní příprava</strong> – AI souhrny dokumentů na pozadí (vyžaduje navíc souhlas vašeho Global admina; postup dostanete v kroku 3).</span>
+  </label>
+  <label class="chkline"><input type="checkbox" id="in-hub">
+    <span><strong>EP365 Homepage (hub)</strong> – máme/plánujeme centrální konfiguraci přes EP365 Homepage.</span>
+  </label>
+
+  <div class="field" style="margin-top:14px">
+    <label>Poznámka pro EasyPortal365</label>
+    <textarea id="in-note" maxlength="1000" placeholder="Cokoli, co bychom měli vědět (termín, specifika prostředí…)"></textarea>
+  </div>
+
+  <!-- honeypot -->
+  <div class="hp-field" aria-hidden="true">
+    <label>Website</label>
+    <input type="text" id="in-hp" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div class="callout info">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <div><strong>Bezpečnost:</strong> do žádosti se nezadávají žádná hesla, klíče ani
+      tajemství. Odesláním nám předáte jen konfigurační údaje výše; nasazení pak probíhá
+      výhradně ve vašich rukou (nebo asistovaně po domluvě).</div>
+  </div>
+
+  <div class="btnrow">
+    <button type="button" class="btn primary" id="btn-submit">Odeslat žádost o nasazení</button>
+    <span class="status" id="submit-status"></span>
+  </div>
+</section>
+
+</div>
+
+<!-- ===================== FÁZE: ČEKÁNÍ ===================== -->
+<div class="phase" id="phase-wait">
+<section class="card">
+  <div class="wait-card">
+    <div class="spinner" aria-hidden="true"></div>
+    <h2 style="justify-content:center">Žádost čeká na schválení</h2>
+    <p>Žádost jsme přijali a ručně ji ověříme – typicky <strong>do jednoho pracovního
+      dne</strong>. Tuto stránku můžete zavřít; stav se uloží v prohlížeči.
+      Pro jistotu si uložte i tento odkaz (funguje kdekoli):</p>
+    <div class="reqid" id="wait-link">…</div>
+    <div class="btnrow" style="justify-content:center">
+      <button type="button" class="btn ghost" id="btn-copylink">Zkopírovat odkaz</button>
+      <button type="button" class="btn accent" id="btn-check">Zkontrolovat stav</button>
+      <span class="status" id="wait-status"></span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ===================== FÁZE: ZAMÍTNUTO ===================== -->
+<div class="phase" id="phase-rejected">
+<section class="card">
+  <h2><span class="sec-badge">✕</span>Žádost se nepodařilo schválit</h2>
+  <p>Tuto žádost jsme nemohli schválit automaticky přes portál. Nejčastěji jde
+    o neúplné či neověřitelné údaje – nic se ale neděje: ozvěte se nám a vyřešíme
+    to společně.</p>
+  <p><a class="ext" href="https://easyportal365.cz/kontakt/" target="_blank" rel="noopener">Kontakt na EasyPortal365</a></p>
+</section>
+</div>
+
+<!-- ===================== FÁZE: SCHVÁLENO (PRŮVODCE) ===================== -->
+<div class="phase" id="phase-approved">
+
+<section class="card">
+  <div class="callout ok" style="margin-top:0">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <div><strong>Žádost je schválená.</strong> Licence pro váš tenant je aktivovaná
+      a níže je postup nasazení připravený na míru podle vašich údajů
+      (<span id="ap-company">…</span>). Instalační balíček aplikace
+      (<code>.sppkg</code>) a příručku posíláme na kontaktní e-mail.</div>
+  </div>
+</section>
+
+<div id="guide"><!-- generuje JS --></div>
+
+<section class="card">
+  <h2><span class="sec-badge">✓</span>Závěrečná kontrola</h2>
+  <p>Po dokončení všech kroků si odškrtejte rychlý akceptační test (plná verze je
+    v instalační příručce):</p>
+  <ol class="steps">
+    <li class="step"><input type="checkbox" class="step-check" data-ck="a1"><div class="step-body">Otevřít aplikaci jako správce – žádné chybové bannery.</div></li>
+    <li class="step"><input type="checkbox" class="step-check" data-ck="a2"><div class="step-body">Dotaz „Ahoj" – odpověď se vypisuje průběžně (streaming).</div></li>
+    <li class="step"><input type="checkbox" class="step-check" data-ck="a3"><div class="step-body">Příloha (DOCX/PDF) + dotaz – odpověď reflektuje obsah dokumentu.</div></li>
+    <li class="step"><input type="checkbox" class="step-check" data-ck="a4"><div class="step-body">Firemní znalosti: dotaz na interní dokument – odpověď s citacemi a kartami zdrojů.</div></li>
+    <li class="step"><input type="checkbox" class="step-check" data-ck="a5"><div class="step-body">Jiná stránka webu – plovoucí bublina vpravo dole funguje.</div></li>
+    <li class="step" id="ck-enrich-row"><input type="checkbox" class="step-check" data-ck="a6"><div class="step-body">(Znalostní příprava) ruční běh – log „zpracováno: N, chyb: 0", sloupce na knihovně.</div></li>
+  </ol>
+  <p style="margin-bottom:0">Hotovo? Napište nám – rádi projdeme výsledek společně
+    a předáme tipy pro první týdny provozu.
+    <a class="ext" href="https://easyportal365.cz/kontakt/" target="_blank" rel="noopener">Kontakt</a></p>
+</section>
+
+</div>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="foot">
+  <span class="foot-text">EasyPortal 365 · Portál nasazení EP365 AI Asistenta · v1.0 · 2026-07</span>
+  <button type="button" id="reset-link">Začít znovu (smazat uloženou žádost)</button>
+</footer>
+
+</div>
+
+<script>
+(function(){
+'use strict';
+
+// ---------------------------------------------------------------------------
+// Konfigurace
+// ---------------------------------------------------------------------------
+var API_BASE = 'https://ep365-functions-gwb7ezbzczaud5ba.westeurope-01.azurewebsites.net/api';
+var CDN_BASE = 'https://cdn.easyportal365.cz/chat-function';
+var LS = 'ep365-deploy-';
+var POLL_MS = 60000;
+
+function lsGet(k){ try { return window.localStorage.getItem(LS + k); } catch(e){ return null; } }
+function lsSet(k,v){ try { window.localStorage.setItem(LS + k, v); } catch(e){} }
+function lsDel(k){ try { window.localStorage.removeItem(LS + k); } catch(e){} }
+function toArray(l){ return Array.prototype.slice.call(l); }
+function esc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+// ---------------------------------------------------------------------------
+// Fáze
+// ---------------------------------------------------------------------------
+var phases = ['form','wait','rejected','approved'];
+function showPhase(name){
+  phases.forEach(function(p){
+    document.getElementById('phase-' + p).classList.toggle('active', p === name);
+  });
+  var stepNo = name === 'form' ? 1 : (name === 'wait' || name === 'rejected') ? 2 : 3;
+  toArray(document.querySelectorAll('.stp')).forEach(function(el){
+    var n = parseInt(el.getAttribute('data-stp'), 10);
+    el.classList.toggle('active', n === stepNo);
+    el.classList.toggle('done', n < stepNo);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---------------------------------------------------------------------------
+// Formulář
+// ---------------------------------------------------------------------------
+var GUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+var NAME_RE = /^[a-z0-9-]{3,60}$/;
+
+var COMBINING_MARKS = new RegExp('[\\u0300-\\u036f]', 'g');
+function slugify(s){
+  return String(s || '').toLowerCase()
+    .normalize('NFD').replace(COMBINING_MARKS,'')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0, 24) || 'firma';
+}
+
+// auto-návrh názvů z firmy (jen dokud je uživatel nepřepsal)
+var rgTouched = false, funcTouched = false;
+document.getElementById('in-rg').addEventListener('input', function(){ rgTouched = true; });
+document.getElementById('in-func').addEventListener('input', function(){ funcTouched = true; });
+document.getElementById('in-company').addEventListener('input', function(){
+  var slug = slugify(this.value);
+  if (!rgTouched) document.getElementById('in-rg').value = 'rg-' + slug + '-ai';
+  if (!funcTouched) document.getElementById('in-func').value = 'func-' + slug + '-ai';
+});
+
+// radio karty
+toArray(document.querySelectorAll('.pathopt')).forEach(function(opt){
+  opt.addEventListener('click', function(){
+    toArray(document.querySelectorAll('.pathopt')).forEach(function(o){ o.classList.remove('sel'); });
+    opt.classList.add('sel');
+  });
+});
+
+// OpenAI fields toggle
+document.getElementById('in-hasoai').addEventListener('change', function(){
+  document.getElementById('oai-fields').style.display = this.checked ? '' : 'none';
+});
+
+function setInvalid(fieldId, invalid){
+  document.getElementById(fieldId).classList.toggle('invalid', !!invalid);
+  return !invalid;
+}
+
+function collectForm(){
+  var company = document.getElementById('in-company').value.trim();
+  var email = document.getElementById('in-email').value.trim();
+  var tenant = document.getElementById('in-tenant').value.trim().toLowerCase();
+  var origin = document.getElementById('in-origin').value.trim().toLowerCase().replace(/\/+$/,'');
+  var site = document.getElementById('in-site').value.trim().replace(/\/+$/,'');
+  var pathEl = document.querySelector('input[name=path]:checked');
+  var rg = document.getElementById('in-rg').value.trim().toLowerCase();
+  var func = document.getElementById('in-func').value.trim().toLowerCase();
+  var hasOai = document.getElementById('in-hasoai').checked;
+  var oaiEp = document.getElementById('in-oaiep').value.trim().toLowerCase().replace(/\/+$/,'');
+  var oaiDep = document.getElementById('in-oaidep').value.trim();
+
+  var ok = true;
+  ok = setInvalid('f-company', company.length < 2) && ok;
+  ok = setInvalid('f-email', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) && ok;
+  ok = setInvalid('f-tenant', !GUID_RE.test(tenant)) && ok;
+  ok = setInvalid('f-origin', !/^https:\/\/[a-z0-9-]+\.sharepoint\.com$/.test(origin)) && ok;
+  ok = setInvalid('f-site', !!site && site.toLowerCase().indexOf(origin + '/') !== 0 && site.toLowerCase() !== origin) && ok;
+  ok = setInvalid('f-rg', !NAME_RE.test(rg)) && ok;
+  ok = setInvalid('f-func', !NAME_RE.test(func)) && ok;
+  ok = setInvalid('f-oaiep', hasOai && !!oaiEp && !/^https:\/\/[a-z0-9.-]+$/.test(oaiEp)) && ok;
+  if (!ok) return null;
+
+  return {
+    requestId: (window.crypto && crypto.randomUUID) ? crypto.randomUUID() :
+      'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c){
+        var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8); return v.toString(16);
+      }),
+    company: company,
+    contactEmail: email,
+    tenantId: tenant,
+    spOrigin: origin,
+    siteUrl: site,
+    path: pathEl ? pathEl.value : '1',
+    location: document.getElementById('in-location').value,
+    openAiLocation: document.getElementById('in-oailoc').value,
+    hasOpenAi: hasOai,
+    openAiEndpoint: hasOai ? oaiEp : '',
+    openAiDeployment: hasOai ? oaiDep : '',
+    rgName: rg,
+    funcName: func,
+    enrich: document.getElementById('in-enrich').checked,
+    hub: document.getElementById('in-hub').checked,
+    note: document.getElementById('in-note').value.trim(),
+    _hp_website: document.getElementById('in-hp').value
+  };
+}
+
+document.getElementById('btn-submit').addEventListener('click', function(){
+  var btn = this;
+  var status = document.getElementById('submit-status');
+  var data = collectForm();
+  if (!data){
+    status.textContent = 'Zkontrolujte zvýrazněná pole.';
+    return;
+  }
+  btn.disabled = true;
+  status.textContent = 'Odesílám žádost…';
+  fetch(API_BASE + '/deploy/request', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+    .then(function(res){
+      if (!res.ok || !res.j.ok) throw new Error(res.j && res.j.message ? res.j.message : ('Chyba ' + (res.j && res.j.error || '')));
+      lsSet('requestId', data.requestId);
+      lsSet('company', data.company);
+      status.textContent = '';
+      btn.disabled = false;
+      enterWait(data.requestId);
+    })
+    .catch(function(e){
+      btn.disabled = false;
+      status.textContent = 'Odeslání selhalo: ' + e.message + ' – zkuste to prosím znovu.';
+    });
+});
+
+// ---------------------------------------------------------------------------
+// Čekání + poll stavu
+// ---------------------------------------------------------------------------
+var pollTimer = null;
+
+function enterWait(requestId){
+  showPhase('wait');
+  var link = window.location.origin + window.location.pathname + '?req=' + requestId;
+  document.getElementById('wait-link').textContent = link;
+  checkStatus(requestId, true);
+  if (pollTimer) clearInterval(pollTimer);
+  pollTimer = setInterval(function(){ checkStatus(requestId, false); }, POLL_MS);
+}
+
+document.getElementById('btn-copylink').addEventListener('click', function(){
+  var text = document.getElementById('wait-link').textContent;
+  var btn = this;
+  function done(){ btn.textContent = 'Zkopírováno ✓'; setTimeout(function(){ btn.textContent = 'Zkopírovat odkaz'; }, 1500); }
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done);
+  else done();
+});
+
+document.getElementById('btn-check').addEventListener('click', function(){
+  var id = lsGet('requestId') || new URLSearchParams(window.location.search).get('req');
+  if (id) checkStatus(id, true);
+});
+
+function checkStatus(requestId, manual){
+  var status = document.getElementById('wait-status');
+  if (manual) status.textContent = 'Kontroluji…';
+  fetch(API_BASE + '/deploy/status?requestId=' + encodeURIComponent(requestId))
+    .then(function(r){
+      if (r.status === 404) throw new Error('not_found');
+      return r.json();
+    })
+    .then(function(j){
+      if (j.status === 'approved' && j.request){
+        if (pollTimer) clearInterval(pollTimer);
+        lsSet('approved', JSON.stringify(j.request));
+        renderApproved(j.request);
+        showPhase('approved');
+      } else if (j.status === 'rejected'){
+        if (pollTimer) clearInterval(pollTimer);
+        showPhase('rejected');
+      } else {
+        status.textContent = manual ? 'Zatím čeká na schválení – zkuste to později.' : '';
+        setTimeout(function(){ if (status.textContent.indexOf('Zatím') === 0) status.textContent = ''; }, 4000);
+      }
+    })
+    .catch(function(e){
+      status.textContent = e.message === 'not_found'
+        ? 'Žádost nebyla nalezena – zkontrolujte odkaz, nebo začněte znovu.'
+        : 'Kontrola stavu selhala – zkuste to za chvíli.';
+    });
+}
+
+// ---------------------------------------------------------------------------
+// Průvodce (schváleno) — generuje kroky dle dat žádosti
+// ---------------------------------------------------------------------------
+function copyBtnHtml(){ return '<button type="button" class="copy-btn"><span>Kopírovat</span></button>'; }
+
+function buildPath1(d){
+  var params = '-ResourceGroupName "' + d.rgName + '" -FunctionAppName "' + d.funcName + '" `\n    -AllowedOrigin "' + d.spOrigin + '"';
+  if (d.location && d.location !== 'westeurope') params += ' `\n    -Location "' + d.location + '"';
+  if (!d.hasOpenAi && d.openAiLocation && d.openAiLocation !== 'swedencentral') params += ' `\n    -OpenAiLocation "' + d.openAiLocation + '"';
+  if (d.hasOpenAi && d.openAiEndpoint) {
+    params += ' `\n    -AzureOpenAiEndpoint "' + d.openAiEndpoint + '" `\n    -AzureOpenAiKey "VLOZTE-VAS-KLIC" `\n    -AzureOpenAiDeployment "' + (d.openAiDeployment || 'gpt-4o') + '"';
+  }
+  var cmd = 'iwr ' + CDN_BASE + '/deploy-azure.ps1 -OutFile deploy-azure.ps1\n./deploy-azure.ps1 ' + params;
+  return '<section class="card"><h2><span class="sec-badge">A</span>Azure backend – Cloud Shell skript</h2>'
+    + '<ol class="steps">'
+    + '<li class="step"><span class="step-num">1</span><div class="step-body">Otevřete <a class="ext" href="https://shell.azure.com" target="_blank" rel="noopener">shell.azure.com</a> a zvolte <strong>PowerShell</strong> (jste rovnou přihlášeni; účet musí mít roli Owner/Contributor na subscription).</div></li>'
+    + '<li class="step"><span class="step-num">2</span><div class="step-body"><p>Vložte a spusťte (hodnoty jsou předvyplněné z vaší žádosti'
+    + (d.hasOpenAi ? '; jen <code>VLOZTE-VAS-KLIC</code> nahraďte klíčem z Keys and Endpoint' : '')
+    + '):</p><pre class="code"><code>' + esc(cmd) + '</code></pre>'
+    + '<p>Skript založí vše potřebné'
+    + (d.hasOpenAi ? '' : ' včetně Azure OpenAI a modelu gpt-4o')
+    + ', provede zkušební dotaz na AI (uvidíte odpověď) a vypíše <strong>API URL</strong> – tu si zkopírujte pro krok B.</p></div></li>'
+    + '</ol></section>';
+}
+
+function buildPath2(d){
+  var deployUrl = 'https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(CDN_BASE + '/main.json');
+  return '<section class="card"><h2><span class="sec-badge">A</span>Azure backend – Deploy to Azure</h2>'
+    + (d.hasOpenAi ? '' :
+      '<div class="callout warn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'
+      + '<div><strong>Pozor:</strong> v žádosti jste uvedli, že Azure OpenAI ještě nemáte. Pro tuto cestu ho musíte založit předem ručně (Portál → Create resource → Azure OpenAI; model v Azure AI Foundry → Deployments), nebo zvolte raději Cloud Shell skript – ten to udělá za vás.</div></div>')
+    + '<ol class="steps">'
+    + '<li class="step"><span class="step-num">1</span><div class="step-body">Otevřete <a class="ext" href="' + deployUrl + '" target="_blank" rel="noopener">Deploy to Azure – formulář s naší šablonou</a>.</div></li>'
+    + '<li class="step"><span class="step-num">2</span><div class="step-body">Vyplňte podle tabulky:'
+    + '<div class="twrap"><table><thead><tr><th>Pole</th><th>Hodnota</th></tr></thead><tbody>'
+    + '<tr><td>Resource group</td><td><code>' + esc(d.rgName) + '</code> (Create new)</td></tr>'
+    + '<tr><td>Function App Name</td><td><code>' + esc(d.funcName) + '</code></td></tr>'
+    + '<tr><td>Azure Open Ai Endpoint</td><td>' + (d.openAiEndpoint ? '<code>' + esc(d.openAiEndpoint) + '</code>' : 'endpoint vašeho Azure OpenAI') + '</td></tr>'
+    + '<tr><td>Azure Open Ai Key</td><td>klíč z Keys and Endpoint (nikomu nesdělujte)</td></tr>'
+    + '<tr><td>Azure Open Ai Deployment</td><td><code>' + esc(d.openAiDeployment || 'gpt-4o') + '</code></td></tr>'
+    + '<tr><td>Allowed Origin</td><td><code>' + esc(d.spOrigin) + '</code></td></tr>'
+    + '<tr><td>Package Url</td><td>nechte předvyplněné</td></tr>'
+    + '</tbody></table></div></div></li>'
+    + '<li class="step"><span class="step-num">3</span><div class="step-body"><strong>Review + create</strong> → Create. API URL pak najdete v outputs deploymentu (<code>functionAppUrl</code>), případně Function App → Overview → Default domain + <code>/api</code>.</div></li>'
+    + '</ol></section>';
+}
+
+function buildPath3(d){
+  return '<section class="card"><h2><span class="sec-badge">A</span>Azure backend – asistované nasazení</h2>'
+    + '<p>Azure část nasadíme <strong>my</strong> ve vaší subscription. Ozveme se na kontaktní e-mail a domluvíme termín. Co prosím připravte:</p>'
+    + '<ul class="plain">'
+    + '<li><strong>Dočasný přístup:</strong> guest účet pro EasyPortal365 s rolí Contributor na subscription či resource group (Entra → Users → Invite external user; IAM → Add role assignment) – po nasazení ho odeberete. Alternativa: screen-share s vaším adminem.</li>'
+    + '<li>Potvrzení názvů: resource group <code>' + esc(d.rgName) + '</code>, Function App <code>' + esc(d.funcName) + '</code>, regiony <code>' + esc(d.location) + '</code> / <code>' + esc(d.openAiLocation) + '</code>.</li>'
+    + (d.hasOpenAi ? '<li>Přístup ke klíči vašeho Azure OpenAI (zadává váš admin při nasazení, nám ho neposílejte).</li>' : '')
+    + '</ul></section>';
+}
+
+function buildSharePoint(d){
+  var site = d.siteUrl || (d.spOrigin + '/sites/…');
+  return '<section class="card"><h2><span class="sec-badge">B</span>SharePoint aplikace</h2>'
+    + '<ol class="steps">'
+    + '<li class="step"><span class="step-num">1</span><div class="step-body"><strong>App Catalog:</strong> balíček <code>ep-365-ai-chat.sppkg</code> (posíláme e-mailem) nahraje SharePoint admin do App Catalogu (SharePoint admin centrum → More features → Apps) a potvrdí <strong>Enable app</strong>.</div></li>'
+    + '<li class="step"><span class="step-num">2</span><div class="step-body"><strong>Instalace na web</strong> <code>' + esc(site) + '</code>: Obsah webu → Nová → Aplikace → EP365 AI Asistent; poté vložit webpart na stránku a publikovat.</div></li>'
+    + '<li class="step"><span class="step-num">3</span><div class="step-body"><strong>První otevření jako správce webu</strong> – aplikace si sama založí seznamy a skupiny. Pak v nastavení webpartu (tužka) vyplňte <strong>URL Azure Function</strong> = API URL z kroku A' + (d.hub ? ' (nebo jen URL hubu – nastavení se zdědí)' : '') + '.</div></li>'
+    + '</ol></section>';
+}
+
+function buildEnrich(d){
+  if (!d.enrich) return '';
+  var site = d.siteUrl || 'https://…/sites/vas-web';
+  var cmd = 'iwr ' + CDN_BASE + '/setup-enrichment.ps1 -OutFile setup-enrichment.ps1\n'
+    + './setup-enrichment.ps1 -FunctionAppName "' + d.funcName + '" -ResourceGroupName "' + d.rgName + '" `\n'
+    + '    -SettingsSiteUrl "' + site + '" `\n'
+    + '    -LibrarySiteUrls @("https://…/sites/web-s-knihovnami")';
+  return '<section class="card"><h2><span class="sec-badge">C</span>Znalostní příprava (zvolili jste)</h2>'
+    + '<p>Po zprovoznění chatu spusťte v Cloud Shellu (přihlášený účet musí umět spravovat'
+    + ' app registrace a udělit admin consent – typicky Global admin):</p>'
+    + '<pre class="code"><code>' + esc(cmd) + '</code></pre>'
+    + '<p>Do <code>-LibrarySiteUrls</code> dosaďte weby s knihovnami k obohacování. Poté'
+    + ' v aplikaci: Nastavení → Znalostní příprava → zapnout, vložit URL knihoven, Uložit.</p></section>';
+}
+
+function renderApproved(d){
+  document.getElementById('ap-company').textContent = d.company || '';
+  var html = '';
+  if (d.path === '2') html += buildPath2(d);
+  else if (d.path === '3') html += buildPath3(d);
+  else html += buildPath1(d);
+  html += buildSharePoint(d);
+  html += buildEnrich(d);
+  document.getElementById('guide').innerHTML = html;
+  document.getElementById('ck-enrich-row').style.display = d.enrich ? '' : 'none';
+
+  // copy tlačítka na code blocích průvodce
+  toArray(document.querySelectorAll('#guide pre.code')).forEach(function(pre){
+    var codeEl = pre.querySelector('code');
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'copy-btn';
+    btn.innerHTML = '<span>Kopírovat</span>';
+    btn.addEventListener('click', function(){
+      var label = btn.querySelector('span');
+      function ok(){ btn.classList.add('copied'); label.textContent = 'Zkopírováno ✓'; setTimeout(function(){ btn.classList.remove('copied'); label.textContent = 'Kopírovat'; }, 1500); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(codeEl.textContent).then(ok);
+      else ok();
+    });
+    pre.appendChild(btn);
+  });
+}
+
+// checklist persistence
+toArray(document.querySelectorAll('.step-check[data-ck]')).forEach(function(cb){
+  var key = 'ck-' + cb.getAttribute('data-ck');
+  if (lsGet(key) === '1'){ cb.checked = true; var r = cb.closest('.step'); if (r) r.classList.add('done'); }
+  cb.addEventListener('change', function(){
+    if (cb.checked) lsSet(key, '1'); else lsDel(key);
+    var r = cb.closest('.step'); if (r) r.classList.toggle('done', cb.checked);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Reset
+// ---------------------------------------------------------------------------
+document.getElementById('reset-link').addEventListener('click', function(){
+  if (!window.confirm('Smazat uloženou žádost z tohoto prohlížeče a začít znovu? (Žádost u nás zůstává evidovaná.)')) return;
+  try {
+    var keys = [];
+    for (var i = 0; i < window.localStorage.length; i++){
+      var k = window.localStorage.key(i);
+      if (k && k.indexOf(LS) === 0) keys.push(k);
+    }
+    keys.forEach(function(kk){ window.localStorage.removeItem(kk); });
+  } catch(e){}
+  window.location.href = window.location.pathname;
+});
+
+// ---------------------------------------------------------------------------
+// Start — deep-link ?req=… má přednost, pak localStorage, jinak formulář
+// ---------------------------------------------------------------------------
+var urlReq = new URLSearchParams(window.location.search).get('req');
+var savedReq = lsGet('requestId');
+var savedApproved = lsGet('approved');
+
+if (urlReq && GUID_RE.test(urlReq)) {
+  lsSet('requestId', urlReq.toLowerCase());
+  enterWait(urlReq.toLowerCase());
+} else if (savedApproved) {
+  try { renderApproved(JSON.parse(savedApproved)); showPhase('approved'); }
+  catch(e){ lsDel('approved'); showPhase('form'); }
+} else if (savedReq) {
+  enterWait(savedReq);
+} else {
+  showPhase('form');
+}
+})();
+</script>
+</body>
+</html>
