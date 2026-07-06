@@ -16,7 +16,9 @@
          - v repu se zdrojaky: build (npm) + func publish / zip deploy jako dosud;
          - mimo repo (napr. Azure Cloud Shell): stazeni hotoveho release zipu z CDN
            EasyPortal365 a zip deploy - Node.js NENI potreba.
-      6. Vypis API URL pro property pane webpartu EP365 AI Chat.
+      6. Smoke test - zkusebni dotaz na /api/chat (overi endpoint, klic i model;
+         spotrebuje par tokenu; preskocit lze prepinacem -SkipSmokeTest).
+      7. Vypis API URL pro property pane webpartu EP365 AI Chat.
 
     Doporucene prostredi: Azure Cloud Shell (PowerShell) - az CLI je predinstalovane,
     nic se neinstaluje. Staci:
@@ -102,6 +104,9 @@
 .PARAMETER SettingsSiteUrl
     Volitelny - Znalostni priprava. URL webu se settings listem EP365AIChatAppSettings.
 
+.PARAMETER SkipSmokeTest
+    Volitelny. Preskoci zaverecny zkusebni dotaz na /api/chat.
+
 .EXAMPLE
     .\deploy-azure.ps1 -ResourceGroupName rg-contoso-ai -FunctionAppName func-contoso-ai `
         -AllowedOrigin https://contoso.sharepoint.com
@@ -153,7 +158,9 @@ param(
     [string]$AadTenantId = '',
     [string]$AadClientId = '',
     [string]$AadClientSecret = '',
-    [string]$SettingsSiteUrl = ''
+    [string]$SettingsSiteUrl = '',
+
+    [switch]$SkipSmokeTest
 )
 
 $ErrorActionPreference = 'Stop'
@@ -175,7 +182,7 @@ $repoRoot = Split-Path -Parent $scriptDir
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
 # (viz scripts/build-release-zip.ps1).
 $CdnTemplateUrl = 'https://cdn.easyportal365.cz/chat-function/main.json'
-$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.1.0.zip'
+$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.1.1.zip'
 
 # Docasna slozka - $env:TEMP na Windows, GetTempPath() v Azure Cloud Shellu (Linux)
 $TempBase = $env:TEMP
@@ -462,14 +469,44 @@ try {
     }
     Write-Host 'Kod funkce nasazen.'
 
-    # ----------------------------------------------------------------------
-    # 6. Souhrn
-    # ----------------------------------------------------------------------
-    Write-Step 'Hotovo - souhrn'
-
     $hostName = az functionapp show -g $ResourceGroupName -n $FunctionAppName --query 'defaultHostName' -o tsv
     Assert-LastExit 'Nepodarilo se precist hostname Function App.'
     $apiUrl = 'https://' + $hostName + '/api'
+
+    # ----------------------------------------------------------------------
+    # 6. Smoke test - zkusebni dotaz na /api/chat
+    # ----------------------------------------------------------------------
+    $smokeInfo = 'preskocen (-SkipSmokeTest)'
+    if (-not $SkipSmokeTest) {
+        Write-Step 'Smoke test - zkusebni dotaz na /api/chat (par sekund, spotrebuje par tokenu)'
+        $smokeBody = '{"messages":[{"role":"user","content":"Odpovez presne jednim slovem: OK"}],"conversationId":"deploy-smoke-test"}'
+        $smokeInfo = 'SELHAL - overte konfiguraci'
+        for ($attempt = 1; $attempt -le 3; $attempt++) {
+            try {
+                $resp = Invoke-RestMethod -Method Post -Uri ($apiUrl + '/chat') -ContentType 'application/json; charset=utf-8' -Body $smokeBody -TimeoutSec 120
+                $modelInfo = ''
+                if ($resp.PSObject.Properties['model'] -and $resp.model) { $modelInfo = ' (model: ' + $resp.model + ')' }
+                Write-Host ('Odpoved AI' + $modelInfo + ': ' + $resp.content) -ForegroundColor Green
+                $smokeInfo = 'OK' + $modelInfo
+                break
+            }
+            catch {
+                if ($attempt -lt 3) {
+                    Write-Host ('Pokus ' + $attempt + '/3 nevysel (prvni start funkce byva pomaly) - zkousim znovu za 20 s...')
+                    Start-Sleep -Seconds 20
+                }
+                else {
+                    Write-Host ('Smoke test selhal: ' + $_.Exception.Message) -ForegroundColor Yellow
+                    Write-Host 'Infrastruktura je nasazena; zkontrolujte Azure OpenAI klic/endpoint a stav model deploymentu (Environment variables Function App), pripadne zopakujte test dle casti A.6 instalacni prirucky.' -ForegroundColor Yellow
+                }
+            }
+        }
+    }
+
+    # ----------------------------------------------------------------------
+    # 7. Souhrn
+    # ----------------------------------------------------------------------
+    Write-Step 'Hotovo - souhrn'
 
     Write-Host ''
     Write-Host '====================================================================='
@@ -479,6 +516,7 @@ try {
     Write-Host (' Function App          : ' + $FunctionAppName)
     Write-Host (' API URL pro webpart   : ' + $apiUrl) -ForegroundColor Green
     Write-Host (' CORS (ALLOWED_ORIGIN) : ' + $AllowedOrigin)
+    Write-Host (' Smoke test /api/chat  : ' + $smokeInfo)
     Write-Host (' Zdroj kodu            : ' + $codeSourceInfo)
     Write-Host (' Azure OpenAI ucet     : ' + $aoaiAccountInfo)
     Write-Host (' Azure OpenAI endpoint : ' + $aoaiEndpoint)
