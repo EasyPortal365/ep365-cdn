@@ -41,5 +41,8 @@
   "ep365-site-manager": {
     "description": "Řízené zakládání a životní cyklus SharePoint a Teams webů – žádosti, schválení, metadata, zámek a archivace. Podchytí i weby, které už v tenantu jsou.",
     "webUrl": "https://easyportal365.cz/aplikace/rizene-weby/"
+  },
+  "ep365-marketing": {
+    "description": "Publikační kalendář sociálních sítí a koordinace marketingu – schvalování obsahu, kampaně, aktivity, úkoly a podpora událostí z CRM."
   }
 }
