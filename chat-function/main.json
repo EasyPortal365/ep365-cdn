@@ -1,0 +1,153 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.1.0.0",
+  "metadata": {
+    "_comment": "Rucni ARM ekvivalent infra/main.bicep (drzet v syncu; overeni: az bicep build -f infra/main.bicep --outfile <tmp> a porovnat semantiku). CDN kopie pro tlacitko Deploy to Azure dostava pri release vyplneny default packageUrl (viz scripts/build-release-zip.ps1)."
+  },
+  "parameters": {
+    "functionAppName": {
+      "type": "string",
+      "metadata": {
+        "description": "NÃ¡zev Function App (musÃ­ bÃ½t globÃ¡lnÄ› unikÃ¡tnÃ­), napÅ™. func-contoso-ai"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Azure region pro nasazenÃ­ zdrojÅ¯"
+      }
+    },
+    "azureOpenAiEndpoint": {
+      "type": "string",
+      "metadata": {
+        "description": "URL Azure OpenAI resource, napÅ™. https://contoso-openai.openai.azure.com"
+      }
+    },
+    "azureOpenAiKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "API klÃ­Ä Azure OpenAI resource"
+      }
+    },
+    "azureOpenAiDeployment": {
+      "type": "string",
+      "defaultValue": "gpt-4o",
+      "metadata": {
+        "description": "NÃ¡zev deploymentu modelu v Azure OpenAI, napÅ™. gpt-4o"
+      }
+    },
+    "allowedOrigin": {
+      "type": "string",
+      "metadata": {
+        "description": "Origin SharePoint tenantu pro CORS, napÅ™. https://contoso.sharepoint.com (vÃ­c originÅ¯ oddÄ›lte ÄÃ¡rkou). Funkce je fail-closed â€” bez tÃ©to hodnoty prohlÃ­Å¾eÄ volÃ¡nÃ­ chatu odmÃ­tne."
+      }
+    },
+    "packageUrl": {
+      "type": "string",
+      "defaultValue": "https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.1.0.zip",
+      "metadata": {
+        "description": "VOLITELNÃ‰ â€” URL release zip balÃ­Äku s kÃ³dem funkce (WEBSITE_RUN_FROM_PACKAGE). VyplnÄ›nÃ© = kÃ³d se naÄte pÅ™Ã­mo z tohoto zipu (cesta Deploy to Azure). PrÃ¡zdnÃ© = kÃ³d nasadÃ­te zvlÃ¡Å¡Å¥ (deploy skript / zip deploy / GitHub Actions)."
+      }
+    },
+    "aadTenantId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "VOLITELNÃ‰ â€” Entra ID tenant ID pro ZnalostnÃ­ pÅ™Ã­pravu (Graph client credentials)"
+      }
+    },
+    "aadClientId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "VOLITELNÃ‰ â€” Application (client) ID app registrace s Graph application permission Sites.Selected"
+      }
+    },
+    "aadClientSecret": {
+      "type": "securestring",
+      "defaultValue": "",
+      "metadata": {
+        "description": "VOLITELNÃ‰ â€” client secret app registrace pro ZnalostnÃ­ pÅ™Ã­pravu"
+      }
+    },
+    "settingsSiteUrl": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "VOLITELNÃ‰ â€” absolutnÃ­ URL webu se settings listem EP365AIChatAppSettings, napÅ™. https://contoso.sharepoint.com/sites/ai"
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[toLower(take(replace(parameters('functionAppName'), '-', ''), 24))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-01-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "minimumTlsVersion": "TLS1_2",
+        "allowBlobPublicAccess": false
+      }
+    },
+    {
+      "type": "Microsoft.Insights/components",
+      "apiVersion": "2020-02-02",
+      "name": "[format('{0}-insights', parameters('functionAppName'))]",
+      "location": "[parameters('location')]",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web",
+        "RetentionInDays": 30
+      }
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2023-01-01",
+      "name": "[format('{0}-plan', parameters('functionAppName'))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Y1",
+        "tier": "Dynamic"
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "apiVersion": "2023-01-01",
+      "name": "[parameters('functionAppName')]",
+      "location": "[parameters('location')]",
+      "kind": "functionapp",
+      "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', format('{0}-plan', parameters('functionAppName')))]",
+        "siteConfig": {
+          "nodeVersion": "~22",
+          "appSettings": "[concat(createArray(createObject('name', 'AzureWebJobsStorage', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)), createObject('name', 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)), createObject('name', 'WEBSITE_CONTENTSHARE', 'value', parameters('functionAppName')), createObject('name', 'FUNCTIONS_EXTENSION_VERSION', 'value', '~4'), createObject('name', 'FUNCTIONS_WORKER_RUNTIME', 'value', 'node'), createObject('name', 'WEBSITE_NODE_DEFAULT_VERSION', 'value', '~22'), createObject('name', 'APPINSIGHTS_INSTRUMENTATIONKEY', 'value', reference(resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName'))), '2020-02-02').InstrumentationKey), createObject('name', 'AZURE_OPENAI_ENDPOINT', 'value', parameters('azureOpenAiEndpoint')), createObject('name', 'AZURE_OPENAI_KEY', 'value', parameters('azureOpenAiKey')), createObject('name', 'AZURE_OPENAI_DEPLOYMENT', 'value', parameters('azureOpenAiDeployment')), createObject('name', 'ALLOWED_ORIGIN', 'value', parameters('allowedOrigin')), createObject('name', 'AAD_TENANT_ID', 'value', parameters('aadTenantId')), createObject('name', 'AAD_CLIENT_ID', 'value', parameters('aadClientId')), createObject('name', 'AAD_CLIENT_SECRET', 'value', parameters('aadClientSecret')), createObject('name', 'EP365_SETTINGS_SITE_URL', 'value', parameters('settingsSiteUrl')), createObject('name', 'SCM_DO_BUILD_DURING_DEPLOYMENT', 'value', 'true')), if(empty(parameters('packageUrl')), createArray(), createArray(createObject('name', 'WEBSITE_RUN_FROM_PACKAGE', 'value', parameters('packageUrl')))))]"
+        },
+        "httpsOnly": true
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', format('{0}-plan', parameters('functionAppName')))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName')))]"
+      ]
+    }
+  ],
+  "outputs": {
+    "functionAppUrl": {
+      "type": "string",
+      "value": "[format('https://{0}/api', reference(resourceId('Microsoft.Web/sites', parameters('functionAppName')), '2023-01-01').defaultHostName)]"
+    },
+    "functionAppName": {
+      "type": "string",
+      "value": "[parameters('functionAppName')]"
+    }
+  }
+}

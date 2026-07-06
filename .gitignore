@@ -35,3 +35,14 @@
 !browser-addons/**/*.crx
 !browser-addons/**/*.html
 !browser-addons/**/*.png
+
+# Distribuce ep365-chat-function pro klientská nasazení (cdn.easyportal365.cz/chat-function/).
+# Bezpečné: release zip = zkompilovaný kód funkce BEZ source map a bez local.settings
+# (hlídá scripts/build-release-zip.ps1 v repu funkce), ARM šablona bez secrets
+# (klíče jen jako securestring parametry), deployment skripty (záměrně veřejné,
+# stahují se do Azure Cloud Shellu). Žádné .env/klíče.
+!chat-function/main.json
+!chat-function/ep365-chat-function-*.zip
+!chat-function/deploy-azure.ps1
+!chat-function/setup-enrichment.ps1
+!chat-function/checksums.txt
