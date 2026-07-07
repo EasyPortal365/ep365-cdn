@@ -44,5 +44,8 @@
   },
   "ep365-marketing": {
     "description": "Publikační kalendář sociálních sítí a koordinace marketingu – schvalování obsahu, kampaně, aktivity, úkoly a podpora událostí z CRM."
+  },
+  "ep365-atlas": {
+    "description": "Monitoring SharePoint Online tenantu – nastavení, oprávnění, sdílení, úložiště, audit i připravenost na AI. Skóre zdraví, nálezy s regresemi a porovnání skenů. Vše běží ve vašem tenantu."
   }
 }
