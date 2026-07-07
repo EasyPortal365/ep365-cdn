@@ -56,6 +56,11 @@
           "type": "new",
           "cs": "Reporty a export – manažerský report zdraví tenantu k tisku a CSV exporty pro další zpracování; vše se generuje ve vašem tenantu.",
           "en": "Reports and export – a printable tenant health report and CSV exports for further processing; everything is generated inside your tenant."
+        },
+        {
+          "type": "new",
+          "cs": "Detail nálezu s návodem na řešení – u každého nálezu vidíte dopad, konkrétní kroky, a hlavně tlačítka Opravit hned (zapíše doporučené nastavení tenantu) a Ověřit teď (přečte živá data a nález uzavře jen tehdy, když problém opravdu zmizel).",
+          "en": "Finding detail with a resolution guide – each finding shows its impact, concrete steps and, above all, Fix now (writes the recommended tenant setting) and Verify now (reads live data and closes the finding only once the problem is truly gone)."
         }
       ]
     }
