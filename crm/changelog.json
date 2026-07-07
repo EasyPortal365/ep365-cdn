@@ -1,0 +1,74 @@
+{
+  "schema": 2,
+  "app": "ep365-crm",
+  "name": "EP365 CRM",
+  "entries": [
+    {
+      "version": "1.10",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "new",
+          "cs": "Nabídka má novou záložku Dokumenty – vygenerovaný dokument se ukládá do knihovny přímo na webu, odkud ho otevřete, upravíte online v Office nebo převedete do PDF.",
+          "en": "Deals have a new Documents tab – generated documents are stored in a library right on the site, where you can open them, edit them online in Office or convert them to PDF."
+        },
+        {
+          "type": "improved",
+          "cs": "Knihovna dokumentů nabídek je seskupená podle klienta a u každého dokumentu vidíte nabídku, klienta i typ dokumentu; celou knihovnu otevřete z aplikace jedním klikem.",
+          "en": "The deal documents library is grouped by client and each document shows the deal, client and document type; you can open the whole library from the app in one click."
+        },
+        {
+          "type": "improved",
+          "cs": "Náhled dokumentu se otevírá spolehlivěji, funguje i pro PDF a zobrazuje více údajů – velikost, verzi, autora a data vytvoření či změny.",
+          "en": "Document preview opens more reliably, works for PDF too and shows more details – size, version, author and creation or modification dates."
+        },
+        {
+          "type": "improved",
+          "cs": "Testovací data obsahují ukázkový dokument nabídky, takže záložka Dokumenty má co ukázat hned po jejich vytvoření.",
+          "en": "Sample data include an example deal document, so the Documents tab has something to show right after seeding."
+        }
+      ]
+    },
+    {
+      "version": "1.9",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Webináře evidují účastníky jmenovitě – přihlášené osoby se ukládají jako kontakty a firmy, se kterými můžete dál obchodně pracovat.",
+          "en": "Webinars now track attendees by name – registered people are stored as contacts and companies you can keep working with."
+        },
+        {
+          "type": "new",
+          "cs": "Z nabídky připravíte fakturační podklady – souhrn s odběratelem, položkami, součty a termíny zkopírujete do schránky, uložíte jako soubor nebo rovnou pošlete e-mailem.",
+          "en": "You can prepare billing details from a deal – copy a summary with the customer, line items, totals and dates to the clipboard, save it as a file or send it straight by e-mail."
+        },
+        {
+          "type": "improved",
+          "cs": "Šablony e-mailů ukazují svůj výkon přehledně – karty Odesláno, Otevřeno a Odpovědi přímo v detailu šablony.",
+          "en": "E-mail templates show their performance at a glance – Sent, Opened and Replies cards right in the template detail."
+        },
+        {
+          "type": "improved",
+          "cs": "Tabulka účastníků webináře se vejde na obrazovku bez vodorovného posouvání a v detailu účastníka přehledně vidíte firmu i pozici.",
+          "en": "The webinar attendee table fits the screen without horizontal scrolling and the attendee detail clearly shows company and role."
+        },
+        {
+          "type": "improved",
+          "cs": "…a další vylepšení v průběhu řady 1.9.",
+          "en": "…and further improvements across the 1.9 line."
+        }
+      ]
+    }
+  ]
+}
