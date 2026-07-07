@@ -1,0 +1,119 @@
+// EP365 - publikace changelogu appky na CDN
+//
+// Zdroj pravdy: <app-repo>/CHANGELOG.json (strukturovany, cs + volitelne en).
+// Tento skript ho zvaliduje, zapise na CDN (<folder>/changelog.json) a
+// vygeneruje citelny CHANGELOG.md v app repu (jen CZ; EN texty zijou v JSON).
+//
+// Pouziti (z korene ep365-cdn):
+//   node tools/publish-changelog.mjs fleet            # CDN folder
+//   node tools/publish-changelog.mjs ep365-fleet      # nebo appId
+//   node tools/publish-changelog.mjs fleet lifecenter # vic appek najednou
+//
+// Po uspesnem behu: git add <folder>/changelog.json + commit + push (rucne /
+// v ramci release postupu). Skript sam necommituje.
+
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { resolve, dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const CDN_ROOT = resolve(__dirname, '..');
+const APPS_ROOT = resolve(CDN_ROOT, '..');
+
+const VALID_TYPES = ['new', 'improved', 'fixed'];
+const TYPE_LABEL_CS = { new: 'Nové', improved: 'Vylepšeno', fixed: 'Opraveno' };
+
+function fail(msg) {
+  console.error('CHYBA: ' + msg);
+  process.exit(1);
+}
+
+function normalizeApp(arg) {
+  // 'fleet' -> { folder: 'fleet', repo: 'ep365-fleet' }; 'ep365-fleet' -> totez
+  const folder = arg.indexOf('ep365-') === 0 ? arg.substring(6) : arg;
+  return { folder, repo: 'ep365-' + folder };
+}
+
+function validate(data, appId) {
+  if (!data || typeof data !== 'object') fail('CHANGELOG.json neni objekt');
+  if (data.schema !== 1) fail('schema musi byt 1 (je: ' + data.schema + ')');
+  if (data.app !== appId) fail('app v JSON (' + data.app + ') nesouhlasi s repem (' + appId + ')');
+  if (!data.name || typeof data.name !== 'string') fail('chybi name (zobrazovany nazev appky)');
+  if (!Array.isArray(data.entries) || data.entries.length === 0) fail('entries musi byt neprazdne pole');
+
+  for (const e of data.entries) {
+    if (!/^\d+\.\d+\.\d+\.\d+$/.test(e.version || '')) fail('neplatna verze: "' + e.version + '" (ocekavam X.Y.Z.W)');
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(e.date || '')) fail('neplatne datum u ' + e.version + ': "' + e.date + '" (ocekavam YYYY-MM-DD)');
+    if (!Array.isArray(e.changes) || e.changes.length === 0) fail('verze ' + e.version + ' nema zadne changes');
+    for (const c of e.changes) {
+      if (VALID_TYPES.indexOf(c.type) === -1) fail('verze ' + e.version + ': neplatny type "' + c.type + '" (povolene: ' + VALID_TYPES.join(', ') + ')');
+      if (!c.cs || typeof c.cs !== 'string') fail('verze ' + e.version + ': change bez cs textu');
+      if (c.en !== undefined && typeof c.en !== 'string') fail('verze ' + e.version + ': en musi byt string');
+      // em-dash v CZ textu je proti typografickemu pravidlu EP365 (patri en-dash)
+      if (c.cs.indexOf('—') !== -1) fail('verze ' + e.version + ': cs text obsahuje em-dash (—) - v cestine patri en-dash (–)');
+    }
+  }
+}
+
+function cmpVersionDesc(a, b) {
+  const pa = a.split('.').map(Number);
+  const pb = b.split('.').map(Number);
+  for (let i = 0; i < 4; i++) {
+    if ((pa[i] || 0) !== (pb[i] || 0)) return (pb[i] || 0) - (pa[i] || 0);
+  }
+  return 0;
+}
+
+function toMarkdown(data) {
+  const lines = [];
+  lines.push('<!-- GENEROVANO z CHANGELOG.json (node tools/publish-changelog.mjs v ep365-cdn) - NEEDITOVAT RUCNE. EN texty jsou v CHANGELOG.json. -->');
+  lines.push('# Changelog – ' + data.name);
+  lines.push('');
+  for (const e of data.entries) {
+    lines.push('## [' + e.version + '] – ' + e.date);
+    lines.push('');
+    for (const c of e.changes) {
+      lines.push('- **' + TYPE_LABEL_CS[c.type] + ':** ' + c.cs);
+    }
+    lines.push('');
+  }
+  return lines.join('\n');
+}
+
+const args = process.argv.slice(2);
+if (args.length === 0) fail('zadej aspon jednu appku, napr.: node tools/publish-changelog.mjs fleet');
+
+for (const arg of args) {
+  const { folder, repo } = normalizeApp(arg);
+  const srcPath = join(APPS_ROOT, repo, 'CHANGELOG.json');
+  if (!existsSync(srcPath)) fail('nenalezen ' + srcPath);
+
+  let data;
+  try {
+    data = JSON.parse(readFileSync(srcPath, 'utf8'));
+  } catch (e) {
+    fail('CHANGELOG.json neni validni JSON: ' + e.message);
+  }
+  validate(data, repo);
+
+  // Serazeni entries sestupne dle verze (pojistka proti rucnimu prehazeni)
+  data.entries.sort((a, b) => cmpVersionDesc(a.version, b.version));
+
+  // 1) CDN kopie
+  const outDir = join(CDN_ROOT, folder);
+  if (!existsSync(outDir)) mkdirSync(outDir);
+  const outPath = join(outDir, 'changelog.json');
+  writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n', 'utf8');
+
+  // 2) Citelny CHANGELOG.md v app repu
+  const mdPath = join(APPS_ROOT, repo, 'CHANGELOG.md');
+  writeFileSync(mdPath, toMarkdown(data), 'utf8');
+
+  const latest = data.entries[0];
+  console.log('OK ' + repo + ': ' + data.entries.length + ' verzi (nejnovejsi ' + latest.version + ' z ' + latest.date + ')');
+  console.log('   -> ' + outPath);
+  console.log('   -> ' + mdPath);
+}
+
+console.log('');
+console.log('Dalsi krok: v ep365-cdn git add <folder>/changelog.json + commit + push.');

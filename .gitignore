@@ -15,6 +15,12 @@
 !.gitignore
 !.gitkeep
 
+# Changelogy aplikací (cdn.easyportal365.cz/<app>/changelog.json) — zákaznické
+# release notes, které appky zobrazují v sekci Roadmapa & novinky. Bezpečné:
+# jen texty změn (zdroj = CHANGELOG.json v app repu, kopíruje publish-changelog.mjs).
+!*/changelog.json
+!tools/publish-changelog.mjs
+
 # Brand assets (loga, ikony) — veřejné statické obrázky pro newslettery, web, decky.
 # Bezpečné: jen obrázkové formáty, žádné zdrojáky/secrets.
 !brand/**/*.png

@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "app": "ep365-lifecenter",
+  "name": "EP365 LifeCenter",
+  "entries": [
+    {
+      "version": "1.11.4.0",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa nově obsahuje sekci „Co je nového“ – přehled změn v jednotlivých verzích aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now includes a \"What's new\" section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        }
+      ]
+    },
+    {
+      "version": "1.11.3.0",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Ověření licence („Ověřit znovu“) proběhne přímo v aplikaci, bez obnovení stránky.",
+          "en": "License verification (\"Verify again\") now runs in-app, without a page reload."
+        }
+      ]
+    },
+    {
+      "version": "1.11.2.0",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Chipy „Časté“ na úvodní obrazovce vycházejí ze skutečné popularity situací a nepřetékají na druhý řádek.",
+          "en": "The \"Frequent\" chips on the home screen follow real situation popularity and no longer overflow to a second line."
+        }
+      ]
+    },
+    {
+      "version": "1.11.1.0",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Hledání je nově výhradně v postranním panelu a v paletě ⌘K – úvodní obrazovka je čistší.",
+          "en": "Search now lives exclusively in the sidebar and the ⌘K palette – the home screen is cleaner."
+        }
+      ]
+    },
+    {
+      "version": "1.11.0.0",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Doladěná úvodní obrazovka – dekorační karty a rozložení podle jednotného vzhledu EP365.",
+          "en": "Polished landing screen – decorative cards and layout aligned with the unified EP365 look."
+        },
+        {
+          "type": "new",
+          "cs": "Formulář zpětné vazby má panel s tipy, jak napsat užitečné hlášení chyby nebo návrh.",
+          "en": "The feedback form now has a tips panel with guidance for writing useful bug reports and suggestions."
+        },
+        {
+          "type": "improved",
+          "cs": "Tabulky ve správě obsahu lze řadit kliknutím na záhlaví; stránkování si pamatuje vaši volbu.",
+          "en": "Admin tables are sortable by clicking headers; pagination remembers your preference."
+        }
+      ]
+    },
+    {
+      "version": "1.10.11.2",
+      "date": "2026-07-03",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "E-mailové notifikace schvalovacího workflow – schvalovatelé dostanou zprávu při odeslání článku ke schválení, autor po schválení či zamítnutí.",
+          "en": "Approval workflow e-mail notifications – approvers are notified when an article is submitted, authors on approval or rejection."
+        },
+        {
+          "type": "new",
+          "cs": "Související články – na konci každého článku se nabízí příbuzný obsah podle situací a štítků.",
+          "en": "Related articles – relevant content is suggested at the end of each article, based on situations and tags."
+        },
+        {
+          "type": "new",
+          "cs": "Revize zastaralého obsahu – články starší 12 měsíců dostanou štítek „K revizi“, filtr a akci „Označit jako zkontrolované“.",
+          "en": "Stale content review – articles older than 12 months get a \"Review needed\" badge, a filter and a \"Mark as reviewed\" action."
+        },
+        {
+          "type": "new",
+          "cs": "Karta „Váš postup“ u situace – souhrn dokončených kroků checklistů, zelená při 100 %.",
+          "en": "\"Your progress\" card on situations – a summary of completed checklist steps, green at 100%."
+        },
+        {
+          "type": "new",
+          "cs": "Analytika neúspěšného hledání – Přehled využití anonymně ukazuje dotazy bez výsledku.",
+          "en": "Failed-search analytics – the Usage overview anonymously lists queries with no results."
+        },
+        {
+          "type": "new",
+          "cs": "Příkazová paleta ⌘K pro okamžité hledání a navigaci napříč aplikací.",
+          "en": "Command palette ⌘K for instant search and navigation across the app."
+        }
+      ]
+    },
+    {
+      "version": "1.10.10.0",
+      "date": "2026-07-03",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Výchozí jazyk rozhraní se dědí z globální konfigurace organizace; osobní volba uživatele má vždy přednost.",
+          "en": "The default UI language is inherited from the organisation's global configuration; a user's explicit choice always wins."
+        }
+      ]
+    },
+    {
+      "version": "1.10.9.1",
+      "date": "2026-07-03",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Přepínač jazyka CS/EN se přestěhoval do pravého horního rohu hlavičky.",
+          "en": "The CS/EN language toggle moved to the top-right corner of the header."
+        },
+        {
+          "type": "improved",
+          "cs": "Stránkování na všech seznamových obrazovkách.",
+          "en": "Pagination on all list views."
+        }
+      ]
+    }
+  ]
+}

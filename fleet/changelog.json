@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "app": "ep365-fleet",
+  "name": "EP365 Vozový park",
+  "entries": [
+    {
+      "version": "1.7.3.0",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa nově obsahuje sekci „Co je nového“ – přehled změn v jednotlivých verzích aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now includes a \"What's new\" section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        }
+      ]
+    },
+    {
+      "version": "1.7.2.0",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nastavení má novou sekci „Rezervace a provoz“ – správce může zapnout schvalování rezervací pro celou organizaci (vozidlo s vlastním režimem má přednost) a automatické připomínky řidičům s nastavitelným předstihem.",
+          "en": "Settings has a new \"Reservations & operations\" section – admins can require reservation approval org-wide (a vehicle's own mode takes precedence) and enable automatic driver reminders with a configurable lead time."
+        }
+      ]
+    },
+    {
+      "version": "1.7.1.0",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Ověření licence proběhne přímo v aplikaci, bez obnovování stránky.",
+          "en": "License verification now runs in-app, without a page reload."
+        }
+      ]
+    },
+    {
+      "version": "1.7.0.0",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nová uvítací obrazovka – přehledný rozcestník s rychlými akcemi hned po otevření aplikace.",
+          "en": "New welcome landing screen – a clear start page with quick actions."
+        },
+        {
+          "type": "new",
+          "cs": "Příkazová paleta ⌘K – okamžité hledání napříč vozidly, rezervacemi a obrazovkami přímo z klávesnice.",
+          "en": "Command palette ⌘K – instant keyboard search across vehicles, reservations and views."
+        },
+        {
+          "type": "improved",
+          "cs": "Tabulku vozidel lze řadit kliknutím na záhlaví; seznamy mají jednotné stránkování (10/15/20/Vše) a pamatují si vaši volbu.",
+          "en": "The vehicle table is sortable by clicking headers; lists share unified pagination (10/15/20/All) and remember your preference."
+        },
+        {
+          "type": "fixed",
+          "cs": "Sada drobných oprav vzhledu a typografie z interní kontroly.",
+          "en": "A batch of minor visual and typography fixes from an internal review."
+        }
+      ]
+    },
+    {
+      "version": "1.6.35.0",
+      "date": "2026-06-21",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nápověda zobrazuje kontakt na podporu vaší organizace – přebírá se z globální konfigurace EP365 Homepage.",
+          "en": "Help now shows your organisation's support contact – inherited from the EP365 Homepage global configuration."
+        }
+      ]
+    },
+    {
+      "version": "1.6.34.0",
+      "date": "2026-06-21",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Barevný motiv aplikace lze dědit z centrální konfigurace organizace (EP365 Homepage) – jednotný vzhled všech aplikací na jedno kliknutí.",
+          "en": "The app's accent theme can be inherited from your organisation's central configuration (EP365 Homepage) – a unified look across apps in one click."
+        }
+      ]
+    },
+    {
+      "version": "1.6.33.0",
+      "date": "2026-06-21",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Bezpečnostní audit – mimo jiné oprava nahrávání příloh se speciálními znaky v názvu souboru a sjednocení stavů incidentů.",
+          "en": "Security audit – among others, fixed uploading attachments with special characters in file names and unified incident statuses."
+        },
+        {
+          "type": "improved",
+          "cs": "Časy u záznamů se zadávají a zobrazují v místním čase.",
+          "en": "Record times are entered and displayed in local time."
+        }
+      ]
+    }
+  ]
+}
