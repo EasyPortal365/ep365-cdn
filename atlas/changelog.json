@@ -1,0 +1,63 @@
+{
+  "schema": 2,
+  "app": "ep365-atlas",
+  "name": "EP365 Atlas",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Přehled zdraví tenantu – celkové skóre 0–100 s pěti pilíři (zabezpečení, governance, úložiště, adopce a AI připravenost), manažerským shrnutím a doporučenými akcemi.",
+          "en": "Tenant health overview – an overall 0–100 score with five pillars (security, governance, storage, adoption and AI readiness), an executive summary and recommended actions."
+        },
+        {
+          "type": "new",
+          "cs": "Nálezy – katalog kontrolních pravidel vyhodnocuje každý sken; nálezy potvrzujete, řešíte nebo označíte jako výjimku a Atlas hlídá regrese mezi skeny.",
+          "en": "Findings – a catalogue of rules evaluates every scan; confirm, resolve or mark findings as exceptions while Atlas watches for regressions between scans."
+        },
+        {
+          "type": "new",
+          "cs": "Inventář webů z usage reportů Microsoftu – všechny kolekce webů včetně těch, kam správce nemá přístup, s úložištěm, aktivitou a zdravím per web.",
+          "en": "Site inventory from Microsoft usage reports – every site collection including those the admin cannot access, with storage, activity and per-site health."
+        },
+        {
+          "type": "new",
+          "cs": "Nastavení tenantu auditované proti doporučené praxi – u každé kontroly aktuální hodnota, doporučení a tlačítko Opravit, které změnu rovnou zapíše.",
+          "en": "Tenant settings audited against recommended practice – each check shows the current value, the recommendation and a Fix button that writes the change directly."
+        },
+        {
+          "type": "new",
+          "cs": "AI připravenost – čtyři dimenze (pořádek v právech, klasifikace dat, autoritativní zdroje, aktuálnost obsahu) s kontrolami, doporučenými kroky a porovnáním s minulým skenem.",
+          "en": "AI readiness – four dimensions (access hygiene, data classification, authoritative sources, content freshness) with checks, recommended steps and a comparison with the previous scan."
+        },
+        {
+          "type": "new",
+          "cs": "Sdílení a hosté – inventář hostů z Entra ID včetně neaktivních účtů, rozpad podle domén a přehled sdílení z auditních událostí.",
+          "en": "Sharing and guests – a guest inventory from Entra ID including inactive accounts, a per-domain breakdown and a sharing overview built from audit events."
+        },
+        {
+          "type": "new",
+          "cs": "Auditní log Microsoft Purview přímo v aplikaci – dotazy nad sdílením, mazáním, oprávněními i admin akcemi bez PowerShellu.",
+          "en": "The Microsoft Purview audit log right in the app – queries over sharing, deletions, permissions and admin actions without PowerShell."
+        },
+        {
+          "type": "new",
+          "cs": "Skenování na vyžádání ve vašem prohlížeči – rychlý i plný sken s průběhem po fázích, ohleduplností k limitům Microsoftu a ukládáním snímků pro trendy.",
+          "en": "On-demand scanning in your browser – quick and full scans with per-phase progress, respect for Microsoft throttling limits and snapshots saved for trends."
+        },
+        {
+          "type": "new",
+          "cs": "Porovnání skenů – vyberete dva snímky a Atlas ukáže vše, co se mezi nimi změnilo: skóre, nálezy, nastavení, weby, sdílení i spotřebu.",
+          "en": "Scan comparison – pick two snapshots and Atlas shows everything that changed between them: score, findings, settings, sites, sharing and storage."
+        },
+        {
+          "type": "new",
+          "cs": "Reporty a export – manažerský report zdraví tenantu k tisku a CSV exporty pro další zpracování; vše se generuje ve vašem tenantu.",
+          "en": "Reports and export – a printable tenant health report and CSV exports for further processing; everything is generated inside your tenant."
+        }
+      ]
+    }
+  ]
+}
