@@ -33,6 +33,11 @@
           "en": "Document preview opens more reliably, works for PDF too and shows more details – size, version, author and creation or modification dates."
         },
         {
+          "type": "fixed",
+          "cs": "Náhled dokumentu Word se správně zobrazí i na týmovém webu – dříve mohl hlásit, že dokument neexistuje.",
+          "en": "Word document preview now displays correctly on team sites too – previously it could report that the document does not exist."
+        },
+        {
           "type": "improved",
           "cs": "Testovací data obsahují ukázkový dokument nabídky, takže záložka Dokumenty má co ukázat hned po jejich vytvoření.",
           "en": "Sample data include an example deal document, so the Documents tab has something to show right after seeding."
