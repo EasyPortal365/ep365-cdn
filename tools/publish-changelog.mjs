@@ -4,6 +4,11 @@
 // Tento skript ho zvaliduje, zapise na CDN (<folder>/changelog.json) a
 // vygeneruje citelny CHANGELOG.md v app repu (jen CZ; EN texty zijou v JSON).
 //
+// SCHEMA 2 (2026-07-07): entry.version = ZAKAZNICKA VERZE = rada MAJOR.MINOR
+// (napr. "1.8"), NE interni ctyrmistny build. Karta rady vznika bumpem 2. radu;
+// buildy 1.8.x do ni prubezne PRIDAVAJI zmeny (date = datum posledni zmeny).
+// Zakaznik vnima jako novou verzi az novou radu.
+//
 // Pouziti (z korene ep365-cdn):
 //   node tools/publish-changelog.mjs fleet            # CDN folder
 //   node tools/publish-changelog.mjs ep365-fleet      # nebo appId
@@ -36,13 +41,13 @@ function normalizeApp(arg) {
 
 function validate(data, appId) {
   if (!data || typeof data !== 'object') fail('CHANGELOG.json neni objekt');
-  if (data.schema !== 1) fail('schema musi byt 1 (je: ' + data.schema + ')');
+  if (data.schema !== 2) fail('schema musi byt 2 (je: ' + data.schema + ') - verze zaznamu = rada MAJOR.MINOR');
   if (data.app !== appId) fail('app v JSON (' + data.app + ') nesouhlasi s repem (' + appId + ')');
   if (!data.name || typeof data.name !== 'string') fail('chybi name (zobrazovany nazev appky)');
   if (!Array.isArray(data.entries) || data.entries.length === 0) fail('entries musi byt neprazdne pole');
 
   for (const e of data.entries) {
-    if (!/^\d+\.\d+\.\d+\.\d+$/.test(e.version || '')) fail('neplatna verze: "' + e.version + '" (ocekavam X.Y.Z.W)');
+    if (!/^\d+\.\d+$/.test(e.version || '')) fail('neplatna verze: "' + e.version + '" (ocekavam zakaznickou RADU MAJOR.MINOR, napr. 1.8 - ne interni build X.Y.Z.W)');
     if (!/^\d{4}-\d{2}-\d{2}$/.test(e.date || '')) fail('neplatne datum u ' + e.version + ': "' + e.date + '" (ocekavam YYYY-MM-DD)');
     if (!Array.isArray(e.changes) || e.changes.length === 0) fail('verze ' + e.version + ' nema zadne changes');
     for (const c of e.changes) {
@@ -58,7 +63,7 @@ function validate(data, appId) {
 function cmpVersionDesc(a, b) {
   const pa = a.split('.').map(Number);
   const pb = b.split('.').map(Number);
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 2; i++) {
     if ((pa[i] || 0) !== (pb[i] || 0)) return (pb[i] || 0) - (pa[i] || 0);
   }
   return 0;
@@ -70,7 +75,7 @@ function toMarkdown(data) {
   lines.push('# Changelog – ' + data.name);
   lines.push('');
   for (const e of data.entries) {
-    lines.push('## [' + e.version + '] – ' + e.date);
+    lines.push('## Verze ' + e.version + ' – ' + e.date);
     lines.push('');
     for (const c of e.changes) {
       lines.push('- **' + TYPE_LABEL_CS[c.type] + ':** ' + c.cs);
