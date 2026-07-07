@@ -1,0 +1,89 @@
+{
+  "schema": 2,
+  "app": "ep365-site-manager",
+  "name": "EP365 Site Manager",
+  "entries": [
+    {
+      "version": "1.3",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "new",
+          "cs": "Nová uvítací obrazovka – přehledný rozcestník s pozdravem, rychlými akcemi a živými počty hned po otevření aplikace.",
+          "en": "New welcome landing screen – a clear start page with a greeting, quick actions and live counts right after opening the app."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled využití pro správce obsahuje report aktivit – chronologický výpis dění ve správě webů s filtrem období a exportem do CSV.",
+          "en": "The admin usage overview now includes an activity report – a chronological feed of site management events with a period filter and CSV export."
+        },
+        {
+          "type": "improved",
+          "cs": "Navigace vlevo ukazuje počty přímo u položek – kolik žádostí čeká na schválení a kolik webů brzy expiruje.",
+          "en": "The left navigation shows live counts – how many requests await approval and how many sites expire soon."
+        },
+        {
+          "type": "improved",
+          "cs": "Tabulku v importu webů lze řadit kliknutím na záhlaví sloupců.",
+          "en": "The site import table is sortable by clicking column headers."
+        },
+        {
+          "type": "fixed",
+          "cs": "Sada drobných oprav vzhledu a typografie z interní kontroly – včetně příkladů ve formuláři zpětné vazby.",
+          "en": "A batch of minor visual and typography fixes from an internal review – including the examples in the feedback form."
+        }
+      ]
+    },
+    {
+      "version": "1.2",
+      "date": "2026-07-02",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Příkazová paleta ⌘K – okamžité hledání napříč žádostmi, weby a obrazovkami přímo z klávesnice.",
+          "en": "Command palette ⌘K – instant keyboard search across requests, sites and views."
+        },
+        {
+          "type": "new",
+          "cs": "Výběr osob vyhledáváním v adresáři – v průvodci novou žádostí i při správě rolí správců a schvalovatelů.",
+          "en": "People are picked via directory search – in the new request wizard and when managing admin and approver roles."
+        },
+        {
+          "type": "new",
+          "cs": "Více akcí přímo z detailu webu – úprava metadat, prodloužení platnosti s e-mailovou připomínkou vlastníkovi a zobrazení členů týmu.",
+          "en": "More actions right from the site detail – metadata editing, expiry extension with an e-mail reminder to the owner, and a team members listing."
+        },
+        {
+          "type": "new",
+          "cs": "Hromadné operace v katalogu webů; žádost lze stáhnout zpět a neúspěšné založení webu zopakovat.",
+          "en": "Bulk operations in the site catalog; a request can be withdrawn and a failed site creation retried."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověření licence proběhne přímo v aplikaci, bez obnovování stránky.",
+          "en": "License verification now runs in-app, without a page reload."
+        },
+        {
+          "type": "improved",
+          "cs": "E-maily z aplikace přebírají branding organizace z centrální konfigurace EP365 Homepage – název firmy, akcentová barva a adresa pro odpovědi.",
+          "en": "App e-mails inherit your organisation branding from the EP365 Homepage global configuration – company name, accent colour and reply-to address."
+        },
+        {
+          "type": "improved",
+          "cs": "…a další vylepšení v průběhu řady 1.2 – pravidla pojmenování s kontrolou unikátnosti adresy, filtry auditu a aktualizovaná nápověda.",
+          "en": "…and further improvements across the 1.2 line – naming rules with URL uniqueness checks, audit filters and an updated help section."
+        }
+      ]
+    }
+  ]
+}

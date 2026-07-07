@@ -1,0 +1,58 @@
+{
+  "schema": 2,
+  "app": "ep365-marketing",
+  "name": "EP365 Marketing",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "new",
+          "cs": "Publikační kalendář – příspěvky na sociální sítě, marketingové aktivity i události z CRM v jedné ploše, v pohledech měsíc, týden a agenda.",
+          "en": "Publishing calendar – social posts, marketing activities and CRM events on one canvas, with month, week and agenda views."
+        },
+        {
+          "type": "new",
+          "cs": "Příspěvky na kanbanu – přetažením karty mezi sloupci projde příspěvek cestou od nápadu po publikaci; text lze připravit zvlášť pro každou síť včetně počítadla znaků.",
+          "en": "Posts on a kanban board – dragging a card between columns takes a post from idea to published; copy can be tailored per network, with character counters."
+        },
+        {
+          "type": "new",
+          "cs": "Schvalování obsahu – až tři konfigurovatelné kroky, historie rozhodnutí a vracení k dopracování s komentářem.",
+          "en": "Content approval – up to three configurable steps, a decision history and returns for rework with a comment."
+        },
+        {
+          "type": "new",
+          "cs": "Kampaně, aktivity a úkoly – zastřešení obsahu s přehledem plnění a lehkou týmovou koordinací.",
+          "en": "Campaigns, activities and tasks – content umbrellas with progress at a glance and light team coordination."
+        },
+        {
+          "type": "new",
+          "cs": "Konverzace se zmínkami – diskuse u příspěvků, kampaní i aktivit; zmínění kolegové dostanou e-mailové upozornění.",
+          "en": "Conversations with mentions – threads on posts, campaigns and activities; mentioned colleagues get an e-mail notification."
+        },
+        {
+          "type": "new",
+          "cs": "Publikační plán – týdenní rytmus slotů podle sítí a témat s kontrolou plnění přímo na přehledu.",
+          "en": "Publishing plan – a weekly rhythm of slots per network and topic, with fulfilment tracked right on the dashboard."
+        },
+        {
+          "type": "new",
+          "cs": "Volitelné propojení s EP365 CRM – přípravy akcí a webinářů s checklistem a navázaným promo obsahem.",
+          "en": "Optional EP365 CRM link – event and webinar preparation with a checklist and linked promo content."
+        }
+      ]
+    }
+  ]
+}

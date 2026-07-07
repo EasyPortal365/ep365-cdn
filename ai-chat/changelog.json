@@ -1,0 +1,74 @@
+{
+  "schema": 2,
+  "app": "ep365-ai-chat",
+  "name": "EP365 AI Asistent",
+  "entries": [
+    {
+      "version": "1.30",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "new",
+          "cs": "Příkazová paleta ⌘K – okamžité hledání napříč konverzacemi i obsahem zpráv a rychlý skok na kteroukoli obrazovku přímo z klávesnice.",
+          "en": "Command palette ⌘K – instant keyboard search across conversations and message content plus a quick jump to any screen."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda hledá napříč všemi kategoriemi otázek najednou a nově nabízí Tip dne.",
+          "en": "Help now searches across all question categories at once and offers a Tip of the day."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověření licence proběhne přímo v aplikaci, bez obnovování stránky.",
+          "en": "License verification now runs in-app, without a page reload."
+        }
+      ]
+    },
+    {
+      "version": "1.29",
+      "date": "2026-07-03",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Volba AI modelu – správce může vybrat model pro daný web, nebo se model dědí z globální konfigurace organizace.",
+          "en": "AI model selection – admins can pick the model for a site, or inherit it from the organisation's global configuration."
+        },
+        {
+          "type": "new",
+          "cs": "Hlasové předčítání odpovědí s kvalitním neurálním hlasem a správnou výslovností zkratek.",
+          "en": "Voice read-aloud of answers with a high-quality neural voice and correct pronunciation of abbreviations."
+        },
+        {
+          "type": "new",
+          "cs": "Export odpovědi do Wordu (.docx) na jedno kliknutí.",
+          "en": "One-click export of an answer to Word (.docx)."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlejší odezva aplikace díky balíčku výkonnostních vylepšení.",
+          "en": "Faster app response thanks to a package of performance improvements."
+        },
+        {
+          "type": "improved",
+          "cs": "Připojení k AI službě se umí převzít z globální konfigurace organizace – bez ručního nastavování na každém webu.",
+          "en": "The AI service connection can be inherited from the organisation's global configuration – no manual setup on every site."
+        },
+        {
+          "type": "improved",
+          "cs": "…a další vylepšení v průběhu řady 1.29, například přehlednější dialog Nalezené dokumenty.",
+          "en": "…and further improvements across the 1.29 line, for example a clearer Found documents dialog."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema": 2,
+  "app": "ep365-multimedia",
+  "name": "EP365 Mediální centrum",
+  "entries": [
+    {
+      "version": "1.9",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "new",
+          "cs": "Příkazová paleta ⌘K – okamžité hledání napříč médii, kolekcemi a obrazovkami přímo z klávesnice.",
+          "en": "Command palette ⌘K – instant keyboard search across media, collections and views."
+        },
+        {
+          "type": "improved",
+          "cs": "Uvítací rozcestník má nový vzhled podle jednotného stylu aplikací EP365 – rychlé vstupy do fotografií, videí a brand materiálů.",
+          "en": "The welcome landing page has a refreshed look aligned with the unified EP365 app style – quick entries to photos, videos and brand assets."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověření licence proběhne přímo v aplikaci, bez obnovování stránky.",
+          "en": "License verification now runs in-app, without a page reload."
+        },
+        {
+          "type": "fixed",
+          "cs": "Bezpečnostní zpřísnění kontroly odkazů uložených u médií a brand materiálů.",
+          "en": "Security hardening of link checks for URLs stored with media and brand assets."
+        }
+      ]
+    },
+    {
+      "version": "1.8",
+      "date": "2026-06-21",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Klik na dlaždici otevře médium rovnou v prohlížečce přes celou obrazovku – s filmovým pásem pro rychlé procházení, fotografiemi na celou obrazovku a automatickým náhledem videa.",
+          "en": "Clicking a tile opens the media in a full-screen viewer – with a filmstrip for quick browsing, full-screen photos and automatic video preview."
+        },
+        {
+          "type": "new",
+          "cs": "Barevný motiv aplikace lze dědit z centrální konfigurace organizace (EP365 Homepage) – jednotný vzhled všech aplikací na jedno kliknutí.",
+          "en": "The accent theme can be inherited from your organisation's central configuration (EP365 Homepage) – a unified look across apps in one click."
+        },
+        {
+          "type": "new",
+          "cs": "Nápověda zobrazuje kontakt na podporu vaší organizace – přebírá se z globální konfigurace EP365 Homepage.",
+          "en": "Help now shows your organisation's support contact – inherited from the EP365 Homepage global configuration."
+        },
+        {
+          "type": "improved",
+          "cs": "Tlačítka Zpět a Vpřed v prohlížeči přepínají obrazovky uvnitř aplikace – návrat na předchozí pohled bez opuštění stránky.",
+          "en": "The browser Back and Forward buttons switch views inside the app – returning to the previous screen without leaving the page."
+        },
+        {
+          "type": "fixed",
+          "cs": "Bezpečnostní a technický audit – opravy drobných chyb, lepší přístupnost a spolehlivější ukládání.",
+          "en": "Security and technical audit – minor bug fixes, better accessibility and more reliable saving."
+        },
+        {
+          "type": "improved",
+          "cs": "…a další vylepšení v průběhu řady 1.8 (úprava média tužkou v hlavičce detailu, ukázková brand data, aktualizovaná nápověda).",
+          "en": "…and further improvements across the 1.8 line (pencil edit in the detail header, sample brand data, updated help)."
+        }
+      ]
+    }
+  ]
+}

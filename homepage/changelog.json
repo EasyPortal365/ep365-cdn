@@ -1,0 +1,89 @@
+{
+  "schema": 2,
+  "app": "ep365-homepage",
+  "name": "EP365 Homepage",
+  "entries": [
+    {
+      "version": "1.19",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "new",
+          "cs": "Příkazová paleta ⌘K – okamžité hledání napříč obsahem intranetu a rychlý skok na záložky nebo do správy.",
+          "en": "Command palette ⌘K – instant search across intranet content and a quick jump to tabs or administration."
+        },
+        {
+          "type": "new",
+          "cs": "Formulář zpětné vazby má panel s tipy, jak napsat užitečné hlášení chyby nebo návrh.",
+          "en": "The feedback form now has a tips panel with guidance for writing useful bug reports and suggestions."
+        },
+        {
+          "type": "new",
+          "cs": "Seznam čtenářů oznámení lze exportovat do CSV.",
+          "en": "The list of announcement readers can be exported to CSV."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda je členěná do témat a umí vyhledávat; seznamy mají jednotné stránkování a pamatují si zvolený počet položek.",
+          "en": "Help is organised into topics and searchable; lists share unified pagination and remember your page-size choice."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověření licence proběhne přímo v aplikaci, bez obnovení stránky.",
+          "en": "License verification now runs in-app, without a page reload."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vymazání všech dat aplikace je nově chráněné potvrzovacím zaškrtnutím; interní kontrola přinesla bezpečnostní zpřísnění odkazů a sjednocenou typografii.",
+          "en": "Clearing all app data is now protected by a confirmation checkbox; an internal review brought stricter link safety and unified typography."
+        }
+      ]
+    },
+    {
+      "version": "1.18",
+      "date": "2026-07-03",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Sekce Návštěvnost – přehled nejčtenějšího obsahu a vývoj návštěvnosti webu v čase, včetně souhrnných čísel.",
+          "en": "Site traffic section – an overview of the most-read content and visit trends over time, including summary figures."
+        },
+        {
+          "type": "new",
+          "cs": "Sekce Náhled obsahu – vložení dokumentu Office nebo webové stránky přímo na homepage.",
+          "en": "Content preview section – embed an Office document or a web page directly on the homepage."
+        },
+        {
+          "type": "new",
+          "cs": "Uložená rozvržení – správce může uložit pojmenované snímky rozložení sekcí a kdykoli je obnovit; týmové weby mohou dědit globální rozvržení publikované z hubu.",
+          "en": "Saved layouts – admins can store named snapshots of the section layout and restore them anytime; team sites can inherit a global layout published from the hub."
+        },
+        {
+          "type": "improved",
+          "cs": "Každá sekce může mít vlastní název a Rychlé akce nabízejí širší paletu barevných tónů včetně vlastní barvy.",
+          "en": "Every section can have a custom title and Quick actions offer a wider palette of colour tones including a custom colour."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oprava ukládání v nastavení sekcí – na obrazovce už nejsou dvě tlačítka Uložit současně, změny se ukládají jednoznačně.",
+          "en": "Fixed saving in section settings – the screen no longer shows two Save buttons at once, changes are saved unambiguously."
+        },
+        {
+          "type": "improved",
+          "cs": "…a další vylepšení v průběhu řady 1.18 (spolehlivější Oborové zprávy, globální nastavení AI modelu, popisy aplikací z centrálního katalogu).",
+          "en": "…and further improvements across the 1.18 line (more reliable Industry news, global AI model configuration, app descriptions from the central catalogue)."
+        }
+      ]
+    }
+  ]
+}

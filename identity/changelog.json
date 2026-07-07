@@ -1,0 +1,74 @@
+{
+  "schema": 2,
+  "app": "ep365-identity",
+  "name": "EP365 Identity Manager",
+  "entries": [
+    {
+      "version": "1.2",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "improved",
+          "cs": "Barevný motiv aplikace je nyní společný pro celou organizaci – správce ho nastaví jednou a platí všem uživatelům.",
+          "en": "The app colour theme is now organisation-wide – an admin sets it once and it applies to all users."
+        },
+        {
+          "type": "new",
+          "cs": "Rizika přístupů lze exportovat do CSV – seznam nálezů si otevřete třeba v Excelu.",
+          "en": "Access risks can be exported to CSV – open the list of findings in Excel."
+        },
+        {
+          "type": "improved",
+          "cs": "Dlaždice a rychlé vstupy na Přehledu fungují jako filtry – klik otevře seznam skupin s předvyplněným filtrem.",
+          "en": "Dashboard tiles and quick entries act as filters – a click opens the group list with the filter pre-applied."
+        },
+        {
+          "type": "improved",
+          "cs": "Ukázková data nově pokrývají i recertifikaci a klasifikaci hostů – governance funkce si vyzkoušíte bez ručního zakládání.",
+          "en": "Sample data now also covers recertification and guest classification – try the governance features without manual setup."
+        }
+      ]
+    },
+    {
+      "version": "1.1",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nový modul Uživatelé – správa účtů Entra ID: přehled uživatelů i hostů, blokace účtu a doplňující metadata.",
+          "en": "New Users module – Entra ID account management: an overview of users and guests, account blocking and extra metadata."
+        },
+        {
+          "type": "new",
+          "cs": "Detail uživatele se otevírá jako široký záznamový panel – identita 360 vlevo, záložky s podrobnostmi vpravo.",
+          "en": "The user detail opens as a wide record panel – identity 360 on the left, detail tabs on the right."
+        },
+        {
+          "type": "improved",
+          "cs": "Příkazová paleta ⌘K prohledává i uživatele a taxonomická schémata a otevírá se spolehlivě nad celou aplikací.",
+          "en": "The ⌘K command palette also searches users and taxonomy schemes and reliably opens above the whole app."
+        },
+        {
+          "type": "improved",
+          "cs": "Tabulky skupin a uživatelů umí řadit kliknutím na záhlaví sloupce a mají jednotné stránkování.",
+          "en": "Group and user tables sort by clicking a column header and share unified pagination."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověření licence proběhne přímo v aplikaci, bez obnovování stránky.",
+          "en": "License verification now runs in-app, without a page reload."
+        }
+      ]
+    }
+  ]
+}

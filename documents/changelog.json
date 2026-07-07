@@ -1,0 +1,64 @@
+{
+  "schema": 2,
+  "app": "ep365-documents",
+  "name": "EP365 Řízené dokumenty",
+  "entries": [
+    {
+      "version": "1.11",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "new",
+          "cs": "Vzhled notifikačních e-mailů lze přizpůsobit vaší organizaci – logo, název, akcentová barva, patička i adresa pro odpovědi, s živým náhledem a děděním z globální konfigurace EP365.",
+          "en": "Notification e-mails can now match your organisation's branding – logo, name, accent colour, footer and reply-to address, with a live preview and inheritance from the EP365 global configuration."
+        },
+        {
+          "type": "improved",
+          "cs": "Všechny e-maily odesílané aplikací (žádost o potvrzení, publikace, připomínky, zamítnutí) používají jednotnou brandovanou šablonu.",
+          "en": "All e-mails sent by the app (confirmation requests, publications, reminders, rejections) use a unified branded template."
+        }
+      ]
+    },
+    {
+      "version": "1.10",
+      "date": "2026-07-06",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nová uvítací obrazovka Moje dokumenty – osobní pozdrav, rychlý přehled stavu vašich dokumentů a odkazy na nejčastější akce.",
+          "en": "New My documents welcome screen – a personal greeting, a quick status overview of your documents and shortcuts to frequent actions."
+        },
+        {
+          "type": "improved",
+          "cs": "Příkazová paleta ⌘K prohledává i dokumenty – na detail dokumentu skočíte přímo z klávesnice.",
+          "en": "The ⌘K command palette now searches documents too – jump straight to a document detail from the keyboard."
+        },
+        {
+          "type": "improved",
+          "cs": "Tabulky ve všech přehledech lze řadit kliknutím na záhlaví sloupce.",
+          "en": "Tables across all views can be sorted by clicking the column headers."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověření licence proběhne přímo v aplikaci, bez obnovování stránky.",
+          "en": "License verification now runs in-app, without a page reload."
+        },
+        {
+          "type": "improved",
+          "cs": "…a další vylepšení v průběhu řady 1.10.",
+          "en": "…and further improvements across the 1.10 line."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema": 2,
+  "app": "ep365-worklog",
+  "name": "EP365 Worklog",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
+          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+        },
+        {
+          "type": "new",
+          "cs": "Po aktualizaci aplikace se na úvodní obrazovce objeví nenápadné upozornění s odkazem na novinky.",
+          "en": "After an update, a subtle notice on the home screen points you to what's new."
+        },
+        {
+          "type": "new",
+          "cs": "Můj výkaz – rychlý zápis odpracovaných hodin s týdenní mřížkou, kopií minulého týdne a odesláním ke schválení.",
+          "en": "My timesheet – quick logging of worked hours with a weekly grid, copy-last-week and submission for approval."
+        },
+        {
+          "type": "new",
+          "cs": "Schvalování výkazů – fronta odeslaných hodin pro vedoucí projektů, důvod zamítnutí, delegace schvalování v nepřítomnosti a e-mailové notifikace.",
+          "en": "Timesheet approval – a queue of submitted hours for project leads, rejection reasons, approval delegation during absence and e-mail notifications."
+        },
+        {
+          "type": "new",
+          "cs": "Fakturace a výkazy – schválené hodiny připravené k fakturaci, sazby dle ceníku na úrovni zákazníka, projektu i osoby, součty podle měn a export měsíčního výkazu do Wordu dle šablony nebo do CSV.",
+          "en": "Billing and reports – approved hours ready for invoicing, rates from the rate card at customer, project and person level, per-currency totals and monthly report export to Word (via template) or CSV."
+        },
+        {
+          "type": "new",
+          "cs": "Projekty a milníky – strom zákazník, projekt, milník a úkol; úkoly také jako kanban s přetahováním a sledováním postupu.",
+          "en": "Projects and milestones – a customer, project, milestone and task tree; tasks also as a drag-and-drop kanban with progress tracking."
+        },
+        {
+          "type": "new",
+          "cs": "Propojení s EP365 CRM – servisní smlouvy s předplacenými hodinami, převod nevyčerpaných hodin do dalšího měsíce a uzávěrka měsíce s propisem příjmů z hodin.",
+          "en": "EP365 CRM integration – service contracts with prepaid hours, carry-over of unused hours to the next month and month close writing revenue from hours."
+        },
+        {
+          "type": "new",
+          "cs": "Vykazovací disciplína – uzamykání období, týdenní cíl hodin, připomínky nevykázaného času, eskalace výkazů po termínu a Outlook kalendář jako podklad k vykázání.",
+          "en": "Time-logging discipline – period locking, a weekly hours target, reminders for missing time, escalation of overdue timesheets and Outlook calendar as a basis for logging."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověření licence proběhne přímo v aplikaci bez obnovení stránky a seznamy mají jednotné stránkování s volbou počtu položek.",
+          "en": "License verification runs in-app without a page reload and lists share unified pagination with a page-size choice."
+        }
+      ]
+    }
+  ]
+}
