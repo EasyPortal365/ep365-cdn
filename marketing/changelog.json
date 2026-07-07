@@ -4,6 +4,42 @@
   "name": "EP365 Marketing",
   "entries": [
     {
+      "version": "1.1",
+      "date": "2026-07-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Úkoly na nástěnce (kanban) – přetažením karty mezi sloupci K vyřízení, Probíhá a Hotovo rovnou změníte stav úkolu.",
+          "en": "Tasks on a board (kanban) – drag a card between the To do, In progress and Done columns to change a task's status."
+        },
+        {
+          "type": "new",
+          "cs": "Konverzace u úkolů – k úkolu si tým píše vzkazy a zmíní kolegu přes @; zmíněný dostane e-mailové upozornění.",
+          "en": "Conversations on tasks – the team leaves notes on a task and mentions a colleague with @; the mentioned person gets an e-mail notification."
+        },
+        {
+          "type": "new",
+          "cs": "Historie změn úkolu – u každého úkolu je vidět, kdo a kdy změnil stav, termín, přiřazení nebo název.",
+          "en": "Task change history – every task shows who changed its status, due date, assignee or title, and when."
+        },
+        {
+          "type": "new",
+          "cs": "Propojení s Outlook kalendářem – úkol s termínem si jedním klikem přidáte do svého kalendáře jako celodenní událost.",
+          "en": "Outlook calendar link – add a task with a due date to your own calendar as an all-day event in one click."
+        },
+        {
+          "type": "improved",
+          "cs": "Checklist příprav akcí ve fázích – kroky rozdělené na před akcí, během akce a po akci pro lepší přehled.",
+          "en": "Phased event-preparation checklist – steps split into before, during and after the event for a clearer overview."
+        },
+        {
+          "type": "improved",
+          "cs": "Úkoly přímo u akce – ke každému webináři či konferenci přidáte a odškrtnete úkoly na jednom místě.",
+          "en": "Tasks right on the event – add and tick off tasks for each webinar or conference in one place."
+        }
+      ]
+    },
+    {
       "version": "1.0",
       "date": "2026-07-07",
       "changes": [
