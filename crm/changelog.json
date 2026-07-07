@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Nabídky na tabuli Kanban přetáhnete myší mezi sloupci fází – tažením karty rovnou změníte fázi nabídky (a s ní i pravděpodobnost).",
+          "en": "On the Kanban board you can drag deals between phase columns – moving a card changes the deal's phase (and its probability) right away."
+        },
+        {
+          "type": "improved",
+          "cs": "Fakturační podklady z nabídky jsou teď kompletní a připravené k opsání do fakturačního systému – odběratel s IČO/DIČ a adresou, položky s cenami bez DPH, rekapitulace DPH po sazbách, termíny i platební milníky.",
+          "en": "Invoice details from a deal are now complete and ready to transcribe into your invoicing system – customer with company/VAT ID and address, line items priced excl. VAT, a VAT recap per rate, dates and payment milestones."
+        },
+        {
+          "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
           "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
         },
