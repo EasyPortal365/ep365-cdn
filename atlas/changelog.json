@@ -71,6 +71,16 @@
           "type": "improved",
           "cs": "V Porovnání skenů u změněných nastavení tenantu otevřete detail změny (co bylo, co je teď a proč na tom záleží) a jedním klikem změnu vrátíte zpět na původní bezpečnější hodnotu.",
           "en": "In Scan comparison you can open the detail of a changed tenant setting (what it was, what it is now and why it matters) and revert it back to the original, safer value with a single click."
+        },
+        {
+          "type": "new",
+          "cs": "Hloubkový sken nově odhalí i to, co dosud uměl jen ruční technický audit: přímá oprávnění přiřazená rovnou uživatelům (mimo skupiny), knihovny dokumentů bez verzování, listy nad 5000 položek, podweby (zastaralý model) a weby jen s jedním vlastníkem či správcem.",
+          "en": "The deep scan now surfaces what previously required a manual technical audit: permissions assigned directly to users (outside groups), document libraries without versioning, lists over 5000 items, subsites (a legacy model) and sites with only a single owner or admin."
+        },
+        {
+          "type": "new",
+          "cs": "Nová sekce Struktura tenantu (ve Webech): hub sites, term store, M365 skupiny včetně osiřelých bez vlastníka, Content Type Hub a home site – přehled informační architektury na jednom místě, s upozorněním na osiřelé skupiny a chybějící rozcestníky.",
+          "en": "New Tenant structure section (under Sites): hub sites, the term store, Microsoft 365 groups including orphaned ones without an owner, the Content Type Hub and the home site – an information-architecture overview in one place, flagging orphaned groups and missing hubs."
         }
       ]
     }
