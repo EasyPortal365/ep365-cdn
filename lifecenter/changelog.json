@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.11",
-      "date": "2026-07-07",
+      "date": "2026-07-08",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Ukázková data se už nevytvářejí automaticky při prvním otevření prázdného webu – vytvoříte je (i s výchozí taxonomií) výhradně tlačítkem v Nastavení → Testovací data. Reálný web tak zůstane prázdný, dokud ho nenaplníte, a smazaná data se nevrací.",
+          "en": "Sample data is no longer created automatically on first open of an empty site – you create it (including the default taxonomy) only via the button in Settings → Test data. A real site stays empty until you fill it, and deleted data no longer comes back."
+        },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
