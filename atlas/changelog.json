@@ -81,6 +81,16 @@
           "type": "new",
           "cs": "Nová sekce Struktura tenantu (ve Webech): hub sites, term store, M365 skupiny včetně osiřelých bez vlastníka, Content Type Hub a home site – přehled informační architektury na jednom místě, s upozorněním na osiřelé skupiny a chybějící rozcestníky.",
           "en": "New Tenant structure section (under Sites): hub sites, the term store, Microsoft 365 groups including orphaned ones without an owner, the Content Type Hub and the home site – an information-architecture overview in one place, flagging orphaned groups and missing hubs."
+        },
+        {
+          "type": "new",
+          "cs": "Rozšířený audit tenant nastavení: Atlas nově kontroluje i přístup z nespravovaných zařízení (Conditional Access), blokaci stažení infikovaných souborů, vynucenou expiraci hostů, výchozí oprávnění a typ sdílených odkazů, nárok „Everyone“, automatické limity úložiště a retenci OneDrive po odchodu.",
+          "en": "Expanded tenant-settings audit: Atlas now also checks unmanaged-device access (Conditional Access), blocking downloads of infected files, enforced guest expiration, default share-link permission and type, the Everyone claim, automatic storage limits and OneDrive retention after offboarding."
+        },
+        {
+          "type": "new",
+          "cs": "Kompletní tenant nastavení na jednom místě: veřejné rozhraní vrací jen ~30 hodnot, takže Nastavení tenantu ukazuje jejich úplný výpis a přes Nastavení → Import nastavení lze jednorázově vložit výstup PowerShellu Get-SPOTenant a odemknout plných ~230 kontrol (read-only nálezy s návodem).",
+          "en": "The full tenant configuration in one place: the public interface returns only ~30 values, so Tenant settings now lists them all, and via Settings → Import settings you can paste the PowerShell Get-SPOTenant output once to unlock the full ~230 checks (read-only findings with guidance)."
         }
       ]
     }
