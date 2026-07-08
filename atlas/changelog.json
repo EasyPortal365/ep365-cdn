@@ -94,8 +94,8 @@
         },
         {
           "type": "improved",
-          "cs": "Detail nálezu je širší a přehlednější: přibyly technické detaily (pravidlo, pilíř, objekt, způsob ověření, kdy zjištěno) a hlavně sekce PowerShell – u většiny nastavení najdete hotový příkaz včetně přihlášení, který stačí zkopírovat a spustit, když chcete změnu provést sami.",
-          "en": "The finding detail is wider and clearer: it now includes technical details (rule, pillar, object, verification method, when detected) and, above all, a PowerShell section – for most settings you get a ready-to-run command including sign-in that you can copy and execute to make the change yourself."
+          "cs": "Detail nálezu je širší a přehledně ve dvou sloupcích (vlevo co a proč, vpravo jak to vyřešit) – bez posouvání. Přibyly technické detaily (pravidlo, pilíř, objekt, způsob ověření) a hlavně sekce PowerShell s hotovým příkazem včetně přihlášení pro svépomocnou opravu; všechna tlačítka (Opravit, Ověřit, Označit) jsou nově ve spodní liště.",
+          "en": "The finding detail is wider and laid out in two clear columns (what and why on the left, how to fix on the right) – no scrolling. It adds technical details (rule, pillar, object, verification method) and, above all, a PowerShell section with a ready-to-run command including sign-in for self-service; all buttons (Fix, Verify, Mark) now live in the bottom bar."
         },
         {
           "type": "improved",
