@@ -26,6 +26,11 @@
           "type": "improved",
           "cs": "Nastavení ukazuje přehled centrálních autoritativních zdrojů včetně vazby na skupiny.",
           "en": "Settings now show an overview of central authoritative sources including their group bindings."
+        },
+        {
+          "type": "improved",
+          "cs": "Změny globální konfigurace v EP365 Homepace (autoritativní zdroje, skupiny, motiv, nastavení) se projeví bez nutnosti obnovit stránku – aplikace je zaznamená při návratu na kartu.",
+          "en": "Changes to the global configuration in EP365 Homepage (authoritative sources, groups, theme, settings) now take effect without a page refresh – the app picks them up when you return to the tab."
         }
       ]
     },

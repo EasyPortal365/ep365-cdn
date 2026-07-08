@@ -13,6 +13,11 @@
           "en": "AI Chat authoritative sources can now optionally be bound to Entra ID groups in Global configuration – the source then applies only to members of the selected groups; SharePoint permissions always apply."
         },
         {
+          "type": "improved",
+          "cs": "Změny globální konfigurace se propisují do napojených aplikací bez nutnosti obnovit stránku – aplikace si je vyzvednou při návratu na kartu (razítko verze konfigurace).",
+          "en": "Changes to the global configuration propagate to connected apps without a page refresh – apps pick them up when you return to the tab (config version stamp)."
+        },
+        {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
           "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
