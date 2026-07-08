@@ -89,8 +89,18 @@
         },
         {
           "type": "new",
-          "cs": "Kompletní tenant nastavení na jednom místě: veřejné rozhraní vrací jen ~30 hodnot, takže Nastavení tenantu ukazuje jejich úplný výpis a přes Nastavení → Import nastavení lze jednorázově vložit výstup PowerShellu Get-SPOTenant a odemknout plných ~230 kontrol (read-only nálezy s návodem).",
-          "en": "The full tenant configuration in one place: the public interface returns only ~30 values, so Tenant settings now lists them all, and via Settings → Import settings you can paste the PowerShell Get-SPOTenant output once to unlock the full ~230 checks (read-only findings with guidance)."
+          "cs": "Kompletní tenant nastavení na jednom místě: veřejné rozhraní vrací jen ~30 hodnot, takže Nastavení tenantu ukazuje jejich úplný výpis a na obrazovce Skenování (třetí dlaždice Import nastavení) lze jednorázově vložit výstup PowerShellu Get-SPOTenant a odemknout plných ~230 kontrol (read-only nálezy s návodem).",
+          "en": "The full tenant configuration in one place: the public interface returns only ~30 values, so Tenant settings now lists them all, and on the Scan screen (the third Import settings tile) you can paste the PowerShell Get-SPOTenant output once to unlock the full ~230 checks (read-only findings with guidance)."
+        },
+        {
+          "type": "improved",
+          "cs": "Detail nálezu je širší a přehlednější: přibyly technické detaily (pravidlo, pilíř, objekt, způsob ověření, kdy zjištěno) a hlavně sekce PowerShell – u většiny nastavení najdete hotový příkaz včetně přihlášení, který stačí zkopírovat a spustit, když chcete změnu provést sami.",
+          "en": "The finding detail is wider and clearer: it now includes technical details (rule, pillar, object, verification method, when detected) and, above all, a PowerShell section – for most settings you get a ready-to-run command including sign-in that you can copy and execute to make the change yourself."
+        },
+        {
+          "type": "improved",
+          "cs": "Bohatší Přehled: přibyl graf Vývoj skóre z historie skenů, pruh Od posledního skenu (nové / vyřešené / regrese), mini-trendy přímo v dlaždicích Weby / Nálezy / Úložiště / Hosté a koláč Nálezy dle oblasti. Odstranili jsme duplicitní textové shrnutí.",
+          "en": "A richer Overview: added a Score trend chart from scan history, a Since-last-scan strip (new / resolved / regressions), inline mini-trends on the Sites / Findings / Storage / Guests tiles and a Findings-by-area donut. We removed the redundant text summary."
         }
       ]
     }
