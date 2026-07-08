@@ -141,6 +141,51 @@
           "type": "fixed",
           "cs": "Oprava: rychlý sken už nezavírá hloubkové nálezy. Rychlý sken záměrně nedělá hloubkový průzkum webů, takže neměl data o knihovnách, oprávněních apod. – přesto po něm tyto nálezy „mizely“ jako vyřešené a příští plný sken je otevíral jako falešné regrese. Nově rychlý sken uzavírá jen to, co skutečně změřil (nastavení tenantu a hosty); hloubkové nálezy nechává beze změny až do dalšího plného skenu.",
           "en": "Fixed: a quick scan no longer closes deep-scan findings. A quick scan deliberately skips the per-site deep scan, so it had no data about libraries, permissions etc. – yet those findings used to disappear as resolved after it, and the next full scan reopened them as false regressions. A quick scan now resolves only what it actually measured (tenant settings and guests) and leaves deep findings untouched until the next full scan."
+        },
+        {
+          "type": "fixed",
+          "cs": "Bezpečnost rolí: skupina Čtenáři (EP365AtlasViewers) dostávala na web právo Úpravy – „čtenář“ tak mohl zapisovat do dat aplikace, spouštět a mazat skeny nebo měnit stavy nálezů. Nově dostává jen Čtení (u stávajících instalací se srovná automaticky), data aplikace zůstávají čtenářům viditelná a všechny zásahy (sken, import, mazání, řešení nálezů) jsou jen pro Správce – včetně přístupu přes přímý odkaz.",
+          "en": "Role security: the Viewers group (EP365AtlasViewers) used to receive Edit rights on the web – a viewer could write into the app data, run or delete scans and change finding states. It now gets Read only (existing installs adjust automatically), app data stays visible to viewers, and all actions (scan, import, deletion, resolving findings) are admin-only – including via direct links."
+        },
+        {
+          "type": "fixed",
+          "cs": "Spolehlivost nálezů: při výpadku připojení po skenu se nálezy mohly založit duplicitně; dva souběžně spuštěné skeny se mohly poprat o zápis. Nově párování při chybě čtení bezpečně skončí (žádné duplicity) a druhý sken nejde spustit, dokud první běží – průběh skenu navíc zůstává viditelný, i když mezitím odejdete na jinou obrazovku.",
+          "en": "Findings reliability: a connectivity failure after a scan could create duplicate findings, and two concurrently started scans could race on writes. Matching now safely aborts on read failure (no duplicates), a second scan cannot start while one is running – and scan progress stays visible even if you navigate away meanwhile."
+        },
+        {
+          "type": "fixed",
+          "cs": "Falešný kritický nález „Anonymní odkazy nemají expiraci“ (SH-04): hlásil se i tenantům, které expiraci nastavenou mají – veřejné rozhraní tuto hodnotu vůbec nevrací. Nově se pravidlo vyhodnocuje jen s importem Get-SPOTenant; nefunkční tlačítko „Opravit hned“ u SH-04/SH-05 nahradil hotový PowerShell příkaz.",
+          "en": "False critical finding “Anonymous links have no expiration” (SH-04): it fired even on tenants that do have expiration set – the public interface simply does not return this value. The rule now evaluates only with the Get-SPOTenant import; the non-functional Fix now button on SH-04/SH-05 was replaced by a ready-to-run PowerShell command."
+        },
+        {
+          "type": "fixed",
+          "cs": "Import Get-SPOTenant: PowerShell ukládá volby jako čísla (např. ConditionalAccessPolicy: 0), takže rozšířená bezpečnostní pravidla (přístup z nespravovaných zařízení, anonymní odkazy s úpravami…) se tiše nikdy neozvala. Import teď hodnoty převádí a pravidla fungují; navíc je lze uzavřít i rychlým skenem a ověřit tlačítkem Ověřit teď.",
+          "en": "Get-SPOTenant import: PowerShell serializes options as numbers (e.g. ConditionalAccessPolicy: 0), so the extended security rules (unmanaged-device access, anonymous edit links…) silently never fired. The import now translates the values, the rules work – and they can be closed by a quick scan and checked with Verify now."
+        },
+        {
+          "type": "fixed",
+          "cs": "„Web bez vlastníka“: selhání čtení skupiny Vlastníci (throttling, oprávnění) se počítalo jako nula vlastníků → falešné nálezy. Nezjištěno se nyní poctivě ukazuje jako nezjištěno. Sloupec Vlastník v seznamu webů se navíc konečně plní ze skenu (dřív ukazoval „bez vlastníka“ u všech webů).",
+          "en": "“Site without an owner”: a failed read of the Owners group (throttling, permissions) was counted as zero owners → false findings. Unknown is now honestly shown as unknown. The Owner column in the site list is also finally populated from the scan (it used to show “no owner” for every site)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Ukázková data: opakované kliknutí duplikovalo demo snímky a seed se míchal s reálnými nálezy (mohl je přepsat nebo zavřít; mazání ukázkových dat pak mohlo zasáhnout živé záznamy). Nově se před vytvořením staré demo uklidí a ukázková data se reálných nálezů vůbec nedotýkají.",
+          "en": "Sample data: repeated clicks duplicated demo snapshots, and seeding mixed with real findings (it could overwrite or close them; deleting sample data could then touch live records). Old demo data is now cleaned up first and sample data never touches real findings."
+        },
+        {
+          "type": "improved",
+          "cs": "Prahy z Nastavení (neaktivita webu, neaktivita hosta) se nově opravdu promítají do nálezů GV-05/AI-15/SH-09 i do všech přehledů – dřív je pravidla ignorovala a platilo pevných 180/365 dní. Chyby ukládání v Nastavení a správě rolí se nově zobrazují (dřív tiché), správa rolí hlásí i úspěch.",
+          "en": "Thresholds from Settings (site inactivity, guest inactivity) now genuinely feed the GV-05/AI-15/SH-09 findings and all overviews – rules used to ignore them and a fixed 180/365 days applied. Save errors in Settings and role management are now surfaced (previously silent), and role management also confirms success."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobné opravy napříč aplikací: detail webu už nikdy nezobrazí jiný web, když odkaz míří na neznámou adresu; odkaz z adresního řádku neztrácí otevřený záznam; audit dotaz se ukončí při odchodu z obrazovky; klávesa Esc v paletě už nezavře i detail pod ní; ošetřeny krajní hodnoty (neplatné datum, nulová kvóta) a CSV export; odebráno nepoužívané oprávnění Reports.Read.All.",
+          "en": "Small fixes across the app: the site detail never shows a different site when a link points to an unknown address; the address-bar link keeps the open record; an audit query stops when you leave the screen; Esc in the palette no longer also closes the detail underneath; edge values (invalid date, zero quota) and CSV export hardened; unused Reports.Read.All permission removed."
+        },
+        {
+          "type": "new",
+          "cs": "Výjimky pro konkrétní knihovny a listy: v detailu nálezu (Dotčené objekty) lze jednotlivou knihovnu, list nebo podweb označit jako výjimku – souhrnný nález ji přestane počítat, ale nově přibylé objekty hlásí dál. Přehled a rušení výjimek najdete v Nastavení → Skóre a pravidla. Systémové knihovny SharePointu (Form Templates, Style Library) se navíc přeskakují rovnou – kontrola verzování je už nehlásí vůbec.",
+          "en": "Per-library and per-list exceptions: in the finding detail (Affected objects) you can mark an individual library, list or subsite as an exception – the aggregate finding stops counting it while still reporting newly added objects. Exceptions can be reviewed and removed under Settings → Score and rules. SharePoint system libraries (Form Templates, Style Library) are now skipped outright – the versioning check no longer reports them at all."
         }
       ]
     }
