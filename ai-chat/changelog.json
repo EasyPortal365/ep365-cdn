@@ -4,6 +4,32 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.31",
+      "date": "2026-07-08",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Autoritativní zdroje 2.0 – odpovědi Firemních znalostí vycházejí přednostně z centrálně určených autoritativních zdrojů organizace; při rozporu s běžným obsahem platí autoritativní a asistent na rozpor upozorní.",
+          "en": "Authoritative sources 2.0 – Company knowledge answers draw primarily from centrally defined authoritative sources; when regular content contradicts them, the authoritative source wins and the assistant flags the discrepancy."
+        },
+        {
+          "type": "new",
+          "cs": "Viditelné označení autority – citace se štítem, štítek Autoritativní na kartách zdrojů a řádek nad zdroji, že odpověď vychází přednostně z autoritativních zdrojů.",
+          "en": "Visible authority labelling – shielded citations, an Authoritative badge on source cards and a line above the sources saying the answer draws primarily from authoritative sources."
+        },
+        {
+          "type": "new",
+          "cs": "Autoritativní zdroj lze volitelně vázat na skupiny Entra ID – platí pak jen pro jejich členy; oprávnění SharePointu platí vždy.",
+          "en": "An authoritative source can optionally be bound to Entra ID groups – it then applies only to their members; SharePoint permissions always apply."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení ukazuje přehled centrálních autoritativních zdrojů včetně vazby na skupiny.",
+          "en": "Settings now show an overview of central authoritative sources including their group bindings."
+        }
+      ]
+    },
+    {
       "version": "1.30",
       "date": "2026-07-07",
       "changes": [

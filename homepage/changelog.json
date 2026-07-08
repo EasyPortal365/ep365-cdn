@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.19",
-      "date": "2026-07-07",
+      "date": "2026-07-08",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Autoritativní zdroje AI Chatu lze v Globální konfiguraci volitelně vázat na skupiny Entra ID – zdroj pak platí jen pro členy vybraných skupin; oprávnění SharePointu platí vždy.",
+          "en": "AI Chat authoritative sources can now optionally be bound to Entra ID groups in Global configuration – the source then applies only to members of the selected groups; SharePoint permissions always apply."
+        },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
