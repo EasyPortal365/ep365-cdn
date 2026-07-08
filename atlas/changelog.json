@@ -131,6 +131,11 @@
           "type": "fixed",
           "cs": "Oprava dalších falešných nálezů: systémové weby spravované Microsoftem (App Catalog, Content Type Hub, Search) zůstávají v inventáři, ale governance a AI nálezy se na ně už nevztahují. Dříve se u nich hlásilo „bez vlastníka“ (App Catalog nemá klasickou skupinu Vlastníci), „neaktivní web k archivaci“ (Content Type Hub) nebo „bez klasifikace“ – to byly falešné nálezy. V seznamu i detailu webu jsou nově označené štítkem Systémový.",
           "en": "Fixed more false positives: Microsoft-managed system sites (App Catalog, Content Type Hub, Search) stay in the inventory but are no longer subject to governance and AI findings. They used to be flagged as no owner (the App Catalog has no classic Owners group), an inactive site to archive (Content Type Hub) or unclassified – all false positives. They are now marked with a System badge in the site list and detail."
+        },
+        {
+          "type": "improved",
+          "cs": "Detail nálezu nově vypisuje konkrétní dotčené objekty, ne jen jejich počet. U nálezů jako „N knihoven bez verzování“, prolomené dědění oprávnění, podweby, velké listy, osiřelé skupiny nebo weby bez vlastníka/klasifikace uvidíte jmenný seznam v sekci „Dotčené objekty“. Weby jsou klikací – otevřou detail webu, kde jsou konkrétní knihovny a seznamy rozklikávací.",
+          "en": "The finding detail now lists the specific affected objects, not just their count. For findings like N libraries without versioning, broken permission inheritance, subsites, large lists, orphaned groups or sites without an owner/classification you now see a named list in an Affected objects section. Sites are clickable – they open the site detail where the actual libraries and lists are expandable."
         }
       ]
     }
