@@ -136,6 +136,11 @@
           "type": "improved",
           "cs": "Detail nálezu nově vypisuje konkrétní dotčené objekty, ne jen jejich počet. U nálezů jako „N knihoven bez verzování“, prolomené dědění oprávnění, podweby, velké listy, osiřelé skupiny nebo weby bez vlastníka/klasifikace uvidíte jmenný seznam v sekci „Dotčené objekty“. Weby jsou klikací – otevřou detail webu, kde jsou konkrétní knihovny a seznamy rozklikávací.",
           "en": "The finding detail now lists the specific affected objects, not just their count. For findings like N libraries without versioning, broken permission inheritance, subsites, large lists, orphaned groups or sites without an owner/classification you now see a named list in an Affected objects section. Sites are clickable – they open the site detail where the actual libraries and lists are expandable."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oprava: rychlý sken už nezavírá hloubkové nálezy. Rychlý sken záměrně nedělá hloubkový průzkum webů, takže neměl data o knihovnách, oprávněních apod. – přesto po něm tyto nálezy „mizely“ jako vyřešené a příští plný sken je otevíral jako falešné regrese. Nově rychlý sken uzavírá jen to, co skutečně změřil (nastavení tenantu a hosty); hloubkové nálezy nechává beze změny až do dalšího plného skenu.",
+          "en": "Fixed: a quick scan no longer closes deep-scan findings. A quick scan deliberately skips the per-site deep scan, so it had no data about libraries, permissions etc. – yet those findings used to disappear as resolved after it, and the next full scan reopened them as false regressions. A quick scan now resolves only what it actually measured (tenant settings and guests) and leaves deep findings untouched until the next full scan."
         }
       ]
     }
