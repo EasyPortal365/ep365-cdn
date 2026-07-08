@@ -103,6 +103,16 @@
           "en": "A richer Overview: added a Score trend chart from scan history, a Since-last-scan strip (new / resolved / regressions), inline mini-trends on the Sites / Findings / Storage / Guests tiles and a Findings-by-area donut. We removed the redundant text summary."
         },
         {
+          "type": "new",
+          "cs": "Správa dat: v Historii skenů (Skenování) jde nově smazat konkrétní sken (ikona koše u řádku s potvrzením) a v Nastavení → Testovací data přibylo „Smazat všechna data“ – nevratně odstraní všechny skeny i nálezy (reálné i ukázkové) pro čistý start; nastavení, motiv, role a licence zůstanou.",
+          "en": "Data management: in the Scan history you can now delete a specific scan (a trash icon on the row with confirmation), and Settings → Test data gained a Delete all data action – irreversibly removes all scans and findings (real and sample) for a clean start; settings, theme, roles and license remain."
+        },
+        {
+          "type": "improved",
+          "cs": "V detailu webu jsou položky v záložkách Oprávnění, Sdílení a Struktura nově rozklikávací – kliknutím se za číslem rozbalí konkrétní seznam: kdo jsou vlastníci a hosté, které knihovny mají unikátní oprávnění nebo jim chybí verzování, které jsou podweby a velké listy, kdo má přímá oprávnění. Data ze skenu tak jsou konečně vidět, ne jen spočítaná.",
+          "en": "In the site detail, the items on the Permissions, Sharing and Structure tabs are now expandable – click a count to reveal the actual list: who the owners and guests are, which libraries have unique permissions or lack versioning, which are subsites and large lists, who holds direct permissions. The scan data is finally visible, not just counted."
+        },
+        {
           "type": "fixed",
           "cs": "Oprava: hloubkový sken nově opravdu ukládá své výsledky. Dříve se detaily z hloubkového skenu (oprávnění, sdílení, struktura, „Everyone“, přímá oprávnění, verzování…) po dokončení zahodily – weby proto hlásily „bez hloubkového skenu“ a nálezy vázané na konkrétní weby se nevyhodnotily. Teď se správně propíšou do snímku a projeví se v detailu webu i v nálezech. Navíc detail webu nově ukazuje počet souborů (dopočtený z knihoven) a poslední změnu obsahu místo prázdných hodnot.",
           "en": "Fixed: the deep scan now actually stores its results. Previously the deep-scan details (permissions, sharing, structure, Everyone claims, direct permissions, versioning…) were discarded after completion – so sites reported no deep scan and site-level findings never evaluated. They now correctly persist into the snapshot and appear in the site detail and in findings. The site detail also now shows a file count (computed from libraries) and the last content change instead of empty values."
