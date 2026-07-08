@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.0",
-      "date": "2026-07-07",
+      "date": "2026-07-08",
       "changes": [
         {
           "type": "new",
@@ -61,6 +61,16 @@
           "type": "new",
           "cs": "Detail nálezu s návodem na řešení – u každého nálezu vidíte dopad, konkrétní kroky, a hlavně tlačítka Opravit hned (zapíše doporučené nastavení tenantu) a Ověřit teď (přečte živá data a nález uzavře jen tehdy, když problém opravdu zmizel).",
           "en": "Finding detail with a resolution guide – each finding shows its impact, concrete steps and, above all, Fix now (writes the recommended tenant setting) and Verify now (reads live data and closes the finding only once the problem is truly gone)."
+        },
+        {
+          "type": "improved",
+          "cs": "Nálezy si nově přepnete na kteroukoli starší verzi (dřívější sken) a nález z ní otevřete v detailu jen pro čtení – ideální pro doložení stavu k datu. „Ověřit teď“ i u historického nálezu prověří, zda problém trvá i dnes.",
+          "en": "Findings can now switch to any older version (an earlier scan) and open a finding from it in a read-only detail – ideal for documenting the state at a given date. Verify now works on historical findings too, checking whether the problem still exists today."
+        },
+        {
+          "type": "improved",
+          "cs": "V Porovnání skenů u změněných nastavení tenantu otevřete detail změny (co bylo, co je teď a proč na tom záleží) a jedním klikem změnu vrátíte zpět na původní bezpečnější hodnotu.",
+          "en": "In Scan comparison you can open the detail of a changed tenant setting (what it was, what it is now and why it matters) and revert it back to the original, safer value with a single click."
         }
       ]
     }
