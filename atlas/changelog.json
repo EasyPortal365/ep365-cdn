@@ -103,6 +103,11 @@
           "en": "A richer Overview: added a Score trend chart from scan history, a Since-last-scan strip (new / resolved / regressions), inline mini-trends on the Sites / Findings / Storage / Guests tiles and a Findings-by-area donut. We removed the redundant text summary."
         },
         {
+          "type": "fixed",
+          "cs": "Oprava: po „Smazat všechna data“ (i po smazání jednotlivého skenu) se data už nevrací. Aplikace dřív při prázdném seznamu automaticky vytvořila ukázková data „nordika“ hned po smazání, takže to vypadalo, že mazání nefunguje. Nově se ukázková data vytvoří výhradně tlačítkem – reálný tenant tak nemá žádná falešná data.",
+          "en": "Fixed: after Delete all data (or deleting a single scan) the data no longer comes back. The app used to auto-create the nordika sample data whenever the list was empty, right after deletion, making it look like delete didn't work. Sample data is now created only via the button – a real tenant carries no fake data."
+        },
+        {
           "type": "new",
           "cs": "Správa dat: v Historii skenů (Skenování) jde nově smazat konkrétní sken (ikona koše u řádku s potvrzením) a v Nastavení → Testovací data přibylo „Smazat všechna data“ – nevratně odstraní všechny skeny i nálezy (reálné i ukázkové) pro čistý start; nastavení, motiv, role a licence zůstanou.",
           "en": "Data management: in the Scan history you can now delete a specific scan (a trash icon on the row with confirmation), and Settings → Test data gained a Delete all data action – irreversibly removes all scans and findings (real and sample) for a clean start; settings, theme, roles and license remain."
