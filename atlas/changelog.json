@@ -104,6 +104,11 @@
         },
         {
           "type": "fixed",
+          "cs": "Oprava falešných nálezů: nález „Everyone / Everyone except external users“ (PE-05 a související AI oversharing) se nově hlásí jen tam, kde tento nárok má SKUTEČNĚ přiřazené oprávnění (Čtení a výš). Dřív Atlas flagoval i weby, kde je nárok jen technicky „resolvnutý“ bez reálného přístupu (oprávnění None / Limited Access) – to dělalo falešné nálezy na řadě webů. Zpřesnila se i „přímá oprávnění“ (počítají se jen skutečné role, ne Limited Access).",
+          "en": "Fixed false positives: the Everyone / Everyone except external users finding (PE-05 and related AI oversharing) is now reported only where the claim actually holds a permission (Read or higher). The app used to flag sites where the claim is merely resolved without real access (None / Limited Access), causing false findings on many sites. Direct permissions were tightened too (only real roles count, not Limited Access)."
+        },
+        {
+          "type": "fixed",
           "cs": "Oprava: po „Smazat všechna data“ (i po smazání jednotlivého skenu) se data už nevrací. Aplikace dřív při prázdném seznamu automaticky vytvořila ukázková data „nordika“ hned po smazání, takže to vypadalo, že mazání nefunguje. Nově se ukázková data vytvoří výhradně tlačítkem – reálný tenant tak nemá žádná falešná data.",
           "en": "Fixed: after Delete all data (or deleting a single scan) the data no longer comes back. The app used to auto-create the nordika sample data whenever the list was empty, right after deletion, making it look like delete didn't work. Sample data is now created only via the button – a real tenant carries no fake data."
         },
@@ -121,6 +126,11 @@
           "type": "fixed",
           "cs": "Oprava: hloubkový sken nově opravdu ukládá své výsledky. Dříve se detaily z hloubkového skenu (oprávnění, sdílení, struktura, „Everyone“, přímá oprávnění, verzování…) po dokončení zahodily – weby proto hlásily „bez hloubkového skenu“ a nálezy vázané na konkrétní weby se nevyhodnotily. Teď se správně propíšou do snímku a projeví se v detailu webu i v nálezech. Navíc detail webu nově ukazuje počet souborů (dopočtený z knihoven) a poslední změnu obsahu místo prázdných hodnot.",
           "en": "Fixed: the deep scan now actually stores its results. Previously the deep-scan details (permissions, sharing, structure, Everyone claims, direct permissions, versioning…) were discarded after completion – so sites reported no deep scan and site-level findings never evaluated. They now correctly persist into the snapshot and appear in the site detail and in findings. The site detail also now shows a file count (computed from libraries) and the last content change instead of empty values."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oprava dalších falešných nálezů: systémové weby spravované Microsoftem (App Catalog, Content Type Hub, Search) zůstávají v inventáři, ale governance a AI nálezy se na ně už nevztahují. Dříve se u nich hlásilo „bez vlastníka“ (App Catalog nemá klasickou skupinu Vlastníci), „neaktivní web k archivaci“ (Content Type Hub) nebo „bez klasifikace“ – to byly falešné nálezy. V seznamu i detailu webu jsou nově označené štítkem Systémový.",
+          "en": "Fixed more false positives: Microsoft-managed system sites (App Catalog, Content Type Hub, Search) stay in the inventory but are no longer subject to governance and AI findings. They used to be flagged as no owner (the App Catalog has no classic Owners group), an inactive site to archive (Content Type Hub) or unclassified – all false positives. They are now marked with a System badge in the site list and detail."
         }
       ]
     }
