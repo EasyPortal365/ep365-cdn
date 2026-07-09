@@ -66,6 +66,11 @@
           "type": "improved",
           "cs": "Vestavěné šablony příprav akcí – appka má dvě hotové šablony checklistu (Konference, Webinář) hned k dispozici; u akce se podle typu nabídne doporučená.",
           "en": "Built-in event-preparation templates – two ready-made checklist templates (Conference, Webinar) are available out of the box; the matching one is suggested per event type."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehled – běžící kampaně na jeden pohled. Na úvodní obrazovce nově vidíte běžící kampaně s ukazatelem plnění (publikováno / celkem) a proklikem do detailu.",
+          "en": "Dashboard – running campaigns at a glance. The home screen now shows your running campaigns with a fulfilment bar (published / total) and a click-through to the detail."
         }
       ]
     },
