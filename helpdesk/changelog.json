@@ -1,0 +1,54 @@
+{
+  "$schema": "https://cdn.easyportal365.cz/schema/changelog-2.json",
+  "schema": 2,
+  "app": "ep365-helpdesk",
+  "name": "EP365 HelpDesk",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-07-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "První vydání aplikace HelpDesk – tikety z e-mailu i portálu, konverzační vlákna a fronta pro tým podpory.",
+          "en": "First release of HelpDesk – tickets from e-mail and portal, conversation threads and a queue for the support team."
+        },
+        {
+          "type": "new",
+          "cs": "Zpracování sdílené schránky podpory přímo v aplikaci – bez Power Automate a bez serverové infrastruktury; odpovědi se párují do vláken a neznámí odesílatelé čekají v Nezařazené poště.",
+          "en": "Shared support mailbox processing directly in the app – no Power Automate, no server infrastructure; replies are threaded and unknown senders wait in the Unassigned mail queue."
+        },
+        {
+          "type": "new",
+          "cs": "Zákaznický portál – externí uživatelé vidí jen svoje tikety, role „Celá firma“ zpřístupní tikety kolegů; izolaci hlídají oprávnění přímo v SharePointu.",
+          "en": "Customer portal – external users see only their own tickets, the 'Whole company' role adds colleagues' tickets; isolation is enforced by SharePoint permissions."
+        },
+        {
+          "type": "new",
+          "cs": "SLA plány s hlídáním první reakce a vyřešení – lhůty dle priority, pauza ve stavu „Čeká na zákazníka“ a barevné odpočty ve frontě.",
+          "en": "SLA plans with first-response and resolution tracking – per-priority targets, paused while 'Waiting for customer', colour countdowns in the queue."
+        },
+        {
+          "type": "new",
+          "cs": "Synchronizace firem, servisních smluv a kontaktů z EP365 CRM včetně čerpání paušálu v aktuálním měsíci.",
+          "en": "Synchronisation of companies, service contracts and contacts from EP365 CRM, including monthly retainer usage."
+        },
+        {
+          "type": "new",
+          "cs": "Uzavření tiketu s vykázáním práce – pracnost fakturovatelných tiketů se propisuje do EP365 Worklogu (projekt dle firmy, měsíční milník, kontrola zamčeného období).",
+          "en": "Ticket closure with time write-back – billable effort flows into EP365 Worklog (per-company project, monthly milestone, locked-period check)."
+        },
+        {
+          "type": "new",
+          "cs": "Kanban board tiketů s přetahováním mezi stavy, měsíční reporty s exportem CSV a přehled čerpání po firmách.",
+          "en": "Ticket kanban board with drag & drop status changes, monthly reports with CSV export and per-company usage overview."
+        },
+        {
+          "type": "new",
+          "cs": "Hlášení chyb a návrhy funkcí odchází e-mailem přímo na podporu EasyPortal 365 – z hlášení vzniká tiket s údaji o uživateli, tenantu a verzi aplikace.",
+          "en": "Bug reports and feature requests are sent by e-mail straight to EasyPortal 365 support – each report becomes a ticket with user, tenant and app version details."
+        }
+      ]
+    }
+  ]
+}
