@@ -8,6 +8,11 @@
       "date": "2026-07-09",
       "changes": [
         {
+          "type": "fixed",
+          "cs": "V detailu auditní události jsou klikací jen údaje, které někam vedou – URL objektu a e-mail uživatele. Ostatní pole (identifikátory, časy, názvy operací) jsou teď prostý text, ne odkaz, který nikam nevede.",
+          "en": "In the audit event detail, only values that actually lead somewhere are clickable – the object URL and the user’s email. Other fields (identifiers, timestamps, operation names) are now plain text instead of links that went nowhere."
+        },
+        {
           "type": "new",
           "cs": "Řádek auditního logu jde rozkliknout do detailu. Otevře se panel se všemi poli, která k události vrací Microsoft Purview – kdo, kdy, operace, web a objekt, IP adresa, klient (User-Agent), typ položky, cíl sdílení a další – plus tlačítko pro zkopírování celého záznamu v JSON. Web a objekt jsou klikací odkazy.",
           "en": "Audit log rows are now clickable and open a detail panel with every field Microsoft Purview returns for the event – who, when, operation, site and object, IP address, client (User-Agent), item type, sharing target and more – plus a button to copy the whole record as JSON. Site and object are clickable links."
