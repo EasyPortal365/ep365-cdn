@@ -36,6 +36,16 @@
           "type": "improved",
           "cs": "Sjednocení – dřívější ikony pro prompt konverzace a šablony nahradila jediná ikona Prompty.",
           "en": "Unified – the former conversation-prompt and templates icons are replaced by a single Prompts icon."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlavička chatu ukazuje jméno aktivního asistenta přímo (Asistent: …) – klik na něj otevře výběr, není nutné najíždět myší.",
+          "en": "The chat header shows the active assistant's name directly (Assistant: …) – click it to change the assistant; no hovering needed."
+        },
+        {
+          "type": "improved",
+          "cs": "Prompt Studio jde vyvolat i z úvodní obrazovky a viditelným tlačítkem Prompty u pole zprávy, nejen ikonou.",
+          "en": "Prompt Studio can also be opened from the home screen and via a visible Prompts button next to the message box, not just the icon."
         }
       ]
     },
