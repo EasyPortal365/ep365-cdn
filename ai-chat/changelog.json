@@ -46,6 +46,11 @@
           "type": "improved",
           "cs": "Prompt Studio jde vyvolat i z úvodní obrazovky a viditelným tlačítkem Prompty u pole zprávy, nejen ikonou.",
           "en": "Prompt Studio can also be opened from the home screen and via a visible Prompts button next to the message box, not just the icon."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější úvodní obrazovka – místo dvou sekcí s ukázkami nabízí Pokračovat (rychlý návrat k nedávným a oblíbeným konverzacím) a odkaz do Prompt Studia; prompty jsou stejně po ruce přímo u pole zprávy.",
+          "en": "Cleaner home screen – instead of two example sections it offers Continue (a quick jump back to recent and favorite conversations) plus a link to Prompt Studio; prompts are still right by the message box."
         }
       ]
     },
