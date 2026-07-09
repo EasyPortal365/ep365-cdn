@@ -9,6 +9,21 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Detail webu → Struktura → Knihovny a seznamy: nově se rozbalí do řádkové tabulky s podrobnostmi ke každé knihovně/listu (název, URL, typ, počet položek, poslední změna, verzování, unikátní oprávnění) – s hledáním a řazením kliknutím na sloupec.",
+          "en": "Site detail → Structure → Libraries and lists: now expands into a row table with details per library/list (name, URL, type, item count, last modified, versioning, unique permissions) – with search and click-to-sort columns."
+        },
+        {
+          "type": "improved",
+          "cs": "Auditní log má propracovaný sestavovač dotazu: vlastní rozsah dat, výběr konkrétních operací (sdílení, práce se soubory, oprávnění, správa webů), filtr na uživatele (UPN) a klíčové slovo – filtry zúží dotaz už na straně Microsoftu.",
+          "en": "The audit log now has a proper query builder: custom date range, selection of specific operations (sharing, file activity, permissions, site management), a user (UPN) filter and a keyword – filters narrow the query on Microsoft’s side."
+        },
+        {
+          "type": "improved",
+          "cs": "Auditní log nově nahoře jasně ukazuje stav auditování (aktivní / pravděpodobně vypnuté / neověřeno) – upozornění, že auditování v Purview není zapnuté, je teď vždy vidět, ne schované až pod prázdným výsledkem.",
+          "en": "The audit log now clearly shows the auditing status at the top (active / likely off / unverified) – the warning that auditing isn’t enabled in Purview is now always visible, not hidden below an empty result."
+        },
+        {
+          "type": "improved",
           "cs": "Report zdraví tenantu je nově použitelný: otevře se jako čistý samostatný dokument v novém okně (skóre, pilíře, nálezy dle závažnosti, rozpad oblastí, nejdůležitější body) a odtud se tiskne / ukládá do PDF – už netiskne celé rozhraní aplikace včetně menu.",
           "en": "The tenant health report is now usable: it opens as a clean standalone document in a new window (score, pillars, findings by severity, area breakdown, key items) and prints / saves to PDF from there – it no longer prints the whole app UI including the menu."
         },
