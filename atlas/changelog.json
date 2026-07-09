@@ -8,6 +8,11 @@
       "date": "2026-07-09",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Auditní log se při otevření už nepokouší rovnou stáhnout poslední výsledky – jen svižně vypíše proběhlé audit dotazy z Purview. Konkrétní události se načtou až po kliknutí na dotaz (u velkých dotazů to pár sekund trvá). Otevření obrazovky je tak okamžité.",
+          "en": "The audit log no longer tries to download the latest results on open – it just quickly lists the past Purview audit queries. The actual events load only after you click a query (which can take a few seconds for large queries). Opening the screen is now instant."
+        },
+        {
           "type": "fixed",
           "cs": "V detailu auditní události jsou klikací jen údaje, které někam vedou – URL objektu a e-mail uživatele. Ostatní pole (identifikátory, časy, názvy operací) jsou teď prostý text, ne odkaz, který nikam nevede.",
           "en": "In the audit event detail, only values that actually lead somewhere are clickable – the object URL and the user’s email. Other fields (identifiers, timestamps, operation names) are now plain text instead of links that went nowhere."
