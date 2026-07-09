@@ -4,9 +4,14 @@
   "name": "EP365 Atlas",
   "entries": [
     {
-      "version": "1.1",
+      "version": "1.2",
       "date": "2026-07-09",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Nápověda k auditnímu logu doplněna o aktuální chování – seznam proběhlých dotazů, načtení výsledků po kliknutí a detail události se všemi poli z Purview.",
+          "en": "Help for the audit log updated for the current behaviour – the list of past queries, loading results on click, and the event detail with all Purview fields."
+        },
         {
           "type": "improved",
           "cs": "Auditní log se při otevření už nepokouší rovnou stáhnout poslední výsledky – jen svižně vypíše proběhlé audit dotazy z Purview. Konkrétní události se načtou až po kliknutí na dotaz (u velkých dotazů to pár sekund trvá). Otevření obrazovky je tak okamžité.",
