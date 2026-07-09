@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Nápověda v aplikaci je rozšířená o všechny nové funkce: opravy knihoven z aplikace, výjimky s platností, sestavovač auditního dotazu a stav auditování, e-mailová shrnutí a připomínky, OneDrive inventář, import Get-SPOTenant a historie nálezů.",
+          "en": "The in-app Help now covers all the new features: fixing libraries from the app, exceptions with expiry, the audit query builder and auditing status, email summaries and reminders, the OneDrive inventory, the Get-SPOTenant import and finding history."
+        },
+        {
+          "type": "improved",
           "cs": "Detail webu → Struktura → Knihovny a seznamy: nově se rozbalí do řádkové tabulky s podrobnostmi ke každé knihovně/listu (název, URL, typ, počet položek, poslední změna, verzování, unikátní oprávnění) – s hledáním a řazením kliknutím na sloupec.",
           "en": "Site detail → Structure → Libraries and lists: now expands into a row table with details per library/list (name, URL, type, item count, last modified, versioning, unique permissions) – with search and click-to-sort columns."
         },
