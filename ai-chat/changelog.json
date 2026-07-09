@@ -4,6 +4,42 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.32",
+      "date": "2026-07-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Prompt Studio – jedno okno pro všechny prompty. Otevřete ho ikonou Prompty v hlavičce chatu nebo napsáním lomítka / do pole zprávy.",
+          "en": "Prompt Studio – one place for all prompts. Open it with the Prompts icon in the chat header or by typing a slash / in the message box."
+        },
+        {
+          "type": "new",
+          "cs": "Dvě přehledně oddělené vrstvy: Úlohy (co chci teď – vloží se do zprávy) a Asistenti (kdo mi pomáhá – nastaví chování celé konverzace).",
+          "en": "Two clearly separated layers: Tasks (what I want now – inserted into the message) and Assistants (who helps me – set the behaviour of the whole conversation)."
+        },
+        {
+          "type": "new",
+          "cs": "Připravená galerie promptů po tématech (Shrnout, Napsat, Analyzovat, Najít, Přeložit, Kód) i připravení asistenti (Právní rádce, HR průvodce, Překladatel, Technická podpora, Stručný styl).",
+          "en": "A ready-made gallery of prompts by topic (Summarize, Write, Analyze, Find, Translate, Code) and ready assistants (Legal advisor, HR guide, Translator, IT support, Concise style)."
+        },
+        {
+          "type": "new",
+          "cs": "Prompty s proměnnými se před vložením doplní – text v hranatých závorkách vyplníte a chytré položky (dokument, osoba, konverzace) navážete na skutečná firemní data.",
+          "en": "Prompts with variables are filled in before insertion – you complete the bracketed text and link smart items (document, person, conversation) to real company data."
+        },
+        {
+          "type": "new",
+          "cs": "Vlastní prompty i firemní sdílené prompty jsou na jednom místě vedle připravené galerie; sdílené spravuje správce v EP365 Homepage.",
+          "en": "Your own prompts and company-shared prompts sit in one place next to the ready gallery; shared ones are managed by an admin in EP365 Homepage."
+        },
+        {
+          "type": "improved",
+          "cs": "Sjednocení – dřívější ikony pro prompt konverzace a šablony nahradila jediná ikona Prompty.",
+          "en": "Unified – the former conversation-prompt and templates icons are replaced by a single Prompts icon."
+        }
+      ]
+    },
+    {
       "version": "1.31",
       "date": "2026-07-08",
       "changes": [

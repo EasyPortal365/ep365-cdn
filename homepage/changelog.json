@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.19",
-      "date": "2026-07-08",
+      "date": "2026-07-09",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Správa sdílených promptů AI Chatu – u globálních promptů lze nastavit vrstvu (úloha nebo asistent), kategorii a popis. Uživatelé je pak vidí v Prompt Studiu AI Asistenta.",
+          "en": "Managing AI Chat shared prompts – global prompts can now have a layer (task or assistant), a category and a description. Users then see them in the AI Assistant's Prompt Studio."
+        },
         {
           "type": "new",
           "cs": "Autoritativní zdroje AI Chatu lze v Globální konfiguraci volitelně vázat na skupiny Entra ID – zdroj pak platí jen pro členy vybraných skupin; oprávnění SharePointu platí vždy.",
