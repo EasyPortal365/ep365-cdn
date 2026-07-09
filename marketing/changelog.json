@@ -61,6 +61,11 @@
           "type": "new",
           "cs": "Pojmenované šablony příprav akcí – v Nastavení nadefinujete více šablon checklistu (např. Konference, Webinář) a u každé akce vyberete, kterou použít; podle typu akce se ta správná nabídne jako doporučená.",
           "en": "Named event-preparation templates – define several checklist templates (e.g. Conference, Webinar) in Settings and pick one per event; the matching one is suggested by event type."
+        },
+        {
+          "type": "improved",
+          "cs": "Vestavěné šablony příprav akcí – appka má dvě hotové šablony checklistu (Konference, Webinář) hned k dispozici; u akce se podle typu nabídne doporučená.",
+          "en": "Built-in event-preparation templates – two ready-made checklist templates (Conference, Webinar) are available out of the box; the matching one is suggested per event type."
         }
       ]
     },
