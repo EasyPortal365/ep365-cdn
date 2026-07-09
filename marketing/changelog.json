@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.1",
-      "date": "2026-07-07",
+      "date": "2026-07-09",
       "changes": [
         {
           "type": "new",
@@ -36,6 +36,21 @@
           "type": "improved",
           "cs": "Úkoly přímo u akce – ke každému webináři či konferenci přidáte a odškrtnete úkoly na jednom místě.",
           "en": "Tasks right on the event – add and tick off tasks for each webinar or conference in one place."
+        },
+        {
+          "type": "improved",
+          "cs": "Formátování v konverzaci – v komentářích u příspěvků, aktivit i úkolů teď text zvýrazníte tučně nebo kurzívou, vložíte odrážky, číslovaný seznam i odkaz. Pole je zároveň vyšší a pohodlnější na psaní.",
+          "en": "Formatting in conversations – comments on posts, activities and tasks now support bold, italics, bullet and numbered lists and links. The field is also taller and more comfortable to write in."
+        },
+        {
+          "type": "improved",
+          "cs": "Kalendář příspěvků – dosavadní kalendář se nově jmenuje Kalendář příspěvků a naplánované položky v něm mají větší, čitelnější písmo.",
+          "en": "Post calendar – the former Calendar is renamed to Post calendar, and its scheduled entries use a larger, more legible font."
+        },
+        {
+          "type": "new",
+          "cs": "Navázané úkoly u aktivity – v detailu aktivity teď vidíte úkoly, které na ni míří, a jedním klikem je otevřete.",
+          "en": "Linked tasks on an activity – the activity detail now shows the tasks that point to it, and you can open them in one click."
         }
       ]
     },
