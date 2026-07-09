@@ -51,6 +51,16 @@
           "type": "new",
           "cs": "Navázané úkoly u aktivity – v detailu aktivity teď vidíte úkoly, které na ni míří, a jedním klikem je otevřete.",
           "en": "Linked tasks on an activity – the activity detail now shows the tasks that point to it, and you can open them in one click."
+        },
+        {
+          "type": "new",
+          "cs": "Zakládání a úpravy přímo z kampaně – v detailu kampaně nově příspěvky, aktivity i úkoly rovnou založíte a upravíte (otevřou se navrchu, s předvyplněnou kampaní). Stejně to jde i u Událostí.",
+          "en": "Create and edit right from a campaign – the campaign detail now lets you add and edit posts, activities and tasks in place (they open on top with the campaign prefilled). The same works for Events."
+        },
+        {
+          "type": "new",
+          "cs": "Pojmenované šablony příprav akcí – v Nastavení nadefinujete více šablon checklistu (např. Konference, Webinář) a u každé akce vyberete, kterou použít; podle typu akce se ta správná nabídne jako doporučená.",
+          "en": "Named event-preparation templates – define several checklist templates (e.g. Conference, Webinar) in Settings and pick one per event; the matching one is suggested by event type."
         }
       ]
     },
