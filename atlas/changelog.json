@@ -8,6 +8,16 @@
       "date": "2026-07-09",
       "changes": [
         {
+          "type": "new",
+          "cs": "Řádek auditního logu jde rozkliknout do detailu. Otevře se panel se všemi poli, která k události vrací Microsoft Purview – kdo, kdy, operace, web a objekt, IP adresa, klient (User-Agent), typ položky, cíl sdílení a další – plus tlačítko pro zkopírování celého záznamu v JSON. Web a objekt jsou klikací odkazy.",
+          "en": "Audit log rows are now clickable and open a detail panel with every field Microsoft Purview returns for the event – who, when, operation, site and object, IP address, client (User-Agent), item type, sharing target and more – plus a button to copy the whole record as JSON. Site and object are clickable links."
+        },
+        {
+          "type": "improved",
+          "cs": "Sestavovač auditního dotazu nabízí výrazně víc typů operací SharePointu – kromě souborů a sdílení nově složky, stránky a seznamy, položky, dědění oprávnění i připojení k hubu – a přehlednější rozvržení na plnou šířku bez vnitřního posuvníku.",
+          "en": "The audit query builder offers many more SharePoint operation types – besides files and sharing, now folders, pages and lists, list items, permission inheritance and hub association – in a clearer full-width layout without an inner scrollbar."
+        },
+        {
           "type": "fixed",
           "cs": "Auditní log konečně ukazuje výsledky. Dotazy v Microsoft Purview běží asynchronně a mohou trvat od pár minut po více než hodinu – aplikace je teď nechá doběhnout na pozadí, vypisuje všechny audit dotazy z Purview a při otevření se sama napojí na nejnovější dokončený. Dřív dotaz po 10 minutách vypršel a hotový výsledek (klidně tisíce událostí) se nikdy nezobrazil. Stav auditování se navíc ověří podle skutečně vrácených dat.",
           "en": "The audit log finally shows results. Microsoft Purview queries run asynchronously and can take from a few minutes to over an hour — the app now lets them finish in the background, lists all Purview audit queries and, on open, automatically attaches to the most recent completed one. Previously a query timed out after 10 minutes and the finished result (often thousands of events) never appeared. The auditing status is now verified from the data actually returned."
