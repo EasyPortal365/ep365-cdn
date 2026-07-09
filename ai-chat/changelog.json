@@ -49,8 +49,8 @@
         },
         {
           "type": "improved",
-          "cs": "Přehlednější úvodní obrazovka – místo dvou sekcí s ukázkami nabízí Pokračovat (rychlý návrat k nedávným a oblíbeným konverzacím) a odkaz do Prompt Studia; prompty jsou stejně po ruce přímo u pole zprávy.",
-          "en": "Cleaner home screen – instead of two example sections it offers Continue (a quick jump back to recent and favorite conversations) plus a link to Prompt Studio; prompts are still right by the message box."
+          "cs": "Přehlednější a vzdušnější úvodní obrazovka – místo dvou sekcí s ukázkami nabízí Pokračovat (rychlý návrat k nedávným a oblíbeným konverzacím) a Prompt Studio; prompty otevřete odtud nebo napsáním lomítka / v poli.",
+          "en": "Cleaner, airier home screen – instead of two example sections it offers Continue (a quick jump back to recent and favorite conversations) and Prompt Studio; open prompts from there or by typing a slash / in the box."
         }
       ]
     },
