@@ -81,6 +81,16 @@
           "type": "improved",
           "cs": "Kampaně – více barev na výběr a pohodlnější, širší okno úprav s přehlednějším rozložením.",
           "en": "Campaigns – more colours to choose from and a roomier, wider edit window with a clearer layout."
+        },
+        {
+          "type": "improved",
+          "cs": "Jednotné detaily a úpravy záznamů – příspěvek, aktivita, úkol i kampaň teď mají stejně široké okno se stejným rozložením: detail s přehledem vlevo a obsahem vpravo, úpravy s velkým polem pro text a metadaty po pravé straně.",
+          "en": "Unified record details and editing – posts, activities, tasks and campaigns now share the same wide window and layout: a detail with the overview on the left and content on the right, and editing with a large text area and metadata on the right."
+        },
+        {
+          "type": "new",
+          "cs": "Více údajů na záznamech – příspěvek má propagovaný odkaz, aktivita štítky, odkaz na hotový výstup a měnitelného vlastníka, úkol prioritu (Vysoká/Normální/Nízká) viditelnou na nástěnce i v seznamu; událost z CRM vyberete přímo při úpravě příspěvku či aktivity.",
+          "en": "More fields on records – a post has a promoted link, an activity has tags, an output link and an editable owner, a task has a priority (High/Normal/Low) visible on the board and in the list; the CRM event can be picked right in the post or activity editor."
         }
       ]
     },
