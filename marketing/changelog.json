@@ -71,6 +71,16 @@
           "type": "improved",
           "cs": "Přehled – běžící kampaně na jeden pohled. Na úvodní obrazovce nově vidíte běžící kampaně s ukazatelem plnění (publikováno / celkem) a proklikem do detailu.",
           "en": "Dashboard – running campaigns at a glance. The home screen now shows your running campaigns with a fulfilment bar (published / total) and a click-through to the detail."
+        },
+        {
+          "type": "new",
+          "cs": "Aktivity na nástěnce (kanban) – aktivity teď máte i jako kanban se sloupci podle stavu; přetažením karty mezi sloupci projdou stejným schvalovacím workflow jako příspěvky.",
+          "en": "Activities on a board (kanban) – activities are now also available as a kanban with columns by status; dragging a card between columns runs them through the same approval workflow as posts."
+        },
+        {
+          "type": "improved",
+          "cs": "Kampaně – více barev na výběr a pohodlnější, širší okno úprav s přehlednějším rozložením.",
+          "en": "Campaigns – more colours to choose from and a roomier, wider edit window with a clearer layout."
         }
       ]
     },
