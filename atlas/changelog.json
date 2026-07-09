@@ -4,6 +4,82 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.1",
+      "date": "2026-07-09",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Report zdraví tenantu je nově použitelný: otevře se jako čistý samostatný dokument v novém okně (skóre, pilíře, nálezy dle závažnosti, rozpad oblastí, nejdůležitější body) a odtud se tiskne / ukládá do PDF – už netiskne celé rozhraní aplikace včetně menu.",
+          "en": "The tenant health report is now usable: it opens as a clean standalone document in a new window (score, pillars, findings by severity, area breakdown, key items) and prints / saves to PDF from there – it no longer prints the whole app UI including the menu."
+        },
+        {
+          "type": "improved",
+          "cs": "V detailu webu jsou nově rozklikávací i řádky v záložce Struktura – u „Knihovny a seznamy“ se rozbalí jejich seznam, stejně jako to už funguje u Oprávnění.",
+          "en": "In the site detail, the Structure tab rows are now expandable too – “Libraries and lists” reveals the list of them, just like it already works on Permissions."
+        },
+        {
+          "type": "improved",
+          "cs": "Tabulka „Spotřeba podle webů“ v Úložišti má nově hledání a řazení kliknutím na názvy sloupců (web, spotřeba, kvóta, využití, soubory).",
+          "en": "The “Storage by site” table now has search and sorting by clicking column headers (site, usage, quota, utilization, files)."
+        },
+        {
+          "type": "improved",
+          "cs": "Auditní log: když dotaz nevrátí žádné události, Atlas upozorní, že nejspíš není zapnuté auditování v Microsoft Purview (u nových tenantů bývá ve výchozím stavu vypnuté) a poradí, kde ho zapnout.",
+          "en": "Audit log: when a query returns no events, Atlas now warns that auditing is likely not enabled in Microsoft Purview (off by default on new tenants) and advises where to turn it on."
+        },
+        {
+          "type": "new",
+          "cs": "Opravit přímo z aplikace: u nálezů verzování knihoven (ST-06) a prolomeného dědění (PE-03) je v detailu u každé knihovny tlačítko, které úpravu provede rovnou přes SharePoint – bez PowerShellu.",
+          "en": "Fix directly from the app: for library versioning (ST-06) and broken inheritance (PE-03) findings, each library in the detail has a button that applies the change straight through SharePoint – no PowerShell."
+        },
+        {
+          "type": "new",
+          "cs": "Výjimky pro konkrétní objekty i celé nálezy nově s platností a poznámkou: knihovnu, list nebo celý nález lze vyjmout trvale nebo na určenou dobu (30 dní až rok) s vysvětlením proč. Po vypršení se nález sám vrátí. Přehled a rušení výjimek v Nastavení → Skóre a pravidla.",
+          "en": "Exceptions for specific objects and whole findings now support an expiry and a note: a library, list or an entire finding can be excluded permanently or for a set period (30 days to a year) with a reason. After it expires the finding returns on its own. Review and revoke exceptions under Settings → Score and rules."
+        },
+        {
+          "type": "new",
+          "cs": "Nová kontrola: externí host se správcovskými nebo vlastnickými právy na webu (PE-11) – vysoké riziko, které dřív nebylo vidět.",
+          "en": "New check: an external guest holding site owner or admin rights (PE-11) – a high risk that was previously invisible."
+        },
+        {
+          "type": "new",
+          "cs": "E-mailové shrnutí skenu: v Reportech pošlete přehledný brandovaný e-mail se skóre a nálezy; volitelně se odešle automaticky po každém plném skenu (Nastavení → Notifikace). Odesílá přihlášený správce ze své schránky.",
+          "en": "Scan summary by email: from Reports you can send a clean, branded email with the score and findings; optionally it is sent automatically after each full scan (Settings → Notifications). Sent by the signed-in admin from their own mailbox."
+        },
+        {
+          "type": "new",
+          "cs": "Hlídač stáří skenu: na Přehledu se objeví upozornění, když je poslední sken starší než nastavený interval, s možností přidat si připomínku do Outlook kalendáře.",
+          "en": "Scan-age watchdog: the Overview shows a reminder when the last scan is older than the configured interval, with a one-click option to add a reminder to your Outlook calendar."
+        },
+        {
+          "type": "new",
+          "cs": "OneDrive inventář: v Úložišti přibyl přehled osobních webů OneDrive viditelných správci (best-effort – úplný tenant-wide přehled vyžaduje aplikační oprávnění).",
+          "en": "OneDrive inventory: Storage now lists the personal OneDrive sites visible to the admin (best-effort – a full tenant-wide list requires application permissions)."
+        },
+        {
+          "type": "new",
+          "cs": "Historie nálezu: detail nálezu ukazuje časovou osu (poprvé zjištěno, naposledy potvrzeno, regrese, vyřešeno, výjimka) – přehledně, kdy a jak se nález vyvíjel.",
+          "en": "Finding history: the finding detail shows a timeline (first seen, last confirmed, regression, resolved, exception) – a clear view of how the finding evolved."
+        },
+        {
+          "type": "new",
+          "cs": "Nová kontrola AI připravenosti: Restricted Access Control (RAC) – doporučení pro řízení přístupu Copilota (vyhodnotí se z importu Get-SPOTenant).",
+          "en": "New AI-readiness check: Restricted Access Control (RAC) – a recommendation for controlling Copilot access (evaluated from the Get-SPOTenant import)."
+        },
+        {
+          "type": "improved",
+          "cs": "Systémové knihovny SharePointu (Šablony formulářů / Form Templates, Style Library) se v kontrole verzování přeskakují rovnou – přestaly dělat šum.",
+          "en": "SharePoint system libraries (Form Templates, Style Library) are now skipped in the versioning check outright – they no longer create noise."
+        },
+        {
+          "type": "improved",
+          "cs": "Souběžný sken od dvou správců je nově pojištěný zámkem – dva lidé už omylem nespustí sken zároveň (chránilo by to před zdvojením nálezů).",
+          "en": "A concurrent scan by two admins is now guarded by a lock – two people can no longer accidentally run a scan at the same time (which protects against duplicated findings)."
+        }
+      ]
+    },
+    {
       "version": "1.0",
       "date": "2026-07-08",
       "changes": [
