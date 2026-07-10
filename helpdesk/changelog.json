@@ -192,6 +192,21 @@
           "type": "improved",
           "cs": "Rychlé hledání ⌘K nově najde i články znalostní báze.",
           "en": "Quick search ⌘K now also finds knowledge base articles."
+        },
+        {
+          "type": "new",
+          "cs": "Automatické uzavírání vyřešených tiketů – po zvoleném počtu dní bez reakce se tiket uzavře a zákazníkovi odejde uzavírací e-mail s možností hodnocení i znovuotevření (Nastavení – Automatizace a makra).",
+          "en": "Automatic closing of resolved tickets – after a chosen number of idle days the ticket closes and the customer gets a closure e-mail with rating and reopen options (Settings – Automation and macros)."
+        },
+        {
+          "type": "new",
+          "cs": "Automatická upomínka u tiketů čekajících na zákazníka – po nastavené době odejde zdvořilé připomenutí, ke každému tiketu jen jednou (dokud zákazník neodpoví).",
+          "en": "Automatic reminder for tickets awaiting the customer – after a set period a polite nudge goes out, once per ticket (until the customer replies)."
+        },
+        {
+          "type": "new",
+          "cs": "Makra – kombinované akce v detailu tiketu. Jedním kliknutím nastavíte stav a prioritu, přiřadíte tiket sobě, přidáte štítky, vložíte text odpovědi a interní poznámku. Makra spravuje správce v Nastavení.",
+          "en": "Macros – combined actions in the ticket detail. In one click set status and priority, assign the ticket to yourself, add tags, insert reply text and an internal note. Macros are managed by admins in Settings."
         }
       ]
     }
