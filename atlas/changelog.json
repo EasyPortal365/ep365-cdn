@@ -5,8 +5,18 @@
   "entries": [
     {
       "version": "1.2",
-      "date": "2026-07-09",
+      "date": "2026-07-10",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Podpora úplného pozastavení aplikace: při zneplatnění licence (ukončení spolupráce) se aplikace zcela zablokuje – zobrazí jen oznámení o pozastavení a tlačítko pro nové ověření licence. Po obnovení licence se sama vrátí do plného provozu.",
+          "en": "Support for full application suspension: when the licence is revoked (end of cooperation), the app locks down completely – it shows only a suspension notice and a button to re-verify the licence. Once the licence is restored, it returns to full operation on its own."
+        },
+        {
+          "type": "new",
+          "cs": "Dva další nálezy jdou opravit přímo z aplikace: retence OneDrive po odchodu zaměstnance (jedním kliknutím na 365 dní) a omezení externího sdílení na povolené domény – Atlas navrhne seznam podle domén vašich stávajících hostů, vy ho zkontrolujete, upravíte a potvrdíte.",
+          "en": "Two more findings can now be fixed straight from the app: OneDrive retention after offboarding (one click sets 365 days) and restricting external sharing to an allow-list of domains – Atlas suggests the list from your existing guests' domains for you to review, adjust and confirm."
+        },
         {
           "type": "improved",
           "cs": "Nápověda k auditnímu logu doplněna o aktuální chování – seznam proběhlých dotazů, načtení výsledků po kliknutí a detail události se všemi poli z Purview.",
