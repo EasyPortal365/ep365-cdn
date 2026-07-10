@@ -96,6 +96,16 @@
           "type": "improved",
           "cs": "Formátovaný popis – pole Popis u úkolu, aktivity i kampaně je větší a umí formátování jako konverzace (tučně, kurzíva, odrážky, číslovaný seznam, odkaz); naformátovaně se ukazuje i v detailu. Do Outlook kalendáře jde vždy čistý text.",
           "en": "Formatted description – the Description field on tasks, activities and campaigns is larger and supports the same formatting as conversations (bold, italics, lists, links); it renders formatted in the detail too. Outlook calendar always receives plain text."
+        },
+        {
+          "type": "improved",
+          "cs": "Formátovaný text příspěvku – text příspěvku i varianty per síť mají formátovací lištu a v detailu se zobrazují naformátovaně. Při kopírování na síť se značky automaticky odstraní a počítadla znaků počítají čistý text, který na síť skutečně půjde.",
+          "en": "Formatted post copy – the post text and per-network variants have a formatting toolbar and render formatted in the detail. Copying for a network automatically removes the marks, and character counters count the clean text that will actually be posted."
+        },
+        {
+          "type": "improved",
+          "cs": "Vyšší pole komentáře – psaní v konverzaci má více prostoru.",
+          "en": "Taller comment box – writing in conversations has more room."
         }
       ]
     },
