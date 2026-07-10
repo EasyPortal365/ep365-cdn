@@ -292,6 +292,11 @@
           "type": "improved",
           "cs": "Ukazatel čerpání paušálu, upozornění na 80/100 % i odhad fakturace v reportech nově počítají jen hodiny, které paušál skutečně čerpají, a fakturují jen práci nad rámec.",
           "en": "The retainer gauge, the 80/100 % alerts and the revenue estimate in reports now count only hours that actually draw the retainer, and bill only over-retainer work."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled má novou sekci Provoz podpory – plnění SLA za týden, spokojenost zákazníků, fakturováno nad rámec paušálu, rozpad fronty podle stavu, zátěž řešitelů, firmy blízko limitu paušálu, trend za 14 dní, nejčastější kategorie, nejdéle otevřené tikety a odkud tikety chodí. Vše z existujících dat, bez dalšího nastavení.",
+          "en": "The Overview has a new Support operations section – weekly SLA compliance, customer satisfaction, over-retainer billing, queue breakdown by status, agent workload, companies near their retainer limit, a 14-day trend, top categories, the longest-open tickets and where tickets come from. All from existing data, no setup needed."
         }
       ]
     }
