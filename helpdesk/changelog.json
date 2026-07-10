@@ -272,6 +272,26 @@
           "type": "improved",
           "cs": "Přehlednější detail tiketu i firmy – širší levý panel bez posuvníku, údaje uspořádané do dvou sloupců.",
           "en": "Tidier ticket and company detail – a wider left panel without a scrollbar, with details arranged in two columns."
+        },
+        {
+          "type": "new",
+          "cs": "Automatické čerpání předplaceného paušálu – servisní hodiny se berou z měsíčního fondu firmy (do vyčerpání zdarma), přetok se sám fakturuje sazbou. Tiket na hranici se rozdělí na část v paušálu a část nad rámec. Čerpá se chronologicky podle uzavření tiketů.",
+          "en": "Automatic retainer consumption – service hours draw from the company's monthly prepaid pool (free until exhausted), the overflow is billed automatically at the rate. A ticket on the boundary is split into a within-retainer and an over-retainer part. Consumption is chronological by ticket closure."
+        },
+        {
+          "type": "new",
+          "cs": "U každého typu práce lze určit, zda čerpá paušál (Nastavení – Typy práce). Paušál čerpají jen fakturovatelné hodiny takto označených typů.",
+          "en": "Each work type can be set to draw from the retainer (Settings – Work types). Only billable hours of such types consume the retainer."
+        },
+        {
+          "type": "new",
+          "cs": "Přepočet čerpání paušálu za měsíc – na kartě firmy jedním tlačítkem přerozdělí hodiny a přepíše výkazy ve Worklogu chronologicky. Už schválené výkazy nechá být.",
+          "en": "Recalculate the monthly retainer – one button on the company card reallocates hours and rewrites the Worklog entries chronologically. Already approved entries are left untouched."
+        },
+        {
+          "type": "improved",
+          "cs": "Ukazatel čerpání paušálu, upozornění na 80/100 % i odhad fakturace v reportech nově počítají jen hodiny, které paušál skutečně čerpají, a fakturují jen práci nad rámec.",
+          "en": "The retainer gauge, the 80/100 % alerts and the revenue estimate in reports now count only hours that actually draw the retainer, and bill only over-retainer work."
         }
       ]
     }
