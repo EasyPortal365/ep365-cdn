@@ -207,6 +207,31 @@
           "type": "new",
           "cs": "Makra – kombinované akce v detailu tiketu. Jedním kliknutím nastavíte stav a prioritu, přiřadíte tiket sobě, přidáte štítky, vložíte text odpovědi a interní poznámku. Makra spravuje správce v Nastavení.",
           "en": "Macros – combined actions in the ticket detail. In one click set status and priority, assign the ticket to yourself, add tags, insert reply text and an internal note. Macros are managed by admins in Settings."
+        },
+        {
+          "type": "improved",
+          "cs": "Reporty umí srovnání s minulým měsícem (přepínač u přehledu), přibyla karta Plnění SLA dle plánu s průměrnou první reakcí a v tabulce firem je sloupec Čerpání paušálu.",
+          "en": "Reports can compare with the previous month (toggle above the overview), a new SLA compliance by plan card with average first response was added, and the company table now has a Retainer usage column."
+        },
+        {
+          "type": "new",
+          "cs": "Detail tiketu má záložku Aktivita – chronologii všech událostí (zprávy, interní poznámky, systémové akce, vyřešení a uzavření).",
+          "en": "The ticket detail has an Activity tab – a chronology of all events (messages, internal notes, system actions, resolution and closing)."
+        },
+        {
+          "type": "new",
+          "cs": "Detail firmy má záložku Aktivita s děním kolem firmy a v sekci Worklog vidíte, kolik záznamů a hodin se letos propsalo.",
+          "en": "The company detail has an Activity tab with events around the company, and the Worklog section shows how many entries and hours were logged this year."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení e-mailu vysvětluje režim zpracování pošty a přidalo průvodce „Jak funguje tiket z e-mailu“ ve čtyřech krocích.",
+          "en": "E-mail settings explain the mail processing mode and gained a four-step „How an e-mail becomes a ticket“ guide."
+        },
+        {
+          "type": "improved",
+          "cs": "Na přehledu se poslední aktivita zobrazuje jako samostatná karta vedle vašich tiketů.",
+          "en": "On the dashboard, recent activity now shows as a separate card next to your tickets."
         }
       ]
     }
