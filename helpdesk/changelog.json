@@ -262,6 +262,16 @@
           "type": "improved",
           "cs": "Měsíční přehled zákazníkovi jde vždy na jednu adresu – „kontakt pro měsíční reporty“ nastavený u firmy v EP365 CRM (bez něj se použije první kontakt s rolí „Celá firma“).",
           "en": "The monthly customer report now always goes to a single address – the 'monthly report contact' set on the company in EP365 CRM (without it, the first 'Whole company' contact is used)."
+        },
+        {
+          "type": "new",
+          "cs": "Ceník je jen pro správce – paušál a sazbu nad rámec (i odhad fakturace v reportech) vidí a upravuje pouze role správce aplikace. Tým podpory vidí rozsah v ceně, čerpání a SLA, ne ceny.",
+          "en": "Pricing is admin-only – the retainer and over-rate (and the revenue estimate in reports) are visible and editable only to the app admin role. The support team sees the included scope, usage and SLA, but not prices."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější detail tiketu i firmy – širší levý panel bez posuvníku, údaje uspořádané do dvou sloupců.",
+          "en": "Tidier ticket and company detail – a wider left panel without a scrollbar, with details arranged in two columns."
         }
       ]
     }
