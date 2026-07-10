@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Detail servisní smlouvy je přehlednější – finanční pás bez prázdných políček, období smlouvy s ukazatelem uplynulého času, obnova, splatnost a přílohy v kompaktní mřížce a SLA jako tabulka s barvami priorit. V editaci jsou datum obnovy a den splatnosti vedle sebe.",
+          "en": "The service contract detail is tidier – a finance strip without empty boxes, a contract-period elapsed-time bar, renewal, due day and attachments in a compact grid, and SLA as a table with priority colours. In editing, the renewal date and due day sit side by side."
+        },
+        {
+          "type": "improved",
           "cs": "Obnova servisní smlouvy umí interval – měsíčně, čtvrtletně, pololetně, ročně nebo po dvou letech; datum obnovy se dopočítá jako nejbližší výročí začátku smlouvy. Ruční datum zůstává jako výchozí možnost.",
           "en": "Contract renewal now supports an interval – monthly, quarterly, half-yearly, yearly or every two years; the renewal date is derived as the nearest anniversary of the contract start. A manual date remains the default option."
         },
