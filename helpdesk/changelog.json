@@ -172,6 +172,26 @@
           "type": "new",
           "cs": "Uložené pohledy fronty – kombinaci filtru, hledání a zobrazení si uložíte pod vlastním názvem a přepnete jedním kliknutím.",
           "en": "Saved queue views – store a combination of filter, search and layout under your own name and switch with one click."
+        },
+        {
+          "type": "new",
+          "cs": "Znalostní báze – návody a řešení častých situací. Publikované veřejné články si zákazníci sami čtou v portálu (sekce Nápověda a návody) a hodnotí jejich užitečnost; interní články slouží týmu.",
+          "en": "Knowledge base – guides and solutions to common situations. Published public articles are read by customers in the portal (Help and guides) and rated for usefulness; internal articles serve the team."
+        },
+        {
+          "type": "new",
+          "cs": "Správa článků pro tým – kategorie, štítky, perex a obsah, přepínání Koncept/Publikováno a Veřejná/Interní. Rozpracované i interní články jsou pro zákazníky nepřístupné i přes přímý odkaz (hlídá SharePoint).",
+          "en": "Article management for the team – categories, tags, excerpt and body, Draft/Published and Public/Internal toggles. Draft and internal articles are inaccessible to customers even via a direct link (enforced by SharePoint)."
+        },
+        {
+          "type": "new",
+          "cs": "Vložení článku do odpovědi – při psaní odpovědi na tiket vložíte odkaz na návod tlačítkem Článek v liště composeru.",
+          "en": "Insert an article into a reply – add a link to a guide with the Article button in the composer toolbar while replying to a ticket."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlé hledání ⌘K nově najde i články znalostní báze.",
+          "en": "Quick search ⌘K now also finds knowledge base articles."
         }
       ]
     }
