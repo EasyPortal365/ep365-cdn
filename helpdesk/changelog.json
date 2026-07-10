@@ -6,7 +6,7 @@
   "entries": [
     {
       "version": "1.0",
-      "date": "2026-07-09",
+      "date": "2026-07-10",
       "changes": [
         {
           "type": "new",
@@ -47,6 +47,111 @@
           "type": "new",
           "cs": "Hlášení chyb a návrhy funkcí odchází e-mailem přímo na podporu EasyPortal 365 – z hlášení vzniká tiket s údaji o uživateli, tenantu a verzi aplikace.",
           "en": "Bug reports and feature requests are sent by e-mail straight to EasyPortal 365 support – each report becomes a ticket with user, tenant and app version details."
+        },
+        {
+          "type": "new",
+          "cs": "Testovací data na jedno kliknutí – ukázkové firmy, kontakty a tikety s konverzacemi pro rychlé předvedení; úplný reset dat za potvrzovacím checkboxem.",
+          "en": "One-click sample data – demo companies, contacts and tickets with conversations for a quick showcase; full data reset behind a confirmation checkbox."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled využití pro správce – adopční metriky a chronologický report aktivit složený z razítek na tiketech.",
+          "en": "Usage overview for admins – adoption metrics and a chronological activity report built from ticket timestamps."
+        },
+        {
+          "type": "new",
+          "cs": "Ruční založení firmy a kontaktu – helpdesk lze provozovat i zcela bez propojení na CRM.",
+          "en": "Manual company and contact creation – the helpdesk can run entirely without a CRM connection."
+        },
+        {
+          "type": "improved",
+          "cs": "Synchronizace z CRM si rozepsanou adresu webu sama uloží – už žádné hlášky o nevyplněné adrese.",
+          "en": "CRM sync now saves a freshly typed site address automatically – no more 'fill in the address' messages."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověření licence přímo z upozornění – po aktivaci licence stačí jedno kliknutí, bez čekání na vypršení denní paměti.",
+          "en": "License re-check right from the banner – one click after activation, no waiting for the daily cache to expire."
+        },
+        {
+          "type": "new",
+          "cs": "Šablony odpovědí s proměnnými ({jmeno}, {tiket}, {firma}…) – správa v Nastavení, vkládání jedním kliknutím z composeru.",
+          "en": "Reply templates with variables ({name}, {ticket}, {company}…) – managed in Settings, inserted with one click from the composer."
+        },
+        {
+          "type": "new",
+          "cs": "Přílohy v odpovědích – agent přiloží soubory a odejdou e-mailem, zákazník je nahraje v portálu k tiketu i nové žádosti.",
+          "en": "Attachments in replies – agents attach files that go out by e-mail, customers upload them in the portal for tickets and new requests."
+        },
+        {
+          "type": "new",
+          "cs": "SLA eskalace – při překročení lhůty odejde souhrnný e-mail na zvolenou adresu (ke každému tiketu jen jednou).",
+          "en": "SLA escalation – a summary e-mail goes to a chosen address when a deadline is breached (once per ticket)."
+        },
+        {
+          "type": "new",
+          "cs": "Hromadné úpravy ve frontě – výběr tiketů a změna stavu, priority, kategorie nebo řešitele najednou; export fronty do CSV.",
+          "en": "Bulk edits in the queue – select tickets and change status, priority, category or assignee at once; queue export to CSV."
+        },
+        {
+          "type": "new",
+          "cs": "Motiv aplikace – barevné presety i vlastní akcent, volitelné dědění globálního motivu z EP365 Homepage.",
+          "en": "App theme – colour presets or a custom accent, optional inheritance of the global EP365 Homepage theme."
+        },
+        {
+          "type": "improved",
+          "cs": "Konfigurovatelná pracovní doba pro SLA a průvodce prvním spuštěním na přehledu.",
+          "en": "Configurable business hours for SLA and a first-run guide on the dashboard."
+        },
+        {
+          "type": "improved",
+          "cs": "Automatické odpovědi (Out of Office) už nezakládají tikety ani nespouští potvrzení – žádné smyčky autoresponderů.",
+          "en": "Automatic replies (Out of Office) no longer create tickets or trigger confirmations – no autoresponder loops."
+        },
+        {
+          "type": "new",
+          "cs": "Sledující na tiketu – další lidé dostávají odpovědi v kopii; z kopie původního e-mailu se přidají automaticky.",
+          "en": "Ticket watchers – additional people receive replies in CC; picked up automatically from the original e-mail's CC."
+        },
+        {
+          "type": "new",
+          "cs": "Přiřazování řešitele s e-mailovou notifikací a záznamem v konverzaci.",
+          "en": "Assignee selection with an e-mail notification and a conversation log entry."
+        },
+        {
+          "type": "new",
+          "cs": "Slučování duplicitních tiketů – zdrojový se uzavře, žadatel dostává odpovědi v kopii a jeho e-maily se přesměrují na cílový tiket.",
+          "en": "Merging duplicate tickets – the source closes, its requester gets replies in CC and their e-mails are redirected to the target ticket."
+        },
+        {
+          "type": "new",
+          "cs": "Hodnocení spokojenosti – uzavírací e-mail s tlačítky Skvělé / V pořádku / Nespokojen (odpověď jedním kliknutím) i hodnocení v portálu; průměr v reportech.",
+          "en": "Satisfaction rating – a closure e-mail with Great / OK / Unhappy one-click buttons plus in-portal rating; averages in reports."
+        },
+        {
+          "type": "new",
+          "cs": "Výkonnost týmu v reportech – vyřešené tikety, fakturovatelné hodiny, průměrná reakce, doba vyřešení a spokojenost po řešitelích.",
+          "en": "Team performance in reports – resolved tickets, billable hours, average response, resolution time and satisfaction per assignee."
+        },
+        {
+          "type": "new",
+          "cs": "Automatické přiřazování nových tiketů – rotace týmu nebo pevný řešitel, se záznamem v konverzaci.",
+          "en": "Automatic assignment of new tickets – team rotation or a fixed assignee, logged in the conversation."
+        },
+        {
+          "type": "new",
+          "cs": "Štítky na tiketu s vyhledáváním a filtr „Nepřiřazené“ ve frontě.",
+          "en": "Ticket tags with search plus an 'Unassigned' queue filter."
+        },
+        {
+          "type": "improved",
+          "cs": "Sledující lze zadat už při založení tiketu – v portálu i při ručním založení.",
+          "en": "Watchers can be added right when creating a ticket – in the portal and when creating manually."
+        },
+        {
+          "type": "new",
+          "cs": "SLA se přebírá přímo ze servisní smlouvy v EP365 CRM – synchronizace firem plán ze smlouvy přidá nebo aktualizuje podle názvu a rovnou ho firmě přiřadí. Plány bez vazby na CRM zůstávají lokální.",
+          "en": "SLA is now taken straight from the service contract in EP365 CRM – company sync adds or updates the plan by name and assigns it to the company right away. Plans with no CRM link stay local."
         }
       ]
     }

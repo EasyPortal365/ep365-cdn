@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.10",
-      "date": "2026-07-07",
+      "date": "2026-07-10",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Servisní smlouva umí definovat SLA – název plánu a reakční doby podle priority (reakce a vyřešení v hodinách, volitelně jen v pracovní době). Definici přebírá EP365 HelpDesk při synchronizaci firem.",
+          "en": "Service contracts can now define SLA – a plan name and per-priority response times (response and resolution in hours, optionally business hours only). EP365 HelpDesk picks the definition up when synchronising companies."
+        },
         {
           "type": "new",
           "cs": "Nabídky na tabuli Kanban přetáhnete myší mezi sloupci fází – tažením karty rovnou změníte fázi nabídky (a s ní i pravděpodobnost).",
