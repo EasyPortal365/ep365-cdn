@@ -91,6 +91,11 @@
           "type": "new",
           "cs": "Více údajů na záznamech – příspěvek má propagovaný odkaz, aktivita štítky, odkaz na hotový výstup a měnitelného vlastníka, úkol prioritu (Vysoká/Normální/Nízká) viditelnou na nástěnce i v seznamu; událost z CRM vyberete přímo při úpravě příspěvku či aktivity.",
           "en": "More fields on records – a post has a promoted link, an activity has tags, an output link and an editable owner, a task has a priority (High/Normal/Low) visible on the board and in the list; the CRM event can be picked right in the post or activity editor."
+        },
+        {
+          "type": "improved",
+          "cs": "Formátovaný popis – pole Popis u úkolu, aktivity i kampaně je větší a umí formátování jako konverzace (tučně, kurzíva, odrážky, číslovaný seznam, odkaz); naformátovaně se ukazuje i v detailu. Do Outlook kalendáře jde vždy čistý text.",
+          "en": "Formatted description – the Description field on tasks, activities and campaigns is larger and supports the same formatting as conversations (bold, italics, lists, links); it renders formatted in the detail too. Outlook calendar always receives plain text."
         }
       ]
     },
