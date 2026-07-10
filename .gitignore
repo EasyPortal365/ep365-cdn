@@ -30,6 +30,10 @@
 !brand/**/*.ico
 !brand/**/*.webp
 
+# Ukázkové obrázky aktualit pro seed dat Homepage (cdn.easyportal365.cz/homepage/seed/news/).
+# Bezpečné: jen komprimované JPG ilustrace pro banner ukázkových aktualit, žádné zdrojáky/secrets.
+!homepage/seed/**/*.jpg
+
 # Diagnostický nástroj (veřejná statická stránka cdn.easyportal365.cz/diag/).
 # Bezpečné: jen statické HTML bez secrets/zdrojáků.
 !diag/index.html
