@@ -8,6 +8,11 @@
       "date": "2026-07-10",
       "changes": [
         {
+          "type": "fixed",
+          "cs": "Auditní log se opět načítá. Microsoft dočasně rozbil verzi v1.0 svého auditního rozhraní (vracelo chybu 404), na které Atlas stál – seznam proběhlých dotazů i jejich zakládání proto přestaly fungovat. Atlas teď volání auditního rozhraní automaticky přepne na funkční verzi (a sám se vrátí zpět, až Microsoft původní verzi opraví). Auditování ani oprávnění nebyly nikdy problém.",
+          "en": "The audit log loads again. Microsoft temporarily broke the v1.0 version of their audit API (it returned a 404 error) that Atlas relied on – so the list of past queries and creating new ones stopped working. Atlas now automatically switches the audit API calls to the working version (and switches back once Microsoft fixes the original). Auditing and permissions were never the problem."
+        },
+        {
           "type": "improved",
           "cs": "Import Get-SPOTenant je pohodlnější: PowerShell příkaz má tlačítko Kopírovat a je předvyplněný adresou vašeho tenantu (žádné ruční přepisování). Nápověda má novou sekci SPO Management Shell – jak modul nainstalovat, ověřit, připojit se a co dělat s častými chybami; přímý odkaz na ni vede z importu i ze sekce PowerShell v detailu nálezu.",
           "en": "The Get-SPOTenant import is more convenient: the PowerShell command has a Copy button and comes pre-filled with your tenant's admin URL (no manual editing). Help has a new SPO Management Shell section – how to install and verify the module, connect, and deal with common errors; both the import and the PowerShell section in the finding detail link to it directly."
