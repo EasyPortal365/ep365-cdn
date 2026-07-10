@@ -8,6 +8,11 @@
       "date": "2026-07-10",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Nahlásit chybu a Navrhnout funkci teď odesílá hlášení e-mailem z vaší adresy přímo na podporu EasyPortal 365 – vznikne z něj tiket a o vyřízení vás budeme informovat e-mailem. Dřív hlášení mířilo do externího formuláře. K hlášení se přikládá jen to, co vyplníte, plus verze aplikace, jméno, e-mail a identifikace tenantu. Když odeslání z aplikace selže (např. chybí oprávnění k odesílání pošty), nabídne se otevření předvyplněné zprávy ve vašem poštovním klientovi.",
+          "en": "Report a bug and Suggest a feature now send the report by email from your address straight to EasyPortal 365 support – it becomes a ticket and you'll be updated by email. Previously reports went to an external form. Only what you fill in is attached, plus the app version, your name, email and tenant identification. If sending from the app fails (e.g. missing mail permission), it offers to open a pre-filled message in your email client."
+        },
+        {
           "type": "fixed",
           "cs": "Auditní log se opět načítá. Microsoft dočasně rozbil verzi v1.0 svého auditního rozhraní (vracelo chybu 404), na které Atlas stál – seznam proběhlých dotazů i jejich zakládání proto přestaly fungovat. Atlas teď volání auditního rozhraní automaticky přepne na funkční verzi (a sám se vrátí zpět, až Microsoft původní verzi opraví). Auditování ani oprávnění nebyly nikdy problém.",
           "en": "The audit log loads again. Microsoft temporarily broke the v1.0 version of their audit API (it returned a 404 error) that Atlas relied on – so the list of past queries and creating new ones stopped working. Atlas now automatically switches the audit API calls to the working version (and switches back once Microsoft fixes the original). Auditing and permissions were never the problem."
