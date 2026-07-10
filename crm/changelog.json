@@ -86,6 +86,11 @@
           "type": "improved",
           "cs": "Testovací data obsahují ukázkový dokument nabídky, takže záložka Dokumenty má co ukázat hned po jejich vytvoření.",
           "en": "Sample data include an example deal document, so the Documents tab has something to show right after seeding."
+        },
+        {
+          "type": "new",
+          "cs": "U firmy určíte kontaktní role – primární kontakt, kontakt pro měsíční reporty a fakturační kontakt (vybírají se z kontaktů firmy). Kontakt pro reporty přebírá EP365 HelpDesk jako jedinou adresu měsíčního přehledu.",
+          "en": "You can now assign contact roles to a company – primary contact, monthly report contact and billing contact (chosen from the company's contacts). EP365 HelpDesk uses the report contact as the single address for the monthly summary."
         }
       ]
     },

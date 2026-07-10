@@ -242,6 +242,26 @@
           "type": "improved",
           "cs": "Nápověda je přehlednější a pokrývá celý rozsah aplikace – témata rozdělená do kategorií (tikety, e-mail a automatizace, zákazníci a znalosti, přehledy a bezpečnost), vyhledávání napříč vším a Tip dne.",
           "en": "Help is clearer and covers the whole app – topics split into categories (tickets, e-mail and automation, customers and knowledge, reports and security), search across everything and a Tip of the day."
+        },
+        {
+          "type": "new",
+          "cs": "Odpovědi na tikety i obsah článků znalostní báze mají formátování textu – tučné, kurzíva, odrážky, číslovaný seznam a odkazy. Formátování se přenese i do e-mailu zákazníkovi.",
+          "en": "Ticket replies and knowledge-base article content now support text formatting – bold, italic, bullet and numbered lists and links. The formatting carries over into the customer e-mail."
+        },
+        {
+          "type": "improved",
+          "cs": "Detail tiketu je přehlednější – širší levý sloupec bez posuvníku s lépe uspořádanými údaji a vyšší pole pro odpověď vpravo.",
+          "en": "The ticket detail is tidier – a wider left column without a scrollbar and better-arranged fields, plus a taller reply box on the right."
+        },
+        {
+          "type": "new",
+          "cs": "Ve frontě tiketů lze filtrovat podle firmy – rychlý přehled požadavků jednoho zákazníka.",
+          "en": "The ticket queue can be filtered by company – a quick view of one customer's requests."
+        },
+        {
+          "type": "improved",
+          "cs": "Měsíční přehled zákazníkovi jde vždy na jednu adresu – „kontakt pro měsíční reporty“ nastavený u firmy v EP365 CRM (bez něj se použije první kontakt s rolí „Celá firma“).",
+          "en": "The monthly customer report now always goes to a single address – the 'monthly report contact' set on the company in EP365 CRM (without it, the first 'Whole company' contact is used)."
         }
       ]
     }
