@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Měsíční opakovaný příjem (MRR) u Předplatných se nově počítá k vybranému měsíci – ve výchozím nastavení k aktuálnímu, s přepínačem na jiný měsíc. Zohlední, kdy předplatné reálně běží: odběr, který začíná až později (třeba po novém roce) nebo už skončil, se do MRR daného měsíce nezapočítá. U takového předplatného se v seznamu ukáže štítek – kdy začíná, nebo že už skončilo.",
+          "en": "Monthly recurring revenue (MRR) for Subscriptions is now calculated for a selected month — the current one by default, with a switch to another month. It reflects when a subscription actually runs: an item that starts later (e.g. after the new year) or has already ended is not counted into that month's MRR. Such a subscription shows a tag in the list (\"from…\", \"ended…\")."
+        },
+        {
+          "type": "improved",
           "cs": "Detail servisní smlouvy je přehlednější – finanční pás bez prázdných políček, období smlouvy s ukazatelem uplynulého času, obnova, splatnost a přílohy v kompaktní mřížce a SLA jako tabulka s barvami priorit. V editaci jsou datum obnovy a den splatnosti vedle sebe.",
           "en": "The service contract detail is tidier – a finance strip without empty boxes, a contract-period elapsed-time bar, renewal, due day and attachments in a compact grid, and SLA as a table with priority colours. In editing, the renewal date and due day sit side by side."
         },
