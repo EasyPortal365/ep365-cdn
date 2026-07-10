@@ -232,6 +232,16 @@
           "type": "improved",
           "cs": "Na přehledu se poslední aktivita zobrazuje jako samostatná karta vedle vašich tiketů.",
           "en": "On the dashboard, recent activity now shows as a separate card next to your tickets."
+        },
+        {
+          "type": "improved",
+          "cs": "Přidávání uživatelů do rolí (Správci, Tým podpory) má našeptávač – začnete psát jméno nebo e-mail a vyberete uživatele z Microsoft 365, stejně jako v ostatních aplikacích.",
+          "en": "Adding users to roles (Admins, Support team) now has a type-ahead – start typing a name or e-mail and pick a user from Microsoft 365, just like in the other apps."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda je přehlednější a pokrývá celý rozsah aplikace – témata rozdělená do kategorií (tikety, e-mail a automatizace, zákazníci a znalosti, přehledy a bezpečnost), vyhledávání napříč vším a Tip dne.",
+          "en": "Help is clearer and covers the whole app – topics split into categories (tickets, e-mail and automation, customers and knowledge, reports and security), search across everything and a Tip of the day."
         }
       ]
     }
