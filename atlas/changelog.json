@@ -8,6 +8,11 @@
       "date": "2026-07-10",
       "changes": [
         {
+          "type": "fixed",
+          "cs": "Přidání uživatele do rolí (Správci / Čtenáři) v Nastavení selhávalo s technickou chybou SharePointu. Opraveno – členy skupin lze zase přidávat. Stejná příčina se opravila i u tlačítek „Opravit knihovnu z aplikace“ (zapnutí verzování, obnovení dědění oprávnění) v detailu nálezu.",
+          "en": "Adding a user to a role (Admins / Readers) in Settings failed with a SharePoint technical error. Fixed – group members can be added again. The same underlying cause was also fixed for the “Fix library from the app” buttons (enable versioning, restore permission inheritance) in the finding detail."
+        },
+        {
           "type": "improved",
           "cs": "Nahlásit chybu a Navrhnout funkci teď odesílá hlášení e-mailem z vaší adresy přímo na podporu EasyPortal 365 – vznikne z něj tiket a o vyřízení vás budeme informovat e-mailem. Dřív hlášení mířilo do externího formuláře. K hlášení se přikládá jen to, co vyplníte, plus verze aplikace, jméno, e-mail a identifikace tenantu. Když odeslání z aplikace selže (např. chybí oprávnění k odesílání pošty), nabídne se otevření předvyplněné zprávy ve vašem poštovním klientovi.",
           "en": "Report a bug and Suggest a feature now send the report by email from your address straight to EasyPortal 365 support – it becomes a ticket and you'll be updated by email. Previously reports went to an external form. Only what you fill in is attached, plus the app version, your name, email and tenant identification. If sending from the app fails (e.g. missing mail permission), it offers to open a pre-filled message in your email client."
