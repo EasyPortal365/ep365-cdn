@@ -8,6 +8,21 @@
       "date": "2026-07-10",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Obnova servisní smlouvy umí interval – měsíčně, čtvrtletně, pololetně, ročně nebo po dvou letech; datum obnovy se dopočítá jako nejbližší výročí začátku smlouvy. Ruční datum zůstává jako výchozí možnost.",
+          "en": "Contract renewal now supports an interval – monthly, quarterly, half-yearly, yearly or every two years; the renewal date is derived as the nearest anniversary of the contract start. A manual date remains the default option."
+        },
+        {
+          "type": "improved",
+          "cs": "Servisní smlouva má odkaz na umístění příloh – do detailu i editace přibylo pole s URL (např. složka dokumentů v SharePointu), z detailu se otevírá jedním kliknutím.",
+          "en": "Service contracts now carry an attachments link – the detail and edit views gained a URL field (e.g. a SharePoint document folder), opened from the detail in one click."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehled má dvě nové dlaždice – Firmy (počet v databázi, z toho zákazníci a měsíční přírůstek) a Předplatná (počet aktivních s měsíčním opakovaným příjmem MRR).",
+          "en": "The dashboard has two new tiles – Companies (database count, customers and monthly growth) and Subscriptions (active count with monthly recurring revenue)."
+        },
+        {
           "type": "new",
           "cs": "Servisní smlouva umí definovat SLA – název plánu a reakční doby podle priority (reakce a vyřešení v hodinách, volitelně jen v pracovní době). Definici přebírá EP365 HelpDesk při synchronizaci firem.",
           "en": "Service contracts can now define SLA – a plan name and per-priority response times (response and resolution in hours, optionally business hours only). EP365 HelpDesk picks the definition up when synchronising companies."
