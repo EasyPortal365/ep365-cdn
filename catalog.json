@@ -43,13 +43,15 @@
     "webUrl": "https://easyportal365.cz/aplikace/rizene-weby/"
   },
   "ep365-marketing": {
-    "description": "Publikační kalendář sociálních sítí a koordinace marketingu – schvalování obsahu, kampaně, aktivity, úkoly a podpora událostí z CRM."
+    "description": "Publikační kalendář sociálních sítí a koordinace marketingu – schvalování obsahu, kampaně, aktivity, úkoly a podpora událostí z CRM.",
+    "webUrl": "https://easyportal365.cz/aplikace/marketing/"
   },
   "ep365-atlas": {
     "description": "Monitoring SharePoint Online tenantu – nastavení, oprávnění, sdílení, úložiště, audit i připravenost na AI. Skóre zdraví, nálezy s regresemi a porovnání skenů. Vše běží ve vašem tenantu.",
     "webUrl": "https://easyportal365.cz/aplikace/atlas/"
   },
   "ep365-helpdesk": {
-    "description": "Zákaznická podpora – tikety z e-mailu i portálu, SLA hlídání, portál pro externí uživatele a vazba na CRM a Worklog."
+    "description": "Zákaznická podpora – tikety z e-mailu i portálu, SLA hlídání, portál pro externí uživatele a vazba na CRM a Worklog.",
+    "webUrl": "https://easyportal365.cz/aplikace/helpdesk/"
   }
 }
