@@ -5,8 +5,18 @@
   "entries": [
     {
       "version": "1.19",
-      "date": "2026-07-09",
+      "date": "2026-07-10",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Role uživatelů – aplikace nově rozlišuje Správce aplikace (plná správa) a Editora obsahu (jen editace obsahu sekcí). Členství se spravuje ve Správě homepage → záložka Role.",
+          "en": "User roles – the app now distinguishes an Application administrator (full management) from a Content editor (section content editing only). Membership is managed in Homepage management → Roles tab."
+        },
+        {
+          "type": "new",
+          "cs": "Správci aplikace mají v hlavičce rychlou ikonu do Globálního nastavení EP365.",
+          "en": "Application administrators get a quick icon in the header that opens the EP365 Global settings."
+        },
         {
           "type": "new",
           "cs": "Správa sdílených promptů AI Chatu – u globálních promptů lze nastavit vrstvu (úloha nebo asistent), kategorii a popis. Uživatelé je pak vidí v Prompt Studiu AI Asistenta.",
