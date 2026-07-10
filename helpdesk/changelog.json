@@ -152,6 +152,26 @@
           "type": "new",
           "cs": "SLA se přebírá přímo ze servisní smlouvy v EP365 CRM – synchronizace firem plán ze smlouvy přidá nebo aktualizuje podle názvu a rovnou ho firmě přiřadí. Plány bez vazby na CRM zůstávají lokální.",
           "en": "SLA is now taken straight from the service contract in EP365 CRM – company sync adds or updates the plan by name and assigns it to the company right away. Plans with no CRM link stay local."
+        },
+        {
+          "type": "new",
+          "cs": "Pravidla příchozí pošty – nové tikety z e-mailu se automaticky roztřídí podle odesílatele, domény nebo textu: pravidlo nastaví kategorii, prioritu, řešitele či štítky (Nastavení – E-mail).",
+          "en": "Incoming mail rules – new e-mail tickets are triaged automatically by sender, domain or text: a rule sets the category, priority, assignee or tags (Settings – E-mail)."
+        },
+        {
+          "type": "new",
+          "cs": "Měsíční přehled zákazníkům – z Reportů odešlete firmám souhrn období e-mailem: počty požadavků, odpracované hodiny, čerpání paušálu a tabulka tiketů. Příjemci jsou kontakty s rolí Celá firma.",
+          "en": "Monthly customer summary – send companies a period digest by e-mail from Reports: request counts, hours worked, retainer usage and a ticket table. Recipients are contacts with the Whole company role."
+        },
+        {
+          "type": "new",
+          "cs": "Hlídání čerpání paušálu – při dosažení 80 % a 100 % měsíčního fondu hodin firmy odejde interní upozornění; karta firmy zvýrazní blížící se vyčerpání oranžově.",
+          "en": "Retainer usage watch – an internal alert goes out when a company reaches 80 % and 100 % of its monthly hour budget; the company card highlights approaching depletion in amber."
+        },
+        {
+          "type": "new",
+          "cs": "Uložené pohledy fronty – kombinaci filtru, hledání a zobrazení si uložíte pod vlastním názvem a přepnete jedním kliknutím.",
+          "en": "Saved queue views – store a combination of filter, search and layout under your own name and switch with one click."
         }
       ]
     }
