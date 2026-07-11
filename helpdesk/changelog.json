@@ -297,6 +297,16 @@
           "type": "new",
           "cs": "Přehled má novou sekci Provoz podpory – plnění SLA za týden, spokojenost zákazníků, fakturováno nad rámec paušálu, rozpad fronty podle stavu, zátěž řešitelů, firmy blízko limitu paušálu, trend za 14 dní, nejčastější kategorie, nejdéle otevřené tikety a odkud tikety chodí. Vše z existujících dat, bez dalšího nastavení.",
           "en": "The Overview has a new Support operations section – weekly SLA compliance, customer satisfaction, over-retainer billing, queue breakdown by status, agent workload, companies near their retainer limit, a 14-day trend, top categories, the longest-open tickets and where tickets come from. All from existing data, no setup needed."
+        },
+        {
+          "type": "new",
+          "cs": "Firmy lze zobrazit jako přehledné dlaždice, nejen jako tabulku – přepínač je vpravo nad seznamem a volba se pamatuje.",
+          "en": "Companies can be shown as tidy tiles, not just a table – the switch is above the list on the right and the choice is remembered."
+        },
+        {
+          "type": "improved",
+          "cs": "Výběr Worklog projektu na kartě firmy nabízí jen projekty dané firmy (podle zákazníka projektu), ať se nemapuje omylem cizí projekt.",
+          "en": "The Worklog project picker on the company card now offers only that company's projects (by the project's customer), to avoid mapping the wrong one."
         }
       ]
     }
