@@ -76,6 +76,16 @@
           "type": "fixed",
           "cs": "Vymazání všech dat aplikace je nově chráněné potvrzovacím zaškrtnutím; interní kontrola přinesla bezpečnostní zpřísnění odkazů a sjednocenou typografii.",
           "en": "Clearing all app data is now protected by a confirmation checkbox; an internal review brought stricter link safety and unified typography."
+        },
+        {
+          "type": "fixed",
+          "cs": "Ikona Globálního nastavení i celá globální konfigurace (aplikace, Můj den) se správci zobrazí i na webu, který je sám hubem – i když v nastavení nechá pole URL hubu prázdné. Aplikace takový web rozpozná jako vlastní hub.",
+          "en": "The Global settings icon and the whole global configuration (apps, My day) now appear for admins on a site that is itself the hub – even when the hub URL field is left empty. The app recognises such a site as its own hub."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zobrazení v Microsoft Teams, zejména na mobilu – homepage nově respektuje odsazení webparty, nepřetéká doprava a v tmavém režimu telefonu zůstává světlá a čitelná.",
+          "en": "Display in Microsoft Teams, especially on mobile — the homepage now respects the web part padding, no longer overflows to the right, and stays light and legible in the phone's dark mode."
         }
       ]
     },
