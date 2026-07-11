@@ -5,8 +5,63 @@
   "entries": [
     {
       "version": "1.0",
-      "date": "2026-07-11",
+      "date": "2026-07-12",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Detail úkolu ukazuje vykázané hodiny – součet i poslední záznamy hodin provázaných s úkolem přes tlačítko Založit výkaz.",
+          "en": "The task detail shows logged hours – the total and the latest entries linked to the task via the Create entry button."
+        },
+        {
+          "type": "new",
+          "cs": "Odeslaný výkaz lze stáhnout z odeslání – vrátí se do konceptů a zmizí z fronty schvalování (na počítači i na mobilu).",
+          "en": "A submitted entry can be recalled – it returns to drafts and disappears from the approval queue (on desktop and mobile)."
+        },
+        {
+          "type": "new",
+          "cs": "Mobilní vykazování má zkratku „Jako naposledy“ – jedním klepnutím předvyplní projekt, milník a typ práce z posledního zápisu.",
+          "en": "Mobile logging has a “Same as last time” shortcut – one tap prefills the project, milestone and work type from your last entry."
+        },
+        {
+          "type": "improved",
+          "cs": "Hledání nerozlišuje diakritiku – „vyvoj“ najde „Vývoj“, a to ve všech seznamech i v hledání ⌘K.",
+          "en": "Search is diacritics-insensitive – “vyvoj” finds “Vývoj” across all lists and in ⌘K search."
+        },
+        {
+          "type": "improved",
+          "cs": "Odznak Schvalování upozorní i na výkazy po termínu – vykřičník u počtu a podrobnost po najetí myší.",
+          "en": "The Approvals badge also flags overdue entries – an exclamation mark next to the count and details on hover."
+        },
+        {
+          "type": "improved",
+          "cs": "Velká kontrola spolehlivosti – uzávěrka měsíce si data vždy načítá čerstvě a při výpadku sítě se bezpečně zastaví (nikdy nesmaže příjmy v CRM omylem), odeslání, schválení i fakturace respektují uzamčené období a částky v různých měnách se už nikde tiše nesčítají.",
+          "en": "A major reliability pass – month close always reads fresh data and stops safely on a network failure (it can never wipe CRM revenue by mistake), submitting, approving and invoicing respect locked periods, and amounts in different currencies are no longer silently added together."
+        },
+        {
+          "type": "fixed",
+          "cs": "Řada drobných oprav – správné týdenní součty na přelomu měsíce, hledání ⌘K respektuje přiřazení spolupracovníka, ceník správně rozlišuje zákazníky z CRM a lokální, přesun úkolu na kanbanu potvrdí hláška a Outlook podklad k vykázání načítá schůzky ve správném časovém pásmu.",
+          "en": "A batch of smaller fixes – correct weekly totals across month boundaries, ⌘K search respects collaborator assignments, the rate card correctly distinguishes CRM and local customers, kanban task moves show a confirmation and the Outlook logging aid loads meetings in the correct time zone."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlášení chyb a návrhy funkcí nově odcházejí e-mailem přímo na podporu EasyPortal 365 – vznikne z nich tiket a odpověď vám přijde e-mailem.",
+          "en": "Bug reports and feature requests are now sent by e-mail directly to EasyPortal 365 support – they become a ticket and you get the reply by e-mail."
+        },
+        {
+          "type": "new",
+          "cs": "Výkaz založený z úkolu se s ním nově provazuje – připravujeme přehled vykázaných hodin přímo na úkolu.",
+          "en": "A timesheet entry created from a task is now linked to it – a per-task logged-hours overview is coming next."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikace je dostupná v Microsoft Teams – přidáte si ji jako osobní aplikaci v levé liště nebo jako záložku v kanálu, funguje i v mobilním Teams.",
+          "en": "The app is available in Microsoft Teams – add it as a personal app in the left rail or as a channel tab; it also works in mobile Teams."
+        },
+        {
+          "type": "new",
+          "cs": "Na telefonu se aplikace otevírá ve zjednodušeném zobrazení – rychlé vykázání práce, vlastní výkaz s odesláním ke schválení a týdenní souhrn; plná aplikace zůstává na klik.",
+          "en": "On a phone the app opens in a simplified view – quick time logging, your own timesheet with submission for approval and a weekly summary; the full app stays one tap away."
+        },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
