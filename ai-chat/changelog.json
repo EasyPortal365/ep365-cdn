@@ -5,8 +5,18 @@
   "entries": [
     {
       "version": "1.34",
-      "date": "2026-07-11",
+      "date": "2026-07-12",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Na mobilu se už spodní část s polem zprávy neořezává – výška aplikace se měří přesně a přizpůsobí se i otevřené klávesnici.",
+          "en": "The bottom area with the message box is no longer cut off on mobile – the app height is measured precisely and adapts to an open keyboard."
+        },
+        {
+          "type": "fixed",
+          "cs": "Lišta výběru webu v Teams mluví stejným jazykem jako aplikace (řídí se nastavením jazyka daného webu).",
+          "en": "The site bar in Teams speaks the same language as the app (it follows the site's language setting)."
+        },
         {
           "type": "new",
           "cs": "AI Asistent je nově dostupný přímo v Microsoft Teams – jako osobní aplikace v levé liště i jako záložka v kanálu, na počítači i v mobilní aplikaci Teams.",
