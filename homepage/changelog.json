@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.19",
-      "date": "2026-07-10",
+      "date": "2026-07-11",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Homepage je nově dostupná i v Microsoft Teams – jako osobní aplikace v levé liště nebo jako karta v kanálu. Přidáte ji v Teams přes Aplikace → Vytvořeno pro vaši organizaci.",
+          "en": "The Homepage is now available in Microsoft Teams too – as a personal app in the left rail or a channel tab. Add it in Teams via Apps → Built for your org."
+        },
         {
           "type": "new",
           "cs": "Role uživatelů – aplikace nově rozlišuje Správce aplikace (plná správa) a Editora obsahu (jen editace obsahu sekcí). Členství se spravuje ve Správě homepage → záložka Role.",
