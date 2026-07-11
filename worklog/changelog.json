@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.0",
-      "date": "2026-07-07",
+      "date": "2026-07-11",
       "changes": [
         {
           "type": "new",
@@ -51,6 +51,11 @@
           "type": "improved",
           "cs": "Ověření licence proběhne přímo v aplikaci bez obnovení stránky a seznamy mají jednotné stránkování s volbou počtu položek.",
           "en": "License verification runs in-app without a page reload and lists share unified pagination with a page-size choice."
+        },
+        {
+          "type": "improved",
+          "cs": "Typ projektu „Podpora“ se přejmenoval na „Ad-hoc podpora“ – jasněji odlišuje jednorázovou podporu placenou za odpracovaný čas od paušální servisní smlouvy.",
+          "en": "The Support project type was renamed to Ad-hoc support – it more clearly distinguishes one-off support billed by time worked from a flat-rate service contract."
         }
       ]
     }
