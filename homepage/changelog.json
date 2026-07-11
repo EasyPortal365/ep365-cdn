@@ -86,6 +86,16 @@
           "type": "fixed",
           "cs": "Zobrazení v Microsoft Teams, zejména na mobilu – homepage nově respektuje odsazení webparty, nepřetéká doprava a v tmavém režimu telefonu zůstává světlá a čitelná.",
           "en": "Display in Microsoft Teams, especially on mobile — the homepage now respects the web part padding, no longer overflows to the right, and stays light and legible in the phone's dark mode."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oprava: na pomalém připojení (např. mobilní data v Teams) se sekce Aplikace občas nenačetla – seznam se nyní dočte spolehlivě (po registraci aplikace, při návratu na kartu i opakovaným pokusem).",
+          "en": "Fix: on a slow connection (e.g. mobile data in Teams) the Apps section sometimes failed to load — the list now loads reliably (after app registration, on returning to the tab, and via a retry)."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlé odkazy a akce: výrazně rozšířená nabídka ikon k výběru – včetně ikon evokujících aplikace EP365 (Vozový park, CRM, HelpDesk, Worklog, Marketing, Identity…) a řady obecných (zámek, cíl, štítek, dárek, graf a další).",
+          "en": "Quick links and actions: a much larger icon set to choose from — including icons evoking EP365 apps (Fleet, CRM, HelpDesk, Worklog, Marketing, Identity…) and many general ones (lock, target, tag, gift, chart and more)."
         }
       ]
     },
