@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.20",
-      "date": "2026-07-11",
+      "date": "2026-07-12",
       "changes": [
         {
           "type": "new",
@@ -111,6 +111,31 @@
           "type": "improved",
           "cs": "Navazující vylepšení z revize: ochrana proti přepsání nastavení souběžnou editací (jiná karta nebo jiný správce), rozpoznání role i přes vnořené skupiny Entra ID, sjednocené chování anket (procenta až po hlasování), přidání události do Outlooku i v časové ose, po lajku pochvaly se dočte aktuální počet, u Návštěvnosti je popsané 90denní okno a hero přestal poskakovat při načítání cíleného obsahu.",
           "en": "Follow-up improvements from the review: protection against overwriting settings during concurrent editing (another tab / another admin), role detection through nested Entra ID groups, unified poll behavior (percentages only after voting), an \"Add to Outlook\" button in the events timeline too, kudos likes now reflect the current server count, the Visits section documents its 90-day window, and the hero no longer jumps while targeted content loads."
+        },
+        {
+          "type": "new",
+          "cs": "Plánování oznámení – u oznámení lze nastavit Platí od, banner se pak objeví až v daný den (a stále respektuje Platí do). V přehledu správce je naplánované oznámení označené.",
+          "en": "Announcement scheduling — an announcement can have a Valid from date; the banner then appears only from that day (and still respects Valid until). Scheduled announcements are flagged in the admin overview."
+        },
+        {
+          "type": "new",
+          "cs": "Reakce na pochvaly – pochvalu lze ocenit více reakcemi (líbí se mi, skvělé, inspirativní, paráda, husté) místo jen jednoho lajku; u každé reakce se zobrazí počet.",
+          "en": "Kudos reactions — a kudos can be recognised with several reactions (like, great, insightful, love it, impressive) instead of a single like; each reaction shows its count."
+        },
+        {
+          "type": "new",
+          "cs": "Typy Pulse anket – anketa umí jednu odpověď, více odpovědí (zaškrtávací) nebo škálu s průměrným hodnocením. Typ se volí v editaci ankety.",
+          "en": "Pulse survey types — a survey can be single choice, multiple choices (checkboxes) or a scale with an average rating. The type is chosen when editing the survey."
+        },
+        {
+          "type": "improved",
+          "cs": "Otázka dne ukazuje počet hlasujících kolegů i před hlasováním, takže hned vidíte, kolik lidí se už zapojilo.",
+          "en": "The Question of the day shows the number of voting colleagues even before you vote, so you can see how many people have already taken part."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehled využití nově zobrazuje i zapojení do obsahu – reakce na pochvaly, potvrzení přečtení oznámení a velikost publika webu.",
+          "en": "Usage overview now also shows content engagement — kudos reactions, announcement read confirmations and the site audience size."
         }
       ]
     },
