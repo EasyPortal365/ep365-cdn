@@ -96,6 +96,21 @@
           "type": "improved",
           "cs": "Rychlé odkazy a akce: výrazně rozšířená nabídka ikon k výběru – včetně ikon evokujících aplikace EP365 (Vozový park, CRM, HelpDesk, Worklog, Marketing, Identity…) a řady obecných (zámek, cíl, štítek, dárek, graf a další).",
           "en": "Quick links and actions: a much larger icon set to choose from — including icons evoking EP365 apps (Fleet, CRM, HelpDesk, Worklog, Marketing, Identity…) and many general ones (lock, target, tag, gift, chart and more)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oznámení s nastaveným datem platnosti (Platí do) nyní zůstává na homepage celý poslední platný den – dřív mohlo zmizet už brzy ráno. Datumy v editaci sekcí se ukládají bez posunu o den.",
+          "en": "An announcement with a validity date (Valid until) now stays on the homepage for the whole last valid day — previously it could disappear early in the morning. Dates in section editing are saved without an off-by-one-day shift."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rozsáhlá revize kódu (bezpečnost a spolehlivost): Aktuality fungují i na webech založených v češtině, odolnější a bezpečnější zpracování obsahu z editorů, spolehlivější zakládání seznamů, ochrana těla článku před přepsáním při pomalém načtení a jasné hlášení chyby, když se nastavení nepodaří uložit.",
+          "en": "A broad code review (security and reliability): News works on Czech-based sites too, safer and more robust handling of editor content, more reliable list provisioning, protection of the article body against being overwritten on slow loads, and clear error reporting when settings fail to save."
+        },
+        {
+          "type": "improved",
+          "cs": "Navazující vylepšení z revize: ochrana proti přepsání nastavení souběžnou editací (jiná karta nebo jiný správce), rozpoznání role i přes vnořené skupiny Entra ID, sjednocené chování anket (procenta až po hlasování), přidání události do Outlooku i v časové ose, po lajku pochvaly se dočte aktuální počet, u Návštěvnosti je popsané 90denní okno a hero přestal poskakovat při načítání cíleného obsahu.",
+          "en": "Follow-up improvements from the review: protection against overwriting settings during concurrent editing (another tab / another admin), role detection through nested Entra ID groups, unified poll behavior (percentages only after voting), an \"Add to Outlook\" button in the events timeline too, kudos likes now reflect the current server count, the Visits section documents its 90-day window, and the hero no longer jumps while targeted content loads."
         }
       ]
     },
