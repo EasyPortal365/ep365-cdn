@@ -4,6 +4,32 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.34",
+      "date": "2026-07-11",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "AI Asistent je nově dostupný přímo v Microsoft Teams – jako osobní aplikace v levé liště i jako záložka v kanálu, na počítači i v mobilní aplikaci Teams.",
+          "en": "The AI Assistant is now available directly in Microsoft Teams – as a personal app in the left rail and as a channel tab, on desktop and in the Teams mobile app."
+        },
+        {
+          "type": "new",
+          "cs": "Výběr webu při spuštění v Teams – aplikace najde weby, kam máte přístup a kde je AI Asistent nasazený, a vy si vyberete, se kterým chcete pracovat. Volba se pamatuje a lze ji kdykoli změnit.",
+          "en": "Site selection when launched in Teams – the app finds the sites you can access where the AI Assistant is deployed, and you choose which one to work with. The choice is remembered and can be changed at any time."
+        },
+        {
+          "type": "new",
+          "cs": "Přizpůsobené zobrazení pro mobil – chat přes celou obrazovku, seznam konverzací ve vysouvacím panelu a méně používané akce hlavičky přehledně sbalené do menu.",
+          "en": "A tailored mobile view – full-screen chat, the conversation list in a slide-out panel and less-used header actions neatly collapsed into a menu."
+        },
+        {
+          "type": "improved",
+          "cs": "Konverzace, Firemní znalosti i nastavení vybraného webu fungují v Teams stejně jako na SharePointu – včetně sdílených promptů a autoritativních zdrojů organizace.",
+          "en": "Conversations, Company knowledge and the selected site's settings work in Teams just like on SharePoint – including shared prompts and the organisation's authoritative sources."
+        }
+      ]
+    },
+    {
       "version": "1.33",
       "date": "2026-07-09",
       "changes": [
