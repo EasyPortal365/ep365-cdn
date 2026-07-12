@@ -4,6 +4,27 @@
   "name": "EP365 Mediální centrum",
   "entries": [
     {
+      "version": "1.10",
+      "date": "2026-07-13",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Mediální centrum je nově dostupné v Microsoft Teams – jako osobní aplikace v levém panelu i jako záložka v kanálu. Vaše fotky, videa a brand materiály máte po ruce i mimo prohlížeč.",
+          "en": "The Media Center is now available in Microsoft Teams – as a personal app in the left rail and as a tab in a channel. Your photos, videos and brand assets are at hand outside the browser too."
+        },
+        {
+          "type": "new",
+          "cs": "Přepracované mobilní zobrazení – na telefonu aplikace nabídne přehlednou spodní navigaci a obsah uzpůsobený malé obrazovce. Prohlížení a přehrávání médií je pohodlné i na cestách.",
+          "en": "Redesigned mobile experience – on a phone the app offers a clear bottom navigation and content tailored to the small screen. Browsing and playing media is comfortable on the go too."
+        },
+        {
+          "type": "improved",
+          "cs": "V Microsoft Teams si aplikace sama najde web s vaším mediálním centrem (přes EP365 Homepage), nebo se jednou zeptá na jeho adresu a zapamatuje si ji – přepnout web jde kdykoli lištou nahoře.",
+          "en": "In Microsoft Teams the app finds the site with your Media Center on its own (via EP365 Homepage), or asks for its address once and remembers it – you can switch the site anytime from the top bar."
+        }
+      ]
+    },
+    {
       "version": "1.9",
       "date": "2026-07-07",
       "changes": [
