@@ -8,6 +8,11 @@
       "date": "2026-07-12",
       "changes": [
         {
+          "type": "improved",
+          "cs": "V Microsoft Teams si aplikace sama najde, kde máte data – když je EP365 Homepage v hub režimu, dohledá web Worklogu z jejího přehledu aplikací; jinak se jednou zeptá na adresu webu s Worklogem a zapamatuje si ji (lištou „Změnit“ nahoře ji kdykoli přepnete).",
+          "en": "In Microsoft Teams the app finds where your data is on its own – if EP365 Homepage runs in hub mode it looks up the Worklog site from its app registry; otherwise it asks once for the address of your Worklog site and remembers it (switch it anytime via the “Change” bar at the top)."
+        },
+        {
           "type": "new",
           "cs": "Detail úkolu ukazuje vykázané hodiny – součet i poslední záznamy hodin provázaných s úkolem přes tlačítko Založit výkaz.",
           "en": "The task detail shows logged hours – the total and the latest entries linked to the task via the Create entry button."
