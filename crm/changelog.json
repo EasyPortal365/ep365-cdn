@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.10",
-      "date": "2026-07-10",
+      "date": "2026-07-12",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "CRM je připravené pro týmy více uživatelů – členové týmu nově vidí a společně spravují všechny kontakty, firmy, nabídky, aktivity, úkoly a další záznamy (dříve mohl každý vidět jen své vlastní). Konfigurace a číselníky spravuje správce; historie změn (audit) zůstává přístupná pouze správci.",
+          "en": "The CRM is now ready for multi-user teams – team members now see and jointly manage all contacts, companies, deals, activities, tasks and other records (previously each person could see only their own). Configuration and lookups are managed by an administrator; the change history (audit) remains visible only to administrators."
+        },
         {
           "type": "improved",
           "cs": "Měsíční opakovaný příjem (MRR) u Předplatných se nově počítá k vybranému měsíci – ve výchozím nastavení k aktuálnímu, s přepínačem na jiný měsíc. Zohlední, kdy předplatné reálně běží: odběr, který začíná až později (třeba po novém roce) nebo už skončil, se do MRR daného měsíce nezapočítá. U takového předplatného se v seznamu ukáže štítek – kdy začíná, nebo že už skončilo.",
