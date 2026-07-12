@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Aplikace je připravená pro týmy více uživatelů – schvalovatel a fakturant nově vidí výkazy celého týmu (ne jen své) a všichni vidí sdílené projekty, milníky, úkoly, číselníky a přiřazení. Interní nákladové sazby a marži nově vidí jen správce – ukládají se odděleně a do výkazů se nezapisují.",
+          "en": "Ready for multi-user teams – approvers and billing now see the whole team's entries (not just their own) and everyone sees shared projects, milestones, tasks, lookups and assignments. Internal cost rates and margins are now visible only to administrators – stored separately and never written into the timesheets."
+        },
+        {
+          "type": "improved",
           "cs": "V Microsoft Teams si aplikace sama najde, kde máte data – když je EP365 Homepage v hub režimu, dohledá web Worklogu z jejího přehledu aplikací; jinak se jednou zeptá na adresu webu s Worklogem a zapamatuje si ji (lištou „Změnit“ nahoře ji kdykoli přepnete).",
           "en": "In Microsoft Teams the app finds where your data is on its own – if EP365 Homepage runs in hub mode it looks up the Worklog site from its app registry; otherwise it asks once for the address of your Worklog site and remembers it (switch it anytime via the “Change” bar at the top)."
         },
