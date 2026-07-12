@@ -8,6 +8,11 @@
       "date": "2026-07-12",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Rychlejší načítání – úvodní obrazovka se zobrazí okamžitě a méně důležité kroky na pozadí (formátování seznamů) už nezdržují první vykreslení, zvlášť po aktualizaci a v Microsoft Teams.",
+          "en": "Faster loading – the home screen now appears immediately and background steps (list formatting) no longer delay the first render, especially after an update and in Microsoft Teams."
+        },
+        {
           "type": "new",
           "cs": "Homepage je nově dostupná i v Microsoft Teams – jako osobní aplikace v levé liště nebo jako karta v kanálu. Přidáte ji v Teams přes Aplikace → Vytvořeno pro vaši organizaci.",
           "en": "The Homepage is now available in Microsoft Teams too – as a personal app in the left rail or a channel tab. Add it in Teams via Apps → Built for your org."
