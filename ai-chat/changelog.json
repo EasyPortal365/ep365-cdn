@@ -8,6 +8,16 @@
       "date": "2026-07-12",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Výběr webu v Teams je chytřejší – aplikace zjišťuje, kde je nasazená, z centrální evidence aplikací v EP365 Homepage (a ověří, kam máte přístup). U každého webu vidíte, že je oficiálně registrovaný, i jeho verzi.",
+          "en": "Site selection in Teams is smarter – the app detects where it is deployed from the central app registry in EP365 Homepage (and verifies your access). Each site shows that it is officially registered, along with its version."
+        },
+        {
+          "type": "improved",
+          "cs": "Weby s nasazeným AI Asistentem se v Teams najdou spolehlivě i tehdy, když organizace používá více center EP365 Homepage.",
+          "en": "Sites with the AI Assistant deployed are found reliably in Teams even when the organization uses multiple EP365 Homepage hubs."
+        },
+        {
           "type": "fixed",
           "cs": "Na mobilu se už spodní část s polem zprávy neořezává – výška aplikace se měří přesně a přizpůsobí se i otevřené klávesnici.",
           "en": "The bottom area with the message box is no longer cut off on mobile – the app height is measured precisely and adapts to an open keyboard."
