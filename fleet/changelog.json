@@ -8,6 +8,11 @@
       "date": "2026-07-12",
       "changes": [
         {
+          "type": "new",
+          "cs": "Vozový park je nově dostupný v Microsoft Teams – přidáte si ho jako osobní aplikaci v levé liště nebo jako záložku v kanálu; funguje i v mobilním Teams se zjednodušeným zobrazením pro rezervace, předání vozidla, hlášení incidentů a tankování. Při prvním otevření v Teams se aplikace zeptá (nebo si sama dohledá z EP365 Homepage), kde máte data.",
+          "en": "Fleet is now available in Microsoft Teams – add it as a personal app in the left rail or a channel tab; it also works in mobile Teams with a simplified view for reservations, vehicle handover, incident reporting and refuelling. On first open in Teams the app asks (or finds via EP365 Homepage) where your data lives."
+        },
+        {
           "type": "fixed",
           "cs": "Aplikace je připravená pro týmy více uživatelů – řidiči nově vidí všechna vozidla a dispečer i správce vidí a schvalují rezervace celého týmu (dříve mohl každý vidět jen své vlastní záznamy). Týká se vozidel, rezervací, incidentů, knihy jízd, servisů, tankování i dalších přehledů.",
           "en": "The app is now ready for multi-user teams – drivers now see all vehicles and dispatchers and managers see and approve the whole team's reservations (previously each person could see only their own records). This applies to vehicles, reservations, incidents, the journey log, service history, refuelling and other overviews."
