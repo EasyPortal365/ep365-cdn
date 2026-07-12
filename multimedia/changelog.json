@@ -21,6 +21,31 @@
           "type": "improved",
           "cs": "V Microsoft Teams si aplikace sama najde web s vaším mediálním centrem (přes EP365 Homepage), nebo se jednou zeptá na jeho adresu a zapamatuje si ji – přepnout web jde kdykoli lištou nahoře.",
           "en": "In Microsoft Teams the app finds the site with your Media Center on its own (via EP365 Homepage), or asks for its address once and remembers it – you can switch the site anytime from the top bar."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zrušení data expirace média se nyní skutečně uloží – dříve mohlo tiše zůstat původní datum.",
+          "en": "Clearing a media expiration date now actually saves – previously the original date could silently remain."
+        },
+        {
+          "type": "fixed",
+          "cs": "Výsledek rychlého hledání ⌘K typu médium otevře médium rovnou v detailu – dříve jen přepnul do knihovny.",
+          "en": "A ⌘K quick-search result of type media now opens the item directly in its detail – previously it only switched to the library."
+        },
+        {
+          "type": "fixed",
+          "cs": "V Microsoft Teams se po přepnutí cílového webu správně přenačte role uživatele (správce/uživatel).",
+          "en": "In Microsoft Teams the user role (admin/user) is correctly re-detected after switching the target site."
+        },
+        {
+          "type": "fixed",
+          "cs": "Stažení výběru do ZIP – názvy souborů se speciálními znaky se v archivu už nerozpadají na složky.",
+          "en": "ZIP download – file names with special characters no longer break into folders inside the archive."
+        },
+        {
+          "type": "fixed",
+          "cs": "Bezpečnostní zpřísnění zobrazování náhledů a externích odkazů (přísnější kontrola adres uložených u médií).",
+          "en": "Security hardening of thumbnail rendering and external links (stricter validation of URLs stored with media)."
         }
       ]
     },
