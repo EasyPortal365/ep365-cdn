@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.11",
-      "date": "2026-07-07",
+      "date": "2026-07-12",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Aplikace je připravená pro týmy více uživatelů – koncoví uživatelé nově vidí všechny publikované dokumenty k seznámení a manažeři i vydavatelé vidí potvrzení celého týmu (dříve mohl každý vidět jen své vlastní záznamy). Schvalovatel také korektně schválí dokument od jiného vydavatele.",
+          "en": "The app is now ready for multi-user teams – end users now see all published documents to acknowledge and managers and publishers see the whole team's confirmations (previously each person could see only their own records). An approver can also correctly approve a document from another publisher."
+        },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",

@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.7",
-      "date": "2026-07-07",
+      "date": "2026-07-12",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Aplikace je připravená pro týmy více uživatelů – řidiči nově vidí všechna vozidla a dispečer i správce vidí a schvalují rezervace celého týmu (dříve mohl každý vidět jen své vlastní záznamy). Týká se vozidel, rezervací, incidentů, knihy jízd, servisů, tankování i dalších přehledů.",
+          "en": "The app is now ready for multi-user teams – drivers now see all vehicles and dispatchers and managers see and approve the whole team's reservations (previously each person could see only their own records). This applies to vehicles, reservations, incidents, the journey log, service history, refuelling and other overviews."
+        },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
