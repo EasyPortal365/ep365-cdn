@@ -19,6 +19,11 @@
         },
         {
           "type": "fixed",
+          "cs": "V aplikaci Teams se už nezobrazuje plovoucí tlačítko asistenta – bylo zbytečné, když už jste přímo v AI Asistentovi.",
+          "en": "The floating assistant button no longer appears in the Teams app – it was redundant when you are already in the AI Assistant."
+        },
+        {
+          "type": "fixed",
           "cs": "Na mobilu se už spodní část s polem zprávy neořezává – výška aplikace se měří přesně a přizpůsobí se i otevřené klávesnici.",
           "en": "The bottom area with the message box is no longer cut off on mobile – the app height is measured precisely and adapts to an open keyboard."
         },
