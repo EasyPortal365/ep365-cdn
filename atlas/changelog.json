@@ -166,6 +166,11 @@
           "type": "improved",
           "cs": "Souběžný sken od dvou správců je nově pojištěný zámkem – dva lidé už omylem nespustí sken zároveň (chránilo by to před zdvojením nálezů).",
           "en": "A concurrent scan by two admins is now guarded by a lock – two people can no longer accidentally run a scan at the same time (which protects against duplicated findings)."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
         }
       ]
     },

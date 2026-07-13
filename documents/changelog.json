@@ -31,6 +31,11 @@
           "type": "improved",
           "cs": "Všechny e-maily odesílané aplikací (žádost o potvrzení, publikace, připomínky, zamítnutí) používají jednotnou brandovanou šablonu.",
           "en": "All e-mails sent by the app (confirmation requests, publications, reminders, rejections) use a unified branded template."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
         }
       ]
     },

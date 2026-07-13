@@ -101,6 +101,11 @@
           "type": "new",
           "cs": "U firmy určíte kontaktní role – primární kontakt, kontakt pro měsíční reporty a fakturační kontakt (vybírají se z kontaktů firmy). Kontakt pro reporty přebírá EP365 HelpDesk jako jedinou adresu měsíčního přehledu.",
           "en": "You can now assign contact roles to a company – primary contact, monthly report contact and billing contact (chosen from the company's contacts). EP365 HelpDesk uses the report contact as the single address for the monthly summary."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
         }
       ]
     },

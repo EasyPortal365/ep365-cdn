@@ -131,6 +131,11 @@
           "type": "improved",
           "cs": "Typ projektu „Podpora“ se přejmenoval na „Ad-hoc podpora“ – jasněji odlišuje jednorázovou podporu placenou za odpracovaný čas od paušální servisní smlouvy.",
           "en": "The Support project type was renamed to Ad-hoc support – it more clearly distinguishes one-off support billed by time worked from a flat-rate service contract."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
         }
       ]
     }

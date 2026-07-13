@@ -51,6 +51,11 @@
           "type": "improved",
           "cs": "Konverzace, Firemní znalosti i nastavení vybraného webu fungují v Teams stejně jako na SharePointu – včetně sdílených promptů a autoritativních zdrojů organizace.",
           "en": "Conversations, Company knowledge and the selected site's settings work in Teams just like on SharePoint – including shared prompts and the organisation's authoritative sources."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
         }
       ]
     },

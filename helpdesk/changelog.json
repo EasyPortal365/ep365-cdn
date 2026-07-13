@@ -307,6 +307,11 @@
           "type": "improved",
           "cs": "Výběr Worklog projektu na kartě firmy nabízí jen projekty dané firmy (podle zákazníka projektu), ať se nemapuje omylem cizí projekt.",
           "en": "The Worklog project picker on the company card now offers only that company's projects (by the project's customer), to avoid mapping the wrong one."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
         }
       ]
     }

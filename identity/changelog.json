@@ -36,6 +36,11 @@
           "type": "improved",
           "cs": "Ukázková data nově pokrývají i recertifikaci a klasifikaci hostů – governance funkce si vyzkoušíte bez ručního zakládání.",
           "en": "Sample data now also covers recertification and guest classification – try the governance features without manual setup."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
         }
       ]
     },
