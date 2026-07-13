@@ -13,6 +13,11 @@
           "en": "English interface — switch the whole app to English with the CS/EN toggle in the top-right of the header. Ideal for international teams and colleagues abroad."
         },
         {
+          "type": "fixed",
+          "cs": "Firemní barva motivu se nově propisuje i do posledních míst rozhraní (avatar uživatele, rychlé hledání ⌘K, prohlížeč médií, výběr osob) – dřív tam zůstávala výchozí tyrkysová.",
+          "en": "The company theme color now applies to the last remaining spots (user avatar, ⌘K quick search, media viewer, people picker) — previously they stayed the default teal."
+        },
+        {
           "type": "new",
           "cs": "Výchozí jazyk se dědí z centrální konfigurace organizace (EP365 Homepage), případně se řídí jazykem vašeho Microsoft 365. Vaše vlastní volba jazyka se pamatuje napříč zařízeními.",
           "en": "The default language is inherited from your organisation's central configuration (EP365 Homepage), or follows your Microsoft 365 language. Your own language choice is remembered across devices."
