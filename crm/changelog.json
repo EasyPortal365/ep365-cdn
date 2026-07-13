@@ -8,6 +8,11 @@
       "date": "2026-07-12",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Seznamy Předplatných, Produktů, Smluv, Šablon i Kampaní teď mají tříditelné sloupce – kliknutím na záhlaví sloupce záznamy seřadíte (a dalším kliknutím obrátíte směr). Rychle tak najdete třeba nejdražší předplatné, smlouvy s nejbližší obnovou nebo naposledy použité šablony.",
+          "en": "The Subscriptions, Products, Contracts, Templates and Campaigns lists now have sortable columns — click a column header to sort the records (and click again to reverse the order). This makes it easy to find, for example, the most expensive subscription, contracts with the nearest renewal, or the most recently used templates."
+        },
+        {
           "type": "fixed",
           "cs": "CRM je připravené pro týmy více uživatelů – členové týmu nově vidí a společně spravují všechny kontakty, firmy, nabídky, aktivity, úkoly a další záznamy (dříve mohl každý vidět jen své vlastní). Konfigurace a číselníky spravuje správce; historie změn (audit) zůstává přístupná pouze správci.",
           "en": "The CRM is now ready for multi-user teams – team members now see and jointly manage all contacts, companies, deals, activities, tasks and other records (previously each person could see only their own). Configuration and lookups are managed by an administrator; the change history (audit) remains visible only to administrators."
