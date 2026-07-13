@@ -24,8 +24,8 @@
         },
         {
           "type": "improved",
-          "cs": "Firemní barva se nově propisuje i do akčních tlačítek (Přidat, Nová kolekce, Uložit …) a aktivních filtrů – aplikace tak barevně víc odpovídá vašemu firemnímu motivu.",
-          "en": "Your company color now extends to action buttons (Add, New collection, Save …) and active filters — so the app matches your company theme more closely."
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
         }
       ]
     },
