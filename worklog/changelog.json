@@ -5,8 +5,18 @@
   "entries": [
     {
       "version": "1.0",
-      "date": "2026-07-12",
+      "date": "2026-07-13",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Můj výkaz si pamatuje naposledy vykázaný projekt – rychlý zápis ho rovnou předvyplní. Měsíční přehled je nově tříditelná tabulka – klikem na záhlaví sloupce seřadíte výkazy podle hodin, projektu, data i stavu.",
+          "en": "My timesheet remembers the last project you logged to – the quick entry preselects it. The monthly overview is now a sortable table – click a column header to sort entries by hours, project, date or status."
+        },
+        {
+          "type": "improved",
+          "cs": "Projekty a milníky mají nově řádkové (tabulkové) zobrazení – přepnete ho vedle dlaždic i kanbanu, se seřaditelnými sloupci; aplikace si pamatuje, které zobrazení jste měli naposledy.",
+          "en": "Projects and milestones now offer a row (table) view – switch to it next to tiles and the kanban, with sortable columns; the app remembers which view you used last."
+        },
         {
           "type": "improved",
           "cs": "Aplikace je připravená pro týmy více uživatelů – schvalovatel a fakturant nově vidí výkazy celého týmu (ne jen své) a všichni vidí sdílené projekty, milníky, úkoly, číselníky a přiřazení. Interní nákladové sazby a marži nově vidí jen správce – ukládají se odděleně a do výkazů se nezapisují.",
