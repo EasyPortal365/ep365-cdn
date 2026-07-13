@@ -8,6 +8,26 @@
       "date": "2026-07-13",
       "changes": [
         {
+          "type": "new",
+          "cs": "Návrh motivu z loga – nahrajte firemní logo v Globálním nastavení a aplikace z něj rovnou nabídne několik barevných variant motivu k aplikaci jedním kliknutím.",
+          "en": "Theme from your logo – upload the company logo in Global settings and the app instantly offers several colour theme variants to apply in one click."
+        },
+        {
+          "type": "improved",
+          "cs": "Zvolený motiv (akcentní barva) se nyní propisuje do celé aplikace jednotně – aktivní záložky, odznaky, avatary, nadpisy sekcí i bannery ladí s vaší barvou.",
+          "en": "The chosen theme (accent colour) now applies consistently across the whole app – active tabs, badges, avatars, section headings and banners all match your colour."
+        },
+        {
+          "type": "new",
+          "cs": "Barvy úrovní závažnosti u Oznámení (Informace, Upozornění, Kritické) se odvodí z motivu a jdou přepsat v nastavení sekce.",
+          "en": "Severity level colours for Announcements (Information, Warning, Critical) are derived from the theme and can be overridden in the section settings."
+        },
+        {
+          "type": "improved",
+          "cs": "Adresář Lidé nabízí v dlaždicovém zobrazení volby počtu na stránku 10 / 15 / 20.",
+          "en": "The People directory offers 10 / 15 / 20 per-page options in the tile view."
+        },
+        {
           "type": "fixed",
           "cs": "Bezpečnostní zpřísnění čtečky aktualit – adresa úvodního obrázku se před zobrazením přísně kontroluje a sjednotila se s ostatními místy aplikace.",
           "en": "Security hardening of the news reader – the banner image address is now strictly validated before display, unified with the rest of the app."
