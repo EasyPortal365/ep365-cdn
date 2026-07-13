@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.20",
-      "date": "2026-07-12",
+      "date": "2026-07-13",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Bezpečnostní zpřísnění čtečky aktualit – adresa úvodního obrázku se před zobrazením přísně kontroluje a sjednotila se s ostatními místy aplikace.",
+          "en": "Security hardening of the news reader – the banner image address is now strictly validated before display, unified with the rest of the app."
+        },
         {
           "type": "improved",
           "cs": "Rychlejší načítání – úvodní obrazovka se zobrazí okamžitě a méně důležité kroky na pozadí (formátování seznamů) už nezdržují první vykreslení, zvlášť po aktualizaci a v Microsoft Teams.",
