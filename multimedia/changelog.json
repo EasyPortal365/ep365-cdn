@@ -4,6 +4,22 @@
   "name": "EP365 Mediální centrum",
   "entries": [
     {
+      "version": "1.12",
+      "date": "2026-07-13",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Anglické rozhraní – celou aplikaci přepnete do angličtiny přepínačem CS/EN vpravo nahoře v hlavičce. Ideální pro mezinárodní týmy a zahraniční kolegy.",
+          "en": "English interface — switch the whole app to English with the CS/EN toggle in the top-right of the header. Ideal for international teams and colleagues abroad."
+        },
+        {
+          "type": "new",
+          "cs": "Výchozí jazyk se dědí z centrální konfigurace organizace (EP365 Homepage), případně se řídí jazykem vašeho Microsoft 365. Vaše vlastní volba jazyka se pamatuje napříč zařízeními.",
+          "en": "The default language is inherited from your organisation's central configuration (EP365 Homepage), or follows your Microsoft 365 language. Your own language choice is remembered across devices."
+        }
+      ]
+    },
+    {
       "version": "1.11",
       "date": "2026-07-13",
       "changes": [
