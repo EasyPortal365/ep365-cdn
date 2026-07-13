@@ -8,6 +8,11 @@
       "date": "2026-07-10",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Úplnější inventář webů: Atlas nově dohledá i weby, které nejsou ve vyhledávacím indexu Microsoftu. Weby skryté z vyhledávání nebo čerstvě založené se do vyhledávání nedostanou a dřív tak mohly v inventáři – a s ním i v nálezech, úložišti a přehledech – chybět, i když k nim správce má přístup. Atlas teď seznam webů doplní přes Microsoft Graph, takže vidíte i tyto weby. Funkce vyžaduje jednorázové schválení nového oprávnění (Sites.Read.All) správcem v centru pro správu SharePointu.",
+          "en": "More complete site inventory: Atlas now also discovers sites that aren't in Microsoft's search index. Sites hidden from search or freshly created never make it into search, so they could previously be missing from the inventory — and therefore from findings, storage and overviews — even when the admin has access to them. Atlas now completes the site list via Microsoft Graph so you see those sites too. This requires a one-time approval of a new permission (Sites.Read.All) by an administrator in the SharePoint admin center."
+        },
+        {
           "type": "fixed",
           "cs": "Přidání uživatele do rolí (Správci / Čtenáři) v Nastavení selhávalo s technickou chybou SharePointu. Opraveno – členy skupin lze zase přidávat. Stejná příčina se opravila i u tlačítek „Opravit knihovnu z aplikace“ (zapnutí verzování, obnovení dědění oprávnění) v detailu nálezu.",
           "en": "Adding a user to a role (Admins / Readers) in Settings failed with a SharePoint technical error. Fixed – group members can be added again. The same underlying cause was also fixed for the “Fix library from the app” buttons (enable versioning, restore permission inheritance) in the finding detail."
