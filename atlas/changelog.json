@@ -5,12 +5,12 @@
   "entries": [
     {
       "version": "1.2",
-      "date": "2026-07-10",
+      "date": "2026-07-13",
       "changes": [
         {
-          "type": "improved",
-          "cs": "Úplnější inventář webů: Atlas nově dohledá i weby, které nejsou ve vyhledávacím indexu Microsoftu. Weby skryté z vyhledávání nebo čerstvě založené se do vyhledávání nedostanou a dřív tak mohly v inventáři – a s ním i v nálezech, úložišti a přehledech – chybět, i když k nim správce má přístup. Atlas teď seznam webů doplní přes Microsoft Graph, takže vidíte i tyto weby. Funkce vyžaduje jednorázové schválení nového oprávnění (Sites.Read.All) správcem v centru pro správu SharePointu.",
-          "en": "More complete site inventory: Atlas now also discovers sites that aren't in Microsoft's search index. Sites hidden from search or freshly created never make it into search, so they could previously be missing from the inventory — and therefore from findings, storage and overviews — even when the admin has access to them. Atlas now completes the site list via Microsoft Graph so you see those sites too. This requires a one-time approval of a new permission (Sites.Read.All) by an administrator in the SharePoint admin center."
+          "type": "new",
+          "cs": "Úplnější inventář webů: sken staví na vyhledávacím indexu Microsoftu, který ale míjí weby skryté z vyhledávání nebo dosud neprocházené – ty pak mohly v inventáři (a s ním v nálezech, úložišti i přehledech) chybět. Nově můžete na obrazovce Skenování (dlaždice Import webů) jednorázově vložit výstup PowerShellu Get-SPOSite a Atlas ho sloučí do inventáře podle adresy – doplní tak i weby, které samotný sken nevidí. Vše zůstává ve vašem tenantu a žádné další oprávnění není potřeba.",
+          "en": "More complete site inventory: the scan builds on Microsoft's search index, which misses sites hidden from search or not yet crawled — those could then be missing from the inventory (and with it from findings, storage and overviews). You can now paste the PowerShell Get-SPOSite output once on the Scan screen (Import sites tile) and Atlas merges it into the inventory by URL — adding the sites the scan alone can't see. Everything stays in your tenant and no extra permission is required."
         },
         {
           "type": "fixed",
