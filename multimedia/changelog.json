@@ -14,8 +14,8 @@
         },
         {
           "type": "fixed",
-          "cs": "Firemní barva motivu se nově propisuje i do posledních míst rozhraní (avatar uživatele, rychlé hledání ⌘K, prohlížeč médií, výběr osob) – dřív tam zůstávala výchozí tyrkysová.",
-          "en": "The company theme color now applies to the last remaining spots (user avatar, ⌘K quick search, media viewer, people picker) — previously they stayed the default teal."
+          "cs": "Firemní barva motivu se nově propisuje i do posledních míst rozhraní (avatar uživatele, rychlé hledání ⌘K, prohlížeč médií, výběr osob, upozornění na novinky, přehled využití, karty kolekcí) – dřív tam zůstávala výchozí tyrkysová.",
+          "en": "The company theme color now applies to the last remaining spots (user avatar, ⌘K quick search, media viewer, people picker, update notices, usage overview, collection cards) — previously they stayed the default teal."
         },
         {
           "type": "new",
