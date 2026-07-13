@@ -21,6 +21,11 @@
           "type": "new",
           "cs": "Výchozí jazyk se dědí z centrální konfigurace organizace (EP365 Homepage), případně se řídí jazykem vašeho Microsoft 365. Vaše vlastní volba jazyka se pamatuje napříč zařízeními.",
           "en": "The default language is inherited from your organisation's central configuration (EP365 Homepage), or follows your Microsoft 365 language. Your own language choice is remembered across devices."
+        },
+        {
+          "type": "improved",
+          "cs": "Firemní barva se nově propisuje i do akčních tlačítek (Přidat, Nová kolekce, Uložit …) a aktivních filtrů – aplikace tak barevně víc odpovídá vašemu firemnímu motivu.",
+          "en": "Your company color now extends to action buttons (Add, New collection, Save …) and active filters — so the app matches your company theme more closely."
         }
       ]
     },
