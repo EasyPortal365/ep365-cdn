@@ -4,6 +4,62 @@
   "name": "EP365 Mediální centrum",
   "entries": [
     {
+      "version": "1.11",
+      "date": "2026-07-13",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Hlídání expirace médií – správci vidí na rozcestníku upozornění na expirovaná a brzy expirující média a v knihovně mají nový filtr Expirace. Expirovaná média se běžným uživatelům nově skrývají (volba v Nastavení → Obecné).",
+          "en": "Media expiration watch – admins see a home-screen notice for expired and soon-to-expire media and get a new Expiration filter in the library. Expired media are now hidden from regular users (option in Settings → General)."
+        },
+        {
+          "type": "new",
+          "cs": "Focení z telefonu – v mobilním zobrazení pořídíte fotku rovnou fotoaparátem a nahrajete ji do zvolené kolekce (např. reportáž z akce).",
+          "en": "Phone capture – on mobile you can take a photo with the camera and upload it straight into a collection (e.g. event coverage)."
+        },
+        {
+          "type": "new",
+          "cs": "Soukromí fotek – při nahrání se odstraňují skrytá metadata (EXIF včetně GPS polohy) a velké fotky lze volitelně automaticky zmenšovat.",
+          "en": "Photo privacy – hidden metadata (EXIF including GPS location) is stripped on upload, and large photos can optionally be downsized automatically."
+        },
+        {
+          "type": "new",
+          "cs": "Import z existující složky – média už uložená na SharePointu zkopírujete do centra průvodcem s náhledem před potvrzením (Nastavení → Import médií). Originály zůstávají beze změny.",
+          "en": "Import from an existing folder – media already stored on SharePoint can be copied into the center via a wizard with a preview before confirming (Settings → Media import). Originals stay untouched."
+        },
+        {
+          "type": "new",
+          "cs": "Kiosk režim pro obrazovky – z detailu kolekce spustíte celoplošnou smyčku fotek a videí (recepce, jídelna, veletrh); odkaz lze nastavit na obrazovku napevno.",
+          "en": "Kiosk mode for screens – launch a full-screen loop of a collection's photos and videos from its detail (reception, canteen, trade fair); the link can be pinned to a screen permanently."
+        },
+        {
+          "type": "new",
+          "cs": "Nové od vaší poslední návštěvy – rozcestník ukáže média přidaná od vaší minulé návštěvy.",
+          "en": "New since your last visit – the home screen shows media added since you were last here."
+        },
+        {
+          "type": "improved",
+          "cs": "Naposledy prohlížená média se pamatují napříč zařízeními – historie z počítače se ukáže i v telefonu.",
+          "en": "Recently viewed media are remembered across devices – history from your computer shows up on your phone too."
+        },
+        {
+          "type": "improved",
+          "cs": "V prohlížečce médií lze na dotykových zařízeních listovat přejetím prstu.",
+          "en": "In the media viewer you can now swipe between items on touch devices."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlášení chyb a návrhy funkcí odchází e-mailem na podporu EasyPortal 365 a vzniká z nich tiket – o vyřízení budete informováni.",
+          "en": "Bug reports and feature suggestions are now e-mailed to EasyPortal 365 support and turned into tickets – you will be kept informed."
+        },
+        {
+          "type": "improved",
+          "cs": "EP365 Homepage nově u Mediálního centra upozorňuje na expirující média (panel Vyžaduje pozornost).",
+          "en": "EP365 Homepage now surfaces expiring media for the Media Center (Needs attention panel)."
+        }
+      ]
+    },
+    {
       "version": "1.10",
       "date": "2026-07-13",
       "changes": [
