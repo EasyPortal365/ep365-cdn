@@ -4,6 +4,37 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.36",
+      "date": "2026-07-15",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Ranní přehled – úloha Připrav mě na zítřek složí do jedné karty vaše schůzky, poštu čekající na odpověď a úkoly z Microsoft To Do. U každé položky je připravená akce: otevřít schůzku, navrhnout odpověď, založit úkol.",
+          "en": "Daily brief – the Prepare me for tomorrow task assembles your meetings, mail awaiting a reply and tasks from Microsoft To Do into a single card. Each item has a ready action: open the meeting, draft a reply, create a task."
+        },
+        {
+          "type": "new",
+          "cs": "Třídění pošty – úloha Roztřiď mi poštu rozdělí zprávy do skupin a ke každé navrhne akci. Zaškrtnete, co chcete, a jedním tlačítkem provedete: přiřazení Outlook kategorie a archivaci. Nic se neodesílá ani nemaže – archivace i kategorie jsou v Outlooku kdykoli vratné.",
+          "en": "Mail triage – the Triage my mail task groups your messages and proposes an action for each. Tick what you want and run it in one click: assigning an Outlook category and archiving. Nothing is sent or deleted – archiving and categories are always reversible in Outlook."
+        },
+        {
+          "type": "new",
+          "cs": "Úkoly do Microsoft To Do – asistent vám z e-mailu nebo z konverzace připraví konkrétní úkoly i s termíny a vy je jedním kliknutím založíte do To Do. Na připomínání pak myslí Outlook a To Do samy.",
+          "en": "Tasks into Microsoft To Do – the assistant prepares concrete tasks with due dates from an email or a conversation, and you add them to To Do in one click. Reminders are then handled by Outlook and To Do themselves."
+        },
+        {
+          "type": "new",
+          "cs": "Nové úlohy najdete v Prompt Studiu v kategorii Pošta a kalendář: Připrav mě na zítřek, Roztřiď mi poštu, Úkoly z e-mailu do To Do a Založit úkol.",
+          "en": "The new tasks live in Prompt Studio under the Mail & calendar category: Prepare me for tomorrow, Triage my mail, Email tasks into To Do and Create a task."
+        },
+        {
+          "type": "improved",
+          "cs": "Stejné zásady jako dosud – asistent jen navrhuje, provedete to vy kliknutím; nikdy nic neodešle ani tvrdě nesmaže a pracuje výhradně nad vašimi vlastními daty. Nové funkce vyžadují jednorázové schválení oprávnění správcem Microsoft 365.",
+          "en": "The same principles as before – the assistant only proposes, you perform the action with a click; it never sends or hard-deletes anything and works solely over your own data. The new features require a one-time permission approval by a Microsoft 365 admin."
+        }
+      ]
+    },
+    {
       "version": "1.35",
       "date": "2026-07-14",
       "changes": [
