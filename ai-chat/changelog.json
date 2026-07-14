@@ -4,6 +4,42 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.35",
+      "date": "2026-07-14",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Pošta a kalendář – Prompt Studio má novou kategorii úloh nad vaší vlastní schránkou a kalendářem: shrnutí e-mailu, vytažení úkolů z e-mailu, návrh odpovědi, nový e-mail a přehled Co mám v kalendáři.",
+          "en": "Mail & calendar – Prompt Studio gets a new task category over your own mailbox and calendar: summarize an email, extract tasks from it, draft a reply, a new email and a What's on my calendar overview."
+        },
+        {
+          "type": "new",
+          "cs": "Chytrá položka e-mail – v úloze vyberete zprávu z Doručené pošty nebo hledáním v celé schránce; asistent dostane její obsah jako podklad.",
+          "en": "Smart email item – pick a message from your Inbox or by searching your whole mailbox; the assistant receives its content as context."
+        },
+        {
+          "type": "new",
+          "cs": "Navržené odpovědi se ukládají výhradně jako koncepty do Outlooku – u odpovědi se objeví karta s náhledem a tlačítkem Uložit koncept do Outlooku. Asistent nikdy nic neodesílá, odeslání zůstává na vás.",
+          "en": "Drafted replies are saved strictly as Outlook drafts – the answer shows a card with a preview and a Save draft to Outlook button. The assistant never sends anything; sending stays with you."
+        },
+        {
+          "type": "new",
+          "cs": "Vše běží pod vaším přihlášením a jen nad vašimi daty – aplikace pracuje výhradně s vaší schránkou a vaším kalendářem. Funkce vyžadují jednorázové schválení oprávnění správcem Microsoft 365.",
+          "en": "Everything runs under your sign-in and only over your data – the app works solely with your mailbox and your calendar. The features require a one-time permission approval by a Microsoft 365 admin."
+        },
+        {
+          "type": "new",
+          "cs": "Správce může funkce pošty a kalendáře pro organizaci vypnout v Nastavení aplikace – nová sekce Pošta a kalendář.",
+          "en": "An admin can turn the mail & calendar features off for the organization in App settings – a new Mail & calendar section."
+        },
+        {
+          "type": "improved",
+          "cs": "Úvodní obrazovka nabízí rychlý výběr asistenta – vedle tlačítka Prohlédnout je nový vstup Vybrat asistenta s náhledem připravených person.",
+          "en": "The home screen offers a quick assistant pick – next to Browse there is a new Choose assistant entry with a preview of the ready-made personas."
+        }
+      ]
+    },
+    {
       "version": "1.34",
       "date": "2026-07-12",
       "changes": [
