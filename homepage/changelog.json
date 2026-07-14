@@ -166,6 +166,16 @@
           "type": "improved",
           "cs": "Přehled využití nově zobrazuje i zapojení do obsahu – reakce na pochvaly, potvrzení přečtení oznámení a velikost publika webu.",
           "en": "Usage overview now also shows content engagement — kudos reactions, announcement read confirmations and the site audience size."
+        },
+        {
+          "type": "improved",
+          "cs": "Firemní motiv se propisuje i do podstránek a detailů – nadpisy, jména, čísla a tlačítka na stránkách Mé aktivity, Aplikace, Seznam kontaktů, Úkoly a Návštěvnost, popisky nad nadpisy i pilulka počasí nyní ladí s vaší barvou (dříve zůstávaly modré).",
+          "en": "The company theme now reaches sub-pages and details too — headings, names, figures and buttons on My activities, Apps, Directory, Tasks and Visits, page eyebrows and the weather pill now match your colour (previously they stayed blue)."
+        },
+        {
+          "type": "new",
+          "cs": "Skryté účty v Seznamu kontaktů – správce může určit účty, které se v části Lidé nemají zobrazovat (např. servisní a technické účty), včetně vzorů s hvězdičkou (svc-*, *@dodavatel.cz). Účty se zakázaným přihlášením (sdílené schránky, bývalí zaměstnanci) se nově skrývají automaticky.",
+          "en": "Hidden accounts in the Directory – admins can define accounts that should not appear in the People list (e.g. service and technical accounts), including asterisk patterns (svc-*, *@vendor.com). Accounts with sign-in blocked (shared mailboxes, former employees) are now hidden automatically."
         }
       ]
     },
