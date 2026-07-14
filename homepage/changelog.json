@@ -174,8 +174,8 @@
         },
         {
           "type": "new",
-          "cs": "Skryté účty v Seznamu kontaktů – správce může určit účty, které se v části Lidé nemají zobrazovat (např. servisní a technické účty), včetně vzorů s hvězdičkou (svc-*, *@dodavatel.cz). Účty se zakázaným přihlášením (sdílené schránky, bývalí zaměstnanci) se nově skrývají automaticky.",
-          "en": "Hidden accounts in the Directory – admins can define accounts that should not appear in the People list (e.g. service and technical accounts), including asterisk patterns (svc-*, *@vendor.com). Accounts with sign-in blocked (shared mailboxes, former employees) are now hidden automatically."
+          "cs": "Skryté účty v Seznamu kontaktů – správce může určit účty, které se v části Lidé nemají zobrazovat (např. servisní a technické účty). Stačí zadat část UPN nebo e-mailu, kterou účet obsahuje (např. .GA@ nebo @dodavatel.cz). Účty se zakázaným přihlášením (sdílené schránky, bývalí zaměstnanci) se nově skrývají automaticky.",
+          "en": "Hidden accounts in the Directory – admins can define accounts that should not appear in the People list (e.g. service and technical accounts). Just enter a part of the UPN or e-mail the account contains (e.g. .GA@ or @vendor.com). Accounts with sign-in blocked (shared mailboxes, former employees) are now hidden automatically."
         }
       ]
     },
