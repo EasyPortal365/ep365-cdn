@@ -4,6 +4,32 @@
   "name": "EP365 Mediální centrum",
   "entries": [
     {
+      "version": "1.13",
+      "date": "2026-07-14",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Firemní barvy (CI paleta) v sekci Brand – správce nadefinuje oficiální firemní barvy včetně HEX a RGB pro web a volitelně CMYK a Pantone pro tisk. Kdokoli pak barvu i její hodnoty zkopíruje jedním kliknutím, takže má celá firma jednotnou paletu vždy po ruce.",
+          "en": "Brand colors (CI palette) in the Brand section — an admin defines the official company colors including HEX and RGB for the web and optionally CMYK and Pantone for print. Anyone can then copy a color and its values with a single click, so the whole company always has a consistent palette at hand."
+        },
+        {
+          "type": "new",
+          "cs": "Snadné odkazování na obsah – v detailu média teď najdete pohromadě odkaz do Mediálního centra, přímý odkaz na soubor (pro vložení do dokumentů, e-mailů či stránek) i hotový kód pro vložení (HTML u fotek, Markdown u ostatních). Vše zkopírujete jedním tlačítkem.",
+          "en": "Easy content referencing — a media item's detail now brings together the link into the Media Center, a direct file link (for embedding into documents, e-mails or pages) and a ready-made embed snippet (HTML for photos, Markdown for the rest). Copy any of them with a single button."
+        },
+        {
+          "type": "improved",
+          "cs": "Pohodlnější hromadné nahrávání – při nahrání více souborů naráz upravíte název u každého souboru zvlášť, rovnou s malým náhledem. Společné údaje (kolekce, štítky, balíček) zadáte jen jednou pro všechny.",
+          "en": "Smoother bulk uploads — when uploading several files at once you can edit each file's title separately, right next to a small preview. Shared details (collection, tags, kit) are entered just once for all of them."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější a širší panely – formuláře mají jednotná bílá pole, lepší zarovnání a více místa (například správa brand balíčků). Drobná vizuální sjednocení napříč aplikací.",
+          "en": "Clearer, wider panels — forms now use consistent white fields, better alignment and more room (for example brand kit management). Minor visual polishing across the app."
+        }
+      ]
+    },
+    {
       "version": "1.12",
       "date": "2026-07-13",
       "changes": [
