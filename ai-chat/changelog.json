@@ -4,6 +4,42 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.37",
+      "date": "2026-07-15",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Asistent schůzek – nová úloha Zápis ze schůzky: vyberete schůzku z kalendáře, přidáte své poznámky a asistent složí věcný zápis a navrhne další kroky.",
+          "en": "Meeting assistant – a new Meeting minutes task: pick a meeting from your calendar, add your notes, and the assistant drafts concise minutes and suggests next steps."
+        },
+        {
+          "type": "new",
+          "cs": "Zápis jedním klikem uložíte do SharePointu a účastníkům k němu připravíte e-mail jako koncept v Outlooku – adresáti se doplní z pozvánky, odeslání zůstává na vás.",
+          "en": "Save the minutes to SharePoint in one click and prepare an email to attendees as an Outlook draft – recipients are filled in from the invitation, sending stays with you."
+        },
+        {
+          "type": "new",
+          "cs": "Nová chytrá položka schůzka – ve výběru najdete své nadcházející schůzky (dalších 14 dní) i s účastníky.",
+          "en": "A new smart meeting item – the picker shows your upcoming meetings (next 14 days) with their attendees."
+        },
+        {
+          "type": "new",
+          "cs": "Balíčky Pošta a kalendář – ve výběru asistentů jsou přehledné karty Denní přehled, Asistent schůzek a HR nábor (připravujeme); kliknutím rovnou spustíte odpovídající úlohu.",
+          "en": "Mail & calendar packages – the assistant picker now shows tidy cards for Daily brief, Meeting assistant and HR recruiting (coming soon); a click launches the matching task."
+        },
+        {
+          "type": "improved",
+          "cs": "U návrhu odpovědi teď v poli Komu rovnou vidíte adresu příjemce (odesílatele původní zprávy).",
+          "en": "A reply draft now shows the recipient's address directly in the To field (the original sender)."
+        },
+        {
+          "type": "improved",
+          "cs": "Po uložení konceptu odpovědi asistent nabídne navazující kroky – Shrnout celé vlákno a Založit úkol s termínem.",
+          "en": "After you save a reply draft, the assistant offers follow-up steps – Summarize the thread and Create a task with a due date."
+        }
+      ]
+    },
+    {
       "version": "1.36",
       "date": "2026-07-15",
       "changes": [
