@@ -4,6 +4,32 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.38",
+      "date": "2026-07-15",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Prompt Studio po přepracování – otevře se přehledem scénářů (Pošta, Kalendář, Psaní a shrnutí, Firemní znalosti, Rozbor a analýza, Překlad, Kód, Excel). Vyberete scénář a uvnitř najdete jeho úlohy i asistenty pohromadě.",
+          "en": "A reworked Prompt Studio – it opens with an overview of scenarios (Mail, Calendar, Writing & summaries, Company knowledge, Analysis, Translation, Code, Excel). Pick a scenario and find its tasks and assistants together inside."
+        },
+        {
+          "type": "new",
+          "cs": "Přepínač Scénáře / Vše – kdo nechce klikat scénáře, přepne na kompletní seznam všeho pod sebou (nejdřív úlohy, pak asistenti) a hledá v něm.",
+          "en": "A Scenarios / All switch – if you'd rather not click scenarios, switch to a complete list of everything in one place (tasks first, then assistants) and search within it."
+        },
+        {
+          "type": "improved",
+          "cs": "Úlohy a asistenti jsou teď jasně odlišené – úloha (co chci teď, vloží se do zprávy) je řádek s akcí, asistent (kdo povede celou konverzaci) je karta s tlačítkem Použít v konverzaci.",
+          "en": "Tasks and assistants are now clearly distinct – a task (what I want now, inserted into the message) is an action row, an assistant (who guides the whole conversation) is a card with a Use in conversation button."
+        },
+        {
+          "type": "improved",
+          "cs": "Studio ukazuje celkové počty – kolik je dohromady úloh a asistentů, i počet u každého scénáře.",
+          "en": "The Studio shows overall counts – how many tasks and assistants there are in total, plus a count on each scenario."
+        }
+      ]
+    },
+    {
       "version": "1.37",
       "date": "2026-07-15",
       "changes": [
@@ -36,6 +62,16 @@
           "type": "improved",
           "cs": "Po uložení konceptu odpovědi asistent nabídne navazující kroky – Shrnout celé vlákno a Založit úkol s termínem.",
           "en": "After you save a reply draft, the assistant offers follow-up steps – Summarize the thread and Create a task with a due date."
+        },
+        {
+          "type": "fixed",
+          "cs": "Ranní přehled už mezi poštu čekající na odpověď nedává zprávy, na které jste už odpověděli – porovná Doručenou s Odeslanou podle vlákna.",
+          "en": "The daily brief no longer lists messages you have already replied to among mail awaiting a reply – it matches your Inbox against Sent by thread."
+        },
+        {
+          "type": "improved",
+          "cs": "Ranní přehled je přehlednější – datum v záhlaví, u schůzek účastníci a místo/Teams, u pošty stáří zprávy (třeba 3 dny) a odkaz Otevřít kalendář v Outlooku.",
+          "en": "The daily brief is clearer – a date in the header, meeting attendees and location/Teams, message age on mail (such as 3 days) and an Open calendar in Outlook link."
         }
       ]
     },
