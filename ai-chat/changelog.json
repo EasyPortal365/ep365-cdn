@@ -96,6 +96,21 @@
           "type": "new",
           "cs": "V Prompt Studiu jsou nové úlohy: Shrnout do dokumentu, Dokument z firemních znalostí, Porovnat do dokumentu a Stránka webu z firemních znalostí.",
           "en": "Prompt Studio gets new tasks: Summarize into a document, Document from company knowledge, Compare into a document and Web page from company knowledge."
+        },
+        {
+          "type": "improved",
+          "cs": "Karta Návrh dokumentu je přehlednější: formátovaný náhled místo surového textu, po uložení vidíte název i umístění a odkaz pro otevření, a zdroje jsou klikatelné – odkazují na dokument (na stránce i ve Wordu).",
+          "en": "The Document draft card is clearer: a formatted preview instead of raw text, after saving you see the name, location and an open link, and sources are clickable – linking to the document (on the page and in Word)."
+        },
+        {
+          "type": "new",
+          "cs": "Obsah na sociální sítě – v Prompt Studiu je scénář Sociální sítě: necháte si napsat příspěvek (třeba na LinkedIn), navážete na dřívější, nebo si vypíšete, co jste na dané téma už psali.",
+          "en": "Social media content – Prompt Studio gets a Social media scenario: have a post written (for example for LinkedIn), follow up on an earlier one, or list what you've already written on a topic."
+        },
+        {
+          "type": "new",
+          "cs": "Dokument i příspěvek uložíte do vybrané SharePoint knihovny a ve zvoleném formátu – Word (.docx), nebo Markdown (.md). Příspěvky uložené jako .md pak asistent zná ve Firemních znalostech, takže se na ně můžete ptát.",
+          "en": "Save both a document and a post to a chosen SharePoint library in a chosen format – Word (.docx) or Markdown (.md). Posts saved as .md are then known to the assistant in Company knowledge, so you can ask about them."
         }
       ]
     },
