@@ -81,6 +81,21 @@
           "type": "improved",
           "cs": "U vypsaného vzorce nebo příkazu na samostatném řádku je nově ikonka pro zkopírování do schránky.",
           "en": "A written-out formula or command on its own line now has a copy-to-clipboard icon."
+        },
+        {
+          "type": "new",
+          "cs": "Vytváření dokumentů – z konverzace nebo z firemních znalostí necháte asistenta sepsat dokument; objeví se karta Návrh dokumentu s editovatelným názvem i obsahem.",
+          "en": "Document creation – have the assistant write a document from a conversation or from company knowledge; a Document draft card appears with an editable title and content."
+        },
+        {
+          "type": "new",
+          "cs": "Dokument stáhnete jako Word (.docx), Markdown (.md) nebo HTML, uložíte ho do SharePoint knihovny, nebo z něj rovnou vytvoříte SharePoint stránku – vše pod vaším přihlášením a jen nad vašimi daty.",
+          "en": "Download the document as Word (.docx), Markdown (.md) or HTML, save it to a SharePoint library, or turn it straight into a SharePoint page – all under your sign-in and only over your data."
+        },
+        {
+          "type": "new",
+          "cs": "V Prompt Studiu jsou nové úlohy: Shrnout do dokumentu, Dokument z firemních znalostí, Porovnat do dokumentu a Stránka webu z firemních znalostí.",
+          "en": "Prompt Studio gets new tasks: Summarize into a document, Document from company knowledge, Compare into a document and Web page from company knowledge."
         }
       ]
     },
