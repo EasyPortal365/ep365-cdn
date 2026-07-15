@@ -69,8 +69,8 @@
         },
         {
           "type": "new",
-          "cs": "Nové tlačítko zvětší asistenta na celou obrazovku a skryje okolní SharePoint; stejným tlačítkem se vrátíte zpět.",
-          "en": "A new button expands the assistant to full screen and hides the surrounding SharePoint; the same button brings you back."
+          "cs": "Nové tlačítko roztáhne asistenta přes celou plochu pod horní lištou SharePointu (lišta zůstává); stejným tlačítkem se vrátíte zpět.",
+          "en": "A new button expands the assistant to fill the whole area below the SharePoint top bar (the bar stays); the same button brings you back."
         },
         {
           "type": "improved",
