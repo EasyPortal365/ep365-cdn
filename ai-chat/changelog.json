@@ -26,6 +26,16 @@
           "type": "improved",
           "cs": "Studio ukazuje celkové počty – kolik je dohromady úloh a asistentů, i počet u každého scénáře.",
           "en": "The Studio shows overall counts – how many tasks and assistants there are in total, plus a count on each scenario."
+        },
+        {
+          "type": "fixed",
+          "cs": "Roadmapa už jde odrolovat i při delším seznamu novinek – stránka se posouvá celá jako jeden celek.",
+          "en": "The Roadmap now scrolls even with a longer list of updates – the page scrolls as a whole."
+        },
+        {
+          "type": "improved",
+          "cs": "Prompt Studio má větší okno a scénáře jsou po čtyřech vedle sebe. Přibyla dlaždice Moje uložené – rychlý přístup k vašim vlastním promptům.",
+          "en": "Prompt Studio has a larger window and scenarios are shown four across. A new My saved tile gives quick access to your own prompts."
         }
       ]
     },
