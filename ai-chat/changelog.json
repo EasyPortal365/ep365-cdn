@@ -41,6 +41,36 @@
           "type": "improved",
           "cs": "Prompt Studio má větší okno a scénáře jsou po čtyřech vedle sebe (bez zbytečného posouvání). Nahoře je tlačítko Moje uložené – rychlý přístup k vašim vlastním promptům.",
           "en": "Prompt Studio has a larger window and scenarios are shown four across (no unnecessary scrolling). A My saved button at the top gives quick access to your own prompts."
+        },
+        {
+          "type": "improved",
+          "cs": "Když v Prompt Studiu vyberete úlohu nebo asistenta ze scénáře Firemní znalosti, režim firemních znalostí se zapne sám.",
+          "en": "When you pick a task or assistant from the Company knowledge scenario in Prompt Studio, company-knowledge mode turns on automatically."
+        },
+        {
+          "type": "improved",
+          "cs": "Vyplňování úlohy je srozumitelnější – pole pro vaše pokyny se objeví až po výběru e-mailu či schůzky, seznam e-mailů a schůzek je vyšší a tlačítko se nově jmenuje Vložit do zprávy.",
+          "en": "Filling in a task is clearer – the field for your instructions appears only after you pick an email or meeting, the email and meeting lists are taller, and the button is now called Insert into message."
+        },
+        {
+          "type": "fixed",
+          "cs": "Výběr dokumentu ze SharePointu se v Prompt Studiu otevře nad Studiem, ne za ním.",
+          "en": "The SharePoint document picker in Prompt Studio now opens above the Studio, not behind it."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda je doplněná o poštu, kalendář, úkoly do Microsoft To Do a přepracované Prompt Studio.",
+          "en": "Help now covers mail, calendar, tasks in Microsoft To Do and the reworked Prompt Studio."
+        },
+        {
+          "type": "improved",
+          "cs": "Odpovědi z Firemních znalostí s odkazy na zdroje jsou přehlednější – zmizelo matoucí dvojí číslování a autoritativní zdroj se u citace značí štítem (ikonou), ne textem.",
+          "en": "Company-knowledge answers with source links are clearer – the confusing double numbering is gone and an authoritative source is marked at the citation with a shield (icon), not text."
+        },
+        {
+          "type": "new",
+          "cs": "Nové tlačítko zvětší asistenta na celou obrazovku a skryje okolní SharePoint; stejným tlačítkem se vrátíte zpět.",
+          "en": "A new button expands the assistant to full screen and hides the surrounding SharePoint; the same button brings you back."
         }
       ]
     },
