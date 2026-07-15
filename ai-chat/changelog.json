@@ -34,8 +34,13 @@
         },
         {
           "type": "improved",
-          "cs": "Prompt Studio má větší okno a scénáře jsou po čtyřech vedle sebe. Přibyla dlaždice Moje uložené – rychlý přístup k vašim vlastním promptům.",
-          "en": "Prompt Studio has a larger window and scenarios are shown four across. A new My saved tile gives quick access to your own prompts."
+          "cs": "Roadmapa – delší sloupec (třeba Hotovo) ukáže prvních 5 položek a zbytek rozbalíte tlačítkem Zobrazit další. Stránka tak není zbytečně dlouhá.",
+          "en": "Roadmap – a longer column (such as Done) shows the first 5 items and you expand the rest with a Show more button, so the page isn't needlessly long."
+        },
+        {
+          "type": "improved",
+          "cs": "Prompt Studio má větší okno a scénáře jsou po čtyřech vedle sebe (bez zbytečného posouvání). Nahoře je tlačítko Moje uložené – rychlý přístup k vašim vlastním promptům.",
+          "en": "Prompt Studio has a larger window and scenarios are shown four across (no unnecessary scrolling). A My saved button at the top gives quick access to your own prompts."
         }
       ]
     },
