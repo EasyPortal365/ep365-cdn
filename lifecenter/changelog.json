@@ -4,6 +4,27 @@
   "name": "EP365 LifeCenter",
   "entries": [
     {
+      "version": "1.12",
+      "date": "2026-07-16",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Blokový editor obsahu – životní situace nově skládáte z bloků: text, nadpisy, obrázky (s nahráním přímo z počítače), videa, zvýrazněné tipy a oddělovače. Bloky lze libovolně řadit a kombinovat, stávající články se otevřou beze změny.",
+          "en": "Block content editor – you now build life situations from blocks: text, headings, images (with direct upload), videos, highlighted tips and dividers. Blocks can be freely reordered and combined; existing articles open unchanged."
+        },
+        {
+          "type": "new",
+          "cs": "Obrázky a videa v článcích – obrázky se ukládají do knihovny přímo na webu aplikace, video soubory se přehrají rovnou v článku a odkazy na videoplatformy se zobrazí jako přehledná karta.",
+          "en": "Images and videos in articles – images are stored in a library on the app site, video files play right inside the article, and links to video platforms show as a tidy play card."
+        },
+        {
+          "type": "new",
+          "cs": "Znalosti pro AI asistenta – schválené články se volitelně publikují jako Markdown soubory do knihovny LC_Knowledge, kde je umí najít a citovat EP365 AI Asistent (Firemní znalosti). Publikuje se výhradně schválený obsah, soubory se aktualizují automaticky při každé změně a v Nastavení je hromadná publikace i návod na propojení.",
+          "en": "Knowledge for the AI assistant – approved articles can be published as Markdown files into the LC_Knowledge library, where the EP365 AI Assistant (Company knowledge) can find and cite them. Only approved content is exported, files update automatically on every change, and Settings offer bulk publishing plus connection guidance."
+        }
+      ]
+    },
+    {
       "version": "1.11",
       "date": "2026-07-08",
       "changes": [
