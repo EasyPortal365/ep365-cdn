@@ -186,6 +186,11 @@
           "type": "improved",
           "cs": "Nápověda v aplikaci byla výrazně rozšířena – přibyla kapitola Role a oprávnění (rozdíl mezi Správcem aplikace a Editorem obsahu, jak se role získává a proč samotné přidání do skupiny nestačí bez práv k webu), popis skrytých účtů a hledání podle přihlašovacího jména v Seznamu kontaktů, uložených rozvržení a dědění motivu z hubu; opraven i přehled záložek správy.",
           "en": "The in-app help was significantly expanded – a new Roles and permissions chapter (the difference between an Application administrator and a Content editor, how a role is obtained and why adding someone to a group alone is not enough without site permissions), a description of hidden accounts and search by sign-in name in the Directory, saved layouts and inheriting the theme from the hub; the list of admin tabs was corrected too."
+        },
+        {
+          "type": "new",
+          "cs": "Globální konfigurace → Výchozí AI nastavení nově obsahuje Povolené webové adresy – jedním seznamem určíte, kam smí AI Asistent sáhnout, když má přečíst webovou stránku ze zadané adresy. Weby si ho mohou převzít místo vlastního seznamu.",
+          "en": "Global configuration → Default AI settings now includes Allowed web addresses – a single list defining where the AI Assistant may reach when asked to read a web page from a given address. Sites can inherit it instead of keeping their own list."
         }
       ]
     },

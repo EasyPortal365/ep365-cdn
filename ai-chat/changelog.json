@@ -4,6 +4,37 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.39",
+      "date": "2026-07-16",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "AI Asistent umí přečíst veřejnou webovou stránku – vložíte její adresu a on ji shrne, rozebere nebo na ni naváže příspěvkem. Najdete to v Prompt Studiu u úloh, které pracují se stránkou.",
+          "en": "The AI Assistant can read a public web page – paste its address and it will summarize it, analyse it, or write a post that follows up on it. You will find this in Prompt Studio, in tasks that work with a page."
+        },
+        {
+          "type": "new",
+          "cs": "Zvládneme i weby, které se načítají až v prohlížeči a běžně přečíst nejdou. Prvním takovým zdrojem je TED – Věstník veřejných zakázek EU: vložíte běžnou adresu oznámení a asistent z něj vytáhne název, zadavatele, předmět, lhůtu pro nabídky i CPV kódy.",
+          "en": "We also handle sites that only load in the browser and normally cannot be read. The first such source is TED – the EU public procurement journal: paste an ordinary notice address and the assistant will pull out the title, buyer, subject, tender deadline and CPV codes."
+        },
+        {
+          "type": "new",
+          "cs": "Nová sekce Nastavení → Webové stránky pro správce: ukazuje, kam smí asistent na internet sáhnout, umožní seznam adres zúžit pro tento web (nebo ho převzít z globální konfigurace) a vypíše zdroje, které asistent zná, i s jejich stavem.",
+          "en": "A new Settings → Web pages section for administrators: it shows where the assistant may reach on the internet, lets you narrow the list of addresses for this site (or inherit it from the global configuration), and lists the sources the assistant knows, including their status."
+        },
+        {
+          "type": "improved",
+          "cs": "Obsah cizí stránky asistent zpracovává jako podklad, nikdy jako pokyny – text z internetu tak nemůže zvrátit vaše zadání.",
+          "en": "The assistant treats the content of a foreign page as source material, never as instructions – so text from the internet cannot override what you asked for."
+        },
+        {
+          "type": "improved",
+          "cs": "Čtení stránek je ve výchozím stavu vypnuté a zapíná ho správce ve vaší AI službě určením povolených adres. Dokud zapnuté není, úlohy pro čtení stránek se vůbec nenabízejí.",
+          "en": "Page reading is off by default and an administrator enables it in your AI service by specifying the allowed addresses. Until it is enabled, page reading tasks are not offered at all."
+        }
+      ]
+    },
+    {
       "version": "1.38",
       "date": "2026-07-15",
       "changes": [
@@ -111,6 +142,11 @@
           "type": "new",
           "cs": "Dokument i příspěvek uložíte do vybrané SharePoint knihovny a ve zvoleném formátu – Word (.docx), nebo Markdown (.md). Příspěvky uložené jako .md pak asistent zná ve Firemních znalostech, takže se na ně můžete ptát.",
           "en": "Save both a document and a post to a chosen SharePoint library in a chosen format – Word (.docx) or Markdown (.md). Posts saved as .md are then known to the assistant in Company knowledge, so you can ask about them."
+        },
+        {
+          "type": "fixed",
+          "cs": "Úpravy návrhu dokumentu jsou teď stejně široké jako náhled a stejným písmem – při přepnutí mezi Upravit a Náhled už text neposkakuje.",
+          "en": "Editing a document draft is now the same width as the preview and in the same typeface – switching between Edit and Preview no longer makes the text jump."
         }
       ]
     },
