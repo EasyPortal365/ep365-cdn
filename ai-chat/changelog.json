@@ -46,6 +46,11 @@
           "type": "fixed",
           "cs": "Když zdroj odmítne hledání, upozornění nově uvede i konkrétní odpověď Microsoft 365 – dřív vždy tvrdilo, že chybí souhlas správce, i když byl důvod jiný (třeba starý přihlašovací token).",
           "en": "When a source rejects a search, the notice now includes the actual Microsoft 365 response – it used to always claim a missing admin consent even when the cause was different (an old sign-in token, for example)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Upozornění na zdroj, který odmítl hledání, už nezůstává viset – zmizí při odeslání další zprávy i při přepnutí konverzace. Dřív svítilo i v nové konverzaci, která se daného zdroje vůbec netýkala.",
+          "en": "A notice about a source that rejected a search no longer lingers – it clears when you send the next message and when you switch conversations. It used to stay visible even in a new conversation that had nothing to do with that source."
         }
       ]
     },
