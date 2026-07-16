@@ -34,13 +34,18 @@
         },
         {
           "type": "new",
-          "cs": "Hledání ve vašich e-mailech, kalendáři, úkolech To Do a Teams konverzacích. Vždy jen pod vaším přihlášením a jen ve vašich datech – u Teams jen v chatech a kanálech, kde jste členem.",
-          "en": "Searching your e-mails, calendar, To Do tasks and Teams conversations. Always under your sign-in and only your data – for Teams only chats and channels you are a member of."
+          "cs": "Hledání ve vašich e-mailech, kalendáři, úkolech To Do a Teams chatech. Vždy jen pod vaším přihlášením a jen ve vašich datech.",
+          "en": "Searching your e-mails, calendar, To Do tasks and Teams chats. Always under your sign-in and only your data."
         },
         {
           "type": "improved",
           "cs": "Výpadek jednoho zdroje nezhatí odpověď – asistent ji složí z ostatních a jen upozorní, který zdroj nepřispěl.",
           "en": "A failure of one source does not spoil the answer – the assistant composes it from the others and only notes which source did not contribute."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když zdroj odmítne hledání, upozornění nově uvede i konkrétní odpověď Microsoft 365 – dřív vždy tvrdilo, že chybí souhlas správce, i když byl důvod jiný (třeba starý přihlašovací token).",
+          "en": "When a source rejects a search, the notice now includes the actual Microsoft 365 response – it used to always claim a missing admin consent even when the cause was different (an old sign-in token, for example)."
         }
       ]
     },
