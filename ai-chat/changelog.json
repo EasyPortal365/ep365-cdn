@@ -31,6 +31,26 @@
           "type": "improved",
           "cs": "Čtení stránek je ve výchozím stavu vypnuté a zapíná ho správce ve vaší AI službě určením povolených adres. Dokud zapnuté není, úlohy pro čtení stránek se vůbec nenabízejí.",
           "en": "Page reading is off by default and an administrator enables it in your AI service by specifying the allowed addresses. Until it is enabled, page reading tasks are not offered at all."
+        },
+        {
+          "type": "improved",
+          "cs": "Shrnutí webové stránky je přehlednější – klíčové údaje (předmět, kdo za tím stojí, termíny, částky a kódy) dostanete v tabulce a teprve pak v bodech.",
+          "en": "Web page summaries are clearer – the key facts (subject, who is behind it, deadlines, amounts and codes) come in a table first, followed by bullet points."
+        },
+        {
+          "type": "new",
+          "cs": "Pod odpovědí z webové stránky je karta zdroje s adresou, ze které asistent čerpal – kliknutím ji otevřete v nové záložce.",
+          "en": "Below an answer based on a web page there is a source card with the address the assistant drew from – click it to open the page in a new tab."
+        },
+        {
+          "type": "new",
+          "cs": "Tlačítko Uložit jako dokument pod odpovědí – shrnutí stránky jedním klikem překlopíte do dokumentu, který lze stáhnout nebo uložit do SharePointu.",
+          "en": "A Save as a document button below the answer – turn the page summary into a document you can download or save to SharePoint in one click."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda má novou kapitolu o čtení webových stránek – včetně toho, jak funguje TED a proč o povolených adresách rozhoduje správce.",
+          "en": "The Help section has a new chapter on reading web pages – including how TED works and why an administrator decides about the allowed addresses."
         }
       ]
     },
