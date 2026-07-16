@@ -39,6 +39,11 @@
         },
         {
           "type": "new",
+          "cs": "Načtení produktů z EP365 CRM – když už produkty vedete v CRM, katalog je jedním klikem převezme: existující se propojí podle SKU či názvu, chybějící se založí s cenami a popisem z CRM. Do CRM se při načtení nic nezapisuje.",
+          "en": "Load products from EP365 CRM – if you already manage products in CRM, the catalog takes them over with one click: existing ones are linked by SKU or name, missing ones are created with prices and description from CRM. Nothing is written to CRM during the load."
+        },
+        {
+          "type": "new",
           "cs": "Snadné odkazování – každá obrazovka i produkt má vlastní odkaz, detail nabízí kartu Odkazovat na obsah (odkaz do katalogu, produktový web i hotový Markdown) a funguje tlačítko Zpět prohlížeče.",
           "en": "Easy referencing – every screen and product has its own link, the detail offers a Reference this content card (catalog link, product website and ready-made Markdown) and the browser Back button works."
         },
