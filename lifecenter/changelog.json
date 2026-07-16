@@ -21,6 +21,21 @@
           "type": "new",
           "cs": "Znalosti pro AI asistenta – schválené články se volitelně publikují jako Markdown soubory do knihovny LC_Knowledge, kde je umí najít a citovat EP365 AI Asistent (Firemní znalosti). Publikuje se výhradně schválený obsah, soubory se aktualizují automaticky při každé změně a v Nastavení je hromadná publikace i návod na propojení.",
           "en": "Knowledge for the AI assistant – approved articles can be published as Markdown files into the LC_Knowledge library, where the EP365 AI Assistant (Company knowledge) can find and cite them. Only approved content is exported, files update automatically on every change, and Settings offer bulk publishing plus connection guidance."
+        },
+        {
+          "type": "improved",
+          "cs": "Správa obsahu je nově plnohodnotná: vyberete situaci a hned vedle se otevře panel s jejím obsahem – návody, garanti, stavy – a odtud rovnou editujete. Panely se řadí vedle sebe místo překrývání a v seznamech přibylo hledání, takže si poradí i s velkým množstvím obsahu.",
+          "en": "Content management is now a full workspace: pick a situation and a panel with its content – guides, guarantors, statuses – opens right beside it, ready to edit. Panels dock side by side instead of stacking over each other, and lists gained search, so they scale to large content sets."
+        },
+        {
+          "type": "improved",
+          "cs": "Upravovat lze přímo tam, kde obsah čtete – správce má tlačítko Upravit na detailu situace i návodu a tužku u každého návodu v seznamu. Už není nutné hledat obsah oklikou přes Správu obsahu.",
+          "en": "Editing now happens where you read – administrators get an Edit button on situation and guide details, plus a pencil on each guide in the list. No more detours through Content management to find the item."
+        },
+        {
+          "type": "fixed",
+          "cs": "Sjednocené názvy fází – tatáž fáze se v editoru, na kanbanu a na rozcestníku jmenovala různě (například Stěhování vs. Změna). Nově mají všechny obrazovky jeden název, na detailu situace se místo systémového kódu zobrazí čitelný název fáze a anglické rozhraní má konečně přeloženou i časovou osu.",
+          "en": "Unified phase names – the same phase was named differently in the editor, the kanban and the home timeline (for example Relocation vs. Change). All screens now share one name, situation details show a readable phase instead of a system code, and the English UI finally translates the timeline too."
         }
       ]
     },
