@@ -14,8 +14,8 @@
         },
         {
           "type": "improved",
-          "cs": "Zapnuté zdroje jsou v konverzaci vždy vidět jako štítky u pole zprávy – na první pohled víte, s čím asistent pracuje. Kliknutím na štítek zdroj vypnete.",
-          "en": "Enabled sources are always visible as chips next to the message field – you can tell at a glance what the assistant works with. Click a chip to turn the source off."
+          "cs": "Zapnuté zdroje jsou v konverzaci vždy vidět jako ikony u pole zprávy – na první pohled víte, s čím asistent pracuje, a řádek zůstane přehledný. Kliknutím na ikonu zdroj vypnete; názvy i popisy najdete ve výběru Zdroje.",
+          "en": "Enabled sources are always visible as icons next to the message field – you can tell at a glance what the assistant works with, and the row stays tidy. Click an icon to turn the source off; names and descriptions are in the Sources picker."
         },
         {
           "type": "improved",
