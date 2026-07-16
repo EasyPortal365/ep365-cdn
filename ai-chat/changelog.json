@@ -34,8 +34,8 @@
         },
         {
           "type": "new",
-          "cs": "Hledání ve vašich e-mailech, kalendáři, úkolech To Do a Teams chatech. Vždy jen pod vaším přihlášením a jen ve vašich datech.",
-          "en": "Searching your e-mails, calendar, To Do tasks and Teams chats. Always under your sign-in and only your data."
+          "cs": "Hledání ve vašich e-mailech, kalendáři, úkolech To Do a Teams konverzacích. Vždy jen pod vaším přihlášením a jen ve vašich datech – u Teams jen v chatech a kanálech, kde jste členem.",
+          "en": "Searching your e-mails, calendar, To Do tasks and Teams conversations. Always under your sign-in and only your data – for Teams only chats and channels you are a member of."
         },
         {
           "type": "improved",
@@ -51,6 +51,11 @@
           "type": "fixed",
           "cs": "Upozornění na zdroj, který odmítl hledání, už nezůstává viset – zmizí při odeslání další zprávy i při přepnutí konverzace. Dřív svítilo i v nové konverzaci, která se daného zdroje vůbec netýkala.",
           "en": "A notice about a source that rejected a search no longer lingers – it clears when you send the next message and when you switch conversations. It used to stay visible even in a new conversation that had nothing to do with that source."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hledání v Teams konverzacích už funguje – vyžaduje dvě oprávnění Microsoftu naráz (Chat.Read i ChannelMessage.Read.All), dřív aplikace žádala jen jedno a Microsoft hledání odmítal. Správce obě schválí v SharePoint admin centru.",
+          "en": "Searching Teams conversations now works – it requires two Microsoft permissions at once (Chat.Read and ChannelMessage.Read.All); the app previously requested only one and Microsoft rejected the search. An administrator approves both in the SharePoint admin center."
         }
       ]
     },
