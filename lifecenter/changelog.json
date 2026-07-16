@@ -43,6 +43,21 @@
           "en": "The guide editor is now split into two columns – you write content on the left (title, excerpt, blocks, steps) and set filing and publishing on the right (situations, department, role, type, status, tags, author, scheduling). No more single long column; on narrow screens the columns stack."
         },
         {
+          "type": "improved",
+          "cs": "Při úpravě návodu vidíte vedle editoru i obsah situace, do které patří – ostatní návody, jejich stavy a garanty. Přepnout na jiný návod jde jedním kliknutím a nemusíte editor opouštět.",
+          "en": "While editing a guide you now see the content of its situation right beside the editor – the other guides, their statuses and guarantors. Switching to another guide is one click, without leaving the editor."
+        },
+        {
+          "type": "improved",
+          "cs": "Výběr situací u návodu si poradí i s desítkami situací – vybrané jsou vždy nahoře, zbytek se filtruje hledáním. Formulář má konstantní výšku bez ohledu na to, kolik situací máte.",
+          "en": "The situation picker now handles dozens of situations – selected ones stay on top, the rest is filtered by search. The form keeps a constant height no matter how many situations you have."
+        },
+        {
+          "type": "fixed",
+          "cs": "Formuláře v panelech se už nevejdou mimo okraj – zmizel vodorovný posuvník, který se objevoval pod delšími formuláři.",
+          "en": "Forms in panels no longer overflow their edge – the horizontal scrollbar that appeared under longer forms is gone."
+        },
+        {
           "type": "fixed",
           "cs": "Sjednocené názvy fází – tatáž fáze se v editoru, na kanbanu a na rozcestníku jmenovala různě (například Stěhování vs. Změna). Nově mají všechny obrazovky jeden název, na detailu situace se místo systémového kódu zobrazí čitelný název fáze a anglické rozhraní má konečně přeloženou i časovou osu.",
           "en": "Unified phase names – the same phase was named differently in the editor, the kanban and the home timeline (for example Relocation vs. Change). All screens now share one name, situation details show a readable phase instead of a system code, and the English UI finally translates the timeline too."
