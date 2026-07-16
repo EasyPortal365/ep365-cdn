@@ -53,5 +53,9 @@
   "ep365-helpdesk": {
     "description": "Zákaznická podpora – tikety z e-mailu i portálu, SLA hlídání, portál pro externí uživatele a vazba na CRM a Worklog.",
     "webUrl": "https://easyportal365.cz/aplikace/helpdesk/"
+  },
+  "ep365-products": {
+    "description": "Produktový katalog – jedno místo s aktuálními informacemi o produktech: produktové stránky, skupiny, soubory, ceny a řízený přístup. Volitelná vazba na CRM.",
+    "webUrl": "https://easyportal365.cz/aplikace/produktovy-katalog/"
   }
 }
