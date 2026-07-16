@@ -33,6 +33,11 @@
           "en": "Editing now happens where you read – administrators get an Edit button on situation and guide details, plus a pencil on each guide in the list. No more detours through Content management to find the item."
         },
         {
+          "type": "improved",
+          "cs": "Správa obsahu navazuje na to, kde právě jste – otevřete-li ji ze situace, rovnou ukáže její obsah místo prázdného seznamu. Tlačítko Spravovat obsah je nově i přímo na detailu situace.",
+          "en": "Content management now picks up where you are – opening it from a situation shows that situation's content right away instead of an empty list. The Manage content button is also available directly on the situation detail."
+        },
+        {
           "type": "fixed",
           "cs": "Sjednocené názvy fází – tatáž fáze se v editoru, na kanbanu a na rozcestníku jmenovala různě (například Stěhování vs. Změna). Nově mají všechny obrazovky jeden název, na detailu situace se místo systémového kódu zobrazí čitelný název fáze a anglické rozhraní má konečně přeloženou i časovou osu.",
           "en": "Unified phase names – the same phase was named differently in the editor, the kanban and the home timeline (for example Relocation vs. Change). All screens now share one name, situation details show a readable phase instead of a system code, and the English UI finally translates the timeline too."
