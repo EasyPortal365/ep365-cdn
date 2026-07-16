@@ -4,6 +4,32 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.40",
+      "date": "2026-07-16",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nový výběr Zdroje u pole zprávy – určíte, odkud smí asistent v dané konverzaci čerpat podklady. Prvním zdrojem jsou Firemní znalosti (SharePoint); e-maily, kalendář, úkoly To Do a Teams připravujeme.",
+          "en": "A new Sources picker next to the message field – you decide where the assistant may draw material from in a given conversation. The first source is Company knowledge (SharePoint); e-mails, calendar, To Do tasks and Teams are coming."
+        },
+        {
+          "type": "improved",
+          "cs": "Zapnuté zdroje jsou v konverzaci vždy vidět jako štítky u pole zprávy – na první pohled víte, s čím asistent pracuje. Kliknutím na štítek zdroj vypnete.",
+          "en": "Enabled sources are always visible as chips next to the message field – you can tell at a glance what the assistant works with. Click a chip to turn the source off."
+        },
+        {
+          "type": "improved",
+          "cs": "Volba zdrojů se nově pamatuje u každé konverzace zvlášť a přežije i zavření prohlížeče – dřív platila pro celý web a jen do konce sezení.",
+          "en": "The source choice is now remembered per conversation and survives closing the browser – previously it applied to the whole site and only for the session."
+        },
+        {
+          "type": "improved",
+          "cs": "Úlohy a asistenti ze scénáře Firemní znalosti si zdroj zapnou samy – a vy to hned vidíte na štítku.",
+          "en": "Tasks and assistants from the Company knowledge scenario turn the source on by themselves – and you see it immediately on the chip."
+        }
+      ]
+    },
+    {
       "version": "1.39",
       "date": "2026-07-16",
       "changes": [
