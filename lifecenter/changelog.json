@@ -38,6 +38,11 @@
           "en": "Content management now picks up where you are – opening it from a situation shows that situation's content right away instead of an empty list. The Manage content button is also available directly on the situation detail."
         },
         {
+          "type": "improved",
+          "cs": "Editor návodu je rozdělený na dvě části vedle sebe – vlevo píšete obsah (název, perex, bloky, kroky), vpravo máte zařazení a publikaci (situace, útvar, role, typ, stav, štítky, autor, plánování). Formulář už není jeden dlouhý sloupec; na užším okně se části složí pod sebe.",
+          "en": "The guide editor is now split into two columns – you write content on the left (title, excerpt, blocks, steps) and set filing and publishing on the right (situations, department, role, type, status, tags, author, scheduling). No more single long column; on narrow screens the columns stack."
+        },
+        {
           "type": "fixed",
           "cs": "Sjednocené názvy fází – tatáž fáze se v editoru, na kanbanu a na rozcestníku jmenovala různě (například Stěhování vs. Změna). Nově mají všechny obrazovky jeden název, na detailu situace se místo systémového kódu zobrazí čitelný název fáze a anglické rozhraní má konečně přeloženou i časovou osu.",
           "en": "Unified phase names – the same phase was named differently in the editor, the kanban and the home timeline (for example Relocation vs. Change). All screens now share one name, situation details show a readable phase instead of a system code, and the English UI finally translates the timeline too."
