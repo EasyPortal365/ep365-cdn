@@ -9,8 +9,8 @@
       "changes": [
         {
           "type": "new",
-          "cs": "Nový výběr Zdroje u pole zprávy – určíte, odkud smí asistent v dané konverzaci čerpat podklady. Prvním zdrojem jsou Firemní znalosti (SharePoint); e-maily, kalendář, úkoly To Do a Teams připravujeme.",
-          "en": "A new Sources picker next to the message field – you decide where the assistant may draw material from in a given conversation. The first source is Company knowledge (SharePoint); e-mails, calendar, To Do tasks and Teams are coming."
+          "cs": "Nový výběr Zdroje u pole zprávy – určíte, odkud smí asistent v dané konverzaci čerpat podklady: Firemní znalosti (SharePoint), E-maily, Kalendář, Úkoly To Do a Teams konverzace. Můžete jich zapnout víc najednou, nebo použít Vybrat vše.",
+          "en": "A new Sources picker next to the message field – you decide where the assistant may draw material from in a given conversation: Company knowledge (SharePoint), E-mails, Calendar, To Do tasks and Teams conversations. Enable several at once, or use Select all."
         },
         {
           "type": "improved",
@@ -26,6 +26,21 @@
           "type": "improved",
           "cs": "Úlohy a asistenti ze scénáře Firemní znalosti si zdroj zapnou samy – a vy to hned vidíte na štítku.",
           "en": "Tasks and assistants from the Company knowledge scenario turn the source on by themselves – and you see it immediately on the chip."
+        },
+        {
+          "type": "new",
+          "cs": "Asistent umí odpovědět z několika zdrojů najednou – na otázku „co máme domluveno s klientem?\" spojí smlouvu ze SharePointu, potvrzení z e-mailu i domluvu z Teams. Pod odpovědí jsou karty zdrojů s čísly citací, takže je poznat, co odkud pochází.",
+          "en": "The assistant can answer from several sources at once – ask \"what have we agreed with the client?\" and it joins the SharePoint contract, the e-mail confirmation and the Teams agreement. Source cards with citation numbers below the answer show what came from where."
+        },
+        {
+          "type": "new",
+          "cs": "Hledání ve vašich e-mailech, kalendáři, úkolech To Do a Teams konverzacích. Vždy jen pod vaším přihlášením a jen ve vašich datech – u Teams jen v chatech a kanálech, kde jste členem.",
+          "en": "Searching your e-mails, calendar, To Do tasks and Teams conversations. Always under your sign-in and only your data – for Teams only chats and channels you are a member of."
+        },
+        {
+          "type": "improved",
+          "cs": "Výpadek jednoho zdroje nezhatí odpověď – asistent ji složí z ostatních a jen upozorní, který zdroj nepřispěl.",
+          "en": "A failure of one source does not spoil the answer – the assistant composes it from the others and only notes which source did not contribute."
         }
       ]
     },
