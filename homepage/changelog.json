@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Ikony pro týmy a oddělení – HR, Výroba, Kvalita, Obchod, Nákup, Marketing, Vedení, IT a Facility. Výběr ikony je nově všude stejný a umí hledat: stačí napsat část názvu, funguje i bez diakritiky a anglicky. Najdete ho u Rychlých akcí, Záložek i Důležitých kontaktů, kde se dosud zobrazoval jen telefon.",
+          "en": "Icons for teams and departments — HR, Production, Quality, Sales, Purchasing, Marketing, Management, IT and Facility. The icon picker is now the same everywhere and supports search: just type part of the name. You will find it in Quick actions, Tabs and Key contacts, which previously only ever showed a phone icon."
+        },
+        {
+          "type": "new",
           "cs": "Návrh motivu z loga – nahrajte firemní logo v Globálním nastavení a aplikace z něj rovnou nabídne několik barevných variant motivu k aplikaci jedním kliknutím.",
           "en": "Theme from your logo – upload the company logo in Global settings and the app instantly offers several colour theme variants to apply in one click."
         },
