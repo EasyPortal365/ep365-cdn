@@ -18,6 +18,11 @@
           "en": "Time-based questions now work the way you mean them – \"what did I last discuss in Teams\", \"what arrived last week\" or \"what's new\" list the most recent items instead of searching for those words inside messages."
         },
         {
+          "type": "fixed",
+          "cs": "Když asistent ve zdrojích nic nenajde, řekne to na rovinu – dřív místo toho tvrdil, že k vašim datům nemá přístup, i když je prohledal. Poznáte tak rozdíl mezi „nic tam není\" a skutečným problémem s oprávněním.",
+          "en": "When the assistant finds nothing in your sources, it now says so plainly – previously it claimed it had no access to your data even though it had searched it. You can now tell the difference between \"there is nothing there\" and a genuine permissions problem."
+        },
+        {
           "type": "improved",
           "cs": "Když se otázka vašich dat vůbec netýká (třeba překlad textu), asistent už ve zdrojích zbytečně nehledá a odpoví rychleji.",
           "en": "When a question has nothing to do with your data (a text translation, say), the assistant no longer searches your sources needlessly and answers faster."
