@@ -9,8 +9,8 @@
       "changes": [
         {
           "type": "new",
-          "cs": "Rychlé akce jako čtvercové dlaždice – v nastavení sekce (ozubené kolo → Nastavení) přepnete Vzhled dlaždic na Čtvercové: ikona nahoře, název pod ní a do řádku se jich vejde víc. Kompaktní vzhled (ikona vedle textu) zůstává výchozí. Nastavit lze i rozestup dlaždic v pixelech.",
-          "en": "Quick actions as square tiles – in the section settings (gear → Settings) switch Tile style to Square: icon on top, name below, and more of them fit in a row. The compact style (icon next to the text) stays the default. The gap between tiles is configurable in pixels too."
+          "cs": "Rychlé akce jako čtvercové dlaždice – v nastavení sekce (ozubené kolo → Nastavení) přepnete Vzhled dlaždic na Čtvercové: ikona nahoře, název pod ní a do řádku se jich vejde víc. Kompaktní vzhled (ikona vedle textu) zůstává výchozí. Nastavit lze velikost dlaždice i rozestup mezi nimi v pixelech – u čtverce je velikost zároveň výškou, takže tím řídíte i výšku řádku.",
+          "en": "Quick actions as square tiles – in the section settings (gear → Settings) switch Tile style to Square: icon on top, name below, and more of them fit in a row. The compact style (icon next to the text) stays the default. Both the tile size and the gap between tiles are configurable in pixels – for a square the size is also its height, so it controls how tall the row is."
         },
         {
           "type": "new",
