@@ -4,6 +4,22 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.42",
+      "date": "2026-07-17",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nový přehled „Můj týden\" – vedle denního teď vidíte i týdenní pohled: vlevo ohlédnutí za minulým týdnem (kolik schůzek proběhlo, na co jste odpovídali, co ještě čeká na odpověď), vpravo výhled na tento týden po dnech s úkoly, které mají termín. V pondělí vás přehled přivítá rovnou, jindy je na jeden klik v přepínači.",
+          "en": "A new \"My week\" overview – alongside the daily view you now also see a weekly one: on the left a look back at last week (how many meetings took place, what you replied to, what still awaits a reply), on the right the outlook for this week day by day with tasks that have a deadline. On Monday the overview greets you right away; otherwise it is one click away in the switcher."
+        },
+        {
+          "type": "new",
+          "cs": "Tlačítko „Shrň mi týden\" převypráví váš týden krátkou psanou zprávou – ohlédnutí i výhled a čím tento týden začít. Stejně jako u dne se AI zapojí až na klik, jinak je přehled sestavený přímo z dat, mimo denní limit.",
+          "en": "The \"Summarize my week\" button retells your week as a short written note – a look back, an outlook and where to start this week. As with the day, AI only steps in on click; otherwise the overview is built straight from data, outside the daily limit."
+        }
+      ]
+    },
+    {
       "version": "1.41",
       "date": "2026-07-17",
       "changes": [
