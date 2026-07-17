@@ -23,6 +23,16 @@
           "en": "When the assistant finds nothing in your sources, it now says so plainly – previously it claimed it had no access to your data even though it had searched it. You can now tell the difference between \"there is nothing there\" and a genuine permissions problem."
         },
         {
+          "type": "fixed",
+          "cs": "Teams chaty se u zdrojů jmenují podle toho, S KÝM si píšete – dřív nesly jméno autora poslední zprávy, takže vaše vlastní konverzace vypadaly jako „Chat s [vaše jméno]\". Kvůli tomu asistent neuměl odpovědět na dotaz „co jsem si psal s kolegou\", i když tu zprávu měl přímo před sebou.",
+          "en": "Teams chats in sources are now named after the person you are talking TO – previously they carried the name of whoever wrote the last message, so your own conversations appeared as \"Chat with [your name]\". As a result the assistant could not answer \"what did I discuss with a colleague\" even when it had the message right in front of it."
+        },
+        {
+          "type": "improved",
+          "cs": "Systémová oznámení z Teams (například „byl pořízen záznam schůzky\") se do podkladů už nedostanou – nemají obsah, ze kterého by šlo odpovědět.",
+          "en": "System notices from Teams (such as \"a meeting recording was made\") no longer end up in the material – they carry no content to answer from."
+        },
+        {
           "type": "improved",
           "cs": "Když se otázka vašich dat vůbec netýká (třeba překlad textu), asistent už ve zdrojích zbytečně nehledá a odpoví rychleji.",
           "en": "When a question has nothing to do with your data (a text translation, say), the assistant no longer searches your sources needlessly and answers faster."
