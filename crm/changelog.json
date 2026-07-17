@@ -4,6 +4,47 @@
   "name": "EP365 CRM",
   "entries": [
     {
+      "version": "1.11",
+      "date": "2026-07-16",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Kontakt už není jen v jedné obchodní linii – linie se u něj nasčítávají. Byl na Visionity, registroval se na webinář a nepřišel, pak měl vstupní konzultaci a vyplnil Test Vitality: každá linie si drží vlastní stav a vidíte je na kontaktu pohromadě, i s tím, jak dlouho v daném stavu je.",
+          "en": "A contact is no longer limited to a single business line – lines now accumulate. They attended Visionity, registered for a webinar and did not show up, then had an intro consultation and completed the Vitality Test: each line keeps its own state, and you see them together on the contact, including how long it has been in that state."
+        },
+        {
+          "type": "new",
+          "cs": "Fáze kontaktu = nejdál dosažená napříč liniemi. Nasčítávání tak nikomu neublíží – neúčast na webináři nesrazí kontakt, který je zároveň v Diagnostice. Na detailu vidíte rozpad po liniích, v seznamu výslednou fázi.",
+          "en": "A contact's funnel stage is the furthest reached across all lines. Accumulating lines can therefore never hurt – a webinar no-show will not drag down a contact who is also in Diagnostics. The detail shows the per-line breakdown, the list shows the resulting stage."
+        },
+        {
+          "type": "new",
+          "cs": "Zákaznický status umí kombinace. Vztah (nezákazník / zákazník / aktivní zákazník) se vylučuje jako dřív, ale nově k němu jde přidat příznak „nespolupracovat\" – třeba u člověka, se kterým jsme v minulosti spolupracovali, ale oslovovat ho už nemáme. Takový kontakt je vyřazený z kampaní a upozorní na sebe červeným pruhem. Příznak jde nastavit i na celou firmu.",
+          "en": "Customer status now supports combinations. The relationship axis (non-customer / customer / active customer) is still exclusive, but you can now add a \"do not contact\" flag – for example someone you worked with in the past but should no longer approach. Such a contact is excluded from campaigns and is highlighted with a red banner. The flag can also be set for a whole company."
+        },
+        {
+          "type": "new",
+          "cs": "Filtr obchodních linií v Kontaktech umí vybrat víc linií naráz a přepnout, jak je spojit: „nebo\" najde lidi z webináře nebo z Visionity, „a\" jen ty, kdo byli na webináři a zároveň vyplnili Test Vitality.",
+          "en": "The business line filter in Contacts can select several lines at once and switch how they combine: \"or\" finds people from the webinar or from Visionity, \"and\" only those who attended the webinar and also completed the Vitality Test."
+        },
+        {
+          "type": "improved",
+          "cs": "Prodejní matice dostala chybějící stavy. Akvizice: osloven, probíhá komunikace, nereaguje (nahrazuje dosavadní zástupný stav). Visionity: registrující, neúčast. Webinář: neúčast – aby šla zaznamenat registrace bez účasti. Přiřazení fází je návrh, v Nastavení → Prodejní matice si ho kdykoli upravíte.",
+          "en": "The sales matrix gained the missing states. Acquisition: contacted, communication in progress, not responding (replacing the previous placeholder). Visionity: registering, no-show. Webinar: no-show – so that a registration without attendance can be recorded. The funnel mapping is a proposal; you can adjust it any time in Settings → Sales matrix."
+        },
+        {
+          "type": "improved",
+          "cs": "Import kontaktů zvládne víc linií naráz – ve sloupcích obchodní linie a stav je oddělte středníkem ve stejném pořadí („webinář;Diagnostika\" a „účast;nabídka\"). Soubory s jednou linií fungují beze změny.",
+          "en": "Contact import handles multiple lines at once – separate them with a semicolon in the business line and state columns, in matching order (\"webinar;Diagnostics\" and \"attended;quote\"). Files with a single line keep working unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Kontakty z dřívějších verzí se převedou samy při prvním uložení. Pro hromadný převod je v Nastavení → Prodejní matice tlačítko „Převést\"; pustit ho stačí jednou a opakování nic nezkazí.",
+          "en": "Contacts from earlier versions convert themselves on first save. For a bulk conversion there is a \"Convert\" button in Settings → Sales matrix; running it once is enough and repeating it does no harm."
+        }
+      ]
+    },
+    {
       "version": "1.10",
       "date": "2026-07-12",
       "changes": [
