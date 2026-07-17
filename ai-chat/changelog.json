@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Časovou osu v přehledu „Můj den\" lze chytit a posunout – nebo listovat šipkami mezi dny. Podíváte se tak na zítřek i další dny; osa se navíc sama roztáhne, aby ukázala i ranní a večerní schůzky.",
+          "en": "The timeline in the \"My day\" overview can be grabbed and dragged – or you can step between days with arrows. This lets you look at tomorrow and beyond; the axis also stretches on its own to show early-morning and evening meetings."
+        },
+        {
+          "type": "improved",
+          "cs": "Úvodní průvodce „První kroky\" se přesunul mezi záložky přehledu, takže nezabírá místo navíc – a po zavření zmizí jako dřív.",
+          "en": "The \"Getting started\" guide moved among the overview tabs, so it no longer takes up extra space – and once closed it disappears as before."
+        },
+        {
+          "type": "improved",
           "cs": "Přehled „Můj den\" se zobrazí, i když ho zrovna nejde načíst – místo aby zmizel, panel vlídně vysvětlí proč (například u účtu bez licence Microsoft 365, který nemá schránku ani kalendář). Zbytek aplikace funguje dál.",
           "en": "The \"My day\" overview now shows even when it cannot be loaded – instead of disappearing, the panel gently explains why (for example an account without a Microsoft 365 license, which has no mailbox or calendar). The rest of the app keeps working."
         },
