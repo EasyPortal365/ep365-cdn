@@ -24,8 +24,8 @@
         },
         {
           "type": "fixed",
-          "cs": "Teams chaty se u zdrojů jmenují podle toho, S KÝM si píšete – dřív nesly jméno autora poslední zprávy, takže vaše vlastní konverzace vypadaly jako „Chat s [vaše jméno]\". Kvůli tomu asistent neuměl odpovědět na dotaz „co jsem si psal s kolegou\", i když tu zprávu měl přímo před sebou.",
-          "en": "Teams chats in sources are now named after the person you are talking TO – previously they carried the name of whoever wrote the last message, so your own conversations appeared as \"Chat with [your name]\". As a result the assistant could not answer \"what did I discuss with a colleague\" even when it had the message right in front of it."
+          "cs": "Teams chaty se u zdrojů jmenují podle toho, S KÝM si píšete – dřív nesly jméno autora poslední zprávy, takže vaše vlastní konverzace vypadaly jako „Chat s [vaše jméno]\". Kvůli tomu asistent neuměl odpovědět na dotaz „co jsem si psal s kolegou\", i když tu zprávu měl přímo před sebou. Platí i při hledání podle jména – zeptáte se „co jsem si psal s Markétou\" a asistent odpoví.",
+          "en": "Teams chats in sources are now named after the person you are talking TO – previously they carried the name of whoever wrote the last message, so your own conversations appeared as \"Chat with [your name]\". As a result the assistant could not answer \"what did I discuss with a colleague\" even when it had the message right in front of it. This also applies when searching by name – ask \"what did I discuss with Megan\" and the assistant answers."
         },
         {
           "type": "improved",
