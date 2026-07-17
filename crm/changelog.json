@@ -7,7 +7,16 @@
       "version": "1.11",
       "date": "2026-07-16",
       "changes": [
-        { "type": "new", "cs": "Zobrazit v katalogu – u produktu propojeného s EP365 Produktovým katalogem otevřete jeho úplnou stránku (popis, galerie, dokumentace) jedním klikem. Adresu katalogu zadáte v Nastavení → Obecné.", "en": "Open in catalogue – for a product linked to the EP365 Product Catalogue, open its full page (description, gallery, documentation) with one click. Set the catalogue address in Settings → General." },
+        {
+          "type": "fixed",
+          "cs": "Oprava správy uživatelských rolí – přidávání a odebírání uživatelů v rolích Správci a Uživatelé nově funguje spolehlivě i u aplikace otevřené delší dobu. Dříve mohlo po chvíli hlásit chybu oprávnění, i když jste potřebná práva měli.",
+          "en": "Fixed user role management – adding and removing users in the Administrators and Users roles now works reliably even when the app has been open for a while. Previously it could report a permissions error after a while even though you had the necessary rights."
+        },
+        {
+          "type": "new",
+          "cs": "Zobrazit v katalogu – u produktu propojeného s EP365 Produktovým katalogem otevřete jeho úplnou stránku (popis, galerie, dokumentace) jedním klikem. Adresu katalogu zadáte v Nastavení → Obecné.",
+          "en": "Open in catalogue – for a product linked to the EP365 Product Catalogue, open its full page (description, gallery, documentation) with one click. Set the catalogue address in Settings → General."
+        },
         {
           "type": "new",
           "cs": "Kontakt už není jen v jedné obchodní linii – linie se u něj nasčítávají. Byl na Visionity, registroval se na webinář a nepřišel, pak měl vstupní konzultaci a vyplnil Test Vitality: každá linie si drží vlastní stav a vidíte je na kontaktu pohromadě, i s tím, jak dlouho v daném stavu je.",
@@ -54,7 +63,11 @@
           "cs": "Seznamy Předplatných, Produktů, Smluv, Šablon i Kampaní teď mají tříditelné sloupce – kliknutím na záhlaví sloupce záznamy seřadíte (a dalším kliknutím obrátíte směr). Rychle tak najdete třeba nejdražší předplatné, smlouvy s nejbližší obnovou nebo naposledy použité šablony.",
           "en": "The Subscriptions, Products, Contracts, Templates and Campaigns lists now have sortable columns — click a column header to sort the records (and click again to reverse the order). This makes it easy to find, for example, the most expensive subscription, contracts with the nearest renewal, or the most recently used templates."
         },
-        { "type": "fixed", "cs": "CRM je připravené pro týmy více uživatelů – členové týmu nově vidí a společně spravují všechny kontakty, firmy, nabídky, aktivity, úkoly a další záznamy (dříve mohl každý vidět jen své vlastní). Konfigurace a číselníky spravuje správce; historie změn (audit) zůstává přístupná pouze správci.", "en": "The CRM is now ready for multi-user teams – team members now see and jointly manage all contacts, companies, deals, activities, tasks and other records (previously each person could see only their own). Configuration and lookups are managed by an administrator; the change history (audit) remains visible only to administrators." },
+        {
+          "type": "fixed",
+          "cs": "CRM je připravené pro týmy více uživatelů – členové týmu nově vidí a společně spravují všechny kontakty, firmy, nabídky, aktivity, úkoly a další záznamy (dříve mohl každý vidět jen své vlastní). Konfigurace a číselníky spravuje správce; historie změn (audit) zůstává přístupná pouze správci.",
+          "en": "The CRM is now ready for multi-user teams – team members now see and jointly manage all contacts, companies, deals, activities, tasks and other records (previously each person could see only their own). Configuration and lookups are managed by an administrator; the change history (audit) remains visible only to administrators."
+        },
         {
           "type": "improved",
           "cs": "Měsíční opakovaný příjem (MRR) u Předplatných se nově počítá k vybranému měsíci – ve výchozím nastavení k aktuálnímu, s přepínačem na jiný měsíc. Zohlední, kdy předplatné reálně běží: odběr, který začíná až později (třeba po novém roce) nebo už skončil, se do MRR daného měsíce nezapočítá. U takového předplatného se v seznamu ukáže štítek – kdy začíná, nebo že už skončilo.",
@@ -140,7 +153,11 @@
           "cs": "U firmy určíte kontaktní role – primární kontakt, kontakt pro měsíční reporty a fakturační kontakt (vybírají se z kontaktů firmy). Kontakt pro reporty přebírá EP365 HelpDesk jako jedinou adresu měsíčního přehledu.",
           "en": "You can now assign contact roles to a company – primary contact, monthly report contact and billing contact (chosen from the company's contacts). EP365 HelpDesk uses the report contact as the single address for the monthly summary."
         },
-        { "type": "improved", "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.", "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue." }
+        {
+          "type": "improved",
+          "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
+          "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
+        }
       ]
     },
     {
