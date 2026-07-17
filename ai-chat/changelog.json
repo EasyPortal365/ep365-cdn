@@ -25,8 +25,8 @@
       "changes": [
         {
           "type": "improved",
-          "cs": "Časovou osu v přehledu „Můj den\" lze chytit a posunout – nebo listovat šipkami mezi dny. Podíváte se tak na zítřek i další dny; osa se navíc sama roztáhne, aby ukázala i ranní a večerní schůzky.",
-          "en": "The timeline in the \"My day\" overview can be grabbed and dragged – or you can step between days with arrows. This lets you look at tomorrow and beyond; the axis also stretches on its own to show early-morning and evening meetings."
+          "cs": "Časová osa v přehledu „Můj den\" ukazuje celý den se značkou aktuálního času. Značku chytnete a posunete po dni – čím blíž ke konci dne ji dáte, tím se program zúží jen na to, co vás ještě čeká. Mezi dny listujete šipkami.",
+          "en": "The timeline in the \"My day\" overview shows the whole day with a current-time marker. Grab the marker and slide it across the day — the closer to the end of the day you move it, the more the schedule narrows to only what still lies ahead. Step between days with the arrows."
         },
         {
           "type": "improved",
