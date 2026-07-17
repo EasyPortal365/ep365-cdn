@@ -8,6 +8,11 @@
       "date": "2026-07-17",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Přehled „Můj den\" se zobrazí, i když ho zrovna nejde načíst – místo aby zmizel, panel vlídně vysvětlí proč (například u účtu bez licence Microsoft 365, který nemá schránku ani kalendář). Zbytek aplikace funguje dál.",
+          "en": "The \"My day\" overview now shows even when it cannot be loaded – instead of disappearing, the panel gently explains why (for example an account without a Microsoft 365 license, which has no mailbox or calendar). The rest of the app keeps working."
+        },
+        {
           "type": "new",
           "cs": "Úvodní obrazovka vás nově vítá přehledem „Můj den\" – vlevo co proběhlo včera (schůzky, aktivita v Teams a e-maily, které stále čekají na vaši odpověď), vpravo dnešní program na časové ose s bodem TEĎ, nejbližší schůzkou s odpočtem a tlačítkem Připojit a úkoly s termínem, které jde rovnou odškrtnout. Vše bez AI a mimo denní limit – data se čtou přímo z Microsoft 365, jen pod vaším přihlášením.",
           "en": "The start screen now greets you with a \"My day\" overview – on the left what happened yesterday (meetings, Teams activity and e-mails still awaiting your reply), on the right today's schedule on a timeline with a NOW marker, the nearest meeting with a countdown and a Join button, and tasks due today you can tick off right away. All without AI and outside the daily limit – data is read straight from Microsoft 365, solely under your sign-in."
