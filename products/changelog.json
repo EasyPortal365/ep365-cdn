@@ -7,61 +7,19 @@
       "version": "1.0",
       "date": "2026-07-16",
       "changes": [
-        {
-          "type": "new",
-          "cs": "První vydání Produktového katalogu – jedno místo s aktuálními informacemi o produktech firmy: katalog s dlaždicemi i tabulkou, produktové skupiny a plnohodnotná stránka každého produktu.",
-          "en": "First release of the Product Catalog – one place with up-to-date information about your products: a catalog with tiles and a table, product groups and a full page for every product."
-        },
-        {
-          "type": "new",
-          "cs": "Stránka produktu zobrazí vše pohromadě – přehled, klíčové vlastnosti, galerii s velkým prohlížečem, specifikace, varianty a ceny, soubory ke stažení, odkazy a časté dotazy. Prázdné sekce se samy skryjí.",
-          "en": "The product page shows everything in one place – overview, key features, a gallery with a full-screen viewer, specifications, variants and pricing, downloadable files, links and FAQs. Empty sections hide automatically."
-        },
-        {
-          "type": "new",
-          "cs": "Strukturovaný editor pro editory obsahu – sekce v levém panelu, formátovaný text, nahrávání obrázků (s automatickým odstraněním skrytých metadat) a souborů, galerie s volbou úvodního obrázku.",
-          "en": "A structured editor for content editors – sections in the left rail, rich text, image uploads (with automatic removal of hidden metadata) and files, and a gallery with a hero image picker."
-        },
-        {
-          "type": "new",
-          "cs": "Role a řízený přístup – čtenáři, editoři obsahu a správci. Editorům i čtenářům lze přidělit jen konkrétní skupiny nebo produkty; skupina může být omezená jen pro vybrané osoby či skupiny Entra ID.",
-          "en": "Roles and managed access – readers, content editors and administrators. Editors and readers can be scoped to specific groups or products; a group can be restricted to selected people or Entra ID groups."
-        },
-        {
-          "type": "new",
-          "cs": "Vícejazyčný obsah – čeština je výchozí a další jazyky zapnete v Nastavení; překlady se v editoru přepínají jazykovými záložkami a čtenář vidí obsah ve svém jazyce.",
-          "en": "Multilingual content – Czech is the default and additional languages are enabled in Settings; translations switch via language tabs in the editor and readers see content in their language."
-        },
-        {
-          "type": "new",
-          "cs": "Volitelné propojení s EP365 CRM – produkt jde jedním klikem založit či aktualizovat v obchodním číselníku CRM (název, kód, kategorie, cena, DPH). Obě aplikace fungují i samostatně.",
-          "en": "Optional EP365 CRM link – create or update the product in the CRM business catalog with one click (name, code, category, price, VAT). Both apps also work standalone."
-        },
-        {
-          "type": "new",
-          "cs": "Načtení produktů z EP365 CRM – když už produkty vedete v CRM, katalog je jedním klikem převezme: existující se propojí podle SKU či názvu, chybějící se založí s cenami a popisem z CRM. Do CRM se při načtení nic nezapisuje.",
-          "en": "Load products from EP365 CRM – if you already manage products in CRM, the catalog takes them over with one click: existing ones are linked by SKU or name, missing ones are created with prices and description from CRM. Nothing is written to CRM during the load."
-        },
-        {
-          "type": "new",
-          "cs": "Snadné odkazování – každá obrazovka i produkt má vlastní odkaz, detail nabízí kartu Odkazovat na obsah (odkaz do katalogu, produktový web i hotový Markdown) a funguje tlačítko Zpět prohlížeče.",
-          "en": "Easy referencing – every screen and product has its own link, the detail offers a Reference this content card (catalog link, product website and ready-made Markdown) and the browser Back button works."
-        },
-        {
-          "type": "new",
-          "cs": "Hledání ⌘K napříč produkty, skupinami i obrazovkami – s tolerancí diakritiky.",
-          "en": "⌘K search across products, groups and screens – diacritics-insensitive."
-        },
-        {
-          "type": "new",
-          "cs": "Import dat z CSV nebo JSON s náhledem a potvrzením – opakovatelný díky párování podle SKU; k dispozici je vzorová šablona.",
-          "en": "Data import from CSV or JSON with preview and confirmation – repeatable thanks to SKU matching; a sample template is included."
-        },
-        {
-          "type": "new",
-          "cs": "Přehled využití pro správce, testovací data na vyzkoušení, dědění motivu a podpory z EP365 Homepage a dostupnost v Microsoft Teams.",
-          "en": "A usage overview for administrators, sample data to try things out, theme and support inheritance from EP365 Homepage, and Microsoft Teams availability."
-        }
+        { "type": "new", "cs": "První vydání Produktového katalogu – jedno místo s aktuálními informacemi o produktech firmy: katalog s dlaždicemi i tabulkou, produktové skupiny a plnohodnotná stránka každého produktu.", "en": "First release of the Product Catalog – one place with up-to-date information about your products: a catalog with tiles and a table, product groups and a full page for every product." },
+        { "type": "new", "cs": "Stránka produktu zobrazí vše pohromadě – přehled, klíčové vlastnosti, galerii s velkým prohlížečem, specifikace, varianty a ceny, soubory ke stažení, odkazy a časté dotazy. Prázdné sekce se samy skryjí.", "en": "The product page shows everything in one place – overview, key features, a gallery with a full-screen viewer, specifications, variants and pricing, downloadable files, links and FAQs. Empty sections hide automatically." },
+        { "type": "new", "cs": "Strukturovaný editor pro editory obsahu – sekce v levém panelu, formátovaný text, nahrávání obrázků (s automatickým odstraněním skrytých metadat) a souborů, galerie s volbou úvodního obrázku.", "en": "A structured editor for content editors – sections in the left rail, rich text, image uploads (with automatic removal of hidden metadata) and files, and a gallery with a hero image picker." },
+        { "type": "new", "cs": "Role a řízený přístup – čtenáři, editoři obsahu a správci. Editorům i čtenářům lze přidělit jen konkrétní skupiny nebo produkty; skupina může být omezená jen pro vybrané osoby či skupiny Entra ID.", "en": "Roles and managed access – readers, content editors and administrators. Editors and readers can be scoped to specific groups or products; a group can be restricted to selected people or Entra ID groups." },
+        { "type": "new", "cs": "Vícejazyčný obsah – čeština je výchozí a další jazyky zapnete v Nastavení; překlady se v editoru přepínají jazykovými záložkami a čtenář vidí obsah ve svém jazyce.", "en": "Multilingual content – Czech is the default and additional languages are enabled in Settings; translations switch via language tabs in the editor and readers see content in their language." },
+        { "type": "new", "cs": "Volitelné propojení s EP365 CRM – produkt jde jedním klikem založit či aktualizovat v obchodním číselníku CRM (název, kód, kategorie, cena, DPH). Obě aplikace fungují i samostatně.", "en": "Optional EP365 CRM link – create or update the product in the CRM business catalog with one click (name, code, category, price, VAT). Both apps also work standalone." },
+        { "type": "new", "cs": "Načtení produktů z EP365 CRM – když už produkty vedete v CRM, katalog je jedním klikem převezme: existující se propojí podle SKU či názvu, chybějící se založí s cenami a popisem z CRM. Do CRM se při načtení nic nezapisuje.", "en": "Load products from EP365 CRM – if you already manage products in CRM, the catalog takes them over with one click: existing ones are linked by SKU or name, missing ones are created with prices and description from CRM. Nothing is written to CRM during the load." },
+        { "type": "new", "cs": "Snadné odkazování – každá obrazovka i produkt má vlastní odkaz, detail nabízí kartu Odkazovat na obsah (odkaz do katalogu, produktový web i hotový Markdown) a funguje tlačítko Zpět prohlížeče.", "en": "Easy referencing – every screen and product has its own link, the detail offers a Reference this content card (catalog link, product website and ready-made Markdown) and the browser Back button works." },
+        { "type": "new", "cs": "Hledání ⌘K napříč produkty, skupinami i obrazovkami – s tolerancí diakritiky.", "en": "⌘K search across products, groups and screens – diacritics-insensitive." },
+        { "type": "new", "cs": "Import dat z CSV nebo JSON s náhledem a potvrzením – opakovatelný díky párování podle SKU; k dispozici je vzorová šablona.", "en": "Data import from CSV or JSON with preview and confirmation – repeatable thanks to SKU matching; a sample template is included." },
+        { "type": "new", "cs": "Přehled využití pro správce, testovací data na vyzkoušení, dědění motivu a podpory z EP365 Homepage a dostupnost v Microsoft Teams.", "en": "A usage overview for administrators, sample data to try things out, theme and support inheritance from EP365 Homepage, and Microsoft Teams availability." },
+        { "type": "new", "cs": "Dokumentace přímo na stránce produktu – nahraný dokument (Markdown .md) se v detailu zobrazí hezky vyrenderovaný, s nadpisy, tabulkami i seznamy a s čtečkou přes celou stránku. Katalog se tak stává jedním místem, kde je o produktu opravdu vše.", "en": "Documentation right on the product page – an uploaded document (Markdown .md) renders beautifully in the detail, with headings, tables and lists and a full-page reader. The catalog becomes the one place where everything about a product truly lives." },
+        { "type": "new", "cs": "Oddělení funkčního popisu od technické dokumentace – u každého dokumentu určíte úroveň: funkční popis vidí každý čtenář s přístupem k produktu, technickou dokumentaci jen editoři a správci.", "en": "Functional description separated from technical documentation – for each document you set the level: the functional description is visible to every reader with product access, while technical documentation is seen only by editors and administrators." }
       ]
     }
   ]
