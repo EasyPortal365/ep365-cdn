@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Rychlé akce jako čtvercové dlaždice – v nastavení sekce (ozubené kolo → Nastavení) přepnete Vzhled dlaždic na Čtvercové: ikona nahoře, název pod ní a do řádku se jich vejde víc. Kompaktní vzhled (ikona vedle textu) zůstává výchozí.",
+          "en": "Quick actions as square tiles – in the section settings (gear → Settings) switch Tile style to Square: icon on top, name below, and more of them fit in a row. The compact style (icon next to the text) stays the default."
+        },
+        {
+          "type": "new",
+          "cs": "Minimální výška řádku – u každého řádku v Rozvržení lze nově zadat minimální výšku v pixelech (0 = automaticky podle obsahu). Karty sekcí se na tuto výšku natáhnou, obsah ji smí přerůst a na mobilu se neuplatní.",
+          "en": "Minimum row height – each row in Layout can now have a minimum height in pixels (0 = automatic, based on content). Section cards stretch to that height, content may exceed it, and it is not applied on mobile."
+        },
+        {
+          "type": "new",
           "cs": "Ikony pro týmy a oddělení – HR, Výroba, Kvalita, Obchod, Nákup, Marketing, Vedení, IT a Facility. Výběr ikony je nově všude stejný a umí hledat: stačí napsat část názvu, funguje i bez diakritiky a anglicky. Najdete ho u Rychlých akcí, Záložek i Důležitých kontaktů, kde se dosud zobrazoval jen telefon.",
           "en": "Icons for teams and departments — HR, Production, Quality, Sales, Purchasing, Marketing, Management, IT and Facility. The icon picker is now the same everywhere and supports search: just type part of the name. You will find it in Quick actions, Tabs and Key contacts, which previously only ever showed a phone icon."
         },
