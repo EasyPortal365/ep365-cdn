@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Headline jde nově vybrat ručně – v nastavení sekce Pozdrav + Headline (ozubené kolo → Nastavení) určíte konkrétní aktualitu, která má být velkým článkem v hlavičce. Výchozí zůstává Automaticky, tedy nejnovější aktualita. Sekce Aktuality vybraný headline nezopakuje; když článek přestane platit nebo ho čtenář kvůli cílení nevidí, zobrazí se mu nejnovější.",
+          "en": "The headline can now be picked manually – in the Greeting + Headline section settings (gear → Settings) you choose which article appears as the large one in the header. The default stays Automatic, i.e. the newest article. The News section will not repeat the selected headline; if the article stops being valid or a reader cannot see it due to targeting, the newest one is shown to them."
+        },
+        {
+          "type": "new",
           "cs": "Rychlé akce jako čtvercové dlaždice – v nastavení sekce (ozubené kolo → Nastavení) přepnete Vzhled dlaždic na Čtvercové: ikona nahoře, název pod ní a do řádku se jich vejde víc. Kompaktní vzhled (ikona vedle textu) zůstává výchozí. Nastavit lze velikost dlaždice i rozestup mezi nimi v pixelech – u čtverce je velikost zároveň výškou, takže tím řídíte i výšku řádku.",
           "en": "Quick actions as square tiles – in the section settings (gear → Settings) switch Tile style to Square: icon on top, name below, and more of them fit in a row. The compact style (icon next to the text) stays the default. Both the tile size and the gap between tiles are configurable in pixels – for a square the size is also its height, so it controls how tall the row is."
         },
