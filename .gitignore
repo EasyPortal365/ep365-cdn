@@ -21,6 +21,12 @@
 !*/changelog.json
 !tools/publish-changelog.mjs
 
+# Údržba velikosti CDN (GitHub Pages limit 1 GB) — prořez nedosažitelných bundlů.
+# Bezpečné: čistě mechanismus nad veřejným obsahem tohoto repa, žádné secrets.
+# Politika (které složky chránit a proč = kdo co má nasazené) NENÍ v tomto
+# souboru ani v toolu — předává se přes --protect a žije v ep365-docs (private).
+!tools/prune-bundles.mjs
+
 # Brand assets (loga, ikony) — veřejné statické obrázky pro newslettery, web, decky.
 # Bezpečné: jen obrázkové formáty, žádné zdrojáky/secrets.
 !brand/**/*.png
