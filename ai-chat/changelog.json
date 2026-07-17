@@ -5,8 +5,28 @@
   "entries": [
     {
       "version": "1.40",
-      "date": "2026-07-16",
+      "date": "2026-07-17",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Otázky na e-maily, kalendář, úkoly a Teams teď skutečně najdou, co hledáte. Dřív se do vyhledávání posílala otázka tak, jak jste ji napsali, takže hledala celou větu doslova a obvykle nenašla nic – asistent pak odpověděl, že k datům nemá přístup, i když je měl. Nově se otázka nejprve převede na vyhledávací dotaz.",
+          "en": "Questions about e-mails, calendar, tasks and Teams now actually find what you are looking for. Previously the question was sent to search exactly as you typed it, so it searched for the whole sentence literally and usually found nothing – the assistant then replied that it had no access to the data, even though it did. The question is now translated into a search query first."
+        },
+        {
+          "type": "improved",
+          "cs": "Dotazy na čas fungují tak, jak je myslíte – „co jsem naposledy řešil v Teams\", „co mi přišlo minulý týden\" nebo „co je nového\" vypíší nejnovější položky místo hledání těchto slov ve zprávách.",
+          "en": "Time-based questions now work the way you mean them – \"what did I last discuss in Teams\", \"what arrived last week\" or \"what's new\" list the most recent items instead of searching for those words inside messages."
+        },
+        {
+          "type": "improved",
+          "cs": "Když se otázka vašich dat vůbec netýká (třeba překlad textu), asistent už ve zdrojích zbytečně nehledá a odpoví rychleji.",
+          "en": "When a question has nothing to do with your data (a text translation, say), the assistant no longer searches your sources needlessly and answers faster."
+        },
+        {
+          "type": "improved",
+          "cs": "Do záznamu o dohledu (Audit) se nově zapisuje i hledání v e-mailech, kalendáři, úkolech a Teams – dosud pokrýval jen Firemní znalosti. Správce tak má úplný přehled o tom, v čem se hledalo. Zapíná se v Nastavení aplikace.",
+          "en": "The audit log now also records searches in e-mails, calendar, tasks and Teams – until now it covered Company knowledge only. Administrators therefore get a complete record of what was searched. It is enabled in Application settings."
+        },
         {
           "type": "new",
           "cs": "Nový výběr Zdroje u pole zprávy – určíte, odkud smí asistent v dané konverzaci čerpat podklady: Firemní znalosti (SharePoint), E-maily, Kalendář, Úkoly To Do a Teams konverzace. Můžete jich zapnout víc najednou, nebo použít Vybrat vše.",
