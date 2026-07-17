@@ -4,6 +4,42 @@
   "name": "EP365 CRM",
   "entries": [
     {
+      "version": "1.12",
+      "date": "2026-07-18",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Kategorie kontaktu – u každého kontaktu určíte, jaký je to typ vztahu: dodavatel, zákazník, partner nebo jiné. Firma pak svou kategorii získává automaticky sjednocením kategorií svých kontaktů, takže může být klidně zároveň dodavatel i zákazník.",
+          "en": "Contact category – for each contact you set the type of relationship: supplier, customer, partner or other. A company then derives its own category automatically as the union of its contacts' categories, so it can be a supplier and a customer at the same time."
+        },
+        {
+          "type": "new",
+          "cs": "Historie účasti na kontaktu – na kartě kontaktu v záložce Akce a webináře vidíte, na kterých akcích a webinářích byl, kdy a s jakým výsledkem (zúčastnil se / neúčast / registrován).",
+          "en": "Attendance history on the contact – the contact's Events and webinars tab shows which events and webinars they attended, when, and with what outcome (attended / no-show / registered)."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled účasti na firmě – nová záložka Účast na kartě firmy shrnuje, kdo z jejích kontaktů byl na jaké akci nebo webináři. Vidíte tak aktivitu celé firmy na jednom místě.",
+          "en": "Company attendance overview – a new Attendance tab on the company card summarises who from its contacts attended which event or webinar, giving you the whole company's activity in one place."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled produktů u firmy – nová záložka Produkty ukazuje, co firma má: předplatná, servisní smlouvy a vyhrané nabídky, včetně měsíčních částek a stavů.",
+          "en": "Company products overview – a new Products tab shows what the company has: subscriptions, service contracts and won deals, including monthly amounts and statuses."
+        },
+        {
+          "type": "new",
+          "cs": "Filtr kontaktů podle stavu – k filtru obchodních linií přibyl filtr podle stavu, který se s linií páruje. Vyfiltrujete tak třeba lidi, kteří byli na webináři a nepřišli, nebo kteří se registrovali na Visionity.",
+          "en": "Filter contacts by state – the business line filter gained a state filter that pairs with the line. You can filter, for example, people who registered for a webinar and did not show up, or who registered for Visionity."
+        },
+        {
+          "type": "improved",
+          "cs": "Prodejní matice – neúčast na Visionity nově znamená nižší fázi než účast (registrace bez účasti je menší zájem). Přiřazení si jako vždy můžete upravit v Nastavení → Prodejní matice.",
+          "en": "Sales matrix – a Visionity no-show now maps to a lower funnel stage than attendance (registering without attending is weaker interest). As always, you can adjust the mapping in Settings → Sales matrix."
+        }
+      ]
+    },
+    {
       "version": "1.11",
       "date": "2026-07-16",
       "changes": [
