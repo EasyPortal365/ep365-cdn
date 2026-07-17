@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Upozornění na novější verzi – Nastavení nově ukáže, zda aplikace běží na aktuální verzi. Když vyjde novější, správce uvidí upozornění i číslo nejnovější verze a nemusí na to přijít sám. Týká se jen správců – aktualizaci provádí správce SharePointu nahráním nového balíčku.",
+          "en": "Outdated version notice – Settings now show whether the app runs the current version. When a newer one is released, administrators see a notice and the latest version number instead of having to find out on their own. Administrators only — the update is performed by a SharePoint administrator by uploading the new package."
+        },
+        {
+          "type": "new",
           "cs": "Blokový editor obsahu – životní situace nově skládáte z bloků: text, nadpisy, obrázky (s nahráním přímo z počítače), videa, zvýrazněné tipy a oddělovače. Bloky lze libovolně řadit a kombinovat, stávající články se otevřou beze změny.",
           "en": "Block content editor – you now build life situations from blocks: text, headings, images (with direct upload), videos, highlighted tips and dividers. Blocks can be freely reordered and combined; existing articles open unchanged."
         },
