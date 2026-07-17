@@ -4,9 +4,40 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.41",
+      "date": "2026-07-17",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Úvodní obrazovka vás nově vítá přehledem „Můj den\" – vlevo co proběhlo včera (schůzky, aktivita v Teams a e-maily, které stále čekají na vaši odpověď), vpravo dnešní program na časové ose s bodem TEĎ, nejbližší schůzkou s odpočtem a tlačítkem Připojit a úkoly s termínem, které jde rovnou odškrtnout. Vše bez AI a mimo denní limit – data se čtou přímo z Microsoft 365, jen pod vaším přihlášením.",
+          "en": "The start screen now greets you with a \"My day\" overview – on the left what happened yesterday (meetings, Teams activity and e-mails still awaiting your reply), on the right today's schedule on a timeline with a NOW marker, the nearest meeting with a countdown and a Join button, and tasks due today you can tick off right away. All without AI and outside the daily limit – data is read straight from Microsoft 365, solely under your sign-in."
+        },
+        {
+          "type": "new",
+          "cs": "Tlačítko „Shrň mi den\" den převypráví krátkou psanou zprávou – co zůstalo nedořešené, co vás čeká a čím začít. Teprve tady se zapojí AI.",
+          "en": "The \"Summarize my day\" button retells the day as a short written note – what is left unresolved, what lies ahead and where to start. Only here does AI step in."
+        },
+        {
+          "type": "improved",
+          "cs": "Při návratu do aplikace během dne (a na mobilu) se přehled sbalí do jednořádkového pásu, aby nepřekážel psaní – šipkou ho kdykoli rozbalíte zpět.",
+          "en": "When you return to the app during the day (and on mobile) the overview collapses into a one-line strip so it does not get in the way of writing – the arrow expands it back at any time."
+        },
+        {
+          "type": "improved",
+          "cs": "Poslední konverzace a oblíbené se přestěhovaly do záložek vedle přehledu – spolu s rychlým výběrem asistenta jsou na jeden klik.",
+          "en": "Recent conversations and favorites moved into tabs next to the overview – together with a quick assistant picker they are one click away."
+        }
+      ]
+    },
+    {
       "version": "1.40",
       "date": "2026-07-17",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Hlášení chyb a návrhy funkcí nyní odešlete e-mailem na naši podporu – přímo z aplikace.",
+          "en": "Bug reports and feature requests are now sent by email to our support — straight from the app."
+        },
         {
           "type": "fixed",
           "cs": "Otázky na e-maily, kalendář, úkoly a Teams teď skutečně najdou, co hledáte. Dřív se do vyhledávání posílala otázka tak, jak jste ji napsali, takže hledala celou větu doslova a obvykle nenašla nic – asistent pak odpověděl, že k datům nemá přístup, i když je měl. Nově se otázka nejprve převede na vyhledávací dotaz.",
