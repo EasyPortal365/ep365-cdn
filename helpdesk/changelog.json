@@ -312,6 +312,11 @@
           "type": "improved",
           "cs": "Aplikace nově přebírá z globálního nastavení celý firemní motiv – nejen akcentní barvu, ale i základní (text, nadpisy, tlačítka). Rozhraní tak barevně odpovídá vaší značce, ne jen výchozí modré.",
           "en": "The app now inherits the full company theme from global settings — not just the accent color, but also the base color (text, headings, buttons). The interface matches your brand instead of the default blue."
+        },
+        {
+          "type": "improved",
+          "cs": "Synchronizace z EP365 CRM nově dotáhne i firmy označené zákaznickým statusem „zákazník“ nebo „aktivní zákazník“ – dosud se přebíraly jen firmy s kategorií „Zákazník“ nebo se servisní smlouvou.",
+          "en": "CRM synchronisation now also pulls in companies marked with the 'customer' or 'active customer' status — previously only companies with the 'Customer' category or a service contract were imported."
         }
       ]
     }
