@@ -14,6 +14,26 @@
         },
         {
           "type": "new",
+          "cs": "V Kontrole prostředí nově určíte i vlastní seznam webů ke kontrole (pole „Zkontrolovat i tyto weby\" s výběrem webů a knihoven) – hodí se u rozsahu „celý tenant\", který nelze vyjmenovat. Seznam se ukládá, kontrola projde až 100 webů najednou.",
+          "en": "The Environment check now also takes your own list of sites to review (an \"Also check these sites\" field with a site and library picker) – useful with the \"whole tenant\" scope, which cannot be enumerated. The list is saved and the check covers up to 100 sites at once."
+        },
+        {
+          "type": "improved",
+          "cs": "Výsledek kontroly je přehledný i při desítkách webů – weby s nálezy vidíte rozepsané, weby bez nálezů se sbalí do úsporného výpisu s tlačítkem Zobrazit další.",
+          "en": "The check result stays readable even with dozens of sites – sites with findings are shown in full, clean sites collapse into a compact list with a Show more button."
+        },
+        {
+          "type": "new",
+          "cs": "Šablony dokumentů – správce nahraje firemní Word šablony (.docx) se slučovacími poli {pole} v nové sekci Nastavení. Uživatelé pak v Prompt Studiu spustí úlohu „Vyplnit firemní šablonu\": AI navrhne obsah polí podle konverzace a pokynů, vy hodnoty zkontrolujete a upravíte přímo v kartě.",
+          "en": "Document templates – an administrator uploads company Word templates (.docx) with {field} merge fields in a new Settings section. Users then run the \"Fill a company template\" task in Prompt Studio: the AI drafts the field values from the conversation and your instructions, and you review and adjust them right on the card."
+        },
+        {
+          "type": "new",
+          "cs": "Vyplněnou šablonu jedním klikem stáhnete jako Word (.docx), nebo ji uložíte do dokumentové knihovny webu. Dokument vzniká přímo ve vašem prohlížeči – šablona ani obsah neopouštějí vaši organizaci a nic se neodesílá.",
+          "en": "Download the filled template as Word (.docx) in one click, or save it to the site's document library. The document is created right in your browser – neither the template nor its content leaves your organization and nothing is sent anywhere."
+        },
+        {
+          "type": "new",
           "cs": "Kontrola projde web aplikace i všechny weby z vlastního rozsahu a globální autoritativní zdroje, včetně knihoven s vlastními oprávněními. U každého webu vidíte výsledek (Bez nálezů / Plošný přístup / Kontrola neúplná), konkrétní nálezy s doporučením a odkaz rovnou do oprávnění webu.",
           "en": "The check covers the app's site, every site from a custom scope and the global authoritative sources, including libraries with unique permissions. For each site you see the outcome (No findings / Broad access / Check incomplete), the specific findings with a recommendation and a link straight into the site's permissions."
         },
