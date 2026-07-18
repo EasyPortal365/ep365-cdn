@@ -4,6 +4,27 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.43",
+      "date": "2026-07-18",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Kontrola prostředí – nová sekce Nastavení pro správce. Jedním klikem prověří oprávnění webů v rozsahu Firemních znalostí a upozorní na obsah přístupný celé organizaci (skupiny Everyone / Všichni kromě externích uživatelů) – dřív, než ho AI začne nacházet a citovat. Kontrola jen čte, nic nemění.",
+          "en": "Environment check – a new Settings section for administrators. One click reviews the permissions of the sites in the Company knowledge scope and flags content accessible to the whole organization (the Everyone / Everyone except external users groups) – before the AI starts finding and quoting it. The check only reads, nothing is changed."
+        },
+        {
+          "type": "new",
+          "cs": "Kontrola projde web aplikace i všechny weby z vlastního rozsahu a globální autoritativní zdroje, včetně knihoven s vlastními oprávněními. U každého webu vidíte výsledek (Bez nálezů / Plošný přístup / Kontrola neúplná), konkrétní nálezy s doporučením a odkaz rovnou do oprávnění webu.",
+          "en": "The check covers the app's site, every site from a custom scope and the global authoritative sources, including libraries with unique permissions. For each site you see the outcome (No findings / Broad access / Check incomplete), the specific findings with a recommendation and a link straight into the site's permissions."
+        },
+        {
+          "type": "improved",
+          "cs": "Popis auditu v Nastavení nyní odpovídá skutečnosti – audit zaznamenává vyhledávání ve všech zdrojích (Firemní znalosti, e-maily, kalendář, úkoly To Do a Teams), ne jen ve Firemních znalostech.",
+          "en": "The audit description in Settings now matches reality – the audit logs searches in all sources (Company knowledge, e-mails, calendar, To Do tasks and Teams), not only in Company knowledge."
+        }
+      ]
+    },
+    {
       "version": "1.42",
       "date": "2026-07-17",
       "changes": [
