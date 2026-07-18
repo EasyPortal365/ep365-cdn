@@ -51,6 +51,11 @@
           "type": "fixed",
           "cs": "Kategorie kontaktu se po uložení správně zobrazuje v detailu; přejmenování firmy se propíše do jejích kontaktů, nabídek, smluv i předplatných; follow-up po akci respektuje nastavení „nezasílat hromadné e-maily“; opraveny drobnosti v datech a částkách (termíny obnov, DPH v podkladech, import částek s oddělovači tisíců).",
           "en": "Contact category now shows correctly in the detail after saving; renaming a company propagates to its contacts, deals, contracts and subscriptions; post-event follow-up respects the no-bulk-email setting; minor date and amount fixes (renewal dates, VAT in invoicing basis, importing amounts with thousands separators)."
+        },
+        {
+          "type": "improved",
+          "cs": "Role Uživatelé má nově přesněji vymezená oprávnění – práce se záznamy (vytváření, úpravy, přílohy) zůstává beze změny, správa struktury seznamů je vyhrazena správcům. Na stávajících webech se změna projeví automaticky při první návštěvě správce.",
+          "en": "The Users role now has more precisely scoped permissions – working with records (creating, editing, attachments) is unchanged, while managing list structure is reserved for administrators. On existing sites the change applies automatically on the next administrator visit."
         }
       ]
     },
