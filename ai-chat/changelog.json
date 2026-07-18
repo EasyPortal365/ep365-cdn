@@ -8,6 +8,11 @@
       "date": "2026-07-18",
       "changes": [
         {
+          "type": "new",
+          "cs": "Diagramy v odpovědích – když se ptáte na postup, proces, strukturu nebo sled kroků (nebo o diagram přímo požádáte), asistent k odpovědi přidá vývojový diagram, strom nebo sekvenci. Kreslí se přímo ve vašem prohlížeči v barvách aplikace; když se nepovede vykreslit, ukáže se aspoň jeho zápis.",
+          "en": "Diagrams in answers – when you ask about a process, structure or a sequence of steps (or ask for one directly), the assistant adds a flowchart, tree or sequence to its answer. It is drawn right in your browser in the app's colors; if it can't be rendered, at least its source is shown."
+        },
+        {
           "type": "improved",
           "cs": "U porovnání dokumentů je teď jasně vidět, který soubor je 1. a který 2. – porovnání jde od 1. ke 2. (co se ve 2. změnilo oproti 1.) a směr jedním tlačítkem prohodíte. Asistent dokumenty rozlišuje jménem souboru a neurčuje, který je „novější“ – z obsahu to totiž poznat nelze.",
           "en": "For document comparison it is now clear which file is 1 and which is 2 – the comparison goes from 1 to 2 (what changed in 2 vs 1) and you can swap the direction with one button. The assistant tells the documents apart by file name and does not decide which is “newer”, since that cannot be told from the content."
