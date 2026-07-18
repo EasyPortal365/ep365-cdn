@@ -8,6 +8,11 @@
       "date": "2026-07-18",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Sdílené firemní šablony (dokumentů i promptů) teď spravuje výhradně správce – běžný uživatel je nadále používá, ale needituje. Šablony dokumentů jsou nově chráněné přímo oprávněním SharePointu, ne jen v rozhraní.",
+          "en": "Shared company templates (documents and prompts) are now managed exclusively by an administrator – regular users still use them but can no longer edit them. Document templates are now protected directly by SharePoint permissions, not just in the interface."
+        },
+        {
           "type": "fixed",
           "cs": "Bezpečnostní a spolehlivostní údržba (revize kódu): Firemní znalosti teď hledají striktně jen v nastaveném rozsahu (dřív mohla varianta dotazu spojená slovem „nebo\" rozsah obejít); mazání konverzace je vše, nebo nic (nikdy nezůstanou osamocené zprávy); nastavení už neztratí rozpracované změny při obnovení obrazovky; přílohy a firemní dokumenty se zpracovávají striktně jako data, ne jako pokyny; a velké složité soubory Office nezahltí aplikaci.",
           "en": "Security and reliability maintenance (code review): Company knowledge now searches strictly within the configured scope (previously a query variant joined by \"or\" could bypass it); deleting a conversation is all-or-nothing (messages are never left orphaned); settings no longer lose in-progress edits on a screen refresh; attachments and company documents are treated strictly as data, not as instructions; and large complex Office files no longer overwhelm the app."
