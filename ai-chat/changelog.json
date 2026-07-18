@@ -4,6 +4,22 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.45",
+      "date": "2026-07-18",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Paměť asistenta – nová sekce v Nastavení. Uložíte si sem trvalá fakta o sobě (jak se podepisujete, jak oslovovat klienty, vaši roli, preferovaný styl) a asistent je bere v úvahu ve všech vašich konverzacích. Vidíte a spravujete je jen vy.",
+          "en": "Assistant memory – a new section in Settings. Save lasting facts about yourself here (how you sign off, how to address clients, your role, preferred style) and the assistant keeps them in mind across all your conversations. Only you see and manage them."
+        },
+        {
+          "type": "new",
+          "cs": "Když z konverzace vyplyne něco trvalého, asistent sám nabídne kartu „Zapamatovat si?“ přímo pod odpovědí – uloží se teprve po vašem potvrzení, nikdy potichu. Každý záznam pak kdykoli upravíte nebo smažete.",
+          "en": "When something lasting comes up in a conversation, the assistant offers a “Remember this?” card right under its answer – it is saved only after you confirm, never silently. You can then edit or delete any entry anytime."
+        }
+      ]
+    },
+    {
       "version": "1.44",
       "date": "2026-07-18",
       "changes": [
