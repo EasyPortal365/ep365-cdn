@@ -8,6 +8,11 @@
       "date": "2026-07-18",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Porovnání dokumentů teď na závěr přidá přehlednou tabulku konkrétních rozdílů (Oblast · hodnota v 1. dokumentu · hodnota ve 2.).",
+          "en": "Document comparison now ends with a clear table of the concrete differences (Area · value in document 1 · value in document 2)."
+        },
+        {
           "type": "new",
           "cs": "Diagramy v odpovědích – když se ptáte na postup, proces, strukturu nebo sled kroků (nebo o diagram přímo požádáte), asistent k odpovědi přidá vývojový diagram, strom nebo sekvenci. Kreslí se přímo ve vašem prohlížeči v barvách aplikace; když se nepovede vykreslit, ukáže se aspoň jeho zápis.",
           "en": "Diagrams in answers – when you ask about a process, structure or a sequence of steps (or ask for one directly), the assistant adds a flowchart, tree or sequence to its answer. It is drawn right in your browser in the app's colors; if it can't be rendered, at least its source is shown."
