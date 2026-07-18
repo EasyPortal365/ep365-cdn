@@ -8,74 +8,74 @@
     "functionAppName": {
       "type": "string",
       "metadata": {
-        "description": "NÃ¡zev Function App (musÃ­ bÃ½t globÃ¡lnÄ› unikÃ¡tnÃ­), napÅ™. func-contoso-ai"
+        "description": "Název Function App (musí být globálně unikátní), např. func-contoso-ai"
       }
     },
     "location": {
       "type": "string",
       "defaultValue": "[resourceGroup().location]",
       "metadata": {
-        "description": "Azure region pro nasazenÃ­ zdrojÅ¯"
+        "description": "Azure region pro nasazení zdrojů"
       }
     },
     "azureOpenAiEndpoint": {
       "type": "string",
       "metadata": {
-        "description": "URL Azure OpenAI resource, napÅ™. https://contoso-openai.openai.azure.com"
+        "description": "URL Azure OpenAI resource, např. https://contoso-openai.openai.azure.com"
       }
     },
     "azureOpenAiKey": {
       "type": "securestring",
       "metadata": {
-        "description": "API klÃ­Ä Azure OpenAI resource"
+        "description": "API klíč Azure OpenAI resource"
       }
     },
     "azureOpenAiDeployment": {
       "type": "string",
-      "defaultValue": "gpt-4o",
+      "defaultValue": "gpt-5-mini",
       "metadata": {
-        "description": "NÃ¡zev deploymentu modelu v Azure OpenAI, napÅ™. gpt-4o"
+        "description": "Název deploymentu modelu v Azure OpenAI, např. gpt-5-mini. U reasoning modelů (gpt-5*, o-řada) musí jméno deploymentu začínat gpt-5/o, jinak funkce použije klasický API kontrakt (temperature) a model dotaz odmítne."
       }
     },
     "allowedOrigin": {
       "type": "string",
       "metadata": {
-        "description": "Origin SharePoint tenantu pro CORS, napÅ™. https://contoso.sharepoint.com (vÃ­c originÅ¯ oddÄ›lte ÄÃ¡rkou). Funkce je fail-closed â€” bez tÃ©to hodnoty prohlÃ­Å¾eÄ volÃ¡nÃ­ chatu odmÃ­tne."
+        "description": "Origin SharePoint tenantu pro CORS, např. https://contoso.sharepoint.com (víc originů oddělte čárkou). Funkce je fail-closed — bez této hodnoty prohlížeč volání chatu odmítne."
       }
     },
     "packageUrl": {
       "type": "string",
       "defaultValue": "https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.1.1.zip",
       "metadata": {
-        "description": "VOLITELNÃ‰ â€” URL release zip balÃ­Äku s kÃ³dem funkce (WEBSITE_RUN_FROM_PACKAGE). VyplnÄ›nÃ© = kÃ³d se naÄte pÅ™Ã­mo z tohoto zipu (cesta Deploy to Azure). PrÃ¡zdnÃ© = kÃ³d nasadÃ­te zvlÃ¡Å¡Å¥ (deploy skript / zip deploy / GitHub Actions)."
+        "description": "VOLITELNÉ — URL release zip balíčku s kódem funkce (WEBSITE_RUN_FROM_PACKAGE). Vyplněné = kód se načte přímo z tohoto zipu (cesta Deploy to Azure). Prázdné = kód nasadíte zvlášť (deploy skript / zip deploy / GitHub Actions)."
       }
     },
     "aadTenantId": {
       "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "VOLITELNÃ‰ â€” Entra ID tenant ID pro ZnalostnÃ­ pÅ™Ã­pravu (Graph client credentials)"
+        "description": "VOLITELNÉ — Entra ID tenant ID pro Znalostní přípravu (Graph client credentials)"
       }
     },
     "aadClientId": {
       "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "VOLITELNÃ‰ â€” Application (client) ID app registrace s Graph application permission Sites.Selected"
+        "description": "VOLITELNÉ — Application (client) ID app registrace s Graph application permission Sites.Selected"
       }
     },
     "aadClientSecret": {
       "type": "securestring",
       "defaultValue": "",
       "metadata": {
-        "description": "VOLITELNÃ‰ â€” client secret app registrace pro ZnalostnÃ­ pÅ™Ã­pravu"
+        "description": "VOLITELNÉ — client secret app registrace pro Znalostní přípravu"
       }
     },
     "settingsSiteUrl": {
       "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "VOLITELNÃ‰ â€” absolutnÃ­ URL webu se settings listem EP365AIChatAppSettings, napÅ™. https://contoso.sharepoint.com/sites/ai"
+        "description": "VOLITELNÉ — absolutní URL webu se settings listem EP365AIChatAppSettings, např. https://contoso.sharepoint.com/sites/ai"
       }
     }
   },

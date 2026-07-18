@@ -8,7 +8,7 @@
       2. Vytvoreni resource group (idempotentni).
       3. Azure OpenAI:
          - kdyz predate -AzureOpenAiEndpoint + -AzureOpenAiKey, pouzije se existujici ucet;
-         - jinak skript vytvori novy Azure OpenAI ucet + model deployment (default gpt-4o).
+         - jinak skript vytvori novy Azure OpenAI ucet + model deployment (default gpt-5-mini).
       4. Nasazeni infrastruktury (Function App, Storage Account, Application Insights,
          App Settings) - lokalni infra/main.bicep, nebo (kdyz skript nebezi v repu)
          ARM sablona z CDN EasyPortal365.
@@ -72,7 +72,10 @@
     Volitelny. API klic existujiciho Azure OpenAI uctu.
 
 .PARAMETER AzureOpenAiDeployment
-    Nazev model deploymentu v Azure OpenAI. Default: gpt-4o.
+    Nazev model deploymentu v Azure OpenAI. Kdyz nezadano, odvodi se od -OpenAiModelName
+    (default gpt-5-mini). DULEZITE: u reasoning modelu (gpt-5* / o-rada) MUSI jmeno
+    deploymentu zacinat "gpt-5"/"o" - runtime funkce podle nej voli API kontrakt; pod
+    klasickym jmenem (napr. gpt-4o) by gpt-5 model dotaz odmitl.
 
 .PARAMETER OpenAiAccountName
     Nazev noveho Azure OpenAI uctu (jen kdyz se vytvari). Default: <FunctionAppName>-openai.
@@ -81,10 +84,13 @@
     Region noveho Azure OpenAI uctu. Default: swedencentral.
 
 .PARAMETER OpenAiModelName
-    Model pro novy deployment. Default: gpt-4o.
+    Model pro novy deployment. Default: gpt-5-mini. Dostupne GA modely v regionu vypisete:
+    az cognitiveservices model list -l <region> --query "[?kind=='OpenAI' && model.lifecycleStatus=='GenerallyAvailable'].{Model:model.name, Verze:model.version}" -o table
 
 .PARAMETER OpenAiModelVersion
-    Verze modelu. Default: 2024-08-06.
+    Verze modelu pro novy deployment. Kdyz NENI zadana, skript si sam zjisti nejnovejsi GA
+    verzi modelu v cilovem regionu (napevno zadana verze casem zastarava). Kdyz je zadana
+    explicitne, pouzije se presne ta. Fallback pri neuspechu dotazu: 2025-08-07.
 
 .PARAMETER OpenAiSkuName
     SKU model deploymentu. Default: GlobalStandard.
@@ -115,7 +121,7 @@
     .\deploy-azure.ps1 -ResourceGroupName rg-contoso-ai -FunctionAppName func-contoso-ai `
         -AllowedOrigin https://contoso.sharepoint.com `
         -AzureOpenAiEndpoint https://contoso-openai.openai.azure.com `
-        -AzureOpenAiKey "<api-klic>" -AzureOpenAiDeployment gpt-4o
+        -AzureOpenAiKey "<api-klic>" -AzureOpenAiDeployment gpt-5-mini
 
 .EXAMPLE
     .\deploy-azure.ps1 -ResourceGroupName rg-contoso-ai -FunctionAppName func-contoso-ai `
@@ -144,13 +150,13 @@ param(
     # Existujici Azure OpenAI (kdyz jsou zadane endpoint + klic, novy ucet se nevytvari)
     [string]$AzureOpenAiEndpoint = '',
     [string]$AzureOpenAiKey = '',
-    [string]$AzureOpenAiDeployment = 'gpt-4o',
+    [string]$AzureOpenAiDeployment = '',
 
     # Novy Azure OpenAI ucet (pouzije se jen kdyz endpoint + klic nejsou zadane)
     [string]$OpenAiAccountName = '',
     [string]$OpenAiLocation = 'swedencentral',
-    [string]$OpenAiModelName = 'gpt-4o',
-    [string]$OpenAiModelVersion = '2024-08-06',
+    [string]$OpenAiModelName = 'gpt-5-mini',
+    [string]$OpenAiModelVersion = '2025-08-07',
     [string]$OpenAiSkuName = 'GlobalStandard',
     [int]$OpenAiSkuCapacity = 10,
 
@@ -177,6 +183,12 @@ function Assert-LastExit([string]$Message) {
 $scriptDir = $PSScriptRoot
 if (-not $scriptDir) { $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path }
 $repoRoot = Split-Path -Parent $scriptDir
+
+# Jmeno deploymentu, kdyz nezadano, odvod od modelu. DULEZITE: runtime funkce ridi
+# reasoning kontrakt (gpt-5* / o-rada -> max_completion_tokens, bez temperature) PRAVE
+# jmenem deploymentu, ne jmenem modelu. Kdyby se gpt-5 model nasadil pod jmenem "gpt-4o",
+# funkce by poslala temperature a model by dotaz odmitl. Odvozeni jmena od modelu tomu brani.
+if ($AzureOpenAiDeployment -eq '') { $AzureOpenAiDeployment = $OpenAiModelName }
 
 # CDN EasyPortal365 - hostuje ARM sablonu a release zip kodu pro beh mimo repo
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
@@ -293,17 +305,51 @@ try {
         Assert-LastExit 'Kontrola existence model deploymentu selhala.'
 
         if ([int]$depCount -eq 0) {
-            Write-Host ('Vytvarim model deployment "' + $AzureOpenAiDeployment + '" (' + $OpenAiModelName + ' ' + $OpenAiModelVersion + ', ' + $OpenAiSkuName + ' ' + $OpenAiSkuCapacity + ')...')
+            # Verze modelu: kdyz nezadana explicitne, zjisti nejnovejsi GA verzi v regionu.
+            # Napevno zadana verze casem zastara - Azure model presune na "Deprecating"
+            # a create ho odmitne (presne to potkalo puvodni gpt-4o 2024-08-06). Auto-vyber
+            # se tomu vyhne. Fallback na -OpenAiModelVersion, kdyz dotaz selze / nic nevrati.
+            $resolvedModelVersion = $OpenAiModelVersion
+            if (-not $PSBoundParameters.ContainsKey('OpenAiModelVersion')) {
+                try {
+                    $modelsJson = az cognitiveservices model list --location $OpenAiLocation -o json 2>$null
+                    if ($LASTEXITCODE -eq 0 -and $modelsJson) {
+                        $allModels = ConvertFrom-Json (($modelsJson -join "`n"))
+                        # Jen GA verze zadaneho modelu, ktere nabizi pozadovanou SKU.
+                        # (Verze jsou datove retezce "YYYY-MM-DD" - sestupny textovy sort = nejnovejsi.)
+                        $gaVersions = @($allModels | Where-Object {
+                            $_.kind -eq 'OpenAI' -and
+                            $_.model.name -eq $OpenAiModelName -and
+                            $_.model.lifecycleStatus -eq 'GenerallyAvailable' -and
+                            (@($_.model.skus | Where-Object { $_.name -eq $OpenAiSkuName }).Count -gt 0)
+                        })
+                        if ($gaVersions.Count -gt 0) {
+                            $newest = ($gaVersions | Sort-Object { $_.model.version } -Descending | Select-Object -First 1)
+                            if ($newest.model.version) {
+                                $resolvedModelVersion = $newest.model.version
+                                if ($resolvedModelVersion -ne $OpenAiModelVersion) {
+                                    Write-Host ('Nejnovejsi GA verze modelu ' + $OpenAiModelName + ' v regionu ' + $OpenAiLocation + ': ' + $resolvedModelVersion + ' (vychozi pin: ' + $OpenAiModelVersion + ').')
+                                }
+                            }
+                        }
+                    }
+                }
+                catch {
+                    # Dotaz na katalog modelu selhal - pouziji vychozi verzi (-OpenAiModelVersion).
+                }
+            }
+
+            Write-Host ('Vytvarim model deployment "' + $AzureOpenAiDeployment + '" (' + $OpenAiModelName + ' ' + $resolvedModelVersion + ', ' + $OpenAiSkuName + ' ' + $OpenAiSkuCapacity + ')...')
             az cognitiveservices account deployment create `
                 --resource-group $ResourceGroupName `
                 --name $OpenAiAccountName `
                 --deployment-name $AzureOpenAiDeployment `
                 --model-name $OpenAiModelName `
-                --model-version $OpenAiModelVersion `
+                --model-version $resolvedModelVersion `
                 --model-format OpenAI `
                 --sku-name $OpenAiSkuName `
                 --sku-capacity $OpenAiSkuCapacity -o none
-            Assert-LastExit ('Vytvoreni model deploymentu selhalo. Casta pricina: model ' + $OpenAiModelName + ' (' + $OpenAiModelVersion + ') neni v regionu ' + $OpenAiLocation + ' dostupny, nebo chybi kvota pro SKU ' + $OpenAiSkuName + '.')
+            Assert-LastExit ('Vytvoreni model deploymentu selhalo. Model ' + $OpenAiModelName + ' (verze ' + $resolvedModelVersion + ', SKU ' + $OpenAiSkuName + ') neni v regionu ' + $OpenAiLocation + ' dostupny, nebo chybi kvota. Dostupne GA modely v regionu vypisete prikazem:  az cognitiveservices model list -l ' + $OpenAiLocation + ' --query "[?kind==''OpenAI'' && model.lifecycleStatus==''GenerallyAvailable''].{Model:model.name, Verze:model.version}" -o table   Jiny model/verzi/kapacitu zvolte parametry -OpenAiModelName / -OpenAiModelVersion / -OpenAiSkuCapacity (jmeno deploymentu -AzureOpenAiDeployment se jinak odvodi od modelu).')
             Write-Host 'Model deployment vytvoren.'
         }
         else {
