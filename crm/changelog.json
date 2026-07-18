@@ -36,6 +36,11 @@
           "type": "improved",
           "cs": "Prodejní matice – neúčast na Visionity nově znamená nižší fázi než účast (registrace bez účasti je menší zájem). Přiřazení si jako vždy můžete upravit v Nastavení → Prodejní matice.",
           "en": "Sales matrix – a Visionity no-show now maps to a lower funnel stage than attendance (registering without attending is weaker interest). As always, you can adjust the mapping in Settings → Sales matrix."
+        },
+        {
+          "type": "improved",
+          "cs": "Nahlášení chyby i návrhu funkce teď odchází přímo e-mailem z vaší schránky na naši podporu – vznikne z něj tiket a odpověď vám přijde e-mailem. Spolehlivější než dřívější formulář; když by e-mail nešel odeslat, otevře se předvyplněná zpráva ve vašem poštovním klientovi.",
+          "en": "Reporting a bug or suggesting a feature now goes straight by email from your mailbox to our support – it becomes a ticket and you get the reply by email. More reliable than the previous form; if the email cannot be sent, a pre-filled message opens in your mail client."
         }
       ]
     },
