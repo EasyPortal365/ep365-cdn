@@ -56,6 +56,16 @@
           "type": "improved",
           "cs": "Role Uživatelé má nově přesněji vymezená oprávnění – práce se záznamy (vytváření, úpravy, přílohy) zůstává beze změny, správa struktury seznamů je vyhrazena správcům. Na stávajících webech se změna projeví automaticky při první návštěvě správce.",
           "en": "The Users role now has more precisely scoped permissions – working with records (creating, editing, attachments) is unchanged, while managing list structure is reserved for administrators. On existing sites the change applies automatically on the next administrator visit."
+        },
+        {
+          "type": "new",
+          "cs": "E-mail z kontaktu umí víc: přidáte kopii (CC), přiložíte soubory (dohromady do 3 MB) a připojíte svůj uložený podpis – ten si vytvoříte přímo v okně e-mailu a pamatuje se pro příště. Podpis jde jedním zaškrtnutím připojit i ke kampani.",
+          "en": "Email from a contact can do more: add CC recipients, attach files (up to 3 MB total) and append your saved signature – created right in the email box and remembered for next time. The signature can also be appended to a campaign with a single checkbox."
+        },
+        {
+          "type": "new",
+          "cs": "Registrace na webinář se sama propíše do obchodních linií kontaktu – účastník dostane zapojení „webinář / registrace“ a při vyplnění účasti či neúčasti se stav (a z něj fáze i zákaznický status dle prodejní matice) aktualizuje automaticky. Ručně nastavené ostatní linie zůstávají nedotčené.",
+          "en": "Webinar registration now flows into the contact's business lines automatically – the attendee gets a \"webinar / registered\" engagement, and marking attendance or no-show updates the state (and the derived funnel stage and customer status per the sales matrix). Manually set other lines remain untouched."
         }
       ]
     },
