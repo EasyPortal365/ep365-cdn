@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Nová stránka „Můj den\" – ucelený přehled vašeho dne na jednom místě. Vlevo včerejšek (schůzky, odeslané odpovědi, resty – e-maily čekající na odpověď), vpravo dnešek s časovou osou a posuvnou značkou „teď\" (nejbližší schůzka s odpočtem, možnost se připojit, úkoly z To Do). Vpletená je i rozdělaná práce z ostatních aplikací EP365 (například tikety po termínu, obchodní follow-upy, dokumenty ke schválení). S aktivní licencí AI Asistenta přibude tlačítko „Shrň mi den\", které vše shrne do krátkého přehledu včetně doporučení, čím začít; bez licence stránka funguje dál jako přehledný výpis.",
+          "en": "New \"My day\" page — a complete overview of your day in one place. Yesterday on the left (meetings, replies you sent, leftovers — e-mails awaiting a reply), today on the right with a timeline and a draggable \"now\" marker (the next meeting with a countdown, a join button, To Do tasks). Work in progress from other EP365 apps is woven in as well (for example overdue tickets, sales follow-ups, documents to approve). With an active AI Assistant licence you also get a \"Summarize my day\" button that condenses everything into a short overview including a suggestion of what to start with; without the licence the page keeps working as a clear listing."
+        },
+        {
+          "type": "fixed",
+          "cs": "Tlačítko „Spravovat\" u důležitých kontaktů se nyní nabízí jen správci aplikace – editorům obsahu, kteří na úpravu kontaktů nemají oprávnění, se přestalo zobrazovat.",
+          "en": "The \"Manage\" button for key contacts is now shown only to app administrators — content editors who lack permission to edit contacts no longer see it."
+        },
+        {
+          "type": "new",
           "cs": "Headline jde nově vybrat ručně – v nastavení sekce Pozdrav + Headline (ozubené kolo → Nastavení) určíte konkrétní aktualitu, která má být velkým článkem v hlavičce. Výchozí zůstává Automaticky, tedy nejnovější aktualita. Sekce Aktuality vybraný headline nezopakuje; když článek přestane platit nebo ho čtenář kvůli cílení nevidí, zobrazí se mu nejnovější.",
           "en": "The headline can now be picked manually – in the Greeting + Headline section settings (gear → Settings) you choose which article appears as the large one in the header. The default stays Automatic, i.e. the newest article. The News section will not repeat the selected headline; if the article stops being valid or a reader cannot see it due to targeting, the newest one is shown to them."
         },
