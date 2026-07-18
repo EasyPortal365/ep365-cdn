@@ -8,6 +8,11 @@
       "date": "2026-07-18",
       "changes": [
         {
+          "type": "fixed",
+          "cs": "Graf stažený jako obrázek má nově správné písmo (dřív se v PNG zobrazilo patkové písmo místo firemního).",
+          "en": "A chart downloaded as an image now uses the correct typeface (previously the PNG showed a serif font instead of the brand font)."
+        },
+        {
           "type": "improved",
           "cs": "Sdílené firemní šablony (dokumentů i promptů) teď spravuje výhradně správce – běžný uživatel je nadále používá, ale needituje. Šablony dokumentů jsou nově chráněné přímo oprávněním SharePointu, ne jen v rozhraní.",
           "en": "Shared company templates (documents and prompts) are now managed exclusively by an administrator – regular users still use them but can no longer edit them. Document templates are now protected directly by SharePoint permissions, not just in the interface."
