@@ -9,8 +9,8 @@
       "changes": [
         {
           "type": "improved",
-          "cs": "U porovnání dokumentů je teď jasně vidět pořadí obou souborů (1. = původní, 2. = novější) a jedním tlačítkem ho prohodíte. Asistent navíc v odpovědi oba dokumenty pojmenuje, ať je zřejmé, čeho se změna týká.",
-          "en": "For document comparison the order of the two files is now clearly shown (1. = original, 2. = newer) and you can swap it with one button. The assistant also names both documents in its answer so it is clear what changed where."
+          "cs": "U porovnání dokumentů je teď jasně vidět, který soubor je 1. a který 2. – porovnání jde od 1. ke 2. (co se ve 2. změnilo oproti 1.) a směr jedním tlačítkem prohodíte. Asistent dokumenty rozlišuje jménem souboru a neurčuje, který je „novější“ – z obsahu to totiž poznat nelze.",
+          "en": "For document comparison it is now clear which file is 1 and which is 2 – the comparison goes from 1 to 2 (what changed in 2 vs 1) and you can swap the direction with one button. The assistant tells the documents apart by file name and does not decide which is “newer”, since that cannot be told from the content."
         },
         {
           "type": "improved",
