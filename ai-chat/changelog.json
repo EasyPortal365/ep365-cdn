@@ -8,6 +8,16 @@
       "date": "2026-07-18",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Při výběru dokumentů (i pro porovnání) můžete soubory nově přetáhnout myší nebo nahrát přímo z počítače – nejen vybrat ze SharePointu.",
+          "en": "When picking documents (including for comparison) you can now drag files in or upload them straight from your computer – not just pick from SharePoint."
+        },
+        {
+          "type": "fixed",
+          "cs": "Prompt Studio: uložená kopie úlohy nebo asistenta, která je totožná s připravenou z galerie, se už v seznamu nezobrazuje dvakrát.",
+          "en": "Prompt Studio: a saved copy of a task or assistant that is identical to a built-in gallery one no longer appears twice in the list."
+        },
+        {
           "type": "new",
           "cs": "Porovnání dokumentů – v Prompt Studiu (Analyzovat → „Porovnat dokumenty“) vyberete dva dokumenty a asistent přehledně vypíše rozdíly: co přibylo, co ubylo a co se změnilo. Skvělé u smluv a směrnic.",
           "en": "Document comparison – in Prompt Studio (Analyze → “Compare documents”) you pick two documents and the assistant clearly lists the differences: what was added, removed and changed. Great for contracts and policies."
