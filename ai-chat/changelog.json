@@ -16,6 +16,16 @@
           "type": "new",
           "cs": "Tlačítko „Shrň mi týden\" převypráví váš týden krátkou psanou zprávou – ohlédnutí i výhled a čím tento týden začít. Stejně jako u dne se AI zapojí až na klik, jinak je přehled sestavený přímo z dat, mimo denní limit.",
           "en": "The \"Summarize my week\" button retells your week as a short written note – a look back, an outlook and where to start this week. As with the day, AI only steps in on click; otherwise the overview is built straight from data, outside the daily limit."
+        },
+        {
+          "type": "improved",
+          "cs": "Souhrn „Shrň mi den\" i „Shrň mi týden\" je teď přehledný a strukturovaný – nadpisy Včera/Dnes, odrážky s konkrétními názvy schůzek, časy a jmény odesílatelů čekajících e-mailů a na závěr doporučení, čím začít.",
+          "en": "The \"Summarize my day\" and \"Summarize my week\" notes are now clear and structured — Yesterday/Today headings, bullets with concrete meeting names, times and the senders of waiting emails, and a closing recommendation on where to start."
+        },
+        {
+          "type": "new",
+          "cs": "Pod souhrnem „Shrň mi den\" jsou nově tlačítka „Co teď udělat\" – jedním klikem připravíte koncept odpovědi na čekající e-mail do Outlooku, připojíte se k nejbližší online schůzce nebo si necháte roztřídit poštu. Nic se neodešle bez vašeho potvrzení.",
+          "en": "Below the \"Summarize my day\" note you now get \"What to do now\" buttons — one click prepares a draft reply to a waiting email in Outlook, joins your nearest online meeting, or triages your inbox. Nothing is sent without your confirmation."
         }
       ]
     },
