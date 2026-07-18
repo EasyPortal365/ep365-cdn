@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Porovnání dokumentů – v Prompt Studiu (Analyzovat → „Porovnat dokumenty“) vyberete dva dokumenty a asistent přehledně vypíše rozdíly: co přibylo, co ubylo a co se změnilo. Skvělé u smluv a směrnic.",
+          "en": "Document comparison – in Prompt Studio (Analyze → “Compare documents”) you pick two documents and the assistant clearly lists the differences: what was added, removed and changed. Great for contracts and policies."
+        },
+        {
+          "type": "new",
+          "cs": "Porovnat lze i dvě verze téhož dokumentu – u vybraného souboru zvolíte „Porovnat verze“ a asistent srovná dvě verze z historie SharePointu. Text obou se zpracuje přímo ve vašem prohlížeči a nikam se neposílá.",
+          "en": "You can also compare two versions of the same document – for a selected file choose “Compare versions” and the assistant compares two versions from the SharePoint history. Both texts are processed right in your browser and are not sent anywhere."
+        },
+        {
+          "type": "new",
           "cs": "Paměť asistenta – nová sekce v Nastavení. Uložíte si sem trvalá fakta o sobě (jak se podepisujete, jak oslovovat klienty, vaši roli, preferovaný styl) a asistent je bere v úvahu ve všech vašich konverzacích. Vidíte a spravujete je jen vy.",
           "en": "Assistant memory – a new section in Settings. Save lasting facts about yourself here (how you sign off, how to address clients, your role, preferred style) and the assistant keeps them in mind across all your conversations. Only you see and manage them."
         },
