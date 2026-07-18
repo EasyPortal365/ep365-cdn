@@ -41,6 +41,16 @@
           "type": "improved",
           "cs": "Nahlášení chyby i návrhu funkce teď odchází přímo e-mailem z vaší schránky na naši podporu – vznikne z něj tiket a odpověď vám přijde e-mailem. Spolehlivější než dřívější formulář; když by e-mail nešel odeslat, otevře se předvyplněná zpráva ve vašem poštovním klientovi.",
           "en": "Reporting a bug or suggesting a feature now goes straight by email from your mailbox to our support – it becomes a ticket and you get the reply by email. More reliable than the previous form; if the email cannot be sent, a pre-filled message opens in your mail client."
+        },
+        {
+          "type": "fixed",
+          "cs": "Velká vlna spolehlivosti po hloubkové kontrole aplikace: hromadné přepočty (skóre, MRR, stavy firem) a import se při výpadku připojení bezpečně zastaví místo tichého zápisu špatných hodnot; import už nevytváří duplicity a zachovává příznak „nespolupracovat“; aplikace správně pracuje i s tisíci záznamů.",
+          "en": "A major reliability wave after a deep application review: bulk recalculations (score, MRR, company statuses) and import now stop safely on connection issues instead of silently writing wrong values; import no longer creates duplicates and preserves the do-not-engage flag; the app handles thousands of records correctly."
+        },
+        {
+          "type": "fixed",
+          "cs": "Kategorie kontaktu se po uložení správně zobrazuje v detailu; přejmenování firmy se propíše do jejích kontaktů, nabídek, smluv i předplatných; follow-up po akci respektuje nastavení „nezasílat hromadné e-maily“; opraveny drobnosti v datech a částkách (termíny obnov, DPH v podkladech, import částek s oddělovači tisíců).",
+          "en": "Contact category now shows correctly in the detail after saving; renaming a company propagates to its contacts, deals, contracts and subscriptions; post-event follow-up respects the no-bulk-email setting; minor date and amount fixes (renewal dates, VAT in invoicing basis, importing amounts with thousands separators)."
         }
       ]
     },
