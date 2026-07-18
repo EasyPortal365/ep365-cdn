@@ -34,8 +34,8 @@
         },
         {
           "type": "new",
-          "cs": "Šablony typu Schůzka – nová úloha „Zápis do firemní šablony\": vyberete schůzku a šablonu (třeba Zápis z porady) a název, datum, čas, místo i účastníci se doplní přímo z pozvánky. AI navrhne jen obsah – zápis a úkoly z vašich poznámek. Typ šablony přepnete v Nastavení → Šablony dokumentů.",
-          "en": "Meeting templates – a new \"Minutes into a company template\" task: pick a meeting and a template (such as Meeting minutes) and the name, date, time, location and attendees are filled straight from the invitation. The AI drafts only the content – the minutes and tasks from your notes. Switch the template kind in Settings → Document templates."
+          "cs": "Šablony typu Schůzka – úloha „Zápis ze schůzky\" nově nabízí volitelný výstup do firemní šablony (třeba Zápis z porady): vyberete schůzku a šablonu a název, datum, čas, místo i účastníci se doplní přímo z pozvánky. AI navrhne jen obsah – zápis a úkoly z vašich poznámek. Bez výběru šablony vznikne obecná karta zápisu jako dosud. Typ šablony přepnete v Nastavení → Šablony dokumentů.",
+          "en": "Meeting templates – the \"Meeting minutes\" task now offers an optional output into a company template (such as Meeting minutes): pick a meeting and a template and the name, date, time, location and attendees are filled straight from the invitation. The AI drafts only the content – the minutes and tasks from your notes. Without picking a template a general minutes card is created as before. Switch the template kind in Settings → Document templates."
         },
         {
           "type": "improved",
