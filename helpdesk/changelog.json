@@ -317,6 +317,11 @@
           "type": "improved",
           "cs": "Synchronizace z EP365 CRM nově dotáhne i firmy označené zákaznickým statusem „zákazník“ nebo „aktivní zákazník“ – dosud se přebíraly jen firmy s kategorií „Zákazník“ nebo se servisní smlouvou.",
           "en": "CRM synchronisation now also pulls in companies marked with the 'customer' or 'active customer' status — previously only companies with the 'Customer' category or a service contract were imported."
+        },
+        {
+          "type": "improved",
+          "cs": "Oprava – zařazení nezařazené pošty do nového tiketu proběhne bez chyby a e-mail zmizí z fronty (dříve akce hlásila chybu a pošta ve frontě zůstávala).",
+          "en": "Fix – filing unassigned mail into a new ticket now completes without error and the e-mail leaves the queue (the action previously reported an error and the mail stayed in the queue)."
         }
       ]
     }
