@@ -8,6 +8,16 @@
       "date": "2026-07-18",
       "changes": [
         {
+          "type": "fixed",
+          "cs": "Bezpečnostní a spolehlivostní údržba (revize kódu): Firemní znalosti teď hledají striktně jen v nastaveném rozsahu (dřív mohla varianta dotazu spojená slovem „nebo\" rozsah obejít); mazání konverzace je vše, nebo nic (nikdy nezůstanou osamocené zprávy); nastavení už neztratí rozpracované změny při obnovení obrazovky; přílohy a firemní dokumenty se zpracovávají striktně jako data, ne jako pokyny; a velké složité soubory Office nezahltí aplikaci.",
+          "en": "Security and reliability maintenance (code review): Company knowledge now searches strictly within the configured scope (previously a query variant joined by \"or\" could bypass it); deleting a conversation is all-or-nothing (messages are never left orphaned); settings no longer lose in-progress edits on a screen refresh; attachments and company documents are treated strictly as data, not as instructions; and large complex Office files no longer overwhelm the app."
+        },
+        {
+          "type": "improved",
+          "cs": "Kontrola prostředí je poctivější – když nestihne prověřit vše (moc knihoven na webu, samé překlepy v adresách, chybějící oprávnění), řekne to a nehlásí falešně „čisto\". Grafy nevzniknou ze záporných čísel, kde by osa od nuly kreslila zavádějící obrázek.",
+          "en": "The environment check is more honest – when it cannot review everything (too many libraries on a site, only typos in the addresses, missing permissions), it says so instead of falsely reporting \"clean\". Charts are no longer drawn from negative numbers, where a zero-based axis would produce a misleading picture."
+        },
+        {
           "type": "new",
           "cs": "Vizuální odpovědi – když se odpověď opírá o čísla z vašich podkladů (tabulka v příloze, firemní dokumenty, kalendář, statistiky), asistent k textu sám přidá graf: sloupcový pro srovnání, čárový pro vývoj v čase, prstencový pro podíly celku. O graf si můžete i říct („nakresli mi to\").",
           "en": "Visual answers – when the answer rests on numbers from your material (an attached table, company documents, calendar, statistics), the assistant adds a chart to the text on its own: bar for comparison, line for trends over time, donut for shares of a whole. You can also ask for one (\"draw it for me\")."
