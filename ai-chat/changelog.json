@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "U porovnání dokumentů je teď jasně vidět pořadí obou souborů (1. = původní, 2. = novější) a jedním tlačítkem ho prohodíte. Asistent navíc v odpovědi oba dokumenty pojmenuje, ať je zřejmé, čeho se změna týká.",
+          "en": "For document comparison the order of the two files is now clearly shown (1. = original, 2. = newer) and you can swap it with one button. The assistant also names both documents in its answer so it is clear what changed where."
+        },
+        {
+          "type": "improved",
+          "cs": "Přetáhnout soubor nebo nahrát ho z počítače jde nově na všech místech, kde se pracuje s dokumenty – přímo na kartu úlohy v Prompt Studiu, v příloze zprávy, ve výběru dokumentů i u nahrávání Word šablon.",
+          "en": "You can now drag a file in or upload it from your computer everywhere documents are handled – right on a task card in Prompt Studio, in a message attachment, in the document picker and when uploading Word templates."
+        },
+        {
+          "type": "improved",
           "cs": "Při výběru dokumentů (i pro porovnání) můžete soubory nově přetáhnout myší nebo nahrát přímo z počítače – nejen vybrat ze SharePointu.",
           "en": "When picking documents (including for comparison) you can now drag files in or upload them straight from your computer – not just pick from SharePoint."
         },
