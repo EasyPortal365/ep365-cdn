@@ -4,6 +4,27 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.44",
+      "date": "2026-07-18",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Vizuální odpovědi – když se odpověď opírá o čísla z vašich podkladů (tabulka v příloze, firemní dokumenty, kalendář, statistiky), asistent k textu sám přidá graf: sloupcový pro srovnání, čárový pro vývoj v čase, prstencový pro podíly celku. O graf si můžete i říct („nakresli mi to\").",
+          "en": "Visual answers – when the answer rests on numbers from your material (an attached table, company documents, calendar, statistics), the assistant adds a chart to the text on its own: bar for comparison, line for trends over time, donut for shares of a whole. You can also ask for one (\"draw it for me\")."
+        },
+        {
+          "type": "new",
+          "cs": "Karta grafu ukazuje, odkud data pocházejí, jedním tlačítkem ji přepnete na tabulku hodnot a graf stáhnete jako obrázek (PNG). Vše vzniká přímo ve vašem prohlížeči v barvách aplikace – žádná data se nikam neposílají.",
+          "en": "The chart card shows where the data comes from, one button switches it to a table of values, and you can download the chart as an image (PNG). Everything is created right in your browser in the app's colors – no data is sent anywhere."
+        },
+        {
+          "type": "improved",
+          "cs": "Asistent kreslí výhradně z hodnot, které v podkladech skutečně jsou – čísla si nikdy nevymýšlí. Grafy fungují v plné aplikaci i v plovoucím widgetu a zůstávají uložené v konverzaci.",
+          "en": "The assistant draws strictly from values that are really in the material – it never invents numbers. Charts work in the full app as well as the floating widget and stay saved in the conversation."
+        }
+      ]
+    },
+    {
       "version": "1.43",
       "date": "2026-07-18",
       "changes": [
