@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "fixed",
+          "cs": "Když z konverzace vytvoříte SharePoint stránku, přenesou se do ní i grafy z odpovědí – vloží se jako obrázky. Při stažení do Wordu, Markdownu nebo HTML nebo při uložení do knihovny se ke grafům přidá tabulka hodnot.",
+          "en": "When you create a SharePoint page from a conversation, the charts from the answers now come along – inserted as images. When downloading to Word, Markdown or HTML, or saving to a library, a table of values is added for each chart."
+        },
+        {
+          "type": "fixed",
+          "cs": "Návrh dokumentu (karta pod odpovědí) po návratu do konverzace nezmizí – zůstane i s obsahem a údajem, že jste z něj už vytvořili stránku nebo ho uložili do knihovny.",
+          "en": "A document draft (the card below an answer) no longer disappears when you return to the conversation – it stays, including its content and the note that you already created a page from it or saved it to a library."
+        },
+        {
+          "type": "fixed",
           "cs": "Graf stažený jako obrázek má nově správné písmo (dřív se v PNG zobrazilo patkové písmo místo firemního).",
           "en": "A chart downloaded as an image now uses the correct typeface (previously the PNG showed a serif font instead of the brand font)."
         },
