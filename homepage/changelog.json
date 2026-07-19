@@ -4,6 +4,22 @@
   "name": "EP365 Homepage",
   "entries": [
     {
+      "version": "1.21",
+      "date": "2026-07-19",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Aktuality: nový AI asistent. Ze zadaného pokynu – a volitelně z přiloženého dokumentu či obrázku, z firemních znalostí a s návazností na dosavadní aktuality – vytvoří návrh článku (titulek, perex, tělo) a rovnou ho přeloží do dalších jazyků obsahu. Návrh si prohlédnete a jedním klikem použijete. Vyžaduje licenci EP365 AI Asistent; bez ní editor funguje jako dosud.",
+          "en": "Articles: a new AI assistant. From your instruction – and optionally an attached document or image, company knowledge and continuity with existing articles – it drafts an article (title, lead, body) and translates it into your other content languages. Review the draft and apply it in one click. Requires an EP365 AI Assistant licence; without it the editor works as before."
+        },
+        {
+          "type": "improved",
+          "cs": "Editory jednotlivých sekcí jsou nově výrazně širší a přehlednější – obsah vlevo, nastavení a metadata vpravo. Na úzké obrazovce se rozložení automaticky složí pod sebe. U Aktualit je díky tomu mnohem větší prostor pro psaní.",
+          "en": "The per-section editors are now noticeably wider and clearer – content on the left, settings and metadata on the right. On narrow screens the layout stacks automatically. Articles in particular get much more room to write."
+        }
+      ]
+    },
+    {
       "version": "1.20",
       "date": "2026-07-19",
       "changes": [
