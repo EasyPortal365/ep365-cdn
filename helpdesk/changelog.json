@@ -382,6 +382,11 @@
           "type": "improved",
           "cs": "E-maily zákazníkům jsou širší a čitelnější a z patičky zmizelo interní číslo verze aplikace.",
           "en": "Customer e-mails are wider and easier to read, and the internal app version number is gone from the footer."
+        },
+        {
+          "type": "new",
+          "cs": "HelpDesk přispívá do přehledu „Můj den“ na EP365 Homepage – tým tam mezi upozorněními napříč aplikacemi uvidí tikety po termínu (SLA) a tikety, kde zákazník čeká na reakci. Kdo co vidí, hlídají oprávnění SharePointu.",
+          "en": "HelpDesk now contributes to the 'My day' overview on the EP365 Homepage – the team sees overdue (SLA) tickets and tickets awaiting a reply among the cross-app alerts. Who sees what is governed by SharePoint permissions."
         }
       ]
     }
