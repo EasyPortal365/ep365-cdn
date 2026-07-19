@@ -347,6 +347,41 @@
           "type": "improved",
           "cs": "Ve frontě tiketů je filtr podle firmy dostupný, i když máte zatím tikety jen od jedné firmy.",
           "en": "The company filter in the ticket queue is available even when you only have tickets from a single company so far."
+        },
+        {
+          "type": "new",
+          "cs": "HelpDesk běží i jako aplikace v Microsoft Teams – přidejte si ho jako osobní aplikaci a pracujte s tikety přímo v Teams; při prvním spuštění vyberete web se svou zákaznickou podporou.",
+          "en": "HelpDesk also runs as an app in Microsoft Teams – add it as a personal app and work with tickets right inside Teams; on first launch you pick the site with your customer support."
+        },
+        {
+          "type": "new",
+          "cs": "Přidělení firem členům týmu – správce může jednotlivým agentům přidělit konkrétní firmy (Nastavení – Přidělení firem). Agent pak v aplikaci vidí jen tikety a firmy z přidělených firem; správce vidí vždy vše.",
+          "en": "Company assignment for team members – an admin can assign specific companies to individual agents (Settings – Company assignment). An agent then sees only tickets and companies from the assigned ones; admins always see everything."
+        },
+        {
+          "type": "new",
+          "cs": "Reporty lze zúžit na jednu firmu – přepínač nad přehledem promítne výběr do všech čísel, grafů i tabulek, takže vidíte měsíc očima jediného zákazníka.",
+          "en": "Reports can be narrowed to a single company – a switch above the overview applies the choice to all numbers, charts and tables, so you see the month through one customer's eyes."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikaci lze roztáhnout na celou obrazovku – tlačítko vpravo nahoře skryje okolí SharePointu a dá frontě i přehledům víc místa; zpět klávesou Esc.",
+          "en": "The app can expand to full screen – a button in the top right hides the SharePoint surroundings and gives the queue and reports more room; press Esc to exit."
+        },
+        {
+          "type": "improved",
+          "cs": "Oprava – zařazení pošty z Nezařazené pošty rozpozná už existující tiket a jen k němu připojí zprávu, místo aby zakládalo druhý, duplicitní tiket.",
+          "en": "Fix – filing mail from the Unassigned queue now recognises an existing ticket and just appends the message to it, instead of creating a second, duplicate ticket."
+        },
+        {
+          "type": "improved",
+          "cs": "Oprava – přepočet čerpání paušálu je odolnější vůči krátkému výpadku spojení: při nejistotě raději nic nezapíše, aby nemohlo dojít ke zdvojení už fakturovaných hodin ve Worklogu.",
+          "en": "Fix – the retainer recalculation is more resilient to a brief connection glitch: when unsure it writes nothing, so already billed Worklog hours can never be duplicated."
+        },
+        {
+          "type": "improved",
+          "cs": "E-maily zákazníkům jsou širší a čitelnější a z patičky zmizelo interní číslo verze aplikace.",
+          "en": "Customer e-mails are wider and easier to read, and the internal app version number is gone from the footer."
         }
       ]
     }
