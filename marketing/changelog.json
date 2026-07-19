@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Marketing nově upozorní na úkoly po termínu přiřazené vám přímo v přehledu „Můj den“ na EP365 intranetu – uvidíte je na úvodní stránce mezi věcmi, které čekají na vaši akci.",
+          "en": "Marketing now flags your overdue tasks right in the “My day” overview on the EP365 intranet – you see them on the landing page among the things awaiting your action."
+        },
+        {
+          "type": "new",
           "cs": "Úkoly na nástěnce (kanban) – přetažením karty mezi sloupci K vyřízení, Probíhá a Hotovo rovnou změníte stav úkolu.",
           "en": "Tasks on a board (kanban) – drag a card between the To do, In progress and Done columns to change a task's status."
         },
