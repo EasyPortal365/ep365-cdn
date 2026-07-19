@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Atlas nově upozorní na kritické a vážné nálezy správy prostředí, které čekají na řešení, přímo v přehledu „Můj den“ na EP365 intranetu.",
+          "en": "Atlas now flags critical and high governance findings awaiting action right in the “My day” overview on the EP365 intranet."
+        },
+        {
+          "type": "new",
           "cs": "Úplnější inventář webů: sken staví na vyhledávacím indexu Microsoftu, který ale míjí weby skryté z vyhledávání nebo dosud neprocházené – ty pak mohly v inventáři (a s ním v nálezech, úložišti i přehledech) chybět. Nově můžete na obrazovce Skenování (dlaždice Import webů) jednorázově vložit výstup PowerShellu Get-SPOSite a Atlas ho sloučí do inventáře podle adresy – doplní tak i weby, které samotný sken nevidí. Vše zůstává ve vašem tenantu a žádné další oprávnění není potřeba.",
           "en": "More complete site inventory: the scan builds on Microsoft's search index, which misses sites hidden from search or not yet crawled — those could then be missing from the inventory (and with it from findings, storage and overviews). You can now paste the PowerShell Get-SPOSite output once on the Scan screen (Import sites tile) and Atlas merges it into the inventory by URL — adding the sites the scan alone can't see. Everything stays in your tenant and no extra permission is required."
         },
