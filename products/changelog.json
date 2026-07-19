@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.0",
-      "date": "2026-07-16",
+      "date": "2026-07-20",
       "changes": [
         {
           "type": "new",
@@ -101,6 +101,21 @@
           "type": "improved",
           "cs": "Upozornění na novější verzi – Nastavení nově ukáže správci, zda katalog běží na aktuální verzi. Když je k dispozici novější, zobrazí se u verze štítek a nahoře v Nastavení nenápadný pruh s výzvou k aktualizaci.",
           "en": "Newer-version notice – Settings now shows the administrator whether the catalog is running the current version. When a newer one is available, a badge appears next to the version and a subtle banner at the top of Settings prompts an update."
+        },
+        {
+          "type": "new",
+          "cs": "Zvětšení na celou obrazovku – katalog otevřete přes celé okno prohlížeče jedním tlačítkem a stejně tak se vrátíte zpět. Víc prostoru na dlaždice i produktové stránky.",
+          "en": "Full-screen mode – open the catalog across the whole browser window with a single button, and switch back the same way. More room for tiles and product pages."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější prohlížeč obrázků – pod snímkem je nově pás náhledů a jedním tlačítkem přepnete na mřížku se všemi obrázky. Rychle přeskočíte na kterýkoli snímek, ne jen šipkami po jednom.",
+          "en": "A clearer image viewer – a thumbnail strip now sits under the photo and one button switches to a grid of all images. Jump to any shot quickly, not just one by one with arrows."
+        },
+        {
+          "type": "improved",
+          "cs": "Řazení obrázků oběma směry – v editoru galerie posunete snímek šipkami vlevo i vpravo a určíte tak pořadí, ve kterém se u produktu procházejí.",
+          "en": "Reorder images both ways – in the gallery editor move a shot left or right with the arrows to set the order in which they are browsed on a product."
         }
       ]
     }
