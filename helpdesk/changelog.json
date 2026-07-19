@@ -337,6 +337,16 @@
           "type": "improved",
           "cs": "Konverzace zůstávají přehledné – z příchozích odpovědí se automaticky ořízne citovaná historie a bezpečnostní upozornění poštovního serveru, do vlákna se uloží jen nový text.",
           "en": "Conversations stay readable – incoming replies have their quoted history and mail-server security banners trimmed automatically, so only the new text is stored in the thread."
+        },
+        {
+          "type": "improved",
+          "cs": "E-maily zákazníkům dostaly svěží světlejší vzhled – hlavička s logem EasyPortal 365, barevný proužek podle typu zprávy (odpověď, vyřešení, upomínka, eskalace) a čitelná patička s odkazem. Sladěno se vzhledem ostatních aplikací EP365.",
+          "en": "Customer e-mails have a fresh, lighter look – a header with the EasyPortal 365 logo, a coloured strip by message type (reply, resolution, reminder, escalation) and a clear footer with a link. Aligned with the rest of the EP365 apps."
+        },
+        {
+          "type": "improved",
+          "cs": "Ve frontě tiketů je filtr podle firmy dostupný, i když máte zatím tikety jen od jedné firmy.",
+          "en": "The company filter in the ticket queue is available even when you only have tickets from a single company so far."
         }
       ]
     }
