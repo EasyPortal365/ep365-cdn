@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "new",
+          "cs": "CRM nově upozorní na úkoly a follow-upy po termínu přímo v přehledu „Můj den“ na EP365 intranetu – uvidíte je na úvodní stránce mezi věcmi, které čekají na vaši akci.",
+          "en": "CRM now flags overdue tasks and follow-ups right in the “My day” overview on the EP365 intranet – you see them on the landing page among the things awaiting your action."
+        },
+        {
+          "type": "improved",
+          "cs": "E-maily odesílané z CRM (hlášení, upozornění, follow-upy) dostaly jednotný firemní vzhled podle EP365 Design Systemu – hlavička se značkou, přehledná patička a barevné zvýraznění podle typu zprávy.",
+          "en": "E-mails sent from CRM (reports, notifications, follow-ups) now share a unified corporate look based on the EP365 Design System – a branded header, a clear footer and colour accents by message type."
+        },
+        {
+          "type": "new",
           "cs": "Kategorie kontaktu – u každého kontaktu určíte, jaký je to typ vztahu: dodavatel, zákazník, partner nebo jiné. Firma pak svou kategorii získává automaticky sjednocením kategorií svých kontaktů, takže může být klidně zároveň dodavatel i zákazník.",
           "en": "Contact category – for each contact you set the type of relationship: supplier, customer, partner or other. A company then derives its own category automatically as the union of its contacts' categories, so it can be a supplier and a customer at the same time."
         },
