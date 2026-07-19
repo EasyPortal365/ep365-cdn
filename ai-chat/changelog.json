@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Nápověda: nová podrobná kapitola, která vysvětluje všechny připravené asistenty i úlohy v Prompt Studiu – k čemu slouží a kdy je použít.",
+          "en": "Help: a new detailed section explaining all the ready-made assistants and tasks in Prompt Studio – what each is for and when to use it."
+        },
+        {
+          "type": "improved",
           "cs": "Grafy jsou interaktivní – po najetí myší na sloupec, bod nebo díl se v bublince ukáže přesná hodnota.",
           "en": "Charts are interactive – hovering a bar, point or slice shows the exact value in a tooltip."
         },
