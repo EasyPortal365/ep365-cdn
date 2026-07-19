@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Site Manager nově upozorní na weby, kterým vypršela nebo brzy vyprší platnost (a jste jejich vlastník), přímo v přehledu „Můj den“ na EP365 intranetu.",
+          "en": "Site Manager now flags sites you own whose validity has expired or is about to expire, right in the “My day” overview on the EP365 intranet."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlášení chyb a návrhy funkcí nyní odešlete e-mailem na naši podporu – přímo z aplikace, vaším jménem.",
+          "en": "Bug reports and feature requests are now sent by email to our support — straight from the app, on your behalf."
+        },
+        {
+          "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
           "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
         },
