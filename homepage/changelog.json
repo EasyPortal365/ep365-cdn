@@ -9,8 +9,13 @@
       "changes": [
         {
           "type": "improved",
-          "cs": "Shrnutí od AI Asistenta v „Můj den\" má přehlednější podobu – rozdělí se na části Včera, Dnes vás čeká a Čím začít, u položek přibyly ikony podle typu (schůzka, e-mail, faktura, zpráva) a to nejdůležitější (co míří ven na zákazníka nebo je po termínu) se zvýrazní. „Čím začít\" je nově výrazná akční karta.",
-          "en": "The AI Assistant summary in \"My day\" has a clearer layout — it is split into Yesterday, Today ahead and Where to start, items now carry icons by type (meeting, e-mail, invoice, message), and the most important things (customer-facing or overdue) stand out. \"Where to start\" is now a prominent action card."
+          "cs": "Hlasování v anketách (Otázka dne, Pulse) je nově soukromé – u sdíleného výsledku se už neukládá, kdo jak hlasoval. Výsledky se drží jen jako anonymní počty a vaše konkrétní volba je uložená odděleně, jen pro vás. Stávající ankety se převedou automaticky.",
+          "en": "Voting in polls (Question of the day, Pulse) is now private — the app no longer stores who voted what alongside the shared result. Results are kept only as anonymous counts and your own choice is stored separately, just for you. Existing polls migrate automatically."
+        },
+        {
+          "type": "improved",
+          "cs": "Shrnutí od AI Asistenta v „Můj den\" je přehlednější – položky jsou seskupené podle zdroje (schůzky, e-maily, Teams, úkoly) do dlaždic vedle sebe, každá s počtem, a nejdůležitější věc (co míří ven na zákazníka nebo je po termínu) se zvýrazní. Dole je stručná Priorita dne (konstatování, ne výzva).",
+          "en": "The AI Assistant summary in \"My day\" is clearer — items are grouped by source (meetings, e-mails, Teams, tasks) into tiles side by side, each with a count, and the most important thing (customer-facing or overdue) stands out. A short daily Priority is shown at the bottom (a statement, not a call to action)."
         },
         {
           "type": "improved",
