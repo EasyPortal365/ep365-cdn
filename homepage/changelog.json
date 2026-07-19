@@ -8,6 +8,11 @@
       "date": "2026-07-19",
       "changes": [
         {
+          "type": "new",
+          "cs": "Statistika přečtení oznámení nově ukazuje i to, KDO ještě nepotvrdil – vedle seznamu čtenářů je seznam „nepřečetli\" (publikum webu minus ti, kdo už potvrdili). Správce tak snadno vidí, koho případně upozornit.",
+          "en": "Announcement read statistics now also show WHO hasn't confirmed yet — next to the readers list there is a \"not read\" list (the site audience minus those who already confirmed). An administrator can easily see who to nudge."
+        },
+        {
           "type": "improved",
           "cs": "Hlasování v anketách (Otázka dne, Pulse) je nově soukromé – u sdíleného výsledku se už neukládá, kdo jak hlasoval. Výsledky se drží jen jako anonymní počty a vaše konkrétní volba je uložená odděleně, jen pro vás. Stávající ankety se převedou automaticky.",
           "en": "Voting in polls (Question of the day, Pulse) is now private — the app no longer stores who voted what alongside the shared result. Results are kept only as anonymous counts and your own choice is stored separately, just for you. Existing polls migrate automatically."
