@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Přehled „Můj den“ nově spolehlivě zobrazuje i položky vyžadující vaši akci z dalších EP365 aplikací – nevykázané výkazy, úkoly po termínu, weby před vypršením platnosti, nálezy ke schválení a další – na jednom místě na úvodní stránce.",
+          "en": "The “My day” overview now reliably shows items awaiting your action from other EP365 apps too – unsubmitted timesheets, overdue tasks, sites nearing expiry, findings to resolve and more – all in one place on the landing page."
+        },
+        {
+          "type": "improved",
           "cs": "Správa homepage se přesunula z plovoucího tlačítka do řádku ikon vpravo nahoře – ozubené kolo je nově vlevo od Globálního nastavení (jen pro správce). Plovoucí tlačítko zmizelo; správu lze otevřít i přes paletu příkazů (⌘K).",
           "en": "Homepage management moved from a floating button into the top-right icon row — the gear is now to the left of Global settings (administrators only). The floating button is gone; management can also be opened via the command palette (⌘K)."
         },
