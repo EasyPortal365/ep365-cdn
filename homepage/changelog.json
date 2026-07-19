@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Správa homepage se přesunula z plovoucího tlačítka do řádku ikon vpravo nahoře – ozubené kolo je nově vlevo od Globálního nastavení (jen pro správce). Plovoucí tlačítko zmizelo; správu lze otevřít i přes paletu příkazů (⌘K).",
+          "en": "Homepage management moved from a floating button into the top-right icon row — the gear is now to the left of Global settings (administrators only). The floating button is gone; management can also be opened via the command palette (⌘K)."
+        },
+        {
+          "type": "improved",
           "cs": "Sekce „Ze světa\" (Oborové zprávy): když není vyplněný Redakční výběr, ale máte nastavené RSS kanály, zprávy z RSS nově vyplní celou sekci ve dvou sloupcích – místo prázdného bloku Redakčního výběru vedle.",
           "en": "The \"From the world\" section (Industry news): when there are no editorial picks but RSS feeds are configured, the RSS news now fills the whole section in two columns — instead of an empty editorial-picks block beside it."
         },
