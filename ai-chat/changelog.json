@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Grafy jsou interaktivní – po najetí myší na sloupec, bod nebo díl se v bublince ukáže přesná hodnota.",
+          "en": "Charts are interactive – hovering a bar, point or slice shows the exact value in a tooltip."
+        },
+        {
+          "type": "fixed",
+          "cs": "Diagramy: delší popisky v rámečcích se už neořezávají.",
+          "en": "Diagrams: longer labels inside boxes are no longer clipped."
+        },
+        {
+          "type": "improved",
           "cs": "Porovnání dokumentů teď na závěr přidá přehlednou tabulku konkrétních rozdílů (Oblast · hodnota v 1. dokumentu · hodnota ve 2.).",
           "en": "Document comparison now ends with a clear table of the concrete differences (Area · value in document 1 · value in document 2)."
         },
