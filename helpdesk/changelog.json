@@ -322,6 +322,21 @@
           "type": "improved",
           "cs": "Oprava – zařazení nezařazené pošty do nového tiketu proběhne bez chyby a e-mail zmizí z fronty (dříve akce hlásila chybu a pošta ve frontě zůstávala).",
           "en": "Fix – filing unassigned mail into a new ticket now completes without error and the e-mail leaves the queue (the action previously reported an error and the mail stayed in the queue)."
+        },
+        {
+          "type": "new",
+          "cs": "Nová odpověď od zákazníka je vidět na první pohled – tiket ve frontě i na kanban tabuli dostane výrazný štítek „Nová odpověď“ a zůstane, dokud na něj tým nezareaguje (odpovědí nebo změnou stavu).",
+          "en": "A new customer reply stands out at a glance – the ticket gets a bold 'New reply' badge in the queue and on the kanban board, and keeps it until the team responds (a reply or a status change)."
+        },
+        {
+          "type": "improved",
+          "cs": "Otevřený detail tiketu se sám průběžně obnovuje – nová odpověď od zákazníka i odeslání e-mailu naskočí bez zavírání a znovuotevírání bladu.",
+          "en": "The open ticket detail now refreshes itself continuously – a new customer reply and the e-mail delivery status appear without closing and reopening the blade."
+        },
+        {
+          "type": "improved",
+          "cs": "Konverzace zůstávají přehledné – z příchozích odpovědí se automaticky ořízne citovaná historie a bezpečnostní upozornění poštovního serveru, do vlákna se uloží jen nový text.",
+          "en": "Conversations stay readable – incoming replies have their quoted history and mail-server security banners trimmed automatically, so only the new text is stored in the thread."
         }
       ]
     }
