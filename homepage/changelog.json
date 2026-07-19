@@ -14,6 +14,11 @@
         },
         {
           "type": "fixed",
+          "cs": "Přehled aplikací (launchpad a Můj den) už neukáže stejnou aplikaci dvakrát – při souběžném přihlášení mohla vzniknout dvojí evidence; nově se aplikace eviduje jen jednou a v přehledu se vždy zobrazí její nejnovější verze.",
+          "en": "The app overview (launchpad and My day) no longer shows the same app twice — a concurrent sign-in could create a duplicate record; an app is now recorded only once and the overview always shows its latest version."
+        },
+        {
+          "type": "fixed",
           "cs": "Tlačítko „Spravovat\" u důležitých kontaktů se nyní nabízí jen správci aplikace – editorům obsahu, kteří na úpravu kontaktů nemají oprávnění, se přestalo zobrazovat.",
           "en": "The \"Manage\" button for key contacts is now shown only to app administrators — content editors who lack permission to edit contacts no longer see it."
         },
