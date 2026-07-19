@@ -13,6 +13,11 @@
           "en": "Articles: a new AI assistant. From your instruction – and optionally an attached document or image, company knowledge and continuity with existing articles – it drafts an article (title, lead, body) and translates it into your other content languages. Review the draft and apply it in one click. Requires an EP365 AI Assistant licence; without it the editor works as before."
         },
         {
+          "type": "new",
+          "cs": "AI asistent u Aktualit nově ukazuje zdroje, ze kterých čerpal – seznam firemních dokumentů s odkazem a označením autoritativních zdrojů, takže je hned jasné, odkud fakta pocházejí. Editor Aktualit má přehledné tři zóny: asistent, psaní a nastavení vedle sebe.",
+          "en": "The AI assistant for articles now shows the sources it drew on – a list of company documents with links and an authoritative-source marker, so it's clear where the facts come from. The article editor has three clear zones side by side: assistant, writing and settings."
+        },
+        {
           "type": "improved",
           "cs": "Editory jednotlivých sekcí jsou nově výrazně širší a přehlednější – obsah vlevo, nastavení a metadata vpravo. Na úzké obrazovce se rozložení automaticky složí pod sebe. U Aktualit je díky tomu mnohem větší prostor pro psaní.",
           "en": "The per-section editors are now noticeably wider and clearer – content on the left, settings and metadata on the right. On narrow screens the layout stacks automatically. Articles in particular get much more room to write."
