@@ -8,6 +8,11 @@
       "date": "2026-07-19",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Sekce „Ze světa\" (Oborové zprávy): když není vyplněný Redakční výběr, ale máte nastavené RSS kanály, zprávy z RSS nově vyplní celou sekci ve dvou sloupcích – místo prázdného bloku Redakčního výběru vedle.",
+          "en": "The \"From the world\" section (Industry news): when there are no editorial picks but RSS feeds are configured, the RSS news now fills the whole section in two columns — instead of an empty editorial-picks block beside it."
+        },
+        {
           "type": "new",
           "cs": "Statistika přečtení oznámení nově ukazuje i to, KDO ještě nepotvrdil – vedle seznamu čtenářů je seznam „nepřečetli\" (publikum webu minus ti, kdo už potvrdili). Správce tak snadno vidí, koho případně upozornit.",
           "en": "Announcement read statistics now also show WHO hasn't confirmed yet — next to the readers list there is a \"not read\" list (the site audience minus those who already confirmed). An administrator can easily see who to nudge."
