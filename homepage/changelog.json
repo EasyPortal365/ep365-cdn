@@ -5,8 +5,28 @@
   "entries": [
     {
       "version": "1.20",
-      "date": "2026-07-13",
+      "date": "2026-07-19",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Shrnutí od AI Asistenta v „Můj den\" má přehlednější podobu – rozdělí se na části Včera, Dnes vás čeká a Čím začít, u položek přibyly ikony podle typu (schůzka, e-mail, faktura, zpráva) a to nejdůležitější (co míří ven na zákazníka nebo je po termínu) se zvýrazní. „Čím začít\" je nově výrazná akční karta.",
+          "en": "The AI Assistant summary in \"My day\" has a clearer layout — it is split into Yesterday, Today ahead and Where to start, items now carry icons by type (meeting, e-mail, invoice, message), and the most important things (customer-facing or overdue) stand out. \"Where to start\" is now a prominent action card."
+        },
+        {
+          "type": "improved",
+          "cs": "Správa homepage (Globální nastavení) se otevírá jako přehledná celostránková obrazovka s postranním rozcestníkem sekcí místo úzkého panelu – více místa a snazší orientace.",
+          "en": "Homepage administration (Global settings) now opens as a clear full-page screen with a side section rail instead of a narrow panel — more room and easier orientation."
+        },
+        {
+          "type": "new",
+          "cs": "V nastavení (sekce Verze) správce hned vidí, zda aplikace běží v nejnovější verzi, nebo je pozadu – u verze svítí štítek Aktuální/Zastaralé.",
+          "en": "In settings (the Version section) an administrator can see at a glance whether the app runs the latest version or is behind — a Current/Outdated badge appears next to the version."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odolnost globálního nastavení – když se konfigurace nebo motiv kvůli krátkému výpadku sítě nenačte, aplikace zablokuje uložení, aby omylem nepřepsala firemní nastavení výchozími hodnotami.",
+          "en": "Global settings robustness — if the configuration or theme fails to load due to a brief network glitch, the app blocks saving so it cannot accidentally overwrite your company settings with defaults."
+        },
         {
           "type": "new",
           "cs": "Nová stránka „Můj den\" – ucelený přehled vašeho dne na jednom místě. Vlevo včerejšek (schůzky, odeslané odpovědi, resty – e-maily čekající na odpověď), vpravo dnešek s časovou osou a posuvnou značkou „teď\" (nejbližší schůzka s odpočtem, možnost se připojit, úkoly z To Do). Vpletená je i rozdělaná práce z ostatních aplikací EP365 (například tikety po termínu, obchodní follow-upy, dokumenty ke schválení). S aktivní licencí AI Asistenta přibude tlačítko „Shrň mi den\", které vše shrne do krátkého přehledu včetně doporučení, čím začít; bez licence stránka funguje dál jako přehledný výpis.",
