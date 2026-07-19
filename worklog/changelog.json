@@ -8,6 +8,11 @@
       "date": "2026-07-13",
       "changes": [
         {
+          "type": "new",
+          "cs": "Worklog nově upozorní na nevykázané a vrácené výkazy přímo v přehledu „Můj den“ na EP365 intranetu – uvidíte je na úvodní stránce mezi ostatními věcmi, které čekají na vaši akci.",
+          "en": "Worklog now flags unsubmitted and returned timesheets right in the “My day” overview on the EP365 intranet – you see them on the landing page among other things awaiting your action."
+        },
+        {
           "type": "improved",
           "cs": "Můj výkaz si pamatuje naposledy vykázaný projekt – rychlý zápis ho rovnou předvyplní. Měsíční přehled je nově tříditelná tabulka – klikem na záhlaví sloupce seřadíte výkazy podle hodin, projektu, data i stavu.",
           "en": "My timesheet remembers the last project you logged to – the quick entry preselects it. The monthly overview is now a sortable table – click a column header to sort entries by hours, project, date or status."
