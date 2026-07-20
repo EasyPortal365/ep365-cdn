@@ -14,6 +14,11 @@
         },
         {
           "type": "improved",
+          "cs": "Formuláře a panely aplikace prošly revizí vzhledu – přidávání dokumentu má nově přehledný dvousloupcový editor a prázdné stavy, tlačítka i sekce jsou v celé aplikaci sjednocené.",
+          "en": "The app's forms and panels got a visual refresh — adding a document now uses a clear two-column editor, and empty states, buttons and sections are unified across the app."
+        },
+        {
+          "type": "improved",
           "cs": "Ve schvalovacím řízení má náhled dokumentu více místa – vyplní volnou plochu panelu a schvalovací tlačítka i průběh zůstávají trvale po ruce ve spodní liště.",
           "en": "In the approval flow the document preview gets more room — it fills the free space of the panel while the approval buttons and progress stay within reach in a fixed bottom bar."
         },
