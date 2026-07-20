@@ -11,7 +11,8 @@
     secret vznikl AZ PO uspesnem udeleni per-site grantu - pri drivejsim selhani tedy
     nezustavaji osirele secrety (pripadny prave vytvoreny secret se pri chybe uklidi):
       1. Overeni Azure CLI (az login), volitelne prepnuti subscription a existence Function App.
-      2. Kontrola / instalace potrebnych submodulu Microsoft Graph PowerShell SDK.
+      2. Kontrola a SROVNANI VERZI potrebnych submodulu Microsoft Graph PowerShell SDK
+         (vsechny 4 se nactou v JEDNE verzi - jinak kolize .NET assembly).
       3. Prihlaseni do Microsoft Graphu (Connect-MgGraph, device code).
       4. App registrace - najde podle nazvu, jinak vytvori novou.
       5. Service principal aplikace (+ nacteni Graph SP a role id Sites.Selected).
@@ -22,7 +23,8 @@
          i vsechny weby z -LibrarySiteUrls; role se zveda na "manage" (nutne pro tvorbu
          sloupcu na knihovnach; pro samotny settings web by stacilo "write", "manage" ho pokryva).
       8. Novy client secret (Add-MgApplicationPassword) - vytvori se AZ kdyz granty proslo;
-         hodnota se zobrazi JEN JEDNOU (v souhrnu na konci).
+         hodnota se zapise rovnou do Function App a do konzole se NETISKNE (kvuli
+         Start-Transcript); pro archivaci ji lze precist z app settings Function App.
       9. Zapis app settings do Function App: AAD_TENANT_ID, AAD_CLIENT_ID,
          AAD_CLIENT_SECRET, EP365_SETTINGS_SITE_URL (Azure CLI).
      10. Souhrn.
@@ -135,6 +137,19 @@ function Write-Step([string]$Text) {
     Write-Host ('==> ' + $Text) -ForegroundColor Cyan
 }
 
+# PS 5.1 muze pri prvni instalaci modulu vyzadovat NuGet provider - best-effort bootstrap,
+# aby Install-Module nespadl na interaktivni dotaz. Volatelne vickrat (je idempotentni).
+function Initialize-NuGetProvider {
+    try {
+        if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
+            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force -ErrorAction Stop | Out-Null
+        }
+    }
+    catch {
+        Write-Host '[WARN] NuGet provider se nepodarilo pripravit automaticky - pokud instalace modulu selze, spustte ji rucne.' -ForegroundColor Yellow
+    }
+}
+
 # Spusti Azure CLI odolne vuci varovanim na stderr a vrati exit code (nevyhazuje).
 # Duvod: Windows PowerShell 5.1 bere pri $ErrorActionPreference='Stop' JAKYKOLI zapis
 # nativniho prikazu na stderr (i benny WARNING) jako terminating error. Behem az volani
@@ -177,6 +192,7 @@ $createdSecretKeyId = $null   # keyId prave vytvoreneho secretu
 $appSettingsWritten = $false  # true az kdyz je secret bezpecne zapsany do Function App
 $graphConnected = $false
 $scriptFailed = $false
+$needsSessionRestart = $false # true u chyb tridy "assembly already loaded" - rerun nepomuze
 
 try {
 
@@ -227,49 +243,109 @@ try {
     Write-Host 'Function App nalezena.'
 
     # ----------------------------------------------------------------------
-    # 2. Microsoft Graph PowerShell SDK - kontrola / instalace submodulu
+    # 2. Microsoft Graph PowerShell SDK - kontrola a SROVNANI VERZI submodulu
+    #
+    #    Vsechny 4 submoduly se MUSI nacist ve STEJNE verzi. Kazdy submodul zavisi na
+    #    konkretni verzi Microsoft.Graph.Authentication; nacteni dvou ruznych verzi tehoz
+    #    .NET assembly konci chybou "Assembly with same name is already loaded". Takove
+    #    assembly uz nejde vylozit - v teze session pomuze JEN restart session (novy
+    #    PowerShell / novy Cloud Shell), NE opakovane spusteni skriptu.
+    #    V Cloud Shellu byva cast submodulu predinstalovana (napr. 2.38.0); doinstalovat
+    #    chybejici v novejsi verzi (2.38.1) by kolidovalo (i patch rozdil) - proto vsechny
+    #    srovname na JEDNU verzi: verzi uz pritomneho Microsoft.Graph.Authentication (jadro,
+    #    na nem visi vsechny submoduly), jinak nejnovejsi nainstalovanou.
     # ----------------------------------------------------------------------
-    Write-Step 'Kontrola modulu Microsoft Graph PowerShell SDK'
+    Write-Step 'Kontrola a srovnani verzi modulu Microsoft Graph PowerShell SDK'
 
-    $missing = @()
+    $authModuleName = 'Microsoft.Graph.Authentication'
+
+    # Dostupne (nainstalovane) verze kazdeho submodulu, nejnovejsi prvni.
+    $installedVersions = @{}
     foreach ($m in $RequiredGraphModules) {
-        if (-not (Get-Module -ListAvailable -Name $m)) { $missing += $m }
+        $installedVersions[$m] = @(
+            Get-Module -ListAvailable -Name $m |
+                Sort-Object Version -Descending |
+                Select-Object -ExpandProperty Version
+        )
     }
 
-    if ($missing.Count -gt 0) {
-        Write-Host ('Chybi submoduly: ' + ($missing -join ', '))
-        Write-Host 'Instaluji jen potrebne submoduly (-Scope CurrentUser). Cely balik Microsoft.Graph se neinstaluje.'
-
-        # PS 5.1 muze pri prvni instalaci vyzadovat NuGet provider - best-effort bootstrap,
-        # aby instalace nespadla na interaktivni dotaz.
-        try {
-            if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
-                Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force -ErrorAction Stop | Out-Null
-            }
-        }
-        catch {
-            Write-Host '[WARN] NuGet provider se nepodarilo pripravit automaticky - pokud instalace modulu selze, spustte ji rucne.' -ForegroundColor Yellow
-        }
-
-        foreach ($m in $missing) {
-            Write-Host ('  Install-Module ' + $m + ' -Scope CurrentUser ...')
-            try {
-                Install-Module -Name $m -Scope CurrentUser -Force -AllowClobber -ErrorAction Stop
-            }
-            catch {
-                throw ('Instalace modulu ' + $m + ' selhala: ' + $_.Exception.Message +
-                    ' Nainstalujte ho rucne: Install-Module ' + $m + ' -Scope CurrentUser')
-            }
-        }
+    # Cilova verze = verze uz pritomneho Microsoft.Graph.Authentication (nejvyssi, kdyz je
+    # jich vic). Kdyz Authentication chybi, nainstaluj nejnovejsi a jeho verzi pouzij jako cil.
+    $targetVersion = $null
+    if ($installedVersions[$authModuleName].Count -gt 0) {
+        $targetVersion = $installedVersions[$authModuleName][0]
+        Write-Host ('Pritomny ' + $authModuleName + ' ' + $targetVersion + ' - na tuto verzi srovnam vsechny 4 submoduly.')
     }
     else {
-        Write-Host 'Vsechny potrebne submoduly jsou nainstalovane.'
+        Write-Host ($authModuleName + ' neni nainstalovan - instaluji nejnovejsi (-Scope CurrentUser)...')
+        Initialize-NuGetProvider
+        try {
+            Install-Module -Name $authModuleName -Scope CurrentUser -Force -AllowClobber -ErrorAction Stop
+        }
+        catch {
+            throw ('Instalace modulu ' + $authModuleName + ' selhala: ' + $_.Exception.Message +
+                ' Nainstalujte ho rucne: Install-Module ' + $authModuleName + ' -Scope CurrentUser')
+        }
+        $targetVersion = @(
+            Get-Module -ListAvailable -Name $authModuleName |
+                Sort-Object Version -Descending |
+                Select-Object -ExpandProperty Version
+        )[0]
+        if ($null -eq $targetVersion) {
+            throw ('Modul ' + $authModuleName + ' se po instalaci nepodarilo najit.')
+        }
+        $installedVersions[$authModuleName] = @($targetVersion)
+        Write-Host ('Nainstalovan ' + $authModuleName + ' ' + $targetVersion + '.')
     }
 
-    foreach ($m in $RequiredGraphModules) {
-        Import-Module $m -ErrorAction Stop
+    # Uz nactena Graph verze v TETO session? Kdyz se lisi od cilove, import zkolabuje na
+    # "assembly already loaded" a nactenou verzi nelze vylozit - jedine reseni je restart
+    # session, rerun nepomuze.
+    $conflictingLoaded = @(
+        Get-Module -Name 'Microsoft.Graph.*' | Where-Object { $_.Version -ne $targetVersion }
+    )
+    if ($conflictingLoaded.Count -gt 0) {
+        $loadedList = (($conflictingLoaded | ForEach-Object { $_.Name + ' ' + $_.Version }) -join ', ')
+        $needsSessionRestart = $true
+        throw ('V teto session je uz nactena jina verze Graph modulu (' + $loadedList + ') nez cilova ' +
+            $targetVersion + '. Dve verze teze .NET assembly nelze nacist naraz a nactenou nelze vylozit. ' +
+            'Zavrete tuto session a spustte skript v NOVE (novy PowerShell / novy Cloud Shell).')
     }
-    Write-Host 'Moduly pripraveny.'
+
+    # Srovnej vsechny 4 submoduly na cilovou verzi: chybejici NA CILOVE VERZI doinstaluj
+    # s -RequiredVersion (predinstalovane jine verze necham byt, nactu jen cilovou).
+    foreach ($m in $RequiredGraphModules) {
+        if ($installedVersions[$m] -contains $targetVersion) {
+            Write-Host ('  ' + $m + ' ' + $targetVersion + ' - pritomen.')
+            continue
+        }
+        Write-Host ('  ' + $m + ' - instaluji verzi ' + $targetVersion + ' (-RequiredVersion, -Scope CurrentUser)...')
+        Initialize-NuGetProvider
+        try {
+            Install-Module -Name $m -RequiredVersion $targetVersion -Scope CurrentUser -Force -AllowClobber -ErrorAction Stop
+        }
+        catch {
+            # Verzi se nepodarilo srovnat (napr. neni na Gallery / ruzny major) - bez shody
+            # verzi nema smysl importovat, hrozila by kolize assembly.
+            $needsSessionRestart = $true
+            throw ('Nepodarilo se srovnat modul ' + $m + ' na verzi ' + $targetVersion + ': ' + $_.Exception.Message +
+                ' Vsechny submoduly Microsoft.Graph musi byt ve STEJNE verzi. Zkuste rucne: Install-Module ' + $m +
+                ' -RequiredVersion ' + $targetVersion + ' -Scope CurrentUser (nebo cely balik na jednu verzi), pak restartujte session.')
+        }
+    }
+
+    # Import VSECH na cilove verzi - jednotna verze = zadna kolize assembly.
+    foreach ($m in $RequiredGraphModules) {
+        try {
+            Import-Module -Name $m -RequiredVersion $targetVersion -ErrorAction Stop
+        }
+        catch {
+            $needsSessionRestart = $true
+            throw ('Nacteni modulu ' + $m + ' (' + $targetVersion + ') selhalo: ' + $_.Exception.Message +
+                ' Pokud jde o "Assembly with same name is already loaded", RESTARTUJTE session (novy PowerShell / Cloud Shell) - rerun v teze session nepomuze.')
+        }
+    }
+    Write-Host ('Moduly pripraveny (vsechny ve verzi ' + $targetVersion + ').')
 
     # ----------------------------------------------------------------------
     # 3. Prihlaseni do Microsoft Graphu (device code - funguje lokalne i v Cloud Shellu)
@@ -524,8 +600,9 @@ try {
     $createdSecretKeyId = $cred.KeyId   # od ted uklidime secret, kdyz cokoli dalsiho selze
     $secretExpiry = (Get-Date).AddYears($SecretYears).ToString('yyyy-MM-dd')
 
-    Write-Host '[VAROVANI] Hodnota secretu se zobrazi JEN JEDNOU - v souhrnu na konci skriptu.' -ForegroundColor Yellow
-    Write-Host ('[VAROVANI] Poznamenejte si i datum expirace (cca ' + $secretExpiry + ') - pred vyprsenim') -ForegroundColor Yellow
+    Write-Host '[INFO] Novy client secret vznikl a bude zapsan do Function App (AAD_CLIENT_SECRET).' -ForegroundColor Yellow
+    Write-Host '[INFO] Hodnota se ZAMERNE netiskne do konzole (kvuli Start-Transcript).' -ForegroundColor Yellow
+    Write-Host ('[VAROVANI] Poznamenejte si datum expirace (cca ' + $secretExpiry + ') - pred vyprsenim') -ForegroundColor Yellow
     Write-Host '[VAROVANI] spustte tento skript znovu (vytvori novy secret a zapise ho do Function App).' -ForegroundColor Yellow
 
     # ----------------------------------------------------------------------
@@ -558,7 +635,7 @@ try {
     Write-Host (' App registrace          : ' + $AppDisplayName)
     Write-Host (' Application (client) ID : ' + $appClientId)
     Write-Host (' Tenant ID               : ' + $tenantId)
-    Write-Host (' Client secret           : ' + $clientSecret) -ForegroundColor Yellow
+    Write-Host ' Client secret           : zapsan do Function App (AAD_CLIENT_SECRET)'
     Write-Host (' Expirace secretu        : cca ' + $secretExpiry + ' (poznamenejte si!)')
     if ($consentOk) {
         Write-Host ' Admin consent           : udelen'
@@ -573,8 +650,10 @@ try {
     Write-Host (' Function App            : ' + $FunctionAppName + ' (app settings zapsany)')
     Write-Host '====================================================================='
     Write-Host ''
-    Write-Host ' [VAROVANI] Client secret vyse se zobrazuje JEN TED - pokud ho chcete' -ForegroundColor Yellow
-    Write-Host ' archivovat, ulozte si ho do trezoru hesel. Ve Function App uz je zapsany.' -ForegroundColor Yellow
+    Write-Host ' [INFO] Client secret se do konzole zamerne netiskne (kvuli Start-Transcript,' -ForegroundColor Yellow
+    Write-Host '        aby neskoncil v logu). Je ulozeny ve Function App jako app setting' -ForegroundColor Yellow
+    Write-Host '        AAD_CLIENT_SECRET - pro archivaci do trezoru hesel ho vezmete odtud' -ForegroundColor Yellow
+    Write-Host '        (az functionapp config appsettings list). Rotace = spustte tento skript znovu.' -ForegroundColor Yellow
     Write-Host ''
     Write-Host ' Dalsi kroky:'
     Write-Host ' 1. V appce EP365 AI Chat otevrete Nastaveni -> Parametry AI -> Znalostni'
@@ -603,7 +682,14 @@ catch {
         }
     }
 
-    Write-Host 'Konfigurace nebyla dokoncena. Po odstraneni priciny spustte skript znovu - je idempotentni.' -ForegroundColor Red
+    if ($needsSessionRestart) {
+        Write-Host 'Konfigurace nebyla dokoncena - jde o konflikt VERZI / nacteni Graph modulu.' -ForegroundColor Red
+        Write-Host 'ZAVRETE tuto session a spustte skript v NOVE (novy PowerShell / novy Cloud Shell).' -ForegroundColor Red
+        Write-Host 'Opakovane spusteni v teze session NEPOMUZE - nactenou .NET assembly nelze vylozit.' -ForegroundColor Red
+    }
+    else {
+        Write-Host 'Konfigurace nebyla dokoncena. Po odstraneni priciny spustte skript znovu - je idempotentni.' -ForegroundColor Red
+    }
     $scriptFailed = $true
 }
 finally {

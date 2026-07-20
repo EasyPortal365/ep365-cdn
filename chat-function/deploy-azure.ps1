@@ -194,7 +194,7 @@ if ($AzureOpenAiDeployment -eq '') { $AzureOpenAiDeployment = $OpenAiModelName }
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
 # (viz scripts/build-release-zip.ps1).
 $CdnTemplateUrl = 'https://cdn.easyportal365.cz/chat-function/main.json'
-$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.1.1.zip'
+$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.3.2.zip'
 
 # Docasna slozka - $env:TEMP na Windows, GetTempPath() v Azure Cloud Shellu (Linux)
 $TempBase = $env:TEMP
