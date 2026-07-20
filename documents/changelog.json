@@ -8,6 +8,11 @@
       "date": "2026-07-20",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Editor kategorií je kompaktnější – ikona a barva jsou vedle sebe a výběr ikon má úsporný posuvný seznam.",
+          "en": "The category editor is more compact — the icon and colour sit side by side and the icon picker uses a tidy scrollable list."
+        },
+        {
           "type": "new",
           "cs": "Onboarding balíčky – seskupte více dokumentů do jedné sady se společným termínem a jedním přehledem dokončení. Ideální pro nástup nového kolegy nebo roční kolečko: přiřadíte celou sadu najednou a sledujete, kdo ji má hotovou (např. 7 z 8).",
           "en": "Onboarding bundles — group several documents into one set with a shared deadline and a single completion overview. Ideal for onboarding or an annual round: assign the whole set at once and track who has finished it (e.g. 7 of 8)."
