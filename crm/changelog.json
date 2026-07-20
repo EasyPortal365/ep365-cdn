@@ -76,6 +76,16 @@
           "type": "new",
           "cs": "Registrace na webinář se sama propíše do obchodních linií kontaktu – účastník dostane zapojení „webinář / registrace“ a při vyplnění účasti či neúčasti se stav (a z něj fáze i zákaznický status dle prodejní matice) aktualizuje automaticky. Ručně nastavené ostatní linie zůstávají nedotčené.",
           "en": "Webinar registration now flows into the contact's business lines automatically – the attendee gets a \"webinar / registered\" engagement, and marking attendance or no-show updates the state (and the derived funnel stage and customer status per the sales matrix). Manually set other lines remain untouched."
+        },
+        {
+          "type": "new",
+          "cs": "Vyhledávání a filtry v Nabídkách – v pipeline obchodních nabídek teď rychle najdete konkrétní nabídku fulltextem (název, firma nebo vlastník) a zúžíte seznam podle fáze nebo vlastníka. Filtry platí ve všech pohledech – Kanban, Seznam i Prognóza – a promítnou se i do exportu do CSV.",
+          "en": "Search and filters in Deals – in the deals pipeline you can now quickly find a specific deal by full text (name, company or owner) and narrow the list by stage or owner. The filters apply across all views – Kanban, List and Forecast – and also carry over to the CSV export."
+        },
+        {
+          "type": "new",
+          "cs": "Zvětšení na celou obrazovku – tlačítko v patičce levého menu roztáhne CRM přes celé okno prohlížeče, takže máte na kontakty, nabídky i kanban víc místa. Dalším klikem se vrátíte do běžného zobrazení.",
+          "en": "Full-screen mode – a button in the left menu footer expands CRM across the whole browser window, giving you more room for contacts, deals and the kanban. Click again to return to the normal view."
         }
       ]
     },
