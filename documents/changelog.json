@@ -14,6 +14,11 @@
         },
         {
           "type": "improved",
+          "cs": "Editor kategorií je přehlednější (dva sloupce), sjednotily se výšky hlaviček v přehledech a opravilo se zobrazení statistik na úvodní obrazovce. Zvětšení na celou obrazovku je nově i na úvodní obrazovce.",
+          "en": "The category editor is clearer (two columns), report header heights are unified, and the stats on the home screen render correctly. Maximise to full screen is now also on the home screen."
+        },
+        {
+          "type": "improved",
           "cs": "Formuláře a panely aplikace prošly revizí vzhledu – přidávání dokumentu má nově přehledný dvousloupcový editor a prázdné stavy, tlačítka i sekce jsou v celé aplikaci sjednocené.",
           "en": "The app's forms and panels got a visual refresh — adding a document now uses a clear two-column editor, and empty states, buttons and sections are unified across the app."
         },
