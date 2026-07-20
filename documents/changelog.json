@@ -13,6 +13,11 @@
           "en": "The app can now be maximised to full screen — one click on the header icon hides the surroundings and gives you maximum room to work with documents and their previews. Click again to return."
         },
         {
+          "type": "fixed",
+          "cs": "Doladěno rozložení dvousloupcového editoru kategorií (vyváženější rozvržení) a rozmístění ikon na úvodní obrazovce.",
+          "en": "Refined the layout of the two-column category editor (more balanced) and the icon placement on the home screen."
+        },
+        {
           "type": "improved",
           "cs": "Editor kategorií je přehlednější (dva sloupce), sjednotily se výšky hlaviček v přehledech a opravilo se zobrazení statistik na úvodní obrazovce. Zvětšení na celou obrazovku je nově i na úvodní obrazovce.",
           "en": "The category editor is clearer (two columns), report header heights are unified, and the stats on the home screen render correctly. Maximise to full screen is now also on the home screen."
