@@ -5,8 +5,18 @@
   "entries": [
     {
       "version": "1.11",
-      "date": "2026-07-12",
+      "date": "2026-07-20",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Aplikaci lze zvětšit na celou obrazovku – jedním kliknutím na ikonu v záhlaví skryjete okolí a získáte maximum prostoru pro práci s dokumenty a jejich náhledy. Dalším kliknutím se vrátíte zpět.",
+          "en": "The app can now be maximised to full screen — one click on the header icon hides the surroundings and gives you maximum room to work with documents and their previews. Click again to return."
+        },
+        {
+          "type": "improved",
+          "cs": "Ve schvalovacím řízení má náhled dokumentu více místa – vyplní volnou plochu panelu a schvalovací tlačítka i průběh zůstávají trvale po ruce ve spodní liště.",
+          "en": "In the approval flow the document preview gets more room — it fills the free space of the panel while the approval buttons and progress stay within reach in a fixed bottom bar."
+        },
         {
           "type": "fixed",
           "cs": "Aplikace je připravená pro týmy více uživatelů – koncoví uživatelé nově vidí všechny publikované dokumenty k seznámení a manažeři i vydavatelé vidí potvrzení celého týmu (dříve mohl každý vidět jen své vlastní záznamy). Schvalovatel také korektně schválí dokument od jiného vydavatele.",
