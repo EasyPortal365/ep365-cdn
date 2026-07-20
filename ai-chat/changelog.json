@@ -5,8 +5,28 @@
   "entries": [
     {
       "version": "1.45",
-      "date": "2026-07-18",
+      "date": "2026-07-21",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Plovoucí widget: tlačítko pro otevření celé aplikace nyní vždy míří na skutečnou stránku s aplikací – dřív mohlo vést na neexistující stránku (chyba 404).",
+          "en": "Floating widget: the \"Open full app\" button now always points to the real application page — previously it could lead to a non-existent page (404)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rozepsaný dotaz v plovoucím widgetu zůstane zachovaný i po jeho sbalení a opětovném rozbalení.",
+          "en": "A message you started typing in the widget is now kept when you collapse and reopen it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Znalostní příprava: karta stavu zpracování ukazuje skutečný poslední běh (čas i počet zpracovaných dokumentů) i po zpracování na pozadí.",
+          "en": "Knowledge preparation: the \"Processing status\" card now shows the real last run (time and number of processed documents) even after it runs in the background."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení obohacovaných knihoven upozorní, když zadaná adresa nevypadá jako knihovna.",
+          "en": "The enriched-libraries setting now warns when an address doesn't look like a library."
+        },
         {
           "type": "improved",
           "cs": "Nápověda: nová podrobná kapitola, která vysvětluje všechny připravené asistenty i úlohy v Prompt Studiu – k čemu slouží a kdy je použít.",
