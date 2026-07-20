@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Fronta publikace: u dokumentu čekajícího na schválení je nově jasně vidět, že čeká na schvalovatele – místo matoucích údajů o potvrzení. Vydavatel mu může připomenout schválení nebo dokument stáhnout zpět a upravit.",
+          "en": "Publication queue: a document awaiting approval now clearly shows it is waiting for the approver — instead of confusing confirmation stats. The publisher can remind the approver or withdraw the document to edit it."
+        },
+        {
+          "type": "improved",
           "cs": "Editor kategorií je kompaktnější – ikona a barva jsou vedle sebe, výběr ikon má úsporný posuvný seznam a u barvy lze nově zvolit i vlastní odstín mimo paletu. Rozvržení se přizpůsobí šířce.",
           "en": "The category editor is more compact — the icon and colour sit side by side, the icon picker uses a tidy scrollable list, and you can now pick a custom colour beyond the palette. The layout adapts to width."
         },
