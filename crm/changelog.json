@@ -84,8 +84,8 @@
         },
         {
           "type": "new",
-          "cs": "Zvětšení na celou obrazovku – tlačítko v patičce levého menu roztáhne CRM přes celé okno prohlížeče, takže máte na kontakty, nabídky i kanban víc místa. Dalším klikem se vrátíte do běžného zobrazení.",
-          "en": "Full-screen mode – a button in the left menu footer expands CRM across the whole browser window, giving you more room for contacts, deals and the kanban. Click again to return to the normal view."
+          "cs": "Zvětšení na celou obrazovku – tlačítko v hlavičce stránky (v pruhu ikon vedle aktualizace a sdílení) roztáhne CRM přes celé okno prohlížeče, takže máte na kontakty, nabídky i kanban víc místa. Dalším klikem se vrátíte do běžného zobrazení.",
+          "en": "Full-screen mode – a button in the page header (in the icon strip next to refresh and share) expands CRM across the whole browser window, giving you more room for contacts, deals and the kanban. Click again to return to the normal view."
         }
       ]
     },
