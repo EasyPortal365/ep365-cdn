@@ -21,6 +21,11 @@
           "type": "improved",
           "cs": "Průvodce má novou kapitolu Reporty a audit – provede compliance dashboardem i centrálním reportem pro auditora. Kapitola Vydání dokumentu nově představí i onboarding balíčky.",
           "en": "The guide has a new Reports and audit chapter — walking through the compliance dashboard and the central report for auditors. The Publishing chapter now also introduces onboarding bundles."
+        },
+        {
+          "type": "improved",
+          "cs": "Průvodce nyní pokrývá celou aplikaci – každá obrazovka má svou kapitolu: knihovna a archiv, fronta publikace, správa dokumentů, onboarding balíčky, kategorie a distribuční skupiny, podpora a zpětná vazba. Správce navíc dostane detailní prohlídku všech deseti sekcí Nastavení a Přehledu využití. Zaměstnanec má 4 kapitoly, správce 13 – každý jen to své.",
+          "en": "The guide now covers the whole app — every screen has its own chapter: library and archive, publication queue, document management, onboarding bundles, categories and distribution groups, support and feedback. Administrators also get a detailed walkthrough of all ten Settings sections and the Usage overview. An employee sees 4 chapters, an administrator 13 — each only what is relevant."
         }
       ]
     },
