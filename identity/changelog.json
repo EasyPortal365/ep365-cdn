@@ -4,6 +4,42 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "1.3",
+      "date": "2026-07-22",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nový přehled Governance podle taxonomie – skupiny přehledně po útvarech a lokalitách, s Ø kondicí, počty bez správce, hostů, citlivých i skupin bez recertifikace. Kliknutím na řádek otevřete daný řez, vše lze exportovat do CSV.",
+          "en": "New Governance by taxonomy overview — groups broken down by department and location, with average health, and counts of ownerless, guest-bearing, sensitive and un-recertified groups. Click a row to open the slice; export it all to CSV."
+        },
+        {
+          "type": "new",
+          "cs": "Filtr podle zařazení nyní zahrne i podřízené uzly – vyberete útvar a uvidíte i jeho oddělení a týmy (dřív jen přesnou úroveň).",
+          "en": "Filtering by classification now includes descendant nodes — pick a department and you also see its teams and sub-units (previously the exact level only)."
+        },
+        {
+          "type": "new",
+          "cs": "Vybrané skupiny lze hromadně poslat na recertifikaci – jedním krokem založíte kolo a jejich správcům přijde souhrnná výzva e-mailem. Ideální po vyfiltrování na konkrétní útvar.",
+          "en": "Selected groups can be sent to recertification in bulk — one step starts a round and their owners get a summary request by email. Ideal after filtering to a specific department."
+        },
+        {
+          "type": "new",
+          "cs": "Rychlé hledání (⌘K) najde i řezy taxonomie – napíšete název útvaru a skočíte rovnou na jeho skupiny.",
+          "en": "Quick search (⌘K) now also finds taxonomy slices — type a department name and jump straight to its groups."
+        },
+        {
+          "type": "improved",
+          "cs": "Úvodní přehled ukazuje pokrytí taxonomie (kolik spravovaných skupin je zařazeno) a dlaždice mapy organizace otevřou přímo daný řez skupin.",
+          "en": "The dashboard shows taxonomy coverage (how many managed groups are classified) and the org-map tiles now open the corresponding group slice directly."
+        },
+        {
+          "type": "fixed",
+          "cs": "Opravili jsme ukládání recertifikace – založení kola i rozhodnutí o revizi se nyní spolehlivě uloží (stejná příčina jako u klasifikace skupin).",
+          "en": "Fixed saving of recertification — starting a round and deciding a review now save reliably (same root cause as group classification)."
+        }
+      ]
+    },
+    {
       "version": "1.2",
       "date": "2026-07-22",
       "changes": [
