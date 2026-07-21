@@ -16,6 +16,11 @@
           "type": "new",
           "cs": "Novým uživatelům se na úvodní obrazovce nabídne karta s pozváním do průvodce. Dokončené kapitoly si aplikace pamatuje u vašeho účtu – i při přihlášení z jiného počítače.",
           "en": "New users see a card on the home screen offering to take the guided tour. Completed chapters are remembered with your account — even when you sign in from another computer."
+        },
+        {
+          "type": "improved",
+          "cs": "Průvodce má novou kapitolu Reporty a audit – provede compliance dashboardem i centrálním reportem pro auditora. Kapitola Vydání dokumentu nově představí i onboarding balíčky.",
+          "en": "The guide has a new Reports and audit chapter — walking through the compliance dashboard and the central report for auditors. The Publishing chapter now also introduces onboarding bundles."
         }
       ]
     },
