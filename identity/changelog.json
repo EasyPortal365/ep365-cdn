@@ -5,8 +5,23 @@
   "entries": [
     {
       "version": "1.2",
-      "date": "2026-07-07",
+      "date": "2026-07-21",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Kteroukoli obrazovku lze zvětšit na celou obrazovku – jedním klikem v pravém horním rohu získáte víc místa pro tabulky, detaily i editory.",
+          "en": "Any screen can be expanded to full screen — one click in the top-right corner gives you more room for tables, details and editors."
+        },
+        {
+          "type": "new",
+          "cs": "V detailu uživatele nově spravujete jeho členství ve skupinách – přidáte ho do skupiny nebo odeberete přímo odsud, bez otevírání každé skupiny zvlášť.",
+          "en": "The user detail now lets you manage group membership — add the user to a group or remove them right here, without opening each group separately."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlášení chyb a návrhy funkcí nyní odešlete e-mailem na naši podporu – přímo z aplikace, vaším jménem.",
+          "en": "Bug reports and feature requests are now sent by email to our support — straight from the app, on your behalf."
+        },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
