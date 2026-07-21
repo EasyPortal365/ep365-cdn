@@ -19,13 +19,18 @@
         },
         {
           "type": "improved",
-          "cs": "Průvodce má novou kapitolu Reporty a audit – provede compliance dashboardem i centrálním reportem pro auditora. Kapitola Vydání dokumentu nově představí i onboarding balíčky.",
-          "en": "The guide has a new Reports and audit chapter — walking through the compliance dashboard and the central report for auditors. The Publishing chapter now also introduces onboarding bundles."
+          "cs": "Průvodce má novou kapitolu Reporty a audit – provede compliance dashboardem i centrálním reportem pro auditora. Přibyla i kapitola věnovaná balíčkům dokumentů.",
+          "en": "The guide has a new Reports and audit chapter — walking through the compliance dashboard and the central report for auditors. A chapter dedicated to document bundles was added too."
         },
         {
           "type": "improved",
-          "cs": "Průvodce nyní pokrývá celou aplikaci – každá obrazovka má svou kapitolu: knihovna a archiv, fronta publikace, správa dokumentů, onboarding balíčky, kategorie a distribuční skupiny, podpora a zpětná vazba. Správce navíc dostane detailní prohlídku všech deseti sekcí Nastavení a Přehledu využití. Zaměstnanec má 4 kapitoly, správce 13 – každý jen to své.",
-          "en": "The guide now covers the whole app — every screen has its own chapter: library and archive, publication queue, document management, onboarding bundles, categories and distribution groups, support and feedback. Administrators also get a detailed walkthrough of all ten Settings sections and the Usage overview. An employee sees 4 chapters, an administrator 13 — each only what is relevant."
+          "cs": "Průvodce nyní pokrývá celou aplikaci – každá obrazovka má svou kapitolu: knihovna a archiv, fronta publikace, správa dokumentů, balíčky dokumentů, kategorie a distribuční skupiny, podpora a zpětná vazba. Správce navíc dostane detailní prohlídku všech deseti sekcí Nastavení a Přehledu využití. Zaměstnanec má 4 kapitoly, správce 13 – každý jen to své.",
+          "en": "The guide now covers the whole app — every screen has its own chapter: library and archive, publication queue, document management, document bundles, categories and distribution groups, support and feedback. Administrators also get a detailed walkthrough of all ten Settings sections and the Usage overview. An employee sees 4 chapters, an administrator 13 — each only what is relevant."
+        },
+        {
+          "type": "improved",
+          "cs": "Sady dokumentů se sdíleným termínem se nově jmenují jednotně „balíčky dokumentů“ – nejsou totiž jen pro nástup nových kolegů, ale i pro periodická školení, recertifikace a projektová kolečka. Hromadné doplnění dokumentů novým členům skupin najdete pod tlačítkem „Hromadná re-distribuce“.",
+          "en": "Document sets with a shared deadline are now consistently called “document bundles” — they are not only for onboarding, but also for periodic training, recertifications and project rounds. Bulk top-up of documents for new group members is now under the “Bulk re-distribution” button."
         }
       ]
     },
@@ -45,8 +50,8 @@
         },
         {
           "type": "new",
-          "cs": "Onboarding balíčky – seskupte více dokumentů do jedné sady se společným termínem a jedním přehledem dokončení. Ideální pro nástup nového kolegy nebo roční kolečko: přiřadíte celou sadu najednou a sledujete, kdo ji má hotovou (např. 7 z 8).",
-          "en": "Onboarding bundles — group several documents into one set with a shared deadline and a single completion overview. Ideal for onboarding or an annual round: assign the whole set at once and track who has finished it (e.g. 7 of 8)."
+          "cs": "Balíčky dokumentů – seskupte více dokumentů do jedné sady se společným termínem a jedním přehledem dokončení. Ideální pro roční školení, bezpečnostní kolečko i nástup nového kolegy: přiřadíte celou sadu najednou a sledujete, kdo ji má hotovou (např. 7 z 8).",
+          "en": "Document bundles — group several documents into one set with a shared deadline and a single completion overview. Ideal for annual training, a safety round or onboarding a new colleague: assign the whole set at once and track who has finished it (e.g. 7 of 8)."
         },
         {
           "type": "new",
