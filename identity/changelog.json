@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.2",
-      "date": "2026-07-21",
+      "date": "2026-07-22",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Opravili jsme ukládání klasifikace skupin – zařazení do taxonomie (organizační struktura, geografie), citlivost i tagy se nyní spolehlivě uloží a zůstanou i po znovuotevření skupiny.",
+          "en": "Fixed saving of group classification — taxonomy assignment (org structure, geography), sensitivity and tags now save reliably and persist after reopening the group."
+        },
         {
           "type": "new",
           "cs": "Kteroukoli obrazovku lze zvětšit na celou obrazovku – jedním klikem v pravém horním rohu získáte víc místa pro tabulky, detaily i editory.",
