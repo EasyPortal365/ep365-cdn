@@ -4,6 +4,22 @@
   "name": "EP365 Homepage",
   "entries": [
     {
+      "version": "1.22",
+      "date": "2026-07-22",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Interaktivní průvodce aplikací – projděte si intranet krok za krokem přímo na stránce. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli (uživatel, editor obsahu, správce). Spustíte ho z Nápovědy, správce i ze Správy → O aplikaci – a kdykoli znovu.",
+          "en": "Interactive app guide — walk through the intranet step by step, right on the page. The guide highlights an element, explains it and shows where to click; short chapters match your role (user, content editor, administrator). Start it from Help — administrators also from Management → About — and re-run it any time."
+        },
+        {
+          "type": "new",
+          "cs": "Novým uživatelům se na úvodní stránce nabídne pozvání do průvodce. Dokončené kapitoly si aplikace pamatuje (v tomto prohlížeči).",
+          "en": "New users are offered a tour invitation on the home page. Completed chapters are remembered (in this browser)."
+        }
+      ]
+    },
+    {
       "version": "1.21",
       "date": "2026-07-19",
       "changes": [
