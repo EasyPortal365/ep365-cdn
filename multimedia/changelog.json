@@ -4,6 +4,17 @@
   "name": "EP365 Mediální centrum",
   "entries": [
     {
+      "version": "1.14",
+      "date": "2026-07-22",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Interaktivní průvodce aplikací – projděte si Mediální centrum krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
+          "en": "Interactive app guide — walk through the Media Center step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help — and it offers itself on your first visit."
+        }
+      ]
+    },
+    {
       "version": "1.13",
       "date": "2026-07-14",
       "changes": [
