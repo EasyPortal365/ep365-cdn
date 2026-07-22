@@ -4,6 +4,22 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.46",
+      "date": "2026-07-22",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Interaktivní průvodce aplikací – projděte si asistenta krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli (uživatel, správce). Spustíte ho z Nápovědy – a kdykoli znovu.",
+          "en": "Interactive app guide — walk through the assistant step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role (user, administrator). Start it from Help — and re-run it any time."
+        },
+        {
+          "type": "new",
+          "cs": "Novým uživatelům se na úvodní obrazovce nabídne pozvání do průvodce. Dokončené kapitoly si aplikace pamatuje u vašeho účtu – i při přihlášení z jiného počítače.",
+          "en": "New users are offered a tour invitation on the start screen. Completed chapters are remembered with your account — even when you sign in from another computer."
+        }
+      ]
+    },
+    {
       "version": "1.45",
       "date": "2026-07-21",
       "changes": [
