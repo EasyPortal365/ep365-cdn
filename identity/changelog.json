@@ -4,6 +4,27 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "1.4",
+      "date": "2026-07-22",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nově můžete útvaru v taxonomii nastavit vlastní pravidla – minimální počet vlastníků, jak často se mají jeho skupiny recertifikovat, zda povolit externí hosty a minimální úroveň citlivosti. Pravidla se automaticky dědí na všechny podřízené útvary, takže je stačí zadat jednou nahoře. U každého útvaru přitom vidíte i výslednou politiku po zohlednění nadřazených útvarů.",
+          "en": "You can now give a department in the taxonomy its own rules — a minimum number of owners, how often its groups must be recertified, whether external guests are allowed, and a minimum sensitivity level. Rules are inherited automatically by all sub-departments, so you set them once at the top. Each department also shows the effective policy after inheritance."
+        },
+        {
+          "type": "new",
+          "cs": "Rizika přístupů nově upozorní na skupiny, které porušují pravidlo svého útvaru – například mají méně vlastníků, než útvar vyžaduje, jsou po termínu recertifikace, mají hosty tam, kde nejsou povoleni, nebo nižší klasifikaci, než útvar požaduje. Každý nález má jasné vysvětlení a lze ho exportovat do CSV.",
+          "en": "Access risks now flag groups that break their department's rule — for example fewer owners than required, past their recertification deadline, guests where they aren't allowed, or a lower classification than the department demands. Every finding has a clear explanation and can be exported to CSV."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehled Governance podle taxonomie má nový sloupec compliance – u každého útvaru hned vidíte, jaký podíl jeho skupin plní nastavená pravidla.",
+          "en": "The Governance by taxonomy overview has a new compliance column — for each department you immediately see what share of its groups meet the configured rules."
+        }
+      ]
+    },
+    {
       "version": "1.3",
       "date": "2026-07-22",
       "changes": [
