@@ -4,6 +4,32 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "1.5",
+      "date": "2026-07-22",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Interaktivní průvodce aplikací – projděte si Identity Manager krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a kdykoli znovu.",
+          "en": "Interactive app guide — walk through Identity Manager step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help — and re-run it any time."
+        },
+        {
+          "type": "new",
+          "cs": "U nezařazených skupin vám appka nově sama navrhne, kam patří v taxonomii – podle názvu skupiny, oddělení jejích vlastníků a pravidla dynamického členství. Návrh přijmete jedním kliknutím v detailu skupiny, nebo hromadně pro celý výběr přes tlačítko „Navrhnout zařazení“.",
+          "en": "For unclassified groups the app now suggests where they belong in the taxonomy — based on the group name, its owners' department, and the dynamic membership rule. Accept a suggestion with one click in the group detail, or in bulk for a whole selection via the „Suggest classification“ button."
+        },
+        {
+          "type": "new",
+          "cs": "Útvarům v taxonomii lze nově přiřadit stewardy – správce oblasti odpovědné za svůj útvar a celý jeho podstrom. Steward má vlastní sekci „Moje oblast“ s přehledem jen svých skupin, jejich rizik a porušení politik. Zděděná odpovědnost je jasně vidět: steward nadřazeného útvaru spravuje i útvary pod ním.",
+          "en": "Departments in the taxonomy can now have stewards — area managers responsible for their department and its whole subtree. A steward gets a dedicated „My area“ section showing only their groups, their risks and policy violations. Inherited responsibility is explicit: a steward of a parent department also manages the departments beneath it."
+        },
+        {
+          "type": "improved",
+          "cs": "Při hromadné recertifikaci výběru se recenzent hledá chytřeji – když skupina nemá evidovaného správce, nastoupí jako recenzent steward jejího útvaru. Skupiny, které tak získají odpovědnou osobu, už se nepřeskočí.",
+          "en": "Bulk recertification now resolves the reviewer more smartly — when a group has no recorded owner, the steward of its department steps in as the reviewer. Groups that gain a responsible person this way are no longer skipped."
+        }
+      ]
+    },
+    {
       "version": "1.4",
       "date": "2026-07-22",
       "changes": [
