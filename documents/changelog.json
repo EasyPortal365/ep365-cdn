@@ -31,6 +31,11 @@
           "type": "improved",
           "cs": "Sady dokumentů se sdíleným termínem se nově jmenují jednotně „balíčky dokumentů“ – nejsou totiž jen pro nástup nových kolegů, ale i pro periodická školení, recertifikace a projektová kolečka. Hromadné doplnění dokumentů novým členům skupin najdete pod tlačítkem „Hromadná re-distribuce“.",
           "en": "Document sets with a shared deadline are now consistently called “document bundles” — they are not only for onboarding, but also for periodic training, recertifications and project rounds. Bulk top-up of documents for new group members is now under the “Bulk re-distribution” button."
+        },
+        {
+          "type": "improved",
+          "cs": "Výklad v průvodci je podrobnější – kroky nově vysvětlují konkrétně, co na obrazovce uvidíte a proč, s praktickými tipy. Kapitola Orientace představí i vaši roli v patičce panelu, Potvrzení dokumentu ukáže náhled i detail zvlášť a Vydání dokumentu má samostatný krok o adresátech.",
+          "en": "The guide's explanations are more detailed — steps now spell out concretely what you see on screen and why, with practical tips. The Orientation chapter also introduces your role in the panel footer, Document confirmation shows the preview and details separately, and Publishing a document has a dedicated step about recipients."
         }
       ]
     },
