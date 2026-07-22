@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Motiv nově umí světlý hero – úvodní pruh se světlým podkladem, tmavým textem a firemní barvou ve jméně (místo tmavého pruhu). Zapnete jej přepínačem „Světlý hero“ v editoru motivu; funguje i jako globální motiv pro celý ekosystém.",
+          "en": "The theme now supports a light hero — a light header band with dark text and your brand colour in the name (instead of the dark band). Turn it on with the “Light hero” switch in the theme editor; it also works as a global theme across the ecosystem."
+        },
+        {
+          "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si intranet krok za krokem přímo na stránce. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli (uživatel, editor obsahu, správce). Spustíte ho z Nápovědy, správce i ze Správy → O aplikaci – a kdykoli znovu.",
           "en": "Interactive app guide — walk through the intranet step by step, right on the page. The guide highlights an element, explains it and shows where to click; short chapters match your role (user, content editor, administrator). Start it from Help — administrators also from Management → About — and re-run it any time."
         },
