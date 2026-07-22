@@ -4,6 +4,22 @@
   "name": "EP365 Vozový park",
   "entries": [
     {
+      "version": "1.8",
+      "date": "2026-07-22",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Interaktivní průvodce aplikací – projděte si Vozový park krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli (řidič, dispečer, správce). Spustíte ho z Nápovědy – a kdykoli znovu.",
+          "en": "Interactive app guide — walk through Fleet step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role (driver, dispatcher, administrator). Start it from Help — and re-run it any time."
+        },
+        {
+          "type": "new",
+          "cs": "Novým uživatelům se na úvodní obrazovce nabídne pozvání do průvodce.",
+          "en": "New users are offered a tour invitation on the home screen."
+        }
+      ]
+    },
+    {
       "version": "1.7",
       "date": "2026-07-12",
       "changes": [
