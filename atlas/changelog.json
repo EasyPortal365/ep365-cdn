@@ -8,6 +8,16 @@
       "date": "2026-07-23",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Karta „Soubory sdílené ven“ se nově zobrazuje vždy – i když žádný soubor sdílený ven není, řekne vám to („žádné soubory ven, z pohledu úniku dat i AI ideální stav“) místo toho, aby se skryla. Vždy tak vidíte celý obraz, i ten pozitivní.",
+          "en": "The “Files shared out” card now always shows – even when no file is shared out, it tells you so (“no files out, ideal from a data-leak and AI standpoint”) instead of hiding. You always see the full picture, including the good news."
+        },
+        {
+          "type": "improved",
+          "cs": "Ukázková data „nordika“ nově obsahují i soubory sdílené ven, citlivý obsah a údaje o aktuálnosti obsahu – po vytvoření testovacích dat uvidíte, jak vypadá karta i nálezy z verze 1.5 naplněné.",
+          "en": "The “nordika” sample data now also includes files shared out, sensitive content and content freshness figures – after creating test data you can see how the 1.5 card and findings look when populated."
+        },
+        {
           "type": "new",
           "cs": "Soubory sdílené ven: Atlas nově ukáže konkrétní soubory dostupné mimo organizaci – přes anonymní odkazy („Kdokoli s odkazem“) i viditelné hostům. V sekci Sdílení a hosté je najdete jmenně s odkazem, dva nové nálezy (anonymní soubory jako kritické, externí jako upozornění) je promítnou do skóre. Governance se posouvá z úrovně webů na úroveň konkrétních souborů – přesně to, co při nasazení AI rozhoduje.",
           "en": "Files shared out: Atlas now shows the actual files reachable outside the organization – via anonymous “Anyone with the link” links and visible to guests. Find them by name with a link in Sharing & guests; two new findings (anonymous files as critical, external as a warning) feed the score. Governance moves from the site level down to individual files – exactly what matters when rolling out AI."
