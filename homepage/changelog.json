@@ -8,6 +8,16 @@
       "date": "2026-07-23",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Globální nastavení EP365 je nově dostupné jen tam, kde Homepage funguje jako hub. Na týmovém webu připojeném k hubu se skryje – správce zde spravuje jen místní úvodní stránku a globální motiv i konfiguraci dědí z hubu.",
+          "en": "EP365 global settings are now available only where Homepage acts as the hub. On a team site connected to the hub they are hidden — an administrator manages only the local home page there and inherits the global theme and configuration from the hub."
+        },
+        {
+          "type": "new",
+          "cs": "Sekce „Knihovny dokumentů“ a „Seznamy webu“: nová volba „Zobrazit interní název (z URL)“ – pod názvem položky se ukáže technický název z adresy (např. „EP365HomeEvents“). Výchozí vypnuto, takže výpis je čistý; platí pro seznamy i knihovny.",
+          "en": "The “Document libraries” and “Site lists” sections: a new “Show internal name (from URL)” option — the technical name from the address (e.g. “EP365HomeEvents”) appears under each item’s title. Off by default, so the listing stays clean; applies to both lists and libraries."
+        },
+        {
           "type": "new",
           "cs": "Nadcházející události: k události lze nově přidat formátovanou Poznámku (tučné, odrážky, odkazy). Zobrazí se v detailu události po kliknutí a lze ji vyplnit i v dalších jazycích obsahu.",
           "en": "Upcoming events: you can now add a formatted Note to an event (bold, lists, links). It appears in the event detail when clicked and can also be filled in your other content languages."
