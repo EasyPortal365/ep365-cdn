@@ -8,6 +8,11 @@
       "date": "2026-07-23",
       "changes": [
         {
+          "type": "new",
+          "cs": "Na týmovém webu je nově z hlavičky hned jasné, kde jste – nad pozdravem se ukáže název webu, štítek „Týmový web“ a vaše role (Správce / Editor / Člen). Na hlavním intranetu (hubu) se nezobrazuje.",
+          "en": "On a team site the header now makes it immediately clear where you are — the site name, a “Team site” tag and your role (Administrator / Editor / Member) appear above the greeting. It is not shown on the main intranet (hub)."
+        },
+        {
           "type": "improved",
           "cs": "Globální nastavení EP365 je nově dostupné jen tam, kde Homepage funguje jako hub. Na týmovém webu připojeném k hubu se skryje – správce zde spravuje jen místní úvodní stránku a globální motiv i konfiguraci dědí z hubu.",
           "en": "EP365 global settings are now available only where Homepage acts as the hub. On a team site connected to the hub they are hidden — an administrator manages only the local home page there and inherits the global theme and configuration from the hub."
