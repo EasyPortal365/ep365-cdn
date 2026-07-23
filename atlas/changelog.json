@@ -9,8 +9,8 @@
       "changes": [
         {
           "type": "improved",
-          "cs": "Karta „Soubory sdílené ven“ se nově zobrazuje vždy – i když žádný soubor sdílený ven není, řekne vám to („žádné soubory ven, z pohledu úniku dat i AI ideální stav“) místo toho, aby se skryla. Vždy tak vidíte celý obraz, i ten pozitivní.",
-          "en": "The “Files shared out” card now always shows – even when no file is shared out, it tells you so (“no files out, ideal from a data-leak and AI standpoint”) instead of hiding. You always see the full picture, including the good news."
+          "cs": "Karty v sekcích se nově zobrazují vždy – i když v nich zrovna nic není, řeknou vám to („žádné soubory ven, ideální stav“ apod.) místo toho, aby se skryly. Týká se karet Soubory sdílené ven (Sdílení), OneDrive uživatelů (Úložiště) a Struktura tenantu (Weby). Vždy tak vidíte celý obraz, i ten pozitivní – prázdná karta je doklad, že se to kontroluje a je to v pořádku.",
+          "en": "Section cards now always show – even when there's currently nothing in them, they tell you so (“no files out, ideal state”, etc.) instead of hiding. This covers Files shared out (Sharing), Users' OneDrive (Storage) and Tenant structure (Sites). You always see the full picture, including the good news – an empty card is proof it's being checked and it's fine."
         },
         {
           "type": "improved",
