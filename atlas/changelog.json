@@ -4,6 +4,37 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.5",
+      "date": "2026-07-23",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Soubory sdílené ven: Atlas nově ukáže konkrétní soubory dostupné mimo organizaci – přes anonymní odkazy („Kdokoli s odkazem“) i viditelné hostům. V sekci Sdílení a hosté je najdete jmenně s odkazem, dva nové nálezy (anonymní soubory jako kritické, externí jako upozornění) je promítnou do skóre. Governance se posouvá z úrovně webů na úroveň konkrétních souborů – přesně to, co při nasazení AI rozhoduje.",
+          "en": "Files shared out: Atlas now shows the actual files reachable outside the organization – via anonymous “Anyone with the link” links and visible to guests. Find them by name with a link in Sharing & guests; two new findings (anonymous files as critical, external as a warning) feed the score. Governance moves from the site level down to individual files – exactly what matters when rolling out AI."
+        },
+        {
+          "type": "new",
+          "cs": "Kontrola citlivého obsahu (DLP-lite): Atlas prohledá tenant na potenciálně citlivé soubory – hesla a přihlašovací údaje, soukromé klíče a certifikáty, osobní údaje (rodná čísla, IBAN) a mzdové/finanční dokumenty. Upozorní na jejich počet a zvlášť kriticky na ty, které jsou zároveň sdílené ven. Z bezpečnosti Atlas záměrně neukládá cesty citlivých souborů – ukáže počty a kategorie, konkrétní soubory dohledáte přes vyhledávání. Nevyžaduje licenci Purview DLP.",
+          "en": "Sensitive content check (DLP-lite): Atlas scans the tenant for potentially sensitive files – passwords and credentials, private keys and certificates, personal data (national IDs, IBAN) and payroll/financial documents. It flags how many there are and, critically, which are also shared out. For safety Atlas deliberately does not store the paths of sensitive files – it shows counts and categories; you find the specific files via search. No Purview DLP licence required."
+        },
+        {
+          "type": "new",
+          "cs": "Aktuálnost obsahu: nový pohled na to, jak živý je obsah tenantu – kolik dokumentů se za měsíc změnilo a kolik jich je starších dvou let. Nízká živost obsahu se promítne jako nález adopce. AI odpovídá i ze zastaralého obsahu se stejnou jistotou jako z platného, proto na tom před nasazením AI záleží.",
+          "en": "Content freshness: a new view of how alive your tenant's content is – how many documents changed in the last month and how many are older than two years. Low content liveness shows up as an adoption finding. AI answers from stale content with the same confidence as from valid content, so this matters before an AI rollout."
+        },
+        {
+          "type": "new",
+          "cs": "Weby mimo vyhledávání: Atlas nově upozorní na weby vyřazené z vyhledávacího indexu (NoCrawl) – nevidí je hledání ani AI asistent. Někdy je to záměr (archiv, citlivý web), jindy chyba, která schová platný obsah; nález vám dá vědět, ať to prověříte.",
+          "en": "Sites hidden from search: Atlas now flags sites excluded from the search index (NoCrawl) – invisible to search and to the AI assistant. Sometimes that's intentional (archive, sensitive site), sometimes a mistake that hides valid content; the finding lets you review it."
+        },
+        {
+          "type": "new",
+          "cs": "Hygiena verzování: Atlas najde knihovny s neomezenou historií verzí (každá verze je plná kopie souboru – zbytečně bobtná úložiště) a upozorní, pokud není zapnuté inteligentní ořezávání verzí na úrovni tenantu. U obou je hotový PowerShell příkaz k nápravě.",
+          "en": "Versioning hygiene: Atlas finds libraries with unlimited version history (every version is a full copy of the file – needlessly bloating storage) and flags when intelligent version trimming isn't enabled at the tenant level. Both come with a ready PowerShell command to fix it."
+        }
+      ]
+    },
+    {
       "version": "1.4",
       "date": "2026-07-23",
       "changes": [
