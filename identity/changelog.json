@@ -5,8 +5,18 @@
   "entries": [
     {
       "version": "1.8",
-      "date": "2026-07-23",
+      "date": "2026-07-24",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Přibyla samoobsluha „Žádosti o skupinu“ – kdokoli může požádat o novou skupinu (název, účel, typ, citlivost, útvar) a sledovat stav své žádosti. Správce všechny žádosti vidí na jednom místě: schválí (skupina se vytvoří z předvyplněného formuláře) nebo zamítne s důvodem. O rozhodnutí přijde žadateli e-mail.",
+          "en": "A self-service \"Group requests\" section was added — anyone can request a new group (name, purpose, type, sensitivity, department) and track their request's status. Administrators see all requests in one place: approve (the group is created from a pre-filled form) or reject with a reason. The requester is notified of the decision by email."
+        },
+        {
+          "type": "improved",
+          "cs": "Odebrání členů či hostů po recertifikaci je odolnější – když se dočasně nepodaří načíst rozlišení hostů, aplikace přesto umožní bezpečně odebrat členy po celku, místo aby celou akci zablokovala.",
+          "en": "Removing members or guests after recertification is more resilient — if guest detection briefly fails, the app still lets you safely remove members as a whole instead of blocking the entire action."
+        },
         {
           "type": "new",
           "cs": "U rizikových skupin nově zasáhnete přímo na místě – bez otevírání detailu. Skupině bez vlastníka rovnou přiřadíte vlastníka (s návrhem stewarda útvaru), veřejnou skupinu jedním klikem přepnete na soukromou a konkrétního hosta odeberete rovnou ze seznamu. Totéž platí i ve stewardském pohledu „Moje oblast“.",
