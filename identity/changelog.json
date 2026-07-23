@@ -4,6 +4,32 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "1.8",
+      "date": "2026-07-23",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "U rizikových skupin nově zasáhnete přímo na místě – bez otevírání detailu. Skupině bez vlastníka rovnou přiřadíte vlastníka (s návrhem stewarda útvaru), veřejnou skupinu jedním klikem přepnete na soukromou a konkrétního hosta odeberete rovnou ze seznamu. Totéž platí i ve stewardském pohledu „Moje oblast“.",
+          "en": "You can now act on risky groups right where you see them — no need to open the detail. Assign an owner to an ownerless group (with the department steward suggested), switch a public group to private in one click, or remove a specific guest straight from the list. The same applies in the steward's \"My area\" view."
+        },
+        {
+          "type": "new",
+          "cs": "Recertifikace nově umí uzavřít smyčku. Když přístup označíte „k odebrání“, nabídne se rovnou odebrání členů nebo jen hostů – s náhledem, koho přesně se to týká, a s potvrzením. Výsledek se zapíše k dané revizi.",
+          "en": "Recertification can now close the loop. When you mark access \"to be removed,\" you're offered removal of members or just guests right away — with a preview of exactly who is affected and a confirmation. The outcome is recorded on the review."
+        },
+        {
+          "type": "improved",
+          "cs": "Governance běží spolehlivěji na pozadí. Denní snímek pro trendy i týdenní digesty útvarů se nově pořizují automaticky při otevření aplikace správcem – už nezávisí na tom, zda někdo otevře konkrétní report. V Nastavení přibyla karta „Governance robot“, kde vidíte, kdy naposledy proběhly, a můžete snímek pořídit ručně.",
+          "en": "Governance runs more reliably in the background. The daily snapshot for trends and the weekly department digests are now taken automatically whenever an administrator opens the app — no longer dependent on someone opening a particular report. Settings gained a \"Governance robot\" card showing when they last ran, with a manual run button."
+        },
+        {
+          "type": "new",
+          "cs": "Uložené pohledy filtru skupin lze nově sdílet s celým týmem. Při ukládání zvolíte, zda je pohled osobní (vidíte jen vy), nebo sdílený (vidí ho všichni). Dosavadní osobní pohledy se převedou automaticky.",
+          "en": "Saved group-filter views can now be shared with the whole team. When saving, you choose whether the view is personal (only you see it) or shared (everyone sees it). Your existing personal views are migrated automatically."
+        }
+      ]
+    },
+    {
       "version": "1.7",
       "date": "2026-07-23",
       "changes": [
