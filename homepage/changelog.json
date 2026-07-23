@@ -5,8 +5,23 @@
   "entries": [
     {
       "version": "1.22",
-      "date": "2026-07-22",
+      "date": "2026-07-23",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Nadcházející události: k události lze nově přidat formátovanou Poznámku (tučné, odrážky, odkazy). Zobrazí se v detailu události po kliknutí a lze ji vyplnit i v dalších jazycích obsahu.",
+          "en": "Upcoming events: you can now add a formatted Note to an event (bold, lists, links). It appears in the event detail when clicked and can also be filled in your other content languages."
+        },
+        {
+          "type": "new",
+          "cs": "Sekce „Knihovny dokumentů“ a „Seznamy webu“: když zapnete zobrazení interních listů aplikace (EP365), můžete nově zaškrtnout, které konkrétní z nich se mají v sekci ukázat – místo všech. Prázdný výběr = zobrazí se všechny interní.",
+          "en": "The “Document libraries” and “Site lists” sections: when you enable the app’s internal lists (EP365), you can now tick which specific ones appear — instead of all of them. An empty selection shows all internal ones."
+        },
+        {
+          "type": "improved",
+          "cs": "V sekcích „Knihovny dokumentů“ a „Seznamy webu“ se pruh s hledáním a řazením nově ukáže už od pěti dlaždic, takže je konzistentní u knihoven i seznamů vedle sebe.",
+          "en": "In the “Document libraries” and “Site lists” sections the search-and-sort bar now appears from five tiles up, so it stays consistent for libraries and lists side by side."
+        },
         {
           "type": "new",
           "cs": "Motiv nově umí světlý hero – úvodní pruh se světlým podkladem, tmavým textem a firemní barvou ve jméně (místo tmavého pruhu). Zapnete jej přepínačem „Světlý hero“ v editoru motivu; funguje i jako globální motiv pro celý ekosystém.",
