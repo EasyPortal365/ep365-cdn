@@ -21,6 +21,11 @@
           "type": "new",
           "cs": "Stewardi oblastí nově dostávají jednou týdně automatický e-mail s přehledem svého útvaru – počet skupin, průměrné skóre, porušení politik a další ukazatele. Governance tak běží i bez otevírání aplikace.",
           "en": "Area stewards now receive a weekly automatic email summarizing their department — number of groups, average score, policy violations and more. Governance runs even without opening the app."
+        },
+        {
+          "type": "improved",
+          "cs": "Zpřesnění a stabilizace governance vrstvy: upozornění na porušení politik ukazují jen aktuální stav (vyřešená mizí), trend governance je odolnější vůči krátkým výpadkům a ukládání klasifikací i metadat skupin a uživatelů je spolehlivější.",
+          "en": "Governance layer refinements and stability: policy-violation alerts show only the current state (resolved ones disappear), the governance trend is more resilient to brief outages, and saving classifications and group/user metadata is more reliable."
         }
       ]
     },
