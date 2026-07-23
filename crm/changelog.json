@@ -4,6 +4,22 @@
   "name": "EP365 CRM",
   "entries": [
     {
+      "version": "1.14",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Oprávnění na úrovni polí a rolí – v Nastavení → Oprávnění správce určí, která citlivá pole (nákupní cena, marže, hodnota nabídky i vlastní pole) daná role nevidí nebo vidí jen pro čtení. Skrytí platí i pro fakturační podklady, generovaný dokument a export do CSV.",
+          "en": "Field- and role-level permissions — in Settings → Permissions an administrator sets which sensitive fields (purchase price, margin, deal value and custom fields) a given role cannot see or can only read. Hiding also covers the invoicing basis, the generated document and the CSV export."
+        },
+        {
+          "type": "new",
+          "cs": "Role „jen pro čtení“ a omezení obrazovek – u role zapnete nebo vypnete vytváření a úpravy záznamů a vyberete, které obrazovky role vidí. Nápověda a podpora zůstávají vždy dostupné.",
+          "en": "Read-only roles and screen limits — per role you can turn record creation and editing on or off and choose which screens the role sees. Help and support stay available to everyone."
+        }
+      ]
+    },
+    {
       "version": "1.13",
       "date": "2026-07-22",
       "changes": [
