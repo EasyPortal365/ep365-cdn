@@ -8,6 +8,16 @@
       "date": "2026-07-23",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Interaktivní průvodce aplikací je výrazně obsáhlejší. Nově vás krok za krokem provede i celou Správou homepage a Globálním nastavením – každou sekcí zvlášť (záložky, rozvržení, vzhled, role, motiv, značka, AI…) – a přibyla kapitola „Můj den a osobní přehled“. Průvodce se sám přepne do daného místa a vysvětlí ho.",
+          "en": "The interactive app guide is significantly more thorough. It now walks you step by step through all of Homepage management and Global settings — each section separately (tabs, layout, appearance, roles, theme, brand, AI…) — and a new “My day and personal overview” chapter was added. The guide switches to each place itself and explains it."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozcestník kapitol průvodce má novou, přehlednější podobu: vlevo kapitoly seskupené podle role (Pro všechny / editory / správce), vpravo náhled vybrané kapitoly s osnovou „Co projdeme“ a tlačítkem Spustit.",
+          "en": "The guide’s chapter hub has a clearer new look: on the left, chapters grouped by role (For everyone / editors / administrators); on the right, a preview of the selected chapter with a “What we’ll cover” outline and a Start button."
+        },
+        {
           "type": "new",
           "cs": "Na týmovém webu je nově z hlavičky hned jasné, kde jste – nad pozdravem se ukáže název webu, štítek „Týmový web“ a vaše role (Správce / Editor / Člen). Na hlavním intranetu (hubu) se nezobrazuje.",
           "en": "On a team site the header now makes it immediately clear where you are — the site name, a “Team site” tag and your role (Administrator / Editor / Member) appear above the greeting. It is not shown on the main intranet (hub)."
