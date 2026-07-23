@@ -8,6 +8,26 @@
       "date": "2026-07-23",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Přeskenování jednoho webu nově ukazuje průběh po fázích (základ webu, uživatelé, vlastníci, knihovny, podweby, oprávnění) s ukazatelem postupu – vidíte, kde sken právě je.",
+          "en": "Rescanning a single site now shows progress in phases (site basics, users, owners, libraries, subsites, permissions) with a progress bar – you can see where the scan currently is."
+        },
+        {
+          "type": "improved",
+          "cs": "Dědění motivu z globální konfigurace se přesunulo z Obecného nastavení do sekce Motiv – vše kolem vzhledu aplikace je teď na jednom místě.",
+          "en": "Inheriting the theme from the global configuration moved from General settings into the Theme section – everything about the app's appearance is now in one place."
+        },
+        {
+          "type": "fixed",
+          "cs": "Strážce změn: upozornění na změnu nastavení tenantu se po úpravě v admin centru a obnovení stránky spolehlivě zobrazí. Dřív ho krátkodobě mohla přeskočit vyrovnávací paměť.",
+          "en": "Settings drift watch: the alert about a tenant settings change now reliably appears after you change something in the admin center and refresh. Previously a cache could briefly skip it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oprava knihovny z aplikace: tlačítko „Zapnout verzování“ u nálezu spolehlivě funguje. Odstranili jsme příčinu ojedinělé technické chyby SharePointu při zápisu.",
+          "en": "Fix library from the app: the “Enable versioning” button on a finding now works reliably. We removed the cause of an occasional SharePoint technical error on write."
+        },
+        {
           "type": "new",
           "cs": "Strážce změn nastavení: Atlas nově pozná, když se nastavení tenantu změní mimo aplikaci – v admin centru, PowerShellem nebo jiným správcem. Hned na Přehledu se objeví upozornění, které změny od posledního skenu proběhly, které z nich zvyšují riziko, a rizikovou změnu můžete jedním klikem vrátit zpět na bezpečnější hodnotu.",
           "en": "Settings drift watch: Atlas now notices when tenant settings change outside the app – in the admin center, via PowerShell, or by another admin. Right on the Overview you'll see which settings changed since the last scan, which of them raise risk, and you can revert a risky change back to the safer value in one click."
