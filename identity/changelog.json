@@ -4,6 +4,32 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "1.6",
+      "date": "2026-07-23",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Z uzlu taxonomie nově jedním klikem založíte skupinu v Entra – s předvyplněným názvem a rovnou zařazenou do daného útvaru. Když si u schématu namapujete úrovně na atributy Entra (např. Oddělení → department), skupina se vytvoří jako dynamická se správným pravidlem členství.",
+          "en": "You can now create an Entra group from a taxonomy node in one click — with a pre-filled name, already classified into that department. Map a scheme's levels to Entra attributes (e.g. Department → department) and the group is created as dynamic with the correct membership rule."
+        },
+        {
+          "type": "new",
+          "cs": "Report Governance nově ukazuje úplnost org struktury – útvary bez jediné skupiny a dynamické skupiny, jejichž pravidlo odkazuje hodnotu, pro kterou v taxonomii chybí uzel. Hned tak vidíte, co v obraze doplnit.",
+          "en": "The Governance report now shows org-structure completeness — departments with no group at all, and dynamic groups whose rule references a value with no matching taxonomy node. You immediately see what to add."
+        },
+        {
+          "type": "new",
+          "cs": "Governance se nově sleduje v čase – aplikace si jednou denně uloží snímek metrik a v reportu uvidíte trend průměrného skóre a % compliance. Poznáte tak, jestli se stav zlepšuje.",
+          "en": "Governance is now tracked over time — the app saves a daily snapshot of metrics and the report shows a trend of average score and compliance %. You can tell whether things are improving."
+        },
+        {
+          "type": "improved",
+          "cs": "Porušení politik útvarů se nově propíše i do upozornění na úvodním portálu (Attention Panel) – vidíte je, aniž byste aplikaci otevírali.",
+          "en": "Department policy violations now also surface in the home portal's Attention Panel — visible without even opening the app."
+        }
+      ]
+    },
+    {
       "version": "1.5",
       "date": "2026-07-22",
       "changes": [
