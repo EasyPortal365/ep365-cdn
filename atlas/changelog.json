@@ -4,6 +4,42 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.4",
+      "date": "2026-07-23",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Strážce změn nastavení: Atlas nově pozná, když se nastavení tenantu změní mimo aplikaci – v admin centru, PowerShellem nebo jiným správcem. Hned na Přehledu se objeví upozornění, které změny od posledního skenu proběhly, které z nich zvyšují riziko, a rizikovou změnu můžete jedním klikem vrátit zpět na bezpečnější hodnotu.",
+          "en": "Settings drift watch: Atlas now notices when tenant settings change outside the app – in the admin center, via PowerShell, or by another admin. Right on the Overview you'll see which settings changed since the last scan, which of them raise risk, and you can revert a risky change back to the safer value in one click."
+        },
+        {
+          "type": "new",
+          "cs": "Auditní hlídky: Atlas při každém otevření (nejvýš jednou za hodinu) na pozadí prověří auditní záznamy Microsoft Purview a upozorní na rizikové události mezi otevřeními – vytvořené anonymní odkazy, změny oprávnění, přidané správce kolekcí a hromadné mazání souborů. Hlídky zapnete v Nastavení → Notifikace; přehled událostí najdete na Přehledu i v Auditním logu.",
+          "en": "Audit watchtower: on each open (at most once an hour) Atlas checks the Microsoft Purview audit in the background and flags risky events that happened in the meantime – anonymous links created, permission changes, site collection admins added, and mass file deletions. Turn watches on in Settings → Notifications; find the events on the Overview and in the Audit log."
+        },
+        {
+          "type": "new",
+          "cs": "Vyšetřovací playbooky: Auditní log má nově sadu připravených dotazů na jeden klik – Aktivita uživatele, Kdo sahal na obsah, Sdílení ven za období, Změny oprávnění, Hromadné mazání a Aktivita správců. Playbook předvyplní sestavovač dotazu, který pak ještě doladíte. Vlastní dotazy si můžete pojmenovat a uložit pro příště.",
+          "en": "Investigation playbooks: the Audit log now has a set of ready-made one-click queries – User activity, Who touched content, External sharing over a period, Permission changes, Mass deletion and Admin activity. A playbook pre-fills the query builder, which you can still fine-tune. You can name and save your own queries for later."
+        },
+        {
+          "type": "new",
+          "cs": "Export auditu do CSV: výsledky auditního dotazu teď stáhnete jedním tlačítkem jako CSV (čas, uživatel, operace, web, objekt, detail) pro další zpracování. Vše se generuje ve vašem prohlížeči.",
+          "en": "Audit CSV export: audit query results can now be downloaded as CSV (time, user, operation, site, object, detail) with one button for further processing. Everything is generated in your browser."
+        },
+        {
+          "type": "new",
+          "cs": "Upozornění na incident e-mailem: když hlídka najde závažnou událost (přidaný správce, hromadné mazání), nabídne odeslání přehledného upozornění e-mailem. Odesílá přihlášený správce ze své schránky.",
+          "en": "Incident email alert: when a watch finds a serious event (admin added, mass deletion), it offers to send a clear email alert. The signed-in admin sends it from their own mailbox."
+        },
+        {
+          "type": "new",
+          "cs": "Přeskenovat jeden web: detail webu má nově tlačítko Přeskenovat tento web. Po nápravě (zapnutí verzování, obnovení dědění, úklid oprávnění) Atlas přehodnotí nálezy a skóre daného webu okamžitě, bez čekání na celý plný sken. Výsledek se zapíše do posledního snímku.",
+          "en": "Rescan a single site: the site detail now has a Rescan this site button. After a fix (enabling versioning, restoring inheritance, cleaning up permissions) Atlas re-evaluates that site's findings and score immediately, without waiting for a full scan. The result is written into the latest snapshot."
+        }
+      ]
+    },
+    {
       "version": "1.3",
       "date": "2026-07-22",
       "changes": [
