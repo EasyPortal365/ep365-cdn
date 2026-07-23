@@ -16,6 +16,11 @@
           "type": "new",
           "cs": "Novým uživatelům se na úvodní obrazovce nabídne pozvání do průvodce. Dokončené kapitoly si aplikace pamatuje u vašeho účtu – i při přihlášení z jiného počítače.",
           "en": "New users are offered a tour invitation on the start screen. Completed chapters are remembered with your account — even when you sign in from another computer."
+        },
+        {
+          "type": "fixed",
+          "cs": "Plovoucí AI Asistent (bublina v rohu stránky) se teď zobrazuje spolehlivě – opravili jsme případy, kdy po nasazení nebo změně nastavení zmizel a vracel se až po tvrdém obnovení stránky.",
+          "en": "The floating AI Assistant (the bubble in the page corner) now shows reliably — we fixed cases where it vanished after deployment or a settings change and only returned after a hard page refresh."
         }
       ]
     },
