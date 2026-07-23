@@ -4,6 +4,27 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "1.7",
+      "date": "2026-07-23",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "V detailu uživatele nově vidíte rozsah jeho přístupů dle útvarů – přes kolik úseků organizace sahá jeho členství ve skupinách. V Rizicích přístupů navíc upozorníme na hosty s přístupem napříč mnoha úseky (klasický permission sprawl), které je vhodné prověřit.",
+          "en": "The user detail now shows the reach of their access by department — how many parts of the organization their group memberships span. Access risks also flags guests with access across many departments (classic permission sprawl) worth reviewing."
+        },
+        {
+          "type": "improved",
+          "cs": "Trend governance lze nově přepnout z celkového souhrnu na pohled po útvarech – uvidíte samostatnou křivku skóre pro každý úsek a poznáte, který se zlepšuje a který ne.",
+          "en": "The governance trend can now switch from the overall summary to a per-department view — a separate score curve for each area, so you see which is improving and which isn't."
+        },
+        {
+          "type": "new",
+          "cs": "Stewardi oblastí nově dostávají jednou týdně automatický e-mail s přehledem svého útvaru – počet skupin, průměrné skóre, porušení politik a další ukazatele. Governance tak běží i bez otevírání aplikace.",
+          "en": "Area stewards now receive a weekly automatic email summarizing their department — number of groups, average score, policy violations and more. Governance runs even without opening the app."
+        }
+      ]
+    },
+    {
       "version": "1.6",
       "date": "2026-07-23",
       "changes": [
