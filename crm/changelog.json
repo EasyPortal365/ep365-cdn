@@ -16,6 +16,11 @@
           "type": "new",
           "cs": "Úroveň přístupu vlastní role v SharePointu – při zakládání role zvolíte, jak její členové smí pracovat s daty přímo v SharePointu: jen číst, přispívat, nebo plný přístup. SharePoint skupina role se přitom vytvoří automaticky. Smazání vlastní role skupinu zase odstraní.",
           "en": "SharePoint access level for custom roles — when creating a role you choose how its members may work with the data directly in SharePoint: read only, contribute, or full control. The role's SharePoint group is created automatically. Deleting a custom role removes the group again."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oprava: smazání vlastní role nyní spolehlivě odstraní i její SharePoint skupinu.",
+          "en": "Fix: deleting a custom role now reliably removes its SharePoint group as well."
         }
       ]
     },
