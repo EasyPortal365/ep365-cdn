@@ -18,6 +18,11 @@
           "en": "SharePoint access level for custom roles — when creating a role you choose how its members may work with the data directly in SharePoint: read only, contribute, or full control. The role's SharePoint group is created automatically. Deleting a custom role removes the group again."
         },
         {
+          "type": "new",
+          "cs": "Podrobnější oprávnění rolí – u každé role teď zvlášť zapnete, zda smí mazat záznamy, exportovat do CSV, vidět historii změn (audit) nebo spravovat role a členství. Dřív se rozlišovaly jen úpravy a správa aplikace; nová práva platí konzistentně na všech obrazovkách.",
+          "en": "Finer role permissions — for each role you can now toggle separately whether it may delete records, export to CSV, see the change history (audit) or manage roles and membership. Previously only editing and app administration were distinguished; the new permissions apply consistently across every screen."
+        },
+        {
           "type": "fixed",
           "cs": "Oprava: smazání vlastní role nyní spolehlivě odstraní i její SharePoint skupinu.",
           "en": "Fix: deleting a custom role now reliably removes its SharePoint group as well."
