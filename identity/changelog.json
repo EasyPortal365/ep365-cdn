@@ -4,6 +4,22 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "2.0",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Recertifikaci nově zvládnete i po jednotlivých členech. Místo hromadného rozhodnutí projdete seznam členů skupiny a u každého zvolíte, zda přístup ponechat, nebo odebrat. Rozhodnutí se uloží k revizi a označení členové se odeberou z Entra ID – ostatní zůstanou beze změny. Ideální pro citlivé skupiny; jde o schopnost, kterou jinde nabízejí až placené kontroly přístupu (Access Reviews).",
+          "en": "Recertification can now be done member by member. Instead of one bulk decision, you review the group's member list and choose for each person whether to keep or remove their access. Decisions are saved to the review and flagged members are removed from Entra ID — the rest stay unchanged. Ideal for sensitive groups; it's a capability otherwise reserved for paid access reviews."
+        },
+        {
+          "type": "new",
+          "cs": "K porušení politiky útvaru lze nově udělit výjimku – když je odchylka vědomě přijatá. Zadáte důvod, výjimka platí 180 dní a porušení se pak počítá jako splněné, takže nesnižuje procento shody (compliance) útvaru. Všechny udělené výjimky vidíte v přehledném registru s expirací a exportem do CSV; po vypršení se výjimka sama vrátí zpět jako porušení.",
+          "en": "You can now grant an exception to a department policy violation — when the deviation is knowingly accepted. You enter a reason, the exception lasts 180 days, and the violation then counts as met, so it no longer lowers the department's compliance percentage. All granted exceptions appear in a clear registry with expiration and CSV export; once expired, the exception automatically reverts to a violation."
+        }
+      ]
+    },
+    {
       "version": "1.9",
       "date": "2026-07-24",
       "changes": [
