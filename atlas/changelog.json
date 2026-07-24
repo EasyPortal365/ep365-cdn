@@ -9,8 +9,8 @@
       "changes": [
         {
           "type": "new",
-          "cs": "Nastavení jednotlivých týmů Microsoft Teams: kliknutím na tým v přehledu Teams otevřete detail, který kromě spárovaného webu (aktivita, úložiště, hosté, vlastníci) ukáže i nastavení samotného týmu – zda je archivovaný a jestli hosté nebo členové smějí vytvářet a mazat kanály. Rizikové kombinace (hosté smějí mazat kanály) jsou zvýrazněné. Načítá se na vyžádání a vyžaduje nové oprávnění TeamSettings.Read.All – jednorázový souhlas správce při aktualizaci.",
-          "en": "Per-team Microsoft Teams settings: clicking a team in the Teams overview opens a detail that – besides the paired site (activity, storage, guests, owners) – shows the team's own settings: whether it's archived and whether guests or members may create and delete channels. Risky combinations (guests may delete channels) are highlighted. Loaded on demand; requires the new TeamSettings.Read.All permission – a one-time admin consent on update."
+          "cs": "Nastavení jednotlivých týmů Microsoft Teams: tlačítkem „Nastavení“ u týmu v přehledu Teams otevřete detail, který kromě spárovaného webu (aktivita, úložiště, hosté, vlastníci) ukáže i nastavení samotného týmu – zda je archivovaný a jestli hosté nebo členové smějí vytvářet a mazat kanály. Rizikové kombinace (hosté smějí mazat kanály) jsou zvýrazněné. Načítá se na vyžádání a vyžaduje nové oprávnění TeamSettings.Read.All – jednorázový souhlas správce při aktualizaci.",
+          "en": "Per-team Microsoft Teams settings: the “Settings” button on a team row in the Teams overview opens a detail that – besides the paired site (activity, storage, guests, owners) – shows the team's own settings: whether it's archived and whether guests or members may create and delete channels. Risky combinations (guests may delete channels) are highlighted. Loaded on demand; requires the new TeamSettings.Read.All permission – a one-time admin consent on update."
         },
         {
           "type": "new",
@@ -26,6 +26,11 @@
           "type": "improved",
           "cs": "Upozornění na změny (Strážce) nově hlásí i nové hosty: pokud od posledního skenu přibyli v tenantu externí (hostovští) uživatelé, upozornění na Přehledu to uvede – i když se jinak nezměnilo žádné nastavení. Rychlé připomenutí zkontrolovat nové externí přístupy.",
           "en": "The settings drift alert now also reports new guests: if external (guest) users have been added to the tenant since the last scan, the Overview alert says so – even when no settings otherwise changed. A quick nudge to review new external access."
+        },
+        {
+          "type": "improved",
+          "cs": "Otevírání detailu je jednotné napříč přehledy: detail webu i týmu otevřete tlačítkem („Detail“, resp. „Nastavení“) na konci řádku – ne klikem na celý řádek. Přehlednější a předvídatelnější ovládání, stejné jako u ostatních seznamů.",
+          "en": "Opening a detail is now consistent across overviews: open a site or team detail via the button (“Detail” / “Settings”) at the end of the row – not by clicking the whole row. Clearer, more predictable interaction, matching the other lists."
         }
       ]
     },
