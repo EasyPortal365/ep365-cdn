@@ -21,6 +21,11 @@
           "type": "new",
           "cs": "Klasifikaci lze jedním tlačítkem proreplikovat jako sloupec „Klasifikace“ do knihoven vybraných (nebo všech) webů – uživatelé pak mohou dokumenty rovnou klasifikovat. Weby se najdou automaticky (jen ty, kam má správce přístup), konkrétní web lze přidat i ručně. Replikace proběhne tam, kde na to má správce práva, a zbytek přehledně nahlásí.",
           "en": "Classification can be replicated with one click as a “Classification” column into the document libraries of selected (or all) sites – users can then classify documents directly. Sites are found automatically (only those the administrator can access) and a specific site can be added manually. Replication runs where the administrator has permissions and clearly reports the rest."
+        },
+        {
+          "type": "fixed",
+          "cs": "Spolehlivostní vylepšení – telefonní seznam zobrazí i organizace nad 200 uživatelů, do videosekce lze vložit i odkazy na YouTube Shorts a živé přenosy, opětovná replikace klasifikačního sloupce nově doplní i nově přidané hodnoty číselníku a skupiny rolí aplikace se založí spolehlivěji.",
+          "en": "Reliability improvements — the phone directory lists organizations with more than 200 users, the video section accepts YouTube Shorts and live links, re-replicating the classification column now also adds newly added vocabulary values, and the app’s role groups are created more reliably."
         }
       ]
     },
