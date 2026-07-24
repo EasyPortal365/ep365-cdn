@@ -4,6 +4,32 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "1.9",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nová sekce „Privilegia“ ukazuje, kdo ve vašem tenantu drží administrátorské role Entra ID – globální správce, hosty s rolí i spící privilegovaná oprávnění (účty bez přihlášení přes 90 dní). Přehledné ukazatele upozorní na příliš vysoký počet globálních správců i na rizikové účty. Data se čtou živě, nic se neukládá; seznam lze exportovat do CSV jako podklad pro audit.",
+          "en": "A new \"Privileges\" section shows who holds Entra ID administrator roles in your tenant — global admins, guests with a role, and dormant privileged access (accounts with no sign-in for over 90 days). Clear indicators flag too many global admins and risky accounts. Data is read live, nothing is stored; the list exports to CSV as audit evidence."
+        },
+        {
+          "type": "new",
+          "cs": "V Rizicích přístupů přibylo tlačítko „Napravit vše“ – průvodce projde rizikové skupiny a hromadně navrhne nápravy: přiřazení vlastníka, přepnutí veřejných skupin na soukromé a odebrání hostů. Bezpečné akce jsou předvybrané, nevratné odebrání hostů potvrzujete ručně. Před spuštěním vidíte přesný souhrn a po dokončení si stáhnete protokol.",
+          "en": "Access risks gained a \"Fix all\" button — a wizard reviews risky groups and proposes fixes in bulk: assign an owner, switch public groups to private, and remove guests. Safe actions are preselected; irreversible guest removal you confirm manually. You see an exact summary before running and download a log afterward."
+        },
+        {
+          "type": "new",
+          "cs": "Detail uživatele nově nabízí „Offboarding“ – jedním postupem odcházejícího zaměstnance odhlásíte ze všech relací, zablokujete mu účet a odeberete ho ze všech skupin. Před spuštěním vidíte dopad, akci potvrzujete ve dvou krocích a na konci získáte protokol o každém kroku.",
+          "en": "The user detail now offers \"Offboarding\" — in a single flow you sign a departing employee out of all sessions, block their account, and remove them from all groups. You see the impact before running, confirm in two steps, and get a log of every step."
+        },
+        {
+          "type": "new",
+          "cs": "Úklid skupin teď umí jednat hromadně. Prázdné a starší skupiny označíte zaškrtnutím a archivujete najednou. U nalezených duplicit navíc jedním postupem sloučíte členy i evidenci (správce, štítky, poznámky) do vybrané skupiny a tu druhou archivujete – nebo ji volitelně trvale smažete.",
+          "en": "Group cleanup can now act in bulk. Select empty and older groups with checkboxes and archive them at once. For detected duplicates, merge members and records (owners, tags, notes) into a chosen group in one flow and archive the other — or optionally delete it for good."
+        }
+      ]
+    },
+    {
       "version": "1.8",
       "date": "2026-07-24",
       "changes": [
