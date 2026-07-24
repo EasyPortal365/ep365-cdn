@@ -19,8 +19,8 @@
         },
         {
           "type": "new",
-          "cs": "Klasifikaci lze jedním tlačítkem proreplikovat jako sloupec „Klasifikace“ do knihoven vybraných (nebo všech) webů z Mapy stránek – uživatelé pak mohou dokumenty rovnou klasifikovat. Replikace proběhne tam, kde na to má správce práva, a zbytek přehledně nahlásí.",
-          "en": "Classification can be replicated with one click as a “Classification” column into the document libraries of selected (or all) sites from the Site map — users can then classify documents directly. Replication runs where the administrator has permissions and clearly reports the rest."
+          "cs": "Klasifikaci lze jedním tlačítkem proreplikovat jako sloupec „Klasifikace“ do knihoven vybraných (nebo všech) webů – uživatelé pak mohou dokumenty rovnou klasifikovat. Weby se najdou automaticky (jen ty, kam má správce přístup), konkrétní web lze přidat i ručně. Replikace proběhne tam, kde na to má správce práva, a zbytek přehledně nahlásí.",
+          "en": "Classification can be replicated with one click as a “Classification” column into the document libraries of selected (or all) sites – users can then classify documents directly. Sites are found automatically (only those the administrator can access) and a specific site can be added manually. Replication runs where the administrator has permissions and clearly reports the rest."
         }
       ]
     },
