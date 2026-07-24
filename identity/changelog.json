@@ -16,6 +16,16 @@
           "type": "new",
           "cs": "K porušení politiky útvaru lze nově udělit výjimku – když je odchylka vědomě přijatá. Zadáte důvod, výjimka platí 180 dní a porušení se pak počítá jako splněné, takže nesnižuje procento shody (compliance) útvaru. Všechny udělené výjimky vidíte v přehledném registru s expirací a exportem do CSV; po vypršení se výjimka sama vrátí zpět jako porušení.",
           "en": "You can now grant an exception to a department policy violation — when the deviation is knowingly accepted. You enter a reason, the exception lasts 180 days, and the violation then counts as met, so it no longer lowers the department's compliance percentage. All granted exceptions appear in a clear registry with expiration and CSV export; once expired, the exception automatically reverts to a violation."
+        },
+        {
+          "type": "new",
+          "cs": "Recertifikace teď může běžet sama. Když útvar v Taxonomii vyžaduje pravidelnou recertifikaci, aplikace založí revizní kolo automaticky – jakmile je poslední recertifikace po splatnosti a skupina nemá otevřenou revizi. Recenzenta vybere podle správce skupiny, stewarda útvaru, nebo správce aplikace a rozešle e-maily. Funkci zapnete v Nastavení → Governance robot (ve výchozím stavu je vypnutá, ať ji zapnete vědomě). Přibylo i tlačítko „Předat“, kterým otevřenou revizi kdykoli přiřadíte jinému recenzentovi.",
+          "en": "Recertification can now run on its own. When a department requires periodic recertification in Taxonomy, the app starts a review round automatically — as soon as the last recertification is overdue and the group has no open review. It picks a reviewer from the group's owner, the department steward, or the app administrator and sends the emails. You enable it in Settings → Governance robot (off by default, so you turn it on deliberately). A new \"Reassign\" action also lets you hand an open review to a different reviewer at any time."
+        },
+        {
+          "type": "new",
+          "cs": "Jedním klikem si nově vytvoříte auditní balíček – tiskovou stránku, která shrnuje stav governance: klíčové ukazatele, procento shody podle útvarů, registr výjimek, poslední recertifikační rozhodnutí i vývojový graf v čase. Uložíte ji jako PDF a máte po ruce ucelený doklad pro audit či shodu (např. NIS2, ISO 27001). Najdete ji v Reportech pod tlačítkem „Auditní balíček“.",
+          "en": "With one click you can now generate an audit package — a printable page that summarizes your governance status: key indicators, compliance percentage by department, the exceptions registry, the latest recertification decisions, and a trend chart over time. Save it as a PDF and you have complete evidence for an audit or compliance (e.g. NIS2, ISO 27001). Find it in Reports under the \"Audit package\" button."
         }
       ]
     },
