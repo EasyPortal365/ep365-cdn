@@ -16,6 +16,11 @@
           "type": "improved",
           "cs": "Pod odpovědí se nově ukáže decentní počítadlo „Mimo AI“, když asistent některé nalezené dokumenty vynechal kvůli klasifikaci – hned vidíte, že se něco vyřadilo. Nejde o bezpečnostní hranici, jen o to, co asistent bere do podkladů odpovědi.",
           "en": "A discreet counter now appears under the answer when the assistant skipped some found documents due to classification — so you can see something was left out. It is not a security boundary, only what the assistant uses as source material."
+        },
+        {
+          "type": "fixed",
+          "cs": "Spolehlivostní vylepšení – diagramy v odpovědích se po přechodné chybě načtení samy zotaví, dokumenty s apostrofem či zvláštním znakem v názvu se korektně připojí i porovnají, mazání konverzace odstraní i velmi dlouhou historii a časy schůzek v podkladech se zobrazují ve vaší časové zóně.",
+          "en": "Reliability improvements — diagrams in answers recover after a transient loading error, documents with an apostrophe or special character in their name attach and compare correctly, deleting a conversation removes even very long histories, and meeting times in sources display in your time zone."
         }
       ]
     },
