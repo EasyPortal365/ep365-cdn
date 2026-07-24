@@ -4,6 +4,22 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.47",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Klasifikace obsahu – dokumenty označené jako „mimo AI“ (nebo uložené ve vyhrazených cestách) se nově nezahrnují do podkladů Firemních znalostí. Klasifikaci i výjimky spravuje správce centrálně v aplikaci EP365 Homepage; asistent je respektuje při každé odpovědi.",
+          "en": "Content classification — documents marked as excluded from AI (or stored in reserved paths) are no longer included in Company knowledge sources. Classification and exceptions are managed centrally by an administrator in the EP365 Homepage app; the assistant respects them in every answer."
+        },
+        {
+          "type": "improved",
+          "cs": "Pod odpovědí se nově ukáže decentní počítadlo „Mimo AI“, když asistent některé nalezené dokumenty vynechal kvůli klasifikaci – hned vidíte, že se něco vyřadilo. Nejde o bezpečnostní hranici, jen o to, co asistent bere do podkladů odpovědi.",
+          "en": "A discreet counter now appears under the answer when the assistant skipped some found documents due to classification — so you can see something was left out. It is not a security boundary, only what the assistant uses as source material."
+        }
+      ]
+    },
+    {
       "version": "1.46",
       "date": "2026-07-22",
       "changes": [
