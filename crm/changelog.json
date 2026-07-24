@@ -4,6 +4,22 @@
   "name": "EP365 CRM",
   "entries": [
     {
+      "version": "1.15",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Vlastní role uživatelů – vedle vestavěných rolí (Správce, Uživatel, Host) teď v Nastavení → Oprávnění vytvoříte vlastní role podle potřeb vaší firmy. U každé role určíte, zda smí jen vytvářet a upravovat záznamy, nebo má rovnou práva správce, a které obrazovky vidí. Členy do role pak přidáte v Nastavení → Role uživatelů stejně jako u vestavěných rolí.",
+          "en": "Custom user roles — besides the built-in roles (Administrator, User, Guest) you can now create your own roles in Settings → Permissions to fit your company's needs. For each role you set whether it may only create and edit records or has full administrator rights, and which screens it sees. You then add members to a role in Settings → User roles, just like the built-in ones."
+        },
+        {
+          "type": "new",
+          "cs": "Úroveň přístupu vlastní role v SharePointu – při zakládání role zvolíte, jak její členové smí pracovat s daty přímo v SharePointu: jen číst, přispívat, nebo plný přístup. SharePoint skupina role se přitom vytvoří automaticky. Smazání vlastní role skupinu zase odstraní.",
+          "en": "SharePoint access level for custom roles — when creating a role you choose how its members may work with the data directly in SharePoint: read only, contribute, or full control. The role's SharePoint group is created automatically. Deleting a custom role removes the group again."
+        }
+      ]
+    },
+    {
       "version": "1.14",
       "date": "2026-07-24",
       "changes": [
