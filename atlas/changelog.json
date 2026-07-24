@@ -4,6 +4,32 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.6",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Governance Microsoft Teams: nová obrazovka Teams ukáže všechny týmy z Microsoft 365 spárované s jejich SharePoint weby – s vlastníky, viditelností (veřejný/soukromý), aktivitou, úložištěm a hosty. Tři nové kontroly upozorní na týmy bez vlastníka (nikdo neřídí přístup), veřejné týmy (vidí je celá firma) a neaktivní týmy (kandidáti na archivaci). Základ pro úklid před nasazením AI i pro řízení rozrůstání Teams.",
+          "en": "Microsoft Teams governance: a new Teams screen shows every team from Microsoft 365 paired with its SharePoint site – with owners, visibility (public/private), activity, storage and guests. Three new checks flag teams without an owner (nobody governs access), public teams (visible to the whole company) and inactive teams (archival candidates). A foundation for cleanup before AI rollout and for controlling Teams sprawl."
+        },
+        {
+          "type": "new",
+          "cs": "Radar chystaných změn Microsoftu: Nastavení tenantu nově ukazuje oznámení z Message Centra dotýkající se SharePointu, OneDrive a Teams – zvlášť chystané změny (plan for change) s termínem akce. Vidíte na jednom místě, co se v Microsoft 365 chystá a co může vyžadovat vaši reakci, aniž byste museli chodit do admin centra.",
+          "en": "Microsoft change radar: Tenant settings now shows Message Center announcements touching SharePoint, OneDrive and Teams – especially planned changes (plan for change) with an action deadline. You see in one place what's coming in Microsoft 365 and what may require your action, without going to the admin center."
+        },
+        {
+          "type": "new",
+          "cs": "Nová kontrola: M365 skupiny bez expirační politiky – bez ní se opuštěné skupiny, týmy a weby hromadí bez konce (sprawl). Nález doporučí zapnutí expirace i s postupem.",
+          "en": "New check: Microsoft 365 groups without an expiration policy – without it, abandoned groups, teams and sites pile up endlessly (sprawl). The finding recommends enabling expiration with steps."
+        },
+        {
+          "type": "improved",
+          "cs": "Ukázková data „nordika“ nově obsahují i Microsoft Teams týmy a oznámení Message Centra – po vytvoření testovacích dat uvidíte obrazovku Teams i radar chystaných změn naplněné.",
+          "en": "The “nordika” sample data now also includes Microsoft Teams teams and Message Center announcements – after creating test data you'll see the Teams screen and the change radar populated."
+        }
+      ]
+    },
+    {
       "version": "1.5",
       "date": "2026-07-23",
       "changes": [
