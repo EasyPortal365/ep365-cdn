@@ -4,6 +4,27 @@
   "name": "EP365 Homepage",
   "entries": [
     {
+      "version": "1.23",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Klasifikace obsahu – v Globálním nastavení nově spravujete číselník klasifikačních stupňů (např. Veřejné, Interní, Důvěrné) s barvami a překlady do jazyků obsahu. Jednu hodnotu lze označit jako „mimo AI“ – dokumenty s ní pak AI Asistent nebere do Firemních znalostí.",
+          "en": "Content classification — in Global settings you now manage a scale of classification levels (e.g. Public, Internal, Confidential) with colours and translations into your content languages. One value can be marked as excluded from AI — documents with it are then left out of the AI Assistant’s Company knowledge."
+        },
+        {
+          "type": "new",
+          "cs": "Cesty mimo AI – správce může určit weby či knihovny, které AI Asistent vůbec neprohledává. Nejde o bezpečnostní hranici (přístup k obsahu řídí oprávnění SharePointu), jen o to, co se nebere do podkladů AI.",
+          "en": "Paths excluded from AI — an administrator can list sites or libraries the AI Assistant does not search at all. It is not a security boundary (SharePoint permissions govern access), only what is kept out of the AI’s source material."
+        },
+        {
+          "type": "new",
+          "cs": "Klasifikaci lze jedním tlačítkem proreplikovat jako sloupec „Klasifikace“ do knihoven vybraných (nebo všech) webů z Mapy stránek – uživatelé pak mohou dokumenty rovnou klasifikovat. Replikace proběhne tam, kde na to má správce práva, a zbytek přehledně nahlásí.",
+          "en": "Classification can be replicated with one click as a “Classification” column into the document libraries of selected (or all) sites from the Site map — users can then classify documents directly. Replication runs where the administrator has permissions and clearly reports the rest."
+        }
+      ]
+    },
+    {
       "version": "1.22",
       "date": "2026-07-23",
       "changes": [
