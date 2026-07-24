@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Úkoly z nálezů do Microsoft Planner: v detailu nálezu je nově tlačítko „Vytvořit úkol“ – založí úkol v Microsoft Planner (delegace kolegům přes sdílený plán, s bucketem a volitelným přiřazením konkrétní osobě), nebo ve vašem osobním Microsoft To-Do jako připomínku. Úkol nese název nálezu, popis s dopadem a postupem a odkaz zpět do Atlasu. Výchozí plán vyberete v Nastavení → Úkoly. Zakládá se z vašeho účtu. Funkce vyžaduje nové oprávnění Tasks.ReadWrite – jednorázový souhlas správce (admin consent) při aktualizaci.",
+          "en": "Tasks from findings to Microsoft Planner: the finding detail now has a “Create task” button – it creates a task in Microsoft Planner (delegate to colleagues via a shared plan, with a bucket and optional assignment to a specific person), or in your personal Microsoft To-Do as a reminder. The task carries the finding name, a description with impact and steps, and a link back to Atlas. Pick the default plan in Settings → Tasks. Created from your own account. This feature requires the new Tasks.ReadWrite permission – a one-time admin consent on update."
+        },
+        {
+          "type": "new",
           "cs": "Simulátor skóre: v Nálezech nově zapnete režim Simulace, zaškrtnete nálezy, které chcete vyřešit, a Atlas ihned přepočítá, jak by se změnilo skóre zdraví i jednotlivé pilíře – bez čekání na sken a bez jakéhokoli zápisu. Karta „Nejrychlejší cesta“ navíc seřadí nálezy podle bodového přínosu, takže vidíte, čím se vyplatí začít. Stejný výpočet nově pohání i cílové skóre v AI připravenosti.",
           "en": "Score simulator: in Findings you can now turn on Simulation mode, tick the findings you want to resolve, and Atlas instantly recalculates how the health score and each pillar would change – with no scan and no writes. A “Fastest path” card ranks findings by point impact, so you see where to start. The same calculation now also drives the target score in AI readiness."
         },
