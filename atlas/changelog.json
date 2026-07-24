@@ -4,6 +4,32 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.8",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nastavení jednotlivých týmů Microsoft Teams: kliknutím na tým v přehledu Teams otevřete detail, který kromě spárovaného webu (aktivita, úložiště, hosté, vlastníci) ukáže i nastavení samotného týmu – zda je archivovaný a jestli hosté nebo členové smějí vytvářet a mazat kanály. Rizikové kombinace (hosté smějí mazat kanály) jsou zvýrazněné. Načítá se na vyžádání a vyžaduje nové oprávnění TeamSettings.Read.All – jednorázový souhlas správce při aktualizaci.",
+          "en": "Per-team Microsoft Teams settings: clicking a team in the Teams overview opens a detail that – besides the paired site (activity, storage, guests, owners) – shows the team's own settings: whether it's archived and whether guests or members may create and delete channels. Risky combinations (guests may delete channels) are highlighted. Loaded on demand; requires the new TeamSettings.Read.All permission – a one-time admin consent on update."
+        },
+        {
+          "type": "new",
+          "cs": "Velikost košů webu: v detailu webu (záložka Aktivita a úložiště) je nově tlačítko „Zjistit velikost košů“ – na vyžádání spočítá, kolik místa drží smazané soubory v koši webu (1. i 2. úroveň). Údaj je aktuální ke kliknutí a neukládá se; vysypání košů uvolní místo okamžitě.",
+          "en": "Site recycle bin size: the site detail (Activity and storage tab) now has a “Check recycle bin size” button – on demand it calculates how much space deleted files hold in the site's recycle bin (first and second stage). The figure is live at click time and isn't stored; emptying the bins frees the space immediately."
+        },
+        {
+          "type": "new",
+          "cs": "Vlastní citlivé dotazy: ke kurátorovanému katalogu na citlivý obsah (hesla, klíče, osobní data) můžete v Nastavení → Skóre a pravidla přidat vlastní vyhledávací dotazy specifické pro vaši firmu – například názvy interních projektů nebo čísla smluv. Sken vrátí jen počty (žádné cesty ani názvy) a dotaz se bezpečně obalí, aby neunikl mimo rozsah.",
+          "en": "Custom sensitive queries: on top of the curated catalog of sensitive content (passwords, keys, personal data), you can add your own search queries specific to your company in Settings → Score and rules – for example internal project names or contract numbers. The scan returns only counts (no paths or names) and the query is safely wrapped so it can't escape its scope."
+        },
+        {
+          "type": "improved",
+          "cs": "Upozornění na změny (Strážce) nově hlásí i nové hosty: pokud od posledního skenu přibyli v tenantu externí (hostovští) uživatelé, upozornění na Přehledu to uvede – i když se jinak nezměnilo žádné nastavení. Rychlé připomenutí zkontrolovat nové externí přístupy.",
+          "en": "The settings drift alert now also reports new guests: if external (guest) users have been added to the tenant since the last scan, the Overview alert says so – even when no settings otherwise changed. A quick nudge to review new external access."
+        }
+      ]
+    },
+    {
       "version": "1.7",
       "date": "2026-07-24",
       "changes": [
