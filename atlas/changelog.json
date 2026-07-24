@@ -4,6 +4,37 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.7",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Simulátor skóre: v Nálezech nově zapnete režim Simulace, zaškrtnete nálezy, které chcete vyřešit, a Atlas ihned přepočítá, jak by se změnilo skóre zdraví i jednotlivé pilíře – bez čekání na sken a bez jakéhokoli zápisu. Karta „Nejrychlejší cesta“ navíc seřadí nálezy podle bodového přínosu, takže vidíte, čím se vyplatí začít. Stejný výpočet nově pohání i cílové skóre v AI připravenosti.",
+          "en": "Score simulator: in Findings you can now turn on Simulation mode, tick the findings you want to resolve, and Atlas instantly recalculates how the health score and each pillar would change – with no scan and no writes. A “Fastest path” card ranks findings by point impact, so you see where to start. The same calculation now also drives the target score in AI readiness."
+        },
+        {
+          "type": "new",
+          "cs": "Konfigurovatelné prahy a profily hodnocení: u pravidel s prahem (kolik souborů sdílených ven, kolik knihoven bez verzování, od jakého zaplnění kvóty upozornit…) si nově nastavíte vlastní hodnotu v Nastavení → Skóre a pravidla. Přibyly tři profily – Standardní, Přísný a Mírný – které nastaví prahy i závažnosti naráz podle přísnosti, kterou vaše organizace potřebuje. Použité prahy se ukládají ke každému skenu, takže historická hodnocení zůstávají reprodukovatelná.",
+          "en": "Configurable thresholds and scoring profiles: for rules with a threshold (how many files shared out, how many libraries without versioning, at what quota fill to warn…) you can now set your own value in Settings → Score and rules. Three profiles were added – Standard, Strict and Relaxed – which set thresholds and severities at once to match the strictness your organization needs. The thresholds used are saved with each scan, so historical assessments stay reproducible."
+        },
+        {
+          "type": "new",
+          "cs": "Napsat vlastníkům: u nálezů na úrovni webů (neaktivní weby, jediný vlastník, blížící se kvóta…) je nově tlačítko, kterým jedním e-mailem oslovíte vlastníky dotčených webů se žádostí o nápravu. Vyberete weby, upravíte připravenou šablonu (jméno webu i doporučená akce se doplní samy) a e-mail odejde z vaší schránky. Žádné rozesílání naslepo – každý web potvrzujete a vidíte výsledek.",
+          "en": "Email the owners: findings at the site level (inactive sites, a single owner, an approaching quota…) now have a button that emails the owners of the affected sites with a request to act. You pick the sites, tweak a ready-made template (the site name and recommended action fill in automatically), and the email goes from your own mailbox. No blind bulk sending – you confirm each site and see the result."
+        },
+        {
+          "type": "new",
+          "cs": "Evidence balíček pro auditora: jedním kliknutím v Reportech vytvoříte kompletní doklad governance – metadata skenu, skóre a pilíře, všechny nálezy se stavy a historií, udělené výjimky s odůvodněním, změnu od minulého skenu a přílohy v CSV (nálezy, weby, hosté). K vytištění, uložení do PDF nebo archivaci. Vše se generuje ve vašem prohlížeči, žádná data neodcházejí mimo tenant.",
+          "en": "Evidence package for auditors: one click in Reports builds a complete governance record – scan metadata, score and pillars, all findings with their status and history, granted exceptions with justification, the change since the previous scan, and CSV attachments (findings, sites, guests). For printing, saving to PDF or archiving. Everything is generated in your browser; no data leaves the tenant."
+        },
+        {
+          "type": "new",
+          "cs": "Časová osa: nová obrazovka ukáže příběh vašeho tenantu v čase – skeny, nově zjištěné i vyřešené nálezy a bezpečnostní události z auditních hlídek na jedné svislé ose. Filtrujete období i druh události, klik na den rozbalí konkrétní nálezy. Ideální pro rychlé doložení, jak se governance vyvíjí.",
+          "en": "Timeline: a new screen shows the story of your tenant over time – scans, newly found and resolved findings, and security events from the audit watches on a single vertical axis. Filter by period and event type; click a day to expand the specific findings. Ideal for quickly showing how governance is evolving."
+        }
+      ]
+    },
+    {
       "version": "1.6",
       "date": "2026-07-24",
       "changes": [
