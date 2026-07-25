@@ -4,6 +4,27 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "2.2",
+      "date": "2026-07-25",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "U dynamických skupin nově zjistíte dopředu, koho pravidlo zahrne. V editoru pravidla stačí kliknout na „Koho pravidlo zahrne?“ a aplikace odpoví, kolika uživatelům odpovídá, i ukáže prvních deset jmen. Dřív se pravidlo ukládalo naslepo a čekalo se, až ho Entra ID vyhodnotí. Pokud pravidlu neodpovídá nikdo, aplikace na to upozorní – obvykle jde o překlep nebo nevyplněný atribut.",
+          "en": "For dynamic groups you can now see in advance who a rule will include. In the rule editor, click \"Who will this rule include?\" and the app tells you how many users match, plus shows the first ten names. Previously a rule was saved blind and you waited for Entra ID to evaluate it. If nobody matches, the app says so — usually a typo or an attribute nobody has filled in."
+        },
+        {
+          "type": "new",
+          "cs": "Politika útvaru nově umí hlídat i tvar názvu skupiny. Zadáte konvenci (například „FIN-*“) a skupiny, které jí neodpovídají, se objeví mezi porušeními jako „Název mimo konvenci“. Hvězdička zastupuje libovolný text a na velikosti písmen nezáleží.",
+          "en": "Department policy can now also enforce a group naming convention. Enter a pattern (for example \"FIN-*\") and groups that don't match it appear among violations as \"Name outside convention\". The asterisk stands for any text and letter case doesn't matter."
+        },
+        {
+          "type": "improved",
+          "cs": "Detail účtu nově ukazuje nadřízeného, pokud je v Entra ID nastavený. A u externích hostů, kde Entra eviduje garanta, aplikace jeho jméno rovnou nabídne k převzetí – interního garanta už nemusíte psát z hlavy.",
+          "en": "The account detail now shows the user's manager when one is set in Entra ID. And for external guests where Entra records a sponsor, the app offers that name for one-click adoption — no more typing the internal sponsor from memory."
+        }
+      ]
+    },
+    {
       "version": "2.1",
       "date": "2026-07-24",
       "changes": [
