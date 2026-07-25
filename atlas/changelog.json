@@ -29,6 +29,11 @@
         },
         {
           "type": "improved",
+          "cs": "Grafy nově respektují firemní motiv: barvy v koláči podle oblastí i v trendu spotřeby úložiště se řídí zvolenou akcentovou a primární barvou (vlastní i zděděnou z EP365 Homepage) – místo napevno zadané tyrkysové a tmavě modré. Stavové barvy (červená, jantarová, zelená) zůstávají beze změny, protože nesou význam.",
+          "en": "Charts now respect the company theme: the colours in the findings-by-area donut and the storage trend follow your chosen accent and primary colour (your own or inherited from EP365 Homepage) – instead of hard-coded teal and navy. Status colours (red, amber, green) stay as they are because they carry meaning."
+        },
+        {
+          "type": "improved",
           "cs": "Otevírání detailu je jednotné napříč přehledy: detail webu i týmu otevřete tlačítkem („Detail“, resp. „Nastavení“) na konci řádku – ne klikem na celý řádek. Přehlednější a předvídatelnější ovládání, stejné jako u ostatních seznamů.",
           "en": "Opening a detail is now consistent across overviews: open a site or team detail via the button (“Detail” / “Settings”) at the end of the row – not by clicking the whole row. Clearer, more predictable interaction, matching the other lists."
         }
