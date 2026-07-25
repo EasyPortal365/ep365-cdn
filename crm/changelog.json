@@ -31,6 +31,16 @@
           "type": "improved",
           "cs": "Segmenty spravujete i v Nastavení → Segmenty: přejmenování, přepnutí sdílení a mazání na jednom místě.",
           "en": "Segments are also managed in Settings → Segments: rename, toggle sharing and delete in one place."
+        },
+        {
+          "type": "improved",
+          "cs": "Audit změn umí hledat, stránkovat a exportovat – v Nastavení → Audit změn najdete záznam podle jména firmy, kontaktu, pole i autora změny, výsledky se stránkují po patnácti a co vidíte, to si stáhnete do CSV.",
+          "en": "The change audit now searches, pages and exports — in Settings → Change audit you can look up a record by company, contact, field or the person who made the change, results are paged fifteen at a time, and whatever you see can be downloaded as CSV."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hromadná úprava nově odmítne hodnotu, která k vybranému poli nepatří – dřív se ve vzácném případě mohla uložit hodnota z jiného číselníku.",
+          "en": "Bulk edit now rejects a value that does not belong to the selected field — previously, in a rare case, a value from a different list could be saved."
         }
       ]
     },
