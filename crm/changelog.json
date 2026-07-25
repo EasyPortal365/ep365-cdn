@@ -4,6 +4,17 @@
   "name": "EP365 CRM",
   "entries": [
     {
+      "version": "1.16",
+      "date": "2026-07-25",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Časová osa u kontaktu i firmy – nová záložka, která na jednom místě chronologicky sloučí veškeré dění: aktivity, e-maily, nabídky, úkoly, účast na akcích a webinářích i změny záznamu. Položky jsou barevně rozlišené podle typu, dají se filtrovat a kliknutím otevřete detail. U kontaktu tak vidíte celou historii komunikace, u firmy dění napříč jejími kontakty.",
+          "en": "Timeline on contacts and companies — a new tab that merges everything chronologically in one place: activities, e-mails, deals, tasks, event and webinar attendance, and record changes. Items are colour-coded by type, can be filtered, and a click opens the detail. On a contact you see the whole communication history; on a company the activity across its contacts."
+        }
+      ]
+    },
+    {
       "version": "1.15",
       "date": "2026-07-24",
       "changes": [
