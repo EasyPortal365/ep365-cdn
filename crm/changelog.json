@@ -46,6 +46,11 @@
           "type": "new",
           "cs": "Údržba číselníku – v Nastavení → Číselníky je nové tlačítko „Zkontrolovat duplicity\". Když se některá hodnota v seznamech nabízí dvakrát (pozůstatek staršího zakládání číselníků), aplikace vám ukáže, čeho se to týká, a kopie odstraní; původní hodnota i všechny záznamy zůstanou beze změny. Hodnoty, které se liší popiskem nebo barvou, nechá na vašem rozhodnutí.",
           "en": "Choice list maintenance — Settings → Choice lists has a new \"Check for duplicates\" button. If a value is offered twice in the lists (a leftover from older list seeding), the app shows you what is affected and removes the copies; the original value and all records stay untouched. Values that differ in label or colour are left for you to decide."
+        },
+        {
+          "type": "fixed",
+          "cs": "Dědění motivu z hubu je čitelnější – v Nastavení → Motiv aplikace teď aplikace napíše, proč se motiv nedědí (chybí adresa hubu ve vlastnostech webové části, nebo hub globální motiv nepublikuje), místo aby přepínač beze slova zmizel. Zároveň už výpadek jednoho z nastavení neshodí načtení motivu z hubu.",
+          "en": "Theme inheritance from the hub is clearer — Settings → App theme now states why the theme is not inherited (missing hub address in the web part properties, or the hub does not publish a global theme) instead of silently hiding the switch. A failure in one settings read no longer takes down the hub theme load with it."
         }
       ]
     },
