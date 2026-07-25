@@ -4,6 +4,32 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.9",
+      "date": "2026-07-25",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nová obrazovka „Aplikace a přístupy“ (jen pro správce): ukáže aplikace, které čtou obsah SharePointu i bez přihlášeného uživatele – na ty totiž neplatí oprávnění webů ani nastavení sdílení. U každé vidíte, co přesně smí (od čtení až po plnou kontrolu nad všemi weby), kdy jí to bylo povoleno a – pokud to je ještě v auditním logu – kdo souhlas udělil. Data se čtou stávajícím oprávněním, žádný nový souhlas správce není potřeba.",
+          "en": "New “Applications and access” screen (admins only): it shows the applications that read SharePoint content without a signed-in user – site permissions and sharing settings don't apply to them. For each one you see exactly what it may do (from read access up to full control of every site), when it was granted, and – if it's still in the audit log – who approved it. Read with existing permissions; no new admin consent required."
+        },
+        {
+          "type": "new",
+          "cs": "Hlídání tajemství a certifikátů aplikací: Atlas sleduje platnost přihlašovacích údajů registrovaných aplikací a upozorní, když se blíží expirace (nebo už prošla). Vypršelé tajemství shodí integraci naráz a bez varování – tohle vám dá čas ho vyměnit dřív. Samotné hodnoty se nikde nezobrazují ani neukládají; Microsoft je stejně nevydá.",
+          "en": "Watching application secrets and certificates: Atlas tracks the validity of credentials for registered applications and warns you when expiry is near (or has already passed). An expired secret takes an integration down at once and without warning – this gives you time to rotate it first. The values themselves are never shown or stored; Microsoft doesn't hand them out anyway."
+        },
+        {
+          "type": "new",
+          "cs": "Čtyři nová pravidla v oblasti Oprávnění: aplikace s plnou kontrolou nad všemi weby, aplikace zapisující do obsahu bez uživatele, prošlá tajemství (mrtvá registrace, která si drží oprávnění) a tajemství před expirací. Prahy si upravíte v Nastavení → Skóre a pravidla.",
+          "en": "Four new rules under Permissions: applications with full control of every site, applications writing to content without a user, expired secrets (a dead registration still holding its permissions), and secrets about to expire. Thresholds are adjustable in Settings → Score and rules."
+        },
+        {
+          "type": "improved",
+          "cs": "Auditní hlídky nově poznají hromadné stahování: stahování je běžná práce, takže incident vznikne až podle objemu – když jeden účet stáhne v jednom okně víc souborů, než je nastavený práh (výchozí 200, nula hlídku vypne). U externího účtu nebo u aktivity v noci a o víkendu to Atlas zvlášť zvýrazní – typický obrázek odnášení dat před odchodem.",
+          "en": "The audit watches now spot bulk downloads: downloading is ordinary work, so an incident is raised by volume – when a single account downloads more files in one window than the configured threshold (200 by default; zero turns the watch off). If the account is external, or the activity happens at night or over the weekend, Atlas highlights that separately – the classic picture of data walking out the door."
+        }
+      ]
+    },
+    {
       "version": "1.8",
       "date": "2026-07-24",
       "changes": [
