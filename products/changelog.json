@@ -11,6 +11,16 @@
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si Produktový katalog krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
           "en": "Interactive app guide – walk through the Product Catalog step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+        },
+        {
+          "type": "improved",
+          "cs": "Dokumentace se čte pohodlněji – čtečka je výrazně širší a vlevo má osnovu s kapitolami dokumentu; kliknutím na kapitolu skočíte rovnou na danou část.",
+          "en": "Documentation reads more comfortably — the reader is noticeably wider and shows a chapter outline on the left; click a chapter to jump straight to that part."
+        },
+        {
+          "type": "improved",
+          "cs": "Zvětšení na celou obrazovku je teď v hlavičce stránky – tlačítko najdete mezi rychlými ikonami na každé obrazovce, stejně jako v ostatních aplikacích EP365.",
+          "en": "Full-screen mode now lives in the page header — the button sits among the quick icons on every screen, just like in other EP365 apps."
         }
       ]
     },
