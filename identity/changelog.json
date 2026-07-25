@@ -4,6 +4,22 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "2.1",
+      "date": "2026-07-24",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Aplikace nově vidí i vnořené skupiny – tedy případy, kdy je členem skupiny další skupina a její lidé tak mají přístup, aniž by byli zapsaní přímo. V detailu skupiny přepnete na „Včetně vnořených“ a seznam se rozbalí na konkrétní uživatele; ti získaní vnořením mají fialový štítek a zámek, protože je lze odebrat jen tam, kde jsou přímými členy.",
+          "en": "The app now sees nested groups — cases where a group contains another group, so its people have access without being listed directly. In the group detail, switch to \"Include nested\" and the list expands to actual users; those gained through nesting carry a purple tag and a lock, since they can only be removed where they are direct members."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozsah přístupů u uživatele a přehled hostů se širokým přístupem počítají nově i s vnořeným členstvím. Dřív takový přístup unikal – host schovaný ve vnořené skupině se v rizicích vůbec neobjevil, přestože se k datům dostal.",
+          "en": "A user's access scope and the overview of guests with broad access now account for nested membership as well. Previously such access slipped through — a guest hidden in a nested group never showed up in risks, even though they could reach the data."
+        }
+      ]
+    },
+    {
       "version": "2.0",
       "date": "2026-07-24",
       "changes": [
