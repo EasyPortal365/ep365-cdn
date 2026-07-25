@@ -4,6 +4,37 @@
   "name": "EP365 CRM",
   "entries": [
     {
+      "version": "1.17",
+      "date": "2026-07-25",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Uložené segmenty – filtr, který si nastavíte v Kontaktech, Firmách nebo Nabídkách, si teď můžete pojmenovat a uložit („Horké leady z webinářů“, „Zákazníci bez aktivity“). Segment se pak nabízí jedním kliknutím nad seznamem, jde ho sdílet s týmem nebo si ho nechat jen pro sebe a odkaz na něj můžete poslat kolegovi. U nabídek platí ve všech třech pohledech – kanbanu, seznamu i prognóze.",
+          "en": "Saved segments — a filter you set up in Contacts, Companies or Deals can now be named and saved (\"Hot leads from webinars\", \"Customers with no activity\"). The segment is then one click away above the list, can be shared with the team or kept private, and you can send a colleague a link to it. On deals it applies across all three views — kanban, list and forecast."
+        },
+        {
+          "type": "new",
+          "cs": "Hromadné úpravy kontaktů – v seznamu kontaktů zaškrtnete libovolné řádky (nebo celý výběr) a jedním krokem jim nastavíte zdroj, preferovaný kanál, vlastníka nebo příznak nezasílat hromadné e-maily.",
+          "en": "Bulk edits for contacts — tick any rows in the contact list (or the whole selection) and set source, preferred channel, owner, or the do-not-bulk-email flag in one step."
+        },
+        {
+          "type": "new",
+          "cs": "Kampaň rovnou ze segmentu – tlačítko „Odeslat kampaň“ nad seznamem kontaktů předá vybrané příjemce do průvodce kampaní, kde už jsou předvybraní. Název segmentu se propíše do historie kampaně, takže je zpětně vidět, komu se psalo.",
+          "en": "Campaign straight from a segment — the \"Send campaign\" button above the contact list passes the selected recipients into the campaign wizard with everyone pre-selected. The segment name is recorded in the campaign history, so it stays clear who was contacted."
+        },
+        {
+          "type": "new",
+          "cs": "Export do CSV nese název segmentu – stažený soubor se jmenuje podle výběru, ne pokaždé stejně.",
+          "en": "CSV export carries the segment name — the downloaded file is named after the selection instead of always the same."
+        },
+        {
+          "type": "improved",
+          "cs": "Segmenty spravujete i v Nastavení → Segmenty: přejmenování, přepnutí sdílení a mazání na jednom místě.",
+          "en": "Segments are also managed in Settings → Segments: rename, toggle sharing and delete in one place."
+        }
+      ]
+    },
+    {
       "version": "1.16",
       "date": "2026-07-25",
       "changes": [
