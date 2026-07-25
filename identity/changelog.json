@@ -23,6 +23,16 @@
           "en": "For both groups and users you can now see which enterprise applications they grant access to. In the group detail you can tell — before adding a member — what you'd be opening up for them; on a user you see the applications assigned to them personally. When a group grants no application access, the app says so explicitly."
         },
         {
+          "type": "new",
+          "cs": "Detail účtu nově ukazuje i aplikace, které si uživatel odsouhlasil sám – tedy ty, kterým při přihlášení kliknul „Povolit“ a daly jim přístup k jeho datům, aniž by o tom IT vědělo. Aplikace s přístupem k poště, souborům, chatům nebo kalendáři jsou zvýrazněné štítkem „N× citlivé“; najetím myší zobrazíte konkrétní oprávnění. Typický signál stínového IT a dobrý kandidát na revizi.",
+          "en": "The account detail now also shows applications the user consented to themselves — those they clicked \"Accept\" for at sign-in, granting access to their data without IT knowing. Apps reaching mail, files, chats, or the calendar are highlighted with an \"N× sensitive\" tag; hover to see the exact permissions. A classic shadow-IT signal and a good candidate for review."
+        },
+        {
+          "type": "improved",
+          "cs": "U přiřazených aplikací je nově poznat, zda jde o přiřazení konkrétní role (plná linka = řízený přístup), nebo jen o výchozí přístup bez role (čárkovaně). V nápovědě je i upozornění, že přiřazovat aplikace celým skupinám umožňuje až licence Entra ID P1 – na nižších plánech jdou přiřazovat jen jednotliví uživatelé.",
+          "en": "Assigned applications now show whether a specific role was granted (solid outline = controlled access) or only default access without a role (dashed). The help also notes that assigning applications to whole groups requires an Entra ID P1 licence — on lower plans only individual users can be assigned."
+        },
+        {
           "type": "improved",
           "cs": "Rizika přístupů berou nově v úvahu i aplikace: skupina, která pouští do podnikových aplikací a zároveň má externí hosty nebo je veřejná, se označí štítkem „Zpřístupňuje N aplikací“ a vyhodnotí jako vysoce riziková. Samotné přiřazení aplikace riziko není – rizikem ho dělá až otevřenost skupiny. Počet aplikací najdete i v exportu rizik do CSV.",
           "en": "Access risks now factor in applications: a group that grants access to enterprise apps and at the same time has external guests or is public gets a \"Grants access to N apps\" tag and is rated high risk. An application assignment alone isn't a risk — it becomes one only through the group's openness. The app count is also included in the risk CSV export."
