@@ -16,6 +16,16 @@
           "type": "improved",
           "cs": "Rozsah přístupů u uživatele a přehled hostů se širokým přístupem počítají nově i s vnořeným členstvím. Dřív takový přístup unikal – host schovaný ve vnořené skupině se v rizicích vůbec neobjevil, přestože se k datům dostal.",
           "en": "A user's access scope and the overview of guests with broad access now account for nested membership as well. Previously such access slipped through — a guest hidden in a nested group never showed up in risks, even though they could reach the data."
+        },
+        {
+          "type": "new",
+          "cs": "U skupiny i u uživatele nově uvidíte, do jakých podnikových aplikací dávají přístup. V detailu skupiny tak před přidáním člena poznáte, co všechno mu tím otevřete; u uživatele vidíte aplikace přiřazené přímo jemu. Když skupina žádnou aplikaci nezpřístupňuje, aplikace to výslovně napíše.",
+          "en": "For both groups and users you can now see which enterprise applications they grant access to. In the group detail you can tell — before adding a member — what you'd be opening up for them; on a user you see the applications assigned to them personally. When a group grants no application access, the app says so explicitly."
+        },
+        {
+          "type": "improved",
+          "cs": "Rizika přístupů berou nově v úvahu i aplikace: skupina, která pouští do podnikových aplikací a zároveň má externí hosty nebo je veřejná, se označí štítkem „Zpřístupňuje N aplikací“ a vyhodnotí jako vysoce riziková. Samotné přiřazení aplikace riziko není – rizikem ho dělá až otevřenost skupiny. Počet aplikací najdete i v exportu rizik do CSV.",
+          "en": "Access risks now factor in applications: a group that grants access to enterprise apps and at the same time has external guests or is public gets a \"Grants access to N apps\" tag and is rated high risk. An application assignment alone isn't a risk — it becomes one only through the group's openness. The app count is also included in the risk CSV export."
         }
       ]
     },
