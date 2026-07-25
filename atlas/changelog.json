@@ -28,6 +28,11 @@
           "en": "The settings drift alert now also reports new guests: if external (guest) users have been added to the tenant since the last scan, the Overview alert says so – even when no settings otherwise changed. A quick nudge to review new external access."
         },
         {
+          "type": "new",
+          "cs": "Celá obrazovka: v pravém horním rohu každé stránky je nová ikona, která roztáhne Atlas přes celé okno prohlížeče – víc místa pro široké tabulky webů, nálezů i auditní log, míň posouvání. Dalším klikem se vrátíte zpět do stránky SharePointu. Volba platí i při přecházení mezi obrazovkami.",
+          "en": "Full screen: a new icon in the top-right corner of every page expands Atlas across the whole browser window – more room for the wide tables of sites, findings and the audit log, and less scrolling. Click again to return to the SharePoint page. The choice persists as you move between screens."
+        },
+        {
           "type": "improved",
           "cs": "Grafy nově respektují firemní motiv: barvy v koláči podle oblastí i v trendu spotřeby úložiště se řídí zvolenou akcentovou a primární barvou (vlastní i zděděnou z EP365 Homepage) – místo napevno zadané tyrkysové a tmavě modré. Stavové barvy (červená, jantarová, zelená) zůstávají beze změny, protože nesou význam.",
           "en": "Charts now respect the company theme: the colours in the findings-by-area donut and the storage trend follow your chosen accent and primary colour (your own or inherited from EP365 Homepage) – instead of hard-coded teal and navy. Status colours (red, amber, green) stay as they are because they carry meaning."
