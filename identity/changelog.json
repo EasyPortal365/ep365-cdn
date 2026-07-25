@@ -26,6 +26,11 @@
           "type": "new",
           "cs": "Jedním klikem si nově vytvoříte auditní balíček – tiskovou stránku, která shrnuje stav governance: klíčové ukazatele, procento shody podle útvarů, registr výjimek, poslední recertifikační rozhodnutí i vývojový graf v čase. Uložíte ji jako PDF a máte po ruce ucelený doklad pro audit či shodu (např. NIS2, ISO 27001). Najdete ji v Reportech pod tlačítkem „Auditní balíček“.",
           "en": "With one click you can now generate an audit package — a printable page that summarizes your governance status: key indicators, compliance percentage by department, the exceptions registry, the latest recertification decisions, and a trend chart over time. Save it as a PDF and you have complete evidence for an audit or compliance (e.g. NIS2, ISO 27001). Find it in Reports under the \"Audit package\" button."
+        },
+        {
+          "type": "improved",
+          "cs": "Přiřazení recenzenta, správce nebo stewarda funguje nově i u účtů, které nemají nastavenou e-mailovou adresu – použije se jejich přihlašovací jméno. Dřív takový člověk sice zůstal přiřazený, ale nedostal e-mailovou notifikaci a nenašel svou revizi mezi „svými“.",
+          "en": "Assigning a reviewer, owner, or steward now works even for accounts without an email address set — their sign-in name is used instead. Previously such a person stayed assigned but received no email notification and couldn't find their review among \"theirs.\""
         }
       ]
     },
