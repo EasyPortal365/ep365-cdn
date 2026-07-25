@@ -39,8 +39,8 @@
         },
         {
           "type": "improved",
-          "cs": "Otevírání detailu je jednotné napříč přehledy: detail webu i týmu otevřete tlačítkem („Detail“, resp. „Nastavení“) na konci řádku – ne klikem na celý řádek. Přehlednější a předvídatelnější ovládání, stejné jako u ostatních seznamů.",
-          "en": "Opening a detail is now consistent across overviews: open a site or team detail via the button (“Detail” / “Settings”) at the end of the row – not by clicking the whole row. Clearer, more predictable interaction, matching the other lists."
+          "cs": "Otevírání detailu je jednotné napříč přehledy i celým EP365: kliknete kamkoli na řádek (Weby, Úložiště, Teams, Nálezy) a otevře se detail. Řádek se pod myší podbarví a vpravo na něm svítí šipka „›“, takže je na první pohled vidět, že s ním jde něco udělat – žádné hledání malého tlačítka na konci řádku.",
+          "en": "Opening a detail is consistent across the overviews and across EP365: click anywhere on a row (Sites, Storage, Teams, Findings) and the detail opens. The row highlights on hover and shows a “›” arrow on the right, so it is obvious at a glance that it does something – no hunting for a small button at the end of the row."
         }
       ]
     },
