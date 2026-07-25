@@ -31,6 +31,11 @@
           "type": "improved",
           "cs": "Přiřazení recenzenta, správce nebo stewarda funguje nově i u účtů, které nemají nastavenou e-mailovou adresu – použije se jejich přihlašovací jméno. Dřív takový člověk sice zůstal přiřazený, ale nedostal e-mailovou notifikaci a nenašel svou revizi mezi „svými“.",
           "en": "Assigning a reviewer, owner, or steward now works even for accounts without an email address set — their sign-in name is used instead. Previously such a person stayed assigned but received no email notification and couldn't find their review among \"theirs.\""
+        },
+        {
+          "type": "fixed",
+          "cs": "Přidání a odebrání správce aplikace (Nastavení → Role uživatelů) už nepřestane fungovat po delší práci v aplikaci. Necháte-li aplikaci otevřenou déle než půl hodiny, hlásila dřív chybu o chybějícím oprávnění, přestože jste práva měli – stačilo stránku obnovit. Nyní si aplikace vyžádá platné ověření sama.",
+          "en": "Adding and removing an app administrator (Settings → User roles) no longer stops working after a long session. If you left the app open for more than half an hour, it used to report a missing-permission error even though you had the rights — a page refresh was the workaround. The app now refreshes its own validation token."
         }
       ]
     },
