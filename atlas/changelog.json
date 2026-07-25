@@ -23,6 +23,36 @@
           "en": "Four new rules under Permissions: applications with full control of every site, applications writing to content without a user, expired secrets (a dead registration still holding its permissions), and secrets about to expire. Thresholds are adjustable in Settings → Score and rules."
         },
         {
+          "type": "new",
+          "cs": "Hranice pro AI: v AI připravenosti je nová karta, která řekne, jestli má organizace vůbec zavedenou klasifikaci obsahu – tedy způsob, jak označit dokument slovy „tenhle do odpovědí AI nepatří“. Bez ní asistent pracuje se vším, co uživatel smí přečíst, a jediné, co obsah drží stranou, jsou oprávnění nastavená pro lidi, ne pro stroj. Atlas hlásí i případ, kdy klasifikace existuje, ale žádná její hodnota obsah z AI nevylučuje.",
+          "en": "AI boundaries: AI readiness has a new card telling you whether the organization has content classification set up at all – that is, a way to mark a document as “this one doesn't belong in AI answers”. Without it the assistant works with everything the user may read, and the only thing holding content back are permissions designed for people, not machines. Atlas also reports the case where classification exists but none of its values actually excludes content from AI."
+        },
+        {
+          "type": "new",
+          "cs": "Kdy dojde kvóta: Úložiště nově odhadne, jak dlouho ještě vydrží kvóta tenantu při současném tempu růstu – a upozorní, když to vychází na méně než rok. Odhad se počítá z historie skenů, takže se objeví po několika pravidelných skenech; dokud na něj nejsou data, Atlas to rovnou řekne místo vymýšlení čísla. Vedle je karta „Kde se dá uklidit“ s vyčísleným místem, které drží dlouhodobě neaktivní weby.",
+          "en": "When storage runs out: Storage now estimates how long the tenant quota will last at the current growth rate – and warns when it comes out under a year. The estimate is computed from scan history, so it appears after several regular scans; until there's data for it, Atlas says so instead of inventing a number. Next to it is a “Where to clean up” card quantifying the space held by long-inactive sites."
+        },
+        {
+          "type": "new",
+          "cs": "Hromadné akce nad nálezy: v Nálezech zapnete režim výběru, zaškrtnete nálezy a naráz je označíte jako potvrzené, řešené nebo vyřešené. Ušetří to proklikávání desítek detailů po dokončeném úklidu. Výjimku s odůvodněním i nadále udělujete jednotlivě – u ní je kontext potřeba.",
+          "en": "Bulk actions on findings: in Findings you switch on selection mode, tick the findings and mark them all at once as acknowledged, in progress or resolved. It saves clicking through dozens of details after a completed clean-up. Exceptions with a justification are still granted one by one – there the context matters."
+        },
+        {
+          "type": "new",
+          "cs": "Hosté z domén mimo povolený seznam: pokud má tenant zapnutý seznam povolených domén pro externí sdílení, Atlas najde hosty z domén, které v něm nejsou. Omezení domén totiž platí jen pro nová pozvání – účty pozvané dřív mají přístup dál a organizace přitom věří, že sdílí jen s vyjmenovanými partnery.",
+          "en": "Guests from domains outside the allow list: if the tenant has an allow list for external sharing, Atlas finds guests from domains that aren't on it. The domain restriction only applies to new invitations – accounts invited earlier keep their access, while the organization believes it only shares with the listed partners."
+        },
+        {
+          "type": "improved",
+          "cs": "Zdraví služeb Microsoft 365 má vlastní kartu v Nastavení tenantu – a to i tehdy, když je vše v pořádku. Probíhající incident u Microsoftu totiž zkresluje i čísla skenu (chybějící weby, prázdné reporty), takže je lepší o něm vědět dřív, než začnete hledat chybu u sebe.",
+          "en": "Microsoft 365 service health has its own card in Tenant settings – including when everything is fine. An ongoing incident at Microsoft skews the scan numbers too (missing sites, empty reports), so it's better to know about it before you start looking for the fault on your side."
+        },
+        {
+          "type": "improved",
+          "cs": "V přehledu aplikací je vidět původ registrace: aplikace z cizího tenantu (dodavatelské) nesou štítek „Třetí strana“, aplikace Microsoftu štítek „Microsoft“ a ty vaše jsou bez štítku. Microsoftí aplikace se navíc nepočítají do nálezů – správce s nimi stejně nic neudělá a jen by přehlušily to podstatné.",
+          "en": "The application overview now shows the origin of each registration: applications from a foreign tenant (vendors) carry a “Third party” tag, Microsoft's carry “Microsoft”, and your own have none. Microsoft applications also no longer produce findings – an admin can't do anything about them and they would only drown out what matters."
+        },
+        {
           "type": "improved",
           "cs": "Auditní hlídky nově poznají hromadné stahování: stahování je běžná práce, takže incident vznikne až podle objemu – když jeden účet stáhne v jednom okně víc souborů, než je nastavený práh (výchozí 200, nula hlídku vypne). U externího účtu nebo u aktivity v noci a o víkendu to Atlas zvlášť zvýrazní – typický obrázek odnášení dat před odchodem.",
           "en": "The audit watches now spot bulk downloads: downloading is ordinary work, so an incident is raised by volume – when a single account downloads more files in one window than the configured threshold (200 by default; zero turns the watch off). If the account is external, or the activity happens at night or over the weekend, Atlas highlights that separately – the classic picture of data walking out the door."
