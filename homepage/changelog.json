@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.23",
-      "date": "2026-07-24",
+      "date": "2026-07-25",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Replikace klasifikace je nově po jednotlivých knihovnách. U nalezeného webu si rozbalíte jeho knihovny dokumentů a u každé hned vidíte, zda už sloupec „Klasifikace“ má. Vybrané knihovny pak jedním tlačítkem sloupcem opatříte – nebo z nich sloupec zase odeberete.",
+          "en": "Classification replication is now per library. For a found site you expand its document libraries and see at a glance whether each already has the “Classification” column. You then add the column to the selected libraries with one button — or remove it from them again."
+        },
         {
           "type": "new",
           "cs": "Klasifikace obsahu – v Globálním nastavení nově spravujete číselník klasifikačních stupňů (např. Veřejné, Interní, Důvěrné) s barvami a překlady do jazyků obsahu. Jednu hodnotu lze označit jako „mimo AI“ – dokumenty s ní pak AI Asistent nebere do Firemních znalostí.",
