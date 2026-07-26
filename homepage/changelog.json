@@ -4,6 +4,32 @@
   "name": "EP365 Homepage",
   "entries": [
     {
+      "version": "1.24",
+      "date": "2026-07-26",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Šablony dokumentových knihoven – v Globálním nastavení nově popíšete, jak má vypadat dokumentová knihovna: sloupce Typ dokumentu, Stav, Oblast, Vlastník a Termín revize, jejich barevné formátování, čtveřici zobrazení (Vše, Podle typu, Ke kontrole a dlaždicová Galerie s kartami) i zapnuté verzování s koncepty. Šablonu pak jedním tlačítkem nasadíte na knihovny vybraných webů.",
+          "en": "Document library blueprints — in Global settings you now describe what a document library should look like: Document type, Status, Area, Owner and Review date columns, their colour formatting, four views (All, By type, To review and a tile Gallery with cards) and versioning with drafts. You then apply the blueprint to the libraries of selected sites with one button."
+        },
+        {
+          "type": "new",
+          "cs": "Vlastní šablony – dodávaná šablona „Týmová knihovna“ je hotový vzor; tlačítkem „Duplikovat“ z ní vytvoříte vlastní kopii, kde si upravíte názvy sloupců i hodnoty číselníků (jiné typy dokumentů pro výrobu, jiné pro obchod). Barvy a ikony se k hodnotám doplní automaticky.",
+          "en": "Your own blueprints — the shipped “Team library” blueprint is a ready-made model; the “Duplicate” button creates your own copy where you adjust column names and vocabulary values (different document types for production, different for sales). Colours and icons are matched to the values automatically."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled nasazení – u každé knihovny hned vidíte, zda šablonu má, a jestli je aktuální, nebo zastaralá (po úpravě šablony). Nasazení je aditivní: vlastní sloupce a zobrazení, které si tým v knihovně vytvořil, zůstanou nedotčené.",
+          "en": "Apply overview — for each library you see at a glance whether it has the blueprint and whether it is current or outdated (after the blueprint changes). Applying is additive: custom columns and views the team created in the library stay untouched."
+        },
+        {
+          "type": "improved",
+          "cs": "Sekce „Klasifikace obsahu“ se v Globálním nastavení přesunula pod nový oddíl „Správa obsahu“, kde ji doplnily Šablony knihoven. Výběr cílových webů a knihoven je pro obě funkce společný.",
+          "en": "The “Content classification” section moved under a new “Content governance” area in Global settings, joined by Library blueprints. Choosing target sites and libraries now works the same way for both."
+        }
+      ]
+    },
+    {
       "version": "1.23",
       "date": "2026-07-25",
       "changes": [
