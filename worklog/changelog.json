@@ -81,6 +81,11 @@
           "type": "improved",
           "cs": "Vnitřní úklid – hlavička stránky, stránkování, řazení tabulek, hledání ⌘K i ukládání voleb jedou ze sdílených komponent EasyPortal 365. Pro vás se nic nemění, opravy a vylepšení ale nově dorazí do všech aplikací najednou.",
           "en": "Internal cleanup – the page header, pagination, table sorting, ⌘K search and preference storage now come from shared EasyPortal 365 components. Nothing changes for you, but fixes and improvements now land across all apps at once."
+        },
+        {
+          "type": "improved",
+          "cs": "Dokument výkazu je nově členěný podle projektů – u každého projektu najdete rozpad odpracovaných hodin a hned pod ním souhrn podle typu práce; na konci dokumentu je celkový souhrn za všechny projekty. U výkazu s jediným projektem zůstává dokument jednoduchý, bez zdvojených souhrnů.",
+          "en": "The timesheet document is now structured by project – each project shows its hour breakdown followed by a summary per work type, and the document ends with an overall summary across all projects. A single-project report stays simple, without duplicated summaries."
         }
       ]
     },
