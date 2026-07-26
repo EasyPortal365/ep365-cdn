@@ -8,6 +8,11 @@
       "date": "2026-07-25",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Otevírání detailu ze seznamů je nově všude stejné: kliknete kamkoli na řádek a napravo se objeví šipka „›“, která napovídá, že řádek jde rozkliknout. Dřív se v některých seznamech muselo trefit konkrétní místo v řádku – hlavně u Skupin, kde klik mimo text nedělal nic. Textové odkazy „Otevřít →“ a „Porovnat →“ nahradila jednotná šipka.",
+          "en": "Opening a detail from a list now works the same everywhere: click anywhere on the row, and a \"›\" chevron on the right hints that the row can be opened. Previously some lists required hitting an exact spot — notably Groups, where clicking outside the text did nothing. The textual \"Open →\" and \"Compare →\" links were replaced by one consistent chevron."
+        },
+        {
           "type": "new",
           "cs": "U dynamických skupin nově zjistíte dopředu, koho pravidlo zahrne. V editoru pravidla stačí kliknout na „Koho pravidlo zahrne?“ a aplikace odpoví, kolika uživatelům odpovídá, i ukáže prvních deset jmen. Dřív se pravidlo ukládalo naslepo a čekalo se, až ho Entra ID vyhodnotí. Pokud pravidlu neodpovídá nikdo, aplikace na to upozorní – obvykle jde o překlep nebo nevyplněný atribut.",
           "en": "For dynamic groups you can now see in advance who a rule will include. In the rule editor, click \"Who will this rule include?\" and the app tells you how many users match, plus shows the first ten names. Previously a rule was saved blind and you waited for Entra ID to evaluate it. If nobody matches, the app says so — usually a typo or an attribute nobody has filled in."
