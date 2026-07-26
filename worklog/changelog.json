@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.1",
-      "date": "2026-07-22",
+      "date": "2026-07-26",
       "changes": [
         {
           "type": "new",
@@ -46,6 +46,36 @@
           "type": "new",
           "cs": "Ke schválení můžete odeslat jen vybrané výkazy – zaškrtněte konkrétní řádky (nebo všechny naráz v záhlaví) a odešlete je; bez výběru se jako dosud odešlou všechny koncepty.",
           "en": "You can submit just the entries you pick – tick individual rows (or all at once in the header) and send them; with no selection all drafts are submitted as before."
+        },
+        {
+          "type": "improved",
+          "cs": "Sazby v ceníku mají platnost od data – když zdražíte, uloží se nová verze sazby a dříve pořízené výkazy si podrží tu původní.",
+          "en": "Rate card entries now have an effective-from date – a price change stores a new version and previously logged entries keep the original rate."
+        },
+        {
+          "type": "improved",
+          "cs": "Upozornění „výkaz čeká na schválení příliš dlouho“ se nově počítá od okamžiku odeslání, ne od poslední změny řádku – stáří ve frontě tak sedí.",
+          "en": "The “entry has been waiting too long” warning is now measured from the moment of submission, not the last row change – queue age is finally accurate."
+        },
+        {
+          "type": "improved",
+          "cs": "Odkazy „Kopírovat odkaz“ fungují i v Microsoft Teams – míří na stránku aplikace v SharePointu, takže je můžete poslat kolegovi.",
+          "en": "The “Copy link” action now works in Microsoft Teams too – links point to the app page in SharePoint, so you can send them to a colleague."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace v Teams lépe rozliší výpadek sítě od „aplikace tu není“ – místo zavádějící hlášky poradí, co s tím.",
+          "en": "In Teams the app now tells a network glitch apart from “the app is not deployed here” – instead of a misleading message you get actionable advice."
+        },
+        {
+          "type": "improved",
+          "cs": "Správce v Nastavení vidí, zda aplikace běží v aktuální verzi; při zastaralé se objeví upozornění.",
+          "en": "Administrators see in Settings whether the app runs the current version; an outdated build shows a notice."
+        },
+        {
+          "type": "fixed",
+          "cs": "Počet aktivních projektů byl na Přehledu a v Přehledu využití počítán různě – nyní obě místa ukazují totéž.",
+          "en": "Active project counts differed between the Overview and the Usage overview – both now show the same number."
         }
       ]
     },
