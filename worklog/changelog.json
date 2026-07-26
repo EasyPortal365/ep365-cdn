@@ -16,6 +16,36 @@
           "type": "new",
           "cs": "Novým uživatelům se na přehledu nabídne pozvání do průvodce.",
           "en": "New users are offered a tour invitation on the overview."
+        },
+        {
+          "type": "new",
+          "cs": "Výkaz lze zkopírovat do nové položky – ikona kopie u řádku předvyplní rychlý zápis (projekt, milník, typ práce, hodiny i popis) s dnešním datem; stačí doladit a uložit. Funguje na počítači i na mobilu.",
+          "en": "An entry can be copied into a new one – the copy icon in the row prefills the quick entry (project, milestone, work type, hours and description) with today's date; just adjust and save. Works on desktop and mobile."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikaci lze zvětšit na celou obrazovku – přepínač v pravém horním rohu roztáhne Worklog přes celé okno, což ocení hlavně široké tabulky výkazů a fakturace. Dalším klikem se vrátíte zpět.",
+          "en": "The app can be maximised to full screen – the toggle in the top right stretches Worklog across the whole window, handy for wide timesheet and billing tables. Click again to return."
+        },
+        {
+          "type": "improved",
+          "cs": "Můj výkaz je v nabídce hned pod Přehledem – nejčastější denní činnost máte po ruce.",
+          "en": "My timesheet sits right below Overview in the menu – your most frequent daily activity is now within reach."
+        },
+        {
+          "type": "improved",
+          "cs": "Zápis výkazu je pohodlnější a úplnější – u hodin jsou šipky po půl hodině (nebo klávesy nahoru/dolů), popis má nově víc řádků a všechna pole formuláře jsou povinná, takže ve výkazu nezůstane prázdné místo.",
+          "en": "Logging an entry is smoother and more complete – hours have half-hour arrows (or up/down keys), the description spans several lines and every field is now required, so no entry stays half-filled."
+        },
+        {
+          "type": "improved",
+          "cs": "Dokument výkazu (Word) přebírá motiv aplikace – barva akcentu i primární barva se propíší do hlavičky, tabulek i součtů. Nově obsahuje také souhrn odpracovaných hodin podle typu práce včetně podílu v procentech.",
+          "en": "The timesheet document (Word) picks up the app theme – accent and primary colours flow into the header, tables and totals. It also newly includes a summary of hours by work type, with percentage shares."
+        },
+        {
+          "type": "new",
+          "cs": "Ke schválení můžete odeslat jen vybrané výkazy – zaškrtněte konkrétní řádky (nebo všechny naráz v záhlaví) a odešlete je; bez výběru se jako dosud odešlou všechny koncepty.",
+          "en": "You can submit just the entries you pick – tick individual rows (or all at once in the header) and send them; with no selection all drafts are submitted as before."
         }
       ]
     },
