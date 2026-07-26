@@ -86,6 +86,11 @@
           "type": "improved",
           "cs": "Dokument výkazu je nově členěný podle projektů – u každého projektu najdete rozpad odpracovaných hodin a hned pod ním souhrn podle typu práce; na konci dokumentu je celkový souhrn za všechny projekty. U výkazu s jediným projektem zůstává dokument jednoduchý, bez zdvojených souhrnů.",
           "en": "The timesheet document is now structured by project – each project shows its hour breakdown followed by a summary per work type, and the document ends with an overall summary across all projects. A single-project report stays simple, without duplicated summaries."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda vysvětluje, jak vypadá dokument výkazu a hlavně kdy se příjem z hodin propíše do EP365 CRM – samotné schválení ani označení Fakturováno tam nic neposílá, rozhoduje až uzávěrka měsíce.",
+          "en": "Help now explains what the timesheet document looks like and, more importantly, when hours turn into revenue in EP365 CRM – neither approval nor the invoiced flag sends anything there; the month close does."
         }
       ]
     },
