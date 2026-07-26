@@ -9,6 +9,26 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Zařazení existujícího produktu do řady – v detailu skupiny je nově tlačítko „Zařadit existující“: vyberete produkty ze seznamu (s hledáním) a jedním klikem je přesunete do této řady. Dřív to šlo jen oklikou přes editaci každého produktu zvlášť. U produktů, které už v jiné řadě jsou, je vidět upozornění, že se přesunou – produkt patří vždy do jedné řady.",
+          "en": "Assign an existing product to a range – the group detail now has an “Assign existing” button: pick products from a searchable list and move them into the range in one click. Previously this was only possible by editing each product separately. Products already in another range are flagged as moving – a product always belongs to exactly one range."
+        },
+        {
+          "type": "improved",
+          "cs": "Nový produkt založíte přímo z katalogu – tlačítko „Přidat produkt“ je nově i v hlavičce přehledu Všechny produkty a v prázdném katalogu, nejen v levém panelu.",
+          "en": "Create a product straight from the catalog – the “Add product” button now also sits in the All products header and in the empty catalog, not just in the left rail."
+        },
+        {
+          "type": "improved",
+          "cs": "Bezpečnější výchozí oprávnění – skupina editorů katalogu nově dostává úroveň Přispívat místo Upravovat. Editoři dál plně spravují produkty, obrázky i soubory, ale nemohou zasáhnout do struktury seznamů. U již nasazených webů se nastavení srovná samo, jakmile katalog otevře správce.",
+          "en": "Safer default permissions – the catalog editors group is now granted Contribute instead of Edit. Editors still fully manage products, images and files, but can no longer alter the structure of the underlying lists. On sites already deployed the change applies itself the next time an administrator opens the catalog."
+        },
+        {
+          "type": "new",
+          "cs": "Katalog upozorní na úvodní stránce – do přehledu „Můj den“ v EP365 Homepage nově hlásí, co potřebuje pozornost: produkty zůstávající v konceptu, uvedení chystaná do 14 dnů a produkty, kterým do 30 dnů končí životnost. Karta ukazuje jen počet a odkazuje rovnou do katalogu.",
+          "en": "The catalog now speaks up on your start page – it reports to the “My day” overview in EP365 Homepage what needs attention: products left in draft, launches coming within 14 days and products retiring within 30 days. The card shows a count only and links straight into the catalog."
+        },
+        {
+          "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si Produktový katalog krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
           "en": "Interactive app guide – walk through the Product Catalog step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
         },
@@ -21,6 +41,11 @@
           "type": "improved",
           "cs": "Zvětšení na celou obrazovku je teď v hlavičce stránky – tlačítko najdete mezi rychlými ikonami na každé obrazovce, stejně jako v ostatních aplikacích EP365.",
           "en": "Full-screen mode now lives in the page header — the button sits among the quick icons on every screen, just like in other EP365 apps."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vyhledávání ⌘K se zobrazovalo systémovým patkovým písmem místo firemního – opraveno, paleta je zpět v jednotném vzhledu aplikace.",
+          "en": "The ⌘K search rendered in the system serif font instead of the brand one – fixed, the palette is back to the app's consistent look."
         }
       ]
     },
