@@ -96,6 +96,11 @@
           "type": "improved",
           "cs": "Dokument výkazu má levý i pravý okraj stránky 2 cm – tabulky tak využijí víc šířky a dokument je připravený k tisku i archivaci.",
           "en": "The timesheet document now uses 2 cm left and right page margins – tables get more width and the document is ready for printing and filing."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vyhledávání ⌘K a záhlaví tabulek se po vnitřní úpravě zobrazovaly systémovým patkovým písmem místo firemního – opraveno, vše je zpět v jednotném vzhledu aplikace.",
+          "en": "The ⌘K search and table headers rendered in the system serif font instead of the brand one after an internal change – fixed, everything is back to the app's consistent look."
         }
       ]
     },
