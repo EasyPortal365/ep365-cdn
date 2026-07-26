@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "2.2",
-      "date": "2026-07-25",
+      "date": "2026-07-26",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Kolo recertifikace lze nově rozdělit mezi nadřízené. Při spuštění kola vyberete, kdo má přístupy potvrzovat: správce skupiny jako dosud, nebo nadřízený jednotlivých členů. Ve druhém případě se každá skupina rozpadne na revize podle nadřízených a každý vedoucí posuzuje jen své lidi – nemusí tak řešit členy, které nezná. Kdo nadřízeného v Entra ID nemá, zůstává správci skupiny. V seznamu revizí je u takto rozdělených revizí vidět, kolika členů se týkají.",
+          "en": "A recertification round can now be split among managers. When starting a round you choose who confirms access: the group steward as before, or each member's manager. In the latter case every group is split into per-manager reviews, so each manager only assesses their own people instead of members they don't know. Anyone without a manager in Entra ID stays with the group steward. The review list shows how many members each split review covers."
+        },
         {
           "type": "improved",
           "cs": "Otevírání detailu ze seznamů je nově všude stejné: kliknete kamkoli na řádek a napravo se objeví šipka „›“, která napovídá, že řádek jde rozkliknout. Dřív se v některých seznamech muselo trefit konkrétní místo v řádku – hlavně u Skupin, kde klik mimo text nedělal nic. Textové odkazy „Otevřít →“ a „Porovnat →“ nahradila jednotná šipka.",
