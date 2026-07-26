@@ -4,6 +4,32 @@
   "name": "EP365 Worklog",
   "entries": [
     {
+      "version": "1.2",
+      "date": "2026-07-26",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Zákazníky lze nově propojit s firmami v EP365 CRM – propojenému zákazníkovi pak název a IČO spravuje CRM a Worklog je drží aktuální. Existující zákazníky vám aplikace nabídne propojit podle IČO. Bez CRM se nic nemění: zákazníky vedete dál přímo ve Worklogu.",
+          "en": "Customers can now be linked to companies in EP365 CRM – a linked customer has its name and registration number managed by CRM, and Worklog keeps them up to date. Existing customers are offered for linking by their registration number. Without CRM nothing changes: you keep your customers in Worklog."
+        },
+        {
+          "type": "new",
+          "cs": "Nastavení → Vazba na CRM má sekci Synchronizace: ukáže, co se v CRM změnilo u zákazníků i u servisních smluv, a vy změny potvrdíte. Nic se nepřepisuje samo.",
+          "en": "Settings → CRM link now has a Synchronisation section: it shows what changed in CRM for customers and service contracts, and you confirm the changes. Nothing is overwritten automatically."
+        },
+        {
+          "type": "improved",
+          "cs": "Změna paušálu ve smlouvě platí od aktuálního období dál – už uzavřené měsíce si drží svůj paušál, takže se vyfakturovaná historie nepřepočítá.",
+          "en": "A contract allowance change applies from the current period onwards – already closed months keep their own allowance, so invoiced history is never recalculated."
+        },
+        {
+          "type": "new",
+          "cs": "Na úvodní obrazovce se správci objeví upozornění, když v CRM čekají změny k převzetí.",
+          "en": "Administrators see a notice on the overview when CRM has changes waiting to be taken over."
+        }
+      ]
+    },
+    {
       "version": "1.1",
       "date": "2026-07-26",
       "changes": [
