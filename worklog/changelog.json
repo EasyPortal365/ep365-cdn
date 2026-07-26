@@ -76,6 +76,11 @@
           "type": "fixed",
           "cs": "Počet aktivních projektů byl na Přehledu a v Přehledu využití počítán různě – nyní obě místa ukazují totéž.",
           "en": "Active project counts differed between the Overview and the Usage overview – both now show the same number."
+        },
+        {
+          "type": "improved",
+          "cs": "Vnitřní úklid – hlavička stránky, stránkování, řazení tabulek, hledání ⌘K i ukládání voleb jedou ze sdílených komponent EasyPortal 365. Pro vás se nic nemění, opravy a vylepšení ale nově dorazí do všech aplikací najednou.",
+          "en": "Internal cleanup – the page header, pagination, table sorting, ⌘K search and preference storage now come from shared EasyPortal 365 components. Nothing changes for you, but fixes and improvements now land across all apps at once."
         }
       ]
     },
