@@ -91,6 +91,11 @@
           "type": "improved",
           "cs": "Nápověda vysvětluje, jak vypadá dokument výkazu a hlavně kdy se příjem z hodin propíše do EP365 CRM – samotné schválení ani označení Fakturováno tam nic neposílá, rozhoduje až uzávěrka měsíce.",
           "en": "Help now explains what the timesheet document looks like and, more importantly, when hours turn into revenue in EP365 CRM – neither approval nor the invoiced flag sends anything there; the month close does."
+        },
+        {
+          "type": "improved",
+          "cs": "Dokument výkazu má levý i pravý okraj stránky 2 cm – tabulky tak využijí víc šířky a dokument je připravený k tisku i archivaci.",
+          "en": "The timesheet document now uses 2 cm left and right page margins – tables get more width and the document is ready for printing and filing."
         }
       ]
     },
