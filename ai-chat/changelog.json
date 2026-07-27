@@ -21,6 +21,11 @@
           "type": "fixed",
           "cs": "Spolehlivostní vylepšení – diagramy v odpovědích se po přechodné chybě načtení samy zotaví, dokumenty s apostrofem či zvláštním znakem v názvu se korektně připojí i porovnají, mazání konverzace odstraní i velmi dlouhou historii a časy schůzek v podkladech se zobrazují ve vaší časové zóně.",
           "en": "Reliability improvements — diagrams in answers recover after a transient loading error, documents with an apostrophe or special character in their name attach and compare correctly, deleting a conversation removes even very long histories, and meeting times in sources display in your time zone."
+        },
+        {
+          "type": "fixed",
+          "cs": "Plovoucí bublina asistenta se už nezobrazuje dvakrát – v dialozích SharePointu (například „Nové → Knihovna dokumentů“ v Obsahu webu) se objevovala i uvnitř okna dialogu.",
+          "en": "The floating assistant bubble no longer appears twice — it used to also show up inside SharePoint dialog windows (for example \"New → Document library\" in Site contents)."
         }
       ]
     },
