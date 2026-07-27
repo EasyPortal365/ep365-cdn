@@ -31,6 +31,11 @@
           "type": "new",
           "cs": "Zákazníka, kterého ve Worklogu ještě nemáte, si nově založíte přímo ze synchronizace – sekce vypíše firmy, které jsou v CRM a tady zatím chybí, vy zaškrtnete ty, na kterých budete vykazovat, a založí se rovnou propojené. Seznam má hledání; ostatní firmy z CRM se do Worklogu nekopírují.",
           "en": "A customer you do not have in Worklog yet can now be created straight from the synchronisation – the section lists companies that exist in CRM but are missing here, you tick those you will report on, and they are created already linked. The list has search; the rest of your CRM companies are not copied over."
+        },
+        {
+          "type": "fixed",
+          "cs": "Sekce Synchronizace se v Nastavení → Vazba na CRM vůbec nezobrazovala – opraveno.",
+          "en": "The Synchronisation section did not show up in Settings → CRM link at all – fixed."
         }
       ]
     },
