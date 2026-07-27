@@ -29,6 +29,41 @@
         },
         {
           "type": "fixed",
+          "cs": "Odpověď vždy zůstane ve své konverzaci. Když jste během psaní odpovědi přepnuli na jinou konverzaci nebo založili novou, mohla se odpověď zobrazit tam – a u zapnutých Firemních znalostí i přepsat její historii.",
+          "en": "Answers now always stay in their own conversation. If you switched to another conversation (or started a new one) while an answer was being written, it could appear there — and with Company knowledge enabled it could even overwrite that conversation's history."
+        },
+        {
+          "type": "fixed",
+          "cs": "„Zkusit znovu“ už nemůže o odpověď připravit: původní odpověď se smaže teprve po úspěšném vytvoření nové, a během regenerace nejde omylem rozjet druhou odpověď zároveň.",
+          "en": "\"Try again\" can no longer lose an answer: the original is deleted only after the new one is successfully created, and a second answer can no longer start while regeneration is running."
+        },
+        {
+          "type": "fixed",
+          "cs": "Otázky, ve kterých se objeví slova jako „inventura“, „obecná“ nebo „lidé“, se už neposílají po špatné cestě – asistent na ně normálně hledá ve Firemních znalostech místo výpisu nejnovějších dokumentů.",
+          "en": "Questions containing words such as \"inventory\", \"general\" or \"people\" are no longer routed the wrong way — the assistant searches Company knowledge as expected instead of listing the newest documents."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení aplikace je chráněné před přepsáním: když se org nastavení nepodaří načíst (přechodná chyba SharePointu), uložení se zablokuje s vysvětlením, místo aby uložilo výchozí hodnoty přes vaši konfiguraci. Totéž chrání osobní paměť asistenta. Adresu stránky s aplikací u plovoucího widgetu jde nově i vymazat.",
+          "en": "Application settings are protected against being overwritten: if the org-wide settings fail to load (a transient SharePoint error), saving is blocked with an explanation instead of writing defaults over your configuration. The same protection applies to the assistant's personal memory. The app page URL for the floating widget can now also be cleared."
+        },
+        {
+          "type": "fixed",
+          "cs": "Dlouhé konverzace (nad 500 zpráv) se po návratu zobrazí celé, denní limit zpráv se počítá podle vašeho lokálního dne a přehled využití správně srovnává i 30denní období.",
+          "en": "Long conversations (over 500 messages) now display in full when you return to them, the daily message limit is counted against your local day, and the usage overview compares 30-day periods correctly."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přehlednější a spolehlivější drobnosti: tabulky se nově správně přenesou do Wordu i HTML exportu, chybný diagram po sobě neuklizený zbytek nenechává na stránce, odkazy v exportech zůstávají funkční, čtení odpovědi nahlas se zastaví prvním kliknutím a Roadmapa ukáže novinky i při dočasně nedostupném GitHubu.",
+          "en": "Smaller reliability improvements: tables now export correctly to Word and HTML, a diagram with a syntax error no longer leaves leftovers on the page, links in exports stay intact, reading an answer aloud stops on the first click, and the Roadmap shows release notes even when GitHub is temporarily unavailable."
+        },
+        {
+          "type": "fixed",
+          "cs": "Bezpečnostní údržba (revize kódu): podklady z návazných otázek na dokument nebo osobu nově dostávají stejný ochranný rám jako ostatní zdroje (text z dokumentu nemůže asistentovi podstrčit pokyny), dialog nalezených dokumentů ověřuje adresy zdrojů a náhled nabízí jen u dokumentů, a rozbalování velkých kancelářských souborů má pevný strop dřív, než se obsah vytvoří v paměti.",
+          "en": "Security maintenance (code review): source material from follow-up questions about a document or person now gets the same protective frame as other sources (text from a document cannot inject instructions into the assistant), the found-documents dialog validates source addresses and offers previews only for documents, and extracting large Office files enforces a hard cap before content is materialized in memory."
+        },
+        {
+          "type": "fixed",
           "cs": "Plovoucí Asistent zůstává zobrazený i při přecházení mezi stránkami – dořešili jsme případy, kdy po proklikání webu bublina zmizela a vrátila se až po tvrdém obnovení stránky.",
           "en": "The floating Assistant now stays visible when moving between pages — we resolved cases where the bubble disappeared after clicking through the site and only returned after a hard page refresh."
         },
