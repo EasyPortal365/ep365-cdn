@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "2.2",
-      "date": "2026-07-26",
+      "date": "2026-07-28",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Opravili jsme rozlišení externích hostů ve skupině. Recertifikace i hromadná náprava nabízejí rozsah „jen hosté“, ten se ale kvůli chybnému dotazu do Microsoft Entra ID nikdy nenačetl – aplikace místo toho hlásila dočasný výpadek. Nově se hosté načtou spolehlivě, takže jde znovu odebrat pouze externí účty a interní členy nechat beze změny.",
+          "en": "Fixed how external guests are identified within a group. Recertification and bulk remediation both offer a \"guests only\" scope, but a malformed query to Microsoft Entra ID meant it never loaded — the app reported a temporary outage instead. Guests now load reliably, so you can again remove only external accounts and leave internal members untouched."
+        },
         {
           "type": "new",
           "cs": "Kolo recertifikace lze nově rozdělit mezi nadřízené. Při spuštění kola vyberete, kdo má přístupy potvrzovat: správce skupiny jako dosud, nebo nadřízený jednotlivých členů. Ve druhém případě se každá skupina rozpadne na revize podle nadřízených a každý vedoucí posuzuje jen své lidi – nemusí tak řešit členy, které nezná. Kdo nadřízeného v Entra ID nemá, zůstává správci skupiny. V seznamu revizí je u takto rozdělených revizí vidět, kolika členů se týkají.",
