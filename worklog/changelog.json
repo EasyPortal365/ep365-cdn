@@ -36,6 +36,11 @@
           "type": "fixed",
           "cs": "Sekce Synchronizace se v Nastavení → Vazba na CRM vůbec nezobrazovala – opraveno.",
           "en": "The Synchronisation section did not show up in Settings → CRM link at all – fixed."
+        },
+        {
+          "type": "improved",
+          "cs": "U zákazníků je vidět, kteří jsou propojení s CRM – v seznamu zákazníků mají odznak CRM a v Nastavení → Vazba na CRM si rozbalíte jejich úplný přehled.",
+          "en": "You can now see which customers are linked to CRM – they carry a CRM badge in the customer list, and Settings → CRM link shows the full list."
         }
       ]
     },
