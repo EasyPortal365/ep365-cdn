@@ -26,6 +26,11 @@
           "type": "improved",
           "cs": "Sekce „Klasifikace obsahu“ se v Globálním nastavení přesunula pod nový oddíl „Správa obsahu“, kde ji doplnily Šablony knihoven. Výběr cílových webů a knihoven je pro obě funkce společný.",
           "en": "The “Content classification” section moved under a new “Content governance” area in Global settings, joined by Library blueprints. Choosing target sites and libraries now works the same way for both."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení a Globální nastavení si drží adresu – po obnovení stránky (F5) zůstanete v téže sekci a odkaz na konkrétní sekci jde poslat kolegovi. Funguje i tlačítko Zpět v prohlížeči: zavře obrazovku, kterou jste otevřeli.",
+          "en": "Settings and Global settings now keep their address — after a page refresh (F5) you stay in the same section and a link to a specific section can be shared with a colleague. The browser Back button works too: it closes the screen you opened."
         }
       ]
     },
