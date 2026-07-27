@@ -31,6 +31,11 @@
           "type": "improved",
           "cs": "Nastavení a Globální nastavení si drží adresu – po obnovení stránky (F5) zůstanete v téže sekci a odkaz na konkrétní sekci jde poslat kolegovi. Funguje i tlačítko Zpět v prohlížeči: zavře obrazovku, kterou jste otevřeli.",
           "en": "Settings and Global settings now keep their address — after a page refresh (F5) you stay in the same section and a link to a specific section can be shared with a colleague. The browser Back button works too: it closes the screen you opened."
+        },
+        {
+          "type": "fixed",
+          "cs": "Plošné zvýšení spolehlivosti ukládání – každá změna (hlasování v anketě, potvrzení oznámení, pochvala, uložení aktuality, nastavení, šablony, publikace rozvržení z týmového webu…) se nově ověřuje čerstvým bezpečnostním tokenem SharePointu. Odpadají tím náhodná selhání „nedostatečná oprávnění“ po delší době otevřené stránky a při zápisu z týmového webu na hub.",
+          "en": "Broad reliability improvement for saving — every change (poll votes, announcement confirmations, kudos, saving a news post, settings, blueprints, publishing a layout from a team site…) is now verified with a fresh SharePoint security token. This removes the random “insufficient permissions” failures after the page has been open for a while and when writing from a team site to the hub."
         }
       ]
     },
