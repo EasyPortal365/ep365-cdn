@@ -26,6 +26,16 @@
           "type": "fixed",
           "cs": "Plovoucí bublina asistenta se už nezobrazuje dvakrát – v dialozích SharePointu (například „Nové → Knihovna dokumentů“ v Obsahu webu) se objevovala i uvnitř okna dialogu.",
           "en": "The floating assistant bubble no longer appears twice — it used to also show up inside SharePoint dialog windows (for example \"New → Document library\" in Site contents)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Plovoucí Asistent zůstává zobrazený i při přecházení mezi stránkami – dořešili jsme případy, kdy po proklikání webu bublina zmizela a vrátila se až po tvrdém obnovení stránky.",
+          "en": "The floating Assistant now stays visible when moving between pages — we resolved cases where the bubble disappeared after clicking through the site and only returned after a hard page refresh."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přehled využití nově správně identifikuje i účty bez poštovní schránky (typicky servisní nebo administrátorský účet) – místo otazníku u nich ukáže přihlašovací jméno.",
+          "en": "The usage overview now correctly identifies accounts without a mailbox (typically a service or administrator account) — it shows their sign-in name instead of a question mark."
         }
       ]
     },
