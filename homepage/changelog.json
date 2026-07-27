@@ -4,6 +4,27 @@
   "name": "EP365 Homepage",
   "entries": [
     {
+      "version": "1.25",
+      "date": "2026-07-28",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Šablonu knihovny lze nově vytvořit z knihovny, kterou už máte hotovou. Vyberete ji, dáte „Vytvořit šablonu z vybrané“ a EP365 z ní přečte vlastní sloupce, jejich formátování, zobrazení i nastavení verzování – knihovna se přitom nijak nemění. Hodí se, když jste si jednu knihovnu naklikali přesně tak, jak ji chcete mít všude.",
+          "en": "A library blueprint can now be created from a library you already have. Select it, press “Create blueprint from selected”, and EP365 reads out its own columns, their formatting, views and versioning settings — the library itself is not changed. Handy when you have set one library up exactly the way you want it everywhere."
+        },
+        {
+          "type": "new",
+          "cs": "Hromadná aktualizace zastaralých knihoven – když upravíte šablonu, knihovny s jejím starším nasazením se označí jako zastaralé a jedním tlačítkem je doženete. Každá knihovna přitom dostane svou vlastní šablonu, ne tu právě vybranou.",
+          "en": "Bulk update of outdated libraries — when you change a blueprint, libraries running an older version of it are marked outdated and one button brings them up to date. Each library gets its own blueprint, not the one currently selected."
+        },
+        {
+          "type": "new",
+          "cs": "Vlastní ikona a barva ke každé hodnotě číselníku (Typ dokumentu, Stav, Oblast). Ponecháte-li pole prázdné, vzhled se jako dosud odvodí z názvu hodnoty; tlačítkem „Auto“ se k automatickému odvození kdykoli vrátíte.",
+          "en": "A custom icon and colour for each vocabulary value (Document type, Status, Area). Leave a field empty and the look is derived from the value name as before; the “Auto” button returns to automatic derivation at any time."
+        }
+      ]
+    },
+    {
       "version": "1.24",
       "date": "2026-07-26",
       "changes": [
