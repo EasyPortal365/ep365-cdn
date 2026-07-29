@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.17",
-      "date": "2026-07-25",
+      "date": "2026-07-29",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
+          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
+        },
         {
           "type": "new",
           "cs": "Uložené segmenty – filtr, který si nastavíte v Kontaktech, Firmách nebo Nabídkách, si teď můžete pojmenovat a uložit („Horké leady z webinářů“, „Zákazníci bez aktivity“). Segment se pak nabízí jedním kliknutím nad seznamem, jde ho sdílet s týmem nebo si ho nechat jen pro sebe a odkaz na něj můžete poslat kolegovi. U nabídek platí ve všech třech pohledech – kanbanu, seznamu i prognóze.",
@@ -51,6 +56,11 @@
           "type": "fixed",
           "cs": "Dědění motivu z hubu je čitelnější – v Nastavení → Motiv aplikace teď aplikace napíše, proč se motiv nedědí (chybí adresa hubu ve vlastnostech webové části, nebo hub globální motiv nepublikuje), místo aby přepínač beze slova zmizel. Zároveň už výpadek jednoho z nastavení neshodí načtení motivu z hubu.",
           "en": "Theme inheritance from the hub is clearer — Settings → App theme now states why the theme is not inherited (missing hub address in the web part properties, or the hub does not publish a global theme) instead of silently hiding the switch. A failure in one settings read no longer takes down the hub theme load with it."
+        },
+        {
+          "type": "improved",
+          "cs": "Seznamy se otevírají jednotně – na konci každého řádku je nově šipka „›\", která napoví, že řádek jde rozkliknout. Platí pro Kontakty, Firmy, Nabídky, Produkty, Předplatná, Smlouvy, Úkoly, Akce, Webináře, Šablony i Kampaně; klikací zůstává celý řádek.",
+          "en": "Lists now open consistently — every row ends with a „›\" chevron hinting that the row can be opened. Applies to Contacts, Companies, Deals, Products, Subscriptions, Contracts, Tasks, Events, Webinars, Templates and Campaigns; the whole row stays clickable."
         }
       ]
     },
