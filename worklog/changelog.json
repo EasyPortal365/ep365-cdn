@@ -13,6 +13,11 @@
           "en": "Preview through a user's eyes: an administrator clicks the eye icon at the bottom left and sees Worklog exactly as a given colleague does – including their projects and time entries. The typical case of a collaborator with no assignments can be tried in one click. On top of that we check in SharePoint whether saving a time entry would actually go through for them – usually the answer to why something does not work despite having the right role. Nothing is saved or sent while in preview."
         },
         {
+          "type": "fixed",
+          "cs": "Karta „Moje projekty“ na úvodu respektuje přiřazení – spolupracovníkovi se už nezobrazí projekty, ke kterým jinde v aplikaci nemá přístup (odvozovaly se z jeho starších výkazů).",
+          "en": "The „My projects“ card on the overview now respects assignments – a collaborator no longer sees projects they cannot reach elsewhere in the app (they were derived from their older time entries)."
+        },
+        {
           "type": "improved",
           "cs": "SharePointové seznamy, do kterých Worklog ukládá data, se už neukazují v Obsahu webu – jsou skryté, aby web zůstal přehledný. Správce je najde vypsané i s odkazy v Nastavení → Verze & informace, takže se k datům dostane kdykoli. Na přístupová práva to nemá vliv.",
           "en": "The SharePoint lists where Worklog stores its data no longer show up in Site contents – they are hidden to keep the site tidy. Administrators find them listed with links in Settings → Version & info, so the data is always one click away. Access permissions are unaffected."
