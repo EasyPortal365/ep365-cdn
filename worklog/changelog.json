@@ -14,8 +14,8 @@
         },
         {
           "type": "fixed",
-          "cs": "Karta „Moje projekty“ na úvodu respektuje přiřazení – spolupracovníkovi se už nezobrazí projekty, ke kterým jinde v aplikaci nemá přístup (odvozovaly se z jeho starších výkazů).",
-          "en": "The „My projects“ card on the overview now respects assignments – a collaborator no longer sees projects they cannot reach elsewhere in the app (they were derived from their older time entries)."
+          "cs": "Karta „Moje projekty“ na úvodu respektuje přiřazení – spolupracovníkovi se už nezobrazí projekty, ke kterým jinde v aplikaci nemá přístup (odvozovaly se z jeho starších výkazů). Když hodiny vykázané má, ale projekty už přiřazené nemá, karta to rovnou napíše místo dřívějšího „zatím nic nevykázáno“.",
+          "en": "The „My projects“ card on the overview now respects assignments – a collaborator no longer sees projects they cannot reach elsewhere in the app (they were derived from their older time entries). When hours have been logged but the projects are no longer assigned, the card says so instead of the previous „nothing logged yet“."
         },
         {
           "type": "improved",
