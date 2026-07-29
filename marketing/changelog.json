@@ -16,6 +16,38 @@
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si EP365 Marketing krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
           "en": "Interactive app guide – walk through EP365 Marketing step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Sdílený obsah vidí celý tým – aplikace po aktualizaci srovná oprávnění seznamů tak, aby členové marketingu viděli a upravovali příspěvky, kampaně, aktivity, úkoly i konverzace kolegů, ne jen své vlastní. Dřív mohl uživatel bez správcovských práv vidět nástěnku prázdnou."
+        },
+        {
+          "type": "fixed",
+          "cs": "Označit příspěvek jako publikovaný (a aktivitu jako hotovou) jde nově až po schválení – přetažením karty na nástěnce už schvalovací kolečko nelze obejít."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení se neuloží, pokud se ho předtím nepodařilo načíst. Dřív mohl výpadek spojení způsobit, že se uložením přepsala konfigurace celého týmu."
+        },
+        {
+          "type": "fixed",
+          "cs": "Číselníky (sítě, témata, typy aktivit) se už nezaloží podruhé, když je výpadek spojení nedovolí načíst – z nabídek tím zmizely zdvojené volby."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlášení chyb a návrhy funkcí chodí e-mailem přímo naší podpoře. Aplikace nově pozná, když se odeslání nepovede, a nabídne odeslání z vaší poštovní schránky – dřív mohla hlásit „odesláno“ i v případě, že se podnět ztratil."
+        },
+        {
+          "type": "fixed",
+          "cs": "Kalendář příspěvků: tlačítko dalšího měsíce na konci měsíce nepřeskočí měsíc následující."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přehled: kliknutí na dlaždici „Nepřečtené zmínky“ se projeví okamžitě."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlejší načtení aplikace – kontrola nastavení webu a rolí se spouští jen tehdy, když je opravdu potřeba."
         }
       ]
     },
