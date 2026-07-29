@@ -4,9 +4,55 @@
   "name": "EP365 Produktový katalog",
   "entries": [
     {
+      "version": "1.2",
+      "date": "2026-07-29",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Prohlížení galerie: vysoký obrázek se teď vejde celý do okna – dřív přetekl přes spodní hranu a schoval se pod pásem náhledů. Přibylo tlačítko celé obrazovky, stažení obrázku a přepínač na skutečnou velikost (nebo prostě klikněte do obrázku), takže si u screenshotu přečtete i drobný text. Pás náhledů se sám posune na právě otevřenou položku.",
+          "en": "Gallery viewing: a tall image now fits the window – previously it overflowed the bottom edge and hid under the thumbnail strip. Added a full-screen button, image download and an actual-size toggle (or just click the image), so you can read fine print in screenshots. The thumbnail strip scrolls to the item you are viewing."
+        },
+        {
+          "type": "improved",
+          "cs": "Aktualizace v CRM nejdřív ukáže rozpory – před zápisem uvidíte tabulku „nyní v CRM → bude“ se všemi údaji, které se přepíšou (název, SKU, popis, kategorie, účtování, cena, jednotka, DPH). Když se nic neliší, aplikace to řekne rovnou. Formulář se nově předvyplní tím, co v CRM skutečně je – dřív nabízel první položku číselníku, takže šlo omylem přepsat kategorii nebo účtování.",
+          "en": "Updating in CRM now shows the differences first – before writing you see a “currently in CRM → will be” table with every field that will be overwritten (name, SKU, description, category, billing, price, unit, VAT). If nothing differs, the app says so upfront. The form is now prefilled with what is actually in CRM – previously it offered the first item of the picklist, so it was easy to overwrite the category or billing type by accident."
+        },
+        {
+          "type": "new",
+          "cs": "Duplikovat produkt – u produktu je nově tlačítko „Duplikovat“, které založí kopii se všemi sekcemi, variantami, cenami i specifikacemi. Kopie vznikne jako koncept, takže se k obchodníkům nedostane dřív, než ji dokončíte. Obrázky a soubory se nekopírují – patří původnímu produktu.",
+          "en": "Duplicate a product – the product page now has a “Duplicate” button that creates a copy with all sections, variants, prices and specifications. The copy starts as a draft, so it will not reach your colleagues before you finish it. Images and files are not copied – they belong to the original product."
+        },
+        {
+          "type": "new",
+          "cs": "Kontrola úplnosti – tlačítko „Úplnost“ v katalogu ukáže, co ještě chybí doplnit: produkty bez ceny, popisu, obrázku, SKU, zařazení do řady nebo bez datumů uvedení. Nahoře je souhrn, čeho chybí nejvíc; klik na produkt otevře rovnou jeho editaci.",
+          "en": "Completeness check – the “Completeness” button in the catalog shows what is still missing: products without a price, description, image, SKU, range assignment or launch dates. A summary at the top shows what is missing most often; clicking a product opens its editor."
+        },
+        {
+          "type": "new",
+          "cs": "Hromadné úpravy v tabulce – v tabulkovém zobrazení katalogu zaškrtnete produkty a jedním klikem jim změníte stav, zařadíte je do řady nebo je přesunete na začátek či konec katalogu. Vybrané produkty lze také porovnat vedle sebe – parametry, ceny a varianty v jedné tabulce.",
+          "en": "Bulk edits in the table – in the catalog's table view, tick products and change their status, assign them to a range or move them to the top or bottom of the catalog in one click. Selected products can also be compared side by side – parameters, prices and variants in a single table."
+        },
+        {
+          "type": "new",
+          "cs": "Náhled očima čtenáře – správci a editoři si mohou jedním tlačítkem zobrazit katalog tak, jak ho vidí běžný zaměstnanec: bez konceptů, skrytých cen a interních materiálů. Užitečné před tím, než katalog otevřete kolegům.",
+          "en": "Preview as a reader – administrators and editors can switch to see the catalog exactly as an ordinary employee does: without drafts, hidden prices and internal materials. Useful before you open the catalog to colleagues."
+        }
+      ]
+    },
+    {
       "version": "1.1",
       "date": "2026-07-22",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Náhled souboru se otevře přímo v aplikaci – velký dialog místo nové záložky prohlížeče. Obrázky, PDF, dokumenty Office i HTML letáky si prohlédnete bez opuštění katalogu; stažení a otevření v SharePointu zůstává po ruce v hlavičce náhledu.",
+          "en": "File preview now opens inside the app – a large dialog instead of a new browser tab. Images, PDFs, Office documents and HTML flyers can be viewed without leaving the catalog; download and open-in-SharePoint remain at hand in the preview header."
+        },
+        {
+          "type": "new",
+          "cs": "Nová sekce Obecné – místo pro materiály, které platí napříč celým portfoliem: ceník, obchodní podmínky, prezentace. Nahrajete je jednou a zobrazí se i na stránce každého produktu, takže je zákazník najde tam, kde se rozhoduje. U každého materiálu určíte úroveň: veřejný vidí každý čtenář katalogu, interní jen editoři a správci – a je chráněný přímo v SharePointu, ne jen skrytý v aplikaci. Dokumenty ve formátu .md se rovnou vykreslí a otevřou ve čtečce.",
+          "en": "New General section – a place for materials that apply across the whole portfolio: price list, terms and conditions, presentations. Upload them once and they also appear on every product page, so customers find them where they decide. Each material has a level: public is visible to every catalog reader, internal only to editors and administrators – and it is protected in SharePoint itself, not merely hidden in the app. Markdown (.md) documents render right away and open in the reader."
+        },
         {
           "type": "new",
           "cs": "Zařazení existujícího produktu do řady – v detailu skupiny je nově tlačítko „Zařadit existující“: vyberete produkty ze seznamu (s hledáním) a jedním klikem je přesunete do této řady. Dřív to šlo jen oklikou přes editaci každého produktu zvlášť. U produktů, které už v jiné řadě jsou, je vidět upozornění, že se přesunou – produkt patří vždy do jedné řady.",
