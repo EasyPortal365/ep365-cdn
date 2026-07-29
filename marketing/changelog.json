@@ -4,6 +4,56 @@
   "name": "EP365 Marketing",
   "entries": [
     {
+      "version": "1.4",
+      "date": "2026-07-29",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Náhled očima uživatele – správce si pustí aplikaci tak, jak ji vidí konkrétní kolega, a hned vidí, jestli má práva nastavená správně. Náhled je jen pro čtení a u seznamu příspěvků navíc ověří přímo v SharePointu, jestli na něj člověk vůbec má právo čtení a zápisu."
+        },
+        {
+          "type": "new",
+          "cs": "Celá obrazovka – ikonou v hlavičce roztáhnete aplikaci přes celé okno, druhým klikem se vrátíte zpět. Funguje i v Microsoft Teams."
+        },
+        {
+          "type": "new",
+          "cs": "Odkaz s UTM parametry pro každou síť – u příspěvku s propagovaným odkazem zkopírujete hotovou adresu s utm_source, utm_medium a utm_campaign, takže v analytice poznáte, odkud návštěva přišla. Kampaň se odvodí ze zařazení příspěvku, nic se neopisuje ručně."
+        },
+        {
+          "type": "new",
+          "cs": "Šablony příspěvků – opakující se typy („tip týdne“, „citát“, „novinka“) s předvyplněnými sítěmi, tématem, hashtagy a kostrou textu. Při zakládání příspěvku je nabídneme jedním klikem; doplní jen prázdná pole, rozepsaný text nikdy nepřepíšou."
+        },
+        {
+          "type": "new",
+          "cs": "Použít příspěvek znovu – tlačítkem Duplikovat vznikne kopie s novým termínem (za měsíc, 3 měsíce, půl roku nebo vlastní datum) pro obsah, který má smysl opakovat."
+        },
+        {
+          "type": "new",
+          "cs": "Přetažení v kalendáři – příspěvek přesunete na jiný den myší a tím rovnou změníte termín publikace. Původní čas se zachová; u sítě s vlastním termínem se přesune jen ta síť."
+        },
+        {
+          "type": "new",
+          "cs": "Výsledky publikace a graf výkonu – u publikovaného příspěvku zapíšete zobrazení, kliky a reakce ze statistik sítě (CTR se dopočítá) a v Přehledu využití pak porovnáte výkon podle sítě, tématu i kampaně."
+        },
+        {
+          "type": "new",
+          "cs": "Uložené segmenty – nastavené filtry příspěvků si pojmenujete a příště je vyvoláte jedním klikem. Segment lze mít osobní, nebo sdílený pro celý tým; ruční změna filtru ho sama odznačí."
+        },
+        {
+          "type": "new",
+          "cs": "Hromadné akce v seznamu příspěvků – zaškrtnutím řádků zařadíte více příspěvků do kampaně nebo jim přidáte štítek. Když se část záznamů nepovede uložit, aplikace to řekne i s jejich názvy."
+        },
+        {
+          "type": "improved",
+          "cs": "Upozornění v přehledu „Můj den“ na EP365 intranetu – vedle vlastních úkolů po termínu nově hlásí i to, že něco čeká na schválení nebo že příspěvek jde ven do dvou dnů a není schválený."
+        },
+        {
+          "type": "improved",
+          "cs": "Datové seznamy aplikace jsou skryté v Obsahu webu – uživatel je nepotřebuje a jen zavazely. Jejich soupis, počty položek, odkazy a kontrolu nastavených oprávnění najde správce v Nastavení → Datové seznamy."
+        }
+      ]
+    },
+    {
       "version": "1.3",
       "date": "2026-07-29",
       "changes": [
