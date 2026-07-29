@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "1.13",
-      "date": "2026-07-22",
+      "date": "2026-07-29",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Úzké okno a mobil: levé menu se na užších oknech zúží a pod 780 px z něj zbydou jen ikony, takže na obsah je víc místa.",
+          "en": "Narrow windows and mobile: the left menu shrinks on narrower windows and below 780 px only icons remain, leaving more room for the content."
+        },
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si aplikaci krok za krokem přímo v ní. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli (zaměstnanec, vydavatel, schvalovatel, nadřízený, správce). Spustíte ho z Nápovědy, správce i z Nastavení – a kdykoli znovu.",
