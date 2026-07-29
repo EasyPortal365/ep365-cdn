@@ -5,8 +5,13 @@
   "entries": [
     {
       "version": "2.2",
-      "date": "2026-07-28",
+      "date": "2026-07-29",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
+          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
+        },
         {
           "type": "fixed",
           "cs": "Opravili jsme rozlišení externích hostů ve skupině. Recertifikace i hromadná náprava nabízejí rozsah „jen hosté“, ten se ale kvůli chybnému dotazu do Microsoft Entra ID nikdy nenačetl – aplikace místo toho hlásila dočasný výpadek. Nově se hosté načtou spolehlivě, takže jde znovu odebrat pouze externí účty a interní členy nechat beze změny.",
