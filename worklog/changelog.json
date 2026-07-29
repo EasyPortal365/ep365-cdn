@@ -8,6 +8,11 @@
       "date": "2026-07-29",
       "changes": [
         {
+          "type": "improved",
+          "cs": "SharePointové seznamy, do kterých Worklog ukládá data, se už neukazují v Obsahu webu – jsou skryté, aby web zůstal přehledný. Správce je najde vypsané i s odkazy v Nastavení → Verze & informace, takže se k datům dostane kdykoli. Na přístupová práva to nemá vliv.",
+          "en": "The SharePoint lists where Worklog stores its data no longer show up in Site contents – they are hidden to keep the site tidy. Administrators find them listed with links in Settings → Version & info, so the data is always one click away. Access permissions are unaffected."
+        },
+        {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
           "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
