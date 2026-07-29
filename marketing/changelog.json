@@ -4,6 +4,24 @@
   "name": "EP365 Marketing",
   "entries": [
     {
+      "version": "1.3",
+      "date": "2026-07-29",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Marketing je nově i v Microsoft Teams – jako osobní aplikace nebo záložka v kanálu, na počítači i v mobilu. Publikační kalendář, schvalování i úkoly tak máte po ruce, aniž byste otevírali SharePoint."
+        },
+        {
+          "type": "improved",
+          "cs": "V Teams si aplikace sama najde váš marketingový web podle EP365 Homepage; když ho nenajde, jednou zadáte adresu a příště naskočí rovnou. Web lze kdykoli přepnout tlačítkem „Změnit“ v horní liště."
+        },
+        {
+          "type": "improved",
+          "cs": "Zobrazení v Teams je přizpůsobené – obsah nelepí na okraje, panely začínají hned pod lištou Teams a v tmavém režimu telefonu zůstává aplikace čitelná."
+        }
+      ]
+    },
+    {
       "version": "1.2",
       "date": "2026-07-29",
       "changes": [
