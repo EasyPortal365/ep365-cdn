@@ -16,8 +16,8 @@
     "webUrl": "https://easyportal365.cz/aplikace/centrum-zivotnich-situaci/"
   },
   "ep365-homepage": {
-    "description": "Intranetová homepage — oznámení, aktuality, události, ankety a osobní přehled na jednom místě.",
-    "webUrl": "https://easyportal365.cz/aplikace/homepage-firemniho-intranetu/"
+    "description": "Workplace — úvodní stránka intranetu i týmových webů, šablony dokumentových knihoven a klasifikace obsahu.",
+    "webUrl": "https://easyportal365.cz/aplikace/workplace/"
   },
   "ep365-hub": {
     "description": "EP365 Hub — launchpad aplikací, úkoly a globální prompty."
