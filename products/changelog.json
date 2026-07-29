@@ -8,6 +8,16 @@
       "date": "2026-07-29",
       "changes": [
         {
+          "type": "new",
+          "cs": "Náhled očima uživatele – ikona oka vlevo dole nově nabídne, čí očima si katalog prohlédnout: obecného čtenáře, nebo konkrétního kolegy. U konkrétního člověka dohledáme jeho roli, přiřazení i členství ve skupinách a katalog se přepne do jeho podoby, takže si ověříte, že má práva nastavená správně. U chráněné knihovny technické dokumentace navíc ověříme jeho skutečná oprávnění přímo v SharePointu. V náhledu jsou zápisy vypnuté.",
+          "en": "See the catalogue through someone else's eyes – the eye icon in the bottom left now lets you pick whose view to use: a general reader, or a specific colleague. For a specific person we resolve their role, assignments and group membership and switch the catalogue to what they would see, so you can verify their permissions are set correctly. For the protected technical documentation library we additionally verify their real permissions directly in SharePoint. Writing is disabled while previewing."
+        },
+        {
+          "type": "fixed",
+          "cs": "Obecné materiály: soubory označené jako interní se čtenářům už nezobrazují – dosud je stránka produktu skrývala, ale přehled Obecné ne.",
+          "en": "General materials: files marked as internal are no longer shown to readers – the product page hid them, but the General overview did not."
+        },
+        {
           "type": "fixed",
           "cs": "Dokumentace u produktu: dlouhá úvodní citace se už neslévá do jednoho bloku textu – odstavce v ní zůstávají oddělené, takže se dá číst.",
           "en": "Product documentation: a long intro quote no longer collapses into a single block of text – its paragraphs stay separated and readable."
