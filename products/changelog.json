@@ -8,6 +8,16 @@
       "date": "2026-07-29",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Hero a galerie: pořadí obrázků změníte přetažením dlaždice. Šipky v rohu dlaždice zůstávají – hodí se na dotykovém displeji.",
+          "en": "Hero and gallery: reorder images by dragging a tile. The arrows in the tile corner remain – handy on touch screens."
+        },
+        {
+          "type": "improved",
+          "cs": "Náhled očima uživatele nově ověřuje i právo zápisu: pokud by uživatel podle pravidel viděl tlačítko Upravit, ale SharePoint by mu uložení nepustil, aplikace na ten rozpor upozorní i s tím, co doplnit.",
+          "en": "The user preview now also verifies write access: if the rules would show the user an Edit button but SharePoint would refuse the save, the app flags the discrepancy and what to fix."
+        },
+        {
           "type": "new",
           "cs": "Náhled očima uživatele – ikona oka vlevo dole nově nabídne, čí očima si katalog prohlédnout: obecného čtenáře, nebo konkrétního kolegy. U konkrétního člověka dohledáme jeho roli, přiřazení i členství ve skupinách a katalog se přepne do jeho podoby, takže si ověříte, že má práva nastavená správně. U chráněné knihovny technické dokumentace navíc ověříme jeho skutečná oprávnění přímo v SharePointu. V náhledu jsou zápisy vypnuté.",
           "en": "See the catalogue through someone else's eyes – the eye icon in the bottom left now lets you pick whose view to use: a general reader, or a specific colleague. For a specific person we resolve their role, assignments and group membership and switch the catalogue to what they would see, so you can verify their permissions are set correctly. For the protected technical documentation library we additionally verify their real permissions directly in SharePoint. Writing is disabled while previewing."
