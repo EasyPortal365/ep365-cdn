@@ -1,8 +1,24 @@
 {
   "schema": 2,
   "app": "ep365-homepage",
-  "name": "EP365 Homepage",
+  "name": "Workplace",
   "entries": [
+    {
+      "version": "1.26",
+      "date": "2026-07-29",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Aplikace se nově jmenuje Workplace. Název „Homepage“ popisoval produkt v době, kdy uměl jednu stránku – dnes je z něj základ celého firemního prostředí: úvodní stránka intranetu i týmových webů, šablony dokumentových knihoven, klasifikace obsahu a společné nastavení pro ostatní aplikace EP365. Vaše data, obsah ani nastavení se přejmenováním nijak nemění.",
+          "en": "The application is now called Workplace. The name “Homepage” described the product back when it was a single page — today it is the foundation of your whole workplace: an intranet and team-site homepage, document library templates, content classification and shared settings for the other EP365 applications. Your data, content and settings are unaffected by the rename."
+        },
+        {
+          "type": "improved",
+          "cs": "Obrazovka správy se jmenuje „Správa aplikace“ (dříve „Správa homepage“) – spravuje se v ní totiž víc než jen úvodní stránka.",
+          "en": "The management screen is now called “Application management” (previously “Homepage management”) — it manages more than just the home page."
+        }
+      ]
+    },
     {
       "version": "1.25",
       "date": "2026-07-28",
