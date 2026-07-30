@@ -70,6 +70,26 @@
         {
           "type": "fixed",
           "cs": "Počítání znaků pro síť X bylo nepřesné – každý odkaz se tam počítá jako 23 znaků bez ohledu na svou skutečnou délku, takže u dlouhých odkazů aplikace hlásila překročení limitu, i když se příspěvek pohodlně vejde."
+        },
+        {
+          "type": "new",
+          "cs": "Vizuály přetažením – obrázky se do příspěvku přidávají přetažením myší (nebo klikem) přímo v jeho okně. U nového příspěvku počkají ve frontě a nahrají se hned po uložení."
+        },
+        {
+          "type": "new",
+          "cs": "Vizuály pro každý kanál zvlášť – nahrané obrázky jsou společná zásoba příspěvku a na záložce kanálu si kliknutím označíte, které z nich půjdou právě tam (jiný formát na Instagram než na LinkedIn). Nic neoznačeného = půjdou všechny."
+        },
+        {
+          "type": "improved",
+          "cs": "První záložka se jmenuje „Základ“ – je to hlavní myšlenka příspěvku, ze které kanály vycházejí. Na záložce kanálu si můžete základ jedním kliknutím vložit a upravit, nebo ho nechat přepsat AI. Když mají vlastní text všechny kanály, aplikace řekne, že se základ už nikam nepublikuje."
+        },
+        {
+          "type": "improved",
+          "cs": "Psací plocha je vyšší – delší příspěvek je vidět bez rolování."
+        },
+        {
+          "type": "fixed",
+          "cs": "Text od AI se občas vložil i s technickým obalem odpovědi (začínal „{body:“). Odpověď se teď přečte, i když ji model zašle roztříštěnou nebo useknutou; když přečíst nejde, aplikace to řekne a text nechá být."
         }
       ]
     },
