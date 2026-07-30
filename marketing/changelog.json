@@ -34,6 +34,42 @@
         {
           "type": "improved",
           "cs": "Náhled očima uživatele se spouští z Nastavení → Role uživatelů, stejně jako v ostatních aplikacích EP365. Během náhledu jde ukončit jedním klikem odkudkoli."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější okno příspěvku – text je teď hlavní plocha, název a kanály jsou na jednom řádku nahoře, šablony i AI se nabízejí z lišty nad textem (nezabírají místo) a počítadlo znaků ukazuje jen kanál, který právě píšete. Vlastní text pro jednotlivé kanály se přepíná záložkami a méně častá pole (událost z CRM, štítky, přiřazení) jsou pod rozbalovátkem."
+        },
+        {
+          "type": "improved",
+          "cs": "Panel „Napsat s pomocí AI“ se otevře na místě psací plochy, takže se nic neposune; rozepsaný text zůstane zachovaný a po vložení návrhu se panel sám zavře. U textu od AI zůstane malý štítek – dalším kliknutím na AI ho lze nechat upravit (zkrátit, změnit tón)."
+        },
+        {
+          "type": "new",
+          "cs": "Text na míru každé síti – nad psací plochou je pás kanálů: vlevo společný text, za ním každý zvolený kanál se svým stavem (převzato / vlastní / přes limit). Kliknutím na kanál napsíte jeho vlastní podobu, vlastní hashtagy i vlastní čas publikace; bez toho se použije společný text."
+        },
+        {
+          "type": "new",
+          "cs": "Tlačítko „Přizpůsobit kanálům“ – AI vezme společný text a vyrobí z něj podobu pro každý kanál naráz, podle jeho limitu, zlomu, doporučené délky i počtu hashtagů. Návrhy se ukážou vedle sebe, můžete je přepsat a vybrat, které použít; nevybrané kanály zůstanou na společném textu."
+        },
+        {
+          "type": "new",
+          "cs": "Profil kanálu v číselníku – u každé sítě si v Nastavení → Číselníky nastavíte tvrdý limit, zlom („…více“), doporučenou délku a počet hashtagů. Podle nich aplikace hlídá délku a řídí se jimi i AI. Hodnoty jsou orientační – klidně si je upravte podle vlastních výsledků."
+        },
+        {
+          "type": "improved",
+          "cs": "Délku hlídá každý kanál sám – u společného textu vidíte počítadla všech zvolených kanálů zároveň (zeleně se vejde, červeně přesahuje) místo jednoho počítadla pro jedinou síť."
+        },
+        {
+          "type": "improved",
+          "cs": "U delších sítí (LinkedIn, Facebook, Instagram) editor ukáže, co z textu čtenář uvidí ještě než klikne na „…více“ – tedy tu část, která opravdu rozhoduje."
+        },
+        {
+          "type": "improved",
+          "cs": "Hashtagy lze nastavit pro každý kanál zvlášť (deset na Instagram, dva na LinkedIn); prázdné pole znamená, že se použijí společné."
+        },
+        {
+          "type": "fixed",
+          "cs": "Počítání znaků pro síť X bylo nepřesné – každý odkaz se tam počítá jako 23 znaků bez ohledu na svou skutečnou délku, takže u dlouhých odkazů aplikace hlásila překročení limitu, i když se příspěvek pohodlně vejde."
         }
       ]
     },
