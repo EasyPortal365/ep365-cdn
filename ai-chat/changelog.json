@@ -71,6 +71,16 @@
           "type": "fixed",
           "cs": "Přehled využití nově správně identifikuje i účty bez poštovní schránky (typicky servisní nebo administrátorský účet) – místo otazníku u nich ukáže přihlašovací jméno.",
           "en": "The usage overview now correctly identifies accounts without a mailbox (typically a service or administrator account) — it shows their sign-in name instead of a question mark."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odeslání odpovědi do Microsoft Teams funguje i u delších odpovědí – dřív mohlo skončit chybou přihlašovací stránky. Delší text se do Teams vloží zkrácený a celá odpověď se zároveň zkopíruje do schránky, takže ji vložíte do zprávy.",
+          "en": "Sending an answer to Microsoft Teams now works for longer answers too — it could previously fail on the sign-in page. Longer text is inserted into Teams shortened, and the full answer is also copied to your clipboard so you can paste it into the message."
+        },
+        {
+          "type": "fixed",
+          "cs": "Sdílení odpovědi e-mailem se opravilo – tlačítko dřív u delších odpovědí nereagovalo. Nově se otevře nový e-mail; u velmi dlouhých odpovědí se do něj vloží zkrácená verze a celá se zkopíruje do schránky.",
+          "en": "Sharing an answer via e-mail is fixed — the button previously did nothing for longer answers. It now opens a new e-mail; for very long answers a shortened version is inserted and the full text is copied to your clipboard."
         }
       ]
     },
