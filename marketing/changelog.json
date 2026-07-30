@@ -90,6 +90,10 @@
         {
           "type": "fixed",
           "cs": "Text od AI se občas vložil i s technickým obalem odpovědi (začínal „{body:“). Odpověď se teď přečte, i když ji model zašle roztříštěnou nebo useknutou; když přečíst nejde, aplikace to řekne a text nechá být."
+        },
+        {
+          "type": "improved",
+          "cs": "Testovací data pokrývají celou aplikaci – 5 kampaní, 20 příspěvků ve všech stavech workflow, 10 aktivit všech typů, 11 úkolů s různými prioritami a termíny, diskuse se zmínkami, plán akce s checklistem i ukázkové nastavení (schvalování, publikační plán, segmenty, prompty pro AI). Součástí jsou vlastní texty a vizuály pro jednotlivé kanály i publikované příspěvky s výsledky, takže je z čeho kreslit graf. Plí se jen prázdné seznamy, reálný obsah se nepřepíše."
         }
       ]
     },
