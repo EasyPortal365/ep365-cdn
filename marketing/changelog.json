@@ -4,6 +4,40 @@
   "name": "EP365 Marketing",
   "entries": [
     {
+      "version": "1.5",
+      "date": "2026-07-30",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Napsat příspěvek s pomocí AI – v editoru příspěvku stačí popsat, o čem má být, a EP365 AI Asistent připraví návrh textu i hashtagy. Návrh si nejdřív přečtete a teprve kliknutím ho vložíte do formuláře; rozepsaný text se nikdy nepřepíše sám."
+        },
+        {
+          "type": "new",
+          "cs": "AI zná souvislosti – volitelně dostane už zveřejněné příspěvky (drží tón a neopakuje témata) a hledá i ve firemních dokumentech na SharePointu. Prohledává je pod vaším účtem, takže se nedostane k ničemu, na co sami nemáte právo, a použité podklady vypíše."
+        },
+        {
+          "type": "new",
+          "cs": "Vlastní prompty pro tvorbu textů – v Nastavení → AI a prompty popíšete firemní tón a pravidla pro každou sociální síť zvlášť (délka, oslovení, čeho se vyhnout). Zadání od uživatele má vždy přednost."
+        },
+        {
+          "type": "improved",
+          "cs": "Vazba na AI Asistenta je volitelná: když ho na intranetu nemáte, aplikace se chová přesně jako dřív a nikde nic nenabízí. Stav propojení a jeho případný důvod nedostupnosti najde správce v Nastavení → AI a prompty."
+        },
+        {
+          "type": "fixed",
+          "cs": "Pruh nad obsahem (náhled očima uživatele, upozornění na licenci nebo provisioning) se místy zobrazoval odříznutý – přes jeho spodní okraj se překrývala hlavička stránky."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přepínač celé obrazovky chyběl na úvodním Přehledu; nově je i tam, ve stejné pětici ikon jako na ostatních obrazovkách."
+        },
+        {
+          "type": "improved",
+          "cs": "Náhled očima uživatele se spouští z Nastavení → Role uživatelů, stejně jako v ostatních aplikacích EP365. Během náhledu jde ukončit jedním klikem odkudkoli."
+        }
+      ]
+    },
+    {
       "version": "1.4",
       "date": "2026-07-29",
       "changes": [
