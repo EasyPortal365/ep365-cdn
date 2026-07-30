@@ -4,6 +4,32 @@
   "name": "EP365 Marketing",
   "entries": [
     {
+      "version": "1.6",
+      "date": "2026-07-30",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Import historie příspěvků – v Nastavení přibyl průvodce, který do aplikace dostane příspěvky, jež už máte zveřejněné. Aplikace díky tomu zná vaši historii: AI z ní bere tón a témata (a neopakuje, co už vyšlo) a graf výkonu má skutečná čísla."
+        },
+        {
+          "type": "new",
+          "cs": "Průvodce importem vás vede krok za krokem a u každé sítě rovnou řekne, kde export vzít – včetně přesného postupu pro osobní profil na LinkedInu, firemní stránku i Meta Business Suite. Texty se dají též prostě vložit ze schránky."
+        },
+        {
+          "type": "new",
+          "cs": "Před založením uvidíte náhled: které sloupce se použijí, co se založí a co se přeskočí. Duplicity aplikace pozná sama (stejná síť, den i začátek textu), takže opakovaný import nic nezdvojí. Importované příspěvky mají štítek „import“ a stav Publikováno, takže nezasahují do plánu ani do fronty ke schválení."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda v aplikaci vyrostla z 13 na 25 odpovědí a přibyla celá kapitola „Správa a data“. Nově odpovídá i na to, co je zlom a proč se část textu podbarvuje, jak dát každé síti jiný obrázek, jak psát s AI, kde leží data aplikace a jak si ověřit, co uvidí konkrétní kolega."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce aplikací je podrobnější – místo pěti kapitol jich je osm a u každé předem vidíte, komu je určena, co se v ní naučíte a jakou má osnovu. Nově jsou samostatné kapitoly Psaní příspěvku (základ, kanály, limity, vizuály a AI), Schvalování a publikace a pro správce Data, import a kontrola práv."
+        }
+      ]
+    },
+    {
       "version": "1.5",
       "date": "2026-07-30",
       "changes": [
