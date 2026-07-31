@@ -21,6 +21,11 @@
           "type": "improved",
           "cs": "Řádky v seznamu uživatelů jsou nižší – e-mail se přesunul vedle jména místo pod něj, takže na jednu obrazovku se vejde víc účtů.",
           "en": "Rows in the user list are shorter — the e-mail address moved next to the name instead of below it, so more accounts fit on one screen."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehled stavu MFA poskytuje Microsoft jen organizacím s licencí Entra ID P1 nebo P2. Pokud ji vaše organizace nemá, aplikace to napíše jednou větou a sloupec „MFA“ vůbec nezobrazí – místo aby u každého účtu svítila pomlčka. Stejně tak se nenabídne přepínač vynucení, dokud aplikace nezná jeho současný stav: měnit zabezpečení naslepo nedává smysl.",
+          "en": "Microsoft provides the MFA overview only to organisations with an Entra ID P1 or P2 licence. If yours doesn't have one, the app says so in a single line and hides the \"MFA\" column entirely, instead of showing a dash on every account. Likewise the enforcement switch stays hidden until the app knows its current value — changing a security setting blind makes no sense."
         }
       ]
     },
