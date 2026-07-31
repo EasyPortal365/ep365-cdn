@@ -29,7 +29,7 @@
         },
         {
           "type": "new",
-          "cs": "Kalendář ukáže i stav schvalování – u příspěvku ve schvalování svítí odznak s krokem (např. „1/2“), u vráceného „vráceno“ a u schváleného fajfka. Co čeká právě na vás, má navíc zvýrazněný rámeček s vykřičníkem. Najetím myší se dozvíte název kroku, kdo schvaluje a u vráceného i důvod – bez otevírání detailu."
+          "cs": "Kalendář ukáže i stav schvalování – u příspěvku ve schvalování svítí odznak s krokem (např. „1/2“), u vráceného „vráceno“. Co čeká právě na vás, má navíc zvýrazněný rámeček s vykřičníkem. Najetím myší se dozvíte název kroku, kdo schvaluje a u vráceného i důvod – bez otevírání detailu."
         },
         {
           "type": "improved",
