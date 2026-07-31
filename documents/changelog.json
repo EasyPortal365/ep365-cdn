@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.13",
-      "date": "2026-07-29",
+      "date": "2026-07-31",
       "changes": [
         {
           "type": "fixed",
@@ -41,6 +41,11 @@
           "type": "improved",
           "cs": "Výklad v průvodci je podrobnější – kroky nově vysvětlují konkrétně, co na obrazovce uvidíte a proč, s praktickými tipy. Kapitola Orientace představí i vaši roli v patičce panelu, Potvrzení dokumentu ukáže náhled i detail zvlášť a Vydání dokumentu má samostatný krok o adresátech.",
           "en": "The guide's explanations are more detailed — steps now spell out concretely what you see on screen and why, with practical tips. The Orientation chapter also introduces your role in the panel footer, Document confirmation shows the preview and details separately, and Publishing a document has a dedicated step about recipients."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkazy na soubory s mezerou v názvu nebo ve složce už vedou na správné místo – dřív skončily chybou „stránka nenalezena\".",
+          "en": "Links to files with a space in the name or folder now open correctly – previously they ended with a “page not found” error."
         }
       ]
     },
