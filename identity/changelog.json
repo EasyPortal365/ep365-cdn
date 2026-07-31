@@ -19,6 +19,16 @@
         },
         {
           "type": "new",
+          "cs": "Po založení účtu jde vše rovnou předat dál. Tlačítko zkopíruje jméno, přihlašovací údaje a zařazení jako prostý text – vložíte je do Teams, do tiketu nebo do poznámky. Vedle toho můžete informaci poslat e-mailem na libovolnou adresu; pokud jste u zaměstnance vyplnili další e-mail, nabídne se jedním klikem. Přiložení počátečního hesla je na vás – zaškrtávátko říká, co bude ve zprávě, a aplikace upozorní, když heslo posíláte bez vynucené změny při prvním přihlášení. E-mail odchází z vaší schránky, takže odpověď dorazí vám.",
+          "en": "Once the account exists, everything can be handed over right away. One button copies the name, sign-in details and placement as plain text — paste it into Teams, a ticket or a note. You can also e-mail the information to any address; if you filled in an additional e-mail for the employee, it's offered in one click. Whether to include the initial password is up to you — a checkbox states what the message will contain, and the app warns when you send a password without requiring a change at first sign-in. The e-mail goes from your mailbox, so replies come back to you."
+        },
+        {
+          "type": "improved",
+          "cs": "Seznam uživatelů se po založení účtu obnoví sám, takže nový člověk je v přehledu hned – nemusíte nic přenačítat ručně.",
+          "en": "The user list refreshes itself after an account is created, so the new person appears in the overview straight away — no manual reload needed."
+        },
+        {
+          "type": "new",
           "cs": "Průvodce nově zaznamená i datum nástupu, město, mobilní telefon a další e-mail. Vyplníte je v kroku Zařazení a hned se propíšou do Microsoft Entra – datum nástupu tedy máte u zaměstnance evidované od prvního dne, ne až v personální tabulce. Všechny čtyři údaje jsou vidět i v detailu účtu a dají se kdykoli změnit tlačítkem „Upravit“. Další e-mail smí zapisovat jen část správcovských rolí; když se to nepodaří, zbytek průvodce doběhne a aplikace řekne, který krok neprošel.",
           "en": "The wizard now also records the hire date, city, mobile phone and an additional e-mail address. You fill them in at the Placement step and they go straight into Microsoft Entra — so the hire date is on the employee record from day one, not just in a HR spreadsheet. All four appear in the account detail and can be changed any time via \"Edit\". The additional e-mail may only be written by certain admin roles; if that fails, the rest of the wizard still completes and the app tells you which step didn't go through."
         },
