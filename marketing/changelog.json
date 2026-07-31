@@ -50,6 +50,10 @@
         {
           "type": "improved",
           "cs": "AI asistent už nepřekrývá psací plochu – stojí trvale vedle textu. Návrhy chodí jako karty, které lze přímo upravit a vložit tlačítkem „Použít“; při generování je váš text celou dobu vidět. Zóna jde sbalit a bez AI Asistenta se vůbec nezobrazuje."
+        },
+        {
+          "type": "improved",
+          "cs": "AI asistent v editoru: větší pole pro zadání i pro návrh textu a AI nově navrhne i interní název příspěvku – vloží se ale jen do prázdného pole, ručně zadaný název se nikdy nepřepíše."
         }
       ]
     },
