@@ -19,6 +19,11 @@
         },
         {
           "type": "improved",
+          "cs": "Tlačítko „Nový uživatel“ je v záhlaví stránky, stejně jako „Nová skupina“ u Skupin – hlavní akce obrazovky je tak vždy na stejném místě. V kroku Licence navíc najdete odkaz do centra pro správu Microsoft 365, kde se předplatná dokupují a ruší.",
+          "en": "The \"New user\" button sits in the page header, the same as \"New group\" does under Groups — the screen's primary action is always in the same place. The Licences step also links to the Microsoft 365 admin center, where subscriptions are purchased and cancelled."
+        },
+        {
+          "type": "improved",
           "cs": "U licencí je vidět, kolik míst v každé zbývá, a vyčerpané nelze vybrat. Aplikace také hlídá zemi uživatele – bez ní Microsoft licenci nepřidělí, takže na to upozorní dřív, než se pokus o přiřazení nezdaří. Každý krok zápisu má vlastní výsledek: když se třeba účet založí, ale licence nepřidělí, uvidíte přesně to, místo obecné hlášky o chybě.",
           "en": "Each licence shows how many seats remain, and exhausted ones can't be selected. The app also checks the user's country — Microsoft won't assign a licence without it, so you're warned before the attempt fails. Every write step reports its own result: if the account is created but the licence isn't assigned, you see exactly that instead of one generic error."
         }
