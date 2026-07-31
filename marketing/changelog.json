@@ -126,6 +126,18 @@
         {
           "type": "improved",
           "cs": "Náhledy komentářů v Přehledu a v Reportu aktivit ukazují čistý text – formátovací značky zmizely a ořez končí slovem, ne půlkou slabiky."
+        },
+        {
+          "type": "improved",
+          "cs": "Podklady od AI jsou nově výpis dokumentů, ne řádek odkazů – u každého vidíte typ souboru, web a datum změny a kliknutím se otevře náhled přímo v aplikaci. Ikona ↗ vedle otevře dokument online v nové záložce. Náhled respektuje vaše oprávnění; formát, který SharePoint vložit neumí, to rovnou přizná."
+        },
+        {
+          "type": "improved",
+          "cs": "Dvousloupcová pole ve formulářích drží přesnou polovinu šířky – termín publikace už si nebral místo tématu a kampaně."
+        },
+        {
+          "type": "improved",
+          "cs": "Pole pro zadání AI je o něco nižší, takže se návrhy objeví výš a méně se roluje."
         }
       ]
     },
