@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.4",
-      "date": "2026-07-29",
+      "date": "2026-07-31",
       "changes": [
         {
           "type": "fixed",
@@ -16,6 +16,11 @@
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si Site Manager krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
           "en": "Interactive app guide – walk through the Site Manager step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkazy na weby a soubory s mezerou v adrese už vedou na správné místo – dřív skončily chybou „stránka nenalezena\".",
+          "en": "Links to sites and files with a space in the address now open correctly – previously they ended with a “page not found” error."
         }
       ]
     },
