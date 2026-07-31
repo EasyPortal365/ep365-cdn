@@ -18,6 +18,11 @@
           "en": "The same wizard edits an existing account — via the \"Edit\" button in the user detail. Only the fields you actually changed are written, so editing never overwrites anything you didn't touch. Adding to groups and changing licences are included. Accounts synchronised from on-premises Active Directory don't offer editing, since synchronisation would overwrite it."
         },
         {
+          "type": "new",
+          "cs": "V kroku Skupiny nově vybíráte i podle zařazení – rozbalíte útvar v organizační struktuře nebo lokalitu v geografii a aplikace nabídne skupiny, které k nim patří. Nemusíte tedy znát název správné skupiny; stačí vědět, kam nový člověk nastupuje. Výběr útvaru zahrne i skupiny zatříděné pod ním. Hledání podle názvu zůstává vedle. Dokud nemají skupiny zařazení v taxonomii, aplikace to napíše místo prázdné nabídky.",
+          "en": "The Groups step now lets you pick by classification — choose a department in the organisational structure or a location in the geography, and the app offers the groups that belong there. You don't need to know the right group's name, only where the new person is joining. Picking a department also covers groups classified beneath it. Search by name remains alongside. Until groups are classified in the taxonomy, the app says so instead of showing an empty list."
+        },
+        {
           "type": "improved",
           "cs": "Tlačítko „Nový uživatel“ je v záhlaví stránky, stejně jako „Nová skupina“ u Skupin – hlavní akce obrazovky je tak vždy na stejném místě. V kroku Licence navíc najdete odkaz do centra pro správu Microsoft 365, kde se předplatná dokupují a ruší.",
           "en": "The \"New user\" button sits in the page header, the same as \"New group\" does under Groups — the screen's primary action is always in the same place. The Licences step also links to the Microsoft 365 admin center, where subscriptions are purchased and cancelled."
