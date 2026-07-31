@@ -4,6 +4,27 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "2.3",
+      "date": "2026-07-31",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "V seznamu uživatelů nově vidíte, kdo má nastavené vícefázové ověření (MFA). Přibyl sloupec „MFA“, dlaždice „Bez MFA“ a filtr, kterým si takové účty zobrazíte jedním klikem. V detailu účtu najdete i konkrétní ověřovací metody – třeba Authenticator, SMS nebo bezpečnostní klíč. U účtů, o kterých přehled Microsoftu údaj neuvádí (typicky zablokované), aplikace napíše „neuvedeno“ – nikdy je nevydává za účty bez MFA.",
+          "en": "The user list now shows who has multi-factor authentication (MFA) set up. There is a new \"MFA\" column, a \"No MFA\" tile, and a filter that isolates those accounts in one click. The account detail also lists the specific methods — Authenticator, SMS, security key and so on. For accounts the Microsoft report doesn't cover (typically blocked ones) the app says \"not stated\" rather than passing them off as accounts without MFA."
+        },
+        {
+          "type": "new",
+          "cs": "Vícefázové ověření lze u jednotlivého účtu zapnout, vynutit nebo vypnout přímo z aplikace. Vypnutí, které zabezpečení snižuje, vždy potvrzujete zvlášť a každá změna se zapíše do auditu. Aplikace zároveň ukáže, čím vaše organizace MFA vynucuje – zda výchozím nastavením zabezpečení, podmíněným přístupem, nebo tímto starším přepínačem. Pokud běží podmíněný přístup, aplikace upozorní, že údaj „vypnuto“ zde neznamená, že uživatel MFA nemá. Změna vyžaduje roli Správce zásad ověřování nebo Globálního správce.",
+          "en": "Multi-factor authentication can be enabled, enforced, or disabled for an individual account straight from the app. Disabling it lowers security, so it always takes a separate confirmation, and every change is written to the audit log. The app also shows how your organisation enforces MFA — through security defaults, Conditional Access, or this older per-user switch. When Conditional Access is in play, the app warns that \"disabled\" here does not mean the user has no MFA. Changing the setting requires the Authentication Policy Administrator or Global Administrator role."
+        },
+        {
+          "type": "improved",
+          "cs": "Řádky v seznamu uživatelů jsou nižší – e-mail se přesunul vedle jména místo pod něj, takže na jednu obrazovku se vejde víc účtů.",
+          "en": "Rows in the user list are shorter — the e-mail address moved next to the name instead of below it, so more accounts fit on one screen."
+        }
+      ]
+    },
+    {
       "version": "2.2",
       "date": "2026-07-29",
       "changes": [
