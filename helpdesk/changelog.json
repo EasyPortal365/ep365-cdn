@@ -6,12 +6,17 @@
   "entries": [
     {
       "version": "1.1",
-      "date": "2026-07-22",
+      "date": "2026-07-31",
       "changes": [
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si HelpDesk krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
           "en": "Interactive app guide – walk through the HelpDesk step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkazy na přílohy se mezerou v názvu souboru už vedou na správné místo – dřív skončily chybou „stránka nenalezena\".",
+          "en": "Attachment links with a space in the file name now open correctly – previously they ended with a “page not found” error."
         }
       ]
     },
