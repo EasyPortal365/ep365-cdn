@@ -66,6 +66,26 @@
         {
           "type": "improved",
           "cs": "Záložky Přílohy a Historie v detailu zanikly – přílohy jsou přímo pod textem a historie schvalování je sbalená v pravém panelu. Nic už není schované na druhé záložce."
+        },
+        {
+          "type": "new",
+          "cs": "Úkoly mají checklist – dílčí kroky k odškrtávání přímo v detailu i při úpravě. Postup (např. 2/5) je vidět i na kartě úkolu v kanbanu."
+        },
+        {
+          "type": "new",
+          "cs": "Kroky plánu příprav u události jsou nově plnohodnotné úkoly – při použití šablony (i u vlastního kroku) se každý krok založí jako úkol s vazbou na akci: má termín, přiřazení, konverzaci i synchronizaci do Outlooku a dá se otevřít přímo z Praktického asistenta. Starší plány povýšíte tlačítkem „Vytvořit úkoly z kroků“."
+        },
+        {
+          "type": "new",
+          "cs": "V detailu aktivity jdou úkoly rovnou zakládat (Enter v poli) a přiřazovat existující bez vazby – úkol se otevře přímo nad detailem, bez odcházení do sekce Úkoly."
+        },
+        {
+          "type": "improved",
+          "cs": "Termín publikace příspěvku nejde nastavit do minulosti – platí v okně příspěvku (včetně vlastních časů kanálů) i při přetahování v kalendáři. Už uložená historická data (např. z importu) zůstávají beze změny editovatelná."
+        },
+        {
+          "type": "improved",
+          "cs": "Pole popisu úkolu je menší a pole zadání AI větší – výšky sednúly tomu, co se do nich reálně píše."
         }
       ]
     },
