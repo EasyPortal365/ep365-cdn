@@ -138,6 +138,18 @@
         {
           "type": "improved",
           "cs": "Pole pro zadání AI je o něco nižší, takže se návrhy objeví výš a méně se roluje."
+        },
+        {
+          "type": "new",
+          "cs": "Kampaně mají tabulkové zobrazení – přepínač Dlaždice / Tabulka vpravo nad seznamem, volba se pamatuje. Tabulka ukazuje období, plnění, vlastníka i stav a řadí se podle konce kampaně od nejpozdějšího, takže nahoře je to živé a nadcházející. Klikem na hlavičku sloupce se dá řadit i jinak."
+        },
+        {
+          "type": "new",
+          "cs": "U kampaní přibylo hledání (název, popis i vlastník) a filtry Vlastník a Období – právě probíhá, teprve začne, už skončila. Filtry se sčítají se stávajícími pilulkami stavu."
+        },
+        {
+          "type": "improved",
+          "cs": "Seznam příspěvků v tabulce se řadí podle termínu publikace od nejnovějšího – dřív byly nahoře nejstarší záznamy, což u importované historie znamenalo roky staré příspěvky."
         }
       ]
     },
