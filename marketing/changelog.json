@@ -54,6 +54,18 @@
         {
           "type": "improved",
           "cs": "AI asistent v editoru: větší pole pro zadání i pro návrh textu a AI nově navrhne i interní název příspěvku – vloží se ale jen do prázdného pole, ručně zadaný název se nikdy nepřepíše."
+        },
+        {
+          "type": "new",
+          "cs": "Detail příspěvku (čtení) má stejné rozložení jako editor: celá výška, uprostřed obsah per kanál se záložkami a náhledem sítě, vpravo plán, lidé, historie a konverzace – na tomtéž místě jako při úpravě, takže při přepnutí nic neskáče."
+        },
+        {
+          "type": "new",
+          "cs": "Levá zóna detailu je publikační pult řízený stavem: u konceptu „Odeslat ke schválení“, ve schvalování kroky s tlačítky Schválit/Vrátit, u schváleného řádky kanálů (Text · UTM · Otevřít), u publikovaného odkazy na posty a pole pro výsledky. Nikdy nenabízí akce, které zrovna nedávají smysl."
+        },
+        {
+          "type": "improved",
+          "cs": "Záložky Přílohy a Historie v detailu zanikly – přílohy jsou přímo pod textem a historie schvalování je sbalená v pravém panelu. Nic už není schované na druhé záložce."
         }
       ]
     },
