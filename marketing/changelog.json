@@ -38,6 +38,18 @@
         {
           "type": "improved",
           "cs": "Najetí myší na příspěvek v kalendáři vypíše celý přehled: stav, krok schvalování i s tím, kdo schvaluje, téma, kampaň, kanály, autora, vizuály, výsledky a začátek textu."
+        },
+        {
+          "type": "new",
+          "cs": "Okno příspěvku je při úpravě nově přes celou výšku obrazovky a dělí se na tři zóny: vlevo AI asistent, uprostřed psaní, vpravo plán, vizuály a konverzace. Okno samo neroluje – posuvník mají jen text, návrhy AI a zprávy."
+        },
+        {
+          "type": "new",
+          "cs": "Konverzace je nově i při úpravě příspěvku – komentáře a @zmínky kolegy jsou přímo vedle textu, takže se při zapracování připomínek nemusí odbíhat do detailu."
+        },
+        {
+          "type": "improved",
+          "cs": "AI asistent už nepřekrývá psací plochu – stojí trvale vedle textu. Návrhy chodí jako karty, které lze přímo upravit a vložit tlačítkem „Použít“; při generování je váš text celou dobu vidět. Zóna jde sbalit a bez AI Asistenta se vůbec nezobrazuje."
         }
       ]
     },
