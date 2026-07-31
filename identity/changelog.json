@@ -18,6 +18,11 @@
           "en": "The same wizard edits an existing account — via the \"Edit\" button in the user detail. Only the fields you actually changed are written, so editing never overwrites anything you didn't touch. Adding to groups and changing licences are included. Accounts synchronised from on-premises Active Directory don't offer editing, since synchronisation would overwrite it."
         },
         {
+          "type": "improved",
+          "cs": "Průvodce uživatelem má nyní stejné rozměry jako detail účtu – nepřekrývá horní pruh SharePointu a je stejně široký, takže při přechodu mezi nimi nic neposkakuje. V levé části navíc průběžně vidíte přehled všech zadaných údajů včetně vybraných skupin a licencí; při úpravě účtu tak máte po ruce jeho současný stav.",
+          "en": "The user wizard now matches the account detail in size — it no longer covers the SharePoint top bar and is the same width, so nothing jumps when you move between them. The left side also shows a running overview of everything entered, including the chosen groups and licences; when editing an account you therefore have its current state at hand."
+        },
+        {
           "type": "new",
           "cs": "Po založení účtu jde vše rovnou předat dál. Tlačítko zkopíruje jméno, přihlašovací údaje a zařazení jako prostý text – vložíte je do Teams, do tiketu nebo do poznámky. Vedle toho můžete informaci poslat e-mailem na libovolnou adresu; pokud jste u zaměstnance vyplnili další e-mail, nabídne se jedním klikem. Přiložení počátečního hesla je na vás – zaškrtávátko říká, co bude ve zprávě, a aplikace upozorní, když heslo posíláte bez vynucené změny při prvním přihlášení. E-mail odchází z vaší schránky, takže odpověď dorazí vám.",
           "en": "Once the account exists, everything can be handed over right away. One button copies the name, sign-in details and placement as plain text — paste it into Teams, a ticket or a note. You can also e-mail the information to any address; if you filled in an additional e-mail for the employee, it's offered in one click. Whether to include the initial password is up to you — a checkbox states what the message will contain, and the app warns when you send a password without requiring a change at first sign-in. The e-mail goes from your mailbox, so replies come back to you."
