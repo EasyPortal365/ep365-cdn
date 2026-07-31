@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.6",
-      "date": "2026-07-30",
+      "date": "2026-07-31",
       "changes": [
         {
           "type": "new",
@@ -85,7 +85,7 @@
         },
         {
           "type": "improved",
-          "cs": "Pole popisu úkolu je menší a pole zadání AI větší – výšky sednúly tomu, co se do nich reálně píše."
+          "cs": "Pole popisu úkolu je menší a pole zadání AI větší – výšky sedly tomu, co se do nich reálně píše."
         },
         {
           "type": "new",
@@ -101,15 +101,31 @@
         },
         {
           "type": "fixed",
-          "cs": "Uložení po delší době s otevřenou stránkou už neskíčí na chybu oprávnění – aplikace si bezpečnostní token obnovuje sama a při odmítnutí zápis zopakuje."
+          "cs": "Uložení po delší době s otevřenou stránkou už neskončí na chybu oprávnění – aplikace si bezpečnostní token obnovuje sama a při odmítnutí zápis zopakuje."
         },
         {
           "type": "fixed",
-          "cs": "Plán příprav už nelze omylem přepsat – když se ho nepodaří načíst, aplikace to řekne a úpravy zamčne, místo aby se tvářila, že akce žádný plán nemá."
+          "cs": "Plán příprav už nelze omylem přepsat – když se ho nepodaří načíst, aplikace to řekne a úpravy zamkne, místo aby se tvářila, že akce žádný plán nemá."
         },
         {
           "type": "improved",
           "cs": "Import zpracuje najednou nejvýš 300 příspěvků a zbytek nabídne dokončit dalším spuštěním – velký soubor tak SharePoint nezahltí."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hledání v nápovědě si poradí s diakritikou a s víc slovy najednou – „stáhnout obrázky“ najde odpověď, i když v ní slova nestojí vedle sebe. Dřív vrátilo prázdno."
+        },
+        {
+          "type": "fixed",
+          "cs": "Graf výkonu se kreslí ve skutečné šířce karty – popisky už nejsou vodorovně roztažené a hodnota u nejdelšího sloupce se vejde celá."
+        },
+        {
+          "type": "fixed",
+          "cs": "Počty se skloňují správně – místo „1 příspěvků“ a „2 běžících“ je „1 příspěvek“ a „2 běžící“. Platí v nadpisech všech seznamů, na Přehledu i v Nastavení."
+        },
+        {
+          "type": "improved",
+          "cs": "Náhledy komentářů v Přehledu a v Reportu aktivit ukazují čistý text – formátovací značky zmizely a ořez končí slovem, ne půlkou slabiky."
         }
       ]
     },
