@@ -86,6 +86,30 @@
         {
           "type": "improved",
           "cs": "Pole popisu úkolu je menší a pole zadání AI větší – výšky sednúly tomu, co se do nich reálně píše."
+        },
+        {
+          "type": "new",
+          "cs": "Zkopírování textu je teď přímo pod příspěvkem – tlačítko „Zkopírovat text“ u zvoleného kanálu. Tlačítka v publikačním sloupci mají nově celé popisky (Zkopírovat text · Odkaz s UTM · Otevřít síť) místo zkratek."
+        },
+        {
+          "type": "new",
+          "cs": "Vizuály jdou stáhnout do počítače – u každé přílohy je ikona stažení, u více příloh tlačítko „Stáhnout vše“. Stáhnout jde i z pole Vizuály při úpravě."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda vyrostla na 37 odpovědí v 11 tématech – přibyly celé kapitoly o publikaci a výsledcích, o úkolech a checklistech a o řešení potíží (co dělat, když se něco neuloží nebo kolega vidí něco jiného)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Uložení po delší době s otevřenou stránkou už neskíčí na chybu oprávnění – aplikace si bezpečnostní token obnovuje sama a při odmítnutí zápis zopakuje."
+        },
+        {
+          "type": "fixed",
+          "cs": "Plán příprav už nelze omylem přepsat – když se ho nepodaří načíst, aplikace to řekne a úpravy zamčne, místo aby se tvářila, že akce žádný plán nemá."
+        },
+        {
+          "type": "improved",
+          "cs": "Import zpracuje najednou nejvýš 300 příspěvků a zbytek nabídne dokončit dalším spuštěním – velký soubor tak SharePoint nezahltí."
         }
       ]
     },
