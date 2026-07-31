@@ -18,6 +18,11 @@
           "en": "The same wizard edits an existing account — via the \"Edit\" button in the user detail. Only the fields you actually changed are written, so editing never overwrites anything you didn't touch. Adding to groups and changing licences are included. Accounts synchronised from on-premises Active Directory don't offer editing, since synchronisation would overwrite it."
         },
         {
+          "type": "new",
+          "cs": "V Nastavení přibyla sekce „Datové seznamy“. Ukáže, do kterých seznamů na tomto webu aplikace ukládá data, kolik je v nich položek a hlavně jestli mají nastavenou viditelnost a oprávnění tak, jak aplikace předepisuje. Je to kontrola, ne správa – nic odsud nejde změnit ani smazat. Pokud něco nesedí, aplikace napíše co a proč: nejčastější příčinou je, že aplikaci na webu poprvé otevřel běžný člen, kterému SharePoint úpravu nastavení odmítl. Stačí ji otevřít jako správce webu a dorovná se sama.",
+          "en": "Settings has a new \"Data lists\" section. It shows which lists on this site the app stores data in, how many items they hold, and above all whether their visibility and permissions match what the app requires. It is a check, not an administration screen — nothing here can be changed or deleted. If something doesn't match, the app says what and why: the usual cause is that the app was first opened on the site by an ordinary member, whom SharePoint refused the settings change. Open it as a site administrator and it corrects itself."
+        },
+        {
           "type": "improved",
           "cs": "Průvodce uživatelem má nyní stejné rozměry jako detail účtu – nepřekrývá horní pruh SharePointu a je stejně široký, takže při přechodu mezi nimi nic neposkakuje. V levé části navíc průběžně vidíte přehled všech zadaných údajů včetně vybraných skupin a licencí; při úpravě účtu tak máte po ruce jeho současný stav.",
           "en": "The user wizard now matches the account detail in size — it no longer covers the SharePoint top bar and is the same width, so nothing jumps when you move between them. The left side also shows a running overview of everything entered, including the chosen groups and licences; when editing an account you therefore have its current state at hand."
