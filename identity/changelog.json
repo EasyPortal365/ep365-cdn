@@ -4,6 +4,27 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "2.4",
+      "date": "2026-07-31",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nového uživatele nově založíte přímo v aplikaci – průvodcem o pěti krocích. Zadáte jméno a přihlašovací údaje (aplikace je předvyplní z jména a příjmení a navrhne bezpečné heslo), doplníte pozici, oddělení a nadřízeného, vyberete skupiny a licence. Poslední krok shrne, co přesně se provede, teprve pak se cokoli zapíše. Heslo uvidíte na konci průvodce – Microsoft Entra ho zpětně nezobrazí.",
+          "en": "You can now create a new user directly in the app through a five-step wizard. Enter the name and sign-in details (the app pre-fills them from first and last name and suggests a strong password), add job title, department and manager, then pick groups and licences. The final step summarises exactly what will happen before anything is written. The password is shown at the end of the wizard — Microsoft Entra will not reveal it later."
+        },
+        {
+          "type": "new",
+          "cs": "Údaje existujícího účtu jde upravit stejným průvodcem – tlačítkem „Upravit“ v detailu uživatele. Zapíšou se jen položky, které jste skutečně změnili, takže úprava nepřepíše nic, čeho jste se nedotkli. Součástí je i přidání do skupin a změna licencí. U účtů synchronizovaných z místního Active Directory se úprava nenabízí, protože by ji synchronizace přepsala zpět.",
+          "en": "The same wizard edits an existing account — via the \"Edit\" button in the user detail. Only the fields you actually changed are written, so editing never overwrites anything you didn't touch. Adding to groups and changing licences are included. Accounts synchronised from on-premises Active Directory don't offer editing, since synchronisation would overwrite it."
+        },
+        {
+          "type": "improved",
+          "cs": "U licencí je vidět, kolik míst v každé zbývá, a vyčerpané nelze vybrat. Aplikace také hlídá zemi uživatele – bez ní Microsoft licenci nepřidělí, takže na to upozorní dřív, než se pokus o přiřazení nezdaří. Každý krok zápisu má vlastní výsledek: když se třeba účet založí, ale licence nepřidělí, uvidíte přesně to, místo obecné hlášky o chybě.",
+          "en": "Each licence shows how many seats remain, and exhausted ones can't be selected. The app also checks the user's country — Microsoft won't assign a licence without it, so you're warned before the attempt fails. Every write step reports its own result: if the account is created but the licence isn't assigned, you see exactly that instead of one generic error."
+        }
+      ]
+    },
+    {
       "version": "2.3",
       "date": "2026-07-31",
       "changes": [
