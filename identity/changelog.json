@@ -24,8 +24,8 @@
         },
         {
           "type": "improved",
-          "cs": "Přehled stavu MFA poskytuje Microsoft jen organizacím s licencí Entra ID P1 nebo P2. Pokud ji vaše organizace nemá, aplikace to napíše jednou větou a sloupec „MFA“ vůbec nezobrazí – místo aby u každého účtu svítila pomlčka. Stejně tak se nenabídne přepínač vynucení, dokud aplikace nezná jeho současný stav: měnit zabezpečení naslepo nedává smysl.",
-          "en": "Microsoft provides the MFA overview only to organisations with an Entra ID P1 or P2 licence. If yours doesn't have one, the app says so in a single line and hides the \"MFA\" column entirely, instead of showing a dash on every account. Likewise the enforcement switch stays hidden until the app knows its current value — changing a security setting blind makes no sense."
+          "cs": "Přehled registrovaných metod poskytuje Microsoft jen organizacím s licencí Entra ID P1 nebo P2. Pokud ji vaše organizace nemá, aplikace to napíše jednou větou a sloupec „MFA“ vůbec nezobrazí – místo aby u každého účtu svítila pomlčka. Vynucení MFA u jednotlivého účtu ale funguje dál, na licenci nezávisí. Přepínač se nenabídne, dokud aplikace nezná jeho současný stav: měnit zabezpečení naslepo nedává smysl. V detailu účtu je nově vždy vidět, čím vaše organizace MFA vynucuje – dřív se tento údaj u organizací bez uvedené licence nezobrazil, přestože na něj upozornění odkazovalo.",
+          "en": "Microsoft provides the registered-methods overview only to organisations with an Entra ID P1 or P2 licence. If yours doesn't have one, the app says so in a single line and hides the \"MFA\" column entirely, instead of showing a dash on every account. Enforcing MFA for an individual account still works — that does not depend on the licence. The switch stays hidden until the app knows its current value: changing a security setting blind makes no sense. The account detail now always shows how your organisation enforces MFA — previously that line was missing for organisations without the licence, even though a warning referred to it."
         }
       ]
     },
