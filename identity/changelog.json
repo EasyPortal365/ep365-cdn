@@ -19,6 +19,11 @@
         },
         {
           "type": "new",
+          "cs": "Průvodce nově zaznamená i datum nástupu, město, mobilní telefon a další e-mail. Vyplníte je v kroku Zařazení a hned se propíšou do Microsoft Entra – datum nástupu tedy máte u zaměstnance evidované od prvního dne, ne až v personální tabulce. Všechny čtyři údaje jsou vidět i v detailu účtu a dají se kdykoli změnit tlačítkem „Upravit“. Další e-mail smí zapisovat jen část správcovských rolí; když se to nepodaří, zbytek průvodce doběhne a aplikace řekne, který krok neprošel.",
+          "en": "The wizard now also records the hire date, city, mobile phone and an additional e-mail address. You fill them in at the Placement step and they go straight into Microsoft Entra — so the hire date is on the employee record from day one, not just in a HR spreadsheet. All four appear in the account detail and can be changed any time via \"Edit\". The additional e-mail may only be written by certain admin roles; if that fails, the rest of the wizard still completes and the app tells you which step didn't go through."
+        },
+        {
+          "type": "new",
           "cs": "V kroku Skupiny nově vybíráte i podle zařazení – rozbalíte útvar v organizační struktuře nebo lokalitu v geografii a aplikace nabídne skupiny, které k nim patří. Nemusíte tedy znát název správné skupiny; stačí vědět, kam nový člověk nastupuje. Výběr útvaru zahrne i skupiny zatříděné pod ním. Hledání podle názvu zůstává vedle. Dokud nemají skupiny zařazení v taxonomii, aplikace to napíše místo prázdné nabídky.",
           "en": "The Groups step now lets you pick by classification — choose a department in the organisational structure or a location in the geography, and the app offers the groups that belong there. You don't need to know the right group's name, only where the new person is joining. Picking a department also covers groups classified beneath it. Search by name remains alongside. Until groups are classified in the taxonomy, the app says so instead of showing an empty list."
         },
