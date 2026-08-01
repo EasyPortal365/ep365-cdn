@@ -1,0 +1,43 @@
+{
+  "schema": 2,
+  "app": "ep365-eshop",
+  "name": "EP365 E-shop",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-08-01",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "První vydání EP365 E-shopu – interní obchod pro Microsoft 365: katalog produktů s variantami (velikosti, barvy), košík uložený k účtu, objednávky se schvalováním a výdejem.",
+          "en": "First release of EP365 E-shop – an internal store for Microsoft 365: product catalogue with variants (sizes, colours), a per-user cart, and orders with approval and issue steps."
+        },
+        {
+          "type": "new",
+          "cs": "Sklad s auditní stopou – každý příjem, odečet objednávkou, storno i korekce se zapisují do žurnálu pohybů; hlídání minimální zásoby.",
+          "en": "Stock with an audit trail – every receipt, order deduction, cancellation and correction is written to the movements journal; minimum-stock watch."
+        },
+        {
+          "type": "new",
+          "cs": "Soukromé objednávky – běžný uživatel vidí jen své objednávky a košík, hlídá to přímo SharePoint; správci vidí vše.",
+          "en": "Private orders – regular users see only their own orders and cart, enforced by SharePoint itself; administrators see everything."
+        },
+        {
+          "type": "new",
+          "cs": "E-mailová upozornění – nová objednávka správcům, rozhodnutí (schváleno, vydáno, zamítnuto s důvodem) objednateli.",
+          "en": "E-mail notifications – new orders go to administrators, decisions (approved, issued, rejected with a reason) go to the requester."
+        },
+        {
+          "type": "new",
+          "cs": "Podpora Microsoft Teams – aplikaci přidáte jako osobní aplikaci nebo záložku; web s daty se dohledá automaticky přes EP365 Homepage.",
+          "en": "Microsoft Teams support – add the app as a personal app or tab; the data site is discovered automatically via EP365 Homepage."
+        },
+        {
+          "type": "new",
+          "cs": "Hodnocení produktů hvězdičkami, režim skrytých cen pro výdejny, jednokrokové vyřízení pro malé týmy a testovací data na vyzkoušení.",
+          "en": "Star ratings for products, a hidden-prices mode for supply rooms, single-step fulfilment for small teams, and demo data for a quick trial."
+        }
+      ]
+    }
+  ]
+}
