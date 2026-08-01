@@ -46,6 +46,36 @@
           "type": "fixed",
           "cs": "Hlavičky všech obrazovek mají jednotnou jemnou mřížku na pozadí (dřív chyběla na datových přehledech).",
           "en": "Headers of all screens now share the subtle background grid (previously missing on data views)."
+        },
+        {
+          "type": "new",
+          "cs": "Interaktivní průvodce aplikací – provede vás objednáváním i správou přímo v aplikaci. Spustíte ho z Nápovědy, poprvé se nabídne sám na Přehledu.",
+          "en": "Interactive in-app guide – walks you through ordering and administration. Start it from Help; it also offers itself on the Overview at first visit."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda je nově plnohodnotná příručka: postup krok za krokem, vysvětlení všech stavů objednávky, sekce pro správce a rozklikávací časté dotazy.",
+          "en": "Help is now a full guide: step-by-step instructions, an explanation of every order state, an admin section, and expandable FAQs."
+        },
+        {
+          "type": "improved",
+          "cs": "Úvodní obrazovka má rychlé vstupy do katalogu, košíku a objednávek a doplněné ovládací ikony (aktualizovat, sdílet, nápověda).",
+          "en": "The overview screen now offers quick entries to the catalogue, cart and orders, plus the standard action icons (refresh, share, help)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Detail produktu s velikostmi hlásil „Vyprodáno“, dokud jste velikost nevybrali – nově ukazuje celkovou zásobu produktu.",
+          "en": "A product detail with sizes showed \"Sold out\" until a size was picked – it now shows the product's total stock."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zvýrazněná část nadpisů je na samostatném řádku a v postranním panelu je opět skupina Správa.",
+          "en": "The highlighted part of headings sits on its own line, and the sidebar shows the Administration group again."
+        },
+        {
+          "type": "fixed",
+          "cs": "Verzi aplikace lze aktivovat i bez aktivní licence – dřív nešlo nasadit ani opravnou verzi.",
+          "en": "The app version can be activated even without an active licence – previously not even a fix version could be deployed."
         }
       ]
     }
