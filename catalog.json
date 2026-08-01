@@ -38,6 +38,9 @@
     "description": "Výkaznictví hodin pro zákazníky – projekty, milníky, schvalování a fakturace. Měsíční výkazy s exportem do Wordu i CSV.",
     "webUrl": "https://easyportal365.cz/aplikace/worklog/"
   },
+  "ep365-eshop": {
+    "description": "Interní e-shop – katalog produktů s variantami, košík, objednávky se schvalováním a výdejem, sklad s auditní stopou."
+  },
   "ep365-site-manager": {
     "description": "Řízené zakládání a životní cyklus SharePoint a Teams webů – žádosti, schválení, metadata, zámek a archivace. Podchytí i weby, které už v tenantu jsou.",
     "webUrl": "https://easyportal365.cz/aplikace/rizene-weby/"
