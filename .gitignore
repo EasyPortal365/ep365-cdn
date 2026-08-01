@@ -21,6 +21,13 @@
 !*/changelog.json
 !tools/publish-changelog.mjs
 
+# Runtime verze aplikací (architektura „trvalý .sppkg + verze z CDN", od 2026-08-01):
+# <app>/releases.json = seznam vydaných verzí (číslo + datum, max ~10; zdroj pro
+# správu verzí v appce a retenci), <app>/<verze>/manifest.json = SPFx komponentní
+# manifest dané verze (stejná metadata, která dřív vezl .sppkg — žádné secrets).
+!*/releases.json
+!*/*/manifest.json
+
 # Údržba velikosti CDN (GitHub Pages limit 1 GB) — prořez nedosažitelných bundlů.
 # Bezpečné: čistě mechanismus nad veřejným obsahem tohoto repa, žádné secrets.
 # Politika (které složky chránit a proč = kdo co má nasazené) NENÍ v tomto
