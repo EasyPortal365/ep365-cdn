@@ -36,6 +36,16 @@
           "type": "new",
           "cs": "Hodnocení produktů hvězdičkami, režim skrytých cen pro výdejny, jednokrokové vyřízení pro malé týmy a testovací data na vyzkoušení.",
           "en": "Star ratings for products, a hidden-prices mode for supply rooms, single-step fulfilment for small teams, and demo data for a quick trial."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení – Verze a informace nově ukazují stav licence s tlačítkem „Ověřit znovu“ (okamžité přenačtení bez čekání na mezipaměť).",
+          "en": "Settings – Version and information now show the licence state with a \"Re-check\" button (instant refresh without waiting for the cache)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hlavičky všech obrazovek mají jednotnou jemnou mřížku na pozadí (dřív chyběla na datových přehledech).",
+          "en": "Headers of all screens now share the subtle background grid (previously missing on data views)."
         }
       ]
     }
