@@ -8,6 +8,16 @@
       "date": "2026-07-29",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Ve Fakturaci & výkazech je u každého řádku vidět datum a popis práce – hned poznáte, co se ten den dělalo, bez otevírání výkazu. Hledání nově prochází i popisy.",
+          "en": "Billing & reports now shows the date and the work description on every row – you can see what was done on a given day without opening the entry. Search now covers descriptions too."
+        },
+        {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
+        {
           "type": "new",
           "cs": "Náhled očima uživatele: správce si vlevo dole klikne na ikonu oka a pustí si Worklog tak, jak ho vidí konkrétní kolega – se vším všudy, včetně jeho projektů a výkazů. Rychle jde vyzkoušet i typická situace „spolupracovník bez přiřazení“. Navíc rovnou ověříme v SharePointu, jestli by dotyčnému uložení výkazu skutečně prošlo – to bývá odpověď na otázku, proč mu něco nejde, i když roli má. V náhledu se nic neukládá ani neodesílá.",
           "en": "Preview through a user's eyes: an administrator clicks the eye icon at the bottom left and sees Worklog exactly as a given colleague does – including their projects and time entries. The typical case of a collaborator with no assignments can be tried in one click. On top of that we check in SharePoint whether saving a time entry would actually go through for them – usually the answer to why something does not work despite having the right role. Nothing is saved or sent while in preview."
