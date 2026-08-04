@@ -5,9 +5,35 @@
   "name": "EP365 HelpDesk",
   "entries": [
     {
+      "version": "1.2",
+      "date": "2026-08-04",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Více podporových schránek v jedné aplikaci (fronty) – v Nastavení – E-mail nově nadefinujete libovolný počet sdílených schránek, například podporu pro různé značky nebo produkty. Každý tiket si pamatuje svou frontu a všechny odpovědi, potvrzení i upomínky odchází z její adresy; pošta ze všech schránek se vyzvedává najednou.",
+          "en": "Multiple support mailboxes in one app (queues) – in Settings – E-mail you can now define any number of shared mailboxes, for example support for different brands or products. Each ticket remembers its queue and all replies, confirmations and reminders are sent from its address; mail from all mailboxes is collected together."
+        },
+        {
+          "type": "new",
+          "cs": "Vlastní značka e-mailů pro každou frontu – název, zkratka v barevném štítku, odkaz v patičce i podpis. Zákazník různých značek tak dostává poštu v „jejich“ vizuálu, přestože podporu obsluhuje jeden tým v jedné aplikaci.",
+          "en": "Custom e-mail branding per queue – name, badge tag, footer link and signature. Customers of different brands receive mail in “their” look, even though support is handled by one team in one app."
+        },
+        {
+          "type": "new",
+          "cs": "Ruční tiket s volbou fronty a přehlednější nezařazená pošta – u zpráv od neznámých odesílatelů vidíte, do které schránky přišly, a tiket z nich vznikne ve správné frontě.",
+          "en": "Manual tickets with queue selection and clearer unassigned mail – for messages from unknown senders you can see which mailbox they arrived in, and tickets created from them keep the right queue."
+        }
+      ]
+    },
+    {
       "version": "1.1",
       "date": "2026-07-31",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze a informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si HelpDesk krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
