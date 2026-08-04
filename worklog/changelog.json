@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Rychlý zápis v Mém výkazu si pamatuje poslední volbu – projekt i typ práce, které jste použili naposledy, jsou předvyplněné hned při dalším zápisu. Milník se nabízí podle měsíce vykazovaného dne, takže srpnová práce už nespadne pod červencový milník; když měsíční milník u servisní smlouvy ještě neexistuje, založíte ho jedním kliknutím přímo z formuláře. Platí i na mobilu.",
+          "en": "Quick entry in My timesheet remembers your last choice – the project and work type you used last time are pre-filled for the next entry. The milestone follows the month of the reported day, so August work no longer lands under a July milestone; if a service contract has no milestone for that month yet, you can create it from the form with one click. Works on mobile too."
+        },
+        {
+          "type": "improved",
           "cs": "Ve Fakturaci & výkazech je u každého řádku vidět datum a popis práce – hned poznáte, co se ten den dělalo, bez otevírání výkazu. Hledání nově prochází i popisy.",
           "en": "Billing & reports now shows the date and the work description on every row – you can see what was done on a given day without opening the entry. Search now covers descriptions too."
         },
