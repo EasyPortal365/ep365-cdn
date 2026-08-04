@@ -9,6 +9,16 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Ukázková data pokrývají všechny obrazovky: tři snímky (trendy, Porovnání i prognóza kvóty), weby s knihovnami a seznamy v detailu, aplikace s app-only přístupem včetně tajemství, OneDrive weby, poslední aktivita z auditu, kanálové weby týmů, externí správce i zavedené hranice pro AI. Vyzkoušíte tak celou aplikaci naprázdno – a reset dat vše zase uklidí.",
+          "en": "Sample data now covers every screen: three snapshots (trends, Comparison and the quota forecast), sites with libraries and lists in the detail, applications with app-only access including secrets, OneDrive sites, recent audit activity, team channel sites, an external admin and configured AI boundaries. You can try the whole app without real data – and the data reset cleans it all up again."
+        },
+        {
+          "type": "improved",
+          "cs": "Pilíře skóre na Přehledu jsou klikací: Zabezpečení, Governance, Úložiště a Adopce otevřou Nálezy předfiltrované na daný pilíř – tedy přesně ty nálezy, které číslo srazily. AI připravenost otevře svůj detail s rozpadem na dimenze. V Nálezech k tomu přibyl nový filtr Pilíř.",
+          "en": "The score pillars on the Overview are clickable: Security, Governance, Storage and Adoption open Findings pre-filtered to that pillar – exactly the findings that pushed the number down. AI readiness opens its own detail with the dimension breakdown. Findings gained a new Pillar filter to match."
+        },
+        {
+          "type": "improved",
           "cs": "Reporty a export s živými náhledy: každá karta ukazuje miniaturu skutečného výstupu – HTML reporty zmenšený report, CSV exporty první řádky dat, AI připravenost své dimenze. Dvojice tlačítek, která dělala totéž, nahradila jedna jasná akce podle typu výstupu (Otevřít report / Stáhnout CSV / Otevřít view).",
           "en": "Reports and export with live previews: every card shows a miniature of the real output – HTML reports as a scaled-down report, CSV exports as the first rows of data, AI readiness as its dimensions. The pairs of buttons that did the same thing were replaced by one clear action per output type (Open report / Download CSV / Open view)."
         },
