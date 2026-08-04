@@ -8,6 +8,36 @@
       "date": "2026-07-29",
       "changes": [
         {
+          "type": "improved",
+          "cs": "Přehled je kompaktnější – vývoj skóre a změny od posledního skenu už nezabírají samostatné karty, ale sedí přímo v kartě Zdraví tenantu vedle pilířů. Hlídky na úvodu se zkrátily na tři nejdůležitější události a nálezy k řešení ukazují závažnost přímo v řádku.",
+          "en": "The overview is more compact – score history and changes since the last scan no longer occupy separate cards; they sit right inside the Tenant health card next to the pillars. Watchdogs on the home screen shrank to the three most important events, and findings to resolve show their severity right in the row."
+        },
+        {
+          "type": "improved",
+          "cs": "Detail webu se otevírá jako široký panel přes seznam – stejně jako detail týmu, takže neztratíte kontext ani filtry. Fakta o oprávněních, sdílení, úložišti a struktuře jsou rozložená do dvou sloupců bez rolování; knihovny, nálezy a jmenovité seznamy lidí mají vlastní záložky. Odkazy na konkrétní web fungují beze změny.",
+          "en": "The site detail opens as a wide panel over the list – just like the team detail, so you keep your context and filters. Facts about permissions, sharing, storage and structure are laid out in two columns with no scrolling; libraries, findings and named people lists have their own tabs. Links to a specific site keep working unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Detail týmu je širší a přehlednější – vlevo identita týmu a spárovaný web, vpravo nastavení týmu. Z týmu se jedním klikem dostanete na plný detail webu.",
+          "en": "The team detail is wider and clearer – team identity and the paired site on the left, team settings on the right. One click takes you from the team to the full site detail."
+        },
+        {
+          "type": "improved",
+          "cs": "Porovnání skenů: nálezy dle závažnosti a přehled sdílení se zobrazují jako karty s novou hodnotou a barevnou změnou – místo dřívějších řádků, ve kterých se čísla špatně četla.",
+          "en": "Scan comparison: findings by severity and the sharing overview are shown as cards with the new value and a colour-coded change – replacing the earlier rows where the numbers were hard to read."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlídky v Auditním logu dostaly hledání a stránkování – v delší historii událostí se najde konkrétní účet nebo typ události okamžitě.",
+          "en": "Watchdogs in the Audit log gained search and paging – in a longer event history you find a specific account or event type instantly."
+        },
+        {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze a informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version and information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
+        {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
           "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
