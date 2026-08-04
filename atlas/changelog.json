@@ -9,6 +9,21 @@
       "changes": [
         {
           "type": "improved",
+          "cs": "Reporty a export s živými náhledy: každá karta ukazuje miniaturu skutečného výstupu – HTML reporty zmenšený report, CSV exporty první řádky dat, AI připravenost své dimenze. Dvojice tlačítek, která dělala totéž, nahradila jedna jasná akce podle typu výstupu (Otevřít report / Stáhnout CSV / Otevřít view).",
+          "en": "Reports and export with live previews: every card shows a miniature of the real output – HTML reports as a scaled-down report, CSV exports as the first rows of data, AI readiness as its dimensions. The pairs of buttons that did the same thing were replaced by one clear action per output type (Open report / Download CSV / Open view)."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda přepsaná od základu: přes 60 odpovědí v 17 tématech pokrývá každou obrazovku do detailu – od výpočtu skóre přes detail webu, hlídky a auditní dotazy až po správu verzí – plus nová sekce Řešení potíží (chybějící oprávnění, pomalý sken, čísla nesedí s admin centrem).",
+          "en": "Help rewritten from the ground up: over 60 answers in 17 topics cover every screen in detail – from score calculation through the site detail, watchdogs and audit queries up to version management – plus a new Troubleshooting section (missing permissions, slow scans, numbers not matching the admin center)."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce výrazně rozšířen: dvanáct kapitol ve čtyřech skupinách (Začínáme · Monitoring · Data a výstupy · Pro správce) s osnovou „co projdeme“ u každé kapitoly. Nově provede Přehledem, weby a detailem webu, Teams a sdílením, nastavením tenantu s AI připraveností, auditem s hlídkami i správou aplikace.",
+          "en": "The interactive guide grew substantially: twelve chapters in four groups (Getting started · Monitoring · Data and outputs · For admins) with a „what we'll cover“ outline for each chapter. It newly walks you through the Overview, sites and the site detail, Teams and sharing, tenant settings with AI readiness, audit with watchdogs, and app administration."
+        },
+        {
+          "type": "improved",
           "cs": "Přehled je kompaktnější – vývoj skóre a změny od posledního skenu už nezabírají samostatné karty, ale sedí přímo v kartě Zdraví tenantu vedle pilířů. Hlídky na úvodu se zkrátily na tři nejdůležitější události a nálezy k řešení ukazují závažnost přímo v řádku.",
           "en": "The overview is more compact – score history and changes since the last scan no longer occupy separate cards; they sit right inside the Tenant health card next to the pillars. Watchdogs on the home screen shrank to the three most important events, and findings to resolve show their severity right in the row."
         },
