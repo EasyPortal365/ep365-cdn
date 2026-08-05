@@ -66,6 +66,11 @@
           "type": "fixed",
           "cs": "V záhlaví stránek se opět kreslí ikony rychlých akcí – aktualizovat, kopírovat odkaz, nápověda, nahlásit chybu a navrhnout funkci. Zůstávala z nich jen prázdná kolečka. Vrátilo se i tlačítko pro zvětšení na celou obrazovku.",
           "en": "The quick-action icons are drawn in page headers again — refresh, copy link, help, report a bug and suggest a feature. Only empty circles were left of them. The full-screen toggle is back as well."
+        },
+        {
+          "type": "improved",
+          "cs": "Nadpisy stránek jsou sjednocené: zvýrazněná věta je všude na samostatném řádku a stejně výrazná, včetně uvítání na Přehledu. Seznamové stránky Žádosti o skupinu a Reporty mají nadpis velký jako ostatní přehledy, ne jako stránky nastavení. V Nastavení se navíc výčet datových seznamů zalomí do karty, místo aby přetékal přes její okraj.",
+          "en": "Page titles are now consistent: the highlighted sentence always sits on its own line and carries the same weight everywhere, including the greeting on the Overview. The Group requests and Reports screens use the same heading size as other overviews rather than the larger settings-page size. In Settings, the list of data lists wraps inside its card instead of overflowing it."
         }
       ]
     },
