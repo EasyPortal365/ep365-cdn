@@ -7,13 +7,13 @@
   "requiresCustomScript": false,
   "loaderConfig": {
     "internalModuleBaseUrls": [
-      "https://cdn.easyportal365.cz/atlas/1.9.4.6/"
+      "https://cdn.easyportal365.cz/atlas/1.9.4.7/"
     ],
     "entryModuleId": "ep-365-atlas-app",
     "scriptResources": {
       "ep-365-atlas-app": {
         "type": "path",
-        "path": "ep-365-atlas-app_ce017a7a52e981579a54.js"
+        "path": "ep-365-atlas-app_acca38cede1b7ccb91cf.js"
       },
       "react": {
         "type": "component",
