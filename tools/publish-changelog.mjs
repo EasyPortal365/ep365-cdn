@@ -46,6 +46,19 @@ function validate(data, appId) {
   if (!data.name || typeof data.name !== 'string') fail('chybi name (zobrazovany nazev appky)');
   if (!Array.isArray(data.entries) || data.entries.length === 0) fail('entries musi byt neprazdne pole');
 
+  // pending = zmeny z TICHYCH verzi, ktere zakaznik jeste nema videt (standard 2026-08-06).
+  // Na CDN se NIKDY nezapisuji - do entries je prevede az tools/promote-release.mjs.
+  if (data.pending !== undefined) {
+    if (!Array.isArray(data.pending)) fail('pending musi byt pole (nebo chybet)');
+    for (const c of data.pending) {
+      if (VALID_TYPES.indexOf(c.type) === -1) fail('pending: neplatny type "' + c.type + '" (povolene: ' + VALID_TYPES.join(', ') + ')');
+      if (!c.cs || typeof c.cs !== 'string') fail('pending: change bez cs textu');
+      if (c.en !== undefined && typeof c.en !== 'string') fail('pending: en musi byt string');
+      if (c.cs.indexOf('—') !== -1) fail('pending: cs text obsahuje em-dash (—) - v cestine patri en-dash (–)');
+      if (c.since !== undefined && !/^\d+(\.\d+){1,3}$/.test(c.since)) fail('pending: since musi byt cislo tiche verze (napr. 1.9.4.5)');
+    }
+  }
+
   for (const e of data.entries) {
     if (!/^\d+\.\d+$/.test(e.version || '')) fail('neplatna verze: "' + e.version + '" (ocekavam zakaznickou RADU MAJOR.MINOR, napr. 1.8 - ne interni build X.Y.Z.W)');
     if (!/^\d{4}-\d{2}-\d{2}$/.test(e.date || '')) fail('neplatne datum u ' + e.version + ': "' + e.date + '" (ocekavam YYYY-MM-DD)');
@@ -82,6 +95,14 @@ function toMarkdown(data) {
     }
     lines.push('');
   }
+  if (Array.isArray(data.pending) && data.pending.length) {
+    lines.push('## Nevydano - ceka na povyseni tiche verze');
+    lines.push('');
+    for (const c of data.pending) {
+      lines.push('- **' + TYPE_LABEL_CS[c.type] + ':** ' + c.cs + (c.since ? ' _(tiche ' + c.since + ')_' : ''));
+    }
+    lines.push('');
+  }
   return lines.join('\n');
 }
 
@@ -104,11 +125,14 @@ for (const arg of args) {
   // Serazeni entries sestupne dle verze (pojistka proti rucnimu prehazeni)
   data.entries.sort((a, b) => cmpVersionDesc(a.version, b.version));
 
-  // 1) CDN kopie
+  // 1) CDN kopie - BEZ pending. CDN je verejne citelne, takze texty nevydanych
+  //    tichych verzi by si zakaznik mohl precist drive, nez o nich rozhodneme.
   const outDir = join(CDN_ROOT, folder);
   if (!existsSync(outDir)) mkdirSync(outDir);
   const outPath = join(outDir, 'changelog.json');
-  writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n', 'utf8');
+  const publicData = { ...data };
+  delete publicData.pending;
+  writeFileSync(outPath, JSON.stringify(publicData, null, 2) + '\n', 'utf8');
 
   // 2) Citelny CHANGELOG.md v app repu
   const mdPath = join(APPS_ROOT, repo, 'CHANGELOG.md');

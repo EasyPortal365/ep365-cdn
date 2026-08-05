@@ -20,6 +20,7 @@
 # jen texty změn (zdroj = CHANGELOG.json v app repu, kopíruje publish-changelog.mjs).
 !*/changelog.json
 !tools/publish-changelog.mjs
+!tools/promote-release.mjs
 
 # Runtime verze aplikací (architektura „trvalý .sppkg + verze z CDN", od 2026-08-01):
 # <app>/releases.json = seznam vydaných verzí (číslo + datum, max ~10; zdroj pro
