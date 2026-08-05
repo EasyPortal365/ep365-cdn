@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
+        {
+          "type": "new",
           "cs": "Nového uživatele nově založíte přímo v aplikaci – průvodcem o pěti krocích. Zadáte jméno a přihlašovací údaje (aplikace je předvyplní z jména a příjmení a navrhne bezpečné heslo), doplníte pozici, oddělení a nadřízeného, vyberete skupiny a licence. Poslední krok shrne, co přesně se provede, teprve pak se cokoli zapíše. Heslo uvidíte na konci průvodce – Microsoft Entra ho zpětně nezobrazí.",
           "en": "You can now create a new user directly in the app through a five-step wizard. Enter the name and sign-in details (the app pre-fills them from first and last name and suggests a strong password), add job title, department and manager, then pick groups and licences. The final step summarises exactly what will happen before anything is written. The password is shown at the end of the wizard — Microsoft Entra will not reveal it later."
         },
@@ -56,6 +61,11 @@
           "type": "improved",
           "cs": "U licencí je vidět, kolik míst v každé zbývá, a vyčerpané nelze vybrat. Aplikace také hlídá zemi uživatele – bez ní Microsoft licenci nepřidělí, takže na to upozorní dřív, než se pokus o přiřazení nezdaří. Každý krok zápisu má vlastní výsledek: když se třeba účet založí, ale licence nepřidělí, uvidíte přesně to, místo obecné hlášky o chybě.",
           "en": "Each licence shows how many seats remain, and exhausted ones can't be selected. The app also checks the user's country — Microsoft won't assign a licence without it, so you're warned before the attempt fails. Every write step reports its own result: if the account is created but the licence isn't assigned, you see exactly that instead of one generic error."
+        },
+        {
+          "type": "fixed",
+          "cs": "V záhlaví stránek se opět kreslí ikony rychlých akcí – aktualizovat, kopírovat odkaz, nápověda, nahlásit chybu a navrhnout funkci. Zůstávala z nich jen prázdná kolečka. Vrátilo se i tlačítko pro zvětšení na celou obrazovku.",
+          "en": "The quick-action icons are drawn in page headers again — refresh, copy link, help, report a bug and suggest a feature. Only empty circles were left of them. The full-screen toggle is back as well."
         }
       ]
     },
