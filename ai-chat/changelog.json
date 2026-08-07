@@ -4,9 +4,30 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.48",
+      "date": "2026-08-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Přehled využití má novou záložku „Využití AI“ – měsíční a roční přehled skutečně odvedené práce asistenta (AI úkony), rozpad podle funkcí, denní graf a odhad vlastních nákladů na Azure OpenAI. Měří se jen počty a spotřeba tokenů, nikdy obsah zpráv ani identity uživatelů.",
+          "en": "The usage overview has a new \"AI usage\" tab – a monthly and yearly view of the assistant's actual work (AI actions), a breakdown by feature, a daily chart and an estimate of your own Azure OpenAI costs. Only counts and token consumption are measured, never message content or user identities."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když jste při psaní e-mailu požádali o graf, mohla se do těla konceptu dostat syrová technická značka. Asistent nově do e-mailu grafy nevkládá – čísla shrne textovým výčtem – a kdyby se značka přesto objevila, koncept se automaticky vyčistí.",
+          "en": "When you asked for a chart while composing an email, a raw technical tag could end up in the draft body. The assistant no longer inserts charts into emails – it summarizes the numbers as a plain list – and if a tag slips through anyway, the draft is cleaned automatically."
+        }
+      ]
+    },
+    {
       "version": "1.47",
       "date": "2026-07-24",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Licence a verze vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – License & versions the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
         {
           "type": "new",
           "cs": "Klasifikace obsahu – dokumenty označené jako „mimo AI“ (nebo uložené ve vyhrazených cestách) se nově nezahrnují do podkladů Firemních znalostí. Klasifikaci i výjimky spravuje správce centrálně v aplikaci EP365 Homepage; asistent je respektuje při každé odpovědi.",
