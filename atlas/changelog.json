@@ -4,9 +4,140 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.10",
+      "date": "2026-08-08",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Zátěž API vidí celou rodinu aplikací EP365, ne jen Atlas: každá aplikace si měří vlastní volání na webu, kde běží, a plný sken jejich měření posbírá k sobě. V přehledu tak uvidíte, která aplikace a na kterém webu na limity naráží. Aplikace se v seznamu objeví po své nejbližší aktualizaci a po nejbližším plném skenu.",
+          "en": "API load now covers the whole EP365 family, not just Atlas: each application measures its own calls on the site where it runs, and a full scan collects those measurements. The overview then shows which application on which site hits the limits. An application appears in the list after its next update and the next full scan."
+        },
+        {
+          "type": "new",
+          "cs": "Nová obrazovka „Zátěž API” (jen pro správce): ukáže, kdy a proč aplikace naráží na limity SharePointu. Když se volání zabrzdí, viník bývá jinde – kvóty tenantu sdílí všechny aplikace i uživatelé dohromady. Atlas proto sbírá vlastní telemetrii (kolik volání bylo zabrzděno, jak dlouho se čekalo), ukáže vzorec v týdnu jako mapu a řekne, jestli si aplikace vyčerpala vlastní příděl, nebo ji dusí něco jiného v tenantu. Součástí je i doporučení, kdy je nejklidnější okno pro zálohy, migrace a plné skeny.",
+          "en": "New “API load” screen (admins only): it shows when and why applications hit SharePoint limits. When calls get throttled the culprit is usually elsewhere – tenant quotas are shared by every application and user. Atlas collects its own telemetry (how many calls were throttled and how long they waited), shows the weekly pattern as a map, and tells you whether the app exhausted its own allowance or something else in the tenant is squeezing it. It also suggests the calmest window for backups, migrations and full scans."
+        },
+        {
+          "type": "new",
+          "cs": "Hledání viníka přetížení: Atlas zkoreluje okna potíží s auditním logem a sestaví žebříček aplikací a účtů, které byly v tu dobu nejaktivnější – včetně podílu jejich činnosti právě v problémových oknech. K tomu report, který můžete poslat dodavateli sporné aplikace. Jde o korelaci, ne důkaz, a aplikace to takto i popisuje.",
+          "en": "Finding who overloads the tenant: Atlas correlates trouble windows with the audit log and builds a ranking of the applications and accounts most active at that time – including how much of their activity falls inside those windows. It also produces a report you can send to the vendor of the offending application. This is correlation, not proof, and the app says so."
+        },
+        {
+          "type": "new",
+          "cs": "Upozornění na opakované přetěžování: když počet zabrzděných volání překročí za den nastavený práh, objeví se událost mezi hlídkami. Opakuje-li se to několik dní v týdnu, Atlas z toho udělá nález, který se propíše do skóre. Práh si nastavíte v Nastavení – Notifikace.",
+          "en": "Alerts on repeated overload: when the number of throttled calls exceeds your daily threshold, an event appears among the watchdogs. If it repeats several days a week, Atlas raises a finding that feeds into the score. The threshold is configurable in Settings – Notifications."
+        },
+        {
+          "type": "new",
+          "cs": "Záznam zásahů a důkaz, že pomohly: k datům o zátěži si můžete poznamenat, co jste kdy udělali (například „záloha přesunuta na noc“). Atlas pak porovná týden před zásahem a po něm a ukáže, o kolik se situace zlepšila.",
+          "en": "Recording interventions and proving they helped: you can annotate the load data with what you changed and when (for example “backup moved to night hours”). Atlas then compares the week before and after and shows how much the situation improved."
+        },
+        {
+          "type": "new",
+          "cs": "Nová obrazovka „Cílený audit“ (jen pro správce): prověří jedno konkrétní místo – web, knihovnu nebo seznam – bez čekání na celý sken tenantu. Vložíte adresu, vyberete co vás zajímá (oprávnění a dědičnost, sdílené odkazy, nastavení, obsah) a dostanete report se skóre objektu, nálezy a doporučeními, který jde stáhnout. U knihovny uvidíte i to, co plný sken nedělá: které položky mají vlastní oprávnění a jaké sdílené odkazy z nich vedou ven.",
+          "en": "New “Targeted audit” screen (admins only): it examines one specific place – a site, library or list – without waiting for a full tenant scan. You paste the address, choose what interests you (permissions and inheritance, sharing links, settings, content) and get a downloadable report with the object's score, findings and recommendations. For a library you also see what a full scan does not cover: which items have their own permissions and what sharing links lead out of them."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace ctí pokyn SharePointu „zkuste to za chvíli“: když se čtení zabrzdí kvůli limitům, Atlas počká doporučenou dobu a zkusí to znovu, místo aby rovnou hlásil chybu. Skeny a přehledy tak procházejí i ve chvílích, kdy je tenant vytížený.",
+          "en": "The app now honours SharePoint's “retry later” instruction: when a read is throttled, Atlas waits the recommended time and tries again instead of failing outright. Scans and overviews therefore get through even when the tenant is busy."
+        },
+        {
+          "type": "improved",
+          "cs": "Správa verzí umí aktivovat i verzi, která ještě není v seznamu vydaných – po dohodě s dodavatelem tak jde vyzkoušet testovací nasazení dřív, než se vydá všem.",
+          "en": "Version management can now activate a version that is not on the released list yet – so, in agreement with your vendor, you can try a test rollout before it goes out to everyone."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější levé menu: položky jsou nově seřazené podle toho, co právě řešíte – nahoře Přehled a Nálezy (práce k udělání), pak Stav tenantu (jak to u vás vypadá), Vyšetřování (kdo něco udělal, jak je na tom jedno místo, proč volání vázne) a Historie a výstupy. Dřívější dvojice Monitoring a Data nikomu neřekla, kam se podívat. Nastavení tenantu se nově jmenuje Konfigurace SharePointu, ať se neplete s nastavením samotné aplikace.",
+          "en": "A clearer left menu: items are now ordered by what you are actually doing – Overview and Findings on top (work to do), then Tenant state (how things look), Investigation (who did what, how one place is doing, why calls get throttled) and History and outputs. The previous Monitoring / Data pair told nobody where to look. Tenant settings is now called SharePoint configuration so it is not confused with the settings of the application itself."
+        },
+        {
+          "type": "improved",
+          "cs": "Chystané změny Microsoft 365 jsou nově prokliknutelné: nadpis otevře zprávu přímo v Message Center a pilulka „Roadmapa“ vede na konkrétní položku plánu Microsoftu, pokud ji zpráva uvádí. U karty je i vysvětlení, že se seznam plní při každém skenu z Microsoft Graphu.",
+          "en": "Upcoming Microsoft 365 changes are now clickable: the title opens the message straight in the Message Center and a Roadmap pill leads to the specific item in Microsoft plans whenever the message names one. The card also explains that the list is filled at every scan from Microsoft Graph."
+        },
+        {
+          "type": "fixed",
+          "cs": "Žebříček „Kdo byl aktivní v oknech potíží“ už neukazuje tutéž aplikaci dvakrát – Microsoft dává různým registracím stejný název klienta a Atlas je nově slučuje do jednoho řádku.",
+          "en": "The list of applications active during throttling windows no longer shows the same application twice – Microsoft gives the same client name to different registrations, and Atlas now merges them into a single row."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nález o opakovaném throttlingu se po nápravě zavře i po rychlém skenu. Dřív ho rychlý sken uměl založit, ale ne uzavřít, takže zůstával viset až do dalšího plného skenu.",
+          "en": "The repeated throttling finding is now closed by a quick scan too. Previously a quick scan could open it but not close it, so it lingered until the next full scan."
+        },
+        {
+          "type": "new",
+          "cs": "Cílený audit umí i „Aktivitu“: doplní k prověřenému místu, kdo s ním za posledních 30 dní pracoval – žebříček účtů, nejčastější operace, kolik se toho stáhlo, jestli se sdílelo a co se mazalo, plus výpis jednotlivých událostí s hledáním a stránkováním. Data pochází z auditního logu, který Microsoft zpracovává na pozadí, takže audit na ně nečeká: dotaz se založí jedním kliknutím a vy se k výsledku vrátíte, až doběhne – klidně jiný den. Aktivita se přibalí i do staženého reportu.",
+          "en": "The targeted audit now also covers activity: for the place you checked it shows who worked with it over the last 30 days – a ranking of accounts, the most frequent operations, how much was downloaded, whether it was shared and what was deleted, plus a searchable, paged list of individual events. The data comes from the audit log, which Microsoft processes in the background, so the audit does not wait for it: one click starts the query and you come back to the result once it finishes, even on another day. Activity is also included in the downloaded report."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda i interaktivní průvodce nově pokrývají obě obrazovky pro správce, které v nich dosud chyběly: „Cílený audit“ (k čemu je, co znamená „bez úplného řízení“, proč Aktivita trvá déle a co se dá s reportem udělat) a „Zátěž API“ (co je throttling, čí kvóta došla, jak najít původce, jak doložit, že náprava zabrala, a co se naopak neměří). Kapitoly průvodce jsou navíc seřazené stejně jako levé menu.",
+          "en": "Help and the interactive guide now cover the two administrator screens that were missing from them: the targeted audit (what it is for, what „without full control“ means, why activity takes longer and what you can do with the report) and API load (what throttling is, whose quota ran out, how to find the culprit, how to prove a fix worked and what is not measured). Guide chapters are also ordered the same way as the left menu."
+        },
+        {
+          "type": "new",
+          "cs": "Nová obrazovka „Zdraví indexu“ (jen pro správce): co vyhledávání vidí a co mu uniká. Ukáže, kdy bylo které místo naposled procházeno, co se nepodařilo projít, co je z indexu vyloučené a jak dlouho trvá, než je nový dokument k nalezení. Co není v indexu, totiž pro uživatele neexistuje – nenajde to hledání ani Copilot. Data pochází přímo z evidence procházení v SharePointu; načítají se na kliknutí, protože jde o objemné čtení. Vyžaduje jednorázové udělení přístupu k této evidenci v centru pro správu, na které obrazovka srozumitelně nasměruje – role správce k tomu sama nestačí.",
+          "en": "A new administrator screen, Index health: what search sees and what it misses. It shows when each place was last crawled, what failed, what is excluded from the index and how long it takes before a new document can be found. Content that is not indexed does not exist for users – neither search nor Copilot will surface it. The data comes straight from SharePoint’s own crawl records and loads on demand, because it is a heavy read. It needs a one-off grant of access to those records in the admin center, which the screen explains and links to – an admin role alone is not enough."
+        },
+        {
+          "type": "new",
+          "cs": "Zdraví indexu se nově promítá i do nálezů a do detailu webu. Plný sken si sám přečte, jak si obsah stojí v indexu, a upozorní na čtyři situace: obsah, který se nedaří projít; obsah vyloučený z vyhledávání; index, který zaostává za změnami; a weby, o kterých index vůbec neví. U každého webu navíc uvidíte, kdy byl naposled procházen.",
+          "en": "Index health now also feeds findings and the site detail. A full scan reads how content stands in the index and raises four situations: content that cannot be crawled, content excluded from search, an index lagging behind changes, and sites the index does not know at all. Each site also shows when it was last crawled."
+        },
+        {
+          "type": "improved",
+          "cs": "Zdraví indexu rozlišuje druh objektu přesně podle toho, co hlásí SharePoint – položky, seznamy, weby, zobrazení a složky – místo dřívějšího odhadu z adresy. Díky tomu sedí i číslo „vyloučeno z indexu“. Nově uvidíte, z čeho se vzorek skládá, kolik obsahu čeká na odstranění z indexu, u chyb i to, jestli selhalo čtení obsahu nebo oprávnění, a v detailu webu obsahovou databázi – ta se hodí, když zakládáte požadavek u Microsoftu.",
+          "en": "Index health now tells object kinds apart exactly as SharePoint reports them – items, lists, sites, views and folders – instead of guessing from the address, which also corrects the „excluded from index“ figure. You can newly see what the sample consists of, how much content is pending removal from the index, whether a crawl error came from reading content or permissions, and the content database in the site detail – handy when raising a request with Microsoft."
+        },
+        {
+          "type": "fixed",
+          "cs": "Údaj „vyloučeno z vyhledávání“ se nově bere z nastavení webů a knihoven, ne z evidence procházení. Ta totiž stejný příznak nese u téměř každého záznamu bez ohledu na skutečné nastavení, takže Atlas mezi vyloučené počítal i běžné knihovny dokumentů. Nález nově upozorňuje na knihovny, které mají obsah, ale jsou vypnuté z hledání – datové seznamy aplikací, které se vylučují záměrně, hlásit nebude. Karta funguje i bez přístupu k evidenci procházení.",
+          "en": "Whether content is excluded from search is now read from the site and library settings rather than from the crawl log, which flags almost every record regardless of the actual setting – so ordinary document libraries were being counted as excluded. The finding now points at libraries that hold content but are switched off from search; application data lists, which are excluded on purpose, are left alone. The card also works without access to the crawl log."
+        },
+        {
+          "type": "new",
+          "cs": "Cílený audit umí i „Historii procházení“: u prověřeného webu nebo knihovny ukáže, kdy se na něj vyhledávání naposledy dívalo, zvlášť na obsah a zvlášť na oprávnění, jak dlouho trvá, než je nový soubor k nalezení, a co se nepodařilo projít. Když k místu není za 30 dní jediný záznam, je to samo o sobě nález – takový obsah nenajde hledání ani AI.",
+          "en": "Targeted audit now includes a “Crawl history” section: for the audited site or library it shows when search last looked at it – separately for content and for permissions – how long it takes before a new file becomes findable, and what failed to be crawled. If there is no record at all for 30 days, that is a finding in itself: neither search nor AI will find that content."
+        },
+        {
+          "type": "improved",
+          "cs": "Prověřování sdílených odkazů je výrazně rychlejší. Atlas se u každého souboru zbytečně ptal dvakrát; nově si zapamatuje, jak SharePoint odpovídá, a ptá se jednou. U knihovny se stovkou sdílených souborů to zkrátí audit zhruba na třetinu.",
+          "en": "Checking sharing links is considerably faster. Atlas was asking twice per file; it now remembers how SharePoint responds and asks once. On a library with a hundred shared files this cuts that part of the audit to roughly a third."
+        },
+        {
+          "type": "improved",
+          "cs": "Sloupec „Vytvořil“ u sdílených odkazů se zobrazí, jen když autora SharePoint skutečně vydá. Dosud zůstával prázdný a vypadal jako chyba – nově je místo něj vysvětlení, že autora lze dohledat v Aktivitě z auditního logu. Platí i pro stažený report.",
+          "en": "The “Created by” column for sharing links now appears only when SharePoint actually returns the author. It used to stay empty and look like a bug; instead there is now a note explaining that the author can be traced in Activity, from the audit log. The same applies to the downloaded report."
+        },
+        {
+          "type": "improved",
+          "cs": "Zátěž API nově vidí i volání do Microsoft Graphu. Dosud se měřila jen komunikace se SharePointem, takže sloupec Graph zůstával prázdný, přestože přes něj jde většina zjišťování o tenantu.",
+          "en": "API load now also sees calls to Microsoft Graph. Only SharePoint traffic was measured before, so the Graph column stayed empty even though most tenant information is gathered through it."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace si sama uklízí data o zátěži API starší než 90 dní, aby jich v seznamu nepřibývalo donekonečna. Přehledy sahají nejvýš měsíc zpět, takže se na nich nic nezmění.",
+          "en": "The app now clears out API load data older than 90 days by itself, so the list does not grow indefinitely. The dashboards look back a month at most, so nothing changes in them."
+        },
+        {
+          "type": "fixed",
+          "cs": "Adresa prověřeného seznamu nebo knihovny se v Cíleném auditu skládala chybně – cesta webu se v ní objevila dvakrát. Projevovalo se to v uložené historii auditů, ve staženém reportu a nově i tím, že historie procházení hlásila „bez záznamu“ i tam, kde záznamy byly.",
+          "en": "The address of the audited list or library was assembled incorrectly in Targeted audit – the site path appeared twice. It showed up in the saved audit history, in the downloaded report, and lately in crawl history reporting “no records” for places that had them."
+        }
+      ]
+    },
+    {
       "version": "1.9",
       "date": "2026-07-29",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Tlačítko „Vrátit nastavení“ v Manažerském shrnutí Porovnání skenů vedlo jen na výpis nastavení tenantu, což mátlo – přejmenováno na „Nastavení tenantu“. Vrácení konkrétní změny se dělá kliknutím na řádek změny v kartě Nastavení tenantu přímo v porovnání.",
+          "en": "The \"Revert settings\" button in the Scan comparison executive summary only led to the tenant settings list, which was confusing – renamed to \"Tenant settings\". Reverting a specific change is done by clicking the change row in the Tenant settings card right in the comparison."
+        },
         {
           "type": "improved",
           "cs": "Ukázková data pokrývají všechny obrazovky: tři snímky (trendy, Porovnání i prognóza kvóty), weby s knihovnami a seznamy v detailu, aplikace s app-only přístupem včetně tajemství, OneDrive weby, poslední aktivita z auditu, kanálové weby týmů, externí správce i zavedené hranice pro AI. Vyzkoušíte tak celou aplikaci naprázdno – a reset dat vše zase uklidí.",
@@ -368,11 +499,6 @@
           "type": "improved",
           "cs": "Import Get-SPOTenant je pohodlnější: PowerShell příkaz má tlačítko Kopírovat a je předvyplněný adresou vašeho tenantu (žádné ruční přepisování). Nápověda má novou sekci SPO Management Shell – jak modul nainstalovat, ověřit, připojit se a co dělat s častými chybami; přímý odkaz na ni vede z importu i ze sekce PowerShell v detailu nálezu.",
           "en": "The Get-SPOTenant import is more convenient: the PowerShell command has a Copy button and comes pre-filled with your tenant's admin URL (no manual editing). Help has a new SPO Management Shell section – how to install and verify the module, connect, and deal with common errors; both the import and the PowerShell section in the finding detail link to it directly."
-        },
-        {
-          "type": "fixed",
-          "cs": "Tlačítko „Vrátit nastavení\" v Manažerském shrnutí Porovnání skenů vedlo jen na výpis nastavení tenantu, což mátlo – přejmenováno na „Nastavení tenantu\". Vrácení konkrétní změny se dělá kliknutím na řádek změny v kartě Nastavení tenantu přímo v porovnání.",
-          "en": "The \"Revert settings\" button in the Scan comparison executive summary only led to the tenant settings list, which was confusing – renamed to \"Tenant settings\". Reverting a specific change is done by clicking the change row in the Tenant settings card right in the comparison."
         },
         {
           "type": "new",
