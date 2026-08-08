@@ -8,6 +8,11 @@
       "date": "2026-07-29",
       "changes": [
         {
+          "type": "new",
+          "cs": "Nová sekce Výkazy týmu – všechny zapsané hodiny na jednom místě, včetně konceptů, zamítnutých a nefakturovatelných, které Schvalování ani Fakturace neukazují. Filtrujete podle člověka, projektu, stavu i období, hledáte i v popisech práce a vyfiltrovaný výběr stáhnete jako CSV. Správce vidí všechno a může výkaz rovnou opravit nebo smazat, projektový vedoucí své projekty, spolupracovník své vlastní výkazy – i za starší měsíce, které se v Mém výkazu už nezobrazují.",
+          "en": "New Team timesheets section – every logged hour in one place, including drafts, rejected and non-billable entries that Approvals and Billing never show. Filter by person, project, state and period, search work descriptions, and download the filtered selection as CSV. An administrator sees everything and can fix or delete an entry right there, a project lead sees their projects, and a team member sees their own entries – including older months that My timesheet no longer shows."
+        },
+        {
           "type": "improved",
           "cs": "Rychlý zápis v Mém výkazu si pamatuje poslední volbu – projekt i typ práce, které jste použili naposledy, jsou předvyplněné hned při dalším zápisu. Milník se nabízí podle měsíce vykazovaného dne, takže srpnová práce už nespadne pod červencový milník; když měsíční milník u servisní smlouvy ještě neexistuje, založíte ho jedním kliknutím přímo z formuláře. Platí i na mobilu.",
           "en": "Quick entry in My timesheet remembers your last choice – the project and work type you used last time are pre-filled for the next entry. The milestone follows the month of the reported day, so August work no longer lands under a July milestone; if a service contract has no milestone for that month yet, you can create it from the form with one click. Works on mobile too."
