@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Na Přehledu je nová karta Kdo kolik vykázal – za aktuální měsíc ukáže lidi seřazené podle odpracovaných hodin, u každého počet výkazů a kolik hodin má ještě neodeslaných nebo čekajících na schválení. Kliknutím na člověka se otevřou jeho výkazy. Karta je na počítači i na mobilu; vidí ji správce a fakturant za celý tým, projektový vedoucí za své projekty.",
+          "en": "The Overview has a new Who logged what card – for the current month it lists people ranked by hours, with the number of entries and how many hours are still unsent or awaiting approval. Clicking a person opens their entries. The card is on desktop and mobile; administrators and billing users see the whole team, project leads see their own projects."
+        },
+        {
+          "type": "new",
           "cs": "Výkazy týmu jsou i na mobilu – ve spodní liště přibyla záložka Tým: výkazy seskupené po dnech, hledání a filtr podle člověka. Uvidí ji správce, projektový vedoucí a fakturant; opravy výkazů zůstávají v plné aplikaci.",
           "en": "Team timesheets are on mobile too – a new Team tab in the bottom bar shows entries grouped by day, with search and a per-person filter. Administrators, project leads and billing users see it; editing entries stays in the full app."
         },
