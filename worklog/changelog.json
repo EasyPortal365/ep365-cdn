@@ -9,6 +9,11 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Výkazy týmu jsou i na mobilu – ve spodní liště přibyla záložka Tým: výkazy seskupené po dnech, hledání a filtr podle člověka. Uvidí ji správce, projektový vedoucí a fakturant; opravy výkazů zůstávají v plné aplikaci.",
+          "en": "Team timesheets are on mobile too – a new Team tab in the bottom bar shows entries grouped by day, with search and a per-person filter. Administrators, project leads and billing users see it; editing entries stays in the full app."
+        },
+        {
+          "type": "new",
           "cs": "Nová sekce Výkazy týmu – všechny zapsané hodiny na jednom místě, včetně konceptů, zamítnutých a nefakturovatelných, které Schvalování ani Fakturace neukazují. Filtrujete podle člověka, projektu, stavu i období, hledáte i v popisech práce a vyfiltrovaný výběr stáhnete jako CSV. Správce vidí všechno a může výkaz rovnou opravit nebo smazat, projektový vedoucí své projekty, spolupracovník své vlastní výkazy – i za starší měsíce, které se v Mém výkazu už nezobrazují.",
           "en": "New Team timesheets section – every logged hour in one place, including drafts, rejected and non-billable entries that Approvals and Billing never show. Filter by person, project, state and period, search work descriptions, and download the filtered selection as CSV. An administrator sees everything and can fix or delete an entry right there, a project lead sees their projects, and a team member sees their own entries – including older months that My timesheet no longer shows."
         },
