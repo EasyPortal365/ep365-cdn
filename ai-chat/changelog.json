@@ -4,6 +4,22 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.49",
+      "date": "2026-08-08",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Záložka „Využití AI“ má nové rozvržení: tři přehledy vedle sebe – po dnech (listování po týdnech), po měsících zvoleného roku (listování po letech) a po letech. Klik na měsíc či rok přepne související pohledy. Přibyl také export reportu do HTML a PDF.",
+          "en": "The \"AI usage\" tab has a new layout: three views side by side – by day (browse by week), by month of a selected year (browse by year) and by year. Clicking a month or year switches the related views. Report export to HTML and PDF has also been added."
+        },
+        {
+          "type": "new",
+          "cs": "Záložka „Využití AI“ nově jasně ukazuje aktuální licenční pásmo (podle průměru posledních tří ukončených měsíců) – vidíte na první pohled, kde se vaše firma pohybuje. V pilotním období ukazuje „Zatím měříme“.",
+          "en": "The \"AI usage\" tab now clearly shows your current licensing band (based on the average of the last three completed months) – you can see at a glance where your company stands. During the pilot period it shows \"Measuring\"."
+        }
+      ]
+    },
+    {
       "version": "1.48",
       "date": "2026-08-07",
       "changes": [
