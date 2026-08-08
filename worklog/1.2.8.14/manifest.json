@@ -7,13 +7,13 @@
   "requiresCustomScript": false,
   "loaderConfig": {
     "internalModuleBaseUrls": [
-      "https://cdn.easyportal365.cz/worklog/1.2.8.4/"
+      "https://cdn.easyportal365.cz/worklog/1.2.8.14/"
     ],
     "entryModuleId": "ep-365-worklog-app",
     "scriptResources": {
       "ep-365-worklog-app": {
         "type": "path",
-        "path": "ep-365-worklog-app_367bad1bde2c8592408b.js"
+        "path": "ep-365-worklog-app_11eb2aecc9fbb9395a3d.js"
       },
       "react": {
         "type": "component",
