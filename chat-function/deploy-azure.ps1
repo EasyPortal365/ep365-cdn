@@ -375,6 +375,28 @@ try {
     # ----------------------------------------------------------------------
     Write-Step 'Nasazuji infrastrukturu (infra/main.bicep)'
 
+    # N23: ARM sablona prepisuje CELOU kolekci appSettings, takze redeploy jinak smaze vse, co
+    # v sablone neni (AAD_*, enrich readUrl allowlist, billing, hub, rate limity, modely...) a
+    # tise vypne Znalostni pripravu i dalsi funkce. Pred nasazenim si nase nastaveni zazalohujeme
+    # a po nasazeni obnovime (parametr ma prednost). Na PRVNIM nasazeni Function App jeste
+    # neexistuje -> list vrati chybu, zaloha je prazdna, nic se neobnovuje.
+    $preservedSettings = @{}
+    $existingSettingsJson = az functionapp config appsettings list --name $FunctionAppName --resource-group $ResourceGroupName -o json 2>$null
+    if ($LASTEXITCODE -eq 0 -and $existingSettingsJson) {
+        try {
+            foreach ($item in @($existingSettingsJson | ConvertFrom-Json)) {
+                $nm = [string]$item.name
+                # Jen NAS namespace (EP365_*, AAD_*). Infra klice (storage, functions runtime,
+                # appinsights) i AZURE_OPENAI_*/ALLOWED_ORIGIN nechavame na sablone/parametrech.
+                if ($nm -notmatch '^(EP365_|AAD_)') { continue }
+                $preservedSettings[$nm] = [string]$item.value
+            }
+            if ($preservedSettings.Count -gt 0) {
+                Write-Host ('Zaloha App Settings pred nasazenim: ' + $preservedSettings.Count + ' hodnot (EP365_*/AAD_*) - po nasazeni se obnovi.')
+            }
+        } catch { $preservedSettings = @{} }
+    }
+
     $deployName = 'ep365-chat-' + (Get-Date -Format 'yyyyMMdd-HHmmss')
     $bicepParams = @(
         ('functionAppName=' + $FunctionAppName),
@@ -410,6 +432,31 @@ try {
     }
     Assert-LastExit 'Nasazeni sablony selhalo. Detail chyby viz vystup vyse (pripadne Azure Portal -> resource group -> Deployments).'
     Write-Host 'Infrastruktura nasazena (Function App, Storage Account, Application Insights, App Settings).'
+
+    # N23: obnova zalohovanych App Settings. Parametr ma prednost - AAD_*/SETTINGS_SITE_URL
+    # predane parametrem uz sablona nastavila spravne, ty NEobnovujeme; ostatni (enrich readUrl,
+    # hub, billing, rate limity, modely + AAD_* bez parametru) vratime z zalohy.
+    if ($preservedSettings.Count -gt 0) {
+        $restoreArgs = @()
+        foreach ($key in $preservedSettings.Keys) {
+            if ($key -eq 'AAD_TENANT_ID'           -and $AadTenantId -ne '')     { continue }
+            if ($key -eq 'AAD_CLIENT_ID'           -and $AadClientId -ne '')     { continue }
+            if ($key -eq 'AAD_CLIENT_SECRET'       -and $AadClientSecret -ne '') { continue }
+            if ($key -eq 'EP365_SETTINGS_SITE_URL' -and $SettingsSiteUrl -ne '') { continue }
+            $v = $preservedSettings[$key]
+            if ([string]::IsNullOrEmpty($v)) { continue }
+            $restoreArgs += ($key + '=' + $v)
+        }
+        if ($restoreArgs.Count -gt 0) {
+            # Vypiseme jen NAZVY klicu - hodnoty (vc. AAD_CLIENT_SECRET) se do konzole netisknou.
+            $restoredKeys = ($restoreArgs | ForEach-Object { ($_ -split '=', 2)[0] } | Sort-Object) -join ', '
+            Write-Host ('Obnovuji zachovane App Settings (hodnoty se netisknou): ' + $restoredKeys)
+            az functionapp config appsettings set --name $FunctionAppName --resource-group $ResourceGroupName --settings $restoreArgs -o none 2>$null | Out-Null
+            if ($LASTEXITCODE -ne 0) {
+                Write-Host ' Upozorneni: obnova nekterych App Settings selhala - overte je rucne v Azure Portalu.' -ForegroundColor Yellow
+            }
+        }
+    }
 
     # ----------------------------------------------------------------------
     # 5. Kod funkce - release zip (CDN / -PackageUrl), nebo build ze zdrojaku
@@ -583,10 +630,10 @@ try {
         Write-Host '    scripts/setup-enrichment.ps1 (vytvori app registraci, granty i app settings).'
     }
     Write-Host ''
-    Write-Host ' POZOR: opakovane nasazeni sablony prepisuje App Settings Function App.' -ForegroundColor Yellow
-    Write-Host ' Pokud pozdeji aktivujete Znalostni pripravu a budete sablonu nasazovat' -ForegroundColor Yellow
-    Write-Host ' znovu, predejte i -AadTenantId/-AadClientId/-AadClientSecret/-SettingsSiteUrl,' -ForegroundColor Yellow
-    Write-Host ' jinak se tyto hodnoty smazou a Znalostni priprava se tise vypne.' -ForegroundColor Yellow
+    Write-Host ' Pozn.: redeploy sablony nove ZACHOVA App Settings (AAD_*, enrich readUrl allowlist,' -ForegroundColor DarkGray
+    Write-Host ' billing, hub, rate limity...) - skript si je pred nasazenim zazalohuje a po nem obnovi.' -ForegroundColor DarkGray
+    Write-Host ' Parametr ma prednost: kdyz predate -AadTenantId/-AadClientId/-AadClientSecret/-SettingsSiteUrl,' -ForegroundColor DarkGray
+    Write-Host ' pouzije se zadana hodnota.' -ForegroundColor DarkGray
     Write-Host ''
 }
 catch {
