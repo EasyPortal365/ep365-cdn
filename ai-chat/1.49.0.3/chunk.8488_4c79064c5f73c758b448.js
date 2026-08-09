@@ -1,0 +1,2 @@
+"use strict";(self.webpackJsonp_733576f53f57d0971e5bb6915744be82=self.webpackJsonp_733576f53f57d0971e5bb6915744be82||[]).push([[8488],{8488:(e,t,n)=>{n.d(t,{createArchitectureServices:()=>a.S});var a=n(9221);n(1400)}
+}]);
