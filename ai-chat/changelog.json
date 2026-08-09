@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.49",
-      "date": "2026-08-08",
+      "date": "2026-08-09",
       "changes": [
         {
           "type": "improved",
@@ -16,6 +16,26 @@
           "type": "new",
           "cs": "Záložka „Využití AI“ nově jasně ukazuje aktuální licenční pásmo (podle průměru posledních tří ukončených měsíců) – vidíte na první pohled, kde se vaše firma pohybuje. V pilotním období ukazuje „Zatím měříme“.",
           "en": "The \"AI usage\" tab now clearly shows your current licensing band (based on the average of the last three completed months) – you can see at a glance where your company stands. During the pilot period it shows \"Measuring\"."
+        },
+        {
+          "type": "improved",
+          "cs": "Záložka „Využití AI“ má v hlavičce odkaz na veřejný ceník a pásma na webu EasyPortal 365 – správce si detaily licencování zobrazí jedním kliknutím.",
+          "en": "The \"AI usage\" tab header now links to the public pricing and bands on the EasyPortal 365 website – administrators can view licensing details in one click."
+        },
+        {
+          "type": "new",
+          "cs": "Do chatu teď stačí vložit odkaz na webovou stránku (z povolených adres) a Asistent si ji sám přečte a odpoví z ní – dřív to šlo jen přes tlačítko Prompty. Z přečtené stránky navíc vznikne karta zdroje.",
+          "en": "You can now paste a link to a web page (from allowed addresses) straight into the chat and the Assistant reads it and answers from it — previously this was only possible via the Prompts button. The page also appears as a source card."
+        },
+        {
+          "type": "fixed",
+          "cs": "Sdílení odpovědi e-mailem a do Microsoft Teams je spolehlivější napříč prostředími – e-mail se nově otevře jako rozepsaný koncept v Outlooku (funguje i tam, kde v počítači chybí výchozí poštovní aplikace) a sdílení do Teams funguje i v desktopové aplikaci Teams.",
+          "en": "Sharing an answer by e-mail and to Microsoft Teams is more reliable across environments — e-mail now opens as a draft in Outlook (working even where the computer has no default mail app), and sharing to Teams works in the Teams desktop app too."
+        },
+        {
+          "type": "fixed",
+          "cs": "Plovoucí Asistent zůstává zobrazený i po odchodu ze stránky s plnou aplikací – dořešili jsme případ, kdy po přechodu na jinou stránku občas zmizel.",
+          "en": "The floating Assistant stays visible after leaving the full-application page too — we resolved a case where it occasionally disappeared after moving to another page."
         }
       ]
     },
