@@ -4,6 +4,57 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.50",
+      "date": "2026-08-10",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Úkoly z chatu můžete nově zakládat i do Microsoft Planneru, nejen do svého To Do. Pod kartou úkolů si vyberete cíl – „Moje To Do“ pro osobní resty, nebo plán a sloupec v Planneru pro týmové úkoly, volitelně i s přiřazením konkrétnímu člověku. Volba zůstane u karty i po obnovení stránky.",
+          "en": "Tasks from the chat can now also be created in Microsoft Planner, not just in your To Do. Below the task card you choose the target – \"My To Do\" for personal items, or a Planner plan and bucket for team tasks, optionally assigned to a specific person. The choice stays with the card after a page reload."
+        },
+        {
+          "type": "new",
+          "cs": "Každou tabulku v odpovědi si teď stáhnete jako soubor Excelu – pod tabulkou přibylo tlačítko „Stáhnout .xlsx“ a čísla se uloží jako čísla, takže s nimi rovnou počítáte. Totéž nabízí i karta grafu volbou „Data (.xlsx)“. Soubor vzniká ve vašem prohlížeči, data nikam neodcházejí.",
+          "en": "You can now download any table in an answer as an Excel file – a \"Download .xlsx\" button appeared below the table and numbers are saved as numbers, so you can calculate with them right away. Chart cards offer the same via \"Data (.xlsx)\". The file is created in your browser; the data never leaves it."
+        },
+        {
+          "type": "new",
+          "cs": "Asistent umí odpovídat i z vašich SharePointových seznamů – ceníků, registrů a evidencí. Správce v Nastavení vybere, které seznamy to jsou (adresu stačí vložit, popis i sloupce appka navrhne sama), a asistent z nich pak čte celou tabulku – zvládne tak i „porovnej ceny balíčků“ nebo „do kdy platí smlouva s…“. Pod odpovědí se seznam ukáže jako zdroj. Oprávnění SharePointu platí i tady: kdo k seznamu nemá přístup, nedostane z něj odpověď.",
+          "en": "The assistant can now answer from your SharePoint lists too – price lists, registers and records. An administrator picks which lists in Settings (just paste the address; the app suggests the description and columns), and the assistant then reads the whole table – so it handles questions like \"compare the package prices\" or \"until when is the contract with… valid\". The list appears as a source below the answer. SharePoint permissions apply here too: anyone without access to a list gets no answer from it."
+        },
+        {
+          "type": "new",
+          "cs": "Konverzace si můžete uspořádat do projektů. Projekt je složka konverzací k jednomu tématu – třeba nabídka pro zákazníka nebo nábor – se společnými instrukcemi pro asistenta („zákazník je Norsktech, píšeme formálně, ceny bez DPH“) a připnutými podklady. Instrukce platí pro všechny konverzace v projektu a nic neomezují: grafy, karty i vyhledávání fungují dál. Projekty najdete v levém panelu, konverzaci přesunete z jejího menu. Smazání projektu konverzace nesmaže – jen se vrátí mezi ostatní.",
+          "en": "You can organize conversations into projects. A project is a folder of conversations on one topic – a customer proposal or a hiring round, say – with shared instructions for the assistant (\"the customer is Norsktech, we write formally, prices exclude VAT\") and pinned materials. The instructions apply to every conversation in the project and restrict nothing: charts, cards and search keep working. Projects live in the left panel; move a conversation from its menu. Deleting a project does not delete the conversations – they move back among the others."
+        },
+        {
+          "type": "new",
+          "cs": "Správci přibyla v Přehledu využití záložka „Data a AI“ – ukazuje, které firemní zdroje asistent skutečně čte: nejčtenější dokumenty a seznamy, odkud čerpá, podíl ověřených (autoritativních) zdrojů a kolik nálezů odfiltrovala klasifikace „mimo AI“. Zobrazují se výhradně souhrny, žádná jména, dotazy ani odpovědi – jde o dohled nad daty, ne nad lidmi. Doplňuje Kontrolu prostředí: ta říká, co je asistentovi přístupné, tahle záložka co reálně čte. Vyžaduje aktualizaci AI funkce.",
+          "en": "Administrators get a new \"Data & AI\" tab in the Usage overview – it shows which company sources the assistant actually reads: the most used documents and lists, where it draws from, the share of verified (authoritative) sources and how many hits were filtered out by the \"excluded from AI\" classification. Only aggregates are shown, no names, questions or answers – this is oversight of data, not of people. It complements the Environment check: that tells you what the assistant can reach, this tab what it actually reads. Requires an update of the AI function."
+        },
+        {
+          "type": "new",
+          "cs": "Nový Průvodce úkonem. Zadáte-li složený úkol („najdi podklady k zákazníkovi, shrň stav a připrav e-mail“), asistent neodpoví rovnou – nejdřív ukáže plán kroků. Nechtěné kroky odškrtnete a teprve pak průvodce spustíte; kroky se provádějí po sobě a výsledek každého přibude do konverzace, takže je vidět, z čeho odpověď staví. Průběh jde kdykoli zastavit a selhání jednoho kroku zbytek nezastaví. Průvodce umí podklady najít, přečíst, shrnout i vykreslit do grafu – a také připravit koncept e-mailu, návrh dokumentu nebo úkoly. Všechny takové kroky ale končí jen návrhem: odeslání, uložení i založení potvrzujete vy jedním klikem.",
+          "en": "A new Task guide. When you give a compound task (\"find the materials on this customer, summarize where we stand and prepare an e-mail\"), the assistant does not answer straight away – it first shows a plan of steps. You untick the ones you don't want and only then run the guide; the steps run one after another and each result appears in the conversation, so it is clear what the answer is built on. You can stop it at any time, and one failed step does not stop the rest. The guide can find, read, summarize and chart your materials – and also prepare an e-mail draft, a document draft or tasks. All such steps only ever produce a proposal: sending, saving and creating is confirmed by you with a single click."
+        },
+        {
+          "type": "improved",
+          "cs": "Zakládání projektu je teď na jednom místě: tlačítko ＋ otevře panel, kde rovnou zadáte název, vyberete barvu, napíšete instrukce pro asistenta i připnete podklady – a teprve pak projekt uložíte. Paleta barev se rozrostla na 24 odstínů a nechybí ani vlastní barva: buď z výběru barev, nebo zadáním HEX kódu s živým náhledem.",
+          "en": "Creating a project now happens in one place: the ＋ button opens a panel where you set the name, pick a colour, write the instructions for the assistant and pin materials — and only then save. The colour palette grew to 24 shades, and you can also set your own colour, either from the colour picker or by typing a HEX code with a live preview."
+        },
+        {
+          "type": "improved",
+          "cs": "Kolo oprav a vylepšení podle zpětné vazby z nasazení. Asistent teď čte moderní stránky SharePointu přímo z jejich obsahu, takže z nich odpovídá přesněji. Z Teams nevypadne konverzace jen proto, že poslední zprávou byla systémová hláška (například o pořízení záznamu ze schůzky). Když AI služba na chvíli zakolísá, dotaz se sám zopakuje a případná chyba už řekne, co se stalo a co s tím. Účet bez poštovní schránky dostane srozumitelné vysvětlení místo technického kódu, náhled souborů z OneDrivu nabídne otevření v nové záložce místo prázdného panelu a plovoucí widget už po odchodu ze stránky s aplikací nemizí. Nově si můžete vytváření dokumentů zapnout či vypnout pro celou organizaci (Nastavení → Dokumenty) a Kontrola prostředí poradí, proč widget případně není vidět.",
+          "en": "A round of fixes and improvements based on deployment feedback. The assistant now reads modern SharePoint pages straight from their content, so answers from them are more accurate. A Teams conversation no longer disappears just because its last message was a system notice (such as a meeting recording). If the AI service hiccups, the request is retried automatically and any error now explains what happened and what to do. An account without a mailbox gets a plain-language explanation instead of a technical code, previews of OneDrive files offer opening in a new tab instead of a blank panel, and the floating widget no longer vanishes after leaving the app page. Document creation can now be switched on or off for the whole organisation (Settings → Documents), and the Environment check tells you why the widget might not be showing."
+        },
+        {
+          "type": "fixed",
+          "cs": "Doladili jsme novinky této řady podle testů naostro: pod odpovědí se nově vždy ukáže karta seznamu nebo webové stránky, ze které asistent čerpal (dřív mohla zapadnout mezi dokumenty); Průvodce úkonem přizná krok, který se neprovedl, a po zastavení v něm jde pokračovat; krok „najít podklady“ spolehlivě zapne Firemní znalosti; když k registrovanému seznamu nemáte přístup, asistent to řekne místo „nic jsem nenašla“; a export do Excelu zachová kódy s nulou na začátku i dlouhá čísla jako text.",
+          "en": "We polished this series based on live testing: the answer now always shows the card of the list or web page the assistant used (it could previously get lost among documents); the Task guide admits a step that did not run and can be resumed after stopping; the \"find materials\" step reliably turns on Company knowledge; if you have no access to a registered list, the assistant says so instead of \"I found nothing\"; and the Excel export keeps codes with a leading zero and long numbers as text."
+        }
+      ]
+    },
+    {
       "version": "1.49",
       "date": "2026-08-09",
       "changes": [
