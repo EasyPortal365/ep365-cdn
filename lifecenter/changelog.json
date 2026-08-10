@@ -4,9 +4,70 @@
   "name": "EP365 LifeCenter",
   "entries": [
     {
+      "version": "1.14",
+      "date": "2026-08-10",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Hodnocení návodů a počty přečtení fungují všem. Tlačítka „Byl tento návod užitečný?“ a počítadlo přečtení se dosud započítaly jen správcům – ostatním se hlas tiše zahodil, i když aplikace poděkovala. Nově se ukládají všem a v Přehledu využití tak vidíte skutečná čísla. Pokud by se hlas přesto neuložil, aplikace to řekne místo falešného poděkování.",
+          "en": "Guide ratings and read counts now work for everyone. The “Was this guide helpful?” buttons and the read counter were only ever recorded for administrators – everyone else had their vote silently dropped even though the app said thank you. They are now stored for all users, so Usage shows real numbers. If a vote still fails to save, the app says so instead of thanking you falsely."
+        },
+        {
+          "type": "improved",
+          "cs": "Hledání si poradí bez diakritiky – „skoleni“ najde „Školení“. Platí pro vyhledávání, rychlé hledání (Ctrl+K) i filtry ve správě obsahu. Do přehledu „Hledání bez výsledku“ se tak přestanou zapisovat dotazy, na které odpověď existuje.",
+          "en": "Search now ignores diacritics – “skoleni” finds “Školení”. This applies to search, quick search (Ctrl+K) and the content management filters, so queries that do have an answer are no longer logged as “searches with no results”."
+        },
+        {
+          "type": "fixed",
+          "cs": "Uložené návody a odškrtané kroky se už neztrácejí. Když jste rychle po sobě otevřeli návod a uložili si ho (nebo odklikali několik kroků checklistu), mohla se poslední změna přepsat tou předchozí a po obnovení stránky zmizet. Změny se nyní ukládají v pořadí a vždy proti aktuálnímu stavu.",
+          "en": "Saved guides and checked-off steps no longer get lost. Opening a guide and saving it in quick succession (or ticking several checklist steps) could overwrite the latest change and lose it after a page refresh. Changes are now stored in order and always against the current state."
+        },
+        {
+          "type": "fixed",
+          "cs": "Úprava situace nebo garanta ve správě obsahu už nepřepíše jiný záznam. Když jste měli otevřený editor a v seznamu vedle klikli na jinou položku, formulář zůstal vyplněný původními údaji a uložení je zapsalo na nově vybraný záznam.",
+          "en": "Editing a situation or a guarantor in content management no longer overwrites a different record. With the editor open, clicking another item in the list next to it kept the original values in the form and saving wrote them onto the newly selected record."
+        },
+        {
+          "type": "improved",
+          "cs": "Vaše vlastní situace jsou vidět na časové ose. Na úvodní obrazovce se dosud zobrazovaly jen situace z výchozí sady; situace, které jste si založili sami, na ose chyběly bez jakéhokoli upozornění. Nově se zařadí podle svého pořadí ve fázi.",
+          "en": "Your own situations now appear on the timeline. The home screen used to show only situations from the default set; the ones you created yourself were missing without any notice. They are now placed according to their order within the phase."
+        },
+        {
+          "type": "improved",
+          "cs": "Filtr fází a štítky v seznamu situací ukazují názvy fází („Začátky“, „Každodenní“) místo interních zkratek. Sekce „Naposledy přidané“ na úvodu řadí návody podle data vzniku, ne podle poslední drobné úpravy.",
+          "en": "The phase filter and labels in the situations list now show phase names (“Beginnings”, “Everyday”) instead of internal codes. The “Recently added” section on the home screen sorts guides by creation date rather than by the latest minor edit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vypnutí publikace znalostí pro AI nyní nabídne smazání už vytvořených souborů. Dosud zůstávaly v knihovně a AI asistent z nich četl dál, i když jste publikaci vypnuli.",
+          "en": "Turning off knowledge publishing for AI now offers to delete the files already created. Until now they stayed in the library and the AI assistant kept reading them even after publishing was switched off."
+        },
+        {
+          "type": "fixed",
+          "cs": "Smazání situace uklidí i její zařazení u návodů a garantů, takže návod nezůstane viset u neexistující situace. Nová situace navíc upozorní, když by její identifikátor kolidoval s jinou.",
+          "en": "Deleting a situation now also clears its assignment from guides and guarantors, so no guide stays attached to a situation that no longer exists. Creating a situation also warns when its identifier would clash with another one."
+        },
+        {
+          "type": "improved",
+          "cs": "Import článků z CSV zvládne i buňky s odřádkováním – export ze Seznamu článků tak jde beze změny naimportovat zpět. Testovací data se navíc nezaloží, pokud se nepodaří ověřit, že jsou listy prázdné; místo tichého selhání se zobrazí chyba.",
+          "en": "Importing articles from CSV now handles cells containing line breaks, so an export from the article list can be imported straight back. Sample data are also no longer created when the app cannot verify that the lists are empty – you get an error instead of a silent failure."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zpřísnili jsme oprávnění knihoven aplikace – soubory znalostí pro AI a obrázky návodů smí nově vytvářet a měnit jen správci a schvalovatelé obsahu, ostatní si je přečtou. Dřív mohl soubor do knihovny znalostí vložit kdokoli s právem úprav na webu, a ovlivnit tak podklady, ze kterých odpovídá AI asistent. Nastavení se dorovná samo při prvním otevření aplikace správcem. Obrázky ve formátu SVG už do návodů nelze vkládat.",
+          "en": "We tightened the permissions of the app libraries – AI knowledge files and guide images can now be created and modified only by administrators and content approvers, while everyone else can still read them. Previously anyone with edit rights on the site could place a file into the knowledge library and thus influence the material the AI assistant answers from. The setting is applied automatically the first time an administrator opens the app. SVG images can no longer be inserted into guides."
+        }
+      ]
+    },
+    {
       "version": "1.13",
       "date": "2026-07-29",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
         {
           "type": "fixed",
           "cs": "Úzké okno a mobil: levé menu se na užších oknech zúží a pod 780 px z něj zbydou jen ikony, takže na obsah je víc místa.",
