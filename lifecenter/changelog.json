@@ -4,6 +4,17 @@
   "name": "EP365 LifeCenter",
   "entries": [
     {
+      "version": "1.15",
+      "date": "2026-08-10",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Novinky ve sledovaných situacích – na úvodní obrazovce vás upozorníme, když v situaci, kterou sledujete, přibyl nový návod. Karta ukáže, co je nové od vaší poslední návštěvy, a křížkem ji odbavíte. Upozornění se váže na váš účet, takže se neopakuje na jiném počítači.",
+          "en": "News in the situations you follow – the home screen now tells you when a new guide appears in a situation you follow. The card shows what is new since your last visit and the cross dismisses it. The notice is tied to your account, so it does not reappear on another computer."
+        }
+      ]
+    },
+    {
       "version": "1.14",
       "date": "2026-08-10",
       "changes": [
