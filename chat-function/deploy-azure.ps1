@@ -28,10 +28,9 @@
 
     Opakovane spusteni je bezpecne - existujici prostredky se preskoci nebo aktualizuji.
 
-    POZOR: opakovane nasazeni sablony PREPISUJE App Settings. Pokud uz byla aktivovana
-    Znalostni priprava (AAD_*), predejte pri redeployi i parametry -AadTenantId,
-    -AadClientId, -AadClientSecret a -SettingsSiteUrl - jinak se hodnoty smazou
-    a Znalostni priprava se tise vypne.
+    App Settings pri redeployi: skript si je pred nasazenim sablony sam zazalohuje a po
+    nasazeni obnovi (AAD_*, Znalostni priprava, readUrl allowlist, billing, hub...), takze
+    redeploy uz je nesmaze. Zadany parametr (-AadTenantId/-SettingsSiteUrl atd.) ma prednost.
 
     Prerekvizity:
       - Azure CLI (az) - https://learn.microsoft.com/cli/azure/install-azure-cli
@@ -194,7 +193,7 @@ if ($AzureOpenAiDeployment -eq '') { $AzureOpenAiDeployment = $OpenAiModelName }
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
 # (viz scripts/build-release-zip.ps1).
 $CdnTemplateUrl = 'https://cdn.easyportal365.cz/chat-function/main.json'
-$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.5.1.zip'
+$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.5.2.zip'
 
 # Docasna slozka - $env:TEMP na Windows, GetTempPath() v Azure Cloud Shellu (Linux)
 $TempBase = $env:TEMP
