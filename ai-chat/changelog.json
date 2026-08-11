@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.50",
-      "date": "2026-08-10",
+      "date": "2026-08-11",
       "changes": [
         {
           "type": "new",
@@ -51,6 +51,16 @@
           "type": "fixed",
           "cs": "Doladili jsme novinky této řady podle testů naostro: pod odpovědí se nově vždy ukáže karta seznamu nebo webové stránky, ze které asistent čerpal (dřív mohla zapadnout mezi dokumenty); Průvodce úkonem přizná krok, který se neprovedl, a po zastavení v něm jde pokračovat; krok „najít podklady“ spolehlivě zapne Firemní znalosti; když k registrovanému seznamu nemáte přístup, asistent to řekne místo „nic jsem nenašla“; a export do Excelu zachová kódy s nulou na začátku i dlouhá čísla jako text.",
           "en": "We polished this series based on live testing: the answer now always shows the card of the list or web page the assistant used (it could previously get lost among documents); the Task guide admits a step that did not run and can be resumed after stopping; the \"find materials\" step reliably turns on Company knowledge; if you have no access to a registered list, the assistant says so instead of \"I found nothing\"; and the Excel export keeps codes with a leading zero and long numbers as text."
+        },
+        {
+          "type": "new",
+          "cs": "V knihovně dokumentů přibylo tlačítko „Zeptat se AI“. Zaškrtnete soubory, kliknete – a asistent se otevře rovnou nad nimi. Umí je shrnout, porovnat mezi sebou, vypíchnout hlavní body nebo říct, co z nich plyne za úkoly. Čte jen to, co vyberete, a pod vaším účtem, takže se nedostane k ničemu, k čemu nemáte přístup. Najednou zpracuje pět souborů – když jich zaškrtnete víc, dozvíte se to ještě před odesláním i v samotné odpovědi.",
+          "en": "A new “Ask AI” button in document libraries. Tick some files, click it, and the assistant opens right on top of them. It can summarise them, compare them with each other, pull out the key points or tell you what tasks follow from them. It only reads what you select, under your own account, so it never reaches anything you cannot access. It processes five files at a time – if you tick more, you are told before you send and again in the answer itself."
+        },
+        {
+          "type": "new",
+          "cs": "Plovoucí asistent nově ví, kde na SharePointu stojíte, a nabídne zkratky, které tam dávají smysl. V knihovně shrne, co v ní je, poradí, co se změnilo za měsíc, a správci ukáže, kdo do ní má přístup. V seznamu shrne data, udělá z nich graf nebo je vypíše jako tabulku. Na stránce webu ji shrne, vysvětlí jednodušeji nebo z ní udělá dokument. V obsahu webu řekne, co na webu je, kde je nejvíc obsahu a co se dlouho neměnilo. Zkratka jen předvyplní dotaz – odesíláte ho vy a můžete si ho upravit. Když asistent místo nepozná, žádné zkratky se nenabízejí.",
+          "en": "The floating assistant now knows where you are in SharePoint and offers shortcuts that make sense there. In a library it summarises what is inside, tells you what changed in the last month, and shows admins who has access. In a list it summarises the data, turns it into a chart or lists it as a table. On a site page it summarises the page, explains it in simpler terms or turns it into a document. In site contents it tells you what the site holds, where most of the content is and what has not changed in a long time. A shortcut only pre-fills the question – you send it and can edit it first. When the assistant does not recognise the place, no shortcuts are offered."
         }
       ]
     },
