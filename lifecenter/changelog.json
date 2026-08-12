@@ -66,6 +66,11 @@
           "type": "improved",
           "cs": "Testovací data ukazují i to, co dosud zůstávalo skryté. Přibyly články psané blokovým editorem (nadpisy, zvýrazněné poznámky), naplánovaný článek, archivovaný článek, razítka schvalování s poznámkou a hodnocení návodů – ukázka tak pokrývá celý životní cyklus obsahu včetně Přehledu využití.",
           "en": "Sample data now shows what used to stay hidden. It adds articles written in the block editor (headings, callouts), a scheduled article, an archived one, approval stamps with a note and guide ratings – so the demo covers the whole content lifecycle including Usage."
+        },
+        {
+          "type": "improved",
+          "cs": "Ukázkové články mají i obrázek. Testovací data nově vytvoří ke čtyřem návodům úvodní ilustraci v barvách aplikace, takže je na první pohled vidět, jak vypadá článek s obrázkem. Ilustrace se vykreslí přímo ve vašem prostředí a uloží do knihovny Centra – nic se nestahuje odjinud.",
+          "en": "Sample articles now include an image. Test data adds an opening illustration in the app colours to four guides, so you can see at a glance how an article with an image looks. The illustration is drawn in your own environment and stored in the Centre library – nothing is downloaded from elsewhere."
         }
       ]
     },
