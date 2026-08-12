@@ -4,6 +4,67 @@
   "name": "EP365 LifeCenter",
   "entries": [
     {
+      "version": "1.16",
+      "date": "2026-08-12",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Aplikace otevřená delší dobu už neztrácí ukládané změny. Po přibližně půl hodině bez obnovení stránky SharePoint odmítal zápisy a část se jich ztrácela bez upozornění – týkalo se to uložených návodů, odškrtaných kroků i správy členů. Nově si aplikace před každým zápisem obnoví ověření sama.",
+          "en": "The app no longer loses saved changes when left open for a long time. After roughly half an hour without a page refresh SharePoint began refusing writes and some were lost without any notice – this affected saved guides, checked-off steps and member management. The app now refreshes its own validation before every write."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odškrtané kroky checklistu zůstávají u svého kroku, i když správce návod přeuspořádá. Dosud se postup vázal na pořadí, takže vložení kroku doprostřed posunulo fajfky na jiné kroky. Kroky teď mají vlastní identitu; u starších návodů se doplní při jejich nejbližším uložení.",
+          "en": "Checked-off checklist steps now stay with their step even when an administrator reorders the guide. Progress used to be tied to position, so inserting a step in the middle shifted the ticks onto different steps. Steps now carry their own identity; older guides get it the next time they are saved."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hlášení chyb a návrhy funkcí chodí e-mailem na naši podporu a vzniká z nich tiket. Dřív šly přes webový formulář, jehož odpověď aplikace neviděla – hlásila „odesláno“ i v případě, že se hlášení nikam nedostalo. Pokud odeslání z aplikace nevyjde, nabídneme otevření zprávy ve vašem poštovním klientovi.",
+          "en": "Bug reports and feature suggestions are now e-mailed to our support and turned into a ticket. They previously went through a web form whose response the app could not see – it reported “sent” even when the report never arrived. If sending from the app fails, we offer to open the message in your mail client."
+        },
+        {
+          "type": "fixed",
+          "cs": "Správu verzí aplikace lze použít i bez aktivní licence. Dosud ji blokoval režim jen pro čtení, takže když byla v běžící verzi chyba, nešlo nasadit ani verzi, která ji opravuje.",
+          "en": "Version management now works even without an active licence. Read-only mode used to block it, so when the running version had a problem, not even the version fixing it could be activated."
+        },
+        {
+          "type": "fixed",
+          "cs": "Promazání dat aplikace nově uklidí i statistiky čtení a rozpracovaný postup v checklistech. Dosud po smazání článků zůstávaly jako mrtvé záznamy odkazující na obsah, který už neexistuje. Testovací data se navíc nasazují s identitami kroků, takže postup v ukázkových checklistech snese přeuspořádání kroků hned od začátku.",
+          "en": "Clearing app data now also removes read statistics and in-progress checklist state. They used to survive article deletion as dead records pointing at content that no longer exists. Sample data is also seeded with step identities, so progress in the sample checklists survives step reordering right from the start."
+        },
+        {
+          "type": "fixed",
+          "cs": "Znalosti pro AI se po hromadné změně obsahu dorovnají hned. Po promazání nebo obnovení dat zůstávaly v knihovně soubory smazaných článků a nové články v nich chyběly – až šest hodin, takže AI asistent mohl odpovídat z obsahu, který v Centru už není. Nově se dorovnání spustí rovnou po akci a jeho výsledek uvidíte v nastavení.",
+          "en": "AI knowledge files are now updated immediately after a bulk content change. Clearing or restoring data used to leave files of deleted articles in the library while new articles were missing – for up to six hours, so the AI assistant could answer from content no longer in the Centre. The update now runs right after the action and reports its result in the settings."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hodnocení „Byl článek užitečný?“ počítá jeden hlas na osobu. Dosud se příznak, že jste už hlasovali, pamatoval jen do obnovení stránky, takže se dal počet natáhnout opakovaným klikáním. Váš hlas se teď ukládá k vašemu účtu – můžete ho změnit nebo kliknutím na stejné tlačítko odebrat, a načte se i na jiném počítači.",
+          "en": "The „Was this useful?“ rating now counts one vote per person. Until now the app only remembered your vote until the page reloaded, so the count could be inflated by clicking repeatedly. Your vote is stored with your account – you can change it or withdraw it by clicking the same button, and it loads on another computer too."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkaz „Přejít k hlavnímu obsahu“ na stránce SharePointu opět funguje. Aplikace mu omylem rušila funkci na celé stránce, což vadilo hlavně při ovládání klávesnicí a čtečkou obrazovky.",
+          "en": "The „Skip to main content“ link on the SharePoint page works again. The app was cancelling it across the whole page, which mattered most for keyboard and screen-reader users."
+        },
+        {
+          "type": "improved",
+          "cs": "Nová akce Přepočítat hodnocení z hlasů v Nastavení. Souhrnné počty u návodů se srovnají podle jednotlivých hlasů, které jsou zdrojem pravdy – hodí se, když některé číslo nevypadá věrohodně. Počty přečtení zůstávají beze změny.",
+          "en": "New Recalculate ratings from votes action in Settings. Guide rating totals are realigned with the individual votes, which are the source of truth – useful when a number does not look credible. Read counts are left untouched."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nápověda vysvětluje, jak funguje hodnocení návodů – jeden hlas na osobu, možnost hlas změnit i odebrat.",
+          "en": "Help now explains how guide ratings work – one vote per person, with the option to change or withdraw it."
+        },
+        {
+          "type": "improved",
+          "cs": "Oprávnění knihoven Centra jsou srozumitelnější. Správci a schvalovatelé dostávají jen tu úroveň, která na uzamčené knihovně opravdu funguje; dosud k ní přibývala ještě jedna, která vypadala jako udělené právo, ale nic nepřidávala.",
+          "en": "Permissions on the Centre libraries are now clearer. Administrators and approvers get only the level that actually works on a locked library; until now an extra one was added that looked like a granted permission but changed nothing."
+        }
+      ]
+    },
+    {
       "version": "1.15",
       "date": "2026-08-10",
       "changes": [
