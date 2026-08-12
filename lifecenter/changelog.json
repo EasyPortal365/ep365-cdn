@@ -61,6 +61,11 @@
           "type": "improved",
           "cs": "Oprávnění knihoven Centra jsou srozumitelnější. Správci a schvalovatelé dostávají jen tu úroveň, která na uzamčené knihovně opravdu funguje; dosud k ní přibývala ještě jedna, která vypadala jako udělené právo, ale nic nepřidávala.",
           "en": "Permissions on the Centre libraries are now clearer. Administrators and approvers get only the level that actually works on a locked library; until now an extra one was added that looked like a granted permission but changed nothing."
+        },
+        {
+          "type": "improved",
+          "cs": "Testovací data ukazují i to, co dosud zůstávalo skryté. Přibyly články psané blokovým editorem (nadpisy, zvýrazněné poznámky), naplánovaný článek, archivovaný článek, razítka schvalování s poznámkou a hodnocení návodů – ukázka tak pokrývá celý životní cyklus obsahu včetně Přehledu využití.",
+          "en": "Sample data now shows what used to stay hidden. It adds articles written in the block editor (headings, callouts), a scheduled article, an archived one, approval stamps with a note and guide ratings – so the demo covers the whole content lifecycle including Usage."
         }
       ]
     },
