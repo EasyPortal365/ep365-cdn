@@ -4,6 +4,52 @@
   "name": "EP365 LifeCenter",
   "entries": [
     {
+      "version": "1.17",
+      "date": "2026-08-12",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Zobrazení na celou obrazovku. Ikona v hlavičce roztáhne Centrum přes celé okno a schová okolí stránky – hodí se na správu obsahu i delší návody.",
+          "en": "Full-screen view. An icon in the header expands the Centre across the whole window and hides the surrounding page – handy for managing content and longer guides."
+        },
+        {
+          "type": "improved",
+          "cs": "Bohatší vzhled situací. Na výběr je dvanáct barev místo pěti a k tomu vlastní odstín, ikon padesát místo dvaceti – situace se tak dají odlišit na první pohled. Barva avataru u návodu se vybírá z barevných dlaždic, ne z kódů v rozbalovacím menu.",
+          "en": "Richer look for situations. Twelve colours instead of five plus your own shade, and fifty icons instead of twenty – situations are now distinguishable at a glance. The author avatar colour is picked from colour tiles, not from codes in a dropdown."
+        },
+        {
+          "type": "new",
+          "cs": "Návody lze přiřadit k situaci přímo z její úpravy – přidáte existující ze seznamu nebo odeberete křížkem, aniž byste otevírali jednotlivé návody.",
+          "en": "Guides can be assigned to a situation straight from its editor – add an existing one from the list or remove it with the cross, without opening individual guides."
+        },
+        {
+          "type": "improved",
+          "cs": "Kroky checklistu se dají formátovat. V popisu kroku funguje tučné písmo, seznamy i odkazy – stejný editor jako u těla návodu.",
+          "en": "Checklist steps can be formatted. Bold text, lists and links now work in a step description – the same editor as the guide body."
+        },
+        {
+          "type": "new",
+          "cs": "Garanta lze oslovit rovnou v Teams. Na kartě garanta přibylo tlačítko pro zahájení chatu vedle e-mailu a telefonu.",
+          "en": "You can reach an owner directly in Teams. The owner card now has a chat button next to e-mail and phone."
+        },
+        {
+          "type": "new",
+          "cs": "Návod lze přidělit konkrétnímu schvalovateli. V editoru se nabízejí jen lidé, kteří schvalovat opravdu mohou; upozornění pak přijde adresně jemu a ve frontě je vidět, komu návod patří. Schválit ho ale smí dál každý s rolí, takže nepřítomnost jednoho člověka publikaci nezablokuje.",
+          "en": "A guide can be assigned to a specific approver. The editor offers only people who can actually approve; the notification then goes to that person and the queue shows who the guide belongs to. Anyone with the role can still approve, so one person being away never blocks publishing."
+        },
+        {
+          "type": "improved",
+          "cs": "Přepsaná nápověda a rozšířený průvodce aplikací. Nápověda odpovídá na 41 konkrétních otázek v sedmi tématech včetně toho, kde se co upravuje; průvodce má osm kapitol podle role – od orientace po nastavení a provoz.",
+          "en": "Rewritten help and an extended app tour. Help answers 41 specific questions across seven topics including where to edit what; the tour has eight role-based chapters – from getting around to settings and operations."
+        },
+        {
+          "type": "improved",
+          "cs": "Výsledky vyhledávání se stránkují po 10, 15 nebo 20 a stav článku v přehledu je na jednom řádku.",
+          "en": "Search results are paged by 10, 15 or 20, and the article status in the overview fits on one line."
+        }
+      ]
+    },
+    {
       "version": "1.16",
       "date": "2026-08-12",
       "changes": [
