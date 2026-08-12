@@ -4,6 +4,17 @@
   "name": "Workplace",
   "entries": [
     {
+      "version": "1.27",
+      "date": "2026-08-12",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Globální konfigurace AI Asistenta ukazuje novou kartu „Využití AI napříč firmou“ – měsíční počet AI úkonů a spotřebu tokenů za celou organizaci, stejná čísla jako v přehledu přímo v AI Asistentovi. Odkaz z karty vede na stránku aplikace, kde si porovnáte, do kterého cenového pásma naměřený počet úkonů spadá.",
+          "en": "The AI Assistant global configuration shows a new \"AI usage across the company\" card – the monthly number of AI actions and token consumption for the whole organization, the same numbers as in the overview inside the AI Assistant. A link from the card opens the application page, where you can compare the measured number of actions against the pricing tiers."
+        }
+      ]
+    },
+    {
       "version": "1.26",
       "date": "2026-07-29",
       "changes": [
@@ -16,6 +27,11 @@
           "type": "improved",
           "cs": "Obrazovka správy se jmenuje „Správa aplikace“ (dříve „Správa homepage“) – spravuje se v ní totiž víc než jen úvodní stránka.",
           "en": "The management screen is now called “Application management” (previously “Homepage management”) — it manages more than just the home page."
+        },
+        {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. Ve Správě aplikace – Verze vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Application management – Version the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         }
       ]
     },
