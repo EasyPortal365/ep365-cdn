@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>EasyPortal 365 – AI Asistent: asistent vyšel z chatu ven (léto 2026)</title>
+
+<!--
+  EP365 APLIKAČNÍ NEWSLETTER – EP365 AI Asistent (léto 2026)
+  ------------------------------------------------------------------
+  Web-page styl (širší, responzivní) – max-width 980px, CSS grid + @media.
+  Styl 1:1 dle "EP365 Newsletter 2026-07 - Homepage.html".
+  ROZSAH: řady 1.42 → 1.50 (vč. tichých 1.50.1–1.50.3).
+  Navazuje na "EP365 Newsletter 2026-07 - AI Asistent.html" (končil u ~1.41).
+  PŘÍBĚH: „Asistent vyšel z chatu ven – teď ví, kde stojíte, a umí tam něco udělat."
+  Fakta ověřena proti 01-product/ep365-ai-chat.md (řada 1.50) a CHANGELOG.json.
+  ------------------------------------------------------------------
+  ⚠ PŘED ROZESLÁNÍM:
+    1) Rozesílat AŽ PO POVÝŠENÍ ŘADY (tiché 1.50.1–1.50.3 čekají v `pending`).
+    2) Doplnit číslo řady do <title> a do .nl-header-meta (hledej DOPLNIT-RADU).
+  ------------------------------------------------------------------
+  SCREENSHOTY: složka screenshots/, názvy dle sekcí:
+    ai-01-kontext.png ai-02-vyber.png ai-03-shrnuti.png        → 01
+    ai-04-duch-sloupce.png ai-05-potvrzeni.png ai-06-navrh-sloupcu.png → 02
+    ai-07-nova-knihovna.png → 03      ai-08-prehled.png    → 04
+    ai-09-hranice.png       → 05      ai-10-pruvodce.png   → 06
+    ai-11-seznamy.png       → 07      ai-12-projekty.png   → 08
+    ai-13-grafy.png         → 09      ai-14-porovnani.png  → 10
+    ai-15-pamet.png         → 11      ai-16-sablony.png    → 12
+    ai-17-muj-tyden.png     → 13      ai-18-vyuziti.png ai-19-dataai.png → 14
+  Chybějící obrázek se sám skryje (onerror), newsletter tím nerozbijete.
+  DEMO DATA: zákaznický newsletter – jen testovací obsah, žádná jména zákazníků.
+  ------------------------------------------------------------------
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@1,400;1,500;1,600&family=JetBrains+Mono:wght@500;600&display=swap');
+
+  :root {
+    --navy:#002163; --navy-mid:#003599; --navy-deep:#001A4F;
+    --teal:#00CED7; --teal6:#00BCC4; --teal7:#00A8B0;
+    --bg:#FFFFFF; --bg2:#F4F7FB; --bg3:#EAEFF6;
+    --line:#E0E6EF; --line2:#C7D0DC;
+    --text:#002163; --muted:#4A5874; --soft:#7A8499;
+    --mint:#E4F7F6; --green:#34B36A; --green-d:#2A9D5A;
+    --f-display:'Manrope','Segoe UI',Arial,sans-serif;
+    --f-body:'Plus Jakarta Sans','Segoe UI',Arial,sans-serif;
+    --f-serif:'Fraunces',Georgia,serif;
+    --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:var(--f-body); background:var(--bg3); color:var(--text); padding:32px 16px; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; border:0; }
+
+  .nl { max-width:980px; margin:0 auto; background:var(--bg); border-radius:22px; overflow:hidden; box-shadow:0 30px 60px -20px rgba(11,30,63,.14),0 8px 20px rgba(11,30,63,.06); }
+
+  /* ── Header (navy pruh s logem, ornamenty dle newsletteru 2026-06-10) ── */
+  .nl-header { background:var(--navy-deep); position:relative; overflow:hidden; }
+  .nl-header-bg { position:absolute; inset:0; background:radial-gradient(ellipse at 75% 40%,var(--navy-mid) 0%,var(--navy-deep) 65%); z-index:0; }
+  .nl-header-ornament { position:absolute; right:-80px; top:-80px; width:400px; height:400px; opacity:.07; z-index:1; pointer-events:none; }
+  .nl-header-ornament2 { position:absolute; left:-80px; bottom:-100px; width:280px; height:280px; opacity:.04; z-index:1; pointer-events:none; }
+  .nl-header-inner { position:relative; z-index:2; padding:32px 52px 28px; }
+  .nl-header-top { display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:20px; flex-wrap:wrap; }
+  .nl-logo { height:42px; width:auto; display:block; }
+  .nl-header-meta { text-align:right; }
+  .nl-header-date { font-family:var(--f-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,.5); font-weight:600; margin-bottom:7px; }
+  .nl-header-edition { font-family:var(--f-mono); font-size:11px; background:rgba(0,206,215,.18); border:1px solid rgba(0,206,215,.38); color:var(--teal); padding:5px 14px; border-radius:20px; font-weight:700; letter-spacing:0.06em; display:inline-block; }
+  .nl-header-title { font-family:var(--f-display); font-size:24px; font-weight:800; color:#fff; letter-spacing:-0.02em; line-height:1.15; margin-bottom:5px; }
+  .nl-header-subtitle { font-size:12.5px; color:rgba(255,255,255,.45); }
+  .nl-header-stripe { height:4px; background:linear-gradient(90deg,var(--teal) 0%,#5FE3DC 55%,rgba(0,206,215,0) 100%); }
+
+  /* ── Hero ── */
+  .nl-hero { padding:26px 52px 30px; border-bottom:1px solid var(--line); }
+  .nl-kicker { font-family:var(--f-mono); font-size:12px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--teal6); margin-bottom:16px; }
+  .nl-h1 { font-family:var(--f-display); font-size:52px; line-height:1.02; letter-spacing:-0.035em; font-weight:800; color:var(--navy); margin-bottom:18px; }
+  .nl-h1 i { font-family:var(--f-serif); font-style:italic; font-weight:500; color:var(--teal6); letter-spacing:-0.01em; }
+  .nl-lead { font-size:17px; line-height:1.6; color:var(--muted); max-width:760px; }
+  .nl-lead b { color:var(--navy); font-weight:700; }
+
+  /* ── TOC chips ── */
+  .nl-toc { display:flex; flex-wrap:wrap; gap:8px; padding:20px 52px 8px; }
+  .nl-chip { display:inline-flex; align-items:center; gap:7px; padding:7px 14px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--navy); font-size:12.5px; font-weight:600; transition:border-color .15s, background .15s; }
+  .nl-chip:hover { border-color:var(--teal); background:#F0FDFE; }
+  .nl-chip .dot { width:7px; height:7px; border-radius:50%; }
+
+  /* ── Body wrap ── */
+  .nl-body { padding:8px 52px 40px; }
+
+  /* ── Spotlight cover ── */
+  .nl-cover { margin:24px 0 8px; border-radius:20px; overflow:hidden; background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%); padding:36px 40px; }
+  .nl-cover-k { font-family:var(--f-mono); font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:14px; }
+  .nl-cover-h { font-family:var(--f-display); font-size:34px; line-height:1.1; letter-spacing:-0.02em; font-weight:800; color:#fff; margin-bottom:14px; max-width:720px; }
+  .nl-cover-h i { font-family:var(--f-serif); font-style:italic; font-weight:500; color:var(--teal); }
+  .nl-cover-p { font-size:15.5px; line-height:1.65; color:rgba(255,255,255,.82); max-width:720px; margin-bottom:22px; }
+  .nl-btn { display:inline-flex; align-items:center; gap:6px; padding:14px 24px; border-radius:999px; font-size:14.5px; font-weight:700; transition:background .15s, color .15s; }
+  .nl-btn-accent { background:var(--teal); color:var(--navy); }
+  .nl-btn-accent:hover { background:var(--teal6); color:#fff; }
+
+  /* ── Section header (icon + kicker + title + count) ── */
+  .nl-sec { padding:38px 0 0; }
+  .nl-sec-hd { display:flex; align-items:center; gap:15px; padding-bottom:16px; margin-bottom:20px; border-bottom:1px solid var(--line); }
+  .nl-sec-ico { width:46px; height:46px; border-radius:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .nl-sec-txt { min-width:0; flex:1; }
+  .nl-sec-k { font-family:var(--f-mono); font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--teal6); margin-bottom:3px; }
+  .nl-sec-h { font-family:var(--f-display); font-size:27px; line-height:1.15; letter-spacing:-0.02em; font-weight:800; color:var(--navy); }
+  .nl-sec-tag { margin-left:auto; align-self:center; font-family:var(--f-mono); font-size:10px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--soft); background:var(--bg3); padding:5px 11px; border-radius:20px; white-space:nowrap; }
+  .nl-sec-intro { font-size:14.5px; line-height:1.6; color:var(--muted); margin:-8px 0 20px; max-width:760px; }
+
+  /* ── Cards ── */
+  .nl-grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  .nl-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .nl-card { border:1px solid var(--line); border-radius:16px; background:var(--bg); padding:22px 24px; transition:border-color .15s, box-shadow .15s; }
+  .nl-card:hover { border-color:var(--teal); box-shadow:0 8px 22px -12px rgba(0,206,215,.4); }
+  .nl-card--wide { grid-column:1 / -1; border-left:3px solid var(--teal6); }
+  .nl-card--accent { border-left:3px solid var(--teal6); }
+  .nl-card--green { border-left:3px solid var(--green); }
+  .nl-card--navy { border-left:3px solid var(--navy-mid); }
+  .nl-badge { display:inline-flex; align-items:center; gap:8px; font-family:var(--f-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700; margin-bottom:9px; }
+  .nl-badge .pill { background:var(--green); color:#fff; padding:2px 9px; border-radius:99px; }
+  .nl-badge .pill-lbl { color:var(--soft); }
+  .nl-eyebrow { font-family:var(--f-mono); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--soft); font-weight:600; margin-bottom:8px; }
+  .nl-card h3 { font-family:var(--f-display); font-size:18.5px; line-height:1.3; font-weight:700; color:var(--navy); letter-spacing:-0.015em; margin-bottom:7px; }
+  .nl-card h4 { font-family:var(--f-display); font-size:16px; line-height:1.3; font-weight:700; color:var(--navy); letter-spacing:-0.01em; margin-bottom:8px; }
+  .nl-card p { font-size:13.5px; line-height:1.55; color:var(--muted); }
+  .nl-card .accent { color:var(--teal7); font-weight:700; }
+
+  /* ── Trust strip ── */
+  .nl-trust-line { margin-top:16px; background:var(--mint); border-radius:14px; padding:16px 22px; font-size:13.5px; line-height:1.55; color:var(--navy); }
+  .nl-trust-line span { color:var(--muted); }
+
+  /* ── Panel ── */
+  .nl-panel { background:var(--bg2); border-radius:16px; padding:24px 26px; font-size:15px; line-height:1.65; color:var(--muted); }
+  .nl-panel b { color:var(--navy); font-weight:700; }
+
+  /* ── Scenario chips ── */
+  .nl-scen { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+  .nl-scen span { display:inline-block; padding:7px 13px; border-radius:999px; background:var(--bg3); color:var(--navy); font-size:12.5px; font-weight:600; }
+  .nl-scen span.hot { background:var(--mint); color:var(--teal7); font-weight:700; }
+
+  /* ── Point list ── */
+  .nl-points { border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  .nl-points > div { padding:14px 22px; border-top:1px solid var(--line); font-size:14px; line-height:1.55; color:var(--muted); }
+  .nl-points > div:first-child { border-top:none; }
+  .nl-points b { color:var(--navy); font-weight:700; }
+
+  /* ── Knowledge gradient card ── */
+  .nl-know { border-radius:16px; overflow:hidden; background:linear-gradient(135deg,var(--navy) 0%,var(--teal7) 100%); padding:26px 28px; color:#fff; }
+  .nl-know p { font-size:14.5px; line-height:1.65; color:rgba(255,255,255,.9); }
+  .nl-know p.small { font-size:13px; color:rgba(255,255,255,.74); margin-top:12px; }
+  .nl-know b { color:#fff; }
+  .nl-know .tagpill { display:inline-block; padding:2px 9px; border-radius:99px; background:rgba(0,206,215,.22); color:var(--teal); font-family:var(--f-mono); font-size:10px; letter-spacing:0.12em; font-weight:700; text-transform:uppercase; margin-right:8px; }
+
+  /* ── Trust block ── */
+  .nl-safe { margin-top:8px; background:var(--bg2); border-radius:20px; padding:30px 32px; }
+  .nl-safe-h { font-family:var(--f-display); font-size:24px; line-height:1.2; font-weight:800; color:var(--navy); letter-spacing:-0.02em; margin:6px 0 16px; }
+  .nl-safe-h i { font-family:var(--f-serif); font-style:italic; font-weight:500; color:var(--teal6); }
+  .nl-safe-row { display:flex; gap:14px; padding:14px 0; border-top:1px solid var(--line); }
+  .nl-safe-row:last-of-type { border-bottom:1px solid var(--line); }
+  .nl-safe-n { font-family:var(--f-mono); font-size:13px; font-weight:700; color:var(--teal6); flex-shrink:0; width:26px; }
+  .nl-safe-row div p { font-size:14px; line-height:1.55; color:var(--muted); }
+  .nl-safe-row div b { color:var(--navy); }
+  .nl-safe-note { font-size:13px; line-height:1.55; color:var(--muted); margin-top:16px; }
+
+  /* ── Big CTA ── */
+  .nl-cta { margin-top:34px; border-radius:20px; background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%); padding:38px 32px; text-align:center; }
+  .nl-cta-k { font-family:var(--f-mono); font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+  .nl-cta-h { font-family:var(--f-display); font-size:28px; line-height:1.15; font-weight:800; color:#fff; letter-spacing:-0.02em; margin-bottom:20px; }
+  .nl-cta-h i { font-family:var(--f-serif); font-style:italic; font-weight:500; color:var(--teal); }
+
+  /* ── Footer ── */
+  .nl-foot { background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%); padding:30px 52px; color:rgba(255,255,255,.5); }
+  .nl-foot-brand { font-family:var(--f-display); font-size:15px; font-weight:700; color:#fff; margin-bottom:10px; }
+  .nl-foot p { font-size:12px; line-height:1.7; }
+  .nl-foot-links { margin:14px 0 12px; }
+  .nl-foot-links a { color:var(--teal); font-weight:600; font-size:12px; }
+  .nl-foot-links span { color:rgba(255,255,255,.24); margin:0 9px; }
+  .nl-foot small { font-family:var(--f-mono); font-size:10.5px; letter-spacing:0.04em; color:rgba(255,255,255,.35); }
+
+  /* ── Screenshoty + lightbox (klik zvětší) ── */
+  .nl-shot { margin:18px 0 0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--bg2); cursor:zoom-in; transition:border-color .15s, box-shadow .15s; }
+  .nl-shot:hover { border-color:var(--teal); box-shadow:0 8px 22px -12px rgba(0,206,215,.4); }
+  .nl-shot img { display:block; width:100%; height:auto; }
+  .nl-shot figcaption { font-size:12px; color:var(--soft); padding:9px 15px; background:var(--bg); border-top:1px solid var(--line); }
+  .nl-shot figcaption .z { color:var(--teal7); font-weight:600; }
+  .nl-shots-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  .nl-shots-2 .nl-shot { margin-top:18px; }
+  .nl-lb { position:fixed; inset:0; background:rgba(0,26,79,.92); display:none; align-items:center; justify-content:center; padding:4vw 90px; z-index:9999; cursor:zoom-out; }
+  .nl-lb.open { display:flex; }
+  .nl-lb img { max-width:100%; max-height:86vh; border-radius:10px; box-shadow:0 24px 70px rgba(0,0,0,.55); cursor:default; }
+  .nl-lb-close { position:fixed; top:20px; right:24px; color:#fff; font-family:var(--f-mono); font-size:13px; letter-spacing:0.1em; opacity:.85; }
+  /* Listování mezi obrázky – šipky, klávesy ←/→, počítadlo */
+  .nl-lb-nav { position:fixed; top:50%; transform:translateY(-50%); width:54px; height:54px; border-radius:50%; border:1px solid rgba(255,255,255,.28); background:rgba(255,255,255,.10); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10000; transition:background .15s, border-color .15s; }
+  .nl-lb-nav:hover { background:rgba(0,206,215,.32); border-color:var(--teal); }
+  .nl-lb-prev { left:20px; }
+  .nl-lb-next { right:20px; }
+  .nl-lb-cap { position:fixed; left:50%; bottom:22px; transform:translateX(-50%); max-width:min(760px,86vw); text-align:center; color:rgba(255,255,255,.8); font-size:13px; line-height:1.5; }
+  .nl-lb-cap b { display:block; font-family:var(--f-mono); font-size:11px; letter-spacing:0.14em; color:rgba(255,255,255,.45); font-weight:600; margin-top:6px; }
+  @media (max-width:640px) {
+    .nl-lb { padding:14vw 10px; }
+    .nl-lb-nav { width:44px; height:44px; }
+    .nl-lb-prev { left:6px; } .nl-lb-next { right:6px; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width:820px) {
+    body { padding:16px 8px; }
+    .nl { border-radius:16px; }
+    .nl-header-inner, .nl-hero, .nl-toc, .nl-body, .nl-foot { padding-left:26px; padding-right:26px; }
+    .nl-h1 { font-size:38px; }
+    .nl-cover-h { font-size:27px; }
+    .nl-grid-2, .nl-grid-3, .nl-shots-2 { grid-template-columns:1fr; }
+    .nl-cover, .nl-safe, .nl-cta { padding-left:24px; padding-right:24px; }
+  }
+  @media (max-width:520px) {
+    .nl-header-inner, .nl-hero, .nl-toc, .nl-body, .nl-foot { padding-left:18px; padding-right:18px; }
+    .nl-h1 { font-size:31px; }
+    .nl-sec-h { font-size:22px; }
+    .nl-sec-tag { display:none; }
+    .nl-foot-links a { display:inline-block; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Preheader (skrytý; ukazuje se v náhledu schránky) -->
+<div style="display:none;max-height:0;overflow:hidden;font-size:1px;line-height:1px;color:#EAEFF6;">
+  AI Asistent vyšel z chatu ven. Ví, jestli stojíte v knihovně, v seznamu nebo v obsahu webu – a umí tam něco udělat: doplnit sloupec, založit knihovnu, udělat přehled. Pořád ve vašem Microsoftu 365.
+</div>
+
+<div class="nl">
+
+  <!-- ═══ HEADER ═══ -->
+  <div class="nl-header">
+    <div class="nl-header-bg"></div>
+    <svg class="nl-header-ornament" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+      <circle cx="260" cy="120" r="160" stroke="white" stroke-width="3" fill="none"/>
+      <circle cx="200" cy="180" r="110" fill="white"/>
+      <rect x="180" y="265" width="46" height="46" fill="white" opacity="0.7" rx="4"/>
+      <circle cx="90" cy="75" r="42" stroke="white" stroke-width="2" fill="none" opacity="0.5"/>
+    </svg>
+    <svg class="nl-header-ornament2" viewBox="0 0 280 280" fill="none" aria-hidden="true">
+      <circle cx="70" cy="210" r="120" stroke="white" stroke-width="3" fill="none"/>
+      <circle cx="140" cy="140" r="80" fill="white"/>
+    </svg>
+    <div class="nl-header-inner">
+      <div class="nl-header-top">
+        <!-- Logo je vlozene primo v souboru (data URI) - newsletter tak vypada spravne
+             i bez sitoveho pripojeni a i kdyz posta blokuje externi obrazky. -->
+        <a href="https://easyportal365.cz"><img class="nl-logo" src="data:image/png;base64,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" alt="EasyPortal 365" /></a>
+        <div class="nl-header-meta">
+          <!-- DOPLNIT-RADU: až Kami řadu povýší, doplnit číslo (např. „Řada 1.51") -->
+          <div class="nl-header-date">Léto 2026 · vydání funkcí</div>
+          <div class="nl-header-edition">EP365 AI Asistent</div>
+        </div>
+      </div>
+      <div class="nl-header-title">Osobní zabezpečená AI pro Microsoft 365</div>
+      <div class="nl-header-subtitle">Co v asistentovi přibylo od začátku léta · SharePoint · Teams · vaše data zůstávají u vás</div>
+    </div>
+    <div class="nl-header-stripe"></div>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="nl-hero">
+    <div class="nl-kicker">✦ Velký update AI Asistenta</div>
+    <h1 class="nl-h1">Asistent vyšel<br /><i>z chatu ven.</i></h1>
+    <p class="nl-lead">
+      Doteď to bylo okno, do kterého se psalo. Teď asistent <b>ví, kde na SharePointu právě stojíte</b> – jestli v knihovně, v seznamu, na stránce nebo v obsahu webu – a nabídne, co tam dává smysl. A hlavně: <b>umí tam něco udělat.</b> Doplnit sloupec podle obsahu dokumentů, založit knihovnu z jedné věty, udělat přehled a poslat ho dál. Vždy jen jako návrh – potvrzujete vy.
+    </p>
+  </div>
+
+  <!-- ═══ TOC ═══ -->
+  <div class="nl-toc">
+    <a class="nl-chip" href="#kontext"><span class="dot" style="background:var(--teal6);"></span>Ví, kde stojíte</a>
+    <a class="nl-chip" href="#sloupce"><span class="dot" style="background:var(--green);"></span>Sloupce v knihovně</a>
+    <a class="nl-chip" href="#prehled"><span class="dot" style="background:var(--teal7);"></span>Přehled o obsahu</a>
+    <a class="nl-chip" href="#hranice"><span class="dot" style="background:var(--navy);"></span>Hranice zdrojů</a>
+    <a class="nl-chip" href="#pruvodce"><span class="dot" style="background:var(--navy-mid);"></span>Průvodce úkonem</a>
+    <a class="nl-chip" href="#grafy"><span class="dot" style="background:var(--teal6);"></span>Grafy a diagramy</a>
+    <a class="nl-chip" href="#spravce"><span class="dot" style="background:var(--soft);"></span>Pro správce</a>
+  </div>
+
+  <div class="nl-body">
+
+    <!-- ═══ SPOTLIGHT ═══ -->
+    <div class="nl-cover">
+      <div class="nl-cover-k">◆ Co se změnilo</div>
+      <h2 class="nl-cover-h">Z chatovacího okna se stal<br /><i>kolega u vašeho stolu.</i></h2>
+      <p class="nl-cover-p">
+        Plovoucí asistent už není jen bublina, do které se dá napsat dotaz. Otevře se vedle stránky – nepřekryje ji – a podle toho, kde stojíte, nabídne zkratky, které tam dávají smysl. Zaškrtnete v knihovně pár dokumentů a nabídka se vymění za „shrnout, porovnat, hlavní body, úkoly". Řeknete si o sloupec a jeho návrh uvidíte přímo v mřížce knihovny dřív, než vznikne. Nic se nezapíše bez vašeho potvrzení.
+      </p>
+      <a class="nl-btn nl-btn-accent" href="https://easyportal365.cz/aplikace/osobni-zabezpecena-ai/">Prohlédnout novinky →</a>
+    </div>
+
+    <!-- ═══ 01 · KONTEXT ═══ -->
+    <div class="nl-sec" id="kontext">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--mint);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A8B0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.4-7-10.4A7 7 0 0 1 19 10.6C19 15.6 12 21 12 21z"></path><circle cx="12" cy="10.5" r="2.4"></circle></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">01 · Nové</div>
+          <div class="nl-sec-h">Asistent ví, kde právě stojíte</div>
+        </div>
+        <div class="nl-sec-tag">4 kontexty</div>
+      </div>
+      <p class="nl-sec-intro">Plovoucí asistent pozná <b>knihovnu, seznam, stránku i obsah webu</b> – a nabídne zkratky, které tam dávají smysl. Zkratka jen předvyplní dotaz; odesíláte ho vy a můžete si ho upravit.</p>
+
+      <div class="nl-grid-2">
+        <div class="nl-card nl-card--wide">
+          <div class="nl-badge"><span class="pill">Nové</span><span class="pill-lbl">Kontextové zkratky</span></div>
+          <h3>Jiné místo, jiná nabídka</h3>
+          <p>V <b>knihovně</b> shrne, co v ní je, poradí, co se změnilo za měsíc, a správci ukáže, kdo do ní má přístup. V <b>seznamu</b> shrne data, udělá z nich graf nebo je vypíše jako tabulku. Na <b>stránce</b> ji shrne, vysvětlí jednodušeji, nebo z ní udělá dokument. V <b>obsahu webu</b> řekne, co na webu je, kde je nejvíc obsahu a co se dlouho neměnilo. Když asistent místo nepozná, <span class="accent">žádné zkratky se nenabízejí</span> – radši mlčí, než aby radil nesmysl.</p>
+        </div>
+
+        <div class="nl-card nl-card--accent">
+          <div class="nl-eyebrow">Výběr dokumentů</div>
+          <h4>Všimne si, co máte zaškrtnuté</h4>
+          <p>Vyberete v knihovně jeden nebo víc dokumentů a zkratky se vymění za ty, které nad nimi dávají smysl: <b>shrnout, porovnat, hlavní body, úkoly</b>. Odpovídá se přímo z obsahu vybraných souborů, ne z hledání po knihovně. Zrušíte výběr a nabídka pro celou knihovnu se vrátí.</p>
+        </div>
+
+        <div class="nl-card nl-card--green">
+          <div class="nl-eyebrow">Zeptat se AI</div>
+          <h4>Tlačítko rovnou v knihovně</h4>
+          <p>V panelu knihovny přibylo <b>„Zeptat se AI"</b>. Zaškrtnete soubory, kliknete – a asistent se otevře rovnou nad nimi. Najednou zpracuje pět souborů; když jich zaškrtnete víc, dozvíte se to ještě před odesláním.</p>
+        </div>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-01-kontext.png" alt="Plovoucí asistent zadokovaný vedle stránky se zkratkami pro dané místo" onerror="this.closest('figure').style.display='none'" /><figcaption>Asistent pozná, že stojíte v knihovně, a nabídne zkratky, které tam dávají smysl. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+
+      <div class="nl-shots-2">
+        <figure class="nl-shot"><img src="screenshots/ai-02-vyber.png" alt="Zaškrtnuté dokumenty v knihovně a nabídka akcí nad nimi" onerror="this.closest('figure').style.display='none'" /><figcaption>Zaškrtnete dokumenty, asistent nabídne, co s nimi.</figcaption></figure>
+        <figure class="nl-shot"><img src="screenshots/ai-03-shrnuti.png" alt="Shrnutí vybraných dokumentů z jejich obsahu" onerror="this.closest('figure').style.display='none'" /><figcaption>Shrne je z jejich obsahu, ne z hledání po knihovně.</figcaption></figure>
+      </div>
+
+      <div class="nl-trust-line">
+        <b>Panel místo přikrývky.</b> <span>Asistent se přichytí k pravému okraji a stránku SharePointu o svou šířku odsune stranou. Okno je širší a vyšší, aby se do něj vešly tabulky a přehledy, a zprávy začínají u spodní hrany, kde se píše. Na úzkém okně zůstává plovoucí jako dosud.</span>
+      </div>
+    </div>
+
+    <!-- ═══ 02 · SLOUPCE ═══ -->
+    <div class="nl-sec" id="sloupce">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--bg3);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003599" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M9 4v16M15 4v16M3 9h18"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">02 · Nové</div>
+          <div class="nl-sec-h">Návrh sloupce uvidíte přímo v knihovně</div>
+        </div>
+        <div class="nl-sec-tag">náhled „duch"</div>
+      </div>
+      <p class="nl-sec-intro">Metadata v knihovnách nikdo nedoplňuje, protože je to otrava. Asistent projde dokumenty a navrhne, co do nového sloupce zapsat – a <b>návrh ukáže přímo v mřížce knihovny</b> jako „ducha" sloupce, který ještě neexistuje.</p>
+
+      <div class="nl-points">
+        <div><b>Vidíte to na svých datech, ne v abstraktní tabulce.</b> Duch sloupce se vykreslí mezi ostatními sloupci knihovny s hodnotami u konkrétních souborů – hned poznáte, jestli návrh dává smysl.</div>
+        <div><b>Nic se nezapíše bez potvrzení.</b> Můžete přepsat název, upravit hodnoty, vynechat jednotlivé soubory nebo návrh zahodit. <b>Sloupec vznikne a hodnoty se zapíšou teprve vaším potvrzením.</b></div>
+        <div><b>Soubory nevyskočí v „Naposledy upravené".</b> Doplnění metadat nemění datum poslední úpravy dokumentu – kolegům se tím nerozhází přehled o tom, co se doopravdy změnilo.</div>
+        <div><b>Nevíte, jaký sloupec by pomohl?</b> Zkratka <b>„Navrhni sloupce pro tuhle knihovnu"</b> přečte vzorek dokumentů a nabídne několik sloupců i s důvodem a ukázkovou hodnotou.</div>
+        <div><b>A co už SharePoint vede sám?</b> Ve stejné nabídce jsou i verze, velikost, kdo a kdy. Ty se nezakládají – jen se zapnou v zobrazení a jedním kliknutím zase skryjí. Sloupec ani data se přitom nemažou.</div>
+      </div>
+
+      <div class="nl-shots-2">
+        <figure class="nl-shot"><img src="screenshots/ai-04-duch-sloupce.png" alt="Návrh nového sloupce vykreslený jako duch přímo v mřížce knihovny" onerror="this.closest('figure').style.display='none'" /><figcaption>Duch sloupce – návrh na vašich datech, dřív než sloupec vznikne.</figcaption></figure>
+        <figure class="nl-shot"><img src="screenshots/ai-05-potvrzeni.png" alt="Potvrzení návrhu a zápis hodnot do knihovny" onerror="this.closest('figure').style.display='none'" /><figcaption>Potvrdíte – a teprve pak se sloupec založí a hodnoty zapíšou.</figcaption></figure>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-06-navrh-sloupcu.png" alt="Nabídka navržených sloupců s důvodem a ukázkovou hodnotou" onerror="this.closest('figure').style.display='none'" /><figcaption>„Navrhni sloupce pro tuhle knihovnu" – každý návrh s důvodem i ukázkovou hodnotou. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 03 · NOVÁ KNIHOVNA ═══ -->
+    <div class="nl-sec" id="knihovna">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--mint);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A8B0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M12 11v6M9 14h6"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">03 · Nové</div>
+          <div class="nl-sec-h">Knihovnu nebo seznam popíšete větou</div>
+        </div>
+        <div class="nl-sec-tag">7 typů sloupců</div>
+      </div>
+      <p class="nl-sec-intro">V obsahu webu přibyla zkratka <b>„Založ knihovnu nebo seznam"</b>. Popíšete, co potřebujete evidovat, a asistent navrhne název, druh i celou sadu sloupců.</p>
+
+      <div class="nl-grid-2">
+        <div class="nl-card nl-card--accent">
+          <div class="nl-eyebrow">Návrh</div>
+          <h4>Sloupce i s typy</h4>
+          <p>Text, delší text, číslo, datum, ano/ne, výběr z možností a osoba. Návrh můžete upravit i doplnit o vlastní sloupec. Když je zadání příliš obecné, asistent se <b>nejdřív doptá</b> – místo aby si domýšlel.</p>
+        </div>
+        <div class="nl-card nl-card--green">
+          <div class="nl-eyebrow">Adresa</div>
+          <h4>Zkontrolujete dřív, než vznikne</h4>
+          <p>Adresa, pod kterou knihovna vznikne, se skládá <b>bez diakritiky a mezer</b> a vidíte ji ještě před založením – protože po založení už ji změnit nejde. Název knihovny se pak přejmenuje na ten hezký, český.</p>
+        </div>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-07-nova-knihovna.png" alt="Návrh nové knihovny s názvem, druhem, sloupci a adresou" onerror="this.closest('figure').style.display='none'" /><figcaption>Popíšete, co potřebujete evidovat – návrh upravíte a potvrdíte. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 04 · PŘEHLED O OBSAHU ═══ -->
+    <div class="nl-sec" id="prehled">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--bg3);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003599" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"></path><rect x="7" y="12" width="3" height="5"></rect><rect x="12" y="8" width="3" height="9"></rect><rect x="17" y="14" width="3" height="3"></rect></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">04 · Nové</div>
+          <div class="nl-sec-h">Přehled o obsahu na jedno kliknutí</div>
+        </div>
+        <div class="nl-sec-tag">HTML i PDF</div>
+      </div>
+      <p class="nl-sec-intro">Kolik toho v knihovně je? Jaké typy souborů? Jak obsah přibývá v čase a kdo naposledy upravoval? <b>Jedno kliknutí</b> v plovoucím asistentovi – a máte to i s grafy.</p>
+
+      <div class="nl-grid-3">
+        <div class="nl-card"><h4>Knihovna a seznam</h4><p>Počty položek, typy souborů, růst obsahu v čase, kdo naposledy upravoval.</p></div>
+        <div class="nl-card"><h4>Celý web</h4><p>Co na webu je, kde je nejvíc obsahu, co se dlouho neměnilo – plus přehled o tom, co se na webu čte.</p></div>
+        <div class="nl-card"><h4>Poslat dál</h4><p>Stažení jako <b>HTML</b> nebo uložení do <b>PDF</b>. Soubor je samostatný – otevře se komukoli, komu ho pošlete.</p></div>
+      </div>
+
+      <div class="nl-trust-line" style="margin-top:16px;">
+        <b>Přizná, co neví.</b> <span>U každého přehledu je napsáno, odkud čísla pocházejí a co v nich chybět může. Radši neúplný přehled s poznámkou než sebevědomé číslo, které nesedí.</span>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-08-prehled.png" alt="Přehled o obsahu knihovny s čísly, grafy a tlačítky pro export" onerror="this.closest('figure').style.display='none'" /><figcaption>Přehled o obsahu – čísla, grafy, tabulky a export do HTML i PDF. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+
+      <div class="nl-panel" style="margin-top:16px;">
+        <b>Karty zůstávají u konverzace.</b> Přehledy, návrhy sloupců i návrh nové knihovny se ukládají ke zprávě. Najdete je po obnovení stránky i po přepnutí do plné aplikace – kde s nimi jde dál pracovat a mají plnou šířku řádku.
+      </div>
+    </div>
+
+    <!-- ═══ 05 · HRANICE ZDROJŮ ═══ -->
+    <div class="nl-sec" id="hranice">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--mint);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A8B0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V6z"></path><path d="M9.5 12l1.8 1.8 3.4-3.6"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">05 · Nové · pro správce</div>
+          <div class="nl-sec-h">Odpovědi jen z míst, která určíte</div>
+        </div>
+        <div class="nl-sec-tag">hlavní přepínač</div>
+      </div>
+      <p class="nl-sec-intro">Nejčastější obava z firemní AI zní: <i>„a co když sáhne někam, kam nemá?"</i> Nová <b>Hranice zdrojů</b> je odpověď – hlavní přepínač, který omezí odpovědi ze SharePointu <b>výhradně na místa, která vyjmenujete</b>.</p>
+
+      <div class="nl-points">
+        <div><b>Odjinud nevrátí nic.</b> Ani když si uživatel jiný web sám otevře a klikne na zkratku plovoucího asistenta. Hranice má přednost před rozsahem hledání i před autoritativními zdroji – rozsah se uvnitř ní smí už jen zužovat.</div>
+        <div><b>Centrálně, nebo na webu.</b> Nastavíte ji v EP365 Hubu pro celou organizaci – jednotlivý web ji pak nemůže vypnout, smí sadu už jen zmenšit. Když hub nemáte, nastaví se přímo na webu.</div>
+        <div><b>Oprávnění platí dál.</b> Hranice dosah pouze <b>zužuje</b> – nikdy nerozšiřuje. Co uživatel nesmí vidět v SharePointu, nedostane ani od asistenta.</div>
+        <div><b>Uživatel to vidí.</b> Že jsou odpovědi omezené, pozná v aplikaci i v plovoucím asistentovi – u každého pole zprávy. Žádné tiché ořezávání.</div>
+        <div><b>Pošty, kalendáře, úkolů a Teams se hranice netýká</b> – tam pracuje asistent výhradně s vlastními daty přihlášeného uživatele.</div>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-09-hranice.png" alt="Nastavení Hranice zdrojů se seznamem povolených míst" onerror="this.closest('figure').style.display='none'" /><figcaption>Hranice zdrojů v Nastavení – vyjmenovaná místa a odkud politika přichází. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 06 · PRŮVODCE ÚKONEM ═══ -->
+    <div class="nl-sec" id="pruvodce">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--bg3);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003599" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h4M4 12h4M4 18h4"></path><path d="M11 6h9M11 12h9M11 18h9"></path><path d="M5 5.2 6 6.2 7.4 4.4"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">06 · Nové</div>
+          <div class="nl-sec-h">Průvodce úkonem – nejdřív plán, pak práce</div>
+        </div>
+        <div class="nl-sec-tag">krok po kroku</div>
+      </div>
+      <p class="nl-sec-intro">Zadáte složený úkol – <i>„najdi podklady k zákazníkovi, shrň stav a připrav e-mail"</i> – a asistent <b>neodpoví rovnou</b>. Nejdřív ukáže plán kroků. Nechtěné odškrtnete a teprve pak průvodce spustíte.</p>
+
+      <div class="nl-grid-2">
+        <div class="nl-card nl-card--wide">
+          <div class="nl-badge"><span class="pill">Nové</span><span class="pill-lbl">Plán ke schválení</span></div>
+          <h3>Vidíte, z čeho odpověď staví</h3>
+          <p>Kroky se provádějí po sobě a <b>výsledek každého přibude do konverzace</b> – takže nezůstane černá skříňka, ze které vypadne hotový text. Průběh jde kdykoli zastavit a pak v něm pokračovat; selhání jednoho kroku zbytek nezastaví a průvodce krok, který se neprovedl, <span class="accent">přizná</span>.</p>
+        </div>
+        <div class="nl-card nl-card--accent">
+          <div class="nl-eyebrow">Co umí</div>
+          <h4>Najít, přečíst, shrnout, vykreslit</h4>
+          <p>Průvodce umí podklady najít ve firemních znalostech, přečíst je, shrnout i vykreslit do grafu – a navázat dalším krokem.</p>
+        </div>
+        <div class="nl-card nl-card--green">
+          <div class="nl-eyebrow">Kde končí</div>
+          <h4>Vždycky jen u návrhu</h4>
+          <p>Připraví koncept e-mailu, návrh dokumentu nebo úkoly – ale <b>odeslání, uložení i založení potvrzujete vy</b> jedním klikem. Nikdy se nic neodešle samo.</p>
+        </div>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-10-pruvodce.png" alt="Plán kroků Průvodce úkonem ke schválení" onerror="this.closest('figure').style.display='none'" /><figcaption>Plán kroků ke schválení – nechtěné odškrtnete, pak teprve běží. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 07 · SEZNAMY A WEBY ═══ -->
+    <div class="nl-sec" id="seznamy">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--mint);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A8B0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18M3 14.5h18M8.5 9v11"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">07 · Nové</div>
+          <div class="nl-sec-h">Čte i vaše seznamy a weby</div>
+        </div>
+      </div>
+      <p class="nl-sec-intro">Ceníky, registry a evidence žijí v SharePointových <b>seznamech</b> – a dosud z nich asistent uměl leda nalezený úryvek. Teď čte <b>celou tabulku</b>.</p>
+
+      <div class="nl-grid-2">
+        <div class="nl-card nl-card--accent">
+          <div class="nl-eyebrow">Nové otázky</div>
+          <h4>„Porovnej ceny balíčků"</h4>
+          <p>Nebo „do kdy platí smlouva s…". Otázky, na které jde odpovědět jen tak, že se přečte celý seznam, ne jeden řádek. Pod odpovědí se seznam ukáže jako zdroj.</p>
+        </div>
+        <div class="nl-card nl-card--green">
+          <div class="nl-eyebrow">Nastavení</div>
+          <h4>Správce vybere, které seznamy</h4>
+          <p>Stačí vložit adresu – <b>popis i sloupce aplikace navrhne sama</b>. Oprávnění SharePointu platí i tady: kdo k seznamu nemá přístup, nedostane z něj odpověď – a asistent to řekne, místo aby tvrdil, že nic nenašel.</p>
+        </div>
+        <div class="nl-card nl-card--navy">
+          <div class="nl-eyebrow">Stránky webu</div>
+          <h4>Čte je přímo z obsahu</h4>
+          <p>Moderní stránky SharePointu asistent nově čte z jejich textových částí, ne oklikou přes index – odpovědi z nich jsou přesnější.</p>
+        </div>
+        <div class="nl-card">
+          <div class="nl-eyebrow">Veřejný web</div>
+          <h4>Odkaz vložený do chatu</h4>
+          <p>Adresu veřejné stránky můžete vložit přímo do zprávy a nechat ji shrnout či rozebrat. Kam se smí, určuje správce – ve výchozím stavu je čtení webu vypnuté.</p>
+        </div>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-11-seznamy.png" alt="Odpověď asistenta z registrovaného SharePointového seznamu s kartou zdroje" onerror="this.closest('figure').style.display='none'" /><figcaption>Odpověď z ceníku vedeného v SharePointovém seznamu – se seznamem jako zdrojem. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 08 · PROJEKTY ═══ -->
+    <div class="nl-sec" id="projekty">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--bg3);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003599" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">08 · Nové</div>
+          <div class="nl-sec-h">Konverzace ve složkách</div>
+        </div>
+        <div class="nl-sec-tag">24 barev + vlastní</div>
+      </div>
+      <p class="nl-sec-intro">Projekt je <b>složka konverzací k jednomu tématu</b> – nabídka pro zákazníka, nábor, příprava auditu – se společnými instrukcemi pro asistenta a připnutými podklady.</p>
+
+      <div class="nl-points">
+        <div><b>Co platí pro celé téma, napíšete jednou.</b> „Píšeme formálně, ceny bez DPH, oslovujeme vykáním" – a platí to ve všech konverzacích projektu.</div>
+        <div><b>Nic neomezují.</b> Grafy, karty, Firemní znalosti i ostatní zdroje fungují v projektu dál – instrukce jen ladí tón a kontext.</div>
+        <div><b>Zakládání na jednom místě.</b> Tlačítko ＋ otevře panel, kde rovnou zadáte název, vyberete barvu, napíšete instrukce a připnete podklady – a teprve pak projekt uložíte. Paleta má 24 odstínů plus vlastní barvu z výběru nebo HEX kódem s živým náhledem.</div>
+        <div><b>Smazání projektu konverzace nesmaže.</b> Jen se vrátí mezi ostatní – žádné nepříjemné překvapení.</div>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-12-projekty.png" alt="Postranní panel s projekty konverzací" onerror="this.closest('figure').style.display='none'" /><figcaption>Projekty v levém panelu – konverzaci do nich přesunete z jejího menu. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 09 · GRAFY A DIAGRAMY ═══ -->
+    <div class="nl-sec" id="grafy">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--mint);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A8B0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"></path><path d="M4 15.5 9 11l3.5 3L20 6.5"></path><circle cx="9" cy="11" r="1.3"></circle><circle cx="12.5" cy="14" r="1.3"></circle></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">09 · Od 1.44 a 1.45</div>
+          <div class="nl-sec-h">Grafy a diagramy v odpovědích</div>
+        </div>
+        <div class="nl-sec-tag">v prohlížeči</div>
+      </div>
+      <p class="nl-sec-intro">Když se odpověď opírá o čísla z podkladů, asistent k textu <b>sám přidá graf</b> – bez dalšího kliknutí. A u dotazů na postup nebo strukturu přidá <b>diagram</b>.</p>
+
+      <div class="nl-grid-2">
+        <div class="nl-card nl-card--accent">
+          <div class="nl-eyebrow">Grafy</div>
+          <h4>Sloupcový, čárový, prstencový</h4>
+          <p>Srovnání kategorií, vývoj v čase, podíly celku. Po najetí myší se v bublince ukáže přesná hodnota. Jedním tlačítkem přepnete na <b>tabulku hodnot</b>, stáhnete <b>obrázek</b> nebo <b>data jako .xlsx</b>.</p>
+        </div>
+        <div class="nl-card nl-card--green">
+          <div class="nl-eyebrow">Diagramy</div>
+          <h4>Vývojový diagram, strom, sekvence</h4>
+          <p>U postupů a sledů kroků nakreslí asistent schéma – v barvách firmy. Když se kreslení nepovede, ukáže aspoň jeho zápis, takže o obsah nepřijdete.</p>
+        </div>
+      </div>
+
+      <div class="nl-trust-line" style="margin-top:16px;">
+        <b>Poctivá data, nic navíc.</b> <span>Asistent kreslí výhradně z čísel, která má v podkladech – nikdy si je nevymýšlí a bez vhodných čísel graf nepřidá. Obrázek vzniká <b>ve vašem prohlížeči</b> jako čisté SVG: žádná externí služba, nic se nikam neposílá, a graf přežije obnovení konverzace.</span>
+      </div>
+
+      <figure class="nl-shot"><img src="screenshots/ai-13-grafy.png" alt="Odpověď s grafem vykresleným z čísel v podkladech" onerror="this.closest('figure').style.display='none'" /><figcaption>Graf vzniká přímo v odpovědi – s přepnutím na tabulku a stažením do .xlsx. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 10 · POROVNÁNÍ ═══ -->
+    <div class="nl-sec" id="porovnani">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--bg3);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003599" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7" height="16" rx="1.5"></rect><rect x="14" y="4" width="7" height="16" rx="1.5"></rect><path d="M10.5 12h3"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">10 · Od 1.45</div>
+          <div class="nl-sec-h">Porovnání dokumentů i dvou verzí</div>
+        </div>
+      </div>
+      <div class="nl-panel">
+        Úloha <b>Analyzovat → Porovnat dokumenty</b> v Prompt Studiu porovná dva přiložené dokumenty – nebo <b>dvě verze jednoho</b> z historie SharePointu – a přehledně vypíše, co přibylo, ubylo a co se změnilo, se <b>závěrečnou tabulkou rozdílů</b>. Pořadí (1. výchozí → 2. porovnávaný) řídíte vy; asistent dokumenty rozlišuje jménem souboru a <b>netvrdí, který je „novější"</b> – z obsahu to poznat nelze. Porovnat můžete i dokumenty <b>zaškrtnuté přímo v knihovně</b>.
+      </div>
+      <figure class="nl-shot"><img src="screenshots/ai-14-porovnani.png" alt="Porovnání dvou dokumentů se závěrečnou tabulkou rozdílů" onerror="this.closest('figure').style.display='none'" /><figcaption>Co přibylo, ubylo a co se změnilo – se závěrečnou tabulkou rozdílů. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 11 · PAMĚŤ ═══ -->
+    <div class="nl-sec" id="pamet">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--mint);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A8B0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5A3.5 3.5 0 0 1 12 3a3.5 3.5 0 0 1 3 1.5A3.5 3.5 0 0 1 19.5 8c0 1-.4 1.9-1 2.6.6.7 1 1.6 1 2.6a3.5 3.5 0 0 1-4.5 3.4A3.5 3.5 0 0 1 12 21a3.5 3.5 0 0 1-3-1.4A3.5 3.5 0 0 1 4.5 13c0-1 .4-1.9 1-2.6-.6-.7-1-1.6-1-2.6A3.5 3.5 0 0 1 9 4.5z"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">11 · Od 1.45</div>
+          <div class="nl-sec-h">Paměť asistenta</div>
+        </div>
+        <div class="nl-sec-tag">jen vaše</div>
+      </div>
+      <p class="nl-sec-intro">Nemusíte v každé konverzaci znovu vysvětlovat, kdo jste a jak píšete. V <b>Nastavení → Paměť asistenta</b> si uložíte trvalá fakta o sobě a asistent je bere v úvahu ve <b>všech</b> vašich konverzacích.</p>
+      <div class="nl-grid-2">
+        <div class="nl-card nl-card--accent"><h4>Co si pamatuje</h4><p>Jak se podepisujete, jak oslovovat klienty, jakou máte roli, jaký styl vám vyhovuje. Vidíte a spravujete je <b>jen vy</b>.</p></div>
+        <div class="nl-card nl-card--green"><h4>Nabídne se sám – ale nezapíše potichu</h4><p>Když z konverzace vyplyne něco trvalého, ukáže se karta <b>„Zapamatovat si?"</b>. Uloží se to až po vašem potvrzení.</p></div>
+      </div>
+      <figure class="nl-shot"><img src="screenshots/ai-15-pamet.png" alt="Nastavení Paměť asistenta s uloženými trvalými fakty" onerror="this.closest('figure').style.display='none'" /><figcaption>Paměť asistenta – trvalá fakta, která platí ve všech vašich konverzacích. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 12 · WORD ŠABLONY ═══ -->
+    <div class="nl-sec" id="sablony">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--bg3);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003599" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5M8.5 13h7M8.5 16.5h4.5"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">12 · Od 1.43</div>
+          <div class="nl-sec-h">Firemní Word šablony</div>
+        </div>
+        <div class="nl-sec-tag">.docx</div>
+      </div>
+      <p class="nl-sec-intro">Správce nahraje firemní Word šablony se slučovacími poli – nabídku, smlouvu, zápis z porady. Uživatel v konverzaci vybere šablonu a asistent podle rozhovoru <b>navrhne obsah polí</b>.</p>
+      <div class="nl-points">
+        <div><b>Zkontrolujete a upravíte přímo v kartě.</b> Hotový dokument pak stáhnete jako Word, nebo uložíte do SharePointové knihovny.</div>
+        <div><b>Šablona typu Schůzka</b> doplní název, datum, čas i účastníky rovnou z pozvánky – <b>deterministicky, ne AI</b>. Asistent píše jen obsahová pole (zápis, úkoly) a odrážky drží formát šablony.</div>
+        <div><b>Sdílené šablony spravuje jen správce.</b> Běžný uživatel je používá, needituje – hlídá to přímo SharePoint, ne jen skryté tlačítko.</div>
+      </div>
+      <figure class="nl-shot"><img src="screenshots/ai-16-sablony.png" alt="Karta vyplnění firemní Word šablony s navrženými poli" onerror="this.closest('figure').style.display='none'" /><figcaption>Asistent navrhne obsah slučovacích polí, vy je zkontrolujete a dokument uložíte. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 13 · MŮJ TÝDEN ═══ -->
+    <div class="nl-sec" id="tyden">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--mint);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A8B0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M3 9h18M8 2v4M16 2v4"></path><path d="M7 13h2M11 13h2M15 13h2M7 17h2M11 17h2"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">13 · Od 1.42</div>
+          <div class="nl-sec-h">Můj týden</div>
+        </div>
+      </div>
+      <p class="nl-sec-intro">K přehledu „Můj den" přibyla <b>týdenní obdoba</b>: ohlédnutí za minulým týdnem a výhled na tento po dnech, s úkoly, které mají termín. V pondělí vás přehled přivítá rovnou.</p>
+      <div class="nl-grid-2">
+        <div class="nl-card nl-card--accent"><h4>Sestaví se bez AI</h4><p>Přehled vzniká přímo z vašich dat v Microsoftu 365 (kalendář, pošta, Teams, To Do) – okamžitě a mimo denní limit dotazů.</p></div>
+        <div class="nl-card nl-card--green"><h4>„Shrň mi týden" a klikací akce</h4><p>Teprve tlačítkem se zapojí AI a napíše strukturovaný souhrn. Pod ním jsou akce, které rovnou něco udělají – připraví <b>koncept</b> odpovědi, připojí vás ke schůzce, roztřídí poštu. Nic se neodešle bez potvrzení.</p></div>
+      </div>
+      <figure class="nl-shot"><img src="screenshots/ai-17-muj-tyden.png" alt="Přehled Můj týden – minulý týden a výhled po dnech" onerror="this.closest('figure').style.display='none'" /><figcaption>Můj týden – ohlédnutí i výhled po dnech, s úkoly, které mají termín. <span class="z">Klikněte pro zvětšení.</span></figcaption></figure>
+    </div>
+
+    <!-- ═══ 14 · PRO SPRÁVCE ═══ -->
+    <div class="nl-sec" id="spravce">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--bg3);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A5874" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"></path></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">14 · Pro správce</div>
+          <div class="nl-sec-h">Vidíte, co AI dělá – i co čte</div>
+        </div>
+        <div class="nl-sec-tag">3 nástroje</div>
+      </div>
+      <p class="nl-sec-intro">Tři pohledy, které spolu dávají celý obrázek: <b>co je asistentovi přístupné</b>, <b>co reálně čte</b> a <b>kolik práce odvedl</b>.</p>
+
+      <div class="nl-grid-3">
+        <div class="nl-card nl-card--navy">
+          <div class="nl-eyebrow">Od 1.43</div>
+          <h4>Kontrola prostředí</h4>
+          <p>Skener, který <b>před zapnutím Firemních znalostí</b> prověří oprávnění webů a upozorní na obsah přístupný celé organizaci. Jen čte, nic nemění – a když nestihne prověřit vše, <b>řekne to</b> (žádné falešné „čisto"). Nově poradí i to, proč není vidět plovoucí widget.</p>
+        </div>
+        <div class="nl-card nl-card--accent">
+          <div class="nl-eyebrow">Nové · 1.50</div>
+          <h4>Data a AI</h4>
+          <p>Které firemní zdroje asistent <b>skutečně čte</b>: nejčtenější dokumenty a seznamy, podíl ověřených zdrojů a kolik nálezů odfiltrovala klasifikace „mimo AI". Jen souhrny – <b>žádná jména, dotazy ani odpovědi</b>. Dohled nad daty, ne nad lidmi.</p>
+        </div>
+        <div class="nl-card nl-card--green">
+          <div class="nl-eyebrow">Od 1.48, rozvržení 1.49</div>
+          <h4>Využití AI</h4>
+          <p>Serverové měření <b>AI úkonů</b> po dnech, měsících i letech, s rozpadem podle funkcí a odhadem vlastních nákladů Azure OpenAI. Export reportu do <b>HTML i PDF</b> a odznak aktuálního licenčního pásma.</p>
+        </div>
+      </div>
+
+      <div class="nl-shots-2">
+        <figure class="nl-shot"><img src="screenshots/ai-18-vyuziti.png" alt="Záložka Využití AI se třemi časovými přehledy" onerror="this.closest('figure').style.display='none'" /><figcaption>Využití AI – po dnech, měsících i letech, s exportem.</figcaption></figure>
+        <figure class="nl-shot"><img src="screenshots/ai-19-dataai.png" alt="Záložka Data a AI s přehledem využívaných zdrojů" onerror="this.closest('figure').style.display='none'" /><figcaption>Data a AI – které zdroje asistent doopravdy čte.</figcaption></figure>
+      </div>
+
+      <div class="nl-know" style="margin-top:18px;">
+        <p><span class="tagpill">Od 1.47</span><b>Klasifikace „mimo AI".</b> Dokumenty označené klasifikačním stupněm „mimo AI" (nebo uložené ve vyhrazených cestách) asistent do podkladů nezahrne. Klasifikaci i výjimky spravuje správce centrálně v EP365 Homepage a asistent vynechané nálezy přizná počítadlem „Mimo AI: N".</p>
+        <p class="small">Není to bezpečnostní hranice – přístup k obsahu řídí SharePoint. Je to řízení toho, co AI bere do podkladů odpovědi.</p>
+      </div>
+
+      <div class="nl-panel" style="margin-top:16px;">
+        <b>Aktualizace bez balíčku.</b> Novou verzi aplikace už nemusíte pokaždé nahrávat do App Catalogu – běží z našeho CDN a správce si v <b>Nastavení → Správa verzí</b> vidí, co je nasazené a co je nové. Bez zásahu se do hodiny přepne na aktuální verzi.
+      </div>
+    </div>
+
+    <!-- ═══ 15 · DROBNOSTI ═══ -->
+    <div class="nl-sec">
+      <div class="nl-sec-hd">
+        <div class="nl-sec-ico" style="background:var(--bg3);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A5874" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.6"></circle><circle cx="12" cy="12" r="1.6"></circle><circle cx="19" cy="12" r="1.6"></circle></svg>
+        </div>
+        <div class="nl-sec-txt">
+          <div class="nl-sec-k">15 · A ještě</div>
+          <div class="nl-sec-h">Drobnosti, které potěší</div>
+        </div>
+      </div>
+      <div class="nl-grid-2">
+        <div class="nl-card"><h4>Interaktivní průvodce aplikací</h4><p>Krátké kapitoly <b>podle vaší role</b> vás provedou asistentem přímo v aplikaci – zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout. Dokončené kapitoly si pamatuje u vašeho účtu, i když se přihlásíte odjinud.</p></div>
+        <div class="nl-card"><h4>Úkoly do Microsoft Planneru</h4><p>Vedle osobního To Do nově i <b>plán a sloupec v Planneru</b> pro týmové úkoly, volitelně s přiřazením konkrétnímu člověku. Volba zůstane u karty i po obnovení stránky.</p></div>
+        <div class="nl-card"><h4>Tabulka jako .xlsx</h4><p>Pod každou tabulkou v odpovědi je tlačítko <b>„Stáhnout .xlsx"</b>. Čísla se uloží jako čísla, kódy s nulou na začátku a dlouhá čísla jako text. Soubor vzniká ve vašem prohlížeči.</p></div>
+        <div class="nl-card"><h4>Drobnosti od uživatelů</h4><p>Konverzace z Teams nezmizí jen kvůli systémové zprávě na konci. Když AI služba na chvíli zakolísá, dotaz se sám zopakuje a chyba řekne, co se stalo. Účet bez schránky dostane srozumitelné vysvětlení místo technického kódu.</p></div>
+      </div>
+    </div>
+
+    <!-- ═══ CO SE NEMĚNÍ ═══ -->
+    <div class="nl-safe" style="margin-top:38px;">
+      <div class="nl-sec-k" style="color:var(--teal6);">✦ Co se nemění</div>
+      <div class="nl-safe-h">Všechno zůstává <i>u vás.</i></div>
+      <div class="nl-safe-row">
+        <div class="nl-safe-n">01</div>
+        <div><p><b>Data ve vašem M365.</b> Konverzace, nastavení i podklady žijí v SharePointu vašeho tenantu. Provoz AI modelu jde z vaší vlastní Azure subskripce – nikde nevzniká kopie vašich dat.</p></div>
+      </div>
+      <div class="nl-safe-row">
+        <div class="nl-safe-n">02</div>
+        <div><p><b>Oprávnění platí vždy.</b> Asistent hledá pod přihlášením uživatele – nikdy neukáže nic, k čemu uživatel nemá přístup. Nevzniká žádný samostatný index ani druhá kopie obsahu.</p></div>
+      </div>
+      <div class="nl-safe-row">
+        <div class="nl-safe-n">03</div>
+        <div><p><b>Poslední krok je vždy na člověku.</b> Sloupec, knihovna, e-mail, dokument, úkol – asistent připraví návrh, provedení potvrzujete vy. I Průvodce úkonem umí jen navrhovat.</p></div>
+      </div>
+      <p class="nl-safe-note">Zdroje mimo SharePoint (pošta, kalendář, úkoly, Teams) i zápis do Planneru vyžadují jednorázové schválení delegovaných oprávnění správcem Microsoft 365 – a správce je může pro organizaci kdykoli vypnout.</p>
+    </div>
+
+    <!-- ═══ CTA ═══ -->
+    <div class="nl-cta">
+      <div class="nl-cta-k">30 minut · zdarma · bez závazku</div>
+      <div class="nl-cta-h">Chcete AI, která <i>zůstane u vás?</i></div>
+      <a class="nl-btn nl-btn-accent" href="https://easyportal365.cz/konzultace">Domluvit ukázku →</a>
+    </div>
+
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="nl-foot">
+    <div class="nl-foot-brand">EasyPortal 365</div>
+    <p>Hotové SharePoint aplikace, governance služby a bezpečná AI pro firmy,<br />které už platí Microsoft 365 a chtějí z něj dostat reálnou hodnotu.</p>
+    <div class="nl-foot-links">
+      <a href="https://easyportal365.cz">Web</a><span>·</span>
+      <a href="https://easyportal365.cz/aplikace">Aplikace</a><span>·</span>
+      <a href="https://easyportal365.cz/aplikace/osobni-zabezpecena-ai/">Osobní zabezpečená AI</a><span>·</span>
+      <a href="https://easyportal365.cz/blog">Blog</a>
+    </div>
+    <small>Accelapps s.r.o. · Praha</small>
+  </div>
+
+</div>
+
+<!-- Lightbox – klik na screenshot ho zvětší; mezi obrázky se listuje šipkami nebo klávesami ←/→ -->
+<div class="nl-lb" id="nl-lb">
+  <div class="nl-lb-close">Zavřít · Esc</div>
+  <div class="nl-lb-nav nl-lb-prev" id="nl-lb-prev" title="Předchozí (←)">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+  </div>
+  <img id="nl-lb-img" src="" alt="" />
+  <div class="nl-lb-nav nl-lb-next" id="nl-lb-next" title="Další (→)">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+  </div>
+  <div class="nl-lb-cap" id="nl-lb-cap"></div>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('nl-lb'), lbimg=document.getElementById('nl-lb-img'),
+      cap=document.getElementById('nl-lb-cap'),
+      prev=document.getElementById('nl-lb-prev'), next=document.getElementById('nl-lb-next');
+  if(!lb||!lbimg) return;
+
+  // Bereme jen obrázky, které se opravdu načetly – chybějící soubor si figure schová
+  // sám (onerror) a listování by přes něj jinak propadlo na prázdný snímek.
+  var all=[].slice.call(document.querySelectorAll('.nl-shot'));
+  function live(){ return all.filter(function(f){
+    var im=f.querySelector('img');
+    return f.style.display!=='none' && im && im.getAttribute('src'); }); }
+
+  var cur=0;
+  function show(i){
+    var list=live(); if(!list.length) return;
+    cur=(i+list.length)%list.length;                 // dokola: za posledním je první
+    var fig=list[cur], im=fig.querySelector('img');
+    lbimg.setAttribute('src', im.getAttribute('src'));
+    lbimg.setAttribute('alt', im.getAttribute('alt')||'');
+    var fc=fig.querySelector('figcaption');
+    var txt=fc?fc.textContent.replace('Klikněte pro zvětšení.','').trim():'';
+    cap.innerHTML='';
+    if(txt) cap.appendChild(document.createTextNode(txt));
+    var b=document.createElement('b'); b.textContent=(cur+1)+' / '+list.length+' · šipky ← → · Esc zavře';
+    cap.appendChild(b);
+    var multi=list.length>1;
+    prev.style.display=multi?'flex':'none';
+    next.style.display=multi?'flex':'none';
+  }
+  function open(fig){ var list=live(); var i=list.indexOf(fig); show(i<0?0:i); lb.classList.add('open'); }
+  function close(){ lb.classList.remove('open'); lbimg.setAttribute('src',''); }
+
+  all.forEach(function(f){ f.addEventListener('click', function(){ open(f); }); });
+  prev.addEventListener('click', function(e){ e.stopPropagation(); show(cur-1); });
+  next.addEventListener('click', function(e){ e.stopPropagation(); show(cur+1); });
+  lbimg.addEventListener('click', function(e){ e.stopPropagation(); });   // klik do obrázku nezavírá
+  lb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){
+    if(!lb.classList.contains('open')) return;
+    if(e.key==='Escape') close();
+    else if(e.key==='ArrowLeft'){ e.preventDefault(); show(cur-1); }
+    else if(e.key==='ArrowRight'){ e.preventDefault(); show(cur+1); }
+  });
+})();
+</script>
+
+</body>
+</html>

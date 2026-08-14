@@ -44,6 +44,13 @@
 !brand/**/*.ico
 !brand/**/*.webp
 
+# Zákaznické newslettery (cdn.easyportal365.cz/newsletter/<vydani>/) — HTML stránka
+# vydání a její screenshoty. Bezpečné: marketingový obsah psaný pro zákazníky, žádné
+# zdrojáky ani secrets. ⚠ Screenshoty musí být z DEMO dat — jméno zákazníka ani člověka
+# se sem nesmí dostat ani obrázkem (v obrázku ho žádný guard nenajde).
+!newsletter/**/*.html
+!newsletter/**/*.png
+
 # Ukázkové obrázky aktualit pro seed dat Homepage (cdn.easyportal365.cz/homepage/seed/news/).
 # Bezpečné: jen komprimované JPG ilustrace pro banner ukázkových aktualit, žádné zdrojáky/secrets.
 !homepage/seed/**/*.jpg
