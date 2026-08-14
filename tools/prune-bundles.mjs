@@ -111,9 +111,21 @@ for (const app of apps) {
   }
   const keepCommits = new Set([...relTs.entries()].sort((a, b) => b[1] - a[1]).slice(0, KEEP).map(e => e[0]));
 
-  // MARK — tranzitivne z ponechanych korenu
+  // Koren BEZ content hashe = STABILNI KONTRAKT, na ktery ukazuje trvaly .sppkg
+  // v App Catalogu u kazdeho zakaznika (runtime-verze architektura, DS 10.69):
+  // `ep-365-<app>-loader.js`. Jeho jmeno se nikdy nemeni, takze se pri release
+  // PREPISUJE na miste a git ho vidi jako pridany jen JEDNOU — tim mu commit
+  // postupne zestarne a vypadne z okna poslednich KEEP releasu. Pak by ho tenhle
+  // prorez smazal a shodil appku VSEM zakaznikum naraz, aniz by se cokoli zmenilo
+  // v jejich tenantu. Ochrana pres --protect na to nestaci: ta je per appka a musel
+  // by si na ni nekdo vzpomenout. Drzime ho proto jako koren VZDY.
+  // Overeno 2026-08-14: ai-chat mel loader na pozici 10/10, tedy jeden release
+  // od smazani; ostatnich 15 appek bylo v bezpeci jen shodou okolnosti.
+  const isStableRoot = f => !/_[0-9a-f]{20}\.js$/.test(f);
+
+  // MARK — tranzitivne z ponechanych korenu (+ vzdy ze stabilnich kontraktu)
   const marked = new Set();
-  const queue = roots.filter(f => keepCommits.has(info(f).commit));
+  const queue = roots.filter(f => isStableRoot(f) || keepCommits.has(info(f).commit));
   while (queue.length) {
     const f = queue.pop();
     if (marked.has(f)) continue;
