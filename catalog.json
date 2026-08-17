@@ -3,6 +3,9 @@
     "description": "Firemní AI chat nad vašimi daty v Microsoft 365 — odpovídá z dokumentů, e-mailů a znalostní báze. Data zůstávají u vás.",
     "webUrl": "https://easyportal365.cz/aplikace/osobni-zabezpecena-ai/"
   },
+  "ep365-quick-actions": {
+    "description": "Quick Actions — bezplatné akce v menu SharePointu: přímý odkaz, PDF, tisk, e-mail a odeslání dokumentu k řízené publikaci. V celém tenantu, bez instalace na weby."
+  },
   "ep365-fleet": {
     "description": "Správa vozového parku — vozidla, rezervace, STK, servisní kniha a přehled vytížení i nákladů.",
     "webUrl": "https://easyportal365.cz/aplikace/vozovy-park/"
