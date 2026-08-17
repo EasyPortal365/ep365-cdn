@@ -22,6 +22,11 @@
 !tools/publish-changelog.mjs
 !tools/promote-release.mjs
 
+# Ikona položky menu EP365 Quick Actions (extension manifest neumí data: URI —
+# SharePoint je resolvuje relativně k CDN base → 503; ikona musí být soubor).
+# Bezpečné: statické SVG bez skriptů.
+!quick-actions/icon.svg
+
 # Runtime verze aplikací (architektura „trvalý .sppkg + verze z CDN", od 2026-08-01):
 # <app>/releases.json = seznam vydaných verzí (číslo + datum, max ~10; zdroj pro
 # správu verzí v appce a retenci), <app>/<verze>/manifest.json = SPFx komponentní
