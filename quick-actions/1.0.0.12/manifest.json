@@ -1,0 +1,30 @@
+{
+  "id": "f04426d0-7790-415a-b20c-9f4fae6e579b",
+  "alias": "QuickActionsAppLibrary",
+  "componentType": "Library",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "loaderConfig": {
+    "internalModuleBaseUrls": [
+      "https://cdn.easyportal365.cz/quick-actions/1.0.0.12/"
+    ],
+    "entryModuleId": "ep-365-quick-actions-app",
+    "scriptResources": {
+      "ep-365-quick-actions-app": {
+        "type": "path",
+        "path": "ep-365-quick-actions-app_03f7de915c16ffc0a8c9.js"
+      },
+      "react": {
+        "type": "component",
+        "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+        "version": "17.0.1"
+      },
+      "@microsoft/sp-http": {
+        "type": "component",
+        "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6",
+        "version": "1.22.2"
+      }
+    }
+  }
+}
