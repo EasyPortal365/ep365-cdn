@@ -4,6 +4,47 @@
   "name": "EP365 Marketing",
   "entries": [
     {
+      "version": "1.7",
+      "date": "2026-08-18",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Omezení, ve kterých složkách má AI hledat, teď platí spolehlivě. Když správce zvolil hledání jen ve vybraných místech SharePointu a seznam míst nechal prázdný, hledalo se ve skutečnosti všude – tedy přesný opak toho, co si nastavil. Nově se v takovém případě hledá pouze na aktuálním webu. Zároveň jsme ošetřili text dotazu tak, aby se nastaveným omezením nedal obejít.",
+          "en": "The restriction on which folders AI may search now holds reliably. When an administrator chose to search only selected SharePoint locations but left the list of locations empty, the search actually covered everything — the exact opposite of the setting. In that case it is now limited to the current site. We have also hardened the query text so the configured restriction cannot be bypassed."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rychlé hledání (Ctrl+K) se v Microsoft Teams otevíralo níž, než mělo – okno se nekrylo s ztmavením pozadí.",
+          "en": "Quick search (Ctrl+K) opened too low in Microsoft Teams — the dialog no longer sits below the dimmed backdrop."
+        },
+        {
+          "type": "fixed",
+          "cs": "Klávesa Esc zavře jen rychlé hledání. Panel otevřený pod ním zůstane, dokud ho nezavřete sami.",
+          "en": "Esc now closes only the quick search. A panel opened underneath stays open until you close it yourself."
+        },
+        {
+          "type": "fixed",
+          "cs": "Údaje převzaté z Homepage – název firmy, kontakt na podporu a logo – se v některých případech nenačetly vůbec. Nově se převezme vše, co je k dispozici.",
+          "en": "Details inherited from Homepage — company name, support contact and logo — sometimes failed to load at all. Now everything available is picked up."
+        },
+        {
+          "type": "fixed",
+          "cs": "V hlavičce stránky se přestala zobrazovat tlačítka, která na dané obrazovce nic nedělala.",
+          "en": "The page header no longer shows buttons that did nothing on that particular screen."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
+          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se seznam členů role nepodaří přečíst, aplikace to nově napíše – místo aby tvrdila, že je skupina prázdná. Odepřené čtení (SharePoint data nevydá) vypadalo dřív stejně jako skupina bez lidí, takže se dalo snadno uvěřit, že roli někdo vymazal.",
+          "en": "When the list of members of a role cannot be read, the application now says so instead of claiming the group is empty. A denied read (SharePoint refuses the data) used to look exactly like a group with nobody in it, so it was easy to believe someone had wiped the role."
+        }
+      ]
+    },
+    {
       "version": "1.6",
       "date": "2026-07-31",
       "changes": [
