@@ -4,7 +4,8 @@
     "webUrl": "https://easyportal365.cz/aplikace/osobni-zabezpecena-ai/"
   },
   "ep365-quick-actions": {
-    "description": "Quick Actions — bezplatné akce v menu SharePointu: přímý odkaz, PDF, tisk, e-mail a odeslání dokumentu k řízené publikaci. V celém tenantu, bez instalace na weby."
+    "description": "Quick Actions — bezplatné akce v menu SharePointu: PDF, tisk, sloučení do PDF, porovnání verzí, kontrola citlivých údajů, přehled oprávnění a odeslání k řízené publikaci. V celém tenantu, bez instalace na weby.",
+    "webUrl": "https://easyportal365.cz/aplikace/quick-actions/"
   },
   "ep365-fleet": {
     "description": "Správa vozového parku — vozidla, rezervace, STK, servisní kniha a přehled vytížení i nákladů.",
