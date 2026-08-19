@@ -64,5 +64,9 @@
   "ep365-products": {
     "description": "Produktový katalog – jedno místo s aktuálními informacemi o produktech: produktové stránky, skupiny, soubory, ceny a řízený přístup. Volitelná vazba na CRM.",
     "webUrl": "https://easyportal365.cz/aplikace/produktovy-katalog/"
+  },
+  "ep365-absence": {
+    "description": "Dovolené a nepřítomnosti — žádanky, schvalování, týmový kalendář a podklady pro mzdovou účetní. Vše ve vašem Microsoft 365.",
+    "webUrl": "https://easyportal365.cz/aplikace/absence/"
   }
 }
