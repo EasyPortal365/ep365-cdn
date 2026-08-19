@@ -15,5 +15,6 @@
   "ep365-atlas": "1.10.0.0",
   "ep365-helpdesk": "1.2.0.0",
   "ep365-products": "1.2.4.3",
-  "ep365-eshop": "1.0.2.0"
+  "ep365-eshop": "1.0.2.0",
+  "ep365-quick-actions": "1.0.0.20"
 }
