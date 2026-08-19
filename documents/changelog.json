@@ -4,9 +4,50 @@
   "name": "EP365 Řízené dokumenty",
   "entries": [
     {
+      "version": "1.14",
+      "date": "2026-08-19",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Rozpracované a zamítnuté dokumenty ve Frontě publikace nově otevřete rovnou k úpravě – tlačítkem „Dokončit“ u konceptu nebo klikem na řádek. Doplníte údaje a adresáty a odešlete ke schválení, vše v jednom panelu.",
+          "en": "Draft and rejected documents in the Publication queue now open straight into editing — via the “Finish” button on a draft or by clicking the row. Fill in the details and recipients and submit for approval, all in one panel."
+        },
+        {
+          "type": "new",
+          "cs": "Připraveno propojení s novou bezplatnou aplikací EP365 Quick Actions – dokument půjde odeslat k řízené publikaci přímo z kterékoli knihovny SharePointu a publikaci dokončíte v aplikaci na dvě kliknutí.",
+          "en": "Groundwork for the new free EP365 Quick Actions app — documents can be sent for managed publication straight from any SharePoint library, finishing the publication in the app in two clicks."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlé hledání (Ctrl+K) řadí výsledky do pojmenovaných skupin – Akce, Pohled, Dokument – a dole připomíná ovládání klávesnicí.",
+          "en": "Quick search (Ctrl+K) now groups results under named headings — Actions, Views, Documents — and shows the keyboard shortcuts along the bottom."
+        },
+        {
+          "type": "fixed",
+          "cs": "Klávesa Esc zavře jen rychlé hledání. Panel otevřený pod ním zůstane, dokud ho nezavřete sami.",
+          "en": "Esc now closes only the quick search. A panel opened underneath stays open until you close it yourself."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
+          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se seznam členů role nepodaří přečíst, aplikace to nově napíše – místo aby tvrdila, že je skupina prázdná. Odepřené čtení (SharePoint data nevydá) vypadalo dřív stejně jako skupina bez lidí, takže se dalo snadno uvěřit, že roli někdo vymazal.",
+          "en": "When the list of members of a role cannot be read, the application now says so instead of claiming the group is empty. A denied read (SharePoint refuses the data) used to look exactly like a group with nobody in it, so it was easy to believe someone had wiped the role."
+        }
+      ]
+    },
+    {
       "version": "1.13",
       "date": "2026-07-31",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
         {
           "type": "fixed",
           "cs": "Úzké okno a mobil: levé menu se na užších oknech zúží a pod 780 px z něj zbydou jen ikony, takže na obsah je víc místa.",
