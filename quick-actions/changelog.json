@@ -1,0 +1,18 @@
+{
+  "schema": 2,
+  "app": "ep365-quick-actions",
+  "name": "EP365 Quick Actions",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-08-19",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "První vydání EP365 Quick Actions – bezplatné akce v kontextovém menu SharePointu, které SharePoint sám nemá. V knihovnách i seznamech, v SharePointu i v knihovnách zobrazených v Microsoft Teams, pro celý tenant jedním balíčkem. Akce: kopírování přímého odkazu, uložení jako PDF, tisk, sloučení výběru do jednoho PDF, odeslání e-mailem (odkaz vždy, příloha po schválení oprávnění), porovnání dvou verzí dokumentu, správa oprávnění včetně ověření přístupu konkrétního uživatele a obnovení dědění s náhledem dopadu (dokumenty i složky), přehled dokumentu (návštěvnost, stav vyhledávání, klasifikace), nalezení kopií souboru napříč tenantem a kontrola citlivých údajů přímo v prohlížeči (rodná čísla, čísla účtů, IBAN, platební karty, telefony, hesla a klíče, hromadné e-maily, témata GDPR a firemní slovník výrazů – nic se nikam neodesílá, nálezy jsou maskované). S aplikací Řízené dokumenty navíc odeslání dokumentu do fronty publikace.",
+          "en": "First release of EP365 Quick Actions — free actions in the SharePoint context menu that SharePoint itself lacks. In libraries and lists, in SharePoint and in libraries shown in Microsoft Teams, tenant-wide with a single package. Actions: copy a direct link, save as PDF, print, merge a selection into one PDF, send by e-mail (link always, attachment after a permission approval), compare two document versions, manage permissions including checking a specific user’s access and restoring inheritance with an impact preview (documents and folders), document overview (views, search status, classification), finding file copies across the tenant, and a sensitive data check right in the browser (personal identification numbers, bank accounts, IBANs, payment cards, phones, passwords and keys, bulk e-mail lists, GDPR topics and a company term dictionary — nothing is sent anywhere, findings are masked). With the Managed Documents app, documents can also be sent to the publication queue."
+        }
+      ]
+    }
+  ]
+}
