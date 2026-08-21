@@ -4,6 +4,22 @@
   "name": "EP365 Moje dokumenty",
   "entries": [
     {
+      "version": "1.1",
+      "date": "2026-08-21",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Vaše vlastní typy, cíle ukládání a oblíbená místa jsou nově chráněné i technicky – seznamy, ve kterých se ukládají, mají upravená oprávnění tak, aby k cizím záznamům nikdo nemohl ani mimo aplikaci. Dřív je aplikace pouze nezobrazovala.",
+          "en": "Your personal document types, storage targets and favourite places are now protected at the data level too – the lists holding them have adjusted permissions so nobody can reach another person’s records even outside the app. Previously the app merely did not display them."
+        },
+        {
+          "type": "new",
+          "cs": "Průvodce uložením nově nabízí i vaše oblíbená místa – oblíbenou knihovnu vyberete jedním klikem, u oblíbeného webu si necháte zobrazit jeho knihovny. Hodí se, když ukládáte někam, pro co nemá vaše organizace pravidlo.",
+          "en": "The guided upload now also offers your favourite places – pick a favourite library in one click, or expand a favourite site to see its libraries. Handy when you save somewhere your organisation has no rule for."
+        }
+      ]
+    },
+    {
       "version": "1.0",
       "date": "2026-08-21",
       "changes": [
