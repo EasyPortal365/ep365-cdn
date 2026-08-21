@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.10",
-      "date": "2026-08-08",
+      "date": "2026-08-21",
       "changes": [
         {
           "type": "improved",
@@ -126,6 +126,46 @@
           "type": "fixed",
           "cs": "Adresa prověřeného seznamu nebo knihovny se v Cíleném auditu skládala chybně – cesta webu se v ní objevila dvakrát. Projevovalo se to v uložené historii auditů, ve staženém reportu a nově i tím, že historie procházení hlásila „bez záznamu“ i tam, kde záznamy byly.",
           "en": "The address of the audited list or library was assembled incorrectly in Targeted audit – the site path appeared twice. It showed up in the saved audit history, in the downloaded report, and lately in crawl history reporting “no records” for places that had them."
+        },
+        {
+          "type": "improved",
+          "cs": "Zdraví indexu si zapamatuje jednou načtená data, takže se při návratu na obrazovku nestahují znovu. Platí hodinu a jsou uložená jen ve vašem prohlížeči pod vaším účtem; tlačítkem „Načíst čerstvá data“ je kdykoli přepíšete.",
+          "en": "Index health now remembers data once loaded, so returning to the screen no longer re-fetches it. The cache lasts an hour and is kept only in your browser under your account; “Load fresh data” overwrites it at any time."
+        },
+        {
+          "type": "improved",
+          "cs": "Záhlaví tabulek vypadá stejně napříč všemi aplikacemi EP365 – jednotné písmo, velikost i odsazení. Směr řazení nese jen šipka u názvu sloupce, takže je na první pohled jasné, podle čeho je seznam seřazený.",
+          "en": "Table headers now look the same across every EP365 app — one font, size and spacing. The sort direction is carried by the arrow next to the column name alone, so it is obvious what the list is sorted by."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
+          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se seznam členů role nepodaří přečíst, aplikace to nově napíše – místo aby tvrdila, že je skupina prázdná. Odepřené čtení (SharePoint data nevydá) vypadalo dřív stejně jako skupina bez lidí, takže se dalo snadno uvěřit, že roli někdo vymazal.",
+          "en": "When the list of members of a role cannot be read, the application now says so instead of claiming the group is empty. A denied read (SharePoint refuses the data) used to look exactly like a group with nobody in it, so it was easy to believe someone had wiped the role."
+        },
+        {
+          "type": "fixed",
+          "cs": "Auditní log: když dotaz odmítne Microsoft, aplikace nově řekne, čím to je. Hláška „účet nemá žádná oprávnění“ neznamená chybějící souhlas s aplikací – odmítnutý je přihlášený účet, který nesmí hledat v auditním logu. Aplikace poradí, čím to ověřit a jak právo doplnit; nápověda k tomu vysvětluje, proč většině správců audit funguje bez nastavování a co dělat, když zrovna tenhle účet výjimkou je.",
+          "en": "Audit log: when Microsoft rejects a query, the application now explains why. The message “user does not have any permissions” does not mean missing app consent – it is the signed-in account being refused the right to search the audit log. The app now says how to verify it and how to grant the right; Help explains why most administrators get audit access without configuring anything, and what to do when one particular account is the exception."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nepodaří-li se načíst data aplikace (nálezy, snímky, hlídky, nastavení), aplikace to napíše a prázdné obrazovky přestane vydávat za výsledek – „zatím žádný sken“ se u tenantu se stovkou skenů už neobjeví. Uložení nastavení je v takové chvíli zablokované, aby výpadek čtení nepřepsal konfiguraci prázdnou hodnotou; dřív šlo takto přijít o váhy pilířů, prahy pravidel i udělené výjimky.",
+          "en": "If the application's data cannot be loaded (findings, snapshots, watchdogs, settings), the app now says so and stops presenting empty screens as a result – “no scan yet” no longer appears on a tenant with a hundred scans. Saving settings is blocked meanwhile so that a failed read cannot overwrite the configuration with an empty value; previously this could wipe pillar weights, rule thresholds and granted exceptions."
+        },
+        {
+          "type": "improved",
+          "cs": "Data Atlasu jsou nově chráněná i na úrovni SharePointu: seznamy s nálezy, snímky, událostmi hlídek, uloženými audity a nastavením smí měnit jen správce aplikace a vlastníci webu. Dosud je mohl přepsat nebo smazat kdokoli s členstvím na webu – evidence, kterou lze upravit, není důkaz. Ostatní uživatelé je dál čtou beze změny.",
+          "en": "Atlas data is now protected at the SharePoint level as well: the lists holding findings, snapshots, watchdog events, saved audits and settings can only be changed by application administrators and site owners. Until now anyone with membership on the site could rewrite or delete them – records that can be edited are not evidence. Everyone else still reads them exactly as before."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přehled správců kolekce se nově sestavuje z úplného seznamu uživatelů webu, ne z filtru na straně SharePointu – ten se v ojedinělých případech chová nespolehlivě a u bezpečnostního výstupu je to nepřijatelné. Sken je při tom o jedno volání na web úspornější. Cílený audit dostal stejnou úpravu.",
+          "en": "The list of site collection administrators is now built from the full list of site users instead of a server-side filter, which is occasionally unreliable – unacceptable for a security report. The scan also makes one call less per site. Targeted audit got the same treatment."
         }
       ]
     },
