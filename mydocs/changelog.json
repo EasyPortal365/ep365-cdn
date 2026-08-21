@@ -1,0 +1,18 @@
+{
+  "schema": 2,
+  "app": "ep365-mydocs",
+  "name": "EP365 Moje dokumenty",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-08-21",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "První vydání aplikace Moje dokumenty. Nabízí osobní přehled všech dokumentů, ke kterým máte v Microsoft 365 přístup – napříč weby a knihovnami, s hledáním v názvech i obsahu, filtry, řazením a panelem míst s oblíbenými a nedávno použitými knihovnami. U každého dokumentu máte po ruce náhled, uložení do PDF, tisk, stažení, odkaz, cestu do knihovny i informace o něm (aktivita, verze, kdo má přístup, kontrola citlivých údajů). Průvodce uložením pak nový soubor uloží tam, kam podle pravidel vaší organizace patří: řeknete, co dokument je a pro koho, a aplikace určí knihovnu, předem ověří vaše právo zápisu a doplní metadata; směrnice předá k publikaci do Řízených dokumentů. Vlastní typy a cíle ukládání si může přidat každý sám pro sebe, správce navíc určuje, komu se které nabídnou. Součástí je nápověda s více než padesáti odpověďmi a interaktivní průvodce aplikací.",
+          "en": "First release of My Documents. It gives you a personal overview of every document you can access in Microsoft 365 – across sites and libraries, with search in names and content, filters, sorting and a places panel holding your favourite and recently used libraries. Every document offers a preview, save as PDF, print, download, a link, a path to its library and insights about it (activity, versions, who has access, a sensitive-data check). The guided upload then files a new document where your organisation’s rules say it belongs: you say what it is and who it is for, and the app resolves the library, verifies your write permission up front and fills in metadata; directives are handed over to Managed Documents for publication. Everyone can add personal document types and storage targets, and administrators decide who is offered which. In-app help with over fifty answers and an interactive tour are included."
+        }
+      ]
+    }
+  ]
+}
