@@ -68,5 +68,9 @@
   "ep365-absence": {
     "description": "Dovolené a nepřítomnosti — žádanky, schvalování, týmový kalendář a podklady pro mzdovou účetní. Vše ve vašem Microsoft 365.",
     "webUrl": "https://easyportal365.cz/aplikace/absence/"
+  },
+  "ep365-mydocs": {
+    "description": "Moje dokumenty – osobní přehled všeho, k čemu máte přístup, napříč weby a knihovnami. A průvodce, který nový dokument uloží na správné místo.",
+    "webUrl": "https://easyportal365.cz/aplikace/"
   }
 }
