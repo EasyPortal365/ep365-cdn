@@ -8,6 +8,11 @@
       "date": "2026-07-29",
       "changes": [
         {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
+        {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
           "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
