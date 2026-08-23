@@ -141,6 +141,11 @@
           "type": "new",
           "cs": "Asistent si všimne, co máte v knihovně zaškrtnuté. Vyberete-li jeden nebo víc dokumentů, zkratky se vymění za ty, které nad nimi dají smysl – shrnout, porovnat, vypíchnout hlavní body nebo vyčíst úkoly. Odpovídá se přímo z obsahu vybraných souborů, ne z hledání po knihovně. Když výběr zrušíte, vrátí se zkratky pro celou knihovnu.",
           "en": "The assistant notices what you have selected in a library. Pick one or more documents and the shortcuts switch to the ones that make sense for them – summarize, compare, pull out key points or list follow-up tasks. Answers come straight from the selected files, not from a search across the library. Clear the selection and the library shortcuts come back."
+        },
+        {
+          "type": "fixed",
+          "cs": "Opravili jsme případ, kdy náhled navrhovaného sloupce v knihovně dokumentů zbytečně zatěžoval prohlížeč – s otevřeným návrhem se stránka mohla zpomalit až zaseknout. Náhled se nyní překresluje úsporně a v krajním případě se raději sám vypne, než aby zdržoval práci.",
+          "en": "Fixed a case where the preview of a suggested column in a document library put an unnecessary load on the browser — with a suggestion open, the page could slow down or freeze. The preview now redraws efficiently and, in the worst case, switches itself off rather than getting in your way."
         }
       ]
     },
