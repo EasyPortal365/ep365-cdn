@@ -4,6 +4,87 @@
   "name": "EP365 Moje dokumenty",
   "entries": [
     {
+      "version": "1.2",
+      "date": "2026-08-23",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Vybranou knihovnu teď aplikace ukazuje jako knihovnu: se složkami, do kterých se dá vstoupit, s cestou nad seznamem a s návratem o úroveň výš. V liště nad výpisem – která zůstává vidět i při posouvání – najdete přepínač „Složky / Vše“, založení nové složky, obnovení, otevření v SharePointu a tlačítko „Uložit sem“, které nově míří do otevřené složky. Složku jde přejmenovat i přesunout do koše (mazání se ptá jinak, protože bere obsah s sebou) a vybrané dokumenty přesunout do jiné složky – cíl vyberete procházením a můžete rovnou založit novou. Soubor stejného jména se v cíli nikdy nepřepíše. Vše podle vašich oprávnění: co nesmíte, zůstane vidět jako nedostupné i s důvodem. Hledání jde vždy přes celou knihovnu a aplikace to nad seznamem řekne. Adresa stránky si pamatuje knihovnu i otevřenou složku, takže odkaz otevře druhému totéž místo.",
+          "en": "A selected library is now shown as a library: with folders you can open, a path above the list and a way back up one level. The bar above the listing – which stays visible while you scroll – holds a „Folders / All“ switch, new folder, refresh, open in SharePoint and the „Save here“ button, which now targets the folder you have open. Folders can be renamed and moved to the recycle bin (deletion asks differently, because it takes the contents with it), and selected documents can be moved to another folder – you pick the target by browsing and may create a new folder on the spot. A file of the same name is never overwritten in the target. All of it follows your permissions: what you may not do stays visible but disabled, with the reason. Search always covers the whole library and the app says so above the list. The page address remembers both the library and the open folder, so a link opens the same place for someone else."
+        },
+        {
+          "type": "new",
+          "cs": "Hlavička u vybrané knihovny nově shrnuje, do čeho se díváte: kolik má knihovna dokumentů a složek, kdy se v ní naposledy něco změnilo, jak vede verze (jen hlavní, nebo i koncepty – a když verze nevede vůbec, upozorní na to), jestli obsah podléhá schválení nebo vyžaduje rezervaci, zda má vlastní oprávnění a co v ní smíte vy. Odkaz „O knihovně“ otevře úplný přehled včetně data založení a cesty. Zdroj výpisu ukazuje malý štítek s vysvětlením: „z knihovny“ znamená aktuální obsah čtený přímo, „z vyhledávání“ výsledky indexu. Adresa stránky si navíc pamatuje vybrané místo – zkopírovaný odkaz otevře stejnou knihovnu i někomu jinému.",
+          "en": "When a library is selected, the header now sums up what you are looking at: how many documents and folders it holds, when it last changed, how it keeps versions (major only, or drafts as well – and if it keeps none, it warns you), whether content needs approval or check-out, whether it has unique permissions, and what you may do in it. The „About this library“ link opens the full overview including the creation date and path. A small badge explains where the listing comes from: „from the library“ means live content read directly, „from search“ means index results. The page address also remembers the selected place – a copied link opens the same library for someone else."
+        },
+        {
+          "type": "new",
+          "cs": "Když uložíte dokumenty průvodcem do knihovny, kterou jste zrovna neměli otevřenou, aplikace vás do ní rovnou přepne a ukáže její obsah – takže hned vidíte, kam to šlo. A když máte knihovnu vybranou, mluví o ní i hlavička obrazovky: název knihovny, web, cesta, kolik dokumentů se zobrazuje, jestli knihovna vede verze nebo vyžaduje schválení, a odkaz na otevření v SharePointu. Bez vybrané knihovny zůstává hlavička jako dřív.",
+          "en": "When you save documents through the wizard into a library you did not have open, the app switches to it and shows its contents – so you immediately see where they went. And when a library is selected, the page header describes it: name, site, path, how many documents are shown, whether the library keeps versions or requires approval, and a link to open it in SharePoint. Without a selected library the header stays as before."
+        },
+        {
+          "type": "new",
+          "cs": "V přehledu můžete vybrat víc dokumentů najednou – zaškrtávátkem u řádku, nebo v hlavičce celou stránku. Nad seznamem se objeví lišta s počtem a hromadné akce nabídne i menu u řádku: stáhnout, kopírovat odkazy, kontrola citlivých údajů, odeslat do Řízených dokumentů a přesunout do koše. U mazání se počítá jen s dokumenty, na které máte právo – ostatní se vynechají a aplikace to řekne dopředu. Potvrzení vypisuje, co přesně zmizí. Výběr platí nad zobrazenými řádky a při změně stránky nebo filtru se ruší.",
+          "en": "You can now select several documents at once – with the checkbox on a row, or the whole page from the header. A bar with the count appears above the list and the row menu offers the bulk actions too: download, copy links, sensitive-data check, send to Managed Documents and move to the recycle bin. Deletion counts only documents you may delete – the rest are skipped and the app says so up front. The confirmation lists exactly what will disappear. The selection applies to the displayed rows and is cleared when the page or filter changes."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oprava: nabídka akcí u dokumentu se u delšího seznamu položek nevešla na obrazovku a její spodní část zůstala schovaná. Nabídka se nyní umístí podle skutečné výšky a v krajním případě má vlastní posuvník.",
+          "en": "Fix: the document action menu did not fit on screen when it had many items and its bottom part stayed hidden. The menu is now positioned by its real height and, when space is tight, scrolls on its own."
+        },
+        {
+          "type": "new",
+          "cs": "Dokument jde nově odstranit přímo z přehledu – v menu u řádku přibylo „Přesunout do koše“. Nabídne se jen tam, kde na to v knihovně máte oprávnění (aplikace ho předem ověří), vyžaduje potvrzení a dokument putuje do koše webu, odkud ho lze obnovit. Trvale se nemaže nic.",
+          "en": "A document can now be removed straight from the overview – the row menu gained „Move to recycle bin“. It appears only where you have the permission in the library (verified up front), asks for confirmation, and the document goes to the site recycle bin, from where it can be restored. Nothing is deleted permanently."
+        },
+        {
+          "type": "new",
+          "cs": "Při ukládání do knihovny nabídne aplikace i její vlastní sloupce. Povinné vyplníte rovnou (bez nich se neuloží, aby dokument nezůstal rozpracovaný), nepovinné najdete pod rozbalovacím „Další údaje knihovny“ – vyplníte je hned, nebo je necháte prázdné.",
+          "en": "When saving to a library, the app now also offers the library's own columns. Required ones are filled in right away (without them the file is not saved, so documents never stay incomplete), optional ones live under the expandable „More library details“ — fill them in now or leave them empty."
+        },
+        {
+          "type": "new",
+          "cs": "Když si v panelu Míst vyberete konkrétní knihovnu, čte ji aplikace přímo – právě uložený dokument je ve výpisu hned, bez čekání na vyhledávání. Pruh nad seznamem vždy říká, odkud data jsou; jakmile začnete hledat, přepne se na vyhledávání, protože jen ono umí hledat i v textu dokumentů. U velmi rozsáhlé knihovny se přímé čtení nepoužije a aplikace to napíše.",
+          "en": "When you select a specific library in the Places panel, the app reads it directly — a document you just saved appears in the list immediately, with no wait for search. A strip above the list always says where the data comes from; as soon as you start searching, it switches to search, because only search looks inside documents. For very large libraries direct reading is skipped and the app says so."
+        },
+        {
+          "type": "fixed",
+          "cs": "Oprava: nedávné místo, do kterého jste se dostali kliknutím na dokument, si někdy pamatovalo adresu pohledu knihovny místo knihovny samotné – výběr takového místa pak v přehledu nenašel nic. Cesta se nyní srovná při zápisu i u dříve uložených míst. Popisek nedávného místa se také už neopakuje – místo „Demo · Shared Documents · Shared Documents“ uvidíte název jednou.",
+          "en": "Fix: a recent place reached by clicking a document sometimes remembered the address of the library view instead of the library itself, so picking it found nothing in the overview. The path is now normalised both when stored and for places saved earlier. The label of a recent place no longer repeats itself either – instead of „Demo · Shared Documents · Shared Documents“ you see the name once."
+        },
+        {
+          "type": "new",
+          "cs": "Uložit dokument nabízí dvě cesty. Vedle uložení podle pravidel organizace si můžete knihovnu vybrat sami – z oblíbených míst, nedávných, procházením webů nebo vložením odkazu, a to i do konkrétní složky (novou složku rovnou založíte). Před uložením aplikace ověří, že do knihovny smíte zapisovat, upozorní na soubor stejného jména a nechá vás vybrat, jestli má vzniknout nová verze, přejmenovat se, nebo soubor vynechat. Vyplníte i pole, která knihovna vyžaduje, a dozvíte se předem, když obsah podléhá schválení nebo rezervaci. Uložit můžete i víc souborů najednou.",
+          "en": "Save a document now offers two routes. Besides saving by your organisation's rules, you can pick the library yourself — from favourites, recent places, by browsing sites or by pasting a link, including a specific folder (you can create a new one right there). Before saving, the app verifies you may write to the library, warns about a file of the same name and lets you choose whether to create a new version, rename it or skip it. You also fill in the fields the library requires and learn upfront when content needs approval or check-out. Several files can be saved at once."
+        },
+        {
+          "type": "new",
+          "cs": "V přehledu Moje dokumenty přibylo tlačítko „Uložit sem“ – u knihovny vybrané v panelu Místa do ní uložíte soubory bez opuštění seznamu. Soubory jde také přetáhnout kamkoli do aplikace. Než je vyhledávání zaindexuje, najdete je v pruhu „Právě uložené“ nad seznamem, takže po uložení nikdy nekoukáte na prázdný výsledek.",
+          "en": "The My Documents overview gained a „Save here“ button — with a library selected in the Places panel you can save files into it without leaving the list. Files can also be dropped anywhere in the app. Until search indexes them, they appear in the „Just saved“ strip above the list, so you never face an empty result right after saving."
+        },
+        {
+          "type": "new",
+          "cs": "Správce má novou sekci Nastavení → Ukládání: určí, komu se nabídne uložení do vlastní volby místa, může nabídku omezit jen na knihovny v rozsahu aplikace a zapnout nepovinný dotaz na typ dokumentu. V Přehledu využití pak přibyli „kandidáti na pravidlo“ – dvojice typ a knihovna, kam lidé opakovaně ukládají a matice je zatím nezná; jedním klikem se otevře editor pravidla s předvyplněným cílem.",
+          "en": "Administrators get a new Settings → Saving section: decide who is offered saving to a place of their own choice, optionally limit the offer to libraries within the app's scope and enable an optional question about the document type. The usage overview then lists „rule candidates“ — pairs of type and library people keep using that the matrix does not know yet; one click opens the rule editor with the target pre-filled."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled využití pro správce – kolik dokumentů prošlo průvodcem uložením ve zvoleném období, kolik z nich šlo k publikaci, kolik lidí ukládalo a jaké typy a knihovny převažují. Vidíte i to, odkud se vzal cíl uložení: z matice organizace, z vlastní sady uživatele, nebo z oblíbeného místa – převaha vlastních cílů napoví, že matici stojí za to doplnit.",
+          "en": "A usage overview for administrators – how many documents went through the guided upload in the selected period, how many were handed over for publication, how many people saved them, and which types and libraries prevail. It also shows where the target came from: the organisation matrix, a personal set, or a favourite place – a prevalence of personal targets suggests the matrix deserves an update."
+        },
+        {
+          "type": "new",
+          "cs": "Stavy seznámení přímo v přehledu – u dokumentů, které čekají na vaše potvrzení v Řízených dokumentech, se nově zobrazuje štítek „K seznámení do…“, „Seznámení po termínu“ nebo „Seznámeno“ s datem. Nad seznamem najdete celkový počet čekajících seznámení včetně dokumentů, které v přehledu nejsou, a proklik rovnou do Řízených dokumentů.",
+          "en": "Acknowledgement status right in the overview – documents awaiting your confirmation in Managed Documents now carry a badge reading „to acknowledge by…“, „overdue“ or „acknowledged“ with the date. Above the list you will find the total number of pending acknowledgements, including documents not shown here, and a link straight to Managed Documents."
+        },
+        {
+          "type": "new",
+          "cs": "Moje dokumenty v Microsoft Teams – aplikaci si můžete přidat jako záložku v týmu i jako osobní aplikaci a používat ji na mobilu. Při prvním spuštění se zeptá, kde máte dokumenty nasazené (nebo si web najde sama v registru Workplace) a volbu si zapamatuje. Na úzké obrazovce se levý panel zúží na ikony a tabulka skryje sloupce, které jsou k dispozici v podrobnostech.",
+          "en": "My Documents in Microsoft Teams – add the app as a team tab or a personal app and use it on mobile. On first run it asks where your documents live (or finds the site in the Workplace registry) and remembers the choice. On narrow screens the left panel collapses to icons and the table hides columns that are available in the details."
+        }
+      ]
+    },
+    {
       "version": "1.1",
       "date": "2026-08-21",
       "changes": [
