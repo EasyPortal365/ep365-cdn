@@ -5,12 +5,37 @@
   "entries": [
     {
       "version": "1.14",
-      "date": "2026-07-22",
+      "date": "2026-08-24",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & info the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si Mediální centrum krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
           "en": "Interactive app guide — walk through the Media Center step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help — and it offers itself on your first visit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Klávesa Esc zavře jen rychlé hledání. Panel otevřený pod ním zůstane, dokud ho nezavřete sami.",
+          "en": "Esc now closes only the quick search. A panel opened underneath stays open until you close it yourself."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
+          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se seznam členů role nepodaří přečíst, aplikace to nově napíše – místo aby tvrdila, že je skupina prázdná. Odepřené čtení (SharePoint data nevydá) vypadalo dřív stejně jako skupina bez lidí, takže se dalo snadno uvěřit, že roli někdo vymazal.",
+          "en": "When the list of members of a role cannot be read, the application now says so instead of claiming the group is empty. A denied read (SharePoint refuses the data) used to look exactly like a group with nobody in it, so it was easy to believe someone had wiped the role."
+        },
+        {
+          "type": "improved",
+          "cs": "Mediální centrum se otevírá znatelně rychleji. Přepínání mezi pohledy už nestahuje celou knihovnu znovu, otevření velké galerie nezahltí prohlížeč náhledy a hromadné stažení do ZIP běží souběžně místo soubor po souboru.",
+          "en": "The media centre opens noticeably faster. Switching between views no longer re-downloads the whole library, opening a large gallery no longer floods the browser with thumbnails, and bulk ZIP download runs in parallel instead of file by file."
         }
       ]
     },
