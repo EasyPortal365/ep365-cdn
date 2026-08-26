@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.51",
-      "date": "2026-08-17",
+      "date": "2026-08-26",
       "changes": [
         {
           "type": "fixed",
@@ -146,6 +146,26 @@
           "type": "fixed",
           "cs": "Opravili jsme případ, kdy náhled navrhovaného sloupce v knihovně dokumentů zbytečně zatěžoval prohlížeč – s otevřeným návrhem se stránka mohla zpomalit až zaseknout. Náhled se nyní překresluje úsporně a v krajním případě se raději sám vypne, než aby zdržoval práci.",
           "en": "Fixed a case where the preview of a suggested column in a document library put an unnecessary load on the browser — with a suggestion open, the page could slow down or freeze. The preview now redraws efficiently and, in the worst case, switches itself off rather than getting in your way."
+        },
+        {
+          "type": "improved",
+          "cs": "Chat je při psaní odpovědi výrazně plynulejší – historie zpráv se už nepřekresluje s každým dalším slovem. Panel asistenta se otevírá rychleji a jeho zavřením se rozepsaná odpověď korektně ukončí místo toho, aby dobíhala na pozadí.",
+          "en": "The chat is markedly smoother while an answer is being written — the message history no longer re-renders with every new word. The assistant panel opens faster, and closing it properly stops an answer in progress instead of letting it run on in the background."
+        },
+        {
+          "type": "improved",
+          "cs": "Asistent se otevírá rychleji. Obrazovky, které většina lidí neotevře – Nastavení aplikace, Přehled využití, Nápověda, Roadmapa a Prompt studio – se teď stahují až ve chvíli, kdy je opravdu vyvoláte, místo aby se načítaly pokaždé spolu s chatem.",
+          "en": "The assistant opens faster. Screens most people never open — application settings, the usage overview, help, the roadmap and Prompt Studio — are now downloaded only when you actually open them, instead of loading together with the chat every time."
+        },
+        {
+          "type": "fixed",
+          "cs": "Opraveno mizení konverzací u účtů bez poštovní schránky – typicky správcovských a servisních. Takový účet si dosud konverzace, osobní nastavení, paměť asistenta ani stav průvodce neuložil natrvalo: vše fungovalo do zavření asistenta a pak se už nenačetlo. Data zůstávala uložená, jen se k nim aplikace neuměla vrátit; nyní se najdou.",
+          "en": "Fixed disappearing conversations for accounts without a mailbox — typically admin and service accounts. Until now such an account could not keep its conversations, personal settings, assistant memory or tour progress: everything worked until the assistant was closed and was never loaded again. The data was there all along, the app just could not find its way back to it; now it can."
+        },
+        {
+          "type": "fixed",
+          "cs": "Opravena chyba, kvůli které mohlo otevření konverzace zablokovat kartu prohlížeče. Stačilo, aby odpověď asistenta obsahovala číslovaný seznam ve tvaru „1)“ nebo odrážku začínající znakem „+“ – stránka přestala reagovat a prohlížeči postupně došla paměť. Týkalo se plovoucího asistenta i plné aplikace; takové seznamy se nyní vykreslí správně.",
+          "en": "Fixed a bug where opening a conversation could lock up the browser tab. It was enough for an assistant answer to contain a numbered list in the “1)” style or a bullet starting with “+” — the page stopped responding and the browser gradually ran out of memory. This affected both the floating assistant and the full app; such lists now render correctly."
         }
       ]
     },
