@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.2",
-      "date": "2026-08-23",
+      "date": "2026-08-26",
       "changes": [
         {
           "type": "new",
@@ -81,6 +81,56 @@
           "type": "new",
           "cs": "Moje dokumenty v Microsoft Teams – aplikaci si můžete přidat jako záložku v týmu i jako osobní aplikaci a používat ji na mobilu. Při prvním spuštění se zeptá, kde máte dokumenty nasazené (nebo si web najde sama v registru Workplace) a volbu si zapamatuje. Na úzké obrazovce se levý panel zúží na ikony a tabulka skryje sloupce, které jsou k dispozici v podrobnostech.",
           "en": "My Documents in Microsoft Teams – add the app as a team tab or a personal app and use it on mobile. On first run it asks where your documents live (or finds the site in the Workplace registry) and remembers the choice. On narrow screens the left panel collapses to icons and the table hides columns that are available in the details."
+        },
+        {
+          "type": "improved",
+          "cs": "Odeslání e-mailem se nově ptá, kde chcete zprávu otevřít – v počítači, nebo v prohlížeči. Volba „v počítači“ použije poštovní program nastavený ve Windows jako výchozí (nový i klasický Outlook): odkaz v něm otevře nový e-mail okamžitě. Příloha se v tomto režimu stáhne jako rozepsaná zpráva i s dokumentem – prohlížeč ji sám spustit nesmí, takže ji otevřete mezi staženými soubory (aplikace poradí, jak si nastavit, aby se otevírala rovnou). Tahle cesta nepotřebuje žádné zvláštní oprávnění a zvládne i větší soubory. Volba se pamatuje.",
+          "en": "Sending by e-mail now asks where you want the message to open – on your computer, or in the browser. „On this computer“ uses the mail program Windows has set as default (both new and classic Outlook): a link opens a new e-mail there instantly. An attachment is downloaded as a ready-to-send message with the document included – the browser is not allowed to launch it, so you open it from your downloads (the app explains how to have it open automatically next time). This route needs no special permission and handles larger files. The choice is remembered."
+        },
+        {
+          "type": "new",
+          "cs": "V přehledu je vidět, které dokumenty jsou rezervované – stejnou značkou u ikony jako v SharePointu. Tyrkysová znamená „drží ji vy“, jantarová „drží ji někdo jiný“; kdo přesně, napoví najetí myší. Rezervaci nově zařídíte přímo z aplikace: menu ⋯ u řádku nabízí Rezervovat dokument, Vrátit dokument (s komentářem k verzi a volbou hlavní verze či konceptu) a Zrušit rezervaci. Dokud aplikace stav rezervace nezná, zůstávají akce nečinné – nic se neodhaduje.",
+          "en": "The overview now shows which documents are checked out – with the same mark by the icon that SharePoint uses. Teal means „you hold it“, amber „someone else does“; hovering tells you exactly who. Check-out is now handled straight from the app: the ⋯ row menu offers Check out, Check in (with a version comment and a choice of major version or draft) and Discard check-out. While the app does not know the check-out state, the actions stay disabled – nothing is guessed."
+        },
+        {
+          "type": "new",
+          "cs": "Dokument jde odeslat e-mailem přímo z přehledu – jako přílohu (v Outlooku se vytvoří koncept, příjemce a text dopíšete a odešlete sami) nebo jako odkaz. Odkaz funguje vždy; příloha vyžaduje jednorázové schválení oprávnění správcem a aplikace poctivě napíše, když dostupná není.",
+          "en": "A document can be sent by e-mail straight from the overview – as an attachment (a draft is created in Outlook, you add recipients and text and send it yourself) or as a link. The link always works; the attachment needs a one-off permission approval by an administrator and the app says plainly when it is unavailable."
+        },
+        {
+          "type": "new",
+          "cs": "Přetáhnout do aplikace jde nově i celá složka – včetně podsložek. Aplikace projde její obsah a v cíli založí stejnou strukturu; ve frontě u každého souboru vidíte, kam půjde, a složky v knihovně vzniknou až při uložení. Naráz zvládne 300 souborů a když jich přetáhnete víc, řekne to.",
+          "en": "You can now drag a whole folder into the app – subfolders included. The app walks through its contents and recreates the same structure in the target; the queue shows where each file will go, and folders are created in the library only when you save. It handles 300 files at once and says so when you drop more."
+        },
+        {
+          "type": "new",
+          "cs": "U vybrané knihovny si můžete do výpisu přidat až tři její vlastní sloupce – tlačítkem v liště nad seznamem. Hodnoty se zobrazují při přímém čtení knihovny a podle sloupců s výběrem hodnot jde výpis rovnou filtrovat; volba se pamatuje pro každou knihovnu zvlášť. Podrobnosti dokumentu nově ukazují všechny vlastní údaje knihovny – včetně osob, odkazů a spravovaných metadat, které se čtou živě přímo ze souboru.",
+          "en": "For a selected library you can add up to three of its own columns to the listing – with a button in the bar above the list. Values are shown when the library is read directly, and columns with a fixed set of values can filter the listing right away; the choice is remembered per library. Document details now show all the library's own fields – including people, links and managed metadata, read live from the file itself."
+        },
+        {
+          "type": "improved",
+          "cs": "Cesta „Podle pravidel“ nově hlídá i povinná pole cílové knihovny, která pravidlo samo nevyplňuje: průvodce se na ně zeptá ve shrnutí a bez nich dokument neuloží – v knihovně tak nezůstane rozpracovaný. Pole, která formulář vyplnit neumí (osoby, spravovaná metadata), přizná předem s radou, kde je doplnit.",
+          "en": "The „By the rules“ route now also guards required fields of the target library that the rule itself does not fill in: the wizard asks for them in the summary and will not save without them – so the document never stays incomplete in the library. Fields the form cannot fill (people, managed metadata) are admitted up front with advice on where to complete them."
+        },
+        {
+          "type": "improved",
+          "cs": "Ukládáte-li do složky, právo zápisu se nově ověřuje přímo na ní – složka s vlastními oprávněními tak dostane pravdivou odpověď, ne odpověď celé knihovny. Po uložení průvodcem se přehled otevře v cílové knihovně rovnou ve složce, kam se ukládalo, a Nedávná místa si pamatují knihovnu, ne jednotlivou složku.",
+          "en": "When saving into a folder, the write permission is now checked on the folder itself – a folder with unique permissions gets a truthful answer instead of the library's. After saving through the wizard, the overview opens in the target library directly in the folder you saved to, and Recent places remember the library, not the individual folder."
+        },
+        {
+          "type": "improved",
+          "cs": "Výběr složky při ukládání i hlavička knihovny přiznávají, když je složek víc, než kolik jich aplikace naráz načte: počet se píše jako „200+“ a nabídka poradí, jak se ke zbylým složkám dostat.",
+          "en": "The folder picker in the save dialog and the library header now admit when there are more folders than the app loads at once: the count reads „200+“ and the picker advises how to reach the remaining folders."
+        },
+        {
+          "type": "improved",
+          "cs": "Štítek aktuálního řazení se u vybrané knihovny přestěhoval z řádku filtrů do akčního řádku k přepínači zobrazení – mezi filtry zůstával po přidání filtrů vlastních sloupců osamocený na vlastním řádku.",
+          "en": "For a selected library, the current-sort label moved from the filter row to the action bar next to the view switch – among the filters it ended up orphaned on its own line once the custom-column filters arrived."
+        },
+        {
+          "type": "improved",
+          "cs": "Průvodce uložením dostal nové rozvržení pro širokou obrazovku: vlevo drží postup s průběžným shrnutím – nahrávaný soubor, hotová rozhodnutí (kam, typ, okruh) i nápovědu „co se stane dál“ – a kliknutím na hotový krok se k němu vrátíte. Pracovní plocha vpravo se roztáhla a rozcestník „Kam to má jít?“ tvoří dvě velké karty s podrobnostmi obou cest. Na úzké obrazovce se postup složí do řádku nad obsahem.",
+          "en": "The save wizard got a new wide-screen layout: the left side holds the progress with a running summary – the file being uploaded, the decisions made (where, type, audience) and a “what happens next” hint – and clicking a completed step takes you back to it. The working area on the right stretched out, and the “Where should it go?” crossroads is now two large cards detailing both routes. On a narrow screen the progress folds into a row above the content."
         }
       ]
     },
