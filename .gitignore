@@ -34,11 +34,20 @@
 !*/releases.json
 !*/*/manifest.json
 
-# Údržba velikosti CDN (GitHub Pages limit 1 GB) — prořez nedosažitelných bundlů.
-# Bezpečné: čistě mechanismus nad veřejným obsahem tohoto repa, žádné secrets.
-# Politika (které složky chránit a proč = kdo co má nasazené) NENÍ v tomto
-# souboru ani v toolu — předává se přes --protect a žije v ep365-docs (private).
+# Pravidla CHANGELOG.json a jejich kontrola. Bezpečné: čistě validace tvaru, žádná
+# data — texty samotné žijí v CHANGELOG.json app repa. `changelog-rules.mjs` je
+# JEDINÝ zdroj pravidel (§43), volají ho publish-changelog i check-pending; ten
+# druhý pouští /wrap-up nad celou flotilou, takže musí být i v cizím klonu.
+!tools/changelog-rules.mjs
+!tools/check-pending.mjs
+
+# Údržba velikosti CDN (GitHub Pages limit 1 GB) — prořez nedosažitelných bundlů
+# (`prune-bundles`) a verzovaných složek `<app>/<verze>/` (`prune-versions`, povinný
+# od 2026-08-26). Bezpečné: čistě mechanismus nad veřejným obsahem tohoto repa,
+# žádné secrets. Politika (které složky chránit a proč = kdo co má nasazené) NENÍ
+# v tomto souboru ani v toolu — předává se přes --protect a žije v ep365-docs (private).
 !tools/prune-bundles.mjs
+!tools/prune-versions.mjs
 
 # Brand assets (loga, ikony) — veřejné statické obrázky pro newslettery, web, decky.
 # Bezpečné: jen obrázkové formáty, žádné zdrojáky/secrets.

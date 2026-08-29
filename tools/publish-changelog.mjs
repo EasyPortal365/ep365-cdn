@@ -20,12 +20,12 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { collectIssues } from './changelog-rules.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CDN_ROOT = resolve(__dirname, '..');
 const APPS_ROOT = resolve(CDN_ROOT, '..');
 
-const VALID_TYPES = ['new', 'improved', 'fixed'];
 const TYPE_LABEL_CS = { new: 'Nové', improved: 'Vylepšeno', fixed: 'Opraveno' };
 
 function fail(msg) {
@@ -40,37 +40,8 @@ function normalizeApp(arg) {
 }
 
 function validate(data, appId) {
-  if (!data || typeof data !== 'object') fail('CHANGELOG.json neni objekt');
-  if (data.schema !== 2) fail('schema musi byt 2 (je: ' + data.schema + ') - verze zaznamu = rada MAJOR.MINOR');
-  if (data.app !== appId) fail('app v JSON (' + data.app + ') nesouhlasi s repem (' + appId + ')');
-  if (!data.name || typeof data.name !== 'string') fail('chybi name (zobrazovany nazev appky)');
-  if (!Array.isArray(data.entries) || data.entries.length === 0) fail('entries musi byt neprazdne pole');
-
-  // pending = zmeny z TICHYCH verzi, ktere zakaznik jeste nema videt (standard 2026-08-06).
-  // Na CDN se NIKDY nezapisuji - do entries je prevede az tools/promote-release.mjs.
-  if (data.pending !== undefined) {
-    if (!Array.isArray(data.pending)) fail('pending musi byt pole (nebo chybet)');
-    for (const c of data.pending) {
-      if (VALID_TYPES.indexOf(c.type) === -1) fail('pending: neplatny type "' + c.type + '" (povolene: ' + VALID_TYPES.join(', ') + ')');
-      if (!c.cs || typeof c.cs !== 'string') fail('pending: change bez cs textu');
-      if (c.en !== undefined && typeof c.en !== 'string') fail('pending: en musi byt string');
-      if (c.cs.indexOf('—') !== -1) fail('pending: cs text obsahuje em-dash (—) - v cestine patri en-dash (–)');
-      if (c.since !== undefined && !/^\d+(\.\d+){1,3}$/.test(c.since)) fail('pending: since musi byt cislo tiche verze (napr. 1.9.4.5)');
-    }
-  }
-
-  for (const e of data.entries) {
-    if (!/^\d+\.\d+$/.test(e.version || '')) fail('neplatna verze: "' + e.version + '" (ocekavam zakaznickou RADU MAJOR.MINOR, napr. 1.8 - ne interni build X.Y.Z.W)');
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(e.date || '')) fail('neplatne datum u ' + e.version + ': "' + e.date + '" (ocekavam YYYY-MM-DD)');
-    if (!Array.isArray(e.changes) || e.changes.length === 0) fail('verze ' + e.version + ' nema zadne changes');
-    for (const c of e.changes) {
-      if (VALID_TYPES.indexOf(c.type) === -1) fail('verze ' + e.version + ': neplatny type "' + c.type + '" (povolene: ' + VALID_TYPES.join(', ') + ')');
-      if (!c.cs || typeof c.cs !== 'string') fail('verze ' + e.version + ': change bez cs textu');
-      if (c.en !== undefined && typeof c.en !== 'string') fail('verze ' + e.version + ': en musi byt string');
-      // em-dash v CZ textu je proti typografickemu pravidlu EP365 (patri en-dash)
-      if (c.cs.indexOf('—') !== -1) fail('verze ' + e.version + ': cs text obsahuje em-dash (—) - v cestine patri en-dash (–)');
-    }
-  }
+  const issues = collectIssues(data, appId);
+  if (issues.length) fail(issues[0]);
 }
 
 function cmpVersionDesc(a, b) {
