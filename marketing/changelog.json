@@ -4,6 +4,42 @@
   "name": "EP365 Marketing",
   "entries": [
     {
+      "version": "1.8",
+      "date": "2026-08-29",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Odkaz z CRM otevře rovnou tu akci. Kdo v CRM u termínu akce klikne na „Otevřít v Marketingu“, přistane přímo na jí – včetně akcí, které už proběhly a jsou schované pod přepínačem „Zobrazit i proběhlé“. Dosud odkaz otevřel jen seznam událostí a správnou akci si musel každý najít sám.",
+          "en": "A link from the CRM now opens the event itself. Anyone who clicks “Open in Marketing” on a CRM event date lands directly on that event — including past events hidden behind the “Show past” toggle. Until now the link opened only the list of events and everyone had to find the right one themselves."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlášení chyby a návrh funkce unesou formátovaný text i přílohy. Popis se píše rovnou naformátovaný – tučně, kurzívou, odrážkami, číslovaným seznamem i odkazy – a k hlášení se dají přiložit soubory: přetažením, výběrem z disku, nebo prostým vložením snímku obrazovky klávesami Ctrl+V přímo do popisu. Velké snímky se před odesláním samy zmenší, ať projdou i tam, kde má e-mail limit.",
+          "en": "Bug reports and feature suggestions now take formatted text and attachments. The description is written already formatted — bold, italics, bullet and numbered lists, links — and files can be attached by dragging them in, picking them from disk, or simply pasting a screenshot with Ctrl+V straight into the description. Large screenshots are shrunk automatically before sending so they fit within e-mail limits."
+        },
+        {
+          "type": "new",
+          "cs": "Příspěvek i úkol mají jednoho řešitele – a jde přepnout na jedno kliknutí. U úkolu i u příspěvku je nově vidět, kdo je právě na tahu; řešitele lze změnit nebo převzít přímo v detailu, bez otvírání úprav. U příspěvku zůstává vedle řešitele autor (kdo příspěvek založil) i spolupracovníci (dřív „přiřazení“) – odpovědnost je tak jednoznačná a nikomu neuteče notifikace.",
+          "en": "Posts and tasks now have a single owner — switchable in one click. Both a task and a post show who is currently on the hook; the owner can be changed or taken over straight from the detail, without opening the edit form. A post keeps its author (who created it) and collaborators (previously “assignees”) alongside the owner, so responsibility is unambiguous and nobody misses a notification."
+        },
+        {
+          "type": "new",
+          "cs": "Příspěvek má termíny jednotlivých fází, ne jen termín publikace. Zvlášť se plánuje, dokdy má být napsaný text a dokdy má proběhnout každý schvalovací krok podle nastavení – teprve na konci stojí publikace. Na kartě příspěvku svítí termín té fáze, ve které příspěvek právě je, a po jeho uplynutí zčervená; v detailu je vidět celý řetěz termínů pohromadě.",
+          "en": "Posts now carry deadlines for each stage, not just for publishing. You can plan separately when the text must be written and when each configured approval step must happen — publishing comes last. The post card shows the deadline of the stage the post is currently in and turns red once it passes; the detail lists the whole chain of deadlines together."
+        },
+        {
+          "type": "improved",
+          "cs": "Sociální síť v číselníku lze přejmenovat. Název kanálu se mění v Nastavení → Číselníky → Sociální sítě tlačítkem „Upravit“, kde se dosud nastavoval jen jeho profil. Vazba příspěvků na kanál se drží podle vnitřního kódu, takže přejmenování nic nerozpojí.",
+          "en": "A social network in the code list can be renamed. The channel name is changed under Settings → Code lists → Social networks using the “Edit” button, which previously only held its profile. Posts are linked to a channel by its internal code, so renaming breaks nothing."
+        },
+        {
+          "type": "improved",
+          "cs": "Přejmenovat jde i téma, typ aktivity a sadu hashtagů – a nic se tím nerozpadne. Téma i typ aktivity se u záznamů drží názvem, takže je při přejmenování rovnou přepíšeme ve všech příspěvcích i aktivitách a také v šablonách a slotech publikačního plánu; aplikace pak řekne, kolika záznamů se změna dotkla. Pokud by se data nepodařilo přepsat, položka se nepřejmenuje vůbec – raději nic než osiřelé vazby. U typů aktivit navíc přibylo vypínání a mazání, které dosud chybělo.",
+          "en": "Topics, activity types and hashtag sets can now be renamed — without breaking anything. Records reference a topic and an activity type by name, so renaming rewrites the value across all posts and activities as well as in templates and publishing-plan slots, and the app reports how many records were touched. If the data cannot be rewritten, the item is not renamed at all — better nothing than orphaned references. Activity types also gained the disable and delete actions they were missing."
+        }
+      ]
+    },
+    {
       "version": "1.7",
       "date": "2026-08-18",
       "changes": [
