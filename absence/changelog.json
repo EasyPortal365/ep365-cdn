@@ -1,0 +1,68 @@
+{
+  "schema": 2,
+  "app": "ep365-absence",
+  "name": "EP365 Absence",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-08-30",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nová aplikace EP365 Absence – dovolené a nepřítomnosti přímo ve vašem Microsoftu 365. Zaměstnanec si podá žádost o dovolenou, sick day, home office nebo lékaře a hned vidí, kolik mu zbývá; aplikace sama spočítá pracovní dny a nepočítá víkendy ani svátky. Půlden si vezmete u jednodenní žádosti i na začátku a konci té vícedenní – když ráno ještě dopracujete nebo se poslední den vrátíte odpoledne. U návštěvy lékaře zadáte čas od–do.",
+          "en": "New EP365 Absence app - leave and absences right inside your Microsoft 365. An employee requests vacation, a sick day, home office or a doctor visit and immediately sees the remaining balance; the app counts working days itself and skips weekends and public holidays. A half day works for a single-day request and for the first and last day of a multi-day one — when you still work the morning or come back after lunch. A doctor visit takes a from-to time."
+        },
+        {
+          "type": "new",
+          "cs": "Schvalování bez papírování. Vedoucí má frontu žádostí s termínem, počtem dní i poznámkou a rozhodne jedním kliknutím. Zamítnutí si vyžádá důvod, který žadatel uvidí u žádosti i v e-mailu, takže se rovnou domluvíte na jiném termínu.",
+          "en": "Paperless approvals. A manager gets a queue of requests with dates, day counts and notes, and decides with one click. Rejection requires a reason, which the requester sees both in the app and by e-mail, so you can agree on another date right away."
+        },
+        {
+          "type": "new",
+          "cs": "Týmový kalendář ukáže, kdo kdy chybí – měsíční přehled lidí po dnech, se svátky a víkendy. Citlivé typy absence (nemoc, sick day, lékař) se přitom kolegům zobrazují jen jako „Nepřítomnost“: skutečný typ se do sdíleného kalendáře vůbec nezapisuje, takže se k němu nikdo nedostane ani oklikou.",
+          "en": "The team calendar shows who is away and when - a month grid of people by day, including holidays and weekends. Sensitive absence types (illness, sick day, doctor) appear to colleagues only as \"Away\": the real type is never written to the shared calendar, so nobody can get to it by a detour either."
+        },
+        {
+          "type": "new",
+          "cs": "Podklady pro mzdovou účetní na jedno kliknutí. Správce vybere měsíc a dostane tabulku osoba × typ absence se součty, kterou stáhne jako CSV pro mzdový systém. Do podkladů jdou jen schválené žádosti – když nějaké ještě čekají, aplikace na to upozorní dřív, než podklady předáte.",
+          "en": "Payroll input in one click. An administrator picks a month and gets a person-by-type table with totals, downloadable as CSV for the payroll system. Only approved requests are included - if any are still pending, the app warns you before you hand the data over."
+        },
+        {
+          "type": "new",
+          "cs": "Nároky zadává HR, aplikace je hlídá. U každého zaměstnance zadáte roční nárok na dovolenou, případně převod z minulého roku a sick days; aplikace pak odečítá čerpání a ukazuje zůstatek. Zákonné výpočty a krácení zůstávají ve vašem mzdovém systému – Absence je nepřebírá.",
+          "en": "HR sets the entitlements, the app keeps track. For each employee you enter the annual leave entitlement, optionally a carry-over from last year and sick days; the app then subtracts usage and shows the balance. Statutory calculations and reductions stay in your payroll system - Absence does not take them over."
+        },
+        {
+          "type": "new",
+          "cs": "Vaše žádosti jsou soukromé i v datech. Běžný zaměstnanec má v SharePointu přístup pouze ke svým žádostem – nejde jen o skrytí v aplikaci. Poznámka k žádosti navíc nikdy neopustí samotnou žádost: nedostane se do týmového kalendáře ani do podkladů pro mzdy.",
+          "en": "Your requests stay private in the data too. A regular employee can access only their own requests in SharePoint - this is not just hiding things in the app. And a request note never leaves the request itself: it does not reach the team calendar or the payroll input."
+        },
+        {
+          "type": "new",
+          "cs": "Nastavení, které si přizpůsobíte firmě: vlastní typy absencí (co čerpá dovolenou, co se zadává v hodinách, co je citlivé, a jakou má barvu v kalendáři – včetně vlastního odstínu podle firemní palety), pracovní kalendář se státními svátky na jedno tlačítko i firemními volny, a role uživatelů. Součástí je i interaktivní průvodce aplikací a ukázková data pro vyzkoušení nanečisto.",
+          "en": "Settings you tailor to your company: your own absence types (what draws from leave, what is entered in hours, what is sensitive, and its colour in the calendar — including a custom shade from your brand palette), a working calendar with public holidays at the click of a button plus company days off, and user roles. An interactive in-app tour and sample data for a dry run are included."
+        },
+        {
+          "type": "new",
+          "cs": "Zadanou žádost jde upravit, ne jen stornovat a psát znovu. Dokud žádost čeká na rozhodnutí, opraví si ji sám žadatel; už schválenou absenci může upravit schvalovatel, když se termín po domluvě posune. Aplikace vždy přepočítá počet dní a srovná týmový kalendář. Zamítnutá a stornovaná žádost zůstává uzavřená.",
+          "en": "A submitted request can be edited, not just cancelled and retyped. While it waits for a decision, the requester fixes it themselves; an already approved absence can be edited by the approver when the dates shift by agreement. The app always recalculates the day count and reconciles the team calendar. Rejected and cancelled requests stay closed."
+        },
+        {
+          "type": "new",
+          "cs": "Hledání a filtry tam, kde seznamy narostou. V podkladech pro mzdy vyberete měsíc, rok i konkrétního zaměstnance a stažené CSV odpovídá přesně tomu, co máte před sebou. Hledat můžete i ve svých absencích, ve frontě schvalování a v nárocích – bez ohledu na diakritiku, takže „dovolena“ najde „Dovolenou“.",
+          "en": "Search and filters where lists grow. In the payroll input you pick a month, a year and a specific employee, and the downloaded CSV matches exactly what you see. You can also search your own absences, the approval queue and the entitlements — diacritics-insensitive, so \"dovolena\" finds \"Dovolená\"."
+        },
+        {
+          "type": "new",
+          "cs": "Karta „Kdo je pryč“ na přehledu ukáže dnešek, celý týden nebo celý měsíc, takže je vidět dopředu, kdo bude chybět. Volba zůstane nastavená i příště.",
+          "en": "The \"Who is away\" card on the dashboard shows today, the whole week or the whole month, so you can see who will be missing ahead of time. Your choice is remembered for next time."
+        },
+        {
+          "type": "new",
+          "cs": "Formuláře „Nahlásit chybu“ a „Navrhnout funkci“ mají formátovaný popis – tučně, kurzíva, odrážky i odkaz – a hlavně přílohy. Snímek obrazovky stačí zkopírovat a vložit klávesou Ctrl+V přímo do popisu; objeví se jako příloha s náhledem. Přiložit jde i soubory přetažením nebo výběrem z disku. Velké obrázky se před odesláním samy zmenší, aby se zpráva vešla do limitu zprávy. Když odeslání z aplikace neprojde, otevře se poštovní klient s předvyplněnou zprávou a celý text zůstane ve schránce, takže se podnět neztratí.",
+          "en": "The Report a bug and Suggest a feature forms take formatted text — bold, italics, bullet lists and links — and, above all, attachments. Paste a screenshot with Ctrl+V straight into the description and it shows up as an attachment with a preview. Files can also be dropped in or picked from disk. Large images are shrunk automatically so the message stays within the size limit. If sending from the app does not go through, your mail client opens with the message prefilled and the full text stays on the clipboard, so nothing is lost."
+        }
+      ]
+    }
+  ]
+}
