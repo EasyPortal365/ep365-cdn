@@ -28,6 +28,39 @@ const APPS_ROOT = resolve(CDN_ROOT, '..');
 
 const TYPE_LABEL_CS = { new: 'Nové', improved: 'Vylepšeno', fixed: 'Opraveno' };
 
+// Sdileny seznam zakazanych retezcu — TYZ, ktery pouziva guard v publish-cdn.ps1.
+// Zije v ep365-docs (PRIVATNI repo) zamerne: seznam jmen zakazniku ve verejnem
+// ep365-cdn by byl sam o sobe unik.
+const FORBIDDEN_LIST = join(APPS_ROOT, 'ep365-docs', 'scripts', 'forbidden-in-public-bundles.json');
+
+/**
+ * Zastavi publikaci, kdyz text, ktery ma jit na VEREJNE CDN, obsahuje jmeno
+ * zakaznika. Chybejici nebo prazdny seznam je CHYBA, ne tiche preskoceni —
+ * guard, ktery nema podle ceho merit, by hlasil bezpeci, ktere neoveril.
+ *
+ * Doplneno 2026-08-30: changelog jde na CDN mimo publish-cdn.ps1, takze tudy
+ * guard nikdy nevedl a jedno jmeno se do publikovane karty dostalo.
+ */
+function assertNoForbidden(text, label) {
+  let strings;
+  try {
+    strings = JSON.parse(readFileSync(FORBIDDEN_LIST, 'utf8')).strings;
+  } catch (e) {
+    fail('nelze cist seznam zakazanych retezcu (' + FORBIDDEN_LIST + ') — publikace zastavena');
+  }
+  if (!strings || !strings.length) fail('seznam zakazanych retezcu je prazdny — publikace zastavena');
+  const low = String(text).toLowerCase();
+  const hits = [];
+  strings.forEach((w, i) => { if (low.indexOf(String(w).toLowerCase()) !== -1) hits.push(i); });
+  if (hits.length) {
+    // ZAMERNE se vypisuji jen INDEXY, ne hodnoty — vystup skriptu konci v logu
+    // a jmeno zakaznika do nej nepatri.
+    fail(label + ' obsahuje zakazany retezec (vzorek c. ' + hits.join(', ') + ') — publikace zastavena. '
+      + 'Oprav text v CHANGELOG.json a spust znovu.');
+  }
+  console.log('  Kontrola zakazanych retezcu: OK (' + strings.length + ' vzorku)');
+}
+
 function fail(msg) {
   console.error('CHYBA: ' + msg);
   process.exit(1);
@@ -103,6 +136,9 @@ for (const arg of args) {
   const outPath = join(outDir, 'changelog.json');
   const publicData = { ...data };
   delete publicData.pending;
+  // Kontrola az nad HOTOVYM verejnym tvarem (bez pending) — presne nad tim, co
+  // se za chvili zapise, ne nad zdrojem.
+  assertNoForbidden(JSON.stringify(publicData), 'changelog appky ' + folder);
   writeFileSync(outPath, JSON.stringify(publicData, null, 2) + '\n', 'utf8');
 
   // 2) Citelny CHANGELOG.md v app repu
