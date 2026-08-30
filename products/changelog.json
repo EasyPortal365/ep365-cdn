@@ -8,6 +8,16 @@
       "date": "2026-07-29",
       "changes": [
         {
+          "type": "new",
+          "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze a informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+        },
+        {
+          "type": "fixed",
+          "cs": "Soubory a dokumentace produktů se nově dostanou do vyhledávání SharePointu – dosud byly knihovny katalogu z indexu vyřazené, takže je nenašlo ani firemní hledání, ani AI Asistent. Katalog tím může sloužit jako podklad pro AI Asistenta v režimu firemních znalostí. Kdo na co dosáhne, se nemění: vyhledávání i AI zobrazují jen to, k čemu má daný člověk oprávnění, takže technická dokumentace zůstává jen pro tým.",
+          "en": "Product files and documentation now reach SharePoint search – until now the catalogue libraries were excluded from the index, so neither company search nor the AI Assistant could find them. The catalogue can therefore serve as a source for the AI Assistant in company knowledge mode. Access is unchanged: search and AI only ever surface what a given person is allowed to see, so technical documentation stays with the team."
+        },
+        {
           "type": "improved",
           "cs": "Náhled očima uživatele je nově jen pro správce – dohledává cizí roli, přiřazení a skutečná oprávnění, což je správcovská agenda. Editorům obsahu se tlačítko nezobrazuje.",
           "en": "The user preview is now admin-only – it resolves another person's role, assignments and real permissions, which is an administrator matter. Content editors no longer see the button."
