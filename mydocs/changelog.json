@@ -4,6 +4,42 @@
   "name": "EP365 Moje dokumenty",
   "entries": [
     {
+      "version": "1.3",
+      "date": "2026-08-30",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Odeslání dokumentu do Řízených dokumentů se teď nejdřív zeptá. Potvrzení říká, co se stane: soubor se zkopíruje a založí se z něj koncept ve frontě publikace, originál zůstává tam, kde je. U výběru vypisuje, které dokumenty půjdou. Zaškrtnutím „Po odeslání rovnou dokončit publikaci“ vás aplikace po odeslání přepne do Řízených dokumentů a otevře rovnou kartu dokumentu, kde nastavíte, komu se přiřadí a do kdy se s ním mají lidé seznámit; u hromadného odeslání se otevře fronta publikace. Volba se pamatuje. Když se něco nepovede, zůstane hláška u akce a nikam se nepřechází – u dávky se dozvíte, kolik dokumentů z kolika prošlo.",
+          "en": "Sending a document to Managed Documents now asks first. The confirmation says what will happen: the file is copied and a draft is created in the publishing queue, while the original stays where it is. For a selection it lists the documents that will go. Ticking „Finish publishing right away“ switches you to Managed Documents after sending and opens the document card, where you set who it is assigned to and by when people should acknowledge it; a bulk send opens the publishing queue. The choice is remembered. If something fails, the message stays with the action and nothing navigates away — for a batch you learn how many of the documents went through."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikace je použitelná i na telefonu. Boční menu nahradí spodní lišta v dosahu palce (Moje dokumenty, Uložit dokument, Místa a „Více“ pro zbytek), výběr knihovny se otevírá jako panel odspodu a dlouhé tabulky se překlopí na karty – každý údaj si nese svůj popisek, takže je jasné, co které číslo znamená. Nastavení a Nápověda se na úzké obrazovce skládají pod sebe místo vedle sebe.",
+          "en": "The app now works on a phone. The side menu is replaced by a bottom bar within thumb reach (My documents, Save a document, Places and „More“ for the rest), library selection opens as a panel from the bottom, and long tables turn into cards — every value carries its own label, so it is clear what each number means. Settings and Help stack vertically on a narrow screen instead of side by side."
+        },
+        {
+          "type": "new",
+          "cs": "Typy dokumentů a matice ukládání se teď dají definovat i centrálně za celou firmu – ve Workplace v Globální konfiguraci. Průvodce uložením je nabídne vedle typů tohohle webu a vašich osobních sad, každou skupinu zvlášť a se štítkem, odkud je: „Moje“, bez štítku pro web a „Centrální“ pro celofiremní. Nic se tiše nepřebíjí – i když se dvě definice jmenují stejně, uvidíte obě a poznáte, která je která. U centrálních definic určuje správce výběrem účtů a skupin, komu se mají nabízet. Správce webu má v Nastavení přehled toho, co se dědí, včetně toho, kde se to mění. Když se centrální definice nepodaří načíst, aplikace to řekne, místo aby se tvářila, že žádné nejsou.",
+          "en": "Document types and the saving matrix can now be defined centrally for the whole company – in Workplace under Global configuration. The saving wizard offers them alongside this site’s types and your personal sets, each group on its own and labelled by origin: „Mine“, unlabelled for the site and „Central“ for company-wide. Nothing is silently overridden — even when two definitions share a name you see both and can tell them apart. For central definitions the administrator decides who they are offered to by picking accounts and groups. Site administrators get an overview of what is inherited in Settings, including where to change it. If central definitions cannot be loaded, the app says so instead of pretending there are none."
+        },
+        {
+          "type": "improved",
+          "cs": "Formuláře „Nahlásit chybu“ a „Navrhnout funkci“ mají nově formátovaný popis – tučně, kurzíva, odrážky i odkaz – a hlavně přílohy. Snímek obrazovky stačí zkopírovat a vložit klávesou Ctrl+V přímo do popisu; objeví se jako příloha s náhledem. Přiložit jde i soubory přetažením nebo výběrem z disku. Velké obrázky se před odesláním samy zmenší, aby se zpráva vešla do limitu zprávy. Když odeslání z aplikace neprojde, otevře se poštovní klient s předvyplněnou zprávou a celý text zůstane ve schránce, takže se podnět neztratí.",
+          "en": "The Report a bug and Suggest a feature forms now take formatted text — bold, italics, bullet lists and links — and, above all, attachments. Paste a screenshot with Ctrl+V straight into the description and it shows up as an attachment with a preview. Files can also be dropped in or picked from disk. Large images are shrunk automatically so the message stays within the size limit. If sending from the app does not go through, your mail client opens with the message prefilled and the full text stays on the clipboard, so nothing is lost."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace teď drží firemní barvu důsledně. Barva z firemní identity se nově propisuje i do dialogů (Podrobnosti dokumentu, Uložit sem, práce se složkami, náhled souboru), do pruhů s poznámkou a do odznaků – dosud v nich zůstávala výchozí modrozelená EP365, takže uprostřed přebarvené aplikace svítila cizí barva. Text na barevných tlačítkách se navíc dopočítává podle jasu pozadí: na tmavé firemní barvě je nově bílý, takže je popisek čitelný. A živý náhled motivu v Nastavení už zděděnou firemní barvu neshodí na výchozí EP365 modrou.",
+          "en": "The app now carries the corporate colour consistently. The colour from the corporate identity now also reaches dialogs (Document details, Save here, working with folders, file preview), note strips and badges — until now these kept the default EP365 teal, so a foreign colour stood out in the middle of a rebranded app. Text on coloured buttons is derived from the background brightness as well: on a dark corporate colour it is now white, so the label stays readable. And the live theme preview in Settings no longer drops the inherited corporate colour back to the default EP365 blue."
+        },
+        {
+          "type": "fixed",
+          "cs": "Tlačítko „Uložit do knihovny“ teď říká, proč nejde stisknout – například že zatím není vybrané místo uložení nebo že do něj nemáte právo zápisu. Dřív zůstalo jen zšedlé bez vysvětlení. V Nastavení zmizel anglický popisek u tlačítka Uložit, nahradila ho česká věta „Nastavení platí pro celou organizaci“.",
+          "en": "The „Save to library“ button now says why it cannot be pressed – for example that no target has been picked yet, or that you have no write permission for it. Previously it just stayed greyed out with no explanation. In Settings, an English label next to the Save button is gone, replaced by a Czech sentence saying the setting applies to the whole organisation."
+        }
+      ]
+    },
+    {
       "version": "1.2",
       "date": "2026-08-26",
       "changes": [
