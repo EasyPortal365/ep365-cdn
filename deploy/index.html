@@ -778,6 +778,10 @@ function checkStatus(requestId, manual){
   fetch(API_BASE + '/deploy/status?requestId=' + encodeURIComponent(requestId))
     .then(function(r){
       if (r.status === 404) throw new Error('not_found');
+      // Cokoli jiného než 2xx je chyba, ne stav. Bez téhle brány spadla
+      // odpověď typu 429/502/503 do větve „zatím čeká na schválení" – tedy
+      // selhání kontroly se tvářilo jako platný stav žádosti.
+      if (!r.ok) throw new Error('http_' + r.status);
       return r.json();
     })
     .then(function(j){
