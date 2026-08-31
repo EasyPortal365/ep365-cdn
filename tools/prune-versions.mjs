@@ -128,12 +128,37 @@ for (const app of apps) {
 }
 
 console.table(rows);
-console.log(`\nUvolni ${freed.toFixed(1)} MB ve ${toDelete.length} verznich slozkach (--keep ${KEEP}).`);
+// Co z toho git skutecne trackuje. Jedno volani na cely strom - `git ls-files`
+// per slozka by znamenalo stovky procesu a stejne cislo.
+const trackedSet = (function () {
+  try {
+    const out = execFileSync('git', ['-C', ROOT, 'ls-files'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const s = new Set();
+    out.split('\n').forEach(function (p) {
+      const i = p.indexOf('/'); if (i === -1) return;
+      const j = p.indexOf('/', i + 1); if (j === -1) return;
+      s.add(p.slice(0, j));                 // "<app>/<verze>"
+    });
+    return s;
+  } catch (e) { return null; }             // bez gitu radeji nic netvrdit
+})();
+
+const naCdn = trackedSet ? toDelete.filter(function (d) { return trackedSet.has(d); }) : toDelete;
+const jenLokalne = toDelete.length - naCdn.length;
+let freedCdn = 0;
+naCdn.forEach(function (d) { const i = d.indexOf('/'); freedCdn += dirSizeMB(path.join(ROOT, d.slice(0, i), d.slice(i + 1))); });
+
+if (trackedSet) {
+  console.log(`\nZ CDN ubude ${freedCdn.toFixed(1)} MB ve ${naCdn.length} verznich slozkach (--keep ${KEEP}).`);
+  if (jenLokalne) console.log(`Dalsich ${jenLokalne} slozek (${(freed - freedCdn).toFixed(1)} MB) lezi jen lokalne — na Pages nejsou, takze se velikost webu o ne nezmensi.`);
+} else {
+  console.log(`\nUvolni ${freed.toFixed(1)} MB ve ${toDelete.length} verznich slozkach (--keep ${KEEP}). ⚠ Nepodarilo se zjistit, co z toho git trackuje.`);
+}
 if (skipped.length) console.log(`⚠ Preskoceno (necitelny releases.json): ${skipped.join(', ')}`);
 
 if (!APPLY) {
   console.log('\nPLAN (nic nesmazano). Spust s --apply.');
-  if (toDelete.length) console.log('Ukazka:', toDelete.slice(0, 5).join(', '), toDelete.length > 5 ? `… (+${toDelete.length - 5})` : '');
+  if (naCdn.length) console.log('Ukazka:', naCdn.slice(0, 5).join(', '), naCdn.length > 5 ? `… (+${naCdn.length - 5})` : '');
   process.exit(0);
 }
 
@@ -160,4 +185,4 @@ for (let i = 0; i < tracked.length; i += BATCH) {
   execFileSync('git', ['-C', ROOT, 'rm', '-r', '-q', '--ignore-unmatch', '--', ...batch], { stdio: 'inherit' });
   console.log(`  smazano ${Math.min(i + BATCH, tracked.length)}/${tracked.length}`);
 }
-console.log(`\nHOTOVO — ${tracked.length} slozek odstraneno (~${freed.toFixed(1)} MB). Zkontroluj 'git status' a commitni.`);
+console.log(`\nHOTOVO — ${tracked.length} slozek odstraneno z CDN (~${freedCdn.toFixed(1)} MB). Zkontroluj 'git status' a commitni.`);
