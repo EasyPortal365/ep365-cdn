@@ -12,6 +12,7 @@
 !licenses/*.json
 !CNAME
 !README.md
+!RELEASE.md
 !.gitignore
 !.gitkeep
 
@@ -48,6 +49,12 @@
 # v tomto souboru ani v toolu — předává se přes --protect a žije v ep365-docs (private).
 !tools/prune-bundles.mjs
 !tools/prune-versions.mjs
+
+# Kontrola před prořezem: stabilní kořen (`<app>/ep-365-*-loader.js`) se přepisuje na místě,
+# takže mu commit stárne a vypadne z okna `--keep` — a smazat ho znamená shodit appku všem
+# zákazníkům naráz. `prune-bundles` ho proto značí vždy; tenhle skript měří rezervu a ověřuje,
+# že to pravidlo v prořezu pořád platí. Bezpečné: čte jen obsah tohoto repa, nic nemaže.
+!tools/check-stable-roots.mjs
 
 # Brand assets (loga, ikony) — veřejné statické obrázky pro newslettery, web, decky.
 # Bezpečné: jen obrázkové formáty, žádné zdrojáky/secrets.
