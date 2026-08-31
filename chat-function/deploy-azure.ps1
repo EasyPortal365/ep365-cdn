@@ -12,7 +12,7 @@
       4. Nasazeni infrastruktury (Function App, Storage Account, Application Insights,
          App Settings) - lokalni infra/main.bicep, nebo (kdyz skript nebezi v repu)
          ARM sablona z CDN EasyPortal365.
-      5. Nasazeni kodu funkce:
+      5. Nasazeni kodu funkce (vzdy s WEBSITE_RUN_FROM_PACKAGE=1, viz nize):
          - v repu se zdrojaky: build (npm) + func publish / zip deploy jako dosud;
          - mimo repo (napr. Azure Cloud Shell): stazeni hotoveho release zipu z CDN
            EasyPortal365 a zip deploy - Node.js NENI potreba.
@@ -31,6 +31,14 @@
     App Settings pri redeployi: skript si je pred nasazenim sablony sam zazalohuje a po
     nasazeni obnovi (AAD_*, Znalostni priprava, readUrl allowlist, billing, hub...), takze
     redeploy uz je nesmaze. Zadany parametr (-AadTenantId/-SettingsSiteUrl atd.) ma prednost.
+
+    WEBSITE_RUN_FROM_PACKAGE=1: tato cesta nasazuje kod zip deployem, takze instance bezi
+    z balicku ULOZENEHO V AZURE (ne z URL na CDN - to je rezim tlacitka Deploy to Azure).
+    Kudu balicek jen ulozi a atomicky namountuje misto rozbalovani do beziciho wwwroot, kde
+    by na Windows zamky poskodily .js a instance by skoncila na 503 (lessons 26.1). Kdyz
+    tedy instance drive bezela z CDN URL, tenhle skript ji tu runtime zavislost odebere.
+    Behem redeploye je mezi nasazenim sablony a nahranim kodu kratke okno (desitky sekund),
+    kdy instance balicek jeste nema - to je ocekavane.
 
     Prerekvizity:
       - Azure CLI (az) - https://learn.microsoft.com/cli/azure/install-azure-cli
@@ -406,6 +414,11 @@ try {
         ('allowedOrigin=' + $AllowedOrigin),
         # Kod nasazuje tento skript sam (zip deploy) - packageUrl v sablone musi zustat
         # prazdne, i kdyz CDN kopie sablony ma default vyplneny (rezim Deploy to Azure).
+        # Prazdne packageUrl NEznamena "bez WEBSITE_RUN_FROM_PACKAGE": sablona v tom pripade
+        # nastavi WEBSITE_RUN_FROM_PACKAGE=1, tedy beh z balicku ULOZENEHO V AZURE. Zip deploy
+        # o par kroku niz balicek jen ulozi a atomicky namountuje misto rozbalovani do beziciho
+        # wwwroot (bez toho zamky na Windows poskodi .js a instance skonci na 503 - lessons
+        # 26.1). Instance tim ztrati runtime zavislost na CDN, i kdyz drive bezela z URL.
         'packageUrl='
     )
     # Volitelne parametry Znalostni pripravy - predavaji se JEN kdyz jsou zadane
@@ -461,6 +474,18 @@ try {
     # 5. Kod funkce - release zip (CDN / -PackageUrl), nebo build ze zdrojaku
     # ----------------------------------------------------------------------
     Write-Step 'Nasazuji kod funkce'
+
+    # Pojistka WEBSITE_RUN_FROM_PACKAGE=1. Sablona ho uz nastavila (deploujeme ji s prazdnym
+    # packageUrl), ale kdyz skript bezi proti STARSI ARM sablone z CDN, ta ho pri prazdnem
+    # packageUrl vubec nevysazela - a zip deploy by pak rozbaloval soubory do beziciho wwwroot
+    # (zamky na Windows -> poskozeny .js -> 503 "Function host is not running", lessons 26.1).
+    # Nastaveni je idempotentni a delame ho tesne pred deployem kodu zamerne: RFP=1 na instanci
+    # bez nahraneho balicku znamena appku bez kodu, takze okno drzime na desitkach sekund.
+    az functionapp config appsettings set --name $FunctionAppName --resource-group $ResourceGroupName `
+        --settings WEBSITE_RUN_FROM_PACKAGE=1 -o none 2>$null | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host ' Upozorneni: nepodarilo se nastavit WEBSITE_RUN_FROM_PACKAGE=1 - overte ho v Azure Portalu (bez nej muze deploy poskodit bezici instanci).' -ForegroundColor Yellow
+    }
 
     $repoHasSources = (Test-Path (Join-Path $repoRoot 'package.json')) -and (Test-Path (Join-Path $repoRoot 'src'))
 
