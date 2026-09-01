@@ -25,7 +25,7 @@
         {
           "type": "fixed",
           "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
-          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+          "en": "Settings — Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
         },
         {
           "type": "fixed",
@@ -41,7 +41,7 @@
         {
           "type": "new",
           "cs": "Globální konfigurace AI Asistenta ukazuje novou kartu „Využití AI napříč firmou“ – měsíční počet AI úkonů a spotřebu tokenů za celou organizaci, stejná čísla jako v přehledu přímo v AI Asistentovi. Odkaz z karty vede na stránku aplikace, kde si porovnáte, do kterého cenového pásma naměřený počet úkonů spadá.",
-          "en": "The AI Assistant global configuration shows a new \"AI usage across the company\" card – the monthly number of AI actions and token consumption for the whole organization, the same numbers as in the overview inside the AI Assistant. A link from the card opens the application page, where you can compare the measured number of actions against the pricing tiers."
+          "en": "The AI Assistant global configuration shows a new \"AI usage across the company\" card — the monthly number of AI actions and token consumption for the whole organization, the same numbers as in the overview inside the AI Assistant. A link from the card opens the application page, where you can compare the measured number of actions against the pricing tiers."
         }
       ]
     },
@@ -62,7 +62,7 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. Ve Správě aplikace – Verze vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Application management – Version the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Application management — Version the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         }
       ]
     },
@@ -145,7 +145,7 @@
         {
           "type": "new",
           "cs": "Klasifikaci lze jedním tlačítkem proreplikovat jako sloupec „Klasifikace“ do knihoven vybraných (nebo všech) webů – uživatelé pak mohou dokumenty rovnou klasifikovat. Weby se najdou automaticky (jen ty, kam má správce přístup), konkrétní web lze přidat i ručně. Replikace proběhne tam, kde na to má správce práva, a zbytek přehledně nahlásí.",
-          "en": "Classification can be replicated with one click as a “Classification” column into the document libraries of selected (or all) sites – users can then classify documents directly. Sites are found automatically (only those the administrator can access) and a specific site can be added manually. Replication runs where the administrator has permissions and clearly reports the rest."
+          "en": "Classification can be replicated with one click as a “Classification” column into the document libraries of selected (or all) sites — users can then classify documents directly. Sites are found automatically (only those the administrator can access) and a specific site can be added manually. Replication runs where the administrator has permissions and clearly reports the rest."
         },
         {
           "type": "fixed",
@@ -222,17 +222,17 @@
         {
           "type": "new",
           "cs": "Aktuality: nový AI asistent. Ze zadaného pokynu – a volitelně z přiloženého dokumentu či obrázku, z firemních znalostí a s návazností na dosavadní aktuality – vytvoří návrh článku (titulek, perex, tělo) a rovnou ho přeloží do dalších jazyků obsahu. Návrh si prohlédnete a jedním klikem použijete. Vyžaduje licenci EP365 AI Asistent; bez ní editor funguje jako dosud.",
-          "en": "Articles: a new AI assistant. From your instruction – and optionally an attached document or image, company knowledge and continuity with existing articles – it drafts an article (title, lead, body) and translates it into your other content languages. Review the draft and apply it in one click. Requires an EP365 AI Assistant licence; without it the editor works as before."
+          "en": "Articles: a new AI assistant. From your instruction — and optionally an attached document or image, company knowledge and continuity with existing articles — it drafts an article (title, lead, body) and translates it into your other content languages. Review the draft and apply it in one click. Requires an EP365 AI Assistant licence; without it the editor works as before."
         },
         {
           "type": "new",
           "cs": "AI asistent u Aktualit nově ukazuje zdroje, ze kterých čerpal – seznam firemních dokumentů s odkazem a označením autoritativních zdrojů, takže je hned jasné, odkud fakta pocházejí. Editor Aktualit má přehledné tři zóny: asistent, psaní a nastavení vedle sebe.",
-          "en": "The AI assistant for articles now shows the sources it drew on – a list of company documents with links and an authoritative-source marker, so it's clear where the facts come from. The article editor has three clear zones side by side: assistant, writing and settings."
+          "en": "The AI assistant for articles now shows the sources it drew on — a list of company documents with links and an authoritative-source marker, so it's clear where the facts come from. The article editor has three clear zones side by side: assistant, writing and settings."
         },
         {
           "type": "improved",
           "cs": "Editory jednotlivých sekcí jsou nově výrazně širší a přehlednější – obsah vlevo, nastavení a metadata vpravo. Na úzké obrazovce se rozložení automaticky složí pod sebe. U Aktualit je díky tomu mnohem větší prostor pro psaní.",
-          "en": "The per-section editors are now noticeably wider and clearer – content on the left, settings and metadata on the right. On narrow screens the layout stacks automatically. Articles in particular get much more room to write."
+          "en": "The per-section editors are now noticeably wider and clearer — content on the left, settings and metadata on the right. On narrow screens the layout stacks automatically. Articles in particular get much more room to write."
         }
       ]
     },
@@ -243,7 +243,7 @@
         {
           "type": "improved",
           "cs": "Přehled „Můj den“ nově spolehlivě zobrazuje i položky vyžadující vaši akci z dalších EP365 aplikací – nevykázané výkazy, úkoly po termínu, weby před vypršením platnosti, nálezy ke schválení a další – na jednom místě na úvodní stránce.",
-          "en": "The “My day” overview now reliably shows items awaiting your action from other EP365 apps too – unsubmitted timesheets, overdue tasks, sites nearing expiry, findings to resolve and more – all in one place on the landing page."
+          "en": "The “My day” overview now reliably shows items awaiting your action from other EP365 apps too — unsubmitted timesheets, overdue tasks, sites nearing expiry, findings to resolve and more — all in one place on the landing page."
         },
         {
           "type": "improved",
@@ -303,17 +303,17 @@
         {
           "type": "new",
           "cs": "Headline jde nově vybrat ručně – v nastavení sekce Pozdrav + Headline (ozubené kolo → Nastavení) určíte konkrétní aktualitu, která má být velkým článkem v hlavičce. Výchozí zůstává Automaticky, tedy nejnovější aktualita. Sekce Aktuality vybraný headline nezopakuje; když článek přestane platit nebo ho čtenář kvůli cílení nevidí, zobrazí se mu nejnovější.",
-          "en": "The headline can now be picked manually – in the Greeting + Headline section settings (gear → Settings) you choose which article appears as the large one in the header. The default stays Automatic, i.e. the newest article. The News section will not repeat the selected headline; if the article stops being valid or a reader cannot see it due to targeting, the newest one is shown to them."
+          "en": "The headline can now be picked manually — in the Greeting + Headline section settings (gear → Settings) you choose which article appears as the large one in the header. The default stays Automatic, i.e. the newest article. The News section will not repeat the selected headline; if the article stops being valid or a reader cannot see it due to targeting, the newest one is shown to them."
         },
         {
           "type": "new",
           "cs": "Rychlé akce jako čtvercové dlaždice – v nastavení sekce (ozubené kolo → Nastavení) přepnete Vzhled dlaždic na Čtvercové: ikona nahoře, název pod ní a do řádku se jich vejde víc. Kompaktní vzhled (ikona vedle textu) zůstává výchozí. Nastavit lze velikost dlaždice i rozestup mezi nimi v pixelech – u čtverce je velikost zároveň výškou, takže tím řídíte i výšku řádku.",
-          "en": "Quick actions as square tiles – in the section settings (gear → Settings) switch Tile style to Square: icon on top, name below, and more of them fit in a row. The compact style (icon next to the text) stays the default. Both the tile size and the gap between tiles are configurable in pixels – for a square the size is also its height, so it controls how tall the row is."
+          "en": "Quick actions as square tiles — in the section settings (gear → Settings) switch Tile style to Square: icon on top, name below, and more of them fit in a row. The compact style (icon next to the text) stays the default. Both the tile size and the gap between tiles are configurable in pixels — for a square the size is also its height, so it controls how tall the row is."
         },
         {
           "type": "new",
           "cs": "Minimální výška řádku – u každého řádku v Rozvržení lze nově zadat minimální výšku v pixelech (0 = automaticky podle obsahu). Karty sekcí se na tuto výšku natáhnou, obsah ji smí přerůst a na mobilu se neuplatní.",
-          "en": "Minimum row height – each row in Layout can now have a minimum height in pixels (0 = automatic, based on content). Section cards stretch to that height, content may exceed it, and it is not applied on mobile."
+          "en": "Minimum row height — each row in Layout can now have a minimum height in pixels (0 = automatic, based on content). Section cards stretch to that height, content may exceed it, and it is not applied on mobile."
         },
         {
           "type": "new",
@@ -323,12 +323,12 @@
         {
           "type": "new",
           "cs": "Návrh motivu z loga – nahrajte firemní logo v Globálním nastavení a aplikace z něj rovnou nabídne několik barevných variant motivu k aplikaci jedním kliknutím.",
-          "en": "Theme from your logo – upload the company logo in Global settings and the app instantly offers several colour theme variants to apply in one click."
+          "en": "Theme from your logo — upload the company logo in Global settings and the app instantly offers several colour theme variants to apply in one click."
         },
         {
           "type": "improved",
           "cs": "Zvolený motiv (akcentní barva) se nyní propisuje do celé aplikace jednotně – aktivní záložky, odznaky, avatary, nadpisy sekcí i bannery ladí s vaší barvou.",
-          "en": "The chosen theme (accent colour) now applies consistently across the whole app – active tabs, badges, avatars, section headings and banners all match your colour."
+          "en": "The chosen theme (accent colour) now applies consistently across the whole app — active tabs, badges, avatars, section headings and banners all match your colour."
         },
         {
           "type": "new",
@@ -343,22 +343,22 @@
         {
           "type": "fixed",
           "cs": "Bezpečnostní zpřísnění čtečky aktualit – adresa úvodního obrázku se před zobrazením přísně kontroluje a sjednotila se s ostatními místy aplikace.",
-          "en": "Security hardening of the news reader – the banner image address is now strictly validated before display, unified with the rest of the app."
+          "en": "Security hardening of the news reader — the banner image address is now strictly validated before display, unified with the rest of the app."
         },
         {
           "type": "improved",
           "cs": "Rychlejší načítání – úvodní obrazovka se zobrazí okamžitě a méně důležité kroky na pozadí (formátování seznamů) už nezdržují první vykreslení, zvlášť po aktualizaci a v Microsoft Teams.",
-          "en": "Faster loading – the home screen now appears immediately and background steps (list formatting) no longer delay the first render, especially after an update and in Microsoft Teams."
+          "en": "Faster loading — the home screen now appears immediately and background steps (list formatting) no longer delay the first render, especially after an update and in Microsoft Teams."
         },
         {
           "type": "new",
           "cs": "Homepage je nově dostupná i v Microsoft Teams – jako osobní aplikace v levé liště nebo jako karta v kanálu. Přidáte ji v Teams přes Aplikace → Vytvořeno pro vaši organizaci.",
-          "en": "The Homepage is now available in Microsoft Teams too – as a personal app in the left rail or a channel tab. Add it in Teams via Apps → Built for your org."
+          "en": "The Homepage is now available in Microsoft Teams too — as a personal app in the left rail or a channel tab. Add it in Teams via Apps → Built for your org."
         },
         {
           "type": "new",
           "cs": "Role uživatelů – aplikace nově rozlišuje Správce aplikace (plná správa) a Editora obsahu (jen editace obsahu sekcí). Členství se spravuje ve Správě homepage → záložka Role.",
-          "en": "User roles – the app now distinguishes an Application administrator (full management) from a Content editor (section content editing only). Membership is managed in Homepage management → Roles tab."
+          "en": "User roles — the app now distinguishes an Application administrator (full management) from a Content editor (section content editing only). Membership is managed in Homepage management → Roles tab."
         },
         {
           "type": "new",
@@ -368,22 +368,22 @@
         {
           "type": "new",
           "cs": "Správa sdílených promptů AI Chatu – u globálních promptů lze nastavit vrstvu (úloha nebo asistent), kategorii a popis. Uživatelé je pak vidí v Prompt Studiu AI Asistenta.",
-          "en": "Managing AI Chat shared prompts – global prompts can now have a layer (task or assistant), a category and a description. Users then see them in the AI Assistant's Prompt Studio."
+          "en": "Managing AI Chat shared prompts — global prompts can now have a layer (task or assistant), a category and a description. Users then see them in the AI Assistant's Prompt Studio."
         },
         {
           "type": "new",
           "cs": "Autoritativní zdroje AI Chatu lze v Globální konfiguraci volitelně vázat na skupiny Entra ID – zdroj pak platí jen pro členy vybraných skupin; oprávnění SharePointu platí vždy.",
-          "en": "AI Chat authoritative sources can now optionally be bound to Entra ID groups in Global configuration – the source then applies only to members of the selected groups; SharePoint permissions always apply."
+          "en": "AI Chat authoritative sources can now optionally be bound to Entra ID groups in Global configuration — the source then applies only to members of the selected groups; SharePoint permissions always apply."
         },
         {
           "type": "improved",
           "cs": "Změny globální konfigurace se propisují do napojených aplikací bez nutnosti obnovit stránku – aplikace si je vyzvednou při návratu na kartu (razítko verze konfigurace).",
-          "en": "Changes to the global configuration propagate to connected apps without a page refresh – apps pick them up when you return to the tab (config version stamp)."
+          "en": "Changes to the global configuration propagate to connected apps without a page refresh — apps pick them up when you return to the tab (config version stamp)."
         },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -393,7 +393,7 @@
         {
           "type": "new",
           "cs": "Příkazová paleta ⌘K – okamžité hledání napříč obsahem intranetu a rychlý skok na záložky nebo do správy.",
-          "en": "Command palette ⌘K – instant search across intranet content and a quick jump to tabs or administration."
+          "en": "Command palette ⌘K — instant search across intranet content and a quick jump to tabs or administration."
         },
         {
           "type": "new",
@@ -423,7 +423,7 @@
         {
           "type": "fixed",
           "cs": "Ikona Globálního nastavení i celá globální konfigurace (aplikace, Můj den) se správci zobrazí i na webu, který je sám hubem – i když v nastavení nechá pole URL hubu prázdné. Aplikace takový web rozpozná jako vlastní hub.",
-          "en": "The Global settings icon and the whole global configuration (apps, My day) now appear for admins on a site that is itself the hub – even when the hub URL field is left empty. The app recognises such a site as its own hub."
+          "en": "The Global settings icon and the whole global configuration (apps, My day) now appear for admins on a site that is itself the hub — even when the hub URL field is left empty. The app recognises such a site as its own hub."
         },
         {
           "type": "fixed",
@@ -488,7 +488,7 @@
         {
           "type": "new",
           "cs": "Skryté účty v Seznamu kontaktů – správce může určit účty, které se v části Lidé nemají zobrazovat (např. servisní a technické účty). Stačí zadat část UPN nebo e-mailu, kterou účet obsahuje (např. .GA@ nebo @dodavatel.cz); panel rovnou vypíše, které účty se skryjí. Účty se zakázaným přihlášením (sdílené schránky, bývalí zaměstnanci) se nově skrývají automaticky.",
-          "en": "Hidden accounts in the Directory – admins can define accounts that should not appear in the People list (e.g. service and technical accounts). Just enter a part of the UPN or e-mail the account contains (e.g. .GA@ or @vendor.com); the panel lists exactly which accounts will be hidden. Accounts with sign-in blocked (shared mailboxes, former employees) are now hidden automatically."
+          "en": "Hidden accounts in the Directory — admins can define accounts that should not appear in the People list (e.g. service and technical accounts). Just enter a part of the UPN or e-mail the account contains (e.g. .GA@ or @vendor.com); the panel lists exactly which accounts will be hidden. Accounts with sign-in blocked (shared mailboxes, former employees) are now hidden automatically."
         },
         {
           "type": "improved",
@@ -498,12 +498,12 @@
         {
           "type": "improved",
           "cs": "Nápověda v aplikaci byla výrazně rozšířena – přibyla kapitola Role a oprávnění (rozdíl mezi Správcem aplikace a Editorem obsahu, jak se role získává a proč samotné přidání do skupiny nestačí bez práv k webu), popis skrytých účtů a hledání podle přihlašovacího jména v Seznamu kontaktů, uložených rozvržení a dědění motivu z hubu; opraven i přehled záložek správy.",
-          "en": "The in-app help was significantly expanded – a new Roles and permissions chapter (the difference between an Application administrator and a Content editor, how a role is obtained and why adding someone to a group alone is not enough without site permissions), a description of hidden accounts and search by sign-in name in the Directory, saved layouts and inheriting the theme from the hub; the list of admin tabs was corrected too."
+          "en": "The in-app help was significantly expanded — a new Roles and permissions chapter (the difference between an Application administrator and a Content editor, how a role is obtained and why adding someone to a group alone is not enough without site permissions), a description of hidden accounts and search by sign-in name in the Directory, saved layouts and inheriting the theme from the hub; the list of admin tabs was corrected too."
         },
         {
           "type": "new",
           "cs": "Globální konfigurace → Výchozí AI nastavení nově obsahuje Povolené webové adresy – jedním seznamem určíte, kam smí AI Asistent sáhnout, když má přečíst webovou stránku ze zadané adresy. Weby si ho mohou převzít místo vlastního seznamu.",
-          "en": "Global configuration → Default AI settings now includes Allowed web addresses – a single list defining where the AI Assistant may reach when asked to read a web page from a given address. Sites can inherit it instead of keeping their own list."
+          "en": "Global configuration → Default AI settings now includes Allowed web addresses — a single list defining where the AI Assistant may reach when asked to read a web page from a given address. Sites can inherit it instead of keeping their own list."
         }
       ]
     },
@@ -514,17 +514,17 @@
         {
           "type": "new",
           "cs": "Sekce Návštěvnost – přehled nejčtenějšího obsahu a vývoj návštěvnosti webu v čase, včetně souhrnných čísel.",
-          "en": "Site traffic section – an overview of the most-read content and visit trends over time, including summary figures."
+          "en": "Site traffic section — an overview of the most-read content and visit trends over time, including summary figures."
         },
         {
           "type": "new",
           "cs": "Sekce Náhled obsahu – vložení dokumentu Office nebo webové stránky přímo na homepage.",
-          "en": "Content preview section – embed an Office document or a web page directly on the homepage."
+          "en": "Content preview section — embed an Office document or a web page directly on the homepage."
         },
         {
           "type": "new",
           "cs": "Uložená rozvržení – správce může uložit pojmenované snímky rozložení sekcí a kdykoli je obnovit; týmové weby mohou dědit globální rozvržení publikované z hubu.",
-          "en": "Saved layouts – admins can store named snapshots of the section layout and restore them anytime; team sites can inherit a global layout published from the hub."
+          "en": "Saved layouts — admins can store named snapshots of the section layout and restore them anytime; team sites can inherit a global layout published from the hub."
         },
         {
           "type": "improved",
@@ -534,7 +534,7 @@
         {
           "type": "fixed",
           "cs": "Oprava ukládání v nastavení sekcí – na obrazovce už nejsou dvě tlačítka Uložit současně, změny se ukládají jednoznačně.",
-          "en": "Fixed saving in section settings – the screen no longer shows two Save buttons at once, changes are saved unambiguously."
+          "en": "Fixed saving in section settings — the screen no longer shows two Save buttons at once, changes are saved unambiguously."
         },
         {
           "type": "improved",

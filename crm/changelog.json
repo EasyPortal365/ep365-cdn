@@ -10,12 +10,12 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
-          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
+          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows — below 780 px only icons remain, leaving more room for the content."
         },
         {
           "type": "new",
@@ -145,47 +145,47 @@
         {
           "type": "new",
           "cs": "CRM nově upozorní na úkoly a follow-upy po termínu přímo v přehledu „Můj den“ na EP365 intranetu – uvidíte je na úvodní stránce mezi věcmi, které čekají na vaši akci.",
-          "en": "CRM now flags overdue tasks and follow-ups right in the “My day” overview on the EP365 intranet – you see them on the landing page among the things awaiting your action."
+          "en": "CRM now flags overdue tasks and follow-ups right in the “My day” overview on the EP365 intranet — you see them on the landing page among the things awaiting your action."
         },
         {
           "type": "improved",
           "cs": "E-maily odesílané z CRM (hlášení, upozornění, follow-upy) dostaly jednotný firemní vzhled podle EP365 Design Systemu – hlavička se značkou, přehledná patička a barevné zvýraznění podle typu zprávy.",
-          "en": "E-mails sent from CRM (reports, notifications, follow-ups) now share a unified corporate look based on the EP365 Design System – a branded header, a clear footer and colour accents by message type."
+          "en": "E-mails sent from CRM (reports, notifications, follow-ups) now share a unified corporate look based on the EP365 Design System — a branded header, a clear footer and colour accents by message type."
         },
         {
           "type": "new",
           "cs": "Kategorie kontaktu – u každého kontaktu určíte, jaký je to typ vztahu: dodavatel, zákazník, partner nebo jiné. Firma pak svou kategorii získává automaticky sjednocením kategorií svých kontaktů, takže může být klidně zároveň dodavatel i zákazník.",
-          "en": "Contact category – for each contact you set the type of relationship: supplier, customer, partner or other. A company then derives its own category automatically as the union of its contacts' categories, so it can be a supplier and a customer at the same time."
+          "en": "Contact category — for each contact you set the type of relationship: supplier, customer, partner or other. A company then derives its own category automatically as the union of its contacts' categories, so it can be a supplier and a customer at the same time."
         },
         {
           "type": "new",
           "cs": "Historie účasti na kontaktu – na kartě kontaktu v záložce Akce a webináře vidíte, na kterých akcích a webinářích byl, kdy a s jakým výsledkem (zúčastnil se / neúčast / registrován).",
-          "en": "Attendance history on the contact – the contact's Events and webinars tab shows which events and webinars they attended, when, and with what outcome (attended / no-show / registered)."
+          "en": "Attendance history on the contact — the contact's Events and webinars tab shows which events and webinars they attended, when, and with what outcome (attended / no-show / registered)."
         },
         {
           "type": "new",
           "cs": "Přehled účasti na firmě – nová záložka Účast na kartě firmy shrnuje, kdo z jejích kontaktů byl na jaké akci nebo webináři. Vidíte tak aktivitu celé firmy na jednom místě.",
-          "en": "Company attendance overview – a new Attendance tab on the company card summarises who from its contacts attended which event or webinar, giving you the whole company's activity in one place."
+          "en": "Company attendance overview — a new Attendance tab on the company card summarises who from its contacts attended which event or webinar, giving you the whole company's activity in one place."
         },
         {
           "type": "new",
           "cs": "Přehled produktů u firmy – nová záložka Produkty ukazuje, co firma má: předplatná, servisní smlouvy a vyhrané nabídky, včetně měsíčních částek a stavů.",
-          "en": "Company products overview – a new Products tab shows what the company has: subscriptions, service contracts and won deals, including monthly amounts and statuses."
+          "en": "Company products overview — a new Products tab shows what the company has: subscriptions, service contracts and won deals, including monthly amounts and statuses."
         },
         {
           "type": "new",
           "cs": "Filtr kontaktů podle stavu – k filtru obchodních linií přibyl filtr podle stavu, který se s linií páruje. Vyfiltrujete tak třeba lidi, kteří byli na webináři a nepřišli, nebo kteří se registrovali na Visionity.",
-          "en": "Filter contacts by state – the business line filter gained a state filter that pairs with the line. You can filter, for example, people who registered for a webinar and did not show up, or who registered for Visionity."
+          "en": "Filter contacts by state — the business line filter gained a state filter that pairs with the line. You can filter, for example, people who registered for a webinar and did not show up, or who registered for Visionity."
         },
         {
           "type": "improved",
           "cs": "Prodejní matice – neúčast na Visionity nově znamená nižší fázi než účast (registrace bez účasti je menší zájem). Přiřazení si jako vždy můžete upravit v Nastavení → Prodejní matice.",
-          "en": "Sales matrix – a Visionity no-show now maps to a lower funnel stage than attendance (registering without attending is weaker interest). As always, you can adjust the mapping in Settings → Sales matrix."
+          "en": "Sales matrix — a Visionity no-show now maps to a lower funnel stage than attendance (registering without attending is weaker interest). As always, you can adjust the mapping in Settings → Sales matrix."
         },
         {
           "type": "improved",
           "cs": "Nahlášení chyby i návrhu funkce teď odchází přímo e-mailem z vaší schránky na naši podporu – vznikne z něj tiket a odpověď vám přijde e-mailem. Spolehlivější než dřívější formulář; když by e-mail nešel odeslat, otevře se předvyplněná zpráva ve vašem poštovním klientovi.",
-          "en": "Reporting a bug or suggesting a feature now goes straight by email from your mailbox to our support – it becomes a ticket and you get the reply by email. More reliable than the previous form; if the email cannot be sent, a pre-filled message opens in your mail client."
+          "en": "Reporting a bug or suggesting a feature now goes straight by email from your mailbox to our support — it becomes a ticket and you get the reply by email. More reliable than the previous form; if the email cannot be sent, a pre-filled message opens in your mail client."
         },
         {
           "type": "fixed",
@@ -200,27 +200,27 @@
         {
           "type": "improved",
           "cs": "Role Uživatelé má nově přesněji vymezená oprávnění – práce se záznamy (vytváření, úpravy, přílohy) zůstává beze změny, správa struktury seznamů je vyhrazena správcům. Na stávajících webech se změna projeví automaticky při první návštěvě správce.",
-          "en": "The Users role now has more precisely scoped permissions – working with records (creating, editing, attachments) is unchanged, while managing list structure is reserved for administrators. On existing sites the change applies automatically on the next administrator visit."
+          "en": "The Users role now has more precisely scoped permissions — working with records (creating, editing, attachments) is unchanged, while managing list structure is reserved for administrators. On existing sites the change applies automatically on the next administrator visit."
         },
         {
           "type": "new",
           "cs": "E-mail z kontaktu umí víc: přidáte kopii (CC), přiložíte soubory (dohromady do 3 MB) a připojíte svůj uložený podpis – ten si vytvoříte přímo v okně e-mailu a pamatuje se pro příště. Podpis jde jedním zaškrtnutím připojit i ke kampani.",
-          "en": "Email from a contact can do more: add CC recipients, attach files (up to 3 MB total) and append your saved signature – created right in the email box and remembered for next time. The signature can also be appended to a campaign with a single checkbox."
+          "en": "Email from a contact can do more: add CC recipients, attach files (up to 3 MB total) and append your saved signature — created right in the email box and remembered for next time. The signature can also be appended to a campaign with a single checkbox."
         },
         {
           "type": "new",
           "cs": "Registrace na webinář se sama propíše do obchodních linií kontaktu – účastník dostane zapojení „webinář / registrace“ a při vyplnění účasti či neúčasti se stav (a z něj fáze i zákaznický status dle prodejní matice) aktualizuje automaticky. Ručně nastavené ostatní linie zůstávají nedotčené.",
-          "en": "Webinar registration now flows into the contact's business lines automatically – the attendee gets a \"webinar / registered\" engagement, and marking attendance or no-show updates the state (and the derived funnel stage and customer status per the sales matrix). Manually set other lines remain untouched."
+          "en": "Webinar registration now flows into the contact's business lines automatically — the attendee gets a \"webinar / registered\" engagement, and marking attendance or no-show updates the state (and the derived funnel stage and customer status per the sales matrix). Manually set other lines remain untouched."
         },
         {
           "type": "new",
           "cs": "Vyhledávání a filtry v Nabídkách – v pipeline obchodních nabídek teď rychle najdete konkrétní nabídku fulltextem (název, firma nebo vlastník) a zúžíte seznam podle fáze nebo vlastníka. Filtry platí ve všech pohledech – Kanban, Seznam i Prognóza – a promítnou se i do exportu do CSV.",
-          "en": "Search and filters in Deals – in the deals pipeline you can now quickly find a specific deal by full text (name, company or owner) and narrow the list by stage or owner. The filters apply across all views – Kanban, List and Forecast – and also carry over to the CSV export."
+          "en": "Search and filters in Deals — in the deals pipeline you can now quickly find a specific deal by full text (name, company or owner) and narrow the list by stage or owner. The filters apply across all views — Kanban, List and Forecast — and also carry over to the CSV export."
         },
         {
           "type": "new",
           "cs": "Zvětšení na celou obrazovku – tlačítko v hlavičce stránky (v pruhu ikon vedle aktualizace a sdílení) roztáhne CRM přes celé okno prohlížeče, takže máte na kontakty, nabídky i kanban víc místa. Dalším klikem se vrátíte do běžného zobrazení.",
-          "en": "Full-screen mode – a button in the page header (in the icon strip next to refresh and share) expands CRM across the whole browser window, giving you more room for contacts, deals and the kanban. Click again to return to the normal view."
+          "en": "Full-screen mode — a button in the page header (in the icon strip next to refresh and share) expands CRM across the whole browser window, giving you more room for contacts, deals and the kanban. Click again to return to the normal view."
         }
       ]
     },
@@ -231,27 +231,27 @@
         {
           "type": "fixed",
           "cs": "Oprava správy uživatelských rolí – přidávání a odebírání uživatelů v rolích Správci a Uživatelé nově funguje spolehlivě i u aplikace otevřené delší dobu. Dříve mohlo po chvíli hlásit chybu oprávnění, i když jste potřebná práva měli.",
-          "en": "Fixed user role management – adding and removing users in the Administrators and Users roles now works reliably even when the app has been open for a while. Previously it could report a permissions error after a while even though you had the necessary rights."
+          "en": "Fixed user role management — adding and removing users in the Administrators and Users roles now works reliably even when the app has been open for a while. Previously it could report a permissions error after a while even though you had the necessary rights."
         },
         {
           "type": "new",
           "cs": "Zobrazit v katalogu – u produktu propojeného s EP365 Produktovým katalogem otevřete jeho úplnou stránku (popis, galerie, dokumentace) jedním klikem. Adresu katalogu zadáte v Nastavení → Obecné.",
-          "en": "Open in catalogue – for a product linked to the EP365 Product Catalogue, open its full page (description, gallery, documentation) with one click. Set the catalogue address in Settings → General."
+          "en": "Open in catalogue — for a product linked to the EP365 Product Catalogue, open its full page (description, gallery, documentation) with one click. Set the catalogue address in Settings → General."
         },
         {
           "type": "new",
           "cs": "Kontakt už není jen v jedné obchodní linii – linie se u něj nasčítávají. Byl na Visionity, registroval se na webinář a nepřišel, pak měl vstupní konzultaci a vyplnil Test Vitality: každá linie si drží vlastní stav a vidíte je na kontaktu pohromadě, i s tím, jak dlouho v daném stavu je.",
-          "en": "A contact is no longer limited to a single business line – lines now accumulate. They attended Visionity, registered for a webinar and did not show up, then had an intro consultation and completed the Vitality Test: each line keeps its own state, and you see them together on the contact, including how long it has been in that state."
+          "en": "A contact is no longer limited to a single business line — lines now accumulate. They attended Visionity, registered for a webinar and did not show up, then had an intro consultation and completed the Vitality Test: each line keeps its own state, and you see them together on the contact, including how long it has been in that state."
         },
         {
           "type": "new",
           "cs": "Fáze kontaktu = nejdál dosažená napříč liniemi. Nasčítávání tak nikomu neublíží – neúčast na webináři nesrazí kontakt, který je zároveň v Diagnostice. Na detailu vidíte rozpad po liniích, v seznamu výslednou fázi.",
-          "en": "A contact's funnel stage is the furthest reached across all lines. Accumulating lines can therefore never hurt – a webinar no-show will not drag down a contact who is also in Diagnostics. The detail shows the per-line breakdown, the list shows the resulting stage."
+          "en": "A contact's funnel stage is the furthest reached across all lines. Accumulating lines can therefore never hurt — a webinar no-show will not drag down a contact who is also in Diagnostics. The detail shows the per-line breakdown, the list shows the resulting stage."
         },
         {
           "type": "new",
           "cs": "Zákaznický status umí kombinace. Vztah (nezákazník / zákazník / aktivní zákazník) se vylučuje jako dřív, ale nově k němu jde přidat příznak „nespolupracovat\" – třeba u člověka, se kterým jsme v minulosti spolupracovali, ale oslovovat ho už nemáme. Takový kontakt je vyřazený z kampaní a upozorní na sebe červeným pruhem. Příznak jde nastavit i na celou firmu.",
-          "en": "Customer status now supports combinations. The relationship axis (non-customer / customer / active customer) is still exclusive, but you can now add a \"do not contact\" flag – for example someone you worked with in the past but should no longer approach. Such a contact is excluded from campaigns and is highlighted with a red banner. The flag can also be set for a whole company."
+          "en": "Customer status now supports combinations. The relationship axis (non-customer / customer / active customer) is still exclusive, but you can now add a \"do not contact\" flag — for example someone you worked with in the past but should no longer approach. Such a contact is excluded from campaigns and is highlighted with a red banner. The flag can also be set for a whole company."
         },
         {
           "type": "new",
@@ -261,12 +261,12 @@
         {
           "type": "improved",
           "cs": "Prodejní matice dostala chybějící stavy. Akvizice: osloven, probíhá komunikace, nereaguje (nahrazuje dosavadní zástupný stav). Visionity: registrující, neúčast. Webinář: neúčast – aby šla zaznamenat registrace bez účasti. Přiřazení fází je návrh, v Nastavení → Prodejní matice si ho kdykoli upravíte.",
-          "en": "The sales matrix gained the missing states. Acquisition: contacted, communication in progress, not responding (replacing the previous placeholder). Visionity: registering, no-show. Webinar: no-show – so that a registration without attendance can be recorded. The funnel mapping is a proposal; you can adjust it any time in Settings → Sales matrix."
+          "en": "The sales matrix gained the missing states. Acquisition: contacted, communication in progress, not responding (replacing the previous placeholder). Visionity: registering, no-show. Webinar: no-show — so that a registration without attendance can be recorded. The funnel mapping is a proposal; you can adjust it any time in Settings → Sales matrix."
         },
         {
           "type": "improved",
           "cs": "Import kontaktů zvládne víc linií naráz – ve sloupcích obchodní linie a stav je oddělte středníkem ve stejném pořadí („webinář;Diagnostika\" a „účast;nabídka\"). Soubory s jednou linií fungují beze změny.",
-          "en": "Contact import handles multiple lines at once – separate them with a semicolon in the business line and state columns, in matching order (\"webinar;Diagnostics\" and \"attended;quote\"). Files with a single line keep working unchanged."
+          "en": "Contact import handles multiple lines at once — separate them with a semicolon in the business line and state columns, in matching order (\"webinar;Diagnostics\" and \"attended;quote\"). Files with a single line keep working unchanged."
         },
         {
           "type": "improved",
@@ -287,7 +287,7 @@
         {
           "type": "fixed",
           "cs": "CRM je připravené pro týmy více uživatelů – členové týmu nově vidí a společně spravují všechny kontakty, firmy, nabídky, aktivity, úkoly a další záznamy (dříve mohl každý vidět jen své vlastní). Konfigurace a číselníky spravuje správce; historie změn (audit) zůstává přístupná pouze správci.",
-          "en": "The CRM is now ready for multi-user teams – team members now see and jointly manage all contacts, companies, deals, activities, tasks and other records (previously each person could see only their own). Configuration and lookups are managed by an administrator; the change history (audit) remains visible only to administrators."
+          "en": "The CRM is now ready for multi-user teams — team members now see and jointly manage all contacts, companies, deals, activities, tasks and other records (previously each person could see only their own). Configuration and lookups are managed by an administrator; the change history (audit) remains visible only to administrators."
         },
         {
           "type": "improved",
@@ -297,47 +297,47 @@
         {
           "type": "improved",
           "cs": "Detail servisní smlouvy je přehlednější – finanční pás bez prázdných políček, období smlouvy s ukazatelem uplynulého času, obnova, splatnost a přílohy v kompaktní mřížce a SLA jako tabulka s barvami priorit. V editaci jsou datum obnovy a den splatnosti vedle sebe.",
-          "en": "The service contract detail is tidier – a finance strip without empty boxes, a contract-period elapsed-time bar, renewal, due day and attachments in a compact grid, and SLA as a table with priority colours. In editing, the renewal date and due day sit side by side."
+          "en": "The service contract detail is tidier — a finance strip without empty boxes, a contract-period elapsed-time bar, renewal, due day and attachments in a compact grid, and SLA as a table with priority colours. In editing, the renewal date and due day sit side by side."
         },
         {
           "type": "improved",
           "cs": "Obnova servisní smlouvy umí interval – měsíčně, čtvrtletně, pololetně, ročně nebo po dvou letech; datum obnovy se dopočítá jako nejbližší výročí začátku smlouvy. Ruční datum zůstává jako výchozí možnost.",
-          "en": "Contract renewal now supports an interval – monthly, quarterly, half-yearly, yearly or every two years; the renewal date is derived as the nearest anniversary of the contract start. A manual date remains the default option."
+          "en": "Contract renewal now supports an interval — monthly, quarterly, half-yearly, yearly or every two years; the renewal date is derived as the nearest anniversary of the contract start. A manual date remains the default option."
         },
         {
           "type": "improved",
           "cs": "Servisní smlouva má odkaz na umístění příloh – do detailu i editace přibylo pole s URL (např. složka dokumentů v SharePointu), z detailu se otevírá jedním kliknutím.",
-          "en": "Service contracts now carry an attachments link – the detail and edit views gained a URL field (e.g. a SharePoint document folder), opened from the detail in one click."
+          "en": "Service contracts now carry an attachments link — the detail and edit views gained a URL field (e.g. a SharePoint document folder), opened from the detail in one click."
         },
         {
           "type": "improved",
           "cs": "Přehled má dvě nové dlaždice – Firmy (počet v databázi, z toho zákazníci a měsíční přírůstek) a Předplatná (počet aktivních s měsíčním opakovaným příjmem MRR).",
-          "en": "The dashboard has two new tiles – Companies (database count, customers and monthly growth) and Subscriptions (active count with monthly recurring revenue)."
+          "en": "The dashboard has two new tiles — Companies (database count, customers and monthly growth) and Subscriptions (active count with monthly recurring revenue)."
         },
         {
           "type": "new",
           "cs": "Servisní smlouva umí definovat SLA – název plánu a reakční doby podle priority (reakce a vyřešení v hodinách, volitelně jen v pracovní době). Definici přebírá EP365 HelpDesk při synchronizaci firem.",
-          "en": "Service contracts can now define SLA – a plan name and per-priority response times (response and resolution in hours, optionally business hours only). EP365 HelpDesk picks the definition up when synchronising companies."
+          "en": "Service contracts can now define SLA — a plan name and per-priority response times (response and resolution in hours, optionally business hours only). EP365 HelpDesk picks the definition up when synchronising companies."
         },
         {
           "type": "new",
           "cs": "Nabídky na tabuli Kanban přetáhnete myší mezi sloupci fází – tažením karty rovnou změníte fázi nabídky (a s ní i pravděpodobnost).",
-          "en": "On the Kanban board you can drag deals between phase columns – moving a card changes the deal's phase (and its probability) right away."
+          "en": "On the Kanban board you can drag deals between phase columns — moving a card changes the deal's phase (and its probability) right away."
         },
         {
           "type": "improved",
           "cs": "Fakturační podklady z nabídky jsou teď kompletní a připravené k opsání do fakturačního systému – odběratel s IČO/DIČ a adresou, položky s cenami bez DPH, rekapitulace DPH po sazbách, termíny i platební milníky.",
-          "en": "Invoice details from a deal are now complete and ready to transcribe into your invoicing system – customer with company/VAT ID and address, line items priced excl. VAT, a VAT recap per rate, dates and payment milestones."
+          "en": "Invoice details from a deal are now complete and ready to transcribe into your invoicing system — customer with company/VAT ID and address, line items priced excl. VAT, a VAT recap per rate, dates and payment milestones."
         },
         {
           "type": "improved",
           "cs": "Nápověda je rozšířená o nová témata – přetahování nabídek v Kanbanu, fakturační podklady i knihovnu vygenerovaných dokumentů nabídek.",
-          "en": "Help now covers new topics – dragging deals on the Kanban board, invoice details and the library of generated deal documents."
+          "en": "Help now covers new topics — dragging deals on the Kanban board, invoice details and the library of generated deal documents."
         },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -347,7 +347,7 @@
         {
           "type": "new",
           "cs": "Nabídka má novou záložku Dokumenty – vygenerovaný dokument se ukládá do knihovny přímo na webu, odkud ho otevřete, upravíte online v Office nebo převedete do PDF.",
-          "en": "Deals have a new Documents tab – generated documents are stored in a library right on the site, where you can open them, edit them online in Office or convert them to PDF."
+          "en": "Deals have a new Documents tab — generated documents are stored in a library right on the site, where you can open them, edit them online in Office or convert them to PDF."
         },
         {
           "type": "improved",
@@ -357,12 +357,12 @@
         {
           "type": "improved",
           "cs": "Náhled dokumentu se otevírá spolehlivěji, funguje i pro PDF a zobrazuje více údajů – velikost, verzi, autora a data vytvoření či změny.",
-          "en": "Document preview opens more reliably, works for PDF too and shows more details – size, version, author and creation or modification dates."
+          "en": "Document preview opens more reliably, works for PDF too and shows more details — size, version, author and creation or modification dates."
         },
         {
           "type": "fixed",
           "cs": "Náhled dokumentu Word se správně zobrazí i na týmovém webu – dříve mohl hlásit, že dokument neexistuje.",
-          "en": "Word document preview now displays correctly on team sites too – previously it could report that the document does not exist."
+          "en": "Word document preview now displays correctly on team sites too — previously it could report that the document does not exist."
         },
         {
           "type": "improved",
@@ -372,7 +372,7 @@
         {
           "type": "new",
           "cs": "U firmy určíte kontaktní role – primární kontakt, kontakt pro měsíční reporty a fakturační kontakt (vybírají se z kontaktů firmy). Kontakt pro reporty přebírá EP365 HelpDesk jako jedinou adresu měsíčního přehledu.",
-          "en": "You can now assign contact roles to a company – primary contact, monthly report contact and billing contact (chosen from the company's contacts). EP365 HelpDesk uses the report contact as the single address for the monthly summary."
+          "en": "You can now assign contact roles to a company — primary contact, monthly report contact and billing contact (chosen from the company's contacts). EP365 HelpDesk uses the report contact as the single address for the monthly summary."
         },
         {
           "type": "improved",
@@ -388,17 +388,17 @@
         {
           "type": "new",
           "cs": "Webináře evidují účastníky jmenovitě – přihlášené osoby se ukládají jako kontakty a firmy, se kterými můžete dál obchodně pracovat.",
-          "en": "Webinars now track attendees by name – registered people are stored as contacts and companies you can keep working with."
+          "en": "Webinars now track attendees by name — registered people are stored as contacts and companies you can keep working with."
         },
         {
           "type": "new",
           "cs": "Z nabídky připravíte fakturační podklady – souhrn s odběratelem, položkami, součty a termíny zkopírujete do schránky, uložíte jako soubor nebo rovnou pošlete e-mailem.",
-          "en": "You can prepare billing details from a deal – copy a summary with the customer, line items, totals and dates to the clipboard, save it as a file or send it straight by e-mail."
+          "en": "You can prepare billing details from a deal — copy a summary with the customer, line items, totals and dates to the clipboard, save it as a file or send it straight by e-mail."
         },
         {
           "type": "improved",
           "cs": "Šablony e-mailů ukazují svůj výkon přehledně – karty Odesláno, Otevřeno a Odpovědi přímo v detailu šablony.",
-          "en": "E-mail templates show their performance at a glance – Sent, Opened and Replies cards right in the template detail."
+          "en": "E-mail templates show their performance at a glance — Sent, Opened and Replies cards right in the template detail."
         },
         {
           "type": "improved",

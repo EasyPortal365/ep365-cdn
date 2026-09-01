@@ -10,22 +10,22 @@
         {
           "type": "new",
           "cs": "Zobrazení na celou obrazovku. Ikona v hlavičce roztáhne Centrum přes celé okno a schová okolí stránky – hodí se na správu obsahu i delší návody.",
-          "en": "Full-screen view. An icon in the header expands the Centre across the whole window and hides the surrounding page – handy for managing content and longer guides."
+          "en": "Full-screen view. An icon in the header expands the Centre across the whole window and hides the surrounding page — handy for managing content and longer guides."
         },
         {
           "type": "improved",
           "cs": "Bohatší vzhled situací. Na výběr je dvanáct barev místo pěti a k tomu vlastní odstín, ikon padesát místo dvaceti – situace se tak dají odlišit na první pohled. Barva avataru u návodu se vybírá z barevných dlaždic, ne z kódů v rozbalovacím menu.",
-          "en": "Richer look for situations. Twelve colours instead of five plus your own shade, and fifty icons instead of twenty – situations are now distinguishable at a glance. The author avatar colour is picked from colour tiles, not from codes in a dropdown."
+          "en": "Richer look for situations. Twelve colours instead of five plus your own shade, and fifty icons instead of twenty — situations are now distinguishable at a glance. The author avatar colour is picked from colour tiles, not from codes in a dropdown."
         },
         {
           "type": "new",
           "cs": "Návody lze přiřadit k situaci přímo z její úpravy – přidáte existující ze seznamu nebo odeberete křížkem, aniž byste otevírali jednotlivé návody.",
-          "en": "Guides can be assigned to a situation straight from its editor – add an existing one from the list or remove it with the cross, without opening individual guides."
+          "en": "Guides can be assigned to a situation straight from its editor — add an existing one from the list or remove it with the cross, without opening individual guides."
         },
         {
           "type": "improved",
           "cs": "Kroky checklistu se dají formátovat. V popisu kroku funguje tučné písmo, seznamy i odkazy – stejný editor jako u těla návodu.",
-          "en": "Checklist steps can be formatted. Bold text, lists and links now work in a step description – the same editor as the guide body."
+          "en": "Checklist steps can be formatted. Bold text, lists and links now work in a step description — the same editor as the guide body."
         },
         {
           "type": "new",
@@ -40,7 +40,7 @@
         {
           "type": "improved",
           "cs": "Přepsaná nápověda a rozšířený průvodce aplikací. Nápověda odpovídá na 41 konkrétních otázek v sedmi tématech včetně toho, kde se co upravuje; průvodce má osm kapitol podle role – od orientace po nastavení a provoz.",
-          "en": "Rewritten help and an extended app tour. Help answers 41 specific questions across seven topics including where to edit what; the tour has eight role-based chapters – from getting around to settings and operations."
+          "en": "Rewritten help and an extended app tour. Help answers 41 specific questions across seven topics including where to edit what; the tour has eight role-based chapters — from getting around to settings and operations."
         },
         {
           "type": "improved",
@@ -56,7 +56,7 @@
         {
           "type": "fixed",
           "cs": "Aplikace otevřená delší dobu už neztrácí ukládané změny. Po přibližně půl hodině bez obnovení stránky SharePoint odmítal zápisy a část se jich ztrácela bez upozornění – týkalo se to uložených návodů, odškrtaných kroků i správy členů. Nově si aplikace před každým zápisem obnoví ověření sama.",
-          "en": "The app no longer loses saved changes when left open for a long time. After roughly half an hour without a page refresh SharePoint began refusing writes and some were lost without any notice – this affected saved guides, checked-off steps and member management. The app now refreshes its own validation before every write."
+          "en": "The app no longer loses saved changes when left open for a long time. After roughly half an hour without a page refresh SharePoint began refusing writes and some were lost without any notice — this affected saved guides, checked-off steps and member management. The app now refreshes its own validation before every write."
         },
         {
           "type": "fixed",
@@ -66,7 +66,7 @@
         {
           "type": "fixed",
           "cs": "Hlášení chyb a návrhy funkcí chodí e-mailem na naši podporu a vzniká z nich tiket. Dřív šly přes webový formulář, jehož odpověď aplikace neviděla – hlásila „odesláno“ i v případě, že se hlášení nikam nedostalo. Pokud odeslání z aplikace nevyjde, nabídneme otevření zprávy ve vašem poštovním klientovi.",
-          "en": "Bug reports and feature suggestions are now e-mailed to our support and turned into a ticket. They previously went through a web form whose response the app could not see – it reported “sent” even when the report never arrived. If sending from the app fails, we offer to open the message in your mail client."
+          "en": "Bug reports and feature suggestions are now e-mailed to our support and turned into a ticket. They previously went through a web form whose response the app could not see — it reported “sent” even when the report never arrived. If sending from the app fails, we offer to open the message in your mail client."
         },
         {
           "type": "fixed",
@@ -81,12 +81,12 @@
         {
           "type": "fixed",
           "cs": "Znalosti pro AI se po hromadné změně obsahu dorovnají hned. Po promazání nebo obnovení dat zůstávaly v knihovně soubory smazaných článků a nové články v nich chyběly – až šest hodin, takže AI asistent mohl odpovídat z obsahu, který v Centru už není. Nově se dorovnání spustí rovnou po akci a jeho výsledek uvidíte v nastavení.",
-          "en": "AI knowledge files are now updated immediately after a bulk content change. Clearing or restoring data used to leave files of deleted articles in the library while new articles were missing – for up to six hours, so the AI assistant could answer from content no longer in the Centre. The update now runs right after the action and reports its result in the settings."
+          "en": "AI knowledge files are now updated immediately after a bulk content change. Clearing or restoring data used to leave files of deleted articles in the library while new articles were missing — for up to six hours, so the AI assistant could answer from content no longer in the Centre. The update now runs right after the action and reports its result in the settings."
         },
         {
           "type": "fixed",
           "cs": "Hodnocení „Byl článek užitečný?“ počítá jeden hlas na osobu. Dosud se příznak, že jste už hlasovali, pamatoval jen do obnovení stránky, takže se dal počet natáhnout opakovaným klikáním. Váš hlas se teď ukládá k vašemu účtu – můžete ho změnit nebo kliknutím na stejné tlačítko odebrat, a načte se i na jiném počítači.",
-          "en": "The „Was this useful?“ rating now counts one vote per person. Until now the app only remembered your vote until the page reloaded, so the count could be inflated by clicking repeatedly. Your vote is stored with your account – you can change it or withdraw it by clicking the same button, and it loads on another computer too."
+          "en": "The „Was this useful?“ rating now counts one vote per person. Until now the app only remembered your vote until the page reloaded, so the count could be inflated by clicking repeatedly. Your vote is stored with your account — you can change it or withdraw it by clicking the same button, and it loads on another computer too."
         },
         {
           "type": "fixed",
@@ -96,12 +96,12 @@
         {
           "type": "improved",
           "cs": "Nová akce Přepočítat hodnocení z hlasů v Nastavení. Souhrnné počty u návodů se srovnají podle jednotlivých hlasů, které jsou zdrojem pravdy – hodí se, když některé číslo nevypadá věrohodně. Počty přečtení zůstávají beze změny.",
-          "en": "New Recalculate ratings from votes action in Settings. Guide rating totals are realigned with the individual votes, which are the source of truth – useful when a number does not look credible. Read counts are left untouched."
+          "en": "New Recalculate ratings from votes action in Settings. Guide rating totals are realigned with the individual votes, which are the source of truth — useful when a number does not look credible. Read counts are left untouched."
         },
         {
           "type": "fixed",
           "cs": "Nápověda vysvětluje, jak funguje hodnocení návodů – jeden hlas na osobu, možnost hlas změnit i odebrat.",
-          "en": "Help now explains how guide ratings work – one vote per person, with the option to change or withdraw it."
+          "en": "Help now explains how guide ratings work — one vote per person, with the option to change or withdraw it."
         },
         {
           "type": "improved",
@@ -111,12 +111,12 @@
         {
           "type": "improved",
           "cs": "Testovací data ukazují i to, co dosud zůstávalo skryté. Přibyly články psané blokovým editorem (nadpisy, zvýrazněné poznámky), naplánovaný článek, archivovaný článek, razítka schvalování s poznámkou a hodnocení návodů – ukázka tak pokrývá celý životní cyklus obsahu včetně Přehledu využití.",
-          "en": "Sample data now shows what used to stay hidden. It adds articles written in the block editor (headings, callouts), a scheduled article, an archived one, approval stamps with a note and guide ratings – so the demo covers the whole content lifecycle including Usage."
+          "en": "Sample data now shows what used to stay hidden. It adds articles written in the block editor (headings, callouts), a scheduled article, an archived one, approval stamps with a note and guide ratings — so the demo covers the whole content lifecycle including Usage."
         },
         {
           "type": "improved",
           "cs": "Ukázkové články mají i obrázek. Testovací data nově vytvoří ke čtyřem návodům úvodní ilustraci v barvách aplikace, takže je na první pohled vidět, jak vypadá článek s obrázkem. Ilustrace se vykreslí přímo ve vašem prostředí a uloží do knihovny Centra – nic se nestahuje odjinud.",
-          "en": "Sample articles now include an image. Test data adds an opening illustration in the app colours to four guides, so you can see at a glance how an article with an image looks. The illustration is drawn in your own environment and stored in the Centre library – nothing is downloaded from elsewhere."
+          "en": "Sample articles now include an image. Test data adds an opening illustration in the app colours to four guides, so you can see at a glance how an article with an image looks. The illustration is drawn in your own environment and stored in the Centre library — nothing is downloaded from elsewhere."
         }
       ]
     },
@@ -127,7 +127,7 @@
         {
           "type": "new",
           "cs": "Novinky ve sledovaných situacích – na úvodní obrazovce vás upozorníme, když v situaci, kterou sledujete, přibyl nový návod. Karta ukáže, co je nové od vaší poslední návštěvy, a křížkem ji odbavíte. Upozornění se váže na váš účet, takže se neopakuje na jiném počítači.",
-          "en": "News in the situations you follow – the home screen now tells you when a new guide appears in a situation you follow. The card shows what is new since your last visit and the cross dismisses it. The notice is tied to your account, so it does not reappear on another computer."
+          "en": "News in the situations you follow — the home screen now tells you when a new guide appears in a situation you follow. The card shows what is new since your last visit and the cross dismisses it. The notice is tied to your account, so it does not reappear on another computer."
         }
       ]
     },
@@ -138,12 +138,12 @@
         {
           "type": "fixed",
           "cs": "Hodnocení návodů a počty přečtení fungují všem. Tlačítka „Byl tento návod užitečný?“ a počítadlo přečtení se dosud započítaly jen správcům – ostatním se hlas tiše zahodil, i když aplikace poděkovala. Nově se ukládají všem a v Přehledu využití tak vidíte skutečná čísla. Pokud by se hlas přesto neuložil, aplikace to řekne místo falešného poděkování.",
-          "en": "Guide ratings and read counts now work for everyone. The “Was this guide helpful?” buttons and the read counter were only ever recorded for administrators – everyone else had their vote silently dropped even though the app said thank you. They are now stored for all users, so Usage shows real numbers. If a vote still fails to save, the app says so instead of thanking you falsely."
+          "en": "Guide ratings and read counts now work for everyone. The “Was this guide helpful?” buttons and the read counter were only ever recorded for administrators — everyone else had their vote silently dropped even though the app said thank you. They are now stored for all users, so Usage shows real numbers. If a vote still fails to save, the app says so instead of thanking you falsely."
         },
         {
           "type": "improved",
           "cs": "Hledání si poradí bez diakritiky – „skoleni“ najde „Školení“. Platí pro vyhledávání, rychlé hledání (Ctrl+K) i filtry ve správě obsahu. Do přehledu „Hledání bez výsledku“ se tak přestanou zapisovat dotazy, na které odpověď existuje.",
-          "en": "Search now ignores diacritics – “skoleni” finds “Školení”. This applies to search, quick search (Ctrl+K) and the content management filters, so queries that do have an answer are no longer logged as “searches with no results”."
+          "en": "Search now ignores diacritics — “skoleni” finds “Školení”. This applies to search, quick search (Ctrl+K) and the content management filters, so queries that do have an answer are no longer logged as “searches with no results”."
         },
         {
           "type": "fixed",
@@ -178,12 +178,12 @@
         {
           "type": "improved",
           "cs": "Import článků z CSV zvládne i buňky s odřádkováním – export ze Seznamu článků tak jde beze změny naimportovat zpět. Testovací data se navíc nezaloží, pokud se nepodaří ověřit, že jsou listy prázdné; místo tichého selhání se zobrazí chyba.",
-          "en": "Importing articles from CSV now handles cells containing line breaks, so an export from the article list can be imported straight back. Sample data are also no longer created when the app cannot verify that the lists are empty – you get an error instead of a silent failure."
+          "en": "Importing articles from CSV now handles cells containing line breaks, so an export from the article list can be imported straight back. Sample data are also no longer created when the app cannot verify that the lists are empty — you get an error instead of a silent failure."
         },
         {
           "type": "fixed",
           "cs": "Zpřísnili jsme oprávnění knihoven aplikace – soubory znalostí pro AI a obrázky návodů smí nově vytvářet a měnit jen správci a schvalovatelé obsahu, ostatní si je přečtou. Dřív mohl soubor do knihovny znalostí vložit kdokoli s právem úprav na webu, a ovlivnit tak podklady, ze kterých odpovídá AI asistent. Nastavení se dorovná samo při prvním otevření aplikace správcem. Obrázky ve formátu SVG už do návodů nelze vkládat.",
-          "en": "We tightened the permissions of the app libraries – AI knowledge files and guide images can now be created and modified only by administrators and content approvers, while everyone else can still read them. Previously anyone with edit rights on the site could place a file into the knowledge library and thus influence the material the AI assistant answers from. The setting is applied automatically the first time an administrator opens the app. SVG images can no longer be inserted into guides."
+          "en": "We tightened the permissions of the app libraries — AI knowledge files and guide images can now be created and modified only by administrators and content approvers, while everyone else can still read them. Previously anyone with edit rights on the site could place a file into the knowledge library and thus influence the material the AI assistant answers from. The setting is applied automatically the first time an administrator opens the app. SVG images can no longer be inserted into guides."
         }
       ]
     },
@@ -194,7 +194,7 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "fixed",
@@ -220,62 +220,62 @@
         {
           "type": "new",
           "cs": "Upozornění na novější verzi – Nastavení nově ukáže, zda aplikace běží na aktuální verzi. Když vyjde novější, správce uvidí upozornění i číslo nejnovější verze a nemusí na to přijít sám. Týká se jen správců – aktualizaci provádí správce SharePointu nahráním nového balíčku.",
-          "en": "Outdated version notice – Settings now show whether the app runs the current version. When a newer one is released, administrators see a notice and the latest version number instead of having to find out on their own. Administrators only — the update is performed by a SharePoint administrator by uploading the new package."
+          "en": "Outdated version notice — Settings now show whether the app runs the current version. When a newer one is released, administrators see a notice and the latest version number instead of having to find out on their own. Administrators only — the update is performed by a SharePoint administrator by uploading the new package."
         },
         {
           "type": "new",
           "cs": "Blokový editor obsahu – životní situace nově skládáte z bloků: text, nadpisy, obrázky (s nahráním přímo z počítače), videa, zvýrazněné tipy a oddělovače. Bloky lze libovolně řadit a kombinovat, stávající články se otevřou beze změny.",
-          "en": "Block content editor – you now build life situations from blocks: text, headings, images (with direct upload), videos, highlighted tips and dividers. Blocks can be freely reordered and combined; existing articles open unchanged."
+          "en": "Block content editor — you now build life situations from blocks: text, headings, images (with direct upload), videos, highlighted tips and dividers. Blocks can be freely reordered and combined; existing articles open unchanged."
         },
         {
           "type": "new",
           "cs": "Obrázky a videa v článcích – obrázky se ukládají do knihovny přímo na webu aplikace, video soubory se přehrají rovnou v článku a odkazy na videoplatformy se zobrazí jako přehledná karta.",
-          "en": "Images and videos in articles – images are stored in a library on the app site, video files play right inside the article, and links to video platforms show as a tidy play card."
+          "en": "Images and videos in articles — images are stored in a library on the app site, video files play right inside the article, and links to video platforms show as a tidy play card."
         },
         {
           "type": "new",
           "cs": "Znalosti pro AI asistenta – schválené články se volitelně publikují jako Markdown soubory do knihovny LC_Knowledge, kde je umí najít a citovat EP365 AI Asistent (Firemní znalosti). Publikuje se výhradně schválený obsah, soubory se aktualizují automaticky při každé změně a v Nastavení je hromadná publikace i návod na propojení.",
-          "en": "Knowledge for the AI assistant – approved articles can be published as Markdown files into the LC_Knowledge library, where the EP365 AI Assistant (Company knowledge) can find and cite them. Only approved content is exported, files update automatically on every change, and Settings offer bulk publishing plus connection guidance."
+          "en": "Knowledge for the AI assistant — approved articles can be published as Markdown files into the LC_Knowledge library, where the EP365 AI Assistant (Company knowledge) can find and cite them. Only approved content is exported, files update automatically on every change, and Settings offer bulk publishing plus connection guidance."
         },
         {
           "type": "improved",
           "cs": "Správa obsahu je nově plnohodnotná: vyberete situaci a hned vedle se otevře panel s jejím obsahem – návody, garanti, stavy – a odtud rovnou editujete. Panely se řadí vedle sebe místo překrývání a v seznamech přibylo hledání, takže si poradí i s velkým množstvím obsahu.",
-          "en": "Content management is now a full workspace: pick a situation and a panel with its content – guides, guarantors, statuses – opens right beside it, ready to edit. Panels dock side by side instead of stacking over each other, and lists gained search, so they scale to large content sets."
+          "en": "Content management is now a full workspace: pick a situation and a panel with its content — guides, guarantors, statuses — opens right beside it, ready to edit. Panels dock side by side instead of stacking over each other, and lists gained search, so they scale to large content sets."
         },
         {
           "type": "improved",
           "cs": "Upravovat lze přímo tam, kde obsah čtete – správce má tlačítko Upravit na detailu situace i návodu a tužku u každého návodu v seznamu. Už není nutné hledat obsah oklikou přes Správu obsahu.",
-          "en": "Editing now happens where you read – administrators get an Edit button on situation and guide details, plus a pencil on each guide in the list. No more detours through Content management to find the item."
+          "en": "Editing now happens where you read — administrators get an Edit button on situation and guide details, plus a pencil on each guide in the list. No more detours through Content management to find the item."
         },
         {
           "type": "improved",
           "cs": "Správa obsahu navazuje na to, kde právě jste – otevřete-li ji ze situace, rovnou ukáže její obsah místo prázdného seznamu. Tlačítko Spravovat obsah je nově i přímo na detailu situace.",
-          "en": "Content management now picks up where you are – opening it from a situation shows that situation's content right away instead of an empty list. The Manage content button is also available directly on the situation detail."
+          "en": "Content management now picks up where you are — opening it from a situation shows that situation's content right away instead of an empty list. The Manage content button is also available directly on the situation detail."
         },
         {
           "type": "improved",
           "cs": "Editor návodu je rozdělený na dvě části vedle sebe – vlevo píšete obsah (název, perex, bloky, kroky), vpravo máte zařazení a publikaci (situace, útvar, role, typ, stav, štítky, autor, plánování). Formulář už není jeden dlouhý sloupec; na užším okně se části složí pod sebe.",
-          "en": "The guide editor is now split into two columns – you write content on the left (title, excerpt, blocks, steps) and set filing and publishing on the right (situations, department, role, type, status, tags, author, scheduling). No more single long column; on narrow screens the columns stack."
+          "en": "The guide editor is now split into two columns — you write content on the left (title, excerpt, blocks, steps) and set filing and publishing on the right (situations, department, role, type, status, tags, author, scheduling). No more single long column; on narrow screens the columns stack."
         },
         {
           "type": "improved",
           "cs": "Při úpravě návodu vidíte vedle editoru i obsah situace, do které patří – ostatní návody, jejich stavy a garanty. Přepnout na jiný návod jde jedním kliknutím a nemusíte editor opouštět.",
-          "en": "While editing a guide you now see the content of its situation right beside the editor – the other guides, their statuses and guarantors. Switching to another guide is one click, without leaving the editor."
+          "en": "While editing a guide you now see the content of its situation right beside the editor — the other guides, their statuses and guarantors. Switching to another guide is one click, without leaving the editor."
         },
         {
           "type": "improved",
           "cs": "Výběr situací u návodu si poradí i s desítkami situací – vybrané jsou vždy nahoře, zbytek se filtruje hledáním. Formulář má konstantní výšku bez ohledu na to, kolik situací máte.",
-          "en": "The situation picker now handles dozens of situations – selected ones stay on top, the rest is filtered by search. The form keeps a constant height no matter how many situations you have."
+          "en": "The situation picker now handles dozens of situations — selected ones stay on top, the rest is filtered by search. The form keeps a constant height no matter how many situations you have."
         },
         {
           "type": "fixed",
           "cs": "Formuláře v panelech se už nevejdou mimo okraj – zmizel vodorovný posuvník, který se objevoval pod delšími formuláři.",
-          "en": "Forms in panels no longer overflow their edge – the horizontal scrollbar that appeared under longer forms is gone."
+          "en": "Forms in panels no longer overflow their edge — the horizontal scrollbar that appeared under longer forms is gone."
         },
         {
           "type": "fixed",
           "cs": "Sjednocené názvy fází – tatáž fáze se v editoru, na kanbanu a na rozcestníku jmenovala různě (například Stěhování vs. Změna). Nově mají všechny obrazovky jeden název, na detailu situace se místo systémového kódu zobrazí čitelný název fáze a anglické rozhraní má konečně přeloženou i časovou osu.",
-          "en": "Unified phase names – the same phase was named differently in the editor, the kanban and the home timeline (for example Relocation vs. Change). All screens now share one name, situation details show a readable phase instead of a system code, and the English UI finally translates the timeline too."
+          "en": "Unified phase names — the same phase was named differently in the editor, the kanban and the home timeline (for example Relocation vs. Change). All screens now share one name, situation details show a readable phase instead of a system code, and the English UI finally translates the timeline too."
         }
       ]
     },
@@ -286,12 +286,12 @@
         {
           "type": "fixed",
           "cs": "Ukázková data se už nevytvářejí automaticky při prvním otevření prázdného webu – vytvoříte je (i s výchozí taxonomií) výhradně tlačítkem v Nastavení → Testovací data. Reálný web tak zůstane prázdný, dokud ho nenaplníte, a smazaná data se nevrací.",
-          "en": "Sample data is no longer created automatically on first open of an empty site – you create it (including the default taxonomy) only via the button in Settings → Test data. A real site stays empty until you fill it, and deleted data no longer comes back."
+          "en": "Sample data is no longer created automatically on first open of an empty site — you create it (including the default taxonomy) only via the button in Settings → Test data. A real site stays empty until you fill it, and deleted data no longer comes back."
         },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -306,7 +306,7 @@
         {
           "type": "improved",
           "cs": "Doladěná úvodní obrazovka – čistší rozložení podle jednotného vzhledu EP365; hledání je nově výhradně v postranním panelu a paletě ⌘K a chipy Časté vycházejí ze skutečné popularity situací.",
-          "en": "Polished home screen – a cleaner layout aligned with the unified EP365 look; search now lives exclusively in the sidebar and the ⌘K palette, and the Frequent chips follow real situation popularity."
+          "en": "Polished home screen — a cleaner layout aligned with the unified EP365 look; search now lives exclusively in the sidebar and the ⌘K palette, and the Frequent chips follow real situation popularity."
         },
         {
           "type": "improved",
@@ -332,27 +332,27 @@
         {
           "type": "new",
           "cs": "E-mailové notifikace schvalovacího workflow – schvalovatelé dostanou zprávu při odeslání článku ke schválení, autor po schválení či zamítnutí.",
-          "en": "Approval workflow e-mail notifications – approvers are notified when an article is submitted, authors on approval or rejection."
+          "en": "Approval workflow e-mail notifications — approvers are notified when an article is submitted, authors on approval or rejection."
         },
         {
           "type": "new",
           "cs": "Související články – na konci každého článku se nabízí příbuzný obsah podle situací a štítků.",
-          "en": "Related articles – relevant content is suggested at the end of each article, based on situations and tags."
+          "en": "Related articles — relevant content is suggested at the end of each article, based on situations and tags."
         },
         {
           "type": "new",
           "cs": "Revize zastaralého obsahu – články starší 12 měsíců dostanou štítek K revizi, filtr a akci Označit jako zkontrolované.",
-          "en": "Stale content review – articles older than 12 months get a Review needed badge, a filter and a Mark as reviewed action."
+          "en": "Stale content review — articles older than 12 months get a Review needed badge, a filter and a Mark as reviewed action."
         },
         {
           "type": "new",
           "cs": "Karta Váš postup u situace – souhrn dokončených kroků checklistů, zelená při 100 %.",
-          "en": "A Your progress card on situations – a summary of completed checklist steps, green at 100%."
+          "en": "A Your progress card on situations — a summary of completed checklist steps, green at 100%."
         },
         {
           "type": "new",
           "cs": "Analytika neúspěšného hledání – Přehled využití anonymně ukazuje dotazy bez výsledku.",
-          "en": "Failed-search analytics – the Usage overview anonymously lists queries with no results."
+          "en": "Failed-search analytics — the Usage overview anonymously lists queries with no results."
         },
         {
           "type": "new",

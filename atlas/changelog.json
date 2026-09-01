@@ -15,17 +15,17 @@
         {
           "type": "new",
           "cs": "Nová obrazovka „Zátěž API” (jen pro správce): ukáže, kdy a proč aplikace naráží na limity SharePointu. Když se volání zabrzdí, viník bývá jinde – kvóty tenantu sdílí všechny aplikace i uživatelé dohromady. Atlas proto sbírá vlastní telemetrii (kolik volání bylo zabrzděno, jak dlouho se čekalo), ukáže vzorec v týdnu jako mapu a řekne, jestli si aplikace vyčerpala vlastní příděl, nebo ji dusí něco jiného v tenantu. Součástí je i doporučení, kdy je nejklidnější okno pro zálohy, migrace a plné skeny.",
-          "en": "New “API load” screen (admins only): it shows when and why applications hit SharePoint limits. When calls get throttled the culprit is usually elsewhere – tenant quotas are shared by every application and user. Atlas collects its own telemetry (how many calls were throttled and how long they waited), shows the weekly pattern as a map, and tells you whether the app exhausted its own allowance or something else in the tenant is squeezing it. It also suggests the calmest window for backups, migrations and full scans."
+          "en": "New “API load” screen (admins only): it shows when and why applications hit SharePoint limits. When calls get throttled the culprit is usually elsewhere — tenant quotas are shared by every application and user. Atlas collects its own telemetry (how many calls were throttled and how long they waited), shows the weekly pattern as a map, and tells you whether the app exhausted its own allowance or something else in the tenant is squeezing it. It also suggests the calmest window for backups, migrations and full scans."
         },
         {
           "type": "new",
           "cs": "Hledání viníka přetížení: Atlas zkoreluje okna potíží s auditním logem a sestaví žebříček aplikací a účtů, které byly v tu dobu nejaktivnější – včetně podílu jejich činnosti právě v problémových oknech. K tomu report, který můžete poslat dodavateli sporné aplikace. Jde o korelaci, ne důkaz, a aplikace to takto i popisuje.",
-          "en": "Finding who overloads the tenant: Atlas correlates trouble windows with the audit log and builds a ranking of the applications and accounts most active at that time – including how much of their activity falls inside those windows. It also produces a report you can send to the vendor of the offending application. This is correlation, not proof, and the app says so."
+          "en": "Finding who overloads the tenant: Atlas correlates trouble windows with the audit log and builds a ranking of the applications and accounts most active at that time — including how much of their activity falls inside those windows. It also produces a report you can send to the vendor of the offending application. This is correlation, not proof, and the app says so."
         },
         {
           "type": "new",
           "cs": "Upozornění na opakované přetěžování: když počet zabrzděných volání překročí za den nastavený práh, objeví se událost mezi hlídkami. Opakuje-li se to několik dní v týdnu, Atlas z toho udělá nález, který se propíše do skóre. Práh si nastavíte v Nastavení – Notifikace.",
-          "en": "Alerts on repeated overload: when the number of throttled calls exceeds your daily threshold, an event appears among the watchdogs. If it repeats several days a week, Atlas raises a finding that feeds into the score. The threshold is configurable in Settings – Notifications."
+          "en": "Alerts on repeated overload: when the number of throttled calls exceeds your daily threshold, an event appears among the watchdogs. If it repeats several days a week, Atlas raises a finding that feeds into the score. The threshold is configurable in Settings — Notifications."
         },
         {
           "type": "new",
@@ -35,7 +35,7 @@
         {
           "type": "new",
           "cs": "Nová obrazovka „Cílený audit“ (jen pro správce): prověří jedno konkrétní místo – web, knihovnu nebo seznam – bez čekání na celý sken tenantu. Vložíte adresu, vyberete co vás zajímá (oprávnění a dědičnost, sdílené odkazy, nastavení, obsah) a dostanete report se skóre objektu, nálezy a doporučeními, který jde stáhnout. U knihovny uvidíte i to, co plný sken nedělá: které položky mají vlastní oprávnění a jaké sdílené odkazy z nich vedou ven.",
-          "en": "New “Targeted audit” screen (admins only): it examines one specific place – a site, library or list – without waiting for a full tenant scan. You paste the address, choose what interests you (permissions and inheritance, sharing links, settings, content) and get a downloadable report with the object's score, findings and recommendations. For a library you also see what a full scan does not cover: which items have their own permissions and what sharing links lead out of them."
+          "en": "New “Targeted audit” screen (admins only): it examines one specific place — a site, library or list — without waiting for a full tenant scan. You paste the address, choose what interests you (permissions and inheritance, sharing links, settings, content) and get a downloadable report with the object's score, findings and recommendations. For a library you also see what a full scan does not cover: which items have their own permissions and what sharing links lead out of them."
         },
         {
           "type": "improved",
@@ -45,12 +45,12 @@
         {
           "type": "improved",
           "cs": "Správa verzí umí aktivovat i verzi, která ještě není v seznamu vydaných – po dohodě s dodavatelem tak jde vyzkoušet testovací nasazení dřív, než se vydá všem.",
-          "en": "Version management can now activate a version that is not on the released list yet – so, in agreement with your vendor, you can try a test rollout before it goes out to everyone."
+          "en": "Version management can now activate a version that is not on the released list yet — so, in agreement with your vendor, you can try a test rollout before it goes out to everyone."
         },
         {
           "type": "improved",
           "cs": "Přehlednější levé menu: položky jsou nově seřazené podle toho, co právě řešíte – nahoře Přehled a Nálezy (práce k udělání), pak Stav tenantu (jak to u vás vypadá), Vyšetřování (kdo něco udělal, jak je na tom jedno místo, proč volání vázne) a Historie a výstupy. Dřívější dvojice Monitoring a Data nikomu neřekla, kam se podívat. Nastavení tenantu se nově jmenuje Konfigurace SharePointu, ať se neplete s nastavením samotné aplikace.",
-          "en": "A clearer left menu: items are now ordered by what you are actually doing – Overview and Findings on top (work to do), then Tenant state (how things look), Investigation (who did what, how one place is doing, why calls get throttled) and History and outputs. The previous Monitoring / Data pair told nobody where to look. Tenant settings is now called SharePoint configuration so it is not confused with the settings of the application itself."
+          "en": "A clearer left menu: items are now ordered by what you are actually doing — Overview and Findings on top (work to do), then Tenant state (how things look), Investigation (who did what, how one place is doing, why calls get throttled) and History and outputs. The previous Monitoring / Data pair told nobody where to look. Tenant settings is now called SharePoint configuration so it is not confused with the settings of the application itself."
         },
         {
           "type": "improved",
@@ -60,7 +60,7 @@
         {
           "type": "fixed",
           "cs": "Žebříček „Kdo byl aktivní v oknech potíží“ už neukazuje tutéž aplikaci dvakrát – Microsoft dává různým registracím stejný název klienta a Atlas je nově slučuje do jednoho řádku.",
-          "en": "The list of applications active during throttling windows no longer shows the same application twice – Microsoft gives the same client name to different registrations, and Atlas now merges them into a single row."
+          "en": "The list of applications active during throttling windows no longer shows the same application twice — Microsoft gives the same client name to different registrations, and Atlas now merges them into a single row."
         },
         {
           "type": "fixed",
@@ -70,7 +70,7 @@
         {
           "type": "new",
           "cs": "Cílený audit umí i „Aktivitu“: doplní k prověřenému místu, kdo s ním za posledních 30 dní pracoval – žebříček účtů, nejčastější operace, kolik se toho stáhlo, jestli se sdílelo a co se mazalo, plus výpis jednotlivých událostí s hledáním a stránkováním. Data pochází z auditního logu, který Microsoft zpracovává na pozadí, takže audit na ně nečeká: dotaz se založí jedním kliknutím a vy se k výsledku vrátíte, až doběhne – klidně jiný den. Aktivita se přibalí i do staženého reportu.",
-          "en": "The targeted audit now also covers activity: for the place you checked it shows who worked with it over the last 30 days – a ranking of accounts, the most frequent operations, how much was downloaded, whether it was shared and what was deleted, plus a searchable, paged list of individual events. The data comes from the audit log, which Microsoft processes in the background, so the audit does not wait for it: one click starts the query and you come back to the result once it finishes, even on another day. Activity is also included in the downloaded report."
+          "en": "The targeted audit now also covers activity: for the place you checked it shows who worked with it over the last 30 days — a ranking of accounts, the most frequent operations, how much was downloaded, whether it was shared and what was deleted, plus a searchable, paged list of individual events. The data comes from the audit log, which Microsoft processes in the background, so the audit does not wait for it: one click starts the query and you come back to the result once it finishes, even on another day. Activity is also included in the downloaded report."
         },
         {
           "type": "improved",
@@ -80,7 +80,7 @@
         {
           "type": "new",
           "cs": "Nová obrazovka „Zdraví indexu“ (jen pro správce): co vyhledávání vidí a co mu uniká. Ukáže, kdy bylo které místo naposled procházeno, co se nepodařilo projít, co je z indexu vyloučené a jak dlouho trvá, než je nový dokument k nalezení. Co není v indexu, totiž pro uživatele neexistuje – nenajde to hledání ani Copilot. Data pochází přímo z evidence procházení v SharePointu; načítají se na kliknutí, protože jde o objemné čtení. Vyžaduje jednorázové udělení přístupu k této evidenci v centru pro správu, na které obrazovka srozumitelně nasměruje – role správce k tomu sama nestačí.",
-          "en": "A new administrator screen, Index health: what search sees and what it misses. It shows when each place was last crawled, what failed, what is excluded from the index and how long it takes before a new document can be found. Content that is not indexed does not exist for users – neither search nor Copilot will surface it. The data comes straight from SharePoint’s own crawl records and loads on demand, because it is a heavy read. It needs a one-off grant of access to those records in the admin center, which the screen explains and links to – an admin role alone is not enough."
+          "en": "A new administrator screen, Index health: what search sees and what it misses. It shows when each place was last crawled, what failed, what is excluded from the index and how long it takes before a new document can be found. Content that is not indexed does not exist for users — neither search nor Copilot will surface it. The data comes straight from SharePoint’s own crawl records and loads on demand, because it is a heavy read. It needs a one-off grant of access to those records in the admin center, which the screen explains and links to — an admin role alone is not enough."
         },
         {
           "type": "new",
@@ -90,17 +90,17 @@
         {
           "type": "improved",
           "cs": "Zdraví indexu rozlišuje druh objektu přesně podle toho, co hlásí SharePoint – položky, seznamy, weby, zobrazení a složky – místo dřívějšího odhadu z adresy. Díky tomu sedí i číslo „vyloučeno z indexu“. Nově uvidíte, z čeho se vzorek skládá, kolik obsahu čeká na odstranění z indexu, u chyb i to, jestli selhalo čtení obsahu nebo oprávnění, a v detailu webu obsahovou databázi – ta se hodí, když zakládáte požadavek u Microsoftu.",
-          "en": "Index health now tells object kinds apart exactly as SharePoint reports them – items, lists, sites, views and folders – instead of guessing from the address, which also corrects the „excluded from index“ figure. You can newly see what the sample consists of, how much content is pending removal from the index, whether a crawl error came from reading content or permissions, and the content database in the site detail – handy when raising a request with Microsoft."
+          "en": "Index health now tells object kinds apart exactly as SharePoint reports them — items, lists, sites, views and folders — instead of guessing from the address, which also corrects the „excluded from index“ figure. You can newly see what the sample consists of, how much content is pending removal from the index, whether a crawl error came from reading content or permissions, and the content database in the site detail — handy when raising a request with Microsoft."
         },
         {
           "type": "fixed",
           "cs": "Údaj „vyloučeno z vyhledávání“ se nově bere z nastavení webů a knihoven, ne z evidence procházení. Ta totiž stejný příznak nese u téměř každého záznamu bez ohledu na skutečné nastavení, takže Atlas mezi vyloučené počítal i běžné knihovny dokumentů. Nález nově upozorňuje na knihovny, které mají obsah, ale jsou vypnuté z hledání – datové seznamy aplikací, které se vylučují záměrně, hlásit nebude. Karta funguje i bez přístupu k evidenci procházení.",
-          "en": "Whether content is excluded from search is now read from the site and library settings rather than from the crawl log, which flags almost every record regardless of the actual setting – so ordinary document libraries were being counted as excluded. The finding now points at libraries that hold content but are switched off from search; application data lists, which are excluded on purpose, are left alone. The card also works without access to the crawl log."
+          "en": "Whether content is excluded from search is now read from the site and library settings rather than from the crawl log, which flags almost every record regardless of the actual setting — so ordinary document libraries were being counted as excluded. The finding now points at libraries that hold content but are switched off from search; application data lists, which are excluded on purpose, are left alone. The card also works without access to the crawl log."
         },
         {
           "type": "new",
           "cs": "Cílený audit umí i „Historii procházení“: u prověřeného webu nebo knihovny ukáže, kdy se na něj vyhledávání naposledy dívalo, zvlášť na obsah a zvlášť na oprávnění, jak dlouho trvá, než je nový soubor k nalezení, a co se nepodařilo projít. Když k místu není za 30 dní jediný záznam, je to samo o sobě nález – takový obsah nenajde hledání ani AI.",
-          "en": "Targeted audit now includes a “Crawl history” section: for the audited site or library it shows when search last looked at it – separately for content and for permissions – how long it takes before a new file becomes findable, and what failed to be crawled. If there is no record at all for 30 days, that is a finding in itself: neither search nor AI will find that content."
+          "en": "Targeted audit now includes a “Crawl history” section: for the audited site or library it shows when search last looked at it — separately for content and for permissions — how long it takes before a new file becomes findable, and what failed to be crawled. If there is no record at all for 30 days, that is a finding in itself: neither search nor AI will find that content."
         },
         {
           "type": "improved",
@@ -125,7 +125,7 @@
         {
           "type": "fixed",
           "cs": "Adresa prověřeného seznamu nebo knihovny se v Cíleném auditu skládala chybně – cesta webu se v ní objevila dvakrát. Projevovalo se to v uložené historii auditů, ve staženém reportu a nově i tím, že historie procházení hlásila „bez záznamu“ i tam, kde záznamy byly.",
-          "en": "The address of the audited list or library was assembled incorrectly in Targeted audit – the site path appeared twice. It showed up in the saved audit history, in the downloaded report, and lately in crawl history reporting “no records” for places that had them."
+          "en": "The address of the audited list or library was assembled incorrectly in Targeted audit — the site path appeared twice. It showed up in the saved audit history, in the downloaded report, and lately in crawl history reporting “no records” for places that had them."
         },
         {
           "type": "improved",
@@ -140,7 +140,7 @@
         {
           "type": "fixed",
           "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
-          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+          "en": "Settings — Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
         },
         {
           "type": "fixed",
@@ -150,22 +150,22 @@
         {
           "type": "fixed",
           "cs": "Auditní log: když dotaz odmítne Microsoft, aplikace nově řekne, čím to je. Hláška „účet nemá žádná oprávnění“ neznamená chybějící souhlas s aplikací – odmítnutý je přihlášený účet, který nesmí hledat v auditním logu. Aplikace poradí, čím to ověřit a jak právo doplnit; nápověda k tomu vysvětluje, proč většině správců audit funguje bez nastavování a co dělat, když zrovna tenhle účet výjimkou je.",
-          "en": "Audit log: when Microsoft rejects a query, the application now explains why. The message “user does not have any permissions” does not mean missing app consent – it is the signed-in account being refused the right to search the audit log. The app now says how to verify it and how to grant the right; Help explains why most administrators get audit access without configuring anything, and what to do when one particular account is the exception."
+          "en": "Audit log: when Microsoft rejects a query, the application now explains why. The message “user does not have any permissions” does not mean missing app consent — it is the signed-in account being refused the right to search the audit log. The app now says how to verify it and how to grant the right; Help explains why most administrators get audit access without configuring anything, and what to do when one particular account is the exception."
         },
         {
           "type": "fixed",
           "cs": "Nepodaří-li se načíst data aplikace (nálezy, snímky, hlídky, nastavení), aplikace to napíše a prázdné obrazovky přestane vydávat za výsledek – „zatím žádný sken“ se u tenantu se stovkou skenů už neobjeví. Uložení nastavení je v takové chvíli zablokované, aby výpadek čtení nepřepsal konfiguraci prázdnou hodnotou; dřív šlo takto přijít o váhy pilířů, prahy pravidel i udělené výjimky.",
-          "en": "If the application's data cannot be loaded (findings, snapshots, watchdogs, settings), the app now says so and stops presenting empty screens as a result – “no scan yet” no longer appears on a tenant with a hundred scans. Saving settings is blocked meanwhile so that a failed read cannot overwrite the configuration with an empty value; previously this could wipe pillar weights, rule thresholds and granted exceptions."
+          "en": "If the application's data cannot be loaded (findings, snapshots, watchdogs, settings), the app now says so and stops presenting empty screens as a result — “no scan yet” no longer appears on a tenant with a hundred scans. Saving settings is blocked meanwhile so that a failed read cannot overwrite the configuration with an empty value; previously this could wipe pillar weights, rule thresholds and granted exceptions."
         },
         {
           "type": "improved",
           "cs": "Data Atlasu jsou nově chráněná i na úrovni SharePointu: seznamy s nálezy, snímky, událostmi hlídek, uloženými audity a nastavením smí měnit jen správce aplikace a vlastníci webu. Dosud je mohl přepsat nebo smazat kdokoli s členstvím na webu – evidence, kterou lze upravit, není důkaz. Ostatní uživatelé je dál čtou beze změny.",
-          "en": "Atlas data is now protected at the SharePoint level as well: the lists holding findings, snapshots, watchdog events, saved audits and settings can only be changed by application administrators and site owners. Until now anyone with membership on the site could rewrite or delete them – records that can be edited are not evidence. Everyone else still reads them exactly as before."
+          "en": "Atlas data is now protected at the SharePoint level as well: the lists holding findings, snapshots, watchdog events, saved audits and settings can only be changed by application administrators and site owners. Until now anyone with membership on the site could rewrite or delete them — records that can be edited are not evidence. Everyone else still reads them exactly as before."
         },
         {
           "type": "fixed",
           "cs": "Přehled správců kolekce se nově sestavuje z úplného seznamu uživatelů webu, ne z filtru na straně SharePointu – ten se v ojedinělých případech chová nespolehlivě a u bezpečnostního výstupu je to nepřijatelné. Sken je při tom o jedno volání na web úspornější. Cílený audit dostal stejnou úpravu.",
-          "en": "The list of site collection administrators is now built from the full list of site users instead of a server-side filter, which is occasionally unreliable – unacceptable for a security report. The scan also makes one call less per site. Targeted audit got the same treatment."
+          "en": "The list of site collection administrators is now built from the full list of site users instead of a server-side filter, which is occasionally unreliable — unacceptable for a security report. The scan also makes one call less per site. Targeted audit got the same treatment."
         }
       ]
     },
@@ -176,27 +176,27 @@
         {
           "type": "fixed",
           "cs": "Tlačítko „Vrátit nastavení“ v Manažerském shrnutí Porovnání skenů vedlo jen na výpis nastavení tenantu, což mátlo – přejmenováno na „Nastavení tenantu“. Vrácení konkrétní změny se dělá kliknutím na řádek změny v kartě Nastavení tenantu přímo v porovnání.",
-          "en": "The \"Revert settings\" button in the Scan comparison executive summary only led to the tenant settings list, which was confusing – renamed to \"Tenant settings\". Reverting a specific change is done by clicking the change row in the Tenant settings card right in the comparison."
+          "en": "The \"Revert settings\" button in the Scan comparison executive summary only led to the tenant settings list, which was confusing — renamed to \"Tenant settings\". Reverting a specific change is done by clicking the change row in the Tenant settings card right in the comparison."
         },
         {
           "type": "improved",
           "cs": "Ukázková data pokrývají všechny obrazovky: tři snímky (trendy, Porovnání i prognóza kvóty), weby s knihovnami a seznamy v detailu, aplikace s app-only přístupem včetně tajemství, OneDrive weby, poslední aktivita z auditu, kanálové weby týmů, externí správce i zavedené hranice pro AI. Vyzkoušíte tak celou aplikaci naprázdno – a reset dat vše zase uklidí.",
-          "en": "Sample data now covers every screen: three snapshots (trends, Comparison and the quota forecast), sites with libraries and lists in the detail, applications with app-only access including secrets, OneDrive sites, recent audit activity, team channel sites, an external admin and configured AI boundaries. You can try the whole app without real data – and the data reset cleans it all up again."
+          "en": "Sample data now covers every screen: three snapshots (trends, Comparison and the quota forecast), sites with libraries and lists in the detail, applications with app-only access including secrets, OneDrive sites, recent audit activity, team channel sites, an external admin and configured AI boundaries. You can try the whole app without real data — and the data reset cleans it all up again."
         },
         {
           "type": "improved",
           "cs": "Pilíře skóre na Přehledu jsou klikací: Zabezpečení, Governance, Úložiště a Adopce otevřou Nálezy předfiltrované na daný pilíř – tedy přesně ty nálezy, které číslo srazily. AI připravenost otevře svůj detail s rozpadem na dimenze. V Nálezech k tomu přibyl nový filtr Pilíř.",
-          "en": "The score pillars on the Overview are clickable: Security, Governance, Storage and Adoption open Findings pre-filtered to that pillar – exactly the findings that pushed the number down. AI readiness opens its own detail with the dimension breakdown. Findings gained a new Pillar filter to match."
+          "en": "The score pillars on the Overview are clickable: Security, Governance, Storage and Adoption open Findings pre-filtered to that pillar — exactly the findings that pushed the number down. AI readiness opens its own detail with the dimension breakdown. Findings gained a new Pillar filter to match."
         },
         {
           "type": "improved",
           "cs": "Reporty a export s živými náhledy: každá karta ukazuje miniaturu skutečného výstupu – HTML reporty zmenšený report, CSV exporty první řádky dat, AI připravenost své dimenze. Dvojice tlačítek, která dělala totéž, nahradila jedna jasná akce podle typu výstupu (Otevřít report / Stáhnout CSV / Otevřít view).",
-          "en": "Reports and export with live previews: every card shows a miniature of the real output – HTML reports as a scaled-down report, CSV exports as the first rows of data, AI readiness as its dimensions. The pairs of buttons that did the same thing were replaced by one clear action per output type (Open report / Download CSV / Open view)."
+          "en": "Reports and export with live previews: every card shows a miniature of the real output — HTML reports as a scaled-down report, CSV exports as the first rows of data, AI readiness as its dimensions. The pairs of buttons that did the same thing were replaced by one clear action per output type (Open report / Download CSV / Open view)."
         },
         {
           "type": "improved",
           "cs": "Nápověda přepsaná od základu: přes 60 odpovědí v 17 tématech pokrývá každou obrazovku do detailu – od výpočtu skóre přes detail webu, hlídky a auditní dotazy až po správu verzí – plus nová sekce Řešení potíží (chybějící oprávnění, pomalý sken, čísla nesedí s admin centrem).",
-          "en": "Help rewritten from the ground up: over 60 answers in 17 topics cover every screen in detail – from score calculation through the site detail, watchdogs and audit queries up to version management – plus a new Troubleshooting section (missing permissions, slow scans, numbers not matching the admin center)."
+          "en": "Help rewritten from the ground up: over 60 answers in 17 topics cover every screen in detail — from score calculation through the site detail, watchdogs and audit queries up to version management — plus a new Troubleshooting section (missing permissions, slow scans, numbers not matching the admin center)."
         },
         {
           "type": "improved",
@@ -206,47 +206,47 @@
         {
           "type": "improved",
           "cs": "Přehled je kompaktnější – vývoj skóre a změny od posledního skenu už nezabírají samostatné karty, ale sedí přímo v kartě Zdraví tenantu vedle pilířů. Hlídky na úvodu se zkrátily na tři nejdůležitější události a nálezy k řešení ukazují závažnost přímo v řádku.",
-          "en": "The overview is more compact – score history and changes since the last scan no longer occupy separate cards; they sit right inside the Tenant health card next to the pillars. Watchdogs on the home screen shrank to the three most important events, and findings to resolve show their severity right in the row."
+          "en": "The overview is more compact — score history and changes since the last scan no longer occupy separate cards; they sit right inside the Tenant health card next to the pillars. Watchdogs on the home screen shrank to the three most important events, and findings to resolve show their severity right in the row."
         },
         {
           "type": "improved",
           "cs": "Detail webu se otevírá jako široký panel přes seznam – stejně jako detail týmu, takže neztratíte kontext ani filtry. Fakta o oprávněních, sdílení, úložišti a struktuře jsou rozložená do dvou sloupců bez rolování; knihovny, nálezy a jmenovité seznamy lidí mají vlastní záložky. Odkazy na konkrétní web fungují beze změny.",
-          "en": "The site detail opens as a wide panel over the list – just like the team detail, so you keep your context and filters. Facts about permissions, sharing, storage and structure are laid out in two columns with no scrolling; libraries, findings and named people lists have their own tabs. Links to a specific site keep working unchanged."
+          "en": "The site detail opens as a wide panel over the list — just like the team detail, so you keep your context and filters. Facts about permissions, sharing, storage and structure are laid out in two columns with no scrolling; libraries, findings and named people lists have their own tabs. Links to a specific site keep working unchanged."
         },
         {
           "type": "improved",
           "cs": "Detail týmu je širší a přehlednější – vlevo identita týmu a spárovaný web, vpravo nastavení týmu. Z týmu se jedním klikem dostanete na plný detail webu.",
-          "en": "The team detail is wider and clearer – team identity and the paired site on the left, team settings on the right. One click takes you from the team to the full site detail."
+          "en": "The team detail is wider and clearer — team identity and the paired site on the left, team settings on the right. One click takes you from the team to the full site detail."
         },
         {
           "type": "improved",
           "cs": "Porovnání skenů: nálezy dle závažnosti a přehled sdílení se zobrazují jako karty s novou hodnotou a barevnou změnou – místo dřívějších řádků, ve kterých se čísla špatně četla.",
-          "en": "Scan comparison: findings by severity and the sharing overview are shown as cards with the new value and a colour-coded change – replacing the earlier rows where the numbers were hard to read."
+          "en": "Scan comparison: findings by severity and the sharing overview are shown as cards with the new value and a colour-coded change — replacing the earlier rows where the numbers were hard to read."
         },
         {
           "type": "improved",
           "cs": "Hlídky v Auditním logu dostaly hledání a stránkování – v delší historii událostí se najde konkrétní účet nebo typ události okamžitě.",
-          "en": "Watchdogs in the Audit log gained search and paging – in a longer event history you find a specific account or event type instantly."
+          "en": "Watchdogs in the Audit log gained search and paging — in a longer event history you find a specific account or event type instantly."
         },
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze a informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version and information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version and information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
-          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
+          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows — below 780 px only icons remain, leaving more room for the content."
         },
         {
           "type": "new",
           "cs": "Nová obrazovka „Aplikace a přístupy“ (jen pro správce): ukáže aplikace, které čtou obsah SharePointu i bez přihlášeného uživatele – na ty totiž neplatí oprávnění webů ani nastavení sdílení. U každé vidíte, co přesně smí (od čtení až po plnou kontrolu nad všemi weby), kdy jí to bylo povoleno a – pokud to je ještě v auditním logu – kdo souhlas udělil. Data se čtou stávajícím oprávněním, žádný nový souhlas správce není potřeba.",
-          "en": "New “Applications and access” screen (admins only): it shows the applications that read SharePoint content without a signed-in user – site permissions and sharing settings don't apply to them. For each one you see exactly what it may do (from read access up to full control of every site), when it was granted, and – if it's still in the audit log – who approved it. Read with existing permissions; no new admin consent required."
+          "en": "New “Applications and access” screen (admins only): it shows the applications that read SharePoint content without a signed-in user — site permissions and sharing settings don't apply to them. For each one you see exactly what it may do (from read access up to full control of every site), when it was granted, and — if it's still in the audit log — who approved it. Read with existing permissions; no new admin consent required."
         },
         {
           "type": "new",
           "cs": "Hlídání tajemství a certifikátů aplikací: Atlas sleduje platnost přihlašovacích údajů registrovaných aplikací a upozorní, když se blíží expirace (nebo už prošla). Vypršelé tajemství shodí integraci naráz a bez varování – tohle vám dá čas ho vyměnit dřív. Samotné hodnoty se nikde nezobrazují ani neukládají; Microsoft je stejně nevydá.",
-          "en": "Watching application secrets and certificates: Atlas tracks the validity of credentials for registered applications and warns you when expiry is near (or has already passed). An expired secret takes an integration down at once and without warning – this gives you time to rotate it first. The values themselves are never shown or stored; Microsoft doesn't hand them out anyway."
+          "en": "Watching application secrets and certificates: Atlas tracks the validity of credentials for registered applications and warns you when expiry is near (or has already passed). An expired secret takes an integration down at once and without warning — this gives you time to rotate it first. The values themselves are never shown or stored; Microsoft doesn't hand them out anyway."
         },
         {
           "type": "new",
@@ -256,37 +256,37 @@
         {
           "type": "new",
           "cs": "Hranice pro AI: v AI připravenosti je nová karta, která řekne, jestli má organizace vůbec zavedenou klasifikaci obsahu – tedy způsob, jak označit dokument slovy „tenhle do odpovědí AI nepatří“. Bez ní asistent pracuje se vším, co uživatel smí přečíst, a jediné, co obsah drží stranou, jsou oprávnění nastavená pro lidi, ne pro stroj. Atlas hlásí i případ, kdy klasifikace existuje, ale žádná její hodnota obsah z AI nevylučuje.",
-          "en": "AI boundaries: AI readiness has a new card telling you whether the organization has content classification set up at all – that is, a way to mark a document as “this one doesn't belong in AI answers”. Without it the assistant works with everything the user may read, and the only thing holding content back are permissions designed for people, not machines. Atlas also reports the case where classification exists but none of its values actually excludes content from AI."
+          "en": "AI boundaries: AI readiness has a new card telling you whether the organization has content classification set up at all — that is, a way to mark a document as “this one doesn't belong in AI answers”. Without it the assistant works with everything the user may read, and the only thing holding content back are permissions designed for people, not machines. Atlas also reports the case where classification exists but none of its values actually excludes content from AI."
         },
         {
           "type": "new",
           "cs": "Kdy dojde kvóta: Úložiště nově odhadne, jak dlouho ještě vydrží kvóta tenantu při současném tempu růstu – a upozorní, když to vychází na méně než rok. Odhad se počítá z historie skenů, takže se objeví po několika pravidelných skenech; dokud na něj nejsou data, Atlas to rovnou řekne místo vymýšlení čísla. Vedle je karta „Kde se dá uklidit“ s vyčísleným místem, které drží dlouhodobě neaktivní weby.",
-          "en": "When storage runs out: Storage now estimates how long the tenant quota will last at the current growth rate – and warns when it comes out under a year. The estimate is computed from scan history, so it appears after several regular scans; until there's data for it, Atlas says so instead of inventing a number. Next to it is a “Where to clean up” card quantifying the space held by long-inactive sites."
+          "en": "When storage runs out: Storage now estimates how long the tenant quota will last at the current growth rate — and warns when it comes out under a year. The estimate is computed from scan history, so it appears after several regular scans; until there's data for it, Atlas says so instead of inventing a number. Next to it is a “Where to clean up” card quantifying the space held by long-inactive sites."
         },
         {
           "type": "new",
           "cs": "Hromadné akce nad nálezy: v Nálezech zapnete režim výběru, zaškrtnete nálezy a naráz je označíte jako potvrzené, řešené nebo vyřešené. Ušetří to proklikávání desítek detailů po dokončeném úklidu. Výjimku s odůvodněním i nadále udělujete jednotlivě – u ní je kontext potřeba.",
-          "en": "Bulk actions on findings: in Findings you switch on selection mode, tick the findings and mark them all at once as acknowledged, in progress or resolved. It saves clicking through dozens of details after a completed clean-up. Exceptions with a justification are still granted one by one – there the context matters."
+          "en": "Bulk actions on findings: in Findings you switch on selection mode, tick the findings and mark them all at once as acknowledged, in progress or resolved. It saves clicking through dozens of details after a completed clean-up. Exceptions with a justification are still granted one by one — there the context matters."
         },
         {
           "type": "new",
           "cs": "Hosté z domén mimo povolený seznam: pokud má tenant zapnutý seznam povolených domén pro externí sdílení, Atlas najde hosty z domén, které v něm nejsou. Omezení domén totiž platí jen pro nová pozvání – účty pozvané dřív mají přístup dál a organizace přitom věří, že sdílí jen s vyjmenovanými partnery.",
-          "en": "Guests from domains outside the allow list: if the tenant has an allow list for external sharing, Atlas finds guests from domains that aren't on it. The domain restriction only applies to new invitations – accounts invited earlier keep their access, while the organization believes it only shares with the listed partners."
+          "en": "Guests from domains outside the allow list: if the tenant has an allow list for external sharing, Atlas finds guests from domains that aren't on it. The domain restriction only applies to new invitations — accounts invited earlier keep their access, while the organization believes it only shares with the listed partners."
         },
         {
           "type": "improved",
           "cs": "Zdraví služeb Microsoft 365 má vlastní kartu v Nastavení tenantu – a to i tehdy, když je vše v pořádku. Probíhající incident u Microsoftu totiž zkresluje i čísla skenu (chybějící weby, prázdné reporty), takže je lepší o něm vědět dřív, než začnete hledat chybu u sebe.",
-          "en": "Microsoft 365 service health has its own card in Tenant settings – including when everything is fine. An ongoing incident at Microsoft skews the scan numbers too (missing sites, empty reports), so it's better to know about it before you start looking for the fault on your side."
+          "en": "Microsoft 365 service health has its own card in Tenant settings — including when everything is fine. An ongoing incident at Microsoft skews the scan numbers too (missing sites, empty reports), so it's better to know about it before you start looking for the fault on your side."
         },
         {
           "type": "improved",
           "cs": "V přehledu aplikací je vidět původ registrace: aplikace z cizího tenantu (dodavatelské) nesou štítek „Třetí strana“, aplikace Microsoftu štítek „Microsoft“ a ty vaše jsou bez štítku. Microsoftí aplikace se navíc nepočítají do nálezů – správce s nimi stejně nic neudělá a jen by přehlušily to podstatné.",
-          "en": "The application overview now shows the origin of each registration: applications from a foreign tenant (vendors) carry a “Third party” tag, Microsoft's carry “Microsoft”, and your own have none. Microsoft applications also no longer produce findings – an admin can't do anything about them and they would only drown out what matters."
+          "en": "The application overview now shows the origin of each registration: applications from a foreign tenant (vendors) carry a “Third party” tag, Microsoft's carry “Microsoft”, and your own have none. Microsoft applications also no longer produce findings — an admin can't do anything about them and they would only drown out what matters."
         },
         {
           "type": "improved",
           "cs": "Auditní hlídky nově poznají hromadné stahování: stahování je běžná práce, takže incident vznikne až podle objemu – když jeden účet stáhne v jednom okně víc souborů, než je nastavený práh (výchozí 200, nula hlídku vypne). U externího účtu nebo u aktivity v noci a o víkendu to Atlas zvlášť zvýrazní – typický obrázek odnášení dat před odchodem.",
-          "en": "The audit watches now spot bulk downloads: downloading is ordinary work, so an incident is raised by volume – when a single account downloads more files in one window than the configured threshold (200 by default; zero turns the watch off). If the account is external, or the activity happens at night or over the weekend, Atlas highlights that separately – the classic picture of data walking out the door."
+          "en": "The audit watches now spot bulk downloads: downloading is ordinary work, so an incident is raised by volume — when a single account downloads more files in one window than the configured threshold (200 by default; zero turns the watch off). If the account is external, or the activity happens at night or over the weekend, Atlas highlights that separately — the classic picture of data walking out the door."
         }
       ]
     },
@@ -297,37 +297,37 @@
         {
           "type": "new",
           "cs": "Nastavení jednotlivých týmů Microsoft Teams: tlačítkem „Nastavení“ u týmu v přehledu Teams otevřete detail, který kromě spárovaného webu (aktivita, úložiště, hosté, vlastníci) ukáže i nastavení samotného týmu – zda je archivovaný a jestli hosté nebo členové smějí vytvářet a mazat kanály. Rizikové kombinace (hosté smějí mazat kanály) jsou zvýrazněné. Načítá se na vyžádání a vyžaduje nové oprávnění TeamSettings.Read.All – jednorázový souhlas správce při aktualizaci.",
-          "en": "Per-team Microsoft Teams settings: the “Settings” button on a team row in the Teams overview opens a detail that – besides the paired site (activity, storage, guests, owners) – shows the team's own settings: whether it's archived and whether guests or members may create and delete channels. Risky combinations (guests may delete channels) are highlighted. Loaded on demand; requires the new TeamSettings.Read.All permission – a one-time admin consent on update."
+          "en": "Per-team Microsoft Teams settings: the “Settings” button on a team row in the Teams overview opens a detail that — besides the paired site (activity, storage, guests, owners) — shows the team's own settings: whether it's archived and whether guests or members may create and delete channels. Risky combinations (guests may delete channels) are highlighted. Loaded on demand; requires the new TeamSettings.Read.All permission — a one-time admin consent on update."
         },
         {
           "type": "new",
           "cs": "Velikost košů webu: v detailu webu (záložka Aktivita a úložiště) je nově tlačítko „Zjistit velikost košů“ – na vyžádání spočítá, kolik místa drží smazané soubory v koši webu (1. i 2. úroveň). Údaj je aktuální ke kliknutí a neukládá se; vysypání košů uvolní místo okamžitě.",
-          "en": "Site recycle bin size: the site detail (Activity and storage tab) now has a “Check recycle bin size” button – on demand it calculates how much space deleted files hold in the site's recycle bin (first and second stage). The figure is live at click time and isn't stored; emptying the bins frees the space immediately."
+          "en": "Site recycle bin size: the site detail (Activity and storage tab) now has a “Check recycle bin size” button — on demand it calculates how much space deleted files hold in the site's recycle bin (first and second stage). The figure is live at click time and isn't stored; emptying the bins frees the space immediately."
         },
         {
           "type": "new",
           "cs": "Vlastní citlivé dotazy: ke kurátorovanému katalogu na citlivý obsah (hesla, klíče, osobní data) můžete v Nastavení → Skóre a pravidla přidat vlastní vyhledávací dotazy specifické pro vaši firmu – například názvy interních projektů nebo čísla smluv. Sken vrátí jen počty (žádné cesty ani názvy) a dotaz se bezpečně obalí, aby neunikl mimo rozsah.",
-          "en": "Custom sensitive queries: on top of the curated catalog of sensitive content (passwords, keys, personal data), you can add your own search queries specific to your company in Settings → Score and rules – for example internal project names or contract numbers. The scan returns only counts (no paths or names) and the query is safely wrapped so it can't escape its scope."
+          "en": "Custom sensitive queries: on top of the curated catalog of sensitive content (passwords, keys, personal data), you can add your own search queries specific to your company in Settings → Score and rules — for example internal project names or contract numbers. The scan returns only counts (no paths or names) and the query is safely wrapped so it can't escape its scope."
         },
         {
           "type": "improved",
           "cs": "Upozornění na změny (Strážce) nově hlásí i nové hosty: pokud od posledního skenu přibyli v tenantu externí (hostovští) uživatelé, upozornění na Přehledu to uvede – i když se jinak nezměnilo žádné nastavení. Rychlé připomenutí zkontrolovat nové externí přístupy.",
-          "en": "The settings drift alert now also reports new guests: if external (guest) users have been added to the tenant since the last scan, the Overview alert says so – even when no settings otherwise changed. A quick nudge to review new external access."
+          "en": "The settings drift alert now also reports new guests: if external (guest) users have been added to the tenant since the last scan, the Overview alert says so — even when no settings otherwise changed. A quick nudge to review new external access."
         },
         {
           "type": "new",
           "cs": "Celá obrazovka: v pravém horním rohu každé stránky je nová ikona, která roztáhne Atlas přes celé okno prohlížeče – víc místa pro široké tabulky webů, nálezů i auditní log, míň posouvání. Dalším klikem se vrátíte zpět do stránky SharePointu. Volba platí i při přecházení mezi obrazovkami.",
-          "en": "Full screen: a new icon in the top-right corner of every page expands Atlas across the whole browser window – more room for the wide tables of sites, findings and the audit log, and less scrolling. Click again to return to the SharePoint page. The choice persists as you move between screens."
+          "en": "Full screen: a new icon in the top-right corner of every page expands Atlas across the whole browser window — more room for the wide tables of sites, findings and the audit log, and less scrolling. Click again to return to the SharePoint page. The choice persists as you move between screens."
         },
         {
           "type": "improved",
           "cs": "Grafy nově respektují firemní motiv: barvy v koláči podle oblastí i v trendu spotřeby úložiště se řídí zvolenou akcentovou a primární barvou (vlastní i zděděnou z EP365 Homepage) – místo napevno zadané tyrkysové a tmavě modré. Stavové barvy (červená, jantarová, zelená) zůstávají beze změny, protože nesou význam.",
-          "en": "Charts now respect the company theme: the colours in the findings-by-area donut and the storage trend follow your chosen accent and primary colour (your own or inherited from EP365 Homepage) – instead of hard-coded teal and navy. Status colours (red, amber, green) stay as they are because they carry meaning."
+          "en": "Charts now respect the company theme: the colours in the findings-by-area donut and the storage trend follow your chosen accent and primary colour (your own or inherited from EP365 Homepage) — instead of hard-coded teal and navy. Status colours (red, amber, green) stay as they are because they carry meaning."
         },
         {
           "type": "improved",
           "cs": "Otevírání detailu je jednotné napříč přehledy i celým EP365: kliknete kamkoli na řádek (Weby, Úložiště, Teams, Nálezy) a otevře se detail. Řádek se pod myší podbarví a vpravo na něm svítí šipka „›“, takže je na první pohled vidět, že s ním jde něco udělat – žádné hledání malého tlačítka na konci řádku.",
-          "en": "Opening a detail is consistent across the overviews and across EP365: click anywhere on a row (Sites, Storage, Teams, Findings) and the detail opens. The row highlights on hover and shows a “›” arrow on the right, so it is obvious at a glance that it does something – no hunting for a small button at the end of the row."
+          "en": "Opening a detail is consistent across the overviews and across EP365: click anywhere on a row (Sites, Storage, Teams, Findings) and the detail opens. The row highlights on hover and shows a “›” arrow on the right, so it is obvious at a glance that it does something — no hunting for a small button at the end of the row."
         }
       ]
     },
@@ -338,37 +338,37 @@
         {
           "type": "improved",
           "cs": "Drobná vylepšení: simulátor skóre v Nálezech nově vychází ze stejného čísla jako Přehled (dřív se lišil o pár bodů kvůli jinému způsobu výpočtu). U zakládání úkolu do To-Do se zobrazí jasnější hláška, když účet nemá Microsoft To-Do (typicky administrátorský účet bez poštovní schránky) – místo matoucího „nenalezeno“.",
-          "en": "Small improvements: the score simulator in Findings now starts from the same number as the Overview (it previously differed by a few points due to a different calculation). When creating a To-Do task, a clearer message is shown if the account has no Microsoft To-Do (typically an admin account without a mailbox) – instead of a confusing “not found”."
+          "en": "Small improvements: the score simulator in Findings now starts from the same number as the Overview (it previously differed by a few points due to a different calculation). When creating a To-Do task, a clearer message is shown if the account has no Microsoft To-Do (typically an admin account without a mailbox) — instead of a confusing “not found”."
         },
         {
           "type": "new",
           "cs": "Úkoly z nálezů do Microsoft Planner: v detailu nálezu je nově tlačítko „Vytvořit úkol“ – založí úkol v Microsoft Planner (delegace kolegům přes sdílený plán, s bucketem a volitelným přiřazením konkrétní osobě), nebo ve vašem osobním Microsoft To-Do jako připomínku. Úkol nese název nálezu, popis s dopadem a postupem a odkaz zpět do Atlasu. Výchozí plán vyberete v Nastavení → Úkoly. Zakládá se z vašeho účtu. Funkce vyžaduje nové oprávnění Tasks.ReadWrite – jednorázový souhlas správce (admin consent) při aktualizaci.",
-          "en": "Tasks from findings to Microsoft Planner: the finding detail now has a “Create task” button – it creates a task in Microsoft Planner (delegate to colleagues via a shared plan, with a bucket and optional assignment to a specific person), or in your personal Microsoft To-Do as a reminder. The task carries the finding name, a description with impact and steps, and a link back to Atlas. Pick the default plan in Settings → Tasks. Created from your own account. This feature requires the new Tasks.ReadWrite permission – a one-time admin consent on update."
+          "en": "Tasks from findings to Microsoft Planner: the finding detail now has a “Create task” button — it creates a task in Microsoft Planner (delegate to colleagues via a shared plan, with a bucket and optional assignment to a specific person), or in your personal Microsoft To-Do as a reminder. The task carries the finding name, a description with impact and steps, and a link back to Atlas. Pick the default plan in Settings → Tasks. Created from your own account. This feature requires the new Tasks.ReadWrite permission — a one-time admin consent on update."
         },
         {
           "type": "new",
           "cs": "Simulátor skóre: v Nálezech nově zapnete režim Simulace, zaškrtnete nálezy, které chcete vyřešit, a Atlas ihned přepočítá, jak by se změnilo skóre zdraví i jednotlivé pilíře – bez čekání na sken a bez jakéhokoli zápisu. Karta „Nejrychlejší cesta“ navíc seřadí nálezy podle bodového přínosu, takže vidíte, čím se vyplatí začít. Stejný výpočet nově pohání i cílové skóre v AI připravenosti.",
-          "en": "Score simulator: in Findings you can now turn on Simulation mode, tick the findings you want to resolve, and Atlas instantly recalculates how the health score and each pillar would change – with no scan and no writes. A “Fastest path” card ranks findings by point impact, so you see where to start. The same calculation now also drives the target score in AI readiness."
+          "en": "Score simulator: in Findings you can now turn on Simulation mode, tick the findings you want to resolve, and Atlas instantly recalculates how the health score and each pillar would change — with no scan and no writes. A “Fastest path” card ranks findings by point impact, so you see where to start. The same calculation now also drives the target score in AI readiness."
         },
         {
           "type": "new",
           "cs": "Konfigurovatelné prahy a profily hodnocení: u pravidel s prahem (kolik souborů sdílených ven, kolik knihoven bez verzování, od jakého zaplnění kvóty upozornit…) si nově nastavíte vlastní hodnotu v Nastavení → Skóre a pravidla. Přibyly tři profily – Standardní, Přísný a Mírný – které nastaví prahy i závažnosti naráz podle přísnosti, kterou vaše organizace potřebuje. Použité prahy se ukládají ke každému skenu, takže historická hodnocení zůstávají reprodukovatelná.",
-          "en": "Configurable thresholds and scoring profiles: for rules with a threshold (how many files shared out, how many libraries without versioning, at what quota fill to warn…) you can now set your own value in Settings → Score and rules. Three profiles were added – Standard, Strict and Relaxed – which set thresholds and severities at once to match the strictness your organization needs. The thresholds used are saved with each scan, so historical assessments stay reproducible."
+          "en": "Configurable thresholds and scoring profiles: for rules with a threshold (how many files shared out, how many libraries without versioning, at what quota fill to warn…) you can now set your own value in Settings → Score and rules. Three profiles were added — Standard, Strict and Relaxed — which set thresholds and severities at once to match the strictness your organization needs. The thresholds used are saved with each scan, so historical assessments stay reproducible."
         },
         {
           "type": "new",
           "cs": "Napsat vlastníkům: u nálezů na úrovni webů (neaktivní weby, jediný vlastník, blížící se kvóta…) je nově tlačítko, kterým jedním e-mailem oslovíte vlastníky dotčených webů se žádostí o nápravu. Vyberete weby, upravíte připravenou šablonu (jméno webu i doporučená akce se doplní samy) a e-mail odejde z vaší schránky. Žádné rozesílání naslepo – každý web potvrzujete a vidíte výsledek.",
-          "en": "Email the owners: findings at the site level (inactive sites, a single owner, an approaching quota…) now have a button that emails the owners of the affected sites with a request to act. You pick the sites, tweak a ready-made template (the site name and recommended action fill in automatically), and the email goes from your own mailbox. No blind bulk sending – you confirm each site and see the result."
+          "en": "Email the owners: findings at the site level (inactive sites, a single owner, an approaching quota…) now have a button that emails the owners of the affected sites with a request to act. You pick the sites, tweak a ready-made template (the site name and recommended action fill in automatically), and the email goes from your own mailbox. No blind bulk sending — you confirm each site and see the result."
         },
         {
           "type": "new",
           "cs": "Evidence balíček pro auditora: jedním kliknutím v Reportech vytvoříte kompletní doklad governance – metadata skenu, skóre a pilíře, všechny nálezy se stavy a historií, udělené výjimky s odůvodněním, změnu od minulého skenu a přílohy v CSV (nálezy, weby, hosté). K vytištění, uložení do PDF nebo archivaci. Vše se generuje ve vašem prohlížeči, žádná data neodcházejí mimo tenant.",
-          "en": "Evidence package for auditors: one click in Reports builds a complete governance record – scan metadata, score and pillars, all findings with their status and history, granted exceptions with justification, the change since the previous scan, and CSV attachments (findings, sites, guests). For printing, saving to PDF or archiving. Everything is generated in your browser; no data leaves the tenant."
+          "en": "Evidence package for auditors: one click in Reports builds a complete governance record — scan metadata, score and pillars, all findings with their status and history, granted exceptions with justification, the change since the previous scan, and CSV attachments (findings, sites, guests). For printing, saving to PDF or archiving. Everything is generated in your browser; no data leaves the tenant."
         },
         {
           "type": "new",
           "cs": "Časová osa: nová obrazovka ukáže příběh vašeho tenantu v čase – skeny, nově zjištěné i vyřešené nálezy a bezpečnostní události z auditních hlídek na jedné svislé ose. Filtrujete období i druh události, klik na den rozbalí konkrétní nálezy. Ideální pro rychlé doložení, jak se governance vyvíjí.",
-          "en": "Timeline: a new screen shows the story of your tenant over time – scans, newly found and resolved findings, and security events from the audit watches on a single vertical axis. Filter by period and event type; click a day to expand the specific findings. Ideal for quickly showing how governance is evolving."
+          "en": "Timeline: a new screen shows the story of your tenant over time — scans, newly found and resolved findings, and security events from the audit watches on a single vertical axis. Filter by period and event type; click a day to expand the specific findings. Ideal for quickly showing how governance is evolving."
         }
       ]
     },
@@ -379,22 +379,22 @@
         {
           "type": "new",
           "cs": "Governance Microsoft Teams: nová obrazovka Teams ukáže všechny týmy z Microsoft 365 spárované s jejich SharePoint weby – s vlastníky, viditelností (veřejný/soukromý), aktivitou, úložištěm a hosty. Tři nové kontroly upozorní na týmy bez vlastníka (nikdo neřídí přístup), veřejné týmy (vidí je celá firma) a neaktivní týmy (kandidáti na archivaci). Základ pro úklid před nasazením AI i pro řízení rozrůstání Teams.",
-          "en": "Microsoft Teams governance: a new Teams screen shows every team from Microsoft 365 paired with its SharePoint site – with owners, visibility (public/private), activity, storage and guests. Three new checks flag teams without an owner (nobody governs access), public teams (visible to the whole company) and inactive teams (archival candidates). A foundation for cleanup before AI rollout and for controlling Teams sprawl."
+          "en": "Microsoft Teams governance: a new Teams screen shows every team from Microsoft 365 paired with its SharePoint site — with owners, visibility (public/private), activity, storage and guests. Three new checks flag teams without an owner (nobody governs access), public teams (visible to the whole company) and inactive teams (archival candidates). A foundation for cleanup before AI rollout and for controlling Teams sprawl."
         },
         {
           "type": "new",
           "cs": "Radar chystaných změn Microsoftu: Nastavení tenantu nově ukazuje oznámení z Message Centra dotýkající se SharePointu, OneDrive a Teams – zvlášť chystané změny (plan for change) s termínem akce. Vidíte na jednom místě, co se v Microsoft 365 chystá a co může vyžadovat vaši reakci, aniž byste museli chodit do admin centra.",
-          "en": "Microsoft change radar: Tenant settings now shows Message Center announcements touching SharePoint, OneDrive and Teams – especially planned changes (plan for change) with an action deadline. You see in one place what's coming in Microsoft 365 and what may require your action, without going to the admin center."
+          "en": "Microsoft change radar: Tenant settings now shows Message Center announcements touching SharePoint, OneDrive and Teams — especially planned changes (plan for change) with an action deadline. You see in one place what's coming in Microsoft 365 and what may require your action, without going to the admin center."
         },
         {
           "type": "new",
           "cs": "Nová kontrola: M365 skupiny bez expirační politiky – bez ní se opuštěné skupiny, týmy a weby hromadí bez konce (sprawl). Nález doporučí zapnutí expirace i s postupem.",
-          "en": "New check: Microsoft 365 groups without an expiration policy – without it, abandoned groups, teams and sites pile up endlessly (sprawl). The finding recommends enabling expiration with steps."
+          "en": "New check: Microsoft 365 groups without an expiration policy — without it, abandoned groups, teams and sites pile up endlessly (sprawl). The finding recommends enabling expiration with steps."
         },
         {
           "type": "improved",
           "cs": "Ukázková data „nordika“ nově obsahují i Microsoft Teams týmy a oznámení Message Centra – po vytvoření testovacích dat uvidíte obrazovku Teams i radar chystaných změn naplněné.",
-          "en": "The “nordika” sample data now also includes Microsoft Teams teams and Message Center announcements – after creating test data you'll see the Teams screen and the change radar populated."
+          "en": "The “nordika” sample data now also includes Microsoft Teams teams and Message Center announcements — after creating test data you'll see the Teams screen and the change radar populated."
         }
       ]
     },
@@ -405,37 +405,37 @@
         {
           "type": "improved",
           "cs": "Karty v sekcích se nově zobrazují vždy – i když v nich zrovna nic není, řeknou vám to („žádné soubory ven, ideální stav“ apod.) místo toho, aby se skryly. Týká se karet Soubory sdílené ven (Sdílení), OneDrive uživatelů (Úložiště) a Struktura tenantu (Weby). Vždy tak vidíte celý obraz, i ten pozitivní – prázdná karta je doklad, že se to kontroluje a je to v pořádku.",
-          "en": "Section cards now always show – even when there's currently nothing in them, they tell you so (“no files out, ideal state”, etc.) instead of hiding. This covers Files shared out (Sharing), Users' OneDrive (Storage) and Tenant structure (Sites). You always see the full picture, including the good news – an empty card is proof it's being checked and it's fine."
+          "en": "Section cards now always show — even when there's currently nothing in them, they tell you so (“no files out, ideal state”, etc.) instead of hiding. This covers Files shared out (Sharing), Users' OneDrive (Storage) and Tenant structure (Sites). You always see the full picture, including the good news — an empty card is proof it's being checked and it's fine."
         },
         {
           "type": "improved",
           "cs": "Ukázková data „nordika“ nově obsahují i soubory sdílené ven, citlivý obsah a údaje o aktuálnosti obsahu – po vytvoření testovacích dat uvidíte, jak vypadá karta i nálezy z verze 1.5 naplněné.",
-          "en": "The “nordika” sample data now also includes files shared out, sensitive content and content freshness figures – after creating test data you can see how the 1.5 card and findings look when populated."
+          "en": "The “nordika” sample data now also includes files shared out, sensitive content and content freshness figures — after creating test data you can see how the 1.5 card and findings look when populated."
         },
         {
           "type": "new",
           "cs": "Soubory sdílené ven: Atlas nově ukáže konkrétní soubory dostupné mimo organizaci – přes anonymní odkazy („Kdokoli s odkazem“) i viditelné hostům. V sekci Sdílení a hosté je najdete jmenně s odkazem, dva nové nálezy (anonymní soubory jako kritické, externí jako upozornění) je promítnou do skóre. Governance se posouvá z úrovně webů na úroveň konkrétních souborů – přesně to, co při nasazení AI rozhoduje.",
-          "en": "Files shared out: Atlas now shows the actual files reachable outside the organization – via anonymous “Anyone with the link” links and visible to guests. Find them by name with a link in Sharing & guests; two new findings (anonymous files as critical, external as a warning) feed the score. Governance moves from the site level down to individual files – exactly what matters when rolling out AI."
+          "en": "Files shared out: Atlas now shows the actual files reachable outside the organization — via anonymous “Anyone with the link” links and visible to guests. Find them by name with a link in Sharing & guests; two new findings (anonymous files as critical, external as a warning) feed the score. Governance moves from the site level down to individual files — exactly what matters when rolling out AI."
         },
         {
           "type": "new",
           "cs": "Kontrola citlivého obsahu (DLP-lite): Atlas prohledá tenant na potenciálně citlivé soubory – hesla a přihlašovací údaje, soukromé klíče a certifikáty, osobní údaje (rodná čísla, IBAN) a mzdové/finanční dokumenty. Upozorní na jejich počet a zvlášť kriticky na ty, které jsou zároveň sdílené ven. Z bezpečnosti Atlas záměrně neukládá cesty citlivých souborů – ukáže počty a kategorie, konkrétní soubory dohledáte přes vyhledávání. Nevyžaduje licenci Purview DLP.",
-          "en": "Sensitive content check (DLP-lite): Atlas scans the tenant for potentially sensitive files – passwords and credentials, private keys and certificates, personal data (national IDs, IBAN) and payroll/financial documents. It flags how many there are and, critically, which are also shared out. For safety Atlas deliberately does not store the paths of sensitive files – it shows counts and categories; you find the specific files via search. No Purview DLP licence required."
+          "en": "Sensitive content check (DLP-lite): Atlas scans the tenant for potentially sensitive files — passwords and credentials, private keys and certificates, personal data (national IDs, IBAN) and payroll/financial documents. It flags how many there are and, critically, which are also shared out. For safety Atlas deliberately does not store the paths of sensitive files — it shows counts and categories; you find the specific files via search. No Purview DLP licence required."
         },
         {
           "type": "new",
           "cs": "Aktuálnost obsahu: nový pohled na to, jak živý je obsah tenantu – kolik dokumentů se za měsíc změnilo a kolik jich je starších dvou let. Nízká živost obsahu se promítne jako nález adopce. AI odpovídá i ze zastaralého obsahu se stejnou jistotou jako z platného, proto na tom před nasazením AI záleží.",
-          "en": "Content freshness: a new view of how alive your tenant's content is – how many documents changed in the last month and how many are older than two years. Low content liveness shows up as an adoption finding. AI answers from stale content with the same confidence as from valid content, so this matters before an AI rollout."
+          "en": "Content freshness: a new view of how alive your tenant's content is — how many documents changed in the last month and how many are older than two years. Low content liveness shows up as an adoption finding. AI answers from stale content with the same confidence as from valid content, so this matters before an AI rollout."
         },
         {
           "type": "new",
           "cs": "Weby mimo vyhledávání: Atlas nově upozorní na weby vyřazené z vyhledávacího indexu (NoCrawl) – nevidí je hledání ani AI asistent. Někdy je to záměr (archiv, citlivý web), jindy chyba, která schová platný obsah; nález vám dá vědět, ať to prověříte.",
-          "en": "Sites hidden from search: Atlas now flags sites excluded from the search index (NoCrawl) – invisible to search and to the AI assistant. Sometimes that's intentional (archive, sensitive site), sometimes a mistake that hides valid content; the finding lets you review it."
+          "en": "Sites hidden from search: Atlas now flags sites excluded from the search index (NoCrawl) — invisible to search and to the AI assistant. Sometimes that's intentional (archive, sensitive site), sometimes a mistake that hides valid content; the finding lets you review it."
         },
         {
           "type": "new",
           "cs": "Hygiena verzování: Atlas najde knihovny s neomezenou historií verzí (každá verze je plná kopie souboru – zbytečně bobtná úložiště) a upozorní, pokud není zapnuté inteligentní ořezávání verzí na úrovni tenantu. U obou je hotový PowerShell příkaz k nápravě.",
-          "en": "Versioning hygiene: Atlas finds libraries with unlimited version history (every version is a full copy of the file – needlessly bloating storage) and flags when intelligent version trimming isn't enabled at the tenant level. Both come with a ready PowerShell command to fix it."
+          "en": "Versioning hygiene: Atlas finds libraries with unlimited version history (every version is a full copy of the file — needlessly bloating storage) and flags when intelligent version trimming isn't enabled at the tenant level. Both come with a ready PowerShell command to fix it."
         }
       ]
     },
@@ -446,12 +446,12 @@
         {
           "type": "improved",
           "cs": "Přeskenování jednoho webu nově ukazuje průběh po fázích (základ webu, uživatelé, vlastníci, knihovny, podweby, oprávnění) s ukazatelem postupu – vidíte, kde sken právě je.",
-          "en": "Rescanning a single site now shows progress in phases (site basics, users, owners, libraries, subsites, permissions) with a progress bar – you can see where the scan currently is."
+          "en": "Rescanning a single site now shows progress in phases (site basics, users, owners, libraries, subsites, permissions) with a progress bar — you can see where the scan currently is."
         },
         {
           "type": "improved",
           "cs": "Dědění motivu z globální konfigurace se přesunulo z Obecného nastavení do sekce Motiv – vše kolem vzhledu aplikace je teď na jednom místě.",
-          "en": "Inheriting the theme from the global configuration moved from General settings into the Theme section – everything about the app's appearance is now in one place."
+          "en": "Inheriting the theme from the global configuration moved from General settings into the Theme section — everything about the app's appearance is now in one place."
         },
         {
           "type": "fixed",
@@ -466,17 +466,17 @@
         {
           "type": "new",
           "cs": "Strážce změn nastavení: Atlas nově pozná, když se nastavení tenantu změní mimo aplikaci – v admin centru, PowerShellem nebo jiným správcem. Hned na Přehledu se objeví upozornění, které změny od posledního skenu proběhly, které z nich zvyšují riziko, a rizikovou změnu můžete jedním klikem vrátit zpět na bezpečnější hodnotu.",
-          "en": "Settings drift watch: Atlas now notices when tenant settings change outside the app – in the admin center, via PowerShell, or by another admin. Right on the Overview you'll see which settings changed since the last scan, which of them raise risk, and you can revert a risky change back to the safer value in one click."
+          "en": "Settings drift watch: Atlas now notices when tenant settings change outside the app — in the admin center, via PowerShell, or by another admin. Right on the Overview you'll see which settings changed since the last scan, which of them raise risk, and you can revert a risky change back to the safer value in one click."
         },
         {
           "type": "new",
           "cs": "Auditní hlídky: Atlas při každém otevření (nejvýš jednou za hodinu) na pozadí prověří auditní záznamy Microsoft Purview a upozorní na rizikové události mezi otevřeními – vytvořené anonymní odkazy, změny oprávnění, přidané správce kolekcí a hromadné mazání souborů. Hlídky zapnete v Nastavení → Notifikace; přehled událostí najdete na Přehledu i v Auditním logu.",
-          "en": "Audit watchtower: on each open (at most once an hour) Atlas checks the Microsoft Purview audit in the background and flags risky events that happened in the meantime – anonymous links created, permission changes, site collection admins added, and mass file deletions. Turn watches on in Settings → Notifications; find the events on the Overview and in the Audit log."
+          "en": "Audit watchtower: on each open (at most once an hour) Atlas checks the Microsoft Purview audit in the background and flags risky events that happened in the meantime — anonymous links created, permission changes, site collection admins added, and mass file deletions. Turn watches on in Settings → Notifications; find the events on the Overview and in the Audit log."
         },
         {
           "type": "new",
           "cs": "Vyšetřovací playbooky: Auditní log má nově sadu připravených dotazů na jeden klik – Aktivita uživatele, Kdo sahal na obsah, Sdílení ven za období, Změny oprávnění, Hromadné mazání a Aktivita správců. Playbook předvyplní sestavovač dotazu, který pak ještě doladíte. Vlastní dotazy si můžete pojmenovat a uložit pro příště.",
-          "en": "Investigation playbooks: the Audit log now has a set of ready-made one-click queries – User activity, Who touched content, External sharing over a period, Permission changes, Mass deletion and Admin activity. A playbook pre-fills the query builder, which you can still fine-tune. You can name and save your own queries for later."
+          "en": "Investigation playbooks: the Audit log now has a set of ready-made one-click queries — User activity, Who touched content, External sharing over a period, Permission changes, Mass deletion and Admin activity. A playbook pre-fills the query builder, which you can still fine-tune. You can name and save your own queries for later."
         },
         {
           "type": "new",
@@ -502,7 +502,7 @@
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si EP365 Atlas krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
-          "en": "Interactive app guide – walk through EP365 Atlas step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+          "en": "Interactive app guide — walk through EP365 Atlas step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help — and it offers itself on your first visit."
         }
       ]
     },
@@ -523,57 +523,57 @@
         {
           "type": "fixed",
           "cs": "Přidání uživatele do rolí (Správci / Čtenáři) v Nastavení selhávalo s technickou chybou SharePointu. Opraveno – členy skupin lze zase přidávat. Stejná příčina se opravila i u tlačítek „Opravit knihovnu z aplikace“ (zapnutí verzování, obnovení dědění oprávnění) v detailu nálezu.",
-          "en": "Adding a user to a role (Admins / Readers) in Settings failed with a SharePoint technical error. Fixed – group members can be added again. The same underlying cause was also fixed for the “Fix library from the app” buttons (enable versioning, restore permission inheritance) in the finding detail."
+          "en": "Adding a user to a role (Admins / Readers) in Settings failed with a SharePoint technical error. Fixed — group members can be added again. The same underlying cause was also fixed for the “Fix library from the app” buttons (enable versioning, restore permission inheritance) in the finding detail."
         },
         {
           "type": "improved",
           "cs": "Nahlásit chybu a Navrhnout funkci teď odesílá hlášení e-mailem z vaší adresy přímo na podporu EasyPortal 365 – vznikne z něj tiket a o vyřízení vás budeme informovat e-mailem. Dřív hlášení mířilo do externího formuláře. K hlášení se přikládá jen to, co vyplníte, plus verze aplikace, jméno, e-mail a identifikace tenantu. Když odeslání z aplikace selže (např. chybí oprávnění k odesílání pošty), nabídne se otevření předvyplněné zprávy ve vašem poštovním klientovi.",
-          "en": "Report a bug and Suggest a feature now send the report by email from your address straight to EasyPortal 365 support – it becomes a ticket and you'll be updated by email. Previously reports went to an external form. Only what you fill in is attached, plus the app version, your name, email and tenant identification. If sending from the app fails (e.g. missing mail permission), it offers to open a pre-filled message in your email client."
+          "en": "Report a bug and Suggest a feature now send the report by email from your address straight to EasyPortal 365 support — it becomes a ticket and you'll be updated by email. Previously reports went to an external form. Only what you fill in is attached, plus the app version, your name, email and tenant identification. If sending from the app fails (e.g. missing mail permission), it offers to open a pre-filled message in your email client."
         },
         {
           "type": "fixed",
           "cs": "Auditní log se opět načítá. Microsoft dočasně rozbil verzi v1.0 svého auditního rozhraní (vracelo chybu 404), na které Atlas stál – seznam proběhlých dotazů i jejich zakládání proto přestaly fungovat. Atlas teď volání auditního rozhraní automaticky přepne na funkční verzi (a sám se vrátí zpět, až Microsoft původní verzi opraví). Auditování ani oprávnění nebyly nikdy problém.",
-          "en": "The audit log loads again. Microsoft temporarily broke the v1.0 version of their audit API (it returned a 404 error) that Atlas relied on – so the list of past queries and creating new ones stopped working. Atlas now automatically switches the audit API calls to the working version (and switches back once Microsoft fixes the original). Auditing and permissions were never the problem."
+          "en": "The audit log loads again. Microsoft temporarily broke the v1.0 version of their audit API (it returned a 404 error) that Atlas relied on — so the list of past queries and creating new ones stopped working. Atlas now automatically switches the audit API calls to the working version (and switches back once Microsoft fixes the original). Auditing and permissions were never the problem."
         },
         {
           "type": "improved",
           "cs": "Import Get-SPOTenant je pohodlnější: PowerShell příkaz má tlačítko Kopírovat a je předvyplněný adresou vašeho tenantu (žádné ruční přepisování). Nápověda má novou sekci SPO Management Shell – jak modul nainstalovat, ověřit, připojit se a co dělat s častými chybami; přímý odkaz na ni vede z importu i ze sekce PowerShell v detailu nálezu.",
-          "en": "The Get-SPOTenant import is more convenient: the PowerShell command has a Copy button and comes pre-filled with your tenant's admin URL (no manual editing). Help has a new SPO Management Shell section – how to install and verify the module, connect, and deal with common errors; both the import and the PowerShell section in the finding detail link to it directly."
+          "en": "The Get-SPOTenant import is more convenient: the PowerShell command has a Copy button and comes pre-filled with your tenant's admin URL (no manual editing). Help has a new SPO Management Shell section — how to install and verify the module, connect, and deal with common errors; both the import and the PowerShell section in the finding detail link to it directly."
         },
         {
           "type": "new",
           "cs": "Podpora úplného pozastavení aplikace: při zneplatnění licence (ukončení spolupráce) se aplikace zcela zablokuje – zobrazí jen oznámení o pozastavení a tlačítko pro nové ověření licence. Po obnovení licence se sama vrátí do plného provozu.",
-          "en": "Support for full application suspension: when the licence is revoked (end of cooperation), the app locks down completely – it shows only a suspension notice and a button to re-verify the licence. Once the licence is restored, it returns to full operation on its own."
+          "en": "Support for full application suspension: when the licence is revoked (end of cooperation), the app locks down completely — it shows only a suspension notice and a button to re-verify the licence. Once the licence is restored, it returns to full operation on its own."
         },
         {
           "type": "new",
           "cs": "Dva další nálezy jdou opravit přímo z aplikace: retence OneDrive po odchodu zaměstnance (jedním kliknutím na 365 dní) a omezení externího sdílení na povolené domény – Atlas navrhne seznam podle domén vašich stávajících hostů, vy ho zkontrolujete, upravíte a potvrdíte.",
-          "en": "Two more findings can now be fixed straight from the app: OneDrive retention after offboarding (one click sets 365 days) and restricting external sharing to an allow-list of domains – Atlas suggests the list from your existing guests' domains for you to review, adjust and confirm."
+          "en": "Two more findings can now be fixed straight from the app: OneDrive retention after offboarding (one click sets 365 days) and restricting external sharing to an allow-list of domains — Atlas suggests the list from your existing guests' domains for you to review, adjust and confirm."
         },
         {
           "type": "improved",
           "cs": "Nápověda k auditnímu logu doplněna o aktuální chování – seznam proběhlých dotazů, načtení výsledků po kliknutí a detail události se všemi poli z Purview.",
-          "en": "Help for the audit log updated for the current behaviour – the list of past queries, loading results on click, and the event detail with all Purview fields."
+          "en": "Help for the audit log updated for the current behaviour — the list of past queries, loading results on click, and the event detail with all Purview fields."
         },
         {
           "type": "improved",
           "cs": "Auditní log se při otevření už nepokouší rovnou stáhnout poslední výsledky – jen svižně vypíše proběhlé audit dotazy z Purview. Konkrétní události se načtou až po kliknutí na dotaz (u velkých dotazů to pár sekund trvá). Otevření obrazovky je tak okamžité.",
-          "en": "The audit log no longer tries to download the latest results on open – it just quickly lists the past Purview audit queries. The actual events load only after you click a query (which can take a few seconds for large queries). Opening the screen is now instant."
+          "en": "The audit log no longer tries to download the latest results on open — it just quickly lists the past Purview audit queries. The actual events load only after you click a query (which can take a few seconds for large queries). Opening the screen is now instant."
         },
         {
           "type": "fixed",
           "cs": "V detailu auditní události jsou klikací jen údaje, které někam vedou – URL objektu a e-mail uživatele. Ostatní pole (identifikátory, časy, názvy operací) jsou teď prostý text, ne odkaz, který nikam nevede.",
-          "en": "In the audit event detail, only values that actually lead somewhere are clickable – the object URL and the user’s email. Other fields (identifiers, timestamps, operation names) are now plain text instead of links that went nowhere."
+          "en": "In the audit event detail, only values that actually lead somewhere are clickable — the object URL and the user’s email. Other fields (identifiers, timestamps, operation names) are now plain text instead of links that went nowhere."
         },
         {
           "type": "new",
           "cs": "Řádek auditního logu jde rozkliknout do detailu. Otevře se panel se všemi poli, která k události vrací Microsoft Purview – kdo, kdy, operace, web a objekt, IP adresa, klient (User-Agent), typ položky, cíl sdílení a další – plus tlačítko pro zkopírování celého záznamu v JSON. Web a objekt jsou klikací odkazy.",
-          "en": "Audit log rows are now clickable and open a detail panel with every field Microsoft Purview returns for the event – who, when, operation, site and object, IP address, client (User-Agent), item type, sharing target and more – plus a button to copy the whole record as JSON. Site and object are clickable links."
+          "en": "Audit log rows are now clickable and open a detail panel with every field Microsoft Purview returns for the event — who, when, operation, site and object, IP address, client (User-Agent), item type, sharing target and more — plus a button to copy the whole record as JSON. Site and object are clickable links."
         },
         {
           "type": "improved",
           "cs": "Sestavovač auditního dotazu nabízí výrazně víc typů operací SharePointu – kromě souborů a sdílení nově složky, stránky a seznamy, položky, dědění oprávnění i připojení k hubu – a přehlednější rozvržení na plnou šířku bez vnitřního posuvníku.",
-          "en": "The audit query builder offers many more SharePoint operation types – besides files and sharing, now folders, pages and lists, list items, permission inheritance and hub association – in a clearer full-width layout without an inner scrollbar."
+          "en": "The audit query builder offers many more SharePoint operation types — besides files and sharing, now folders, pages and lists, list items, permission inheritance and hub association — in a clearer full-width layout without an inner scrollbar."
         },
         {
           "type": "fixed",
@@ -588,27 +588,27 @@
         {
           "type": "improved",
           "cs": "Detail webu → Struktura → Knihovny a seznamy: nově se rozbalí do řádkové tabulky s podrobnostmi ke každé knihovně/listu (název, URL, typ, počet položek, poslední změna, verzování, unikátní oprávnění) – s hledáním a řazením kliknutím na sloupec.",
-          "en": "Site detail → Structure → Libraries and lists: now expands into a row table with details per library/list (name, URL, type, item count, last modified, versioning, unique permissions) – with search and click-to-sort columns."
+          "en": "Site detail → Structure → Libraries and lists: now expands into a row table with details per library/list (name, URL, type, item count, last modified, versioning, unique permissions) — with search and click-to-sort columns."
         },
         {
           "type": "improved",
           "cs": "Auditní log má propracovaný sestavovač dotazu: vlastní rozsah dat, výběr konkrétních operací (sdílení, práce se soubory, oprávnění, správa webů), filtr na uživatele (UPN) a klíčové slovo – filtry zúží dotaz už na straně Microsoftu.",
-          "en": "The audit log now has a proper query builder: custom date range, selection of specific operations (sharing, file activity, permissions, site management), a user (UPN) filter and a keyword – filters narrow the query on Microsoft’s side."
+          "en": "The audit log now has a proper query builder: custom date range, selection of specific operations (sharing, file activity, permissions, site management), a user (UPN) filter and a keyword — filters narrow the query on Microsoft’s side."
         },
         {
           "type": "improved",
           "cs": "Auditní log nově nahoře jasně ukazuje stav auditování (aktivní / pravděpodobně vypnuté / neověřeno) – upozornění, že auditování v Purview není zapnuté, je teď vždy vidět, ne schované až pod prázdným výsledkem.",
-          "en": "The audit log now clearly shows the auditing status at the top (active / likely off / unverified) – the warning that auditing isn’t enabled in Purview is now always visible, not hidden below an empty result."
+          "en": "The audit log now clearly shows the auditing status at the top (active / likely off / unverified) — the warning that auditing isn’t enabled in Purview is now always visible, not hidden below an empty result."
         },
         {
           "type": "improved",
           "cs": "Report zdraví tenantu je nově použitelný: otevře se jako čistý samostatný dokument v novém okně (skóre, pilíře, nálezy dle závažnosti, rozpad oblastí, nejdůležitější body) a odtud se tiskne / ukládá do PDF – už netiskne celé rozhraní aplikace včetně menu.",
-          "en": "The tenant health report is now usable: it opens as a clean standalone document in a new window (score, pillars, findings by severity, area breakdown, key items) and prints / saves to PDF from there – it no longer prints the whole app UI including the menu."
+          "en": "The tenant health report is now usable: it opens as a clean standalone document in a new window (score, pillars, findings by severity, area breakdown, key items) and prints / saves to PDF from there — it no longer prints the whole app UI including the menu."
         },
         {
           "type": "improved",
           "cs": "V detailu webu jsou nově rozklikávací i řádky v záložce Struktura – u „Knihovny a seznamy“ se rozbalí jejich seznam, stejně jako to už funguje u Oprávnění.",
-          "en": "In the site detail, the Structure tab rows are now expandable too – “Libraries and lists” reveals the list of them, just like it already works on Permissions."
+          "en": "In the site detail, the Structure tab rows are now expandable too — “Libraries and lists” reveals the list of them, just like it already works on Permissions."
         },
         {
           "type": "improved",
@@ -623,7 +623,7 @@
         {
           "type": "new",
           "cs": "Opravit přímo z aplikace: u nálezů verzování knihoven (ST-06) a prolomeného dědění (PE-03) je v detailu u každé knihovny tlačítko, které úpravu provede rovnou přes SharePoint – bez PowerShellu.",
-          "en": "Fix directly from the app: for library versioning (ST-06) and broken inheritance (PE-03) findings, each library in the detail has a button that applies the change straight through SharePoint – no PowerShell."
+          "en": "Fix directly from the app: for library versioning (ST-06) and broken inheritance (PE-03) findings, each library in the detail has a button that applies the change straight through SharePoint — no PowerShell."
         },
         {
           "type": "new",
@@ -633,7 +633,7 @@
         {
           "type": "new",
           "cs": "Nová kontrola: externí host se správcovskými nebo vlastnickými právy na webu (PE-11) – vysoké riziko, které dřív nebylo vidět.",
-          "en": "New check: an external guest holding site owner or admin rights (PE-11) – a high risk that was previously invisible."
+          "en": "New check: an external guest holding site owner or admin rights (PE-11) — a high risk that was previously invisible."
         },
         {
           "type": "new",
@@ -648,27 +648,27 @@
         {
           "type": "new",
           "cs": "OneDrive inventář: v Úložišti přibyl přehled osobních webů OneDrive viditelných správci (best-effort – úplný tenant-wide přehled vyžaduje aplikační oprávnění).",
-          "en": "OneDrive inventory: Storage now lists the personal OneDrive sites visible to the admin (best-effort – a full tenant-wide list requires application permissions)."
+          "en": "OneDrive inventory: Storage now lists the personal OneDrive sites visible to the admin (best-effort — a full tenant-wide list requires application permissions)."
         },
         {
           "type": "new",
           "cs": "Historie nálezu: detail nálezu ukazuje časovou osu (poprvé zjištěno, naposledy potvrzeno, regrese, vyřešeno, výjimka) – přehledně, kdy a jak se nález vyvíjel.",
-          "en": "Finding history: the finding detail shows a timeline (first seen, last confirmed, regression, resolved, exception) – a clear view of how the finding evolved."
+          "en": "Finding history: the finding detail shows a timeline (first seen, last confirmed, regression, resolved, exception) — a clear view of how the finding evolved."
         },
         {
           "type": "new",
           "cs": "Nová kontrola AI připravenosti: Restricted Access Control (RAC) – doporučení pro řízení přístupu Copilota (vyhodnotí se z importu Get-SPOTenant).",
-          "en": "New AI-readiness check: Restricted Access Control (RAC) – a recommendation for controlling Copilot access (evaluated from the Get-SPOTenant import)."
+          "en": "New AI-readiness check: Restricted Access Control (RAC) — a recommendation for controlling Copilot access (evaluated from the Get-SPOTenant import)."
         },
         {
           "type": "improved",
           "cs": "Systémové knihovny SharePointu (Šablony formulářů / Form Templates, Style Library) se v kontrole verzování přeskakují rovnou – přestaly dělat šum.",
-          "en": "SharePoint system libraries (Form Templates, Style Library) are now skipped in the versioning check outright – they no longer create noise."
+          "en": "SharePoint system libraries (Form Templates, Style Library) are now skipped in the versioning check outright — they no longer create noise."
         },
         {
           "type": "improved",
           "cs": "Souběžný sken od dvou správců je nově pojištěný zámkem – dva lidé už omylem nespustí sken zároveň (chránilo by to před zdvojením nálezů).",
-          "en": "A concurrent scan by two admins is now guarded by a lock – two people can no longer accidentally run a scan at the same time (which protects against duplicated findings)."
+          "en": "A concurrent scan by two admins is now guarded by a lock — two people can no longer accidentally run a scan at the same time (which protects against duplicated findings)."
         },
         {
           "type": "improved",
@@ -684,62 +684,62 @@
         {
           "type": "new",
           "cs": "Přehled zdraví tenantu – celkové skóre 0–100 s pěti pilíři (zabezpečení, governance, úložiště, adopce a AI připravenost), manažerským shrnutím a doporučenými akcemi.",
-          "en": "Tenant health overview – an overall 0–100 score with five pillars (security, governance, storage, adoption and AI readiness), an executive summary and recommended actions."
+          "en": "Tenant health overview — an overall 0–100 score with five pillars (security, governance, storage, adoption and AI readiness), an executive summary and recommended actions."
         },
         {
           "type": "new",
           "cs": "Nálezy – katalog kontrolních pravidel vyhodnocuje každý sken; nálezy potvrzujete, řešíte nebo označíte jako výjimku a Atlas hlídá regrese mezi skeny.",
-          "en": "Findings – a catalogue of rules evaluates every scan; confirm, resolve or mark findings as exceptions while Atlas watches for regressions between scans."
+          "en": "Findings — a catalogue of rules evaluates every scan; confirm, resolve or mark findings as exceptions while Atlas watches for regressions between scans."
         },
         {
           "type": "new",
           "cs": "Inventář webů z usage reportů Microsoftu – všechny kolekce webů včetně těch, kam správce nemá přístup, s úložištěm, aktivitou a zdravím per web.",
-          "en": "Site inventory from Microsoft usage reports – every site collection including those the admin cannot access, with storage, activity and per-site health."
+          "en": "Site inventory from Microsoft usage reports — every site collection including those the admin cannot access, with storage, activity and per-site health."
         },
         {
           "type": "new",
           "cs": "Nastavení tenantu auditované proti doporučené praxi – u každé kontroly aktuální hodnota, doporučení a tlačítko Opravit, které změnu rovnou zapíše.",
-          "en": "Tenant settings audited against recommended practice – each check shows the current value, the recommendation and a Fix button that writes the change directly."
+          "en": "Tenant settings audited against recommended practice — each check shows the current value, the recommendation and a Fix button that writes the change directly."
         },
         {
           "type": "new",
           "cs": "AI připravenost – čtyři dimenze (pořádek v právech, klasifikace dat, autoritativní zdroje, aktuálnost obsahu) s kontrolami, doporučenými kroky a porovnáním s minulým skenem.",
-          "en": "AI readiness – four dimensions (access hygiene, data classification, authoritative sources, content freshness) with checks, recommended steps and a comparison with the previous scan."
+          "en": "AI readiness — four dimensions (access hygiene, data classification, authoritative sources, content freshness) with checks, recommended steps and a comparison with the previous scan."
         },
         {
           "type": "new",
           "cs": "Sdílení a hosté – inventář hostů z Entra ID včetně neaktivních účtů, rozpad podle domén a přehled sdílení z auditních událostí.",
-          "en": "Sharing and guests – a guest inventory from Entra ID including inactive accounts, a per-domain breakdown and a sharing overview built from audit events."
+          "en": "Sharing and guests — a guest inventory from Entra ID including inactive accounts, a per-domain breakdown and a sharing overview built from audit events."
         },
         {
           "type": "new",
           "cs": "Auditní log Microsoft Purview přímo v aplikaci – dotazy nad sdílením, mazáním, oprávněními i admin akcemi bez PowerShellu.",
-          "en": "The Microsoft Purview audit log right in the app – queries over sharing, deletions, permissions and admin actions without PowerShell."
+          "en": "The Microsoft Purview audit log right in the app — queries over sharing, deletions, permissions and admin actions without PowerShell."
         },
         {
           "type": "new",
           "cs": "Skenování na vyžádání ve vašem prohlížeči – rychlý i plný sken s průběhem po fázích, ohleduplností k limitům Microsoftu a ukládáním snímků pro trendy.",
-          "en": "On-demand scanning in your browser – quick and full scans with per-phase progress, respect for Microsoft throttling limits and snapshots saved for trends."
+          "en": "On-demand scanning in your browser — quick and full scans with per-phase progress, respect for Microsoft throttling limits and snapshots saved for trends."
         },
         {
           "type": "new",
           "cs": "Porovnání skenů – vyberete dva snímky a Atlas ukáže vše, co se mezi nimi změnilo: skóre, nálezy, nastavení, weby, sdílení i spotřebu.",
-          "en": "Scan comparison – pick two snapshots and Atlas shows everything that changed between them: score, findings, settings, sites, sharing and storage."
+          "en": "Scan comparison — pick two snapshots and Atlas shows everything that changed between them: score, findings, settings, sites, sharing and storage."
         },
         {
           "type": "new",
           "cs": "Reporty a export – manažerský report zdraví tenantu k tisku a CSV exporty pro další zpracování; vše se generuje ve vašem tenantu.",
-          "en": "Reports and export – a printable tenant health report and CSV exports for further processing; everything is generated inside your tenant."
+          "en": "Reports and export — a printable tenant health report and CSV exports for further processing; everything is generated inside your tenant."
         },
         {
           "type": "new",
           "cs": "Detail nálezu s návodem na řešení – u každého nálezu vidíte dopad, konkrétní kroky, a hlavně tlačítka Opravit hned (zapíše doporučené nastavení tenantu) a Ověřit teď (přečte živá data a nález uzavře jen tehdy, když problém opravdu zmizel).",
-          "en": "Finding detail with a resolution guide – each finding shows its impact, concrete steps and, above all, Fix now (writes the recommended tenant setting) and Verify now (reads live data and closes the finding only once the problem is truly gone)."
+          "en": "Finding detail with a resolution guide — each finding shows its impact, concrete steps and, above all, Fix now (writes the recommended tenant setting) and Verify now (reads live data and closes the finding only once the problem is truly gone)."
         },
         {
           "type": "improved",
           "cs": "Nálezy si nově přepnete na kteroukoli starší verzi (dřívější sken) a nález z ní otevřete v detailu jen pro čtení – ideální pro doložení stavu k datu. „Ověřit teď“ i u historického nálezu prověří, zda problém trvá i dnes.",
-          "en": "Findings can now switch to any older version (an earlier scan) and open a finding from it in a read-only detail – ideal for documenting the state at a given date. Verify now works on historical findings too, checking whether the problem still exists today."
+          "en": "Findings can now switch to any older version (an earlier scan) and open a finding from it in a read-only detail — ideal for documenting the state at a given date. Verify now works on historical findings too, checking whether the problem still exists today."
         },
         {
           "type": "improved",
@@ -754,7 +754,7 @@
         {
           "type": "new",
           "cs": "Nová sekce Struktura tenantu (ve Webech): hub sites, term store, M365 skupiny včetně osiřelých bez vlastníka, Content Type Hub a home site – přehled informační architektury na jednom místě, s upozorněním na osiřelé skupiny a chybějící rozcestníky.",
-          "en": "New Tenant structure section (under Sites): hub sites, the term store, Microsoft 365 groups including orphaned ones without an owner, the Content Type Hub and the home site – an information-architecture overview in one place, flagging orphaned groups and missing hubs."
+          "en": "New Tenant structure section (under Sites): hub sites, the term store, Microsoft 365 groups including orphaned ones without an owner, the Content Type Hub and the home site — an information-architecture overview in one place, flagging orphaned groups and missing hubs."
         },
         {
           "type": "new",
@@ -769,7 +769,7 @@
         {
           "type": "improved",
           "cs": "Detail nálezu je širší a přehledně ve dvou sloupcích (vlevo co a proč, vpravo jak to vyřešit) – bez posouvání. Přibyly technické detaily (pravidlo, pilíř, objekt, způsob ověření) a hlavně sekce PowerShell s hotovým příkazem včetně přihlášení pro svépomocnou opravu; všechna tlačítka (Opravit, Ověřit, Označit) jsou nově ve spodní liště.",
-          "en": "The finding detail is wider and laid out in two clear columns (what and why on the left, how to fix on the right) – no scrolling. It adds technical details (rule, pillar, object, verification method) and, above all, a PowerShell section with a ready-to-run command including sign-in for self-service; all buttons (Fix, Verify, Mark) now live in the bottom bar."
+          "en": "The finding detail is wider and laid out in two clear columns (what and why on the left, how to fix on the right) — no scrolling. It adds technical details (rule, pillar, object, verification method) and, above all, a PowerShell section with a ready-to-run command including sign-in for self-service; all buttons (Fix, Verify, Mark) now live in the bottom bar."
         },
         {
           "type": "improved",
@@ -784,57 +784,57 @@
         {
           "type": "fixed",
           "cs": "Oprava: po „Smazat všechna data“ (i po smazání jednotlivého skenu) se data už nevrací. Aplikace dřív při prázdném seznamu automaticky vytvořila ukázková data „nordika“ hned po smazání, takže to vypadalo, že mazání nefunguje. Nově se ukázková data vytvoří výhradně tlačítkem – reálný tenant tak nemá žádná falešná data.",
-          "en": "Fixed: after Delete all data (or deleting a single scan) the data no longer comes back. The app used to auto-create the nordika sample data whenever the list was empty, right after deletion, making it look like delete didn't work. Sample data is now created only via the button – a real tenant carries no fake data."
+          "en": "Fixed: after Delete all data (or deleting a single scan) the data no longer comes back. The app used to auto-create the nordika sample data whenever the list was empty, right after deletion, making it look like delete didn't work. Sample data is now created only via the button — a real tenant carries no fake data."
         },
         {
           "type": "new",
           "cs": "Správa dat: v Historii skenů (Skenování) jde nově smazat konkrétní sken (ikona koše u řádku s potvrzením) a v Nastavení → Testovací data přibylo „Smazat všechna data“ – nevratně odstraní všechny skeny i nálezy (reálné i ukázkové) pro čistý start; nastavení, motiv, role a licence zůstanou.",
-          "en": "Data management: in the Scan history you can now delete a specific scan (a trash icon on the row with confirmation), and Settings → Test data gained a Delete all data action – irreversibly removes all scans and findings (real and sample) for a clean start; settings, theme, roles and license remain."
+          "en": "Data management: in the Scan history you can now delete a specific scan (a trash icon on the row with confirmation), and Settings → Test data gained a Delete all data action — irreversibly removes all scans and findings (real and sample) for a clean start; settings, theme, roles and license remain."
         },
         {
           "type": "improved",
           "cs": "V detailu webu jsou položky v záložkách Oprávnění, Sdílení a Struktura nově rozklikávací – kliknutím se za číslem rozbalí konkrétní seznam: kdo jsou vlastníci a hosté, které knihovny mají unikátní oprávnění nebo jim chybí verzování, které jsou podweby a velké listy, kdo má přímá oprávnění. Data ze skenu tak jsou konečně vidět, ne jen spočítaná.",
-          "en": "In the site detail, the items on the Permissions, Sharing and Structure tabs are now expandable – click a count to reveal the actual list: who the owners and guests are, which libraries have unique permissions or lack versioning, which are subsites and large lists, who holds direct permissions. The scan data is finally visible, not just counted."
+          "en": "In the site detail, the items on the Permissions, Sharing and Structure tabs are now expandable — click a count to reveal the actual list: who the owners and guests are, which libraries have unique permissions or lack versioning, which are subsites and large lists, who holds direct permissions. The scan data is finally visible, not just counted."
         },
         {
           "type": "fixed",
           "cs": "Oprava: hloubkový sken nově opravdu ukládá své výsledky. Dříve se detaily z hloubkového skenu (oprávnění, sdílení, struktura, „Everyone“, přímá oprávnění, verzování…) po dokončení zahodily – weby proto hlásily „bez hloubkového skenu“ a nálezy vázané na konkrétní weby se nevyhodnotily. Teď se správně propíšou do snímku a projeví se v detailu webu i v nálezech. Navíc detail webu nově ukazuje počet souborů (dopočtený z knihoven) a poslední změnu obsahu místo prázdných hodnot.",
-          "en": "Fixed: the deep scan now actually stores its results. Previously the deep-scan details (permissions, sharing, structure, Everyone claims, direct permissions, versioning…) were discarded after completion – so sites reported no deep scan and site-level findings never evaluated. They now correctly persist into the snapshot and appear in the site detail and in findings. The site detail also now shows a file count (computed from libraries) and the last content change instead of empty values."
+          "en": "Fixed: the deep scan now actually stores its results. Previously the deep-scan details (permissions, sharing, structure, Everyone claims, direct permissions, versioning…) were discarded after completion — so sites reported no deep scan and site-level findings never evaluated. They now correctly persist into the snapshot and appear in the site detail and in findings. The site detail also now shows a file count (computed from libraries) and the last content change instead of empty values."
         },
         {
           "type": "fixed",
           "cs": "Oprava dalších falešných nálezů: systémové weby spravované Microsoftem (App Catalog, Content Type Hub, Search) zůstávají v inventáři, ale governance a AI nálezy se na ně už nevztahují. Dříve se u nich hlásilo „bez vlastníka“ (App Catalog nemá klasickou skupinu Vlastníci), „neaktivní web k archivaci“ (Content Type Hub) nebo „bez klasifikace“ – to byly falešné nálezy. V seznamu i detailu webu jsou nově označené štítkem Systémový.",
-          "en": "Fixed more false positives: Microsoft-managed system sites (App Catalog, Content Type Hub, Search) stay in the inventory but are no longer subject to governance and AI findings. They used to be flagged as no owner (the App Catalog has no classic Owners group), an inactive site to archive (Content Type Hub) or unclassified – all false positives. They are now marked with a System badge in the site list and detail."
+          "en": "Fixed more false positives: Microsoft-managed system sites (App Catalog, Content Type Hub, Search) stay in the inventory but are no longer subject to governance and AI findings. They used to be flagged as no owner (the App Catalog has no classic Owners group), an inactive site to archive (Content Type Hub) or unclassified — all false positives. They are now marked with a System badge in the site list and detail."
         },
         {
           "type": "improved",
           "cs": "Detail nálezu nově vypisuje konkrétní dotčené objekty, ne jen jejich počet. U nálezů jako „N knihoven bez verzování“, prolomené dědění oprávnění, podweby, velké listy, osiřelé skupiny nebo weby bez vlastníka/klasifikace uvidíte jmenný seznam v sekci „Dotčené objekty“. Weby jsou klikací – otevřou detail webu, kde jsou konkrétní knihovny a seznamy rozklikávací.",
-          "en": "The finding detail now lists the specific affected objects, not just their count. For findings like N libraries without versioning, broken permission inheritance, subsites, large lists, orphaned groups or sites without an owner/classification you now see a named list in an Affected objects section. Sites are clickable – they open the site detail where the actual libraries and lists are expandable."
+          "en": "The finding detail now lists the specific affected objects, not just their count. For findings like N libraries without versioning, broken permission inheritance, subsites, large lists, orphaned groups or sites without an owner/classification you now see a named list in an Affected objects section. Sites are clickable — they open the site detail where the actual libraries and lists are expandable."
         },
         {
           "type": "fixed",
           "cs": "Oprava: rychlý sken už nezavírá hloubkové nálezy. Rychlý sken záměrně nedělá hloubkový průzkum webů, takže neměl data o knihovnách, oprávněních apod. – přesto po něm tyto nálezy „mizely“ jako vyřešené a příští plný sken je otevíral jako falešné regrese. Nově rychlý sken uzavírá jen to, co skutečně změřil (nastavení tenantu a hosty); hloubkové nálezy nechává beze změny až do dalšího plného skenu.",
-          "en": "Fixed: a quick scan no longer closes deep-scan findings. A quick scan deliberately skips the per-site deep scan, so it had no data about libraries, permissions etc. – yet those findings used to disappear as resolved after it, and the next full scan reopened them as false regressions. A quick scan now resolves only what it actually measured (tenant settings and guests) and leaves deep findings untouched until the next full scan."
+          "en": "Fixed: a quick scan no longer closes deep-scan findings. A quick scan deliberately skips the per-site deep scan, so it had no data about libraries, permissions etc. — yet those findings used to disappear as resolved after it, and the next full scan reopened them as false regressions. A quick scan now resolves only what it actually measured (tenant settings and guests) and leaves deep findings untouched until the next full scan."
         },
         {
           "type": "fixed",
           "cs": "Bezpečnost rolí: skupina Čtenáři (EP365AtlasViewers) dostávala na web právo Úpravy – „čtenář“ tak mohl zapisovat do dat aplikace, spouštět a mazat skeny nebo měnit stavy nálezů. Nově dostává jen Čtení (u stávajících instalací se srovná automaticky), data aplikace zůstávají čtenářům viditelná a všechny zásahy (sken, import, mazání, řešení nálezů) jsou jen pro Správce – včetně přístupu přes přímý odkaz.",
-          "en": "Role security: the Viewers group (EP365AtlasViewers) used to receive Edit rights on the web – a viewer could write into the app data, run or delete scans and change finding states. It now gets Read only (existing installs adjust automatically), app data stays visible to viewers, and all actions (scan, import, deletion, resolving findings) are admin-only – including via direct links."
+          "en": "Role security: the Viewers group (EP365AtlasViewers) used to receive Edit rights on the web — a viewer could write into the app data, run or delete scans and change finding states. It now gets Read only (existing installs adjust automatically), app data stays visible to viewers, and all actions (scan, import, deletion, resolving findings) are admin-only — including via direct links."
         },
         {
           "type": "fixed",
           "cs": "Spolehlivost nálezů: při výpadku připojení po skenu se nálezy mohly založit duplicitně; dva souběžně spuštěné skeny se mohly poprat o zápis. Nově párování při chybě čtení bezpečně skončí (žádné duplicity) a druhý sken nejde spustit, dokud první běží – průběh skenu navíc zůstává viditelný, i když mezitím odejdete na jinou obrazovku.",
-          "en": "Findings reliability: a connectivity failure after a scan could create duplicate findings, and two concurrently started scans could race on writes. Matching now safely aborts on read failure (no duplicates), a second scan cannot start while one is running – and scan progress stays visible even if you navigate away meanwhile."
+          "en": "Findings reliability: a connectivity failure after a scan could create duplicate findings, and two concurrently started scans could race on writes. Matching now safely aborts on read failure (no duplicates), a second scan cannot start while one is running — and scan progress stays visible even if you navigate away meanwhile."
         },
         {
           "type": "fixed",
           "cs": "Falešný kritický nález „Anonymní odkazy nemají expiraci“ (SH-04): hlásil se i tenantům, které expiraci nastavenou mají – veřejné rozhraní tuto hodnotu vůbec nevrací. Nově se pravidlo vyhodnocuje jen s importem Get-SPOTenant; nefunkční tlačítko „Opravit hned“ u SH-04/SH-05 nahradil hotový PowerShell příkaz.",
-          "en": "False critical finding “Anonymous links have no expiration” (SH-04): it fired even on tenants that do have expiration set – the public interface simply does not return this value. The rule now evaluates only with the Get-SPOTenant import; the non-functional Fix now button on SH-04/SH-05 was replaced by a ready-to-run PowerShell command."
+          "en": "False critical finding “Anonymous links have no expiration” (SH-04): it fired even on tenants that do have expiration set — the public interface simply does not return this value. The rule now evaluates only with the Get-SPOTenant import; the non-functional Fix now button on SH-04/SH-05 was replaced by a ready-to-run PowerShell command."
         },
         {
           "type": "fixed",
           "cs": "Import Get-SPOTenant: PowerShell ukládá volby jako čísla (např. ConditionalAccessPolicy: 0), takže rozšířená bezpečnostní pravidla (přístup z nespravovaných zařízení, anonymní odkazy s úpravami…) se tiše nikdy neozvala. Import teď hodnoty převádí a pravidla fungují; navíc je lze uzavřít i rychlým skenem a ověřit tlačítkem Ověřit teď.",
-          "en": "Get-SPOTenant import: PowerShell serializes options as numbers (e.g. ConditionalAccessPolicy: 0), so the extended security rules (unmanaged-device access, anonymous edit links…) silently never fired. The import now translates the values, the rules work – and they can be closed by a quick scan and checked with Verify now."
+          "en": "Get-SPOTenant import: PowerShell serializes options as numbers (e.g. ConditionalAccessPolicy: 0), so the extended security rules (unmanaged-device access, anonymous edit links…) silently never fired. The import now translates the values, the rules work — and they can be closed by a quick scan and checked with Verify now."
         },
         {
           "type": "fixed",
@@ -849,7 +849,7 @@
         {
           "type": "improved",
           "cs": "Prahy z Nastavení (neaktivita webu, neaktivita hosta) se nově opravdu promítají do nálezů GV-05/AI-15/SH-09 i do všech přehledů – dřív je pravidla ignorovala a platilo pevných 180/365 dní. Chyby ukládání v Nastavení a správě rolí se nově zobrazují (dřív tiché), správa rolí hlásí i úspěch.",
-          "en": "Thresholds from Settings (site inactivity, guest inactivity) now genuinely feed the GV-05/AI-15/SH-09 findings and all overviews – rules used to ignore them and a fixed 180/365 days applied. Save errors in Settings and role management are now surfaced (previously silent), and role management also confirms success."
+          "en": "Thresholds from Settings (site inactivity, guest inactivity) now genuinely feed the GV-05/AI-15/SH-09 findings and all overviews — rules used to ignore them and a fixed 180/365 days applied. Save errors in Settings and role management are now surfaced (previously silent), and role management also confirms success."
         },
         {
           "type": "improved",
@@ -859,7 +859,7 @@
         {
           "type": "new",
           "cs": "Výjimky pro konkrétní knihovny a listy: v detailu nálezu (Dotčené objekty) lze jednotlivou knihovnu, list nebo podweb označit jako výjimku – souhrnný nález ji přestane počítat, ale nově přibylé objekty hlásí dál. Přehled a rušení výjimek najdete v Nastavení → Skóre a pravidla. Systémové knihovny SharePointu (Form Templates, Style Library) se navíc přeskakují rovnou – kontrola verzování je už nehlásí vůbec.",
-          "en": "Per-library and per-list exceptions: in the finding detail (Affected objects) you can mark an individual library, list or subsite as an exception – the aggregate finding stops counting it while still reporting newly added objects. Exceptions can be reviewed and removed under Settings → Score and rules. SharePoint system libraries (Form Templates, Style Library) are now skipped outright – the versioning check no longer reports them at all."
+          "en": "Per-library and per-list exceptions: in the finding detail (Affected objects) you can mark an individual library, list or subsite as an exception — the aggregate finding stops counting it while still reporting newly added objects. Exceptions can be reviewed and removed under Settings → Score and rules. SharePoint system libraries (Form Templates, Style Library) are now skipped outright — the versioning check no longer reports them at all."
         }
       ]
     }

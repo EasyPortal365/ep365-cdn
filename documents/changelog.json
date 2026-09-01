@@ -30,7 +30,7 @@
         {
           "type": "fixed",
           "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
-          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+          "en": "Settings — Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
         },
         {
           "type": "fixed",
@@ -46,7 +46,7 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "fixed",
@@ -86,7 +86,7 @@
         {
           "type": "fixed",
           "cs": "Odkazy na soubory s mezerou v názvu nebo ve složce už vedou na správné místo – dřív skončily chybou „stránka nenalezena\".",
-          "en": "Links to files with a space in the name or folder now open correctly – previously they ended with a “page not found” error."
+          "en": "Links to files with a space in the name or folder now open correctly — previously they ended with a “page not found” error."
         }
       ]
     },
@@ -148,12 +148,12 @@
         {
           "type": "fixed",
           "cs": "Aplikace je připravená pro týmy více uživatelů – koncoví uživatelé nově vidí všechny publikované dokumenty k seznámení a manažeři i vydavatelé vidí potvrzení celého týmu (dříve mohl každý vidět jen své vlastní záznamy). Schvalovatel také korektně schválí dokument od jiného vydavatele.",
-          "en": "The app is now ready for multi-user teams – end users now see all published documents to acknowledge and managers and publishers see the whole team's confirmations (previously each person could see only their own records). An approver can also correctly approve a document from another publisher."
+          "en": "The app is now ready for multi-user teams — end users now see all published documents to acknowledge and managers and publishers see the whole team's confirmations (previously each person could see only their own records). An approver can also correctly approve a document from another publisher."
         },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -163,7 +163,7 @@
         {
           "type": "new",
           "cs": "Vzhled notifikačních e-mailů lze přizpůsobit vaší organizaci – logo, název, akcentová barva, patička i adresa pro odpovědi, s živým náhledem a děděním z globální konfigurace EP365.",
-          "en": "Notification e-mails can now match your organisation's branding – logo, name, accent colour, footer and reply-to address, with a live preview and inheritance from the EP365 global configuration."
+          "en": "Notification e-mails can now match your organisation's branding — logo, name, accent colour, footer and reply-to address, with a live preview and inheritance from the EP365 global configuration."
         },
         {
           "type": "improved",
@@ -184,12 +184,12 @@
         {
           "type": "new",
           "cs": "Nová uvítací obrazovka Moje dokumenty – osobní pozdrav, rychlý přehled stavu vašich dokumentů a odkazy na nejčastější akce.",
-          "en": "New My documents welcome screen – a personal greeting, a quick status overview of your documents and shortcuts to frequent actions."
+          "en": "New My documents welcome screen — a personal greeting, a quick status overview of your documents and shortcuts to frequent actions."
         },
         {
           "type": "improved",
           "cs": "Příkazová paleta ⌘K prohledává i dokumenty – na detail dokumentu skočíte přímo z klávesnice.",
-          "en": "The ⌘K command palette now searches documents too – jump straight to a document detail from the keyboard."
+          "en": "The ⌘K command palette now searches documents too — jump straight to a document detail from the keyboard."
         },
         {
           "type": "improved",

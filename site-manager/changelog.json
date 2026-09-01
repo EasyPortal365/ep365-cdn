@@ -10,22 +10,22 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
-          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
+          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows — below 780 px only icons remain, leaving more room for the content."
         },
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si Site Manager krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
-          "en": "Interactive app guide – walk through the Site Manager step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+          "en": "Interactive app guide — walk through the Site Manager step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help — and it offers itself on your first visit."
         },
         {
           "type": "fixed",
           "cs": "Odkazy na weby a soubory s mezerou v adrese už vedou na správné místo – dřív skončily chybou „stránka nenalezena\".",
-          "en": "Links to sites and files with a space in the address now open correctly – previously they ended with a “page not found” error."
+          "en": "Links to sites and files with a space in the address now open correctly — previously they ended with a “page not found” error."
         }
       ]
     },
@@ -46,7 +46,7 @@
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -56,17 +56,17 @@
         {
           "type": "new",
           "cs": "Nová uvítací obrazovka – přehledný rozcestník s pozdravem, rychlými akcemi a živými počty hned po otevření aplikace.",
-          "en": "New welcome landing screen – a clear start page with a greeting, quick actions and live counts right after opening the app."
+          "en": "New welcome landing screen — a clear start page with a greeting, quick actions and live counts right after opening the app."
         },
         {
           "type": "new",
           "cs": "Přehled využití pro správce obsahuje report aktivit – chronologický výpis dění ve správě webů s filtrem období a exportem do CSV.",
-          "en": "The admin usage overview now includes an activity report – a chronological feed of site management events with a period filter and CSV export."
+          "en": "The admin usage overview now includes an activity report — a chronological feed of site management events with a period filter and CSV export."
         },
         {
           "type": "improved",
           "cs": "Navigace vlevo ukazuje počty přímo u položek – kolik žádostí čeká na schválení a kolik webů brzy expiruje.",
-          "en": "The left navigation shows live counts – how many requests await approval and how many sites expire soon."
+          "en": "The left navigation shows live counts — how many requests await approval and how many sites expire soon."
         },
         {
           "type": "improved",
@@ -76,7 +76,7 @@
         {
           "type": "fixed",
           "cs": "Sada drobných oprav vzhledu a typografie z interní kontroly – včetně příkladů ve formuláři zpětné vazby.",
-          "en": "A batch of minor visual and typography fixes from an internal review – including the examples in the feedback form."
+          "en": "A batch of minor visual and typography fixes from an internal review — including the examples in the feedback form."
         },
         {
           "type": "improved",
@@ -92,17 +92,17 @@
         {
           "type": "new",
           "cs": "Příkazová paleta ⌘K – okamžité hledání napříč žádostmi, weby a obrazovkami přímo z klávesnice.",
-          "en": "Command palette ⌘K – instant keyboard search across requests, sites and views."
+          "en": "Command palette ⌘K — instant keyboard search across requests, sites and views."
         },
         {
           "type": "new",
           "cs": "Výběr osob vyhledáváním v adresáři – v průvodci novou žádostí i při správě rolí správců a schvalovatelů.",
-          "en": "People are picked via directory search – in the new request wizard and when managing admin and approver roles."
+          "en": "People are picked via directory search — in the new request wizard and when managing admin and approver roles."
         },
         {
           "type": "new",
           "cs": "Více akcí přímo z detailu webu – úprava metadat, prodloužení platnosti s e-mailovou připomínkou vlastníkovi a zobrazení členů týmu.",
-          "en": "More actions right from the site detail – metadata editing, expiry extension with an e-mail reminder to the owner, and a team members listing."
+          "en": "More actions right from the site detail — metadata editing, expiry extension with an e-mail reminder to the owner, and a team members listing."
         },
         {
           "type": "new",
@@ -117,12 +117,12 @@
         {
           "type": "improved",
           "cs": "E-maily z aplikace přebírají branding organizace z centrální konfigurace EP365 Homepage – název firmy, akcentová barva a adresa pro odpovědi.",
-          "en": "App e-mails inherit your organisation branding from the EP365 Homepage global configuration – company name, accent colour and reply-to address."
+          "en": "App e-mails inherit your organisation branding from the EP365 Homepage global configuration — company name, accent colour and reply-to address."
         },
         {
           "type": "improved",
           "cs": "…a další vylepšení v průběhu řady 1.2 – pravidla pojmenování s kontrolou unikátnosti adresy, filtry auditu a aktualizovaná nápověda.",
-          "en": "…and further improvements across the 1.2 line – naming rules with URL uniqueness checks, audit filters and an updated help section."
+          "en": "…and further improvements across the 1.2 line — naming rules with URL uniqueness checks, audit filters and an updated help section."
         }
       ]
     }

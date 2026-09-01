@@ -71,7 +71,7 @@
         {
           "type": "fixed",
           "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
-          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+          "en": "Settings — Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
         },
         {
           "type": "fixed",
@@ -87,7 +87,7 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "new",
@@ -409,7 +409,7 @@
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si EP365 Marketing krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
-          "en": "Interactive app guide – walk through EP365 Marketing step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+          "en": "Interactive app guide — walk through EP365 Marketing step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help — and it offers itself on your first visit."
         },
         {
           "type": "fixed",
@@ -452,107 +452,107 @@
         {
           "type": "new",
           "cs": "Marketing nově upozorní na úkoly po termínu přiřazené vám přímo v přehledu „Můj den“ na EP365 intranetu – uvidíte je na úvodní stránce mezi věcmi, které čekají na vaši akci.",
-          "en": "Marketing now flags your overdue tasks right in the “My day” overview on the EP365 intranet – you see them on the landing page among the things awaiting your action."
+          "en": "Marketing now flags your overdue tasks right in the “My day” overview on the EP365 intranet — you see them on the landing page among the things awaiting your action."
         },
         {
           "type": "new",
           "cs": "Úkoly na nástěnce (kanban) – přetažením karty mezi sloupci K vyřízení, Probíhá a Hotovo rovnou změníte stav úkolu.",
-          "en": "Tasks on a board (kanban) – drag a card between the To do, In progress and Done columns to change a task's status."
+          "en": "Tasks on a board (kanban) — drag a card between the To do, In progress and Done columns to change a task's status."
         },
         {
           "type": "new",
           "cs": "Konverzace u úkolů – k úkolu si tým píše vzkazy a zmíní kolegu přes @; zmíněný dostane e-mailové upozornění.",
-          "en": "Conversations on tasks – the team leaves notes on a task and mentions a colleague with @; the mentioned person gets an e-mail notification."
+          "en": "Conversations on tasks — the team leaves notes on a task and mentions a colleague with @; the mentioned person gets an e-mail notification."
         },
         {
           "type": "new",
           "cs": "Historie změn úkolu – u každého úkolu je vidět, kdo a kdy změnil stav, termín, přiřazení nebo název.",
-          "en": "Task change history – every task shows who changed its status, due date, assignee or title, and when."
+          "en": "Task change history — every task shows who changed its status, due date, assignee or title, and when."
         },
         {
           "type": "new",
           "cs": "Propojení s Outlook kalendářem – úkol s termínem si jedním klikem přidáte do svého kalendáře jako celodenní událost.",
-          "en": "Outlook calendar link – add a task with a due date to your own calendar as an all-day event in one click."
+          "en": "Outlook calendar link — add a task with a due date to your own calendar as an all-day event in one click."
         },
         {
           "type": "improved",
           "cs": "Checklist příprav akcí ve fázích – kroky rozdělené na před akcí, během akce a po akci pro lepší přehled.",
-          "en": "Phased event-preparation checklist – steps split into before, during and after the event for a clearer overview."
+          "en": "Phased event-preparation checklist — steps split into before, during and after the event for a clearer overview."
         },
         {
           "type": "improved",
           "cs": "Úkoly přímo u akce – ke každému webináři či konferenci přidáte a odškrtnete úkoly na jednom místě.",
-          "en": "Tasks right on the event – add and tick off tasks for each webinar or conference in one place."
+          "en": "Tasks right on the event — add and tick off tasks for each webinar or conference in one place."
         },
         {
           "type": "improved",
           "cs": "Formátování v konverzaci – v komentářích u příspěvků, aktivit i úkolů teď text zvýrazníte tučně nebo kurzívou, vložíte odrážky, číslovaný seznam i odkaz. Pole je zároveň vyšší a pohodlnější na psaní.",
-          "en": "Formatting in conversations – comments on posts, activities and tasks now support bold, italics, bullet and numbered lists and links. The field is also taller and more comfortable to write in."
+          "en": "Formatting in conversations — comments on posts, activities and tasks now support bold, italics, bullet and numbered lists and links. The field is also taller and more comfortable to write in."
         },
         {
           "type": "improved",
           "cs": "Kalendář příspěvků – dosavadní kalendář se nově jmenuje Kalendář příspěvků a naplánované položky v něm mají větší, čitelnější písmo.",
-          "en": "Post calendar – the former Calendar is renamed to Post calendar, and its scheduled entries use a larger, more legible font."
+          "en": "Post calendar — the former Calendar is renamed to Post calendar, and its scheduled entries use a larger, more legible font."
         },
         {
           "type": "new",
           "cs": "Navázané úkoly u aktivity – v detailu aktivity teď vidíte úkoly, které na ni míří, a jedním klikem je otevřete.",
-          "en": "Linked tasks on an activity – the activity detail now shows the tasks that point to it, and you can open them in one click."
+          "en": "Linked tasks on an activity — the activity detail now shows the tasks that point to it, and you can open them in one click."
         },
         {
           "type": "new",
           "cs": "Zakládání a úpravy přímo z kampaně – v detailu kampaně nově příspěvky, aktivity i úkoly rovnou založíte a upravíte (otevřou se navrchu, s předvyplněnou kampaní). Stejně to jde i u Událostí.",
-          "en": "Create and edit right from a campaign – the campaign detail now lets you add and edit posts, activities and tasks in place (they open on top with the campaign prefilled). The same works for Events."
+          "en": "Create and edit right from a campaign — the campaign detail now lets you add and edit posts, activities and tasks in place (they open on top with the campaign prefilled). The same works for Events."
         },
         {
           "type": "new",
           "cs": "Pojmenované šablony příprav akcí – v Nastavení nadefinujete více šablon checklistu (např. Konference, Webinář) a u každé akce vyberete, kterou použít; podle typu akce se ta správná nabídne jako doporučená.",
-          "en": "Named event-preparation templates – define several checklist templates (e.g. Conference, Webinar) in Settings and pick one per event; the matching one is suggested by event type."
+          "en": "Named event-preparation templates — define several checklist templates (e.g. Conference, Webinar) in Settings and pick one per event; the matching one is suggested by event type."
         },
         {
           "type": "improved",
           "cs": "Vestavěné šablony příprav akcí – appka má dvě hotové šablony checklistu (Konference, Webinář) hned k dispozici; u akce se podle typu nabídne doporučená.",
-          "en": "Built-in event-preparation templates – two ready-made checklist templates (Conference, Webinar) are available out of the box; the matching one is suggested per event type."
+          "en": "Built-in event-preparation templates — two ready-made checklist templates (Conference, Webinar) are available out of the box; the matching one is suggested per event type."
         },
         {
           "type": "improved",
           "cs": "Přehled – běžící kampaně na jeden pohled. Na úvodní obrazovce nově vidíte běžící kampaně s ukazatelem plnění (publikováno / celkem) a proklikem do detailu.",
-          "en": "Dashboard – running campaigns at a glance. The home screen now shows your running campaigns with a fulfilment bar (published / total) and a click-through to the detail."
+          "en": "Dashboard — running campaigns at a glance. The home screen now shows your running campaigns with a fulfilment bar (published / total) and a click-through to the detail."
         },
         {
           "type": "new",
           "cs": "Aktivity na nástěnce (kanban) – aktivity teď máte i jako kanban se sloupci podle stavu; přetažením karty mezi sloupci projdou stejným schvalovacím workflow jako příspěvky.",
-          "en": "Activities on a board (kanban) – activities are now also available as a kanban with columns by status; dragging a card between columns runs them through the same approval workflow as posts."
+          "en": "Activities on a board (kanban) — activities are now also available as a kanban with columns by status; dragging a card between columns runs them through the same approval workflow as posts."
         },
         {
           "type": "improved",
           "cs": "Kampaně – více barev na výběr a pohodlnější, širší okno úprav s přehlednějším rozložením.",
-          "en": "Campaigns – more colours to choose from and a roomier, wider edit window with a clearer layout."
+          "en": "Campaigns — more colours to choose from and a roomier, wider edit window with a clearer layout."
         },
         {
           "type": "improved",
           "cs": "Jednotné detaily a úpravy záznamů – příspěvek, aktivita, úkol i kampaň teď mají stejně široké okno se stejným rozložením: detail s přehledem vlevo a obsahem vpravo, úpravy s velkým polem pro text a metadaty po pravé straně.",
-          "en": "Unified record details and editing – posts, activities, tasks and campaigns now share the same wide window and layout: a detail with the overview on the left and content on the right, and editing with a large text area and metadata on the right."
+          "en": "Unified record details and editing — posts, activities, tasks and campaigns now share the same wide window and layout: a detail with the overview on the left and content on the right, and editing with a large text area and metadata on the right."
         },
         {
           "type": "new",
           "cs": "Více údajů na záznamech – příspěvek má propagovaný odkaz, aktivita štítky, odkaz na hotový výstup a měnitelného vlastníka, úkol prioritu (Vysoká/Normální/Nízká) viditelnou na nástěnce i v seznamu; událost z CRM vyberete přímo při úpravě příspěvku či aktivity.",
-          "en": "More fields on records – a post has a promoted link, an activity has tags, an output link and an editable owner, a task has a priority (High/Normal/Low) visible on the board and in the list; the CRM event can be picked right in the post or activity editor."
+          "en": "More fields on records — a post has a promoted link, an activity has tags, an output link and an editable owner, a task has a priority (High/Normal/Low) visible on the board and in the list; the CRM event can be picked right in the post or activity editor."
         },
         {
           "type": "improved",
           "cs": "Formátovaný popis – pole Popis u úkolu, aktivity i kampaně je větší a umí formátování jako konverzace (tučně, kurzíva, odrážky, číslovaný seznam, odkaz); naformátovaně se ukazuje i v detailu. Do Outlook kalendáře jde vždy čistý text.",
-          "en": "Formatted description – the Description field on tasks, activities and campaigns is larger and supports the same formatting as conversations (bold, italics, lists, links); it renders formatted in the detail too. Outlook calendar always receives plain text."
+          "en": "Formatted description — the Description field on tasks, activities and campaigns is larger and supports the same formatting as conversations (bold, italics, lists, links); it renders formatted in the detail too. Outlook calendar always receives plain text."
         },
         {
           "type": "improved",
           "cs": "Formátovaný text příspěvku – text příspěvku i varianty per síť mají formátovací lištu a v detailu se zobrazují naformátovaně. Při kopírování na síť se značky automaticky odstraní a počítadla znaků počítají čistý text, který na síť skutečně půjde.",
-          "en": "Formatted post copy – the post text and per-network variants have a formatting toolbar and render formatted in the detail. Copying for a network automatically removes the marks, and character counters count the clean text that will actually be posted."
+          "en": "Formatted post copy — the post text and per-network variants have a formatting toolbar and render formatted in the detail. Copying for a network automatically removes the marks, and character counters count the clean text that will actually be posted."
         },
         {
           "type": "improved",
           "cs": "Vyšší pole komentáře – psaní v konverzaci má více prostoru.",
-          "en": "Taller comment box – writing in conversations has more room."
+          "en": "Taller comment box — writing in conversations has more room."
         },
         {
           "type": "improved",
@@ -568,7 +568,7 @@
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -578,37 +578,37 @@
         {
           "type": "new",
           "cs": "Publikační kalendář – příspěvky na sociální sítě, marketingové aktivity i události z CRM v jedné ploše, v pohledech měsíc, týden a agenda.",
-          "en": "Publishing calendar – social posts, marketing activities and CRM events on one canvas, with month, week and agenda views."
+          "en": "Publishing calendar — social posts, marketing activities and CRM events on one canvas, with month, week and agenda views."
         },
         {
           "type": "new",
           "cs": "Příspěvky na kanbanu – přetažením karty mezi sloupci projde příspěvek cestou od nápadu po publikaci; text lze připravit zvlášť pro každou síť včetně počítadla znaků.",
-          "en": "Posts on a kanban board – dragging a card between columns takes a post from idea to published; copy can be tailored per network, with character counters."
+          "en": "Posts on a kanban board — dragging a card between columns takes a post from idea to published; copy can be tailored per network, with character counters."
         },
         {
           "type": "new",
           "cs": "Schvalování obsahu – až tři konfigurovatelné kroky, historie rozhodnutí a vracení k dopracování s komentářem.",
-          "en": "Content approval – up to three configurable steps, a decision history and returns for rework with a comment."
+          "en": "Content approval — up to three configurable steps, a decision history and returns for rework with a comment."
         },
         {
           "type": "new",
           "cs": "Kampaně, aktivity a úkoly – zastřešení obsahu s přehledem plnění a lehkou týmovou koordinací.",
-          "en": "Campaigns, activities and tasks – content umbrellas with progress at a glance and light team coordination."
+          "en": "Campaigns, activities and tasks — content umbrellas with progress at a glance and light team coordination."
         },
         {
           "type": "new",
           "cs": "Konverzace se zmínkami – diskuse u příspěvků, kampaní i aktivit; zmínění kolegové dostanou e-mailové upozornění.",
-          "en": "Conversations with mentions – threads on posts, campaigns and activities; mentioned colleagues get an e-mail notification."
+          "en": "Conversations with mentions — threads on posts, campaigns and activities; mentioned colleagues get an e-mail notification."
         },
         {
           "type": "new",
           "cs": "Publikační plán – týdenní rytmus slotů podle sítí a témat s kontrolou plnění přímo na přehledu.",
-          "en": "Publishing plan – a weekly rhythm of slots per network and topic, with fulfilment tracked right on the dashboard."
+          "en": "Publishing plan — a weekly rhythm of slots per network and topic, with fulfilment tracked right on the dashboard."
         },
         {
           "type": "new",
           "cs": "Volitelné propojení s EP365 CRM – přípravy akcí a webinářů s checklistem a navázaným promo obsahem.",
-          "en": "Optional EP365 CRM link – event and webinar preparation with a checklist and linked promo content."
+          "en": "Optional EP365 CRM link — event and webinar preparation with a checklist and linked promo content."
         }
       ]
     }

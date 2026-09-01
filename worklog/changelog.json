@@ -15,62 +15,62 @@
         {
           "type": "improved",
           "cs": "Poslední pomocný seznam aplikace zmizel z Obsahu webu – skrývá se teď i sdílený seznam se stavem instalace, takže web zůstává přehledný. Na přístupová práva to nemá vliv.",
-          "en": "The last helper list disappeared from Site contents – the shared installation-status list is now hidden as well, keeping the site tidy. This does not affect access permissions."
+          "en": "The last helper list disappeared from Site contents — the shared installation-status list is now hidden as well, keeping the site tidy. This does not affect access permissions."
         },
         {
           "type": "new",
           "cs": "Kartu na Přehledu jde přepnout mezi pohledem na lidi a na projekty – v obou vidíte hodiny, fakturovatelný podíl i rozdíl proti předchozímu měsíci, takže poznáte nejen kdo, ale i který projekt roste a který utichá. Kliknutím na projekt se otevře projekt, kliknutím na člověka jeho výkazy. Tlačítkem Detail týmu rozkliknete celý tým do jedné tabulky: u každého hodiny, fakturovatelné i nefakturovatelné, kolik čeká na odeslání a na schválení, počet výkazů a změna proti předchozímu měsíci – dole se sečte celý tým. Detail týmu je i na mobilu, kde se místo tabulky vykreslí přehledné karty, a jde stáhnout do CSV nebo Wordu včetně součtového řádku – wordový dokument má stejnou hlavičku, logo i motiv jako měsíční výkaz pro zákazníka. Souhrn jde také rovnou poslat e-mailem – tabulka odejde v těle zprávy z vaší adresy, příjemců může být víc.\n\nNa Přehledu je nová karta Kdo kolik vykázal – za aktuální měsíc ukáže lidi seřazené podle odpracovaných hodin, u každého počet výkazů, kolik z hodin je fakturovatelných a kolik jich ještě čeká na odeslání nebo na schválení. Fakturovatelný podíl je vidět i na pruhu u jména. U každého člověka jsou i projekty, na kterých pracoval: kliknutím na jméno se otevřou jeho výkazy, kliknutím na projekt jdete rovnou na ten projekt (na mobilu na jeho výkazy). Přepínači v hlavičce karty zvolíte období (tento nebo minulý měsíc) a řazení podle všech vykázaných, nebo jen fakturovatelných hodin – volby vám zůstanou i příště. U každého člověka navíc vidíte rozdíl proti předchozímu měsíci v hodinách i procentech, takže poznáte, kdo vykazuje víc a kdo míň; u toho, kdo minule nevykazoval, se místo procent píše „nově“. Kartu jde zúžit na zákazníka nebo konkrétní projekt – čísla i srovnání se pak počítají jen z něj; volba zákazníka rovnou omezí nabídku projektů. Karta ukazuje pár nejvytíženějších lidí a odkazem se rozbalí na celý tým. Karta je na počítači i na mobilu; vidí ji správce a fakturant za celý tým, projektový vedoucí za své projekty.",
-          "en": "The Overview card switches between a people view and a project view – both show hours, the billable share and the change against the previous month, so you can see not only who but also which project is growing or going quiet. Clicking a project opens the project, clicking a person opens their entries. The Team detail button expands the whole team into a single table: hours, billable and non-billable, what is still unsent or awaiting approval, the number of entries and the change against the previous month – with a team total at the bottom. Team detail is available on mobile too, where the table turns into readable cards, and it can be downloaded as CSV or Word including the total row – the Word document uses the same header, logo and theme as the monthly customer report. The summary can also be emailed straight away – the table goes in the message body from your own address, to one or more recipients.\n\nThe Overview has a new Who logged what card – for the current month it lists people ranked by hours, with the number of entries, how many of those hours are billable, and how many are still unsent or awaiting approval. The billable share also shows on the bar next to each name. Each person also lists the projects they worked on: clicking the name opens their entries, clicking a project takes you straight to that project (to its entries on mobile). Toggles in the card header pick the period (this or last month) and the ranking (all logged hours or billable only), and your choices are remembered. Each person also shows the difference against the previous month in both hours and percent, so you can see who is logging more and who less; someone with nothing logged last month is marked as new instead. The card can be narrowed to a customer or a single project – the numbers and the comparison then cover only that selection, and picking a customer narrows the project list. It shows the busiest few people and expands to the whole team with one click. The card is on desktop and mobile; administrators and billing users see the whole team, project leads see their own projects."
+          "en": "The Overview card switches between a people view and a project view — both show hours, the billable share and the change against the previous month, so you can see not only who but also which project is growing or going quiet. Clicking a project opens the project, clicking a person opens their entries. The Team detail button expands the whole team into a single table: hours, billable and non-billable, what is still unsent or awaiting approval, the number of entries and the change against the previous month — with a team total at the bottom. Team detail is available on mobile too, where the table turns into readable cards, and it can be downloaded as CSV or Word including the total row — the Word document uses the same header, logo and theme as the monthly customer report. The summary can also be emailed straight away — the table goes in the message body from your own address, to one or more recipients.\n\nThe Overview has a new Who logged what card — for the current month it lists people ranked by hours, with the number of entries, how many of those hours are billable, and how many are still unsent or awaiting approval. The billable share also shows on the bar next to each name. Each person also lists the projects they worked on: clicking the name opens their entries, clicking a project takes you straight to that project (to its entries on mobile). Toggles in the card header pick the period (this or last month) and the ranking (all logged hours or billable only), and your choices are remembered. Each person also shows the difference against the previous month in both hours and percent, so you can see who is logging more and who less; someone with nothing logged last month is marked as new instead. The card can be narrowed to a customer or a single project — the numbers and the comparison then cover only that selection, and picking a customer narrows the project list. It shows the busiest few people and expands to the whole team with one click. The card is on desktop and mobile; administrators and billing users see the whole team, project leads see their own projects."
         },
         {
           "type": "new",
           "cs": "Výkazy týmu jsou i na mobilu – ve spodní liště přibyla záložka Tým: výkazy seskupené po dnech, hledání a filtr podle člověka. Uvidí ji správce, projektový vedoucí a fakturant; opravy výkazů zůstávají v plné aplikaci.",
-          "en": "Team timesheets are on mobile too – a new Team tab in the bottom bar shows entries grouped by day, with search and a per-person filter. Administrators, project leads and billing users see it; editing entries stays in the full app."
+          "en": "Team timesheets are on mobile too — a new Team tab in the bottom bar shows entries grouped by day, with search and a per-person filter. Administrators, project leads and billing users see it; editing entries stays in the full app."
         },
         {
           "type": "new",
           "cs": "Nová sekce Výkazy týmu – všechny zapsané hodiny na jednom místě, včetně konceptů, zamítnutých a nefakturovatelných, které Schvalování ani Fakturace neukazují. Filtrujete podle člověka, projektu, stavu i období, hledáte i v popisech práce a vyfiltrovaný výběr stáhnete jako CSV. Správce vidí všechno a může výkaz rovnou opravit nebo smazat, projektový vedoucí své projekty, spolupracovník své vlastní výkazy – i za starší měsíce, které se v Mém výkazu už nezobrazují.",
-          "en": "New Team timesheets section – every logged hour in one place, including drafts, rejected and non-billable entries that Approvals and Billing never show. Filter by person, project, state and period, search work descriptions, and download the filtered selection as CSV. An administrator sees everything and can fix or delete an entry right there, a project lead sees their projects, and a team member sees their own entries – including older months that My timesheet no longer shows."
+          "en": "New Team timesheets section — every logged hour in one place, including drafts, rejected and non-billable entries that Approvals and Billing never show. Filter by person, project, state and period, search work descriptions, and download the filtered selection as CSV. An administrator sees everything and can fix or delete an entry right there, a project lead sees their projects, and a team member sees their own entries — including older months that My timesheet no longer shows."
         },
         {
           "type": "improved",
           "cs": "Rychlý zápis v Mém výkazu si pamatuje poslední volbu – projekt i typ práce, které jste použili naposledy, jsou předvyplněné hned při dalším zápisu. Milník se nabízí podle měsíce vykazovaného dne, takže srpnová práce už nespadne pod červencový milník; když měsíční milník u servisní smlouvy ještě neexistuje, založíte ho jedním kliknutím přímo z formuláře. Platí i na mobilu.",
-          "en": "Quick entry in My timesheet remembers your last choice – the project and work type you used last time are pre-filled for the next entry. The milestone follows the month of the reported day, so August work no longer lands under a July milestone; if a service contract has no milestone for that month yet, you can create it from the form with one click. Works on mobile too."
+          "en": "Quick entry in My timesheet remembers your last choice — the project and work type you used last time are pre-filled for the next entry. The milestone follows the month of the reported day, so August work no longer lands under a July milestone; if a service contract has no milestone for that month yet, you can create it from the form with one click. Works on mobile too."
         },
         {
           "type": "improved",
           "cs": "Ve Fakturaci & výkazech je u každého řádku vidět datum a popis práce – hned poznáte, co se ten den dělalo, bez otevírání výkazu. Hledání nově prochází i popisy.",
-          "en": "Billing & reports now shows the date and the work description on every row – you can see what was done on a given day without opening the entry. Search now covers descriptions too."
+          "en": "Billing & reports now shows the date and the work description on every row — you can see what was done on a given day without opening the entry. Search now covers descriptions too."
         },
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "new",
           "cs": "Náhled očima uživatele: správce si vlevo dole klikne na ikonu oka a pustí si Worklog tak, jak ho vidí konkrétní kolega – se vším všudy, včetně jeho projektů a výkazů. Rychle jde vyzkoušet i typická situace „spolupracovník bez přiřazení“. Navíc rovnou ověříme v SharePointu, jestli by dotyčnému uložení výkazu skutečně prošlo – to bývá odpověď na otázku, proč mu něco nejde, i když roli má. V náhledu se nic neukládá ani neodesílá.",
-          "en": "Preview through a user's eyes: an administrator clicks the eye icon at the bottom left and sees Worklog exactly as a given colleague does – including their projects and time entries. The typical case of a collaborator with no assignments can be tried in one click. On top of that we check in SharePoint whether saving a time entry would actually go through for them – usually the answer to why something does not work despite having the right role. Nothing is saved or sent while in preview."
+          "en": "Preview through a user's eyes: an administrator clicks the eye icon at the bottom left and sees Worklog exactly as a given colleague does — including their projects and time entries. The typical case of a collaborator with no assignments can be tried in one click. On top of that we check in SharePoint whether saving a time entry would actually go through for them — usually the answer to why something does not work despite having the right role. Nothing is saved or sent while in preview."
         },
         {
           "type": "fixed",
           "cs": "Karta „Moje projekty“ na úvodu respektuje přiřazení – spolupracovníkovi se už nezobrazí projekty, ke kterým jinde v aplikaci nemá přístup (odvozovaly se z jeho starších výkazů). Když hodiny vykázané má, ale projekty už přiřazené nemá, karta to rovnou napíše místo dřívějšího „zatím nic nevykázáno“.",
-          "en": "The „My projects“ card on the overview now respects assignments – a collaborator no longer sees projects they cannot reach elsewhere in the app (they were derived from their older time entries). When hours have been logged but the projects are no longer assigned, the card says so instead of the previous „nothing logged yet“."
+          "en": "The „My projects“ card on the overview now respects assignments — a collaborator no longer sees projects they cannot reach elsewhere in the app (they were derived from their older time entries). When hours have been logged but the projects are no longer assigned, the card says so instead of the previous „nothing logged yet“."
         },
         {
           "type": "improved",
           "cs": "SharePointové seznamy, do kterých Worklog ukládá data, se už neukazují v Obsahu webu – jsou skryté, aby web zůstal přehledný. Správce je najde vypsané i s odkazy v Nastavení → Verze & informace, takže se k datům dostane kdykoli. Na přístupová práva to nemá vliv.",
-          "en": "The SharePoint lists where Worklog stores its data no longer show up in Site contents – they are hidden to keep the site tidy. Administrators find them listed with links in Settings → Version & info, so the data is always one click away. Access permissions are unaffected."
+          "en": "The SharePoint lists where Worklog stores its data no longer show up in Site contents — they are hidden to keep the site tidy. Administrators find them listed with links in Settings → Version & info, so the data is always one click away. Access permissions are unaffected."
         },
         {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
-          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
+          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows — below 780 px only icons remain, leaving more room for the content."
         },
         {
           "type": "new",
           "cs": "Zákazníky lze nově propojit s firmami v EP365 CRM – propojenému zákazníkovi pak název a IČO spravuje CRM a Worklog je drží aktuální. Existující zákazníky vám aplikace nabídne propojit podle IČO. Bez CRM se nic nemění: zákazníky vedete dál přímo ve Worklogu.",
-          "en": "Customers can now be linked to companies in EP365 CRM – a linked customer has its name and registration number managed by CRM, and Worklog keeps them up to date. Existing customers are offered for linking by their registration number. Without CRM nothing changes: you keep your customers in Worklog."
+          "en": "Customers can now be linked to companies in EP365 CRM — a linked customer has its name and registration number managed by CRM, and Worklog keeps them up to date. Existing customers are offered for linking by their registration number. Without CRM nothing changes: you keep your customers in Worklog."
         },
         {
           "type": "new",
@@ -80,7 +80,7 @@
         {
           "type": "improved",
           "cs": "Změna paušálu ve smlouvě platí od aktuálního období dál – už uzavřené měsíce si drží svůj paušál, takže se vyfakturovaná historie nepřepočítá.",
-          "en": "A contract allowance change applies from the current period onwards – already closed months keep their own allowance, so invoiced history is never recalculated."
+          "en": "A contract allowance change applies from the current period onwards — already closed months keep their own allowance, so invoiced history is never recalculated."
         },
         {
           "type": "new",
@@ -90,17 +90,17 @@
         {
           "type": "new",
           "cs": "Zákazníka, kterého ve Worklogu ještě nemáte, si nově založíte přímo ze synchronizace – sekce vypíše firmy, které jsou v CRM a tady zatím chybí, vy zaškrtnete ty, na kterých budete vykazovat, a založí se rovnou propojené. Seznam má hledání; ostatní firmy z CRM se do Worklogu nekopírují.",
-          "en": "A customer you do not have in Worklog yet can now be created straight from the synchronisation – the section lists companies that exist in CRM but are missing here, you tick those you will report on, and they are created already linked. The list has search; the rest of your CRM companies are not copied over."
+          "en": "A customer you do not have in Worklog yet can now be created straight from the synchronisation — the section lists companies that exist in CRM but are missing here, you tick those you will report on, and they are created already linked. The list has search; the rest of your CRM companies are not copied over."
         },
         {
           "type": "fixed",
           "cs": "Sekce Synchronizace se v Nastavení → Vazba na CRM vůbec nezobrazovala – opraveno.",
-          "en": "The Synchronisation section did not show up in Settings → CRM link at all – fixed."
+          "en": "The Synchronisation section did not show up in Settings → CRM link at all — fixed."
         },
         {
           "type": "improved",
           "cs": "U zákazníků je vidět, kteří jsou propojení s CRM – v seznamu zákazníků mají odznak CRM a v Nastavení → Vazba na CRM si rozbalíte jejich úplný přehled.",
-          "en": "You can now see which customers are linked to CRM – they carry a CRM badge in the customer list, and Settings → CRM link shows the full list."
+          "en": "You can now see which customers are linked to CRM — they carry a CRM badge in the customer list, and Settings → CRM link shows the full list."
         }
       ]
     },
@@ -121,52 +121,52 @@
         {
           "type": "new",
           "cs": "Výkaz lze zkopírovat do nové položky – ikona kopie u řádku předvyplní rychlý zápis (projekt, milník, typ práce, hodiny i popis) s dnešním datem; stačí doladit a uložit. Funguje na počítači i na mobilu.",
-          "en": "An entry can be copied into a new one – the copy icon in the row prefills the quick entry (project, milestone, work type, hours and description) with today's date; just adjust and save. Works on desktop and mobile."
+          "en": "An entry can be copied into a new one — the copy icon in the row prefills the quick entry (project, milestone, work type, hours and description) with today's date; just adjust and save. Works on desktop and mobile."
         },
         {
           "type": "new",
           "cs": "Aplikaci lze zvětšit na celou obrazovku – přepínač v pravém horním rohu roztáhne Worklog přes celé okno, což ocení hlavně široké tabulky výkazů a fakturace. Dalším klikem se vrátíte zpět.",
-          "en": "The app can be maximised to full screen – the toggle in the top right stretches Worklog across the whole window, handy for wide timesheet and billing tables. Click again to return."
+          "en": "The app can be maximised to full screen — the toggle in the top right stretches Worklog across the whole window, handy for wide timesheet and billing tables. Click again to return."
         },
         {
           "type": "improved",
           "cs": "Můj výkaz je v nabídce hned pod Přehledem – nejčastější denní činnost máte po ruce.",
-          "en": "My timesheet sits right below Overview in the menu – your most frequent daily activity is now within reach."
+          "en": "My timesheet sits right below Overview in the menu — your most frequent daily activity is now within reach."
         },
         {
           "type": "improved",
           "cs": "Zápis výkazu je pohodlnější a úplnější – u hodin jsou šipky po půl hodině (nebo klávesy nahoru/dolů), popis má nově víc řádků a všechna pole formuláře jsou povinná, takže ve výkazu nezůstane prázdné místo.",
-          "en": "Logging an entry is smoother and more complete – hours have half-hour arrows (or up/down keys), the description spans several lines and every field is now required, so no entry stays half-filled."
+          "en": "Logging an entry is smoother and more complete — hours have half-hour arrows (or up/down keys), the description spans several lines and every field is now required, so no entry stays half-filled."
         },
         {
           "type": "improved",
           "cs": "Dokument výkazu (Word) přebírá motiv aplikace – barva akcentu i primární barva se propíší do hlavičky, tabulek i součtů. Nově obsahuje také souhrn odpracovaných hodin podle typu práce včetně podílu v procentech.",
-          "en": "The timesheet document (Word) picks up the app theme – accent and primary colours flow into the header, tables and totals. It also newly includes a summary of hours by work type, with percentage shares."
+          "en": "The timesheet document (Word) picks up the app theme — accent and primary colours flow into the header, tables and totals. It also newly includes a summary of hours by work type, with percentage shares."
         },
         {
           "type": "new",
           "cs": "Ke schválení můžete odeslat jen vybrané výkazy – zaškrtněte konkrétní řádky (nebo všechny naráz v záhlaví) a odešlete je; bez výběru se jako dosud odešlou všechny koncepty.",
-          "en": "You can submit just the entries you pick – tick individual rows (or all at once in the header) and send them; with no selection all drafts are submitted as before."
+          "en": "You can submit just the entries you pick — tick individual rows (or all at once in the header) and send them; with no selection all drafts are submitted as before."
         },
         {
           "type": "improved",
           "cs": "Sazby v ceníku mají platnost od data – když zdražíte, uloží se nová verze sazby a dříve pořízené výkazy si podrží tu původní.",
-          "en": "Rate card entries now have an effective-from date – a price change stores a new version and previously logged entries keep the original rate."
+          "en": "Rate card entries now have an effective-from date — a price change stores a new version and previously logged entries keep the original rate."
         },
         {
           "type": "improved",
           "cs": "Upozornění „výkaz čeká na schválení příliš dlouho“ se nově počítá od okamžiku odeslání, ne od poslední změny řádku – stáří ve frontě tak sedí.",
-          "en": "The “entry has been waiting too long” warning is now measured from the moment of submission, not the last row change – queue age is finally accurate."
+          "en": "The “entry has been waiting too long” warning is now measured from the moment of submission, not the last row change — queue age is finally accurate."
         },
         {
           "type": "improved",
           "cs": "Odkazy „Kopírovat odkaz“ fungují i v Microsoft Teams – míří na stránku aplikace v SharePointu, takže je můžete poslat kolegovi.",
-          "en": "The “Copy link” action now works in Microsoft Teams too – links point to the app page in SharePoint, so you can send them to a colleague."
+          "en": "The “Copy link” action now works in Microsoft Teams too — links point to the app page in SharePoint, so you can send them to a colleague."
         },
         {
           "type": "improved",
           "cs": "Aplikace v Teams lépe rozliší výpadek sítě od „aplikace tu není“ – místo zavádějící hlášky poradí, co s tím.",
-          "en": "In Teams the app now tells a network glitch apart from “the app is not deployed here” – instead of a misleading message you get actionable advice."
+          "en": "In Teams the app now tells a network glitch apart from “the app is not deployed here” — instead of a misleading message you get actionable advice."
         },
         {
           "type": "improved",
@@ -176,32 +176,32 @@
         {
           "type": "fixed",
           "cs": "Počet aktivních projektů byl na Přehledu a v Přehledu využití počítán různě – nyní obě místa ukazují totéž.",
-          "en": "Active project counts differed between the Overview and the Usage overview – both now show the same number."
+          "en": "Active project counts differed between the Overview and the Usage overview — both now show the same number."
         },
         {
           "type": "improved",
           "cs": "Vnitřní úklid – hlavička stránky, stránkování, řazení tabulek, hledání ⌘K i ukládání voleb jedou ze sdílených komponent EasyPortal 365. Pro vás se nic nemění, opravy a vylepšení ale nově dorazí do všech aplikací najednou.",
-          "en": "Internal cleanup – the page header, pagination, table sorting, ⌘K search and preference storage now come from shared EasyPortal 365 components. Nothing changes for you, but fixes and improvements now land across all apps at once."
+          "en": "Internal cleanup — the page header, pagination, table sorting, ⌘K search and preference storage now come from shared EasyPortal 365 components. Nothing changes for you, but fixes and improvements now land across all apps at once."
         },
         {
           "type": "improved",
           "cs": "Dokument výkazu je nově členěný podle projektů – u každého projektu najdete rozpad odpracovaných hodin a hned pod ním souhrn podle typu práce; na konci dokumentu je celkový souhrn za všechny projekty. U výkazu s jediným projektem zůstává dokument jednoduchý, bez zdvojených souhrnů.",
-          "en": "The timesheet document is now structured by project – each project shows its hour breakdown followed by a summary per work type, and the document ends with an overall summary across all projects. A single-project report stays simple, without duplicated summaries."
+          "en": "The timesheet document is now structured by project — each project shows its hour breakdown followed by a summary per work type, and the document ends with an overall summary across all projects. A single-project report stays simple, without duplicated summaries."
         },
         {
           "type": "improved",
           "cs": "Nápověda vysvětluje, jak vypadá dokument výkazu a hlavně kdy se příjem z hodin propíše do EP365 CRM – samotné schválení ani označení Fakturováno tam nic neposílá, rozhoduje až uzávěrka měsíce.",
-          "en": "Help now explains what the timesheet document looks like and, more importantly, when hours turn into revenue in EP365 CRM – neither approval nor the invoiced flag sends anything there; the month close does."
+          "en": "Help now explains what the timesheet document looks like and, more importantly, when hours turn into revenue in EP365 CRM — neither approval nor the invoiced flag sends anything there; the month close does."
         },
         {
           "type": "improved",
           "cs": "Dokument výkazu má levý i pravý okraj stránky 2 cm – tabulky tak využijí víc šířky a dokument je připravený k tisku i archivaci.",
-          "en": "The timesheet document now uses 2 cm left and right page margins – tables get more width and the document is ready for printing and filing."
+          "en": "The timesheet document now uses 2 cm left and right page margins — tables get more width and the document is ready for printing and filing."
         },
         {
           "type": "fixed",
           "cs": "Vyhledávání ⌘K a záhlaví tabulek se po vnitřní úpravě zobrazovaly systémovým patkovým písmem místo firemního – opraveno, vše je zpět v jednotném vzhledu aplikace.",
-          "en": "The ⌘K search and table headers rendered in the system serif font instead of the brand one after an internal change – fixed, everything is back to the app's consistent look."
+          "en": "The ⌘K search and table headers rendered in the system serif font instead of the brand one after an internal change — fixed, everything is back to the app's consistent look."
         }
       ]
     },
@@ -212,87 +212,87 @@
         {
           "type": "new",
           "cs": "Worklog nově upozorní na nevykázané a vrácené výkazy přímo v přehledu „Můj den“ na EP365 intranetu – uvidíte je na úvodní stránce mezi ostatními věcmi, které čekají na vaši akci.",
-          "en": "Worklog now flags unsubmitted and returned timesheets right in the “My day” overview on the EP365 intranet – you see them on the landing page among other things awaiting your action."
+          "en": "Worklog now flags unsubmitted and returned timesheets right in the “My day” overview on the EP365 intranet — you see them on the landing page among other things awaiting your action."
         },
         {
           "type": "improved",
           "cs": "Můj výkaz si pamatuje naposledy vykázaný projekt – rychlý zápis ho rovnou předvyplní. Měsíční přehled je nově tříditelná tabulka – klikem na záhlaví sloupce seřadíte výkazy podle hodin, projektu, data i stavu.",
-          "en": "My timesheet remembers the last project you logged to – the quick entry preselects it. The monthly overview is now a sortable table – click a column header to sort entries by hours, project, date or status."
+          "en": "My timesheet remembers the last project you logged to — the quick entry preselects it. The monthly overview is now a sortable table — click a column header to sort entries by hours, project, date or status."
         },
         {
           "type": "improved",
           "cs": "Projekty a milníky mají nově řádkové (tabulkové) zobrazení – přepnete ho vedle dlaždic i kanbanu, se seřaditelnými sloupci; aplikace si pamatuje, které zobrazení jste měli naposledy.",
-          "en": "Projects and milestones now offer a row (table) view – switch to it next to tiles and the kanban, with sortable columns; the app remembers which view you used last."
+          "en": "Projects and milestones now offer a row (table) view — switch to it next to tiles and the kanban, with sortable columns; the app remembers which view you used last."
         },
         {
           "type": "improved",
           "cs": "Aplikace je připravená pro týmy více uživatelů – schvalovatel a fakturant nově vidí výkazy celého týmu (ne jen své) a všichni vidí sdílené projekty, milníky, úkoly, číselníky a přiřazení. Interní nákladové sazby a marži nově vidí jen správce – ukládají se odděleně a do výkazů se nezapisují.",
-          "en": "Ready for multi-user teams – approvers and billing now see the whole team's entries (not just their own) and everyone sees shared projects, milestones, tasks, lookups and assignments. Internal cost rates and margins are now visible only to administrators – stored separately and never written into the timesheets."
+          "en": "Ready for multi-user teams — approvers and billing now see the whole team's entries (not just their own) and everyone sees shared projects, milestones, tasks, lookups and assignments. Internal cost rates and margins are now visible only to administrators — stored separately and never written into the timesheets."
         },
         {
           "type": "improved",
           "cs": "V Microsoft Teams si aplikace sama najde, kde máte data – když je EP365 Homepage v hub režimu, dohledá web Worklogu z jejího přehledu aplikací; jinak se jednou zeptá na adresu webu s Worklogem a zapamatuje si ji (lištou „Změnit“ nahoře ji kdykoli přepnete).",
-          "en": "In Microsoft Teams the app finds where your data is on its own – if EP365 Homepage runs in hub mode it looks up the Worklog site from its app registry; otherwise it asks once for the address of your Worklog site and remembers it (switch it anytime via the “Change” bar at the top)."
+          "en": "In Microsoft Teams the app finds where your data is on its own — if EP365 Homepage runs in hub mode it looks up the Worklog site from its app registry; otherwise it asks once for the address of your Worklog site and remembers it (switch it anytime via the “Change” bar at the top)."
         },
         {
           "type": "new",
           "cs": "Detail úkolu ukazuje vykázané hodiny – součet i poslední záznamy hodin provázaných s úkolem přes tlačítko Založit výkaz.",
-          "en": "The task detail shows logged hours – the total and the latest entries linked to the task via the Create entry button."
+          "en": "The task detail shows logged hours — the total and the latest entries linked to the task via the Create entry button."
         },
         {
           "type": "new",
           "cs": "Odeslaný výkaz lze stáhnout z odeslání – vrátí se do konceptů a zmizí z fronty schvalování (na počítači i na mobilu).",
-          "en": "A submitted entry can be recalled – it returns to drafts and disappears from the approval queue (on desktop and mobile)."
+          "en": "A submitted entry can be recalled — it returns to drafts and disappears from the approval queue (on desktop and mobile)."
         },
         {
           "type": "new",
           "cs": "Mobilní vykazování má zkratku „Jako naposledy“ – jedním klepnutím předvyplní projekt, milník a typ práce z posledního zápisu.",
-          "en": "Mobile logging has a “Same as last time” shortcut – one tap prefills the project, milestone and work type from your last entry."
+          "en": "Mobile logging has a “Same as last time” shortcut — one tap prefills the project, milestone and work type from your last entry."
         },
         {
           "type": "improved",
           "cs": "Hledání nerozlišuje diakritiku – „vyvoj“ najde „Vývoj“, a to ve všech seznamech i v hledání ⌘K.",
-          "en": "Search is diacritics-insensitive – “vyvoj” finds “Vývoj” across all lists and in ⌘K search."
+          "en": "Search is diacritics-insensitive — “vyvoj” finds “Vývoj” across all lists and in ⌘K search."
         },
         {
           "type": "improved",
           "cs": "Odznak Schvalování upozorní i na výkazy po termínu – vykřičník u počtu a podrobnost po najetí myší.",
-          "en": "The Approvals badge also flags overdue entries – an exclamation mark next to the count and details on hover."
+          "en": "The Approvals badge also flags overdue entries — an exclamation mark next to the count and details on hover."
         },
         {
           "type": "improved",
           "cs": "Velká kontrola spolehlivosti – uzávěrka měsíce si data vždy načítá čerstvě a při výpadku sítě se bezpečně zastaví (nikdy nesmaže příjmy v CRM omylem), odeslání, schválení i fakturace respektují uzamčené období a částky v různých měnách se už nikde tiše nesčítají.",
-          "en": "A major reliability pass – month close always reads fresh data and stops safely on a network failure (it can never wipe CRM revenue by mistake), submitting, approving and invoicing respect locked periods, and amounts in different currencies are no longer silently added together."
+          "en": "A major reliability pass — month close always reads fresh data and stops safely on a network failure (it can never wipe CRM revenue by mistake), submitting, approving and invoicing respect locked periods, and amounts in different currencies are no longer silently added together."
         },
         {
           "type": "fixed",
           "cs": "Řada drobných oprav – správné týdenní součty na přelomu měsíce, hledání ⌘K respektuje přiřazení spolupracovníka, ceník správně rozlišuje zákazníky z CRM a lokální, přesun úkolu na kanbanu potvrdí hláška a Outlook podklad k vykázání načítá schůzky ve správném časovém pásmu.",
-          "en": "A batch of smaller fixes – correct weekly totals across month boundaries, ⌘K search respects collaborator assignments, the rate card correctly distinguishes CRM and local customers, kanban task moves show a confirmation and the Outlook logging aid loads meetings in the correct time zone."
+          "en": "A batch of smaller fixes — correct weekly totals across month boundaries, ⌘K search respects collaborator assignments, the rate card correctly distinguishes CRM and local customers, kanban task moves show a confirmation and the Outlook logging aid loads meetings in the correct time zone."
         },
         {
           "type": "improved",
           "cs": "Hlášení chyb a návrhy funkcí nově odcházejí e-mailem přímo na podporu EasyPortal 365 – vznikne z nich tiket a odpověď vám přijde e-mailem.",
-          "en": "Bug reports and feature requests are now sent by e-mail directly to EasyPortal 365 support – they become a ticket and you get the reply by e-mail."
+          "en": "Bug reports and feature requests are now sent by e-mail directly to EasyPortal 365 support — they become a ticket and you get the reply by e-mail."
         },
         {
           "type": "new",
           "cs": "Výkaz založený z úkolu se s ním nově provazuje – připravujeme přehled vykázaných hodin přímo na úkolu.",
-          "en": "A timesheet entry created from a task is now linked to it – a per-task logged-hours overview is coming next."
+          "en": "A timesheet entry created from a task is now linked to it — a per-task logged-hours overview is coming next."
         },
         {
           "type": "new",
           "cs": "Aplikace je dostupná v Microsoft Teams – přidáte si ji jako osobní aplikaci v levé liště nebo jako záložku v kanálu, funguje i v mobilním Teams.",
-          "en": "The app is available in Microsoft Teams – add it as a personal app in the left rail or as a channel tab; it also works in mobile Teams."
+          "en": "The app is available in Microsoft Teams — add it as a personal app in the left rail or as a channel tab; it also works in mobile Teams."
         },
         {
           "type": "new",
           "cs": "Na telefonu se aplikace otevírá ve zjednodušeném zobrazení – rychlé vykázání práce, vlastní výkaz s odesláním ke schválení a týdenní souhrn; plná aplikace zůstává na klik.",
-          "en": "On a phone the app opens in a simplified view – quick time logging, your own timesheet with submission for approval and a weekly summary; the full app stays one tap away."
+          "en": "On a phone the app opens in a simplified view — quick time logging, your own timesheet with submission for approval and a weekly summary; the full app stays one tap away."
         },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -302,32 +302,32 @@
         {
           "type": "new",
           "cs": "Můj výkaz – rychlý zápis odpracovaných hodin s týdenní mřížkou, kopií minulého týdne a odesláním ke schválení.",
-          "en": "My timesheet – quick logging of worked hours with a weekly grid, copy-last-week and submission for approval."
+          "en": "My timesheet — quick logging of worked hours with a weekly grid, copy-last-week and submission for approval."
         },
         {
           "type": "new",
           "cs": "Schvalování výkazů – fronta odeslaných hodin pro vedoucí projektů, důvod zamítnutí, delegace schvalování v nepřítomnosti a e-mailové notifikace.",
-          "en": "Timesheet approval – a queue of submitted hours for project leads, rejection reasons, approval delegation during absence and e-mail notifications."
+          "en": "Timesheet approval — a queue of submitted hours for project leads, rejection reasons, approval delegation during absence and e-mail notifications."
         },
         {
           "type": "new",
           "cs": "Fakturace a výkazy – schválené hodiny připravené k fakturaci, sazby dle ceníku na úrovni zákazníka, projektu i osoby, součty podle měn a export měsíčního výkazu do Wordu dle šablony nebo do CSV.",
-          "en": "Billing and reports – approved hours ready for invoicing, rates from the rate card at customer, project and person level, per-currency totals and monthly report export to Word (via template) or CSV."
+          "en": "Billing and reports — approved hours ready for invoicing, rates from the rate card at customer, project and person level, per-currency totals and monthly report export to Word (via template) or CSV."
         },
         {
           "type": "new",
           "cs": "Projekty a milníky – strom zákazník, projekt, milník a úkol; úkoly také jako kanban s přetahováním a sledováním postupu.",
-          "en": "Projects and milestones – a customer, project, milestone and task tree; tasks also as a drag-and-drop kanban with progress tracking."
+          "en": "Projects and milestones — a customer, project, milestone and task tree; tasks also as a drag-and-drop kanban with progress tracking."
         },
         {
           "type": "new",
           "cs": "Propojení s EP365 CRM – servisní smlouvy s předplacenými hodinami, převod nevyčerpaných hodin do dalšího měsíce a uzávěrka měsíce s propisem příjmů z hodin.",
-          "en": "EP365 CRM integration – service contracts with prepaid hours, carry-over of unused hours to the next month and month close writing revenue from hours."
+          "en": "EP365 CRM integration — service contracts with prepaid hours, carry-over of unused hours to the next month and month close writing revenue from hours."
         },
         {
           "type": "new",
           "cs": "Vykazovací disciplína – uzamykání období, týdenní cíl hodin, připomínky nevykázaného času, eskalace výkazů po termínu a Outlook kalendář jako podklad k vykázání.",
-          "en": "Time-logging discipline – period locking, a weekly hours target, reminders for missing time, escalation of overdue timesheets and Outlook calendar as a basis for logging."
+          "en": "Time-logging discipline — period locking, a weekly hours target, reminders for missing time, escalation of overdue timesheets and Outlook calendar as a basis for logging."
         },
         {
           "type": "improved",
@@ -337,7 +337,7 @@
         {
           "type": "improved",
           "cs": "Typ projektu „Podpora“ se přejmenoval na „Ad-hoc podpora“ – jasněji odlišuje jednorázovou podporu placenou za odpracovaný čas od paušální servisní smlouvy.",
-          "en": "The Support project type was renamed to Ad-hoc support – it more clearly distinguishes one-off support billed by time worked from a flat-rate service contract."
+          "en": "The Support project type was renamed to Ad-hoc support — it more clearly distinguishes one-off support billed by time worked from a flat-rate service contract."
         },
         {
           "type": "improved",

@@ -10,7 +10,7 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & info the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & info the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "new",
@@ -25,7 +25,7 @@
         {
           "type": "fixed",
           "cs": "Nastavení – Role: členy skupiny nově vidí všichni správci aplikace, ne jen ten, kdo aplikaci na webu zakládal. Druhý správce viděl u skupin, ve kterých sám není, prázdný seznam, i když v nich lidé byli – SharePoint mu čtení členství odepíral. Aplikace si nastavení viditelnosti skupin sama srovná při prvním načtení správcem.",
-          "en": "Settings – Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
+          "en": "Settings — Roles: group members are now visible to every application administrator, not just to the person who first set the application up on the site. Another administrator saw an empty list for groups they are not a member of themselves, even though there were people in them — SharePoint denied them the membership read. The application aligns the group visibility setting itself on the first administrator visit."
         },
         {
           "type": "fixed",
@@ -98,37 +98,37 @@
         {
           "type": "new",
           "cs": "Hlídání expirace médií – správci vidí na rozcestníku upozornění na expirovaná a brzy expirující média a v knihovně mají nový filtr Expirace. Expirovaná média se běžným uživatelům nově skrývají (volba v Nastavení → Obecné).",
-          "en": "Media expiration watch – admins see a home-screen notice for expired and soon-to-expire media and get a new Expiration filter in the library. Expired media are now hidden from regular users (option in Settings → General)."
+          "en": "Media expiration watch — admins see a home-screen notice for expired and soon-to-expire media and get a new Expiration filter in the library. Expired media are now hidden from regular users (option in Settings → General)."
         },
         {
           "type": "new",
           "cs": "Focení z telefonu – v mobilním zobrazení pořídíte fotku rovnou fotoaparátem a nahrajete ji do zvolené kolekce (např. reportáž z akce).",
-          "en": "Phone capture – on mobile you can take a photo with the camera and upload it straight into a collection (e.g. event coverage)."
+          "en": "Phone capture — on mobile you can take a photo with the camera and upload it straight into a collection (e.g. event coverage)."
         },
         {
           "type": "new",
           "cs": "Soukromí fotek – při nahrání se odstraňují skrytá metadata (EXIF včetně GPS polohy) a velké fotky lze volitelně automaticky zmenšovat.",
-          "en": "Photo privacy – hidden metadata (EXIF including GPS location) is stripped on upload, and large photos can optionally be downsized automatically."
+          "en": "Photo privacy — hidden metadata (EXIF including GPS location) is stripped on upload, and large photos can optionally be downsized automatically."
         },
         {
           "type": "new",
           "cs": "Import z existující složky – média už uložená na SharePointu zkopírujete do centra průvodcem s náhledem před potvrzením (Nastavení → Import médií). Originály zůstávají beze změny.",
-          "en": "Import from an existing folder – media already stored on SharePoint can be copied into the center via a wizard with a preview before confirming (Settings → Media import). Originals stay untouched."
+          "en": "Import from an existing folder — media already stored on SharePoint can be copied into the center via a wizard with a preview before confirming (Settings → Media import). Originals stay untouched."
         },
         {
           "type": "new",
           "cs": "Kiosk režim pro obrazovky – z detailu kolekce spustíte celoplošnou smyčku fotek a videí (recepce, jídelna, veletrh); odkaz lze nastavit na obrazovku napevno.",
-          "en": "Kiosk mode for screens – launch a full-screen loop of a collection's photos and videos from its detail (reception, canteen, trade fair); the link can be pinned to a screen permanently."
+          "en": "Kiosk mode for screens — launch a full-screen loop of a collection's photos and videos from its detail (reception, canteen, trade fair); the link can be pinned to a screen permanently."
         },
         {
           "type": "new",
           "cs": "Nové od vaší poslední návštěvy – rozcestník ukáže média přidaná od vaší minulé návštěvy.",
-          "en": "New since your last visit – the home screen shows media added since you were last here."
+          "en": "New since your last visit — the home screen shows media added since you were last here."
         },
         {
           "type": "improved",
           "cs": "Naposledy prohlížená média se pamatují napříč zařízeními – historie z počítače se ukáže i v telefonu.",
-          "en": "Recently viewed media are remembered across devices – history from your computer shows up on your phone too."
+          "en": "Recently viewed media are remembered across devices — history from your computer shows up on your phone too."
         },
         {
           "type": "improved",
@@ -138,7 +138,7 @@
         {
           "type": "improved",
           "cs": "Hlášení chyb a návrhy funkcí odchází e-mailem na podporu EasyPortal 365 a vzniká z nich tiket – o vyřízení budete informováni.",
-          "en": "Bug reports and feature suggestions are now e-mailed to EasyPortal 365 support and turned into tickets – you will be kept informed."
+          "en": "Bug reports and feature suggestions are now e-mailed to EasyPortal 365 support and turned into tickets — you will be kept informed."
         },
         {
           "type": "improved",
@@ -154,27 +154,27 @@
         {
           "type": "new",
           "cs": "Mediální centrum je nově dostupné v Microsoft Teams – jako osobní aplikace v levém panelu i jako záložka v kanálu. Vaše fotky, videa a brand materiály máte po ruce i mimo prohlížeč.",
-          "en": "The Media Center is now available in Microsoft Teams – as a personal app in the left rail and as a tab in a channel. Your photos, videos and brand assets are at hand outside the browser too."
+          "en": "The Media Center is now available in Microsoft Teams — as a personal app in the left rail and as a tab in a channel. Your photos, videos and brand assets are at hand outside the browser too."
         },
         {
           "type": "new",
           "cs": "Přepracované mobilní zobrazení – na telefonu aplikace nabídne přehlednou spodní navigaci a obsah uzpůsobený malé obrazovce. Prohlížení a přehrávání médií je pohodlné i na cestách.",
-          "en": "Redesigned mobile experience – on a phone the app offers a clear bottom navigation and content tailored to the small screen. Browsing and playing media is comfortable on the go too."
+          "en": "Redesigned mobile experience — on a phone the app offers a clear bottom navigation and content tailored to the small screen. Browsing and playing media is comfortable on the go too."
         },
         {
           "type": "improved",
           "cs": "V Microsoft Teams si aplikace sama najde web s vaším mediálním centrem (přes EP365 Homepage), nebo se jednou zeptá na jeho adresu a zapamatuje si ji – přepnout web jde kdykoli lištou nahoře.",
-          "en": "In Microsoft Teams the app finds the site with your Media Center on its own (via EP365 Homepage), or asks for its address once and remembers it – you can switch the site anytime from the top bar."
+          "en": "In Microsoft Teams the app finds the site with your Media Center on its own (via EP365 Homepage), or asks for its address once and remembers it — you can switch the site anytime from the top bar."
         },
         {
           "type": "fixed",
           "cs": "Zrušení data expirace média se nyní skutečně uloží – dříve mohlo tiše zůstat původní datum.",
-          "en": "Clearing a media expiration date now actually saves – previously the original date could silently remain."
+          "en": "Clearing a media expiration date now actually saves — previously the original date could silently remain."
         },
         {
           "type": "fixed",
           "cs": "Výsledek rychlého hledání ⌘K typu médium otevře médium rovnou v detailu – dříve jen přepnul do knihovny.",
-          "en": "A ⌘K quick-search result of type media now opens the item directly in its detail – previously it only switched to the library."
+          "en": "A ⌘K quick-search result of type media now opens the item directly in its detail — previously it only switched to the library."
         },
         {
           "type": "fixed",
@@ -184,7 +184,7 @@
         {
           "type": "fixed",
           "cs": "Stažení výběru do ZIP – názvy souborů se speciálními znaky se v archivu už nerozpadají na složky.",
-          "en": "ZIP download – file names with special characters no longer break into folders inside the archive."
+          "en": "ZIP download — file names with special characters no longer break into folders inside the archive."
         },
         {
           "type": "fixed",
@@ -200,7 +200,7 @@
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -210,12 +210,12 @@
         {
           "type": "new",
           "cs": "Příkazová paleta ⌘K – okamžité hledání napříč médii, kolekcemi a obrazovkami přímo z klávesnice.",
-          "en": "Command palette ⌘K – instant keyboard search across media, collections and views."
+          "en": "Command palette ⌘K — instant keyboard search across media, collections and views."
         },
         {
           "type": "improved",
           "cs": "Uvítací rozcestník má nový vzhled podle jednotného stylu aplikací EP365 – rychlé vstupy do fotografií, videí a brand materiálů.",
-          "en": "The welcome landing page has a refreshed look aligned with the unified EP365 app style – quick entries to photos, videos and brand assets."
+          "en": "The welcome landing page has a refreshed look aligned with the unified EP365 app style — quick entries to photos, videos and brand assets."
         },
         {
           "type": "improved",
@@ -236,27 +236,27 @@
         {
           "type": "new",
           "cs": "Klik na dlaždici otevře médium rovnou v prohlížečce přes celou obrazovku – s filmovým pásem pro rychlé procházení, fotografiemi na celou obrazovku a automatickým náhledem videa.",
-          "en": "Clicking a tile opens the media in a full-screen viewer – with a filmstrip for quick browsing, full-screen photos and automatic video preview."
+          "en": "Clicking a tile opens the media in a full-screen viewer — with a filmstrip for quick browsing, full-screen photos and automatic video preview."
         },
         {
           "type": "new",
           "cs": "Barevný motiv aplikace lze dědit z centrální konfigurace organizace (EP365 Homepage) – jednotný vzhled všech aplikací na jedno kliknutí.",
-          "en": "The accent theme can be inherited from your organisation's central configuration (EP365 Homepage) – a unified look across apps in one click."
+          "en": "The accent theme can be inherited from your organisation's central configuration (EP365 Homepage) — a unified look across apps in one click."
         },
         {
           "type": "new",
           "cs": "Nápověda zobrazuje kontakt na podporu vaší organizace – přebírá se z globální konfigurace EP365 Homepage.",
-          "en": "Help now shows your organisation's support contact – inherited from the EP365 Homepage global configuration."
+          "en": "Help now shows your organisation's support contact — inherited from the EP365 Homepage global configuration."
         },
         {
           "type": "improved",
           "cs": "Tlačítka Zpět a Vpřed v prohlížeči přepínají obrazovky uvnitř aplikace – návrat na předchozí pohled bez opuštění stránky.",
-          "en": "The browser Back and Forward buttons switch views inside the app – returning to the previous screen without leaving the page."
+          "en": "The browser Back and Forward buttons switch views inside the app — returning to the previous screen without leaving the page."
         },
         {
           "type": "fixed",
           "cs": "Bezpečnostní a technický audit – opravy drobných chyb, lepší přístupnost a spolehlivější ukládání.",
-          "en": "Security and technical audit – minor bug fixes, better accessibility and more reliable saving."
+          "en": "Security and technical audit — minor bug fixes, better accessibility and more reliable saving."
         },
         {
           "type": "improved",

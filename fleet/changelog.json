@@ -10,7 +10,7 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "new",
@@ -31,17 +31,17 @@
         {
           "type": "new",
           "cs": "Vozový park je nově dostupný v Microsoft Teams – přidáte si ho jako osobní aplikaci v levé liště nebo jako záložku v kanálu; funguje i v mobilním Teams se zjednodušeným zobrazením pro rezervace, předání vozidla, hlášení incidentů a tankování. Při prvním otevření v Teams se aplikace zeptá (nebo si sama dohledá z EP365 Homepage), kde máte data.",
-          "en": "Fleet is now available in Microsoft Teams – add it as a personal app in the left rail or a channel tab; it also works in mobile Teams with a simplified view for reservations, vehicle handover, incident reporting and refuelling. On first open in Teams the app asks (or finds via EP365 Homepage) where your data lives."
+          "en": "Fleet is now available in Microsoft Teams — add it as a personal app in the left rail or a channel tab; it also works in mobile Teams with a simplified view for reservations, vehicle handover, incident reporting and refuelling. On first open in Teams the app asks (or finds via EP365 Homepage) where your data lives."
         },
         {
           "type": "fixed",
           "cs": "Aplikace je připravená pro týmy více uživatelů – řidiči nově vidí všechna vozidla a dispečer i správce vidí a schvalují rezervace celého týmu (dříve mohl každý vidět jen své vlastní záznamy). Týká se vozidel, rezervací, incidentů, knihy jízd, servisů, tankování i dalších přehledů.",
-          "en": "The app is now ready for multi-user teams – drivers now see all vehicles and dispatchers and managers see and approve the whole team's reservations (previously each person could see only their own records). This applies to vehicles, reservations, incidents, the journey log, service history, refuelling and other overviews."
+          "en": "The app is now ready for multi-user teams — drivers now see all vehicles and dispatchers and managers see and approve the whole team's reservations (previously each person could see only their own records). This applies to vehicles, reservations, incidents, the journey log, service history, refuelling and other overviews."
         },
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -51,17 +51,17 @@
         {
           "type": "new",
           "cs": "Nová uvítací obrazovka – přehledný rozcestník s rychlými akcemi hned po otevření aplikace.",
-          "en": "New welcome landing screen – a clear start page with quick actions."
+          "en": "New welcome landing screen — a clear start page with quick actions."
         },
         {
           "type": "new",
           "cs": "Příkazová paleta ⌘K – okamžité hledání napříč vozidly, rezervacemi a obrazovkami přímo z klávesnice.",
-          "en": "Command palette ⌘K – instant keyboard search across vehicles, reservations and views."
+          "en": "Command palette ⌘K — instant keyboard search across vehicles, reservations and views."
         },
         {
           "type": "new",
           "cs": "Nastavení má novou sekci Rezervace a provoz – správce může zapnout schvalování rezervací pro celou organizaci (vozidlo s vlastním režimem má přednost) a automatické připomínky řidičům s nastavitelným předstihem.",
-          "en": "Settings has a new Reservations & operations section – admins can require reservation approval org-wide (a vehicle's own mode takes precedence) and enable automatic driver reminders with a configurable lead time."
+          "en": "Settings has a new Reservations & operations section — admins can require reservation approval org-wide (a vehicle's own mode takes precedence) and enable automatic driver reminders with a configurable lead time."
         },
         {
           "type": "improved",
@@ -92,12 +92,12 @@
         {
           "type": "new",
           "cs": "Nápověda zobrazuje kontakt na podporu vaší organizace – přebírá se z globální konfigurace EP365 Homepage.",
-          "en": "Help now shows your organisation's support contact – inherited from the EP365 Homepage global configuration."
+          "en": "Help now shows your organisation's support contact — inherited from the EP365 Homepage global configuration."
         },
         {
           "type": "new",
           "cs": "Barevný motiv aplikace lze dědit z centrální konfigurace organizace (EP365 Homepage) – jednotný vzhled všech aplikací na jedno kliknutí.",
-          "en": "The app's accent theme can be inherited from your organisation's central configuration (EP365 Homepage) – a unified look across apps in one click."
+          "en": "The app's accent theme can be inherited from your organisation's central configuration (EP365 Homepage) — a unified look across apps in one click."
         },
         {
           "type": "improved",
@@ -107,7 +107,7 @@
         {
           "type": "fixed",
           "cs": "Bezpečnostní audit – mimo jiné oprava nahrávání příloh se speciálními znaky v názvu souboru a sjednocení stavů incidentů.",
-          "en": "Security audit – among others, fixed uploading attachments with special characters in file names and unified incident statuses."
+          "en": "Security audit — among others, fixed uploading attachments with special characters in file names and unified incident statuses."
         },
         {
           "type": "improved",

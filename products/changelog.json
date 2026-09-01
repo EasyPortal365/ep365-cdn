@@ -10,27 +10,27 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze a informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "fixed",
           "cs": "Soubory a dokumentace produktů se nově dostanou do vyhledávání SharePointu – dosud byly knihovny katalogu z indexu vyřazené, takže je nenašlo ani firemní hledání, ani AI Asistent. Katalog tím může sloužit jako podklad pro AI Asistenta v režimu firemních znalostí. Kdo na co dosáhne, se nemění: vyhledávání i AI zobrazují jen to, k čemu má daný člověk oprávnění, takže technická dokumentace zůstává jen pro tým.",
-          "en": "Product files and documentation now reach SharePoint search – until now the catalogue libraries were excluded from the index, so neither company search nor the AI Assistant could find them. The catalogue can therefore serve as a source for the AI Assistant in company knowledge mode. Access is unchanged: search and AI only ever surface what a given person is allowed to see, so technical documentation stays with the team."
+          "en": "Product files and documentation now reach SharePoint search — until now the catalogue libraries were excluded from the index, so neither company search nor the AI Assistant could find them. The catalogue can therefore serve as a source for the AI Assistant in company knowledge mode. Access is unchanged: search and AI only ever surface what a given person is allowed to see, so technical documentation stays with the team."
         },
         {
           "type": "improved",
           "cs": "Náhled očima uživatele je nově jen pro správce – dohledává cizí roli, přiřazení a skutečná oprávnění, což je správcovská agenda. Editorům obsahu se tlačítko nezobrazuje.",
-          "en": "The user preview is now admin-only – it resolves another person's role, assignments and real permissions, which is an administrator matter. Content editors no longer see the button."
+          "en": "The user preview is now admin-only — it resolves another person's role, assignments and real permissions, which is an administrator matter. Content editors no longer see the button."
         },
         {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se už netrhá – akční tlačítka se zalomí pod nadpis místo aby ubíhala mimo plochu. Na užších oknech se levé menu zmenší a pod 780 px se scvrkne na ikony, detail produktu i skupiny přepne pravý sloupec pod obsah a odsazení se zmenší, takže se na obsah dostane víc místa.",
-          "en": "Narrow windows and mobile: the page header no longer breaks apart – action buttons wrap below the heading instead of running off the edge. On narrower windows the left menu shrinks and below 780 px collapses to icons, product and group details move the right column below the content, and padding is reduced, leaving more room for the content."
+          "en": "Narrow windows and mobile: the page header no longer breaks apart — action buttons wrap below the heading instead of running off the edge. On narrower windows the left menu shrinks and below 780 px collapses to icons, product and group details move the right column below the content, and padding is reduced, leaving more room for the content."
         },
         {
           "type": "improved",
           "cs": "Hero a galerie: pořadí obrázků změníte přetažením dlaždice. Šipky v rohu dlaždice zůstávají – hodí se na dotykovém displeji.",
-          "en": "Hero and gallery: reorder images by dragging a tile. The arrows in the tile corner remain – handy on touch screens."
+          "en": "Hero and gallery: reorder images by dragging a tile. The arrows in the tile corner remain — handy on touch screens."
         },
         {
           "type": "improved",
@@ -40,47 +40,47 @@
         {
           "type": "new",
           "cs": "Náhled očima uživatele – ikona oka vlevo dole nově nabídne, čí očima si katalog prohlédnout: obecného čtenáře, nebo konkrétního kolegy. U konkrétního člověka dohledáme jeho roli, přiřazení i členství ve skupinách a katalog se přepne do jeho podoby, takže si ověříte, že má práva nastavená správně. U chráněné knihovny technické dokumentace navíc ověříme jeho skutečná oprávnění přímo v SharePointu. V náhledu jsou zápisy vypnuté.",
-          "en": "See the catalogue through someone else's eyes – the eye icon in the bottom left now lets you pick whose view to use: a general reader, or a specific colleague. For a specific person we resolve their role, assignments and group membership and switch the catalogue to what they would see, so you can verify their permissions are set correctly. For the protected technical documentation library we additionally verify their real permissions directly in SharePoint. Writing is disabled while previewing."
+          "en": "See the catalogue through someone else's eyes — the eye icon in the bottom left now lets you pick whose view to use: a general reader, or a specific colleague. For a specific person we resolve their role, assignments and group membership and switch the catalogue to what they would see, so you can verify their permissions are set correctly. For the protected technical documentation library we additionally verify their real permissions directly in SharePoint. Writing is disabled while previewing."
         },
         {
           "type": "fixed",
           "cs": "Obecné materiály: soubory označené jako interní se čtenářům už nezobrazují – dosud je stránka produktu skrývala, ale přehled Obecné ne.",
-          "en": "General materials: files marked as internal are no longer shown to readers – the product page hid them, but the General overview did not."
+          "en": "General materials: files marked as internal are no longer shown to readers — the product page hid them, but the General overview did not."
         },
         {
           "type": "fixed",
           "cs": "Dokumentace u produktu: dlouhá úvodní citace se už neslévá do jednoho bloku textu – odstavce v ní zůstávají oddělené, takže se dá číst.",
-          "en": "Product documentation: a long intro quote no longer collapses into a single block of text – its paragraphs stay separated and readable."
+          "en": "Product documentation: a long intro quote no longer collapses into a single block of text — its paragraphs stay separated and readable."
         },
         {
           "type": "improved",
           "cs": "Prohlížení galerie: vysoký obrázek se teď vejde celý do okna – dřív přetekl přes spodní hranu a schoval se pod pásem náhledů. Přibylo tlačítko celé obrazovky, stažení obrázku a přepínač na skutečnou velikost (nebo prostě klikněte do obrázku), takže si u screenshotu přečtete i drobný text. Pás náhledů se sám posune na právě otevřenou položku.",
-          "en": "Gallery viewing: a tall image now fits the window – previously it overflowed the bottom edge and hid under the thumbnail strip. Added a full-screen button, image download and an actual-size toggle (or just click the image), so you can read fine print in screenshots. The thumbnail strip scrolls to the item you are viewing."
+          "en": "Gallery viewing: a tall image now fits the window — previously it overflowed the bottom edge and hid under the thumbnail strip. Added a full-screen button, image download and an actual-size toggle (or just click the image), so you can read fine print in screenshots. The thumbnail strip scrolls to the item you are viewing."
         },
         {
           "type": "improved",
           "cs": "Aktualizace v CRM nejdřív ukáže rozpory – před zápisem uvidíte tabulku „nyní v CRM → bude“ se všemi údaji, které se přepíšou (název, SKU, popis, kategorie, účtování, cena, jednotka, DPH). Když se nic neliší, aplikace to řekne rovnou. Formulář se nově předvyplní tím, co v CRM skutečně je – dřív nabízel první položku číselníku, takže šlo omylem přepsat kategorii nebo účtování.",
-          "en": "Updating in CRM now shows the differences first – before writing you see a “currently in CRM → will be” table with every field that will be overwritten (name, SKU, description, category, billing, price, unit, VAT). If nothing differs, the app says so upfront. The form is now prefilled with what is actually in CRM – previously it offered the first item of the picklist, so it was easy to overwrite the category or billing type by accident."
+          "en": "Updating in CRM now shows the differences first — before writing you see a “currently in CRM → will be” table with every field that will be overwritten (name, SKU, description, category, billing, price, unit, VAT). If nothing differs, the app says so upfront. The form is now prefilled with what is actually in CRM — previously it offered the first item of the picklist, so it was easy to overwrite the category or billing type by accident."
         },
         {
           "type": "new",
           "cs": "Duplikovat produkt – u produktu je nově tlačítko „Duplikovat“, které založí kopii se všemi sekcemi, variantami, cenami i specifikacemi. Kopie vznikne jako koncept, takže se k obchodníkům nedostane dřív, než ji dokončíte. Obrázky a soubory se nekopírují – patří původnímu produktu.",
-          "en": "Duplicate a product – the product page now has a “Duplicate” button that creates a copy with all sections, variants, prices and specifications. The copy starts as a draft, so it will not reach your colleagues before you finish it. Images and files are not copied – they belong to the original product."
+          "en": "Duplicate a product — the product page now has a “Duplicate” button that creates a copy with all sections, variants, prices and specifications. The copy starts as a draft, so it will not reach your colleagues before you finish it. Images and files are not copied — they belong to the original product."
         },
         {
           "type": "new",
           "cs": "Kontrola úplnosti – tlačítko „Úplnost“ v katalogu ukáže, co ještě chybí doplnit: produkty bez ceny, popisu, obrázku, SKU, zařazení do řady nebo bez datumů uvedení. Nahoře je souhrn, čeho chybí nejvíc; klik na produkt otevře rovnou jeho editaci.",
-          "en": "Completeness check – the “Completeness” button in the catalog shows what is still missing: products without a price, description, image, SKU, range assignment or launch dates. A summary at the top shows what is missing most often; clicking a product opens its editor."
+          "en": "Completeness check — the “Completeness” button in the catalog shows what is still missing: products without a price, description, image, SKU, range assignment or launch dates. A summary at the top shows what is missing most often; clicking a product opens its editor."
         },
         {
           "type": "new",
           "cs": "Hromadné úpravy v tabulce – v tabulkovém zobrazení katalogu zaškrtnete produkty a jedním klikem jim změníte stav, zařadíte je do řady nebo je přesunete na začátek či konec katalogu. Vybrané produkty lze také porovnat vedle sebe – parametry, ceny a varianty v jedné tabulce.",
-          "en": "Bulk edits in the table – in the catalog's table view, tick products and change their status, assign them to a range or move them to the top or bottom of the catalog in one click. Selected products can also be compared side by side – parameters, prices and variants in a single table."
+          "en": "Bulk edits in the table — in the catalog's table view, tick products and change their status, assign them to a range or move them to the top or bottom of the catalog in one click. Selected products can also be compared side by side — parameters, prices and variants in a single table."
         },
         {
           "type": "new",
           "cs": "Náhled očima čtenáře – správci a editoři si mohou jedním tlačítkem zobrazit katalog tak, jak ho vidí běžný zaměstnanec: bez konceptů, skrytých cen a interních materiálů. Užitečné před tím, než katalog otevřete kolegům.",
-          "en": "Preview as a reader – administrators and editors can switch to see the catalog exactly as an ordinary employee does: without drafts, hidden prices and internal materials. Useful before you open the catalog to colleagues."
+          "en": "Preview as a reader — administrators and editors can switch to see the catalog exactly as an ordinary employee does: without drafts, hidden prices and internal materials. Useful before you open the catalog to colleagues."
         }
       ]
     },
@@ -91,37 +91,37 @@
         {
           "type": "improved",
           "cs": "Náhled souboru se otevře přímo v aplikaci – velký dialog místo nové záložky prohlížeče. Obrázky, PDF, dokumenty Office i HTML letáky si prohlédnete bez opuštění katalogu; stažení a otevření v SharePointu zůstává po ruce v hlavičce náhledu.",
-          "en": "File preview now opens inside the app – a large dialog instead of a new browser tab. Images, PDFs, Office documents and HTML flyers can be viewed without leaving the catalog; download and open-in-SharePoint remain at hand in the preview header."
+          "en": "File preview now opens inside the app — a large dialog instead of a new browser tab. Images, PDFs, Office documents and HTML flyers can be viewed without leaving the catalog; download and open-in-SharePoint remain at hand in the preview header."
         },
         {
           "type": "new",
           "cs": "Nová sekce Obecné – místo pro materiály, které platí napříč celým portfoliem: ceník, obchodní podmínky, prezentace. Nahrajete je jednou a zobrazí se i na stránce každého produktu, takže je zákazník najde tam, kde se rozhoduje. U každého materiálu určíte úroveň: veřejný vidí každý čtenář katalogu, interní jen editoři a správci – a je chráněný přímo v SharePointu, ne jen skrytý v aplikaci. Dokumenty ve formátu .md se rovnou vykreslí a otevřou ve čtečce.",
-          "en": "New General section – a place for materials that apply across the whole portfolio: price list, terms and conditions, presentations. Upload them once and they also appear on every product page, so customers find them where they decide. Each material has a level: public is visible to every catalog reader, internal only to editors and administrators – and it is protected in SharePoint itself, not merely hidden in the app. Markdown (.md) documents render right away and open in the reader."
+          "en": "New General section — a place for materials that apply across the whole portfolio: price list, terms and conditions, presentations. Upload them once and they also appear on every product page, so customers find them where they decide. Each material has a level: public is visible to every catalog reader, internal only to editors and administrators — and it is protected in SharePoint itself, not merely hidden in the app. Markdown (.md) documents render right away and open in the reader."
         },
         {
           "type": "new",
           "cs": "Zařazení existujícího produktu do řady – v detailu skupiny je nově tlačítko „Zařadit existující“: vyberete produkty ze seznamu (s hledáním) a jedním klikem je přesunete do této řady. Dřív to šlo jen oklikou přes editaci každého produktu zvlášť. U produktů, které už v jiné řadě jsou, je vidět upozornění, že se přesunou – produkt patří vždy do jedné řady.",
-          "en": "Assign an existing product to a range – the group detail now has an “Assign existing” button: pick products from a searchable list and move them into the range in one click. Previously this was only possible by editing each product separately. Products already in another range are flagged as moving – a product always belongs to exactly one range."
+          "en": "Assign an existing product to a range — the group detail now has an “Assign existing” button: pick products from a searchable list and move them into the range in one click. Previously this was only possible by editing each product separately. Products already in another range are flagged as moving — a product always belongs to exactly one range."
         },
         {
           "type": "improved",
           "cs": "Nový produkt založíte přímo z katalogu – tlačítko „Přidat produkt“ je nově i v hlavičce přehledu Všechny produkty a v prázdném katalogu, nejen v levém panelu.",
-          "en": "Create a product straight from the catalog – the “Add product” button now also sits in the All products header and in the empty catalog, not just in the left rail."
+          "en": "Create a product straight from the catalog — the “Add product” button now also sits in the All products header and in the empty catalog, not just in the left rail."
         },
         {
           "type": "improved",
           "cs": "Bezpečnější výchozí oprávnění – skupina editorů katalogu nově dostává úroveň Přispívat místo Upravovat. Editoři dál plně spravují produkty, obrázky i soubory, ale nemohou zasáhnout do struktury seznamů. U již nasazených webů se nastavení srovná samo, jakmile katalog otevře správce.",
-          "en": "Safer default permissions – the catalog editors group is now granted Contribute instead of Edit. Editors still fully manage products, images and files, but can no longer alter the structure of the underlying lists. On sites already deployed the change applies itself the next time an administrator opens the catalog."
+          "en": "Safer default permissions — the catalog editors group is now granted Contribute instead of Edit. Editors still fully manage products, images and files, but can no longer alter the structure of the underlying lists. On sites already deployed the change applies itself the next time an administrator opens the catalog."
         },
         {
           "type": "new",
           "cs": "Katalog upozorní na úvodní stránce – do přehledu „Můj den“ v EP365 Homepage nově hlásí, co potřebuje pozornost: produkty zůstávající v konceptu, uvedení chystaná do 14 dnů a produkty, kterým do 30 dnů končí životnost. Karta ukazuje jen počet a odkazuje rovnou do katalogu.",
-          "en": "The catalog now speaks up on your start page – it reports to the “My day” overview in EP365 Homepage what needs attention: products left in draft, launches coming within 14 days and products retiring within 30 days. The card shows a count only and links straight into the catalog."
+          "en": "The catalog now speaks up on your start page — it reports to the “My day” overview in EP365 Homepage what needs attention: products left in draft, launches coming within 14 days and products retiring within 30 days. The card shows a count only and links straight into the catalog."
         },
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si Produktový katalog krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
-          "en": "Interactive app guide – walk through the Product Catalog step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+          "en": "Interactive app guide — walk through the Product Catalog step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help — and it offers itself on your first visit."
         },
         {
           "type": "improved",
@@ -136,7 +136,7 @@
         {
           "type": "fixed",
           "cs": "Vyhledávání ⌘K se zobrazovalo systémovým patkovým písmem místo firemního – opraveno, paleta je zpět v jednotném vzhledu aplikace.",
-          "en": "The ⌘K search rendered in the system serif font instead of the brand one – fixed, the palette is back to the app's consistent look."
+          "en": "The ⌘K search rendered in the system serif font instead of the brand one — fixed, the palette is back to the app's consistent look."
         }
       ]
     },
@@ -147,52 +147,52 @@
         {
           "type": "new",
           "cs": "První vydání Produktového katalogu – jedno místo s aktuálními informacemi o produktech firmy: katalog s dlaždicemi i tabulkou, produktové skupiny a plnohodnotná stránka každého produktu.",
-          "en": "First release of the Product Catalog – one place with up-to-date information about your products: a catalog with tiles and a table, product groups and a full page for every product."
+          "en": "First release of the Product Catalog — one place with up-to-date information about your products: a catalog with tiles and a table, product groups and a full page for every product."
         },
         {
           "type": "new",
           "cs": "Stránka produktu zobrazí vše pohromadě – přehled, klíčové vlastnosti, galerii s velkým prohlížečem, specifikace, varianty a ceny, soubory ke stažení, odkazy a časté dotazy. Prázdné sekce se samy skryjí.",
-          "en": "The product page shows everything in one place – overview, key features, a gallery with a full-screen viewer, specifications, variants and pricing, downloadable files, links and FAQs. Empty sections hide automatically."
+          "en": "The product page shows everything in one place — overview, key features, a gallery with a full-screen viewer, specifications, variants and pricing, downloadable files, links and FAQs. Empty sections hide automatically."
         },
         {
           "type": "new",
           "cs": "Strukturovaný editor pro editory obsahu – sekce v levém panelu, formátovaný text, nahrávání obrázků (s automatickým odstraněním skrytých metadat) a souborů, galerie s volbou úvodního obrázku.",
-          "en": "A structured editor for content editors – sections in the left rail, rich text, image uploads (with automatic removal of hidden metadata) and files, and a gallery with a hero image picker."
+          "en": "A structured editor for content editors — sections in the left rail, rich text, image uploads (with automatic removal of hidden metadata) and files, and a gallery with a hero image picker."
         },
         {
           "type": "new",
           "cs": "Role a řízený přístup – čtenáři, editoři obsahu a správci. Editorům i čtenářům lze přidělit jen konkrétní skupiny nebo produkty; skupina může být omezená jen pro vybrané osoby či skupiny Entra ID.",
-          "en": "Roles and managed access – readers, content editors and administrators. Editors and readers can be scoped to specific groups or products; a group can be restricted to selected people or Entra ID groups."
+          "en": "Roles and managed access — readers, content editors and administrators. Editors and readers can be scoped to specific groups or products; a group can be restricted to selected people or Entra ID groups."
         },
         {
           "type": "new",
           "cs": "Vícejazyčný obsah – čeština je výchozí a další jazyky zapnete v Nastavení; překlady se v editoru přepínají jazykovými záložkami a čtenář vidí obsah ve svém jazyce.",
-          "en": "Multilingual content – Czech is the default and additional languages are enabled in Settings; translations switch via language tabs in the editor and readers see content in their language."
+          "en": "Multilingual content — Czech is the default and additional languages are enabled in Settings; translations switch via language tabs in the editor and readers see content in their language."
         },
         {
           "type": "new",
           "cs": "Volitelné propojení s EP365 CRM – produkt jde jedním klikem založit či aktualizovat v obchodním číselníku CRM (název, kód, kategorie, cena, DPH). Obě aplikace fungují i samostatně.",
-          "en": "Optional EP365 CRM link – create or update the product in the CRM business catalog with one click (name, code, category, price, VAT). Both apps also work standalone."
+          "en": "Optional EP365 CRM link — create or update the product in the CRM business catalog with one click (name, code, category, price, VAT). Both apps also work standalone."
         },
         {
           "type": "new",
           "cs": "Načtení produktů z EP365 CRM – když už produkty vedete v CRM, katalog je jedním klikem převezme: existující se propojí podle SKU či názvu, chybějící se založí s cenami a popisem z CRM. Do CRM se při načtení nic nezapisuje.",
-          "en": "Load products from EP365 CRM – if you already manage products in CRM, the catalog takes them over with one click: existing ones are linked by SKU or name, missing ones are created with prices and description from CRM. Nothing is written to CRM during the load."
+          "en": "Load products from EP365 CRM — if you already manage products in CRM, the catalog takes them over with one click: existing ones are linked by SKU or name, missing ones are created with prices and description from CRM. Nothing is written to CRM during the load."
         },
         {
           "type": "new",
           "cs": "Snadné odkazování – každá obrazovka i produkt má vlastní odkaz, detail nabízí kartu Odkazovat na obsah (odkaz do katalogu, produktový web i hotový Markdown) a funguje tlačítko Zpět prohlížeče.",
-          "en": "Easy referencing – every screen and product has its own link, the detail offers a Reference this content card (catalog link, product website and ready-made Markdown) and the browser Back button works."
+          "en": "Easy referencing — every screen and product has its own link, the detail offers a Reference this content card (catalog link, product website and ready-made Markdown) and the browser Back button works."
         },
         {
           "type": "new",
           "cs": "Hledání ⌘K napříč produkty, skupinami i obrazovkami – s tolerancí diakritiky.",
-          "en": "⌘K search across products, groups and screens – diacritics-insensitive."
+          "en": "⌘K search across products, groups and screens — diacritics-insensitive."
         },
         {
           "type": "new",
           "cs": "Import dat z CSV nebo JSON s náhledem a potvrzením – opakovatelný díky párování podle SKU; k dispozici je vzorová šablona.",
-          "en": "Data import from CSV or JSON with preview and confirmation – repeatable thanks to SKU matching; a sample template is included."
+          "en": "Data import from CSV or JSON with preview and confirmation — repeatable thanks to SKU matching; a sample template is included."
         },
         {
           "type": "new",
@@ -202,57 +202,57 @@
         {
           "type": "new",
           "cs": "Dokumentace přímo na stránce produktu – nahraný dokument (Markdown .md) se v detailu zobrazí hezky vyrenderovaný, s nadpisy, tabulkami i seznamy a s čtečkou přes celou stránku. Katalog se tak stává jedním místem, kde je o produktu opravdu vše.",
-          "en": "Documentation right on the product page – an uploaded document (Markdown .md) renders beautifully in the detail, with headings, tables and lists and a full-page reader. The catalog becomes the one place where everything about a product truly lives."
+          "en": "Documentation right on the product page — an uploaded document (Markdown .md) renders beautifully in the detail, with headings, tables and lists and a full-page reader. The catalog becomes the one place where everything about a product truly lives."
         },
         {
           "type": "new",
           "cs": "Oddělení funkčního popisu od technické dokumentace – u každého dokumentu určíte úroveň: funkční popis vidí každý čtenář s přístupem k produktu, technickou dokumentaci jen editoři a správci.",
-          "en": "Functional description separated from technical documentation – for each document you set the level: the functional description is visible to every reader with product access, while technical documentation is seen only by editors and administrators."
+          "en": "Functional description separated from technical documentation — for each document you set the level: the functional description is visible to every reader with product access, while technical documentation is seen only by editors and administrators."
         },
         {
           "type": "improved",
           "cs": "Technická dokumentace je nyní chráněná přímo na úrovni SharePointu – při nastavení úrovně Technická se dokumentu omezí přístup jen na tým, takže se k němu čtenář nedostane ani přímým odkazem. Citlivé podklady tak z katalogu neuniknou.",
-          "en": "Technical documentation is now protected directly at the SharePoint level – setting the Technical level restricts the document to the team only, so a reader cannot reach it even via a direct link. Sensitive materials no longer leak from the catalog."
+          "en": "Technical documentation is now protected directly at the SharePoint level — setting the Technical level restricts the document to the team only, so a reader cannot reach it even via a direct link. Sensitive materials no longer leak from the catalog."
         },
         {
           "type": "improved",
           "cs": "Propojení s CRM je oboustranné – produkt vytvořený nebo aktualizovaný v CRM z katalogu nese odkaz zpět, takže z EP365 CRM otevřete jeho stránku v katalogu jedním klikem.",
-          "en": "The CRM link now works both ways – a product created or updated in CRM from the catalog carries a link back, so from EP365 CRM you can open its catalog page with a single click."
+          "en": "The CRM link now works both ways — a product created or updated in CRM from the catalog carries a link back, so from EP365 CRM you can open its catalog page with a single click."
         },
         {
           "type": "new",
           "cs": "Šablony specifikací pro kategorie – u kategorie v Nastavení připravíte skupiny parametrů a nový produkt této kategorie je jedním klikem předvyplní. Šetří čas u řad produktů se stejnou strukturou.",
-          "en": "Specification templates per category – set up parameter groups for a category in Settings and a new product of that category prefills them with one click. Saves time for product ranges with the same structure."
+          "en": "Specification templates per category — set up parameter groups for a category in Settings and a new product of that category prefills them with one click. Saves time for product ranges with the same structure."
         },
         {
           "type": "new",
           "cs": "Verze u dokumentů – ke každému dokumentu doplníte verzi (např. 1.2 nebo 2026-07), která se ukáže u produktu i ve čtečce. Přehled, která revize podkladu je aktuální.",
-          "en": "Document versions – add a version to each document (e.g. 1.2 or 2026-07) shown on the product and in the reader. A clear overview of which revision is current."
+          "en": "Document versions — add a version to each document (e.g. 1.2 or 2026-07) shown on the product and in the reader. A clear overview of which revision is current."
         },
         {
           "type": "new",
           "cs": "Úprava přímo na stránce produktu – u každé sekce (přehled, vlastnosti, specifikace, varianty a ceny, odkazy, časté dotazy) i v hlavičce je pro editory tužka, která otevře úpravu jen té části. Rychlá oprava textu nebo ceny bez otevírání celého editoru; překlady u textových sekcí zůstávají zachované.",
-          "en": "Edit right on the product page – every section (overview, features, specifications, variants and pricing, links, FAQ) and the header has a pencil for editors that opens editing of just that part. A quick fix to text or price without opening the full editor; translations of text sections are preserved."
+          "en": "Edit right on the product page — every section (overview, features, specifications, variants and pricing, links, FAQ) and the header has a pencil for editors that opens editing of just that part. A quick fix to text or price without opening the full editor; translations of text sections are preserved."
         },
         {
           "type": "improved",
           "cs": "Upozornění na novější verzi – Nastavení nově ukáže správci, zda katalog běží na aktuální verzi. Když je k dispozici novější, zobrazí se u verze štítek a nahoře v Nastavení nenápadný pruh s výzvou k aktualizaci.",
-          "en": "Newer-version notice – Settings now shows the administrator whether the catalog is running the current version. When a newer one is available, a badge appears next to the version and a subtle banner at the top of Settings prompts an update."
+          "en": "Newer-version notice — Settings now shows the administrator whether the catalog is running the current version. When a newer one is available, a badge appears next to the version and a subtle banner at the top of Settings prompts an update."
         },
         {
           "type": "new",
           "cs": "Zvětšení na celou obrazovku – katalog otevřete přes celé okno prohlížeče jedním tlačítkem a stejně tak se vrátíte zpět. Víc prostoru na dlaždice i produktové stránky.",
-          "en": "Full-screen mode – open the catalog across the whole browser window with a single button, and switch back the same way. More room for tiles and product pages."
+          "en": "Full-screen mode — open the catalog across the whole browser window with a single button, and switch back the same way. More room for tiles and product pages."
         },
         {
           "type": "improved",
           "cs": "Přehlednější prohlížeč obrázků – pod snímkem je nově pás náhledů a jedním tlačítkem přepnete na mřížku se všemi obrázky. Rychle přeskočíte na kterýkoli snímek, ne jen šipkami po jednom.",
-          "en": "A clearer image viewer – a thumbnail strip now sits under the photo and one button switches to a grid of all images. Jump to any shot quickly, not just one by one with arrows."
+          "en": "A clearer image viewer — a thumbnail strip now sits under the photo and one button switches to a grid of all images. Jump to any shot quickly, not just one by one with arrows."
         },
         {
           "type": "improved",
           "cs": "Řazení obrázků oběma směry – v editoru galerie posunete snímek šipkami vlevo i vpravo a určíte tak pořadí, ve kterém se u produktu procházejí.",
-          "en": "Reorder images both ways – in the gallery editor move a shot left or right with the arrows to set the order in which they are browsed on a product."
+          "en": "Reorder images both ways — in the gallery editor move a shot left or right with the arrows to set the order in which they are browsed on a product."
         }
       ]
     }

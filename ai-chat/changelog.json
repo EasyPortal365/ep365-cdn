@@ -95,52 +95,52 @@
         {
           "type": "improved",
           "cs": "Posílili jsme zabezpečení nastavení aplikace. Konfiguraci webu – včetně adresy služby AI, systémového promptu a hranice zdrojů – teď smí zapisovat výhradně správce, a to přímo na úrovni oprávnění SharePointu, ne jen skrytím v rozhraní. Aplikace navíc čte nastavení jednoznačně určeným způsobem, takže se nemůže splést, kdyby v seznamu vznikl záznam navíc. Nastavení se dorovná samo při prvním otevření aplikace správcem; běžných uživatelů se změna nijak nedotkne.",
-          "en": "We have strengthened the security of the application settings. Site configuration – including the AI service address, the system prompt and the source boundary – may now be written by administrators only, enforced at the SharePoint permission level rather than merely hidden in the interface. The application also reads its settings in an unambiguous way, so it cannot be confused by an extra record in the list. Settings are brought in line automatically the first time an administrator opens the application; regular users are unaffected."
+          "en": "We have strengthened the security of the application settings. Site configuration — including the AI service address, the system prompt and the source boundary — may now be written by administrators only, enforced at the SharePoint permission level rather than merely hidden in the interface. The application also reads its settings in an unambiguous way, so it cannot be confused by an extra record in the list. Settings are brought in line automatically the first time an administrator opens the application; regular users are unaffected."
         },
         {
           "type": "improved",
           "cs": "Obsah, který asistent načte z dokumentů, stránek SharePointu, e-mailů, Teams a webu, se nově čistí od skrytých znaků – neviditelných značek, které se dají do textu propašovat a v dokumentu je nikdo neuvidí. Daly by se zneužít k tomu, aby se asistentovi podstrčily pokyny navíc, nebo aby se text zobrazoval jinak, než jak se chová. Běžného psaní se to nedotkne: diakritika, nedělitelné mezery v částkách i emoji zůstávají beze změny.",
-          "en": "Content the assistant reads from documents, SharePoint pages, e-mail, Teams and the web is now cleaned of hidden characters – invisible marks that can be smuggled into text and that nobody sees in the document. They could be misused to slip extra instructions to the assistant, or to make text display differently from how it behaves. Everyday writing is unaffected: accents, non-breaking spaces in amounts and emoji all stay exactly as they are."
+          "en": "Content the assistant reads from documents, SharePoint pages, e-mail, Teams and the web is now cleaned of hidden characters — invisible marks that can be smuggled into text and that nobody sees in the document. They could be misused to slip extra instructions to the assistant, or to make text display differently from how it behaves. Everyday writing is unaffected: accents, non-breaking spaces in amounts and emoji all stay exactly as they are."
         },
         {
           "type": "new",
           "cs": "Nová **Hranice zdrojů** – hlavní přepínač, který omezí odpovědi ze SharePointu výhradně na místa, která vyjmenujete. Z ostatních webů asistent nevrátí nic – ani když si je uživatel sám otevře a klikne na zkratku. Má přednost před rozsahem hledání i před autoritativními zdroji. Nastavíte ji buď centrálně v EP365 Hubu pro celou organizaci (jednotlivý web ji pak nemůže vypnout, smí sadu už jen změnšit), nebo přímo na webu, když hub nemáte. Oprávnění SharePointu platí dál – hranice dosah pouze zužuje. Uživatel vždy vidí, že jsou odpovědi omezené, ať píše v aplikaci nebo v plovoucím asistentovi. Pošty, kalendáře, úkolů a Teams se hranice netýká.",
-          "en": "A new **Source boundary** – the master switch that limits SharePoint answers strictly to the locations you list. The assistant returns nothing from other sites – not even ones the user opens themselves and uses a shortcut on. It takes precedence over the search scope and over authoritative sources. Set it centrally in the EP365 Hub for the whole organization (an individual site then cannot turn it off, it may only shrink the set), or directly on a site if you have no hub. SharePoint permissions still apply – the boundary only narrows reach. Users always see that answers are limited, whether they write in the app or in the floating assistant. The boundary does not cover mail, calendar, tasks or Teams."
+          "en": "A new **Source boundary** — the master switch that limits SharePoint answers strictly to the locations you list. The assistant returns nothing from other sites — not even ones the user opens themselves and uses a shortcut on. It takes precedence over the search scope and over authoritative sources. Set it centrally in the EP365 Hub for the whole organization (an individual site then cannot turn it off, it may only shrink the set), or directly on a site if you have no hub. SharePoint permissions still apply — the boundary only narrows reach. Users always see that answers are limited, whether they write in the app or in the floating assistant. The boundary does not cover mail, calendar, tasks or Teams."
         },
         {
           "type": "new",
           "cs": "Asistent v plovoucím okně teď umí i pracovat se sloupci knihovny. Zkratka „Doplnit sloupec podle obsahu“ projde dokumenty a navrhne, co do nového sloupce zapsat – návrh se ukáže přímo v knihovně jako „duch“ sloupce, který ještě neexistuje. Můžete přepsat název, upravit hodnoty, vynechat jednotlivé soubory nebo návrh zahodit; sloupec vznikne a hodnoty se zapíšou teprve vaším potvrzením. Doplnění metadat přitom nemění datum poslední úpravy dokumentu, takže soubory nevyskočí v „Naposledy upravené“.",
-          "en": "The floating assistant can now work with library columns. The \"Fill a column from content\" shortcut goes through the documents and proposes what to write into a new column – the proposal appears right in the library as a \"ghost\" of a column that does not exist yet. You can rename it, edit the values, skip individual files or discard the proposal; the column is created and the values written only when you confirm. Filling in metadata does not change the document’s modified date, so files do not jump to the top of \"Recently modified\"."
+          "en": "The floating assistant can now work with library columns. The \"Fill a column from content\" shortcut goes through the documents and proposes what to write into a new column — the proposal appears right in the library as a \"ghost\" of a column that does not exist yet. You can rename it, edit the values, skip individual files or discard the proposal; the column is created and the values written only when you confirm. Filling in metadata does not change the document’s modified date, so files do not jump to the top of \"Recently modified\"."
         },
         {
           "type": "new",
           "cs": "Nevíte, jaký sloupec by knihovně pomohl? Zkratka „Navrhni sloupce pro tuhle knihovnu“ přečte vzorek dokumentů a nabídne několik sloupců i s důvodem a ukázkovou hodnotou. Ve stejné nabídce jsou i sloupce, které SharePoint vede sám – verze, velikost, kdo a kdy – ty se nezakládají, jen se zapnou v zobrazení a jedním kliknutím zase skryjí.",
-          "en": "Not sure which column would help a library? The \"Suggest columns for this library\" shortcut reads a sample of the documents and offers several columns with a reason and a sample value. The same offer also lists columns SharePoint already keeps itself – version, size, who and when – those are not created, only switched on in the view, and one click hides them again."
+          "en": "Not sure which column would help a library? The \"Suggest columns for this library\" shortcut reads a sample of the documents and offers several columns with a reason and a sample value. The same offer also lists columns SharePoint already keeps itself — version, size, who and when — those are not created, only switched on in the view, and one click hides them again."
         },
         {
           "type": "new",
           "cs": "V obsahu webu přibyla zkratka „Založ knihovnu nebo seznam“. Popíšete, co potřebujete evidovat, a asistent navrhne název, druh i sadu sloupců včetně typů – text, delší text, číslo, datum, ano/ne, výběr z možností a osoba. Když je zadání příliš obecné, nejdřív se doptá. Návrh můžete upravit, přidat vlastní sloupec a zkontrolovat adresu, pod kterou knihovna vznikne – skládá se bez diakritiky a mezer, protože po založení už ji změnit nejde.",
-          "en": "Site contents gained a \"Create a library or list\" shortcut. Describe what you need to keep track of and the assistant proposes a name, a kind and a set of columns including types – text, longer text, number, date, yes/no, choice and person. When the description is too vague it asks first. You can adjust the proposal, add your own column and check the address the library will live at – it is built without accents or spaces, because it cannot be changed after creation."
+          "en": "Site contents gained a \"Create a library or list\" shortcut. Describe what you need to keep track of and the assistant proposes a name, a kind and a set of columns including types — text, longer text, number, date, yes/no, choice and person. When the description is too vague it asks first. You can adjust the proposal, add your own column and check the address the library will live at — it is built without accents or spaces, because it cannot be changed after creation."
         },
         {
           "type": "new",
           "cs": "Nové přehledy přímo v plovoucím asistentovi. V knihovně nebo seznamu ukáže přehled o obsahu (kolik položek, jaké typy souborů, jak obsah přibývá v čase, kdo naposledy upravoval), v obsahu webu přehled celého webu a k tomu přehled o tom, co se na něm čte. Všechno s čísly, grafy a tabulkami a s možností stáhnout přehled jako HTML nebo uložit do PDF – soubor je samostatný, takže ho můžete rovnou poslat dál. U každého přehledu je napsáno, odkud čísla pocházejí a co v nich chybět může.",
-          "en": "New overviews right inside the floating assistant. In a library or list it shows an overview of the content (how many items, which file types, how the content grows over time, who edited last); in site contents an overview of the whole site plus one about what gets read there. All with figures, charts and tables, and with the option to download the overview as HTML or save it as PDF – the file is self-contained, so you can pass it on straight away. Every overview states where the numbers come from and what may be missing from them."
+          "en": "New overviews right inside the floating assistant. In a library or list it shows an overview of the content (how many items, which file types, how the content grows over time, who edited last); in site contents an overview of the whole site plus one about what gets read there. All with figures, charts and tables, and with the option to download the overview as HTML or save it as PDF — the file is self-contained, so you can pass it on straight away. Every overview states where the numbers come from and what may be missing from them."
         },
         {
           "type": "improved",
           "cs": "Karty, které vzniknou v plovoucím asistentovi – přehledy, návrhy sloupců i návrh nové knihovny – zůstávají u konverzace. Najdete je i po obnovení stránky a po přepnutí do plné aplikace, kde s nimi jde dál pracovat.",
-          "en": "Cards created in the floating assistant – overviews, column proposals and the new library proposal – now stay with the conversation. You will find them after a page refresh and after switching to the full application, where you can keep working with them."
+          "en": "Cards created in the floating assistant — overviews, column proposals and the new library proposal — now stay with the conversation. You will find them after a page refresh and after switching to the full application, where you can keep working with them."
         },
         {
           "type": "improved",
           "cs": "Plovoucí okno asistenta se nově „zadokuje“ k pravému okraji – stránka SharePointu se o jeho šířku odsune stranou místo toho, aby ji asistent překrýval. Okno je zároveň širší a vyšší, aby se do něj vešly tabulky a přehledy, a zprávy začínají u spodní hrany, kde se píše. Na úzkém okně zůstává plovoucí jako dosud. Popisky pod grafy se už nepřekrývají ani u dlouhých názvů – když je třeba, otočí se šikmo.",
-          "en": "The floating assistant now docks to the right edge – the SharePoint page moves aside by its width instead of being covered. The window is also wider and taller so tables and overviews fit, and messages start at the bottom edge where you type. On a narrow window it stays floating as before. Chart axis labels no longer overlap even with long names – when needed they tilt."
+          "en": "The floating assistant now docks to the right edge — the SharePoint page moves aside by its width instead of being covered. The window is also wider and taller so tables and overviews fit, and messages start at the bottom edge where you type. On a narrow window it stays floating as before. Chart axis labels no longer overlap even with long names — when needed they tilt."
         },
         {
           "type": "new",
           "cs": "Asistent si všimne, co máte v knihovně zaškrtnuté. Vyberete-li jeden nebo víc dokumentů, zkratky se vymění za ty, které nad nimi dají smysl – shrnout, porovnat, vypíchnout hlavní body nebo vyčíst úkoly. Odpovídá se přímo z obsahu vybraných souborů, ne z hledání po knihovně. Když výběr zrušíte, vrátí se zkratky pro celou knihovnu.",
-          "en": "The assistant notices what you have selected in a library. Pick one or more documents and the shortcuts switch to the ones that make sense for them – summarize, compare, pull out key points or list follow-up tasks. Answers come straight from the selected files, not from a search across the library. Clear the selection and the library shortcuts come back."
+          "en": "The assistant notices what you have selected in a library. Pick one or more documents and the shortcuts switch to the ones that make sense for them — summarize, compare, pull out key points or list follow-up tasks. Answers come straight from the selected files, not from a search across the library. Clear the selection and the library shortcuts come back."
         },
         {
           "type": "fixed",
@@ -176,32 +176,32 @@
         {
           "type": "new",
           "cs": "Úkoly z chatu můžete nově zakládat i do Microsoft Planneru, nejen do svého To Do. Pod kartou úkolů si vyberete cíl – „Moje To Do“ pro osobní resty, nebo plán a sloupec v Planneru pro týmové úkoly, volitelně i s přiřazením konkrétnímu člověku. Volba zůstane u karty i po obnovení stránky.",
-          "en": "Tasks from the chat can now also be created in Microsoft Planner, not just in your To Do. Below the task card you choose the target – \"My To Do\" for personal items, or a Planner plan and bucket for team tasks, optionally assigned to a specific person. The choice stays with the card after a page reload."
+          "en": "Tasks from the chat can now also be created in Microsoft Planner, not just in your To Do. Below the task card you choose the target — \"My To Do\" for personal items, or a Planner plan and bucket for team tasks, optionally assigned to a specific person. The choice stays with the card after a page reload."
         },
         {
           "type": "new",
           "cs": "Každou tabulku v odpovědi si teď stáhnete jako soubor Excelu – pod tabulkou přibylo tlačítko „Stáhnout .xlsx“ a čísla se uloží jako čísla, takže s nimi rovnou počítáte. Totéž nabízí i karta grafu volbou „Data (.xlsx)“. Soubor vzniká ve vašem prohlížeči, data nikam neodcházejí.",
-          "en": "You can now download any table in an answer as an Excel file – a \"Download .xlsx\" button appeared below the table and numbers are saved as numbers, so you can calculate with them right away. Chart cards offer the same via \"Data (.xlsx)\". The file is created in your browser; the data never leaves it."
+          "en": "You can now download any table in an answer as an Excel file — a \"Download .xlsx\" button appeared below the table and numbers are saved as numbers, so you can calculate with them right away. Chart cards offer the same via \"Data (.xlsx)\". The file is created in your browser; the data never leaves it."
         },
         {
           "type": "new",
           "cs": "Asistent umí odpovídat i z vašich SharePointových seznamů – ceníků, registrů a evidencí. Správce v Nastavení vybere, které seznamy to jsou (adresu stačí vložit, popis i sloupce appka navrhne sama), a asistent z nich pak čte celou tabulku – zvládne tak i „porovnej ceny balíčků“ nebo „do kdy platí smlouva s…“. Pod odpovědí se seznam ukáže jako zdroj. Oprávnění SharePointu platí i tady: kdo k seznamu nemá přístup, nedostane z něj odpověď.",
-          "en": "The assistant can now answer from your SharePoint lists too – price lists, registers and records. An administrator picks which lists in Settings (just paste the address; the app suggests the description and columns), and the assistant then reads the whole table – so it handles questions like \"compare the package prices\" or \"until when is the contract with… valid\". The list appears as a source below the answer. SharePoint permissions apply here too: anyone without access to a list gets no answer from it."
+          "en": "The assistant can now answer from your SharePoint lists too — price lists, registers and records. An administrator picks which lists in Settings (just paste the address; the app suggests the description and columns), and the assistant then reads the whole table — so it handles questions like \"compare the package prices\" or \"until when is the contract with… valid\". The list appears as a source below the answer. SharePoint permissions apply here too: anyone without access to a list gets no answer from it."
         },
         {
           "type": "new",
           "cs": "Konverzace si můžete uspořádat do projektů. Projekt je složka konverzací k jednomu tématu – třeba nabídka pro zákazníka nebo nábor – se společnými instrukcemi pro asistenta („zákazník je výrobní firma, píšeme formálně, ceny bez DPH“) a připnutými podklady. Instrukce platí pro všechny konverzace v projektu a nic neomezují: grafy, karty i vyhledávání fungují dál. Projekty najdete v levém panelu, konverzaci přesunete z jejího menu. Smazání projektu konverzace nesmaže – jen se vrátí mezi ostatní.",
-          "en": "You can organize conversations into projects. A project is a folder of conversations on one topic – a customer proposal or a hiring round, say – with shared instructions for the assistant (\"the customer is a manufacturing company, we write formally, prices exclude VAT\") and pinned materials. The instructions apply to every conversation in the project and restrict nothing: charts, cards and search keep working. Projects live in the left panel; move a conversation from its menu. Deleting a project does not delete the conversations – they move back among the others."
+          "en": "You can organize conversations into projects. A project is a folder of conversations on one topic — a customer proposal or a hiring round, say — with shared instructions for the assistant (\"the customer is a manufacturing company, we write formally, prices exclude VAT\") and pinned materials. The instructions apply to every conversation in the project and restrict nothing: charts, cards and search keep working. Projects live in the left panel; move a conversation from its menu. Deleting a project does not delete the conversations — they move back among the others."
         },
         {
           "type": "new",
           "cs": "Správci přibyla v Přehledu využití záložka „Data a AI“ – ukazuje, které firemní zdroje asistent skutečně čte: nejčtenější dokumenty a seznamy, odkud čerpá, podíl ověřených (autoritativních) zdrojů a kolik nálezů odfiltrovala klasifikace „mimo AI“. Zobrazují se výhradně souhrny, žádná jména, dotazy ani odpovědi – jde o dohled nad daty, ne nad lidmi. Doplňuje Kontrolu prostředí: ta říká, co je asistentovi přístupné, tahle záložka co reálně čte. Vyžaduje aktualizaci AI funkce.",
-          "en": "Administrators get a new \"Data & AI\" tab in the Usage overview – it shows which company sources the assistant actually reads: the most used documents and lists, where it draws from, the share of verified (authoritative) sources and how many hits were filtered out by the \"excluded from AI\" classification. Only aggregates are shown, no names, questions or answers – this is oversight of data, not of people. It complements the Environment check: that tells you what the assistant can reach, this tab what it actually reads. Requires an update of the AI function."
+          "en": "Administrators get a new \"Data & AI\" tab in the Usage overview — it shows which company sources the assistant actually reads: the most used documents and lists, where it draws from, the share of verified (authoritative) sources and how many hits were filtered out by the \"excluded from AI\" classification. Only aggregates are shown, no names, questions or answers — this is oversight of data, not of people. It complements the Environment check: that tells you what the assistant can reach, this tab what it actually reads. Requires an update of the AI function."
         },
         {
           "type": "new",
           "cs": "Nový Průvodce úkonem. Zadáte-li složený úkol („najdi podklady k zákazníkovi, shrň stav a připrav e-mail“), asistent neodpoví rovnou – nejdřív ukáže plán kroků. Nechtěné kroky odškrtnete a teprve pak průvodce spustíte; kroky se provádějí po sobě a výsledek každého přibude do konverzace, takže je vidět, z čeho odpověď staví. Průběh jde kdykoli zastavit a selhání jednoho kroku zbytek nezastaví. Průvodce umí podklady najít, přečíst, shrnout i vykreslit do grafu – a také připravit koncept e-mailu, návrh dokumentu nebo úkoly. Všechny takové kroky ale končí jen návrhem: odeslání, uložení i založení potvrzujete vy jedním klikem.",
-          "en": "A new Task guide. When you give a compound task (\"find the materials on this customer, summarize where we stand and prepare an e-mail\"), the assistant does not answer straight away – it first shows a plan of steps. You untick the ones you don't want and only then run the guide; the steps run one after another and each result appears in the conversation, so it is clear what the answer is built on. You can stop it at any time, and one failed step does not stop the rest. The guide can find, read, summarize and chart your materials – and also prepare an e-mail draft, a document draft or tasks. All such steps only ever produce a proposal: sending, saving and creating is confirmed by you with a single click."
+          "en": "A new Task guide. When you give a compound task (\"find the materials on this customer, summarize where we stand and prepare an e-mail\"), the assistant does not answer straight away — it first shows a plan of steps. You untick the ones you don't want and only then run the guide; the steps run one after another and each result appears in the conversation, so it is clear what the answer is built on. You can stop it at any time, and one failed step does not stop the rest. The guide can find, read, summarize and chart your materials — and also prepare an e-mail draft, a document draft or tasks. All such steps only ever produce a proposal: sending, saving and creating is confirmed by you with a single click."
         },
         {
           "type": "improved",
@@ -221,12 +221,12 @@
         {
           "type": "new",
           "cs": "V knihovně dokumentů přibylo tlačítko „Zeptat se AI“. Zaškrtnete soubory, kliknete – a asistent se otevře rovnou nad nimi. Umí je shrnout, porovnat mezi sebou, vypíchnout hlavní body nebo říct, co z nich plyne za úkoly. Čte jen to, co vyberete, a pod vaším účtem, takže se nedostane k ničemu, k čemu nemáte přístup. Najednou zpracuje pět souborů – když jich zaškrtnete víc, dozvíte se to ještě před odesláním i v samotné odpovědi.",
-          "en": "A new “Ask AI” button in document libraries. Tick some files, click it, and the assistant opens right on top of them. It can summarise them, compare them with each other, pull out the key points or tell you what tasks follow from them. It only reads what you select, under your own account, so it never reaches anything you cannot access. It processes five files at a time – if you tick more, you are told before you send and again in the answer itself."
+          "en": "A new “Ask AI” button in document libraries. Tick some files, click it, and the assistant opens right on top of them. It can summarise them, compare them with each other, pull out the key points or tell you what tasks follow from them. It only reads what you select, under your own account, so it never reaches anything you cannot access. It processes five files at a time — if you tick more, you are told before you send and again in the answer itself."
         },
         {
           "type": "new",
           "cs": "Plovoucí asistent nově ví, kde na SharePointu stojíte, a nabídne zkratky, které tam dávají smysl. V knihovně shrne, co v ní je, poradí, co se změnilo za měsíc, a správci ukáže, kdo do ní má přístup. V seznamu shrne data, udělá z nich graf nebo je vypíše jako tabulku. Na stránce webu ji shrne, vysvětlí jednodušeji nebo z ní udělá dokument. V obsahu webu řekne, co na webu je, kde je nejvíc obsahu a co se dlouho neměnilo. Zkratka jen předvyplní dotaz – odesíláte ho vy a můžete si ho upravit. Když asistent místo nepozná, žádné zkratky se nenabízejí.",
-          "en": "The floating assistant now knows where you are in SharePoint and offers shortcuts that make sense there. In a library it summarises what is inside, tells you what changed in the last month, and shows admins who has access. In a list it summarises the data, turns it into a chart or lists it as a table. On a site page it summarises the page, explains it in simpler terms or turns it into a document. In site contents it tells you what the site holds, where most of the content is and what has not changed in a long time. A shortcut only pre-fills the question – you send it and can edit it first. When the assistant does not recognise the place, no shortcuts are offered."
+          "en": "The floating assistant now knows where you are in SharePoint and offers shortcuts that make sense there. In a library it summarises what is inside, tells you what changed in the last month, and shows admins who has access. In a list it summarises the data, turns it into a chart or lists it as a table. On a site page it summarises the page, explains it in simpler terms or turns it into a document. In site contents it tells you what the site holds, where most of the content is and what has not changed in a long time. A shortcut only pre-fills the question — you send it and can edit it first. When the assistant does not recognise the place, no shortcuts are offered."
         }
       ]
     },
@@ -237,17 +237,17 @@
         {
           "type": "improved",
           "cs": "Záložka „Využití AI“ má nové rozvržení: tři přehledy vedle sebe – po dnech (listování po týdnech), po měsících zvoleného roku (listování po letech) a po letech. Klik na měsíc či rok přepne související pohledy. Přibyl také export reportu do HTML a PDF.",
-          "en": "The \"AI usage\" tab has a new layout: three views side by side – by day (browse by week), by month of a selected year (browse by year) and by year. Clicking a month or year switches the related views. Report export to HTML and PDF has also been added."
+          "en": "The \"AI usage\" tab has a new layout: three views side by side — by day (browse by week), by month of a selected year (browse by year) and by year. Clicking a month or year switches the related views. Report export to HTML and PDF has also been added."
         },
         {
           "type": "new",
           "cs": "Záložka „Využití AI“ nově jasně ukazuje aktuální licenční pásmo (podle průměru posledních tří ukončených měsíců) – vidíte na první pohled, kde se vaše firma pohybuje. V pilotním období ukazuje „Zatím měříme“.",
-          "en": "The \"AI usage\" tab now clearly shows your current licensing band (based on the average of the last three completed months) – you can see at a glance where your company stands. During the pilot period it shows \"Measuring\"."
+          "en": "The \"AI usage\" tab now clearly shows your current licensing band (based on the average of the last three completed months) — you can see at a glance where your company stands. During the pilot period it shows \"Measuring\"."
         },
         {
           "type": "improved",
           "cs": "Záložka „Využití AI“ má v hlavičce odkaz na veřejný ceník a pásma na webu EasyPortal 365 – správce si detaily licencování zobrazí jedním kliknutím.",
-          "en": "The \"AI usage\" tab header now links to the public pricing and bands on the EasyPortal 365 website – administrators can view licensing details in one click."
+          "en": "The \"AI usage\" tab header now links to the public pricing and bands on the EasyPortal 365 website — administrators can view licensing details in one click."
         },
         {
           "type": "new",
@@ -273,12 +273,12 @@
         {
           "type": "new",
           "cs": "Přehled využití má novou záložku „Využití AI“ – měsíční a roční přehled skutečně odvedené práce asistenta (AI úkony), rozpad podle funkcí, denní graf a odhad vlastních nákladů na Azure OpenAI. Měří se jen počty a spotřeba tokenů, nikdy obsah zpráv ani identity uživatelů.",
-          "en": "The usage overview has a new \"AI usage\" tab – a monthly and yearly view of the assistant's actual work (AI actions), a breakdown by feature, a daily chart and an estimate of your own Azure OpenAI costs. Only counts and token consumption are measured, never message content or user identities."
+          "en": "The usage overview has a new \"AI usage\" tab — a monthly and yearly view of the assistant's actual work (AI actions), a breakdown by feature, a daily chart and an estimate of your own Azure OpenAI costs. Only counts and token consumption are measured, never message content or user identities."
         },
         {
           "type": "fixed",
           "cs": "Když jste při psaní e-mailu požádali o graf, mohla se do těla konceptu dostat syrová technická značka. Asistent nově do e-mailu grafy nevkládá – čísla shrne textovým výčtem – a kdyby se značka přesto objevila, koncept se automaticky vyčistí.",
-          "en": "When you asked for a chart while composing an email, a raw technical tag could end up in the draft body. The assistant no longer inserts charts into emails – it summarizes the numbers as a plain list – and if a tag slips through anyway, the draft is cleaned automatically."
+          "en": "When you asked for a chart while composing an email, a raw technical tag could end up in the draft body. The assistant no longer inserts charts into emails — it summarizes the numbers as a plain list — and if a tag slips through anyway, the draft is cleaned automatically."
         }
       ]
     },
@@ -289,7 +289,7 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Licence a verze vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – License & versions the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — License & versions the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "new",
@@ -416,12 +416,12 @@
         {
           "type": "improved",
           "cs": "Nápověda: nová podrobná kapitola, která vysvětluje všechny připravené asistenty i úlohy v Prompt Studiu – k čemu slouží a kdy je použít.",
-          "en": "Help: a new detailed section explaining all the ready-made assistants and tasks in Prompt Studio – what each is for and when to use it."
+          "en": "Help: a new detailed section explaining all the ready-made assistants and tasks in Prompt Studio — what each is for and when to use it."
         },
         {
           "type": "improved",
           "cs": "Grafy jsou interaktivní – po najetí myší na sloupec, bod nebo díl se v bublince ukáže přesná hodnota.",
-          "en": "Charts are interactive – hovering a bar, point or slice shows the exact value in a tooltip."
+          "en": "Charts are interactive — hovering a bar, point or slice shows the exact value in a tooltip."
         },
         {
           "type": "fixed",
@@ -436,22 +436,22 @@
         {
           "type": "new",
           "cs": "Diagramy v odpovědích – když se ptáte na postup, proces, strukturu nebo sled kroků (nebo o diagram přímo požádáte), asistent k odpovědi přidá vývojový diagram, strom nebo sekvenci. Kreslí se přímo ve vašem prohlížeči v barvách aplikace; když se nepovede vykreslit, ukáže se aspoň jeho zápis.",
-          "en": "Diagrams in answers – when you ask about a process, structure or a sequence of steps (or ask for one directly), the assistant adds a flowchart, tree or sequence to its answer. It is drawn right in your browser in the app's colors; if it can't be rendered, at least its source is shown."
+          "en": "Diagrams in answers — when you ask about a process, structure or a sequence of steps (or ask for one directly), the assistant adds a flowchart, tree or sequence to its answer. It is drawn right in your browser in the app's colors; if it can't be rendered, at least its source is shown."
         },
         {
           "type": "improved",
           "cs": "U porovnání dokumentů je teď jasně vidět, který soubor je 1. a který 2. – porovnání jde od 1. ke 2. (co se ve 2. změnilo oproti 1.) a směr jedním tlačítkem prohodíte. Asistent dokumenty rozlišuje jménem souboru a neurčuje, který je „novější“ – z obsahu to totiž poznat nelze.",
-          "en": "For document comparison it is now clear which file is 1 and which is 2 – the comparison goes from 1 to 2 (what changed in 2 vs 1) and you can swap the direction with one button. The assistant tells the documents apart by file name and does not decide which is “newer”, since that cannot be told from the content."
+          "en": "For document comparison it is now clear which file is 1 and which is 2 — the comparison goes from 1 to 2 (what changed in 2 vs 1) and you can swap the direction with one button. The assistant tells the documents apart by file name and does not decide which is “newer”, since that cannot be told from the content."
         },
         {
           "type": "improved",
           "cs": "Přetáhnout soubor nebo nahrát ho z počítače jde nově na všech místech, kde se pracuje s dokumenty – přímo na kartu úlohy v Prompt Studiu, v příloze zprávy, ve výběru dokumentů i u nahrávání Word šablon.",
-          "en": "You can now drag a file in or upload it from your computer everywhere documents are handled – right on a task card in Prompt Studio, in a message attachment, in the document picker and when uploading Word templates."
+          "en": "You can now drag a file in or upload it from your computer everywhere documents are handled — right on a task card in Prompt Studio, in a message attachment, in the document picker and when uploading Word templates."
         },
         {
           "type": "improved",
           "cs": "Při výběru dokumentů (i pro porovnání) můžete soubory nově přetáhnout myší nebo nahrát přímo z počítače – nejen vybrat ze SharePointu.",
-          "en": "When picking documents (including for comparison) you can now drag files in or upload them straight from your computer – not just pick from SharePoint."
+          "en": "When picking documents (including for comparison) you can now drag files in or upload them straight from your computer — not just pick from SharePoint."
         },
         {
           "type": "fixed",
@@ -461,22 +461,22 @@
         {
           "type": "new",
           "cs": "Porovnání dokumentů – v Prompt Studiu (Analyzovat → „Porovnat dokumenty“) vyberete dva dokumenty a asistent přehledně vypíše rozdíly: co přibylo, co ubylo a co se změnilo. Skvělé u smluv a směrnic.",
-          "en": "Document comparison – in Prompt Studio (Analyze → “Compare documents”) you pick two documents and the assistant clearly lists the differences: what was added, removed and changed. Great for contracts and policies."
+          "en": "Document comparison — in Prompt Studio (Analyze → “Compare documents”) you pick two documents and the assistant clearly lists the differences: what was added, removed and changed. Great for contracts and policies."
         },
         {
           "type": "new",
           "cs": "Porovnat lze i dvě verze téhož dokumentu – u vybraného souboru zvolíte „Porovnat verze“ a asistent srovná dvě verze z historie SharePointu. Text obou se zpracuje přímo ve vašem prohlížeči a nikam se neposílá.",
-          "en": "You can also compare two versions of the same document – for a selected file choose “Compare versions” and the assistant compares two versions from the SharePoint history. Both texts are processed right in your browser and are not sent anywhere."
+          "en": "You can also compare two versions of the same document — for a selected file choose “Compare versions” and the assistant compares two versions from the SharePoint history. Both texts are processed right in your browser and are not sent anywhere."
         },
         {
           "type": "new",
           "cs": "Paměť asistenta – nová sekce v Nastavení. Uložíte si sem trvalá fakta o sobě (jak se podepisujete, jak oslovovat klienty, vaši roli, preferovaný styl) a asistent je bere v úvahu ve všech vašich konverzacích. Vidíte a spravujete je jen vy.",
-          "en": "Assistant memory – a new section in Settings. Save lasting facts about yourself here (how you sign off, how to address clients, your role, preferred style) and the assistant keeps them in mind across all your conversations. Only you see and manage them."
+          "en": "Assistant memory — a new section in Settings. Save lasting facts about yourself here (how you sign off, how to address clients, your role, preferred style) and the assistant keeps them in mind across all your conversations. Only you see and manage them."
         },
         {
           "type": "new",
           "cs": "Když z konverzace vyplyne něco trvalého, asistent sám nabídne kartu „Zapamatovat si?“ přímo pod odpovědí – uloží se teprve po vašem potvrzení, nikdy potichu. Každý záznam pak kdykoli upravíte nebo smažete.",
-          "en": "When something lasting comes up in a conversation, the assistant offers a “Remember this?” card right under its answer – it is saved only after you confirm, never silently. You can then edit or delete any entry anytime."
+          "en": "When something lasting comes up in a conversation, the assistant offers a “Remember this?” card right under its answer — it is saved only after you confirm, never silently. You can then edit or delete any entry anytime."
         }
       ]
     },
@@ -487,12 +487,12 @@
         {
           "type": "fixed",
           "cs": "Když z konverzace vytvoříte SharePoint stránku, přenesou se do ní i grafy z odpovědí – vloží se jako obrázky. Při stažení do Wordu, Markdownu nebo HTML nebo při uložení do knihovny se ke grafům přidá tabulka hodnot.",
-          "en": "When you create a SharePoint page from a conversation, the charts from the answers now come along – inserted as images. When downloading to Word, Markdown or HTML, or saving to a library, a table of values is added for each chart."
+          "en": "When you create a SharePoint page from a conversation, the charts from the answers now come along — inserted as images. When downloading to Word, Markdown or HTML, or saving to a library, a table of values is added for each chart."
         },
         {
           "type": "fixed",
           "cs": "Návrh dokumentu (karta pod odpovědí) po návratu do konverzace nezmizí – zůstane i s obsahem a údajem, že jste z něj už vytvořili stránku nebo ho uložili do knihovny.",
-          "en": "A document draft (the card below an answer) no longer disappears when you return to the conversation – it stays, including its content and the note that you already created a page from it or saved it to a library."
+          "en": "A document draft (the card below an answer) no longer disappears when you return to the conversation — it stays, including its content and the note that you already created a page from it or saved it to a library."
         },
         {
           "type": "fixed",
@@ -502,7 +502,7 @@
         {
           "type": "improved",
           "cs": "Sdílené firemní šablony (dokumentů i promptů) teď spravuje výhradně správce – běžný uživatel je nadále používá, ale needituje. Šablony dokumentů jsou nově chráněné přímo oprávněním SharePointu, ne jen v rozhraní.",
-          "en": "Shared company templates (documents and prompts) are now managed exclusively by an administrator – regular users still use them but can no longer edit them. Document templates are now protected directly by SharePoint permissions, not just in the interface."
+          "en": "Shared company templates (documents and prompts) are now managed exclusively by an administrator — regular users still use them but can no longer edit them. Document templates are now protected directly by SharePoint permissions, not just in the interface."
         },
         {
           "type": "fixed",
@@ -512,22 +512,22 @@
         {
           "type": "improved",
           "cs": "Kontrola prostředí je poctivější – když nestihne prověřit vše (moc knihoven na webu, samé překlepy v adresách, chybějící oprávnění), řekne to a nehlásí falešně „čisto\". Grafy nevzniknou ze záporných čísel, kde by osa od nuly kreslila zavádějící obrázek.",
-          "en": "The environment check is more honest – when it cannot review everything (too many libraries on a site, only typos in the addresses, missing permissions), it says so instead of falsely reporting \"clean\". Charts are no longer drawn from negative numbers, where a zero-based axis would produce a misleading picture."
+          "en": "The environment check is more honest — when it cannot review everything (too many libraries on a site, only typos in the addresses, missing permissions), it says so instead of falsely reporting \"clean\". Charts are no longer drawn from negative numbers, where a zero-based axis would produce a misleading picture."
         },
         {
           "type": "new",
           "cs": "Vizuální odpovědi – když se odpověď opírá o čísla z vašich podkladů (tabulka v příloze, firemní dokumenty, kalendář, statistiky), asistent k textu sám přidá graf: sloupcový pro srovnání, čárový pro vývoj v čase, prstencový pro podíly celku. O graf si můžete i říct („nakresli mi to\").",
-          "en": "Visual answers – when the answer rests on numbers from your material (an attached table, company documents, calendar, statistics), the assistant adds a chart to the text on its own: bar for comparison, line for trends over time, donut for shares of a whole. You can also ask for one (\"draw it for me\")."
+          "en": "Visual answers — when the answer rests on numbers from your material (an attached table, company documents, calendar, statistics), the assistant adds a chart to the text on its own: bar for comparison, line for trends over time, donut for shares of a whole. You can also ask for one (\"draw it for me\")."
         },
         {
           "type": "new",
           "cs": "Karta grafu ukazuje, odkud data pocházejí, jedním tlačítkem ji přepnete na tabulku hodnot a graf stáhnete jako obrázek (PNG). Vše vzniká přímo ve vašem prohlížeči v barvách aplikace – žádná data se nikam neposílají.",
-          "en": "The chart card shows where the data comes from, one button switches it to a table of values, and you can download the chart as an image (PNG). Everything is created right in your browser in the app's colors – no data is sent anywhere."
+          "en": "The chart card shows where the data comes from, one button switches it to a table of values, and you can download the chart as an image (PNG). Everything is created right in your browser in the app's colors — no data is sent anywhere."
         },
         {
           "type": "improved",
           "cs": "Asistent kreslí výhradně z hodnot, které v podkladech skutečně jsou – čísla si nikdy nevymýšlí. Grafy fungují v plné aplikaci i v plovoucím widgetu a zůstávají uložené v konverzaci.",
-          "en": "The assistant draws strictly from values that are really in the material – it never invents numbers. Charts work in the full app as well as the floating widget and stay saved in the conversation."
+          "en": "The assistant draws strictly from values that are really in the material — it never invents numbers. Charts work in the full app as well as the floating widget and stay saved in the conversation."
         }
       ]
     },
@@ -538,37 +538,37 @@
         {
           "type": "new",
           "cs": "Kontrola prostředí – nová sekce Nastavení pro správce. Jedním klikem prověří oprávnění webů v rozsahu Firemních znalostí a upozorní na obsah přístupný celé organizaci (skupiny Everyone / Všichni kromě externích uživatelů) – dřív, než ho AI začne nacházet a citovat. Kontrola jen čte, nic nemění.",
-          "en": "Environment check – a new Settings section for administrators. One click reviews the permissions of the sites in the Company knowledge scope and flags content accessible to the whole organization (the Everyone / Everyone except external users groups) – before the AI starts finding and quoting it. The check only reads, nothing is changed."
+          "en": "Environment check — a new Settings section for administrators. One click reviews the permissions of the sites in the Company knowledge scope and flags content accessible to the whole organization (the Everyone / Everyone except external users groups) — before the AI starts finding and quoting it. The check only reads, nothing is changed."
         },
         {
           "type": "new",
           "cs": "V Kontrole prostředí nově určíte i vlastní seznam webů ke kontrole (pole „Zkontrolovat i tyto weby\" s výběrem webů a knihoven) – hodí se u rozsahu „celý tenant\", který nelze vyjmenovat. Seznam se ukládá, kontrola projde až 100 webů najednou.",
-          "en": "The Environment check now also takes your own list of sites to review (an \"Also check these sites\" field with a site and library picker) – useful with the \"whole tenant\" scope, which cannot be enumerated. The list is saved and the check covers up to 100 sites at once."
+          "en": "The Environment check now also takes your own list of sites to review (an \"Also check these sites\" field with a site and library picker) — useful with the \"whole tenant\" scope, which cannot be enumerated. The list is saved and the check covers up to 100 sites at once."
         },
         {
           "type": "improved",
           "cs": "Výsledek kontroly je přehledný i při desítkách webů – weby s nálezy vidíte rozepsané, weby bez nálezů se sbalí do úsporného výpisu s tlačítkem Zobrazit další.",
-          "en": "The check result stays readable even with dozens of sites – sites with findings are shown in full, clean sites collapse into a compact list with a Show more button."
+          "en": "The check result stays readable even with dozens of sites — sites with findings are shown in full, clean sites collapse into a compact list with a Show more button."
         },
         {
           "type": "new",
           "cs": "Šablony dokumentů – správce nahraje firemní Word šablony (.docx) se slučovacími poli {pole} v nové sekci Nastavení. Uživatelé pak v Prompt Studiu spustí úlohu „Vyplnit firemní šablonu\": AI navrhne obsah polí podle konverzace a pokynů, vy hodnoty zkontrolujete a upravíte přímo v kartě.",
-          "en": "Document templates – an administrator uploads company Word templates (.docx) with {field} merge fields in a new Settings section. Users then run the \"Fill a company template\" task in Prompt Studio: the AI drafts the field values from the conversation and your instructions, and you review and adjust them right on the card."
+          "en": "Document templates — an administrator uploads company Word templates (.docx) with {field} merge fields in a new Settings section. Users then run the \"Fill a company template\" task in Prompt Studio: the AI drafts the field values from the conversation and your instructions, and you review and adjust them right on the card."
         },
         {
           "type": "new",
           "cs": "Vyplněnou šablonu jedním klikem stáhnete jako Word (.docx), nebo ji uložíte do dokumentové knihovny webu. Dokument vzniká přímo ve vašem prohlížeči – šablona ani obsah neopouštějí vaši organizaci a nic se neodesílá.",
-          "en": "Download the filled template as Word (.docx) in one click, or save it to the site's document library. The document is created right in your browser – neither the template nor its content leaves your organization and nothing is sent anywhere."
+          "en": "Download the filled template as Word (.docx) in one click, or save it to the site's document library. The document is created right in your browser — neither the template nor its content leaves your organization and nothing is sent anywhere."
         },
         {
           "type": "new",
           "cs": "Šablony typu Schůzka – úloha „Zápis ze schůzky\" nově nabízí volitelný výstup do firemní šablony (třeba Zápis z porady): vyberete schůzku a šablonu a název, datum, čas, místo i účastníci se doplní přímo z pozvánky. AI navrhne jen obsah – zápis a úkoly z vašich poznámek. Bez výběru šablony vznikne obecná karta zápisu jako dosud. Typ šablony přepnete v Nastavení → Šablony dokumentů.",
-          "en": "Meeting templates – the \"Meeting minutes\" task now offers an optional output into a company template (such as Meeting minutes): pick a meeting and a template and the name, date, time, location and attendees are filled straight from the invitation. The AI drafts only the content – the minutes and tasks from your notes. Without picking a template a general minutes card is created as before. Switch the template kind in Settings → Document templates."
+          "en": "Meeting templates — the \"Meeting minutes\" task now offers an optional output into a company template (such as Meeting minutes): pick a meeting and a template and the name, date, time, location and attendees are filled straight from the invitation. The AI drafts only the content — the minutes and tasks from your notes. Without picking a template a general minutes card is created as before. Switch the template kind in Settings → Document templates."
         },
         {
           "type": "improved",
           "cs": "Šablony nově zvládají i seznamy s odrážkami – v šabloně je napíšete jako sekci {#ukoly_seznam}{polozka}{/ukoly_seznam} a formátování (odrážky, styl) drží šablona sama. Účastníci se do seznamu doplní z pozvánky, úkoly navrhne AI a v kartě je upravíte po řádcích.",
-          "en": "Templates now handle bulleted lists too – write them as a {#ukoly_seznam}{polozka}{/ukoly_seznam} section and the template itself keeps the formatting (bullets, style). Attendees are filled into the list from the invitation, tasks are drafted by the AI, and you edit them line by line on the card."
+          "en": "Templates now handle bulleted lists too — write them as a {#ukoly_seznam}{polozka}{/ukoly_seznam} section and the template itself keeps the formatting (bullets, style). Attendees are filled into the list from the invitation, tasks are drafted by the AI, and you edit them line by line on the card."
         },
         {
           "type": "new",
@@ -578,7 +578,7 @@
         {
           "type": "improved",
           "cs": "Popis auditu v Nastavení nyní odpovídá skutečnosti – audit zaznamenává vyhledávání ve všech zdrojích (Firemní znalosti, e-maily, kalendář, úkoly To Do a Teams), ne jen ve Firemních znalostech.",
-          "en": "The audit description in Settings now matches reality – the audit logs searches in all sources (Company knowledge, e-mails, calendar, To Do tasks and Teams), not only in Company knowledge."
+          "en": "The audit description in Settings now matches reality — the audit logs searches in all sources (Company knowledge, e-mails, calendar, To Do tasks and Teams), not only in Company knowledge."
         }
       ]
     },
@@ -589,12 +589,12 @@
         {
           "type": "new",
           "cs": "Nový přehled „Můj týden\" – vedle denního teď vidíte i týdenní pohled: vlevo ohlédnutí za minulým týdnem (kolik schůzek proběhlo, na co jste odpovídali, co ještě čeká na odpověď), vpravo výhled na tento týden po dnech s úkoly, které mají termín. V pondělí vás přehled přivítá rovnou, jindy je na jeden klik v přepínači.",
-          "en": "A new \"My week\" overview – alongside the daily view you now also see a weekly one: on the left a look back at last week (how many meetings took place, what you replied to, what still awaits a reply), on the right the outlook for this week day by day with tasks that have a deadline. On Monday the overview greets you right away; otherwise it is one click away in the switcher."
+          "en": "A new \"My week\" overview — alongside the daily view you now also see a weekly one: on the left a look back at last week (how many meetings took place, what you replied to, what still awaits a reply), on the right the outlook for this week day by day with tasks that have a deadline. On Monday the overview greets you right away; otherwise it is one click away in the switcher."
         },
         {
           "type": "new",
           "cs": "Tlačítko „Shrň mi týden\" převypráví váš týden krátkou psanou zprávou – ohlédnutí i výhled a čím tento týden začít. Stejně jako u dne se AI zapojí až na klik, jinak je přehled sestavený přímo z dat, mimo denní limit.",
-          "en": "The \"Summarize my week\" button retells your week as a short written note – a look back, an outlook and where to start this week. As with the day, AI only steps in on click; otherwise the overview is built straight from data, outside the daily limit."
+          "en": "The \"Summarize my week\" button retells your week as a short written note — a look back, an outlook and where to start this week. As with the day, AI only steps in on click; otherwise the overview is built straight from data, outside the daily limit."
         },
         {
           "type": "improved",
@@ -620,32 +620,32 @@
         {
           "type": "improved",
           "cs": "Úvodní průvodce „První kroky\" se přesunul mezi záložky přehledu, takže nezabírá místo navíc – a po zavření zmizí jako dřív.",
-          "en": "The \"Getting started\" guide moved among the overview tabs, so it no longer takes up extra space – and once closed it disappears as before."
+          "en": "The \"Getting started\" guide moved among the overview tabs, so it no longer takes up extra space — and once closed it disappears as before."
         },
         {
           "type": "improved",
           "cs": "Přehled „Můj den\" se zobrazí, i když ho zrovna nejde načíst – místo aby zmizel, panel vlídně vysvětlí proč (například u účtu bez licence Microsoft 365, který nemá schránku ani kalendář). Zbytek aplikace funguje dál.",
-          "en": "The \"My day\" overview now shows even when it cannot be loaded – instead of disappearing, the panel gently explains why (for example an account without a Microsoft 365 license, which has no mailbox or calendar). The rest of the app keeps working."
+          "en": "The \"My day\" overview now shows even when it cannot be loaded — instead of disappearing, the panel gently explains why (for example an account without a Microsoft 365 license, which has no mailbox or calendar). The rest of the app keeps working."
         },
         {
           "type": "new",
           "cs": "Úvodní obrazovka vás nově vítá přehledem „Můj den\" – vlevo co proběhlo včera (schůzky, aktivita v Teams a e-maily, které stále čekají na vaši odpověď), vpravo dnešní program na časové ose s bodem TEĎ, nejbližší schůzkou s odpočtem a tlačítkem Připojit a úkoly s termínem, které jde rovnou odškrtnout. Vše bez AI a mimo denní limit – data se čtou přímo z Microsoft 365, jen pod vaším přihlášením.",
-          "en": "The start screen now greets you with a \"My day\" overview – on the left what happened yesterday (meetings, Teams activity and e-mails still awaiting your reply), on the right today's schedule on a timeline with a NOW marker, the nearest meeting with a countdown and a Join button, and tasks due today you can tick off right away. All without AI and outside the daily limit – data is read straight from Microsoft 365, solely under your sign-in."
+          "en": "The start screen now greets you with a \"My day\" overview — on the left what happened yesterday (meetings, Teams activity and e-mails still awaiting your reply), on the right today's schedule on a timeline with a NOW marker, the nearest meeting with a countdown and a Join button, and tasks due today you can tick off right away. All without AI and outside the daily limit — data is read straight from Microsoft 365, solely under your sign-in."
         },
         {
           "type": "new",
           "cs": "Tlačítko „Shrň mi den\" den převypráví krátkou psanou zprávou – co zůstalo nedořešené, co vás čeká a čím začít. Teprve tady se zapojí AI.",
-          "en": "The \"Summarize my day\" button retells the day as a short written note – what is left unresolved, what lies ahead and where to start. Only here does AI step in."
+          "en": "The \"Summarize my day\" button retells the day as a short written note — what is left unresolved, what lies ahead and where to start. Only here does AI step in."
         },
         {
           "type": "improved",
           "cs": "Při návratu do aplikace během dne (a na mobilu) se přehled sbalí do jednořádkového pásu, aby nepřekážel psaní – šipkou ho kdykoli rozbalíte zpět.",
-          "en": "When you return to the app during the day (and on mobile) the overview collapses into a one-line strip so it does not get in the way of writing – the arrow expands it back at any time."
+          "en": "When you return to the app during the day (and on mobile) the overview collapses into a one-line strip so it does not get in the way of writing — the arrow expands it back at any time."
         },
         {
           "type": "improved",
           "cs": "Poslední konverzace a oblíbené se přestěhovaly do záložek vedle přehledu – spolu s rychlým výběrem asistenta jsou na jeden klik.",
-          "en": "Recent conversations and favorites moved into tabs next to the overview – together with a quick assistant picker they are one click away."
+          "en": "Recent conversations and favorites moved into tabs next to the overview — together with a quick assistant picker they are one click away."
         }
       ]
     },
@@ -661,27 +661,27 @@
         {
           "type": "fixed",
           "cs": "Otázky na e-maily, kalendář, úkoly a Teams teď skutečně najdou, co hledáte. Dřív se do vyhledávání posílala otázka tak, jak jste ji napsali, takže hledala celou větu doslova a obvykle nenašla nic – asistent pak odpověděl, že k datům nemá přístup, i když je měl. Nově se otázka nejprve převede na vyhledávací dotaz.",
-          "en": "Questions about e-mails, calendar, tasks and Teams now actually find what you are looking for. Previously the question was sent to search exactly as you typed it, so it searched for the whole sentence literally and usually found nothing – the assistant then replied that it had no access to the data, even though it did. The question is now translated into a search query first."
+          "en": "Questions about e-mails, calendar, tasks and Teams now actually find what you are looking for. Previously the question was sent to search exactly as you typed it, so it searched for the whole sentence literally and usually found nothing — the assistant then replied that it had no access to the data, even though it did. The question is now translated into a search query first."
         },
         {
           "type": "improved",
           "cs": "Dotazy na čas fungují tak, jak je myslíte – „co jsem naposledy řešil v Teams\", „co mi přišlo minulý týden\" nebo „co je nového\" vypíší nejnovější položky místo hledání těchto slov ve zprávách.",
-          "en": "Time-based questions now work the way you mean them – \"what did I last discuss in Teams\", \"what arrived last week\" or \"what's new\" list the most recent items instead of searching for those words inside messages."
+          "en": "Time-based questions now work the way you mean them — \"what did I last discuss in Teams\", \"what arrived last week\" or \"what's new\" list the most recent items instead of searching for those words inside messages."
         },
         {
           "type": "fixed",
           "cs": "Když asistent ve zdrojích nic nenajde, řekne to na rovinu – dřív místo toho tvrdil, že k vašim datům nemá přístup, i když je prohledal. Poznáte tak rozdíl mezi „nic tam není\" a skutečným problémem s oprávněním.",
-          "en": "When the assistant finds nothing in your sources, it now says so plainly – previously it claimed it had no access to your data even though it had searched it. You can now tell the difference between \"there is nothing there\" and a genuine permissions problem."
+          "en": "When the assistant finds nothing in your sources, it now says so plainly — previously it claimed it had no access to your data even though it had searched it. You can now tell the difference between \"there is nothing there\" and a genuine permissions problem."
         },
         {
           "type": "fixed",
           "cs": "Teams chaty se u zdrojů jmenují podle toho, S KÝM si píšete – dřív nesly jméno autora poslední zprávy, takže vaše vlastní konverzace vypadaly jako „Chat s [vaše jméno]\". Kvůli tomu asistent neuměl odpovědět na dotaz „co jsem si psal s kolegou\", i když tu zprávu měl přímo před sebou. Platí i při hledání podle jména – zeptáte se „co jsem si psal s Markétou\" a asistent odpoví.",
-          "en": "Teams chats in sources are now named after the person you are talking TO – previously they carried the name of whoever wrote the last message, so your own conversations appeared as \"Chat with [your name]\". As a result the assistant could not answer \"what did I discuss with a colleague\" even when it had the message right in front of it. This also applies when searching by name – ask \"what did I discuss with Megan\" and the assistant answers."
+          "en": "Teams chats in sources are now named after the person you are talking TO — previously they carried the name of whoever wrote the last message, so your own conversations appeared as \"Chat with [your name]\". As a result the assistant could not answer \"what did I discuss with a colleague\" even when it had the message right in front of it. This also applies when searching by name — ask \"what did I discuss with Megan\" and the assistant answers."
         },
         {
           "type": "improved",
           "cs": "Systémová oznámení z Teams (například „byl pořízen záznam schůzky\") se do podkladů už nedostanou – nemají obsah, ze kterého by šlo odpovědět.",
-          "en": "System notices from Teams (such as \"a meeting recording was made\") no longer end up in the material – they carry no content to answer from."
+          "en": "System notices from Teams (such as \"a meeting recording was made\") no longer end up in the material — they carry no content to answer from."
         },
         {
           "type": "improved",
@@ -691,57 +691,57 @@
         {
           "type": "improved",
           "cs": "Do záznamu o dohledu (Audit) se nově zapisuje i hledání v e-mailech, kalendáři, úkolech a Teams – dosud pokrýval jen Firemní znalosti. Správce tak má úplný přehled o tom, v čem se hledalo. Zapíná se v Nastavení aplikace.",
-          "en": "The audit log now also records searches in e-mails, calendar, tasks and Teams – until now it covered Company knowledge only. Administrators therefore get a complete record of what was searched. It is enabled in Application settings."
+          "en": "The audit log now also records searches in e-mails, calendar, tasks and Teams — until now it covered Company knowledge only. Administrators therefore get a complete record of what was searched. It is enabled in Application settings."
         },
         {
           "type": "new",
           "cs": "Nový výběr Zdroje u pole zprávy – určíte, odkud smí asistent v dané konverzaci čerpat podklady: Firemní znalosti (SharePoint), E-maily, Kalendář, Úkoly To Do a Teams konverzace. Můžete jich zapnout víc najednou, nebo použít Vybrat vše.",
-          "en": "A new Sources picker next to the message field – you decide where the assistant may draw material from in a given conversation: Company knowledge (SharePoint), E-mails, Calendar, To Do tasks and Teams conversations. Enable several at once, or use Select all."
+          "en": "A new Sources picker next to the message field — you decide where the assistant may draw material from in a given conversation: Company knowledge (SharePoint), E-mails, Calendar, To Do tasks and Teams conversations. Enable several at once, or use Select all."
         },
         {
           "type": "improved",
           "cs": "Zapnuté zdroje jsou v konverzaci vždy vidět jako ikony u pole zprávy – na první pohled víte, s čím asistent pracuje, a řádek zůstane přehledný. Kliknutím na ikonu zdroj vypnete; názvy i popisy najdete ve výběru Zdroje.",
-          "en": "Enabled sources are always visible as icons next to the message field – you can tell at a glance what the assistant works with, and the row stays tidy. Click an icon to turn the source off; names and descriptions are in the Sources picker."
+          "en": "Enabled sources are always visible as icons next to the message field — you can tell at a glance what the assistant works with, and the row stays tidy. Click an icon to turn the source off; names and descriptions are in the Sources picker."
         },
         {
           "type": "improved",
           "cs": "Volba zdrojů se nově pamatuje u každé konverzace zvlášť a přežije i zavření prohlížeče – dřív platila pro celý web a jen do konce sezení.",
-          "en": "The source choice is now remembered per conversation and survives closing the browser – previously it applied to the whole site and only for the session."
+          "en": "The source choice is now remembered per conversation and survives closing the browser — previously it applied to the whole site and only for the session."
         },
         {
           "type": "improved",
           "cs": "Úlohy a asistenti ze scénáře Firemní znalosti si zdroj zapnou samy – a vy to hned vidíte na štítku.",
-          "en": "Tasks and assistants from the Company knowledge scenario turn the source on by themselves – and you see it immediately on the chip."
+          "en": "Tasks and assistants from the Company knowledge scenario turn the source on by themselves — and you see it immediately on the chip."
         },
         {
           "type": "new",
           "cs": "Asistent umí odpovědět z několika zdrojů najednou – na otázku „co máme domluveno s klientem?\" spojí smlouvu ze SharePointu, potvrzení z e-mailu i domluvu z Teams. Pod odpovědí jsou karty zdrojů s čísly citací, takže je poznat, co odkud pochází.",
-          "en": "The assistant can answer from several sources at once – ask \"what have we agreed with the client?\" and it joins the SharePoint contract, the e-mail confirmation and the Teams agreement. Source cards with citation numbers below the answer show what came from where."
+          "en": "The assistant can answer from several sources at once — ask \"what have we agreed with the client?\" and it joins the SharePoint contract, the e-mail confirmation and the Teams agreement. Source cards with citation numbers below the answer show what came from where."
         },
         {
           "type": "new",
           "cs": "Hledání ve vašich e-mailech, kalendáři, úkolech To Do a Teams konverzacích. Vždy jen pod vaším přihlášením a jen ve vašich datech – u Teams jen v chatech a kanálech, kde jste členem.",
-          "en": "Searching your e-mails, calendar, To Do tasks and Teams conversations. Always under your sign-in and only your data – for Teams only chats and channels you are a member of."
+          "en": "Searching your e-mails, calendar, To Do tasks and Teams conversations. Always under your sign-in and only your data — for Teams only chats and channels you are a member of."
         },
         {
           "type": "improved",
           "cs": "Výpadek jednoho zdroje nezhatí odpověď – asistent ji složí z ostatních a jen upozorní, který zdroj nepřispěl.",
-          "en": "A failure of one source does not spoil the answer – the assistant composes it from the others and only notes which source did not contribute."
+          "en": "A failure of one source does not spoil the answer — the assistant composes it from the others and only notes which source did not contribute."
         },
         {
           "type": "fixed",
           "cs": "Když zdroj odmítne hledání, upozornění nově uvede i konkrétní odpověď Microsoft 365 – dřív vždy tvrdilo, že chybí souhlas správce, i když byl důvod jiný (třeba starý přihlašovací token).",
-          "en": "When a source rejects a search, the notice now includes the actual Microsoft 365 response – it used to always claim a missing admin consent even when the cause was different (an old sign-in token, for example)."
+          "en": "When a source rejects a search, the notice now includes the actual Microsoft 365 response — it used to always claim a missing admin consent even when the cause was different (an old sign-in token, for example)."
         },
         {
           "type": "fixed",
           "cs": "Upozornění na zdroj, který odmítl hledání, už nezůstává viset – zmizí při odeslání další zprávy i při přepnutí konverzace. Dřív svítilo i v nové konverzaci, která se daného zdroje vůbec netýkala.",
-          "en": "A notice about a source that rejected a search no longer lingers – it clears when you send the next message and when you switch conversations. It used to stay visible even in a new conversation that had nothing to do with that source."
+          "en": "A notice about a source that rejected a search no longer lingers — it clears when you send the next message and when you switch conversations. It used to stay visible even in a new conversation that had nothing to do with that source."
         },
         {
           "type": "fixed",
           "cs": "Hledání v Teams konverzacích už funguje – vyžaduje dvě oprávnění Microsoftu naráz (Chat.Read i ChannelMessage.Read.All), dřív aplikace žádala jen jedno a Microsoft hledání odmítal. Správce obě schválí v SharePoint admin centru.",
-          "en": "Searching Teams conversations now works – it requires two Microsoft permissions at once (Chat.Read and ChannelMessage.Read.All); the app previously requested only one and Microsoft rejected the search. An administrator approves both in the SharePoint admin center."
+          "en": "Searching Teams conversations now works — it requires two Microsoft permissions at once (Chat.Read and ChannelMessage.Read.All); the app previously requested only one and Microsoft rejected the search. An administrator approves both in the SharePoint admin center."
         }
       ]
     },
@@ -752,12 +752,12 @@
         {
           "type": "new",
           "cs": "AI Asistent umí přečíst veřejnou webovou stránku – vložíte její adresu a on ji shrne, rozebere nebo na ni naváže příspěvkem. Najdete to v Prompt Studiu u úloh, které pracují se stránkou.",
-          "en": "The AI Assistant can read a public web page – paste its address and it will summarize it, analyse it, or write a post that follows up on it. You will find this in Prompt Studio, in tasks that work with a page."
+          "en": "The AI Assistant can read a public web page — paste its address and it will summarize it, analyse it, or write a post that follows up on it. You will find this in Prompt Studio, in tasks that work with a page."
         },
         {
           "type": "new",
           "cs": "Zvládneme i weby, které se načítají až v prohlížeči a běžně přečíst nejdou. Prvním takovým zdrojem je TED – Věstník veřejných zakázek EU: vložíte běžnou adresu oznámení a asistent z něj vytáhne název, zadavatele, předmět, lhůtu pro nabídky i CPV kódy.",
-          "en": "We also handle sites that only load in the browser and normally cannot be read. The first such source is TED – the EU public procurement journal: paste an ordinary notice address and the assistant will pull out the title, buyer, subject, tender deadline and CPV codes."
+          "en": "We also handle sites that only load in the browser and normally cannot be read. The first such source is TED — the EU public procurement journal: paste an ordinary notice address and the assistant will pull out the title, buyer, subject, tender deadline and CPV codes."
         },
         {
           "type": "new",
@@ -767,7 +767,7 @@
         {
           "type": "improved",
           "cs": "Obsah cizí stránky asistent zpracovává jako podklad, nikdy jako pokyny – text z internetu tak nemůže zvrátit vaše zadání.",
-          "en": "The assistant treats the content of a foreign page as source material, never as instructions – so text from the internet cannot override what you asked for."
+          "en": "The assistant treats the content of a foreign page as source material, never as instructions — so text from the internet cannot override what you asked for."
         },
         {
           "type": "improved",
@@ -777,22 +777,22 @@
         {
           "type": "improved",
           "cs": "Shrnutí webové stránky je přehlednější – klíčové údaje (předmět, kdo za tím stojí, termíny, částky a kódy) dostanete v tabulce a teprve pak v bodech.",
-          "en": "Web page summaries are clearer – the key facts (subject, who is behind it, deadlines, amounts and codes) come in a table first, followed by bullet points."
+          "en": "Web page summaries are clearer — the key facts (subject, who is behind it, deadlines, amounts and codes) come in a table first, followed by bullet points."
         },
         {
           "type": "new",
           "cs": "Pod odpovědí z webové stránky je karta zdroje s adresou, ze které asistent čerpal – kliknutím ji otevřete v nové záložce.",
-          "en": "Below an answer based on a web page there is a source card with the address the assistant drew from – click it to open the page in a new tab."
+          "en": "Below an answer based on a web page there is a source card with the address the assistant drew from — click it to open the page in a new tab."
         },
         {
           "type": "new",
           "cs": "Tlačítko Uložit jako dokument pod odpovědí – shrnutí stránky jedním klikem překlopíte do dokumentu, který lze stáhnout nebo uložit do SharePointu.",
-          "en": "A Save as a document button below the answer – turn the page summary into a document you can download or save to SharePoint in one click."
+          "en": "A Save as a document button below the answer — turn the page summary into a document you can download or save to SharePoint in one click."
         },
         {
           "type": "improved",
           "cs": "Nápověda má novou kapitolu o čtení webových stránek – včetně toho, jak funguje TED a proč o povolených adresách rozhoduje správce.",
-          "en": "The Help section has a new chapter on reading web pages – including how TED works and why an administrator decides about the allowed addresses."
+          "en": "The Help section has a new chapter on reading web pages — including how TED works and why an administrator decides about the allowed addresses."
         }
       ]
     },
@@ -803,32 +803,32 @@
         {
           "type": "new",
           "cs": "Prompt Studio po přepracování – otevře se přehledem scénářů (Pošta, Kalendář, Psaní a shrnutí, Firemní znalosti, Rozbor a analýza, Překlad, Kód, Excel). Vyberete scénář a uvnitř najdete jeho úlohy i asistenty pohromadě.",
-          "en": "A reworked Prompt Studio – it opens with an overview of scenarios (Mail, Calendar, Writing & summaries, Company knowledge, Analysis, Translation, Code, Excel). Pick a scenario and find its tasks and assistants together inside."
+          "en": "A reworked Prompt Studio — it opens with an overview of scenarios (Mail, Calendar, Writing & summaries, Company knowledge, Analysis, Translation, Code, Excel). Pick a scenario and find its tasks and assistants together inside."
         },
         {
           "type": "new",
           "cs": "Přepínač Scénáře / Vše – kdo nechce klikat scénáře, přepne na kompletní seznam všeho pod sebou (nejdřív úlohy, pak asistenti) a hledá v něm.",
-          "en": "A Scenarios / All switch – if you'd rather not click scenarios, switch to a complete list of everything in one place (tasks first, then assistants) and search within it."
+          "en": "A Scenarios / All switch — if you'd rather not click scenarios, switch to a complete list of everything in one place (tasks first, then assistants) and search within it."
         },
         {
           "type": "improved",
           "cs": "Úlohy a asistenti jsou teď jasně odlišené – úloha (co chci teď, vloží se do zprávy) je řádek s akcí, asistent (kdo povede celou konverzaci) je karta s tlačítkem Použít v konverzaci.",
-          "en": "Tasks and assistants are now clearly distinct – a task (what I want now, inserted into the message) is an action row, an assistant (who guides the whole conversation) is a card with a Use in conversation button."
+          "en": "Tasks and assistants are now clearly distinct — a task (what I want now, inserted into the message) is an action row, an assistant (who guides the whole conversation) is a card with a Use in conversation button."
         },
         {
           "type": "improved",
           "cs": "Studio ukazuje celkové počty – kolik je dohromady úloh a asistentů, i počet u každého scénáře.",
-          "en": "The Studio shows overall counts – how many tasks and assistants there are in total, plus a count on each scenario."
+          "en": "The Studio shows overall counts — how many tasks and assistants there are in total, plus a count on each scenario."
         },
         {
           "type": "fixed",
           "cs": "Roadmapa už jde odrolovat i při delším seznamu novinek – stránka se posouvá celá jako jeden celek.",
-          "en": "The Roadmap now scrolls even with a longer list of updates – the page scrolls as a whole."
+          "en": "The Roadmap now scrolls even with a longer list of updates — the page scrolls as a whole."
         },
         {
           "type": "improved",
           "cs": "Roadmapa – delší sloupec (třeba Hotovo) ukáže prvních 5 položek a zbytek rozbalíte tlačítkem Zobrazit další. Stránka tak není zbytečně dlouhá.",
-          "en": "Roadmap – a longer column (such as Done) shows the first 5 items and you expand the rest with a Show more button, so the page isn't needlessly long."
+          "en": "Roadmap — a longer column (such as Done) shows the first 5 items and you expand the rest with a Show more button, so the page isn't needlessly long."
         },
         {
           "type": "improved",
@@ -843,7 +843,7 @@
         {
           "type": "improved",
           "cs": "Vyplňování úlohy je srozumitelnější – pole pro vaše pokyny se objeví až po výběru e-mailu či schůzky, seznam e-mailů a schůzek je vyšší a tlačítko se nově jmenuje Vložit do zprávy.",
-          "en": "Filling in a task is clearer – the field for your instructions appears only after you pick an email or meeting, the email and meeting lists are taller, and the button is now called Insert into message."
+          "en": "Filling in a task is clearer — the field for your instructions appears only after you pick an email or meeting, the email and meeting lists are taller, and the button is now called Insert into message."
         },
         {
           "type": "fixed",
@@ -858,7 +858,7 @@
         {
           "type": "improved",
           "cs": "Odpovědi z Firemních znalostí s odkazy na zdroje jsou přehlednější – zmizelo matoucí dvojí číslování a autoritativní zdroj se u citace značí štítem (ikonou), ne textem.",
-          "en": "Company-knowledge answers with source links are clearer – the confusing double numbering is gone and an authoritative source is marked at the citation with a shield (icon), not text."
+          "en": "Company-knowledge answers with source links are clearer — the confusing double numbering is gone and an authoritative source is marked at the citation with a shield (icon), not text."
         },
         {
           "type": "new",
@@ -868,7 +868,7 @@
         {
           "type": "improved",
           "cs": "Návrh odpovědi nebo e-mailu jde teď před uložením upravit přímo na kartě – pole Komu, Předmět i tělo jsou editovatelná a karta je širší.",
-          "en": "A reply or email draft can now be edited right on the card before saving – the To, Subject and body fields are editable and the card is wider."
+          "en": "A reply or email draft can now be edited right on the card before saving — the To, Subject and body fields are editable and the card is wider."
         },
         {
           "type": "improved",
@@ -878,12 +878,12 @@
         {
           "type": "new",
           "cs": "Vytváření dokumentů – z konverzace nebo z firemních znalostí necháte asistenta sepsat dokument; objeví se karta Návrh dokumentu s editovatelným názvem i obsahem.",
-          "en": "Document creation – have the assistant write a document from a conversation or from company knowledge; a Document draft card appears with an editable title and content."
+          "en": "Document creation — have the assistant write a document from a conversation or from company knowledge; a Document draft card appears with an editable title and content."
         },
         {
           "type": "new",
           "cs": "Dokument stáhnete jako Word (.docx), Markdown (.md) nebo HTML, uložíte ho do SharePoint knihovny, nebo z něj rovnou vytvoříte SharePoint stránku – vše pod vaším přihlášením a jen nad vašimi daty.",
-          "en": "Download the document as Word (.docx), Markdown (.md) or HTML, save it to a SharePoint library, or turn it straight into a SharePoint page – all under your sign-in and only over your data."
+          "en": "Download the document as Word (.docx), Markdown (.md) or HTML, save it to a SharePoint library, or turn it straight into a SharePoint page — all under your sign-in and only over your data."
         },
         {
           "type": "new",
@@ -893,22 +893,22 @@
         {
           "type": "improved",
           "cs": "Karta Návrh dokumentu je přehlednější: formátovaný náhled místo surového textu, po uložení vidíte název i umístění a odkaz pro otevření, a zdroje jsou klikatelné – odkazují na dokument (na stránce i ve Wordu).",
-          "en": "The Document draft card is clearer: a formatted preview instead of raw text, after saving you see the name, location and an open link, and sources are clickable – linking to the document (on the page and in Word)."
+          "en": "The Document draft card is clearer: a formatted preview instead of raw text, after saving you see the name, location and an open link, and sources are clickable — linking to the document (on the page and in Word)."
         },
         {
           "type": "new",
           "cs": "Obsah na sociální sítě – v Prompt Studiu je scénář Sociální sítě: necháte si napsat příspěvek (třeba na LinkedIn), navážete na dřívější, nebo si vypíšete, co jste na dané téma už psali.",
-          "en": "Social media content – Prompt Studio gets a Social media scenario: have a post written (for example for LinkedIn), follow up on an earlier one, or list what you've already written on a topic."
+          "en": "Social media content — Prompt Studio gets a Social media scenario: have a post written (for example for LinkedIn), follow up on an earlier one, or list what you've already written on a topic."
         },
         {
           "type": "new",
           "cs": "Dokument i příspěvek uložíte do vybrané SharePoint knihovny a ve zvoleném formátu – Word (.docx), nebo Markdown (.md). Příspěvky uložené jako .md pak asistent zná ve Firemních znalostech, takže se na ně můžete ptát.",
-          "en": "Save both a document and a post to a chosen SharePoint library in a chosen format – Word (.docx) or Markdown (.md). Posts saved as .md are then known to the assistant in Company knowledge, so you can ask about them."
+          "en": "Save both a document and a post to a chosen SharePoint library in a chosen format — Word (.docx) or Markdown (.md). Posts saved as .md are then known to the assistant in Company knowledge, so you can ask about them."
         },
         {
           "type": "fixed",
           "cs": "Úpravy návrhu dokumentu jsou teď stejně široké jako náhled a stejným písmem – při přepnutí mezi Upravit a Náhled už text neposkakuje.",
-          "en": "Editing a document draft is now the same width as the preview and in the same typeface – switching between Edit and Preview no longer makes the text jump."
+          "en": "Editing a document draft is now the same width as the preview and in the same typeface — switching between Edit and Preview no longer makes the text jump."
         }
       ]
     },
@@ -919,22 +919,22 @@
         {
           "type": "new",
           "cs": "Asistent schůzek – nová úloha Zápis ze schůzky: vyberete schůzku z kalendáře, přidáte své poznámky a asistent složí věcný zápis a navrhne další kroky.",
-          "en": "Meeting assistant – a new Meeting minutes task: pick a meeting from your calendar, add your notes, and the assistant drafts concise minutes and suggests next steps."
+          "en": "Meeting assistant — a new Meeting minutes task: pick a meeting from your calendar, add your notes, and the assistant drafts concise minutes and suggests next steps."
         },
         {
           "type": "new",
           "cs": "Zápis jedním klikem uložíte do SharePointu a účastníkům k němu připravíte e-mail jako koncept v Outlooku – adresáti se doplní z pozvánky, odeslání zůstává na vás.",
-          "en": "Save the minutes to SharePoint in one click and prepare an email to attendees as an Outlook draft – recipients are filled in from the invitation, sending stays with you."
+          "en": "Save the minutes to SharePoint in one click and prepare an email to attendees as an Outlook draft — recipients are filled in from the invitation, sending stays with you."
         },
         {
           "type": "new",
           "cs": "Nová chytrá položka schůzka – ve výběru najdete své nadcházející schůzky (dalších 14 dní) i s účastníky.",
-          "en": "A new smart meeting item – the picker shows your upcoming meetings (next 14 days) with their attendees."
+          "en": "A new smart meeting item — the picker shows your upcoming meetings (next 14 days) with their attendees."
         },
         {
           "type": "new",
           "cs": "Balíčky Pošta a kalendář – ve výběru asistentů jsou přehledné karty Denní přehled, Asistent schůzek a HR nábor (připravujeme); kliknutím rovnou spustíte odpovídající úlohu.",
-          "en": "Mail & calendar packages – the assistant picker now shows tidy cards for Daily brief, Meeting assistant and HR recruiting (coming soon); a click launches the matching task."
+          "en": "Mail & calendar packages — the assistant picker now shows tidy cards for Daily brief, Meeting assistant and HR recruiting (coming soon); a click launches the matching task."
         },
         {
           "type": "improved",
@@ -944,17 +944,17 @@
         {
           "type": "improved",
           "cs": "Po uložení konceptu odpovědi asistent nabídne navazující kroky – Shrnout celé vlákno a Založit úkol s termínem.",
-          "en": "After you save a reply draft, the assistant offers follow-up steps – Summarize the thread and Create a task with a due date."
+          "en": "After you save a reply draft, the assistant offers follow-up steps — Summarize the thread and Create a task with a due date."
         },
         {
           "type": "fixed",
           "cs": "Ranní přehled už mezi poštu čekající na odpověď nedává zprávy, na které jste už odpověděli – porovná Doručenou s Odeslanou podle vlákna.",
-          "en": "The daily brief no longer lists messages you have already replied to among mail awaiting a reply – it matches your Inbox against Sent by thread."
+          "en": "The daily brief no longer lists messages you have already replied to among mail awaiting a reply — it matches your Inbox against Sent by thread."
         },
         {
           "type": "improved",
           "cs": "Ranní přehled je přehlednější – datum v záhlaví, u schůzek účastníci a místo/Teams, u pošty stáří zprávy (třeba 3 dny) a odkaz Otevřít kalendář v Outlooku.",
-          "en": "The daily brief is clearer – a date in the header, meeting attendees and location/Teams, message age on mail (such as 3 days) and an Open calendar in Outlook link."
+          "en": "The daily brief is clearer — a date in the header, meeting attendees and location/Teams, message age on mail (such as 3 days) and an Open calendar in Outlook link."
         }
       ]
     },
@@ -965,17 +965,17 @@
         {
           "type": "new",
           "cs": "Ranní přehled – úloha Připrav mě na zítřek složí do jedné karty vaše schůzky, poštu čekající na odpověď a úkoly z Microsoft To Do. U každé položky je připravená akce: otevřít schůzku, navrhnout odpověď, založit úkol.",
-          "en": "Daily brief – the Prepare me for tomorrow task assembles your meetings, mail awaiting a reply and tasks from Microsoft To Do into a single card. Each item has a ready action: open the meeting, draft a reply, create a task."
+          "en": "Daily brief — the Prepare me for tomorrow task assembles your meetings, mail awaiting a reply and tasks from Microsoft To Do into a single card. Each item has a ready action: open the meeting, draft a reply, create a task."
         },
         {
           "type": "new",
           "cs": "Třídění pošty – úloha Roztřiď mi poštu rozdělí zprávy do skupin a ke každé navrhne akci. Zaškrtnete, co chcete, a jedním tlačítkem provedete: přiřazení Outlook kategorie a archivaci. Nic se neodesílá ani nemaže – archivace i kategorie jsou v Outlooku kdykoli vratné.",
-          "en": "Mail triage – the Triage my mail task groups your messages and proposes an action for each. Tick what you want and run it in one click: assigning an Outlook category and archiving. Nothing is sent or deleted – archiving and categories are always reversible in Outlook."
+          "en": "Mail triage — the Triage my mail task groups your messages and proposes an action for each. Tick what you want and run it in one click: assigning an Outlook category and archiving. Nothing is sent or deleted — archiving and categories are always reversible in Outlook."
         },
         {
           "type": "new",
           "cs": "Úkoly do Microsoft To Do – asistent vám z e-mailu nebo z konverzace připraví konkrétní úkoly i s termíny a vy je jedním kliknutím založíte do To Do. Na připomínání pak myslí Outlook a To Do samy.",
-          "en": "Tasks into Microsoft To Do – the assistant prepares concrete tasks with due dates from an email or a conversation, and you add them to To Do in one click. Reminders are then handled by Outlook and To Do themselves."
+          "en": "Tasks into Microsoft To Do — the assistant prepares concrete tasks with due dates from an email or a conversation, and you add them to To Do in one click. Reminders are then handled by Outlook and To Do themselves."
         },
         {
           "type": "new",
@@ -985,7 +985,7 @@
         {
           "type": "improved",
           "cs": "Stejné zásady jako dosud – asistent jen navrhuje, provedete to vy kliknutím; nikdy nic neodešle ani tvrdě nesmaže a pracuje výhradně nad vašimi vlastními daty. Nové funkce vyžadují jednorázové schválení oprávnění správcem Microsoft 365.",
-          "en": "The same principles as before – the assistant only proposes, you perform the action with a click; it never sends or hard-deletes anything and works solely over your own data. The new features require a one-time permission approval by a Microsoft 365 admin."
+          "en": "The same principles as before — the assistant only proposes, you perform the action with a click; it never sends or hard-deletes anything and works solely over your own data. The new features require a one-time permission approval by a Microsoft 365 admin."
         }
       ]
     },
@@ -996,32 +996,32 @@
         {
           "type": "new",
           "cs": "Pošta a kalendář – Prompt Studio má novou kategorii úloh nad vaší vlastní schránkou a kalendářem: shrnutí e-mailu, vytažení úkolů z e-mailu, návrh odpovědi, nový e-mail a přehled Co mám v kalendáři.",
-          "en": "Mail & calendar – Prompt Studio gets a new task category over your own mailbox and calendar: summarize an email, extract tasks from it, draft a reply, a new email and a What's on my calendar overview."
+          "en": "Mail & calendar — Prompt Studio gets a new task category over your own mailbox and calendar: summarize an email, extract tasks from it, draft a reply, a new email and a What's on my calendar overview."
         },
         {
           "type": "new",
           "cs": "Chytrá položka e-mail – v úloze vyberete zprávu z Doručené pošty nebo hledáním v celé schránce; asistent dostane její obsah jako podklad.",
-          "en": "Smart email item – pick a message from your Inbox or by searching your whole mailbox; the assistant receives its content as context."
+          "en": "Smart email item — pick a message from your Inbox or by searching your whole mailbox; the assistant receives its content as context."
         },
         {
           "type": "new",
           "cs": "Navržené odpovědi se ukládají výhradně jako koncepty do Outlooku – u odpovědi se objeví karta s náhledem a tlačítkem Uložit koncept do Outlooku. Asistent nikdy nic neodesílá, odeslání zůstává na vás.",
-          "en": "Drafted replies are saved strictly as Outlook drafts – the answer shows a card with a preview and a Save draft to Outlook button. The assistant never sends anything; sending stays with you."
+          "en": "Drafted replies are saved strictly as Outlook drafts — the answer shows a card with a preview and a Save draft to Outlook button. The assistant never sends anything; sending stays with you."
         },
         {
           "type": "new",
           "cs": "Vše běží pod vaším přihlášením a jen nad vašimi daty – aplikace pracuje výhradně s vaší schránkou a vaším kalendářem. Funkce vyžadují jednorázové schválení oprávnění správcem Microsoft 365.",
-          "en": "Everything runs under your sign-in and only over your data – the app works solely with your mailbox and your calendar. The features require a one-time permission approval by a Microsoft 365 admin."
+          "en": "Everything runs under your sign-in and only over your data — the app works solely with your mailbox and your calendar. The features require a one-time permission approval by a Microsoft 365 admin."
         },
         {
           "type": "new",
           "cs": "Správce může funkce pošty a kalendáře pro organizaci vypnout v Nastavení aplikace – nová sekce Pošta a kalendář.",
-          "en": "An admin can turn the mail & calendar features off for the organization in App settings – a new Mail & calendar section."
+          "en": "An admin can turn the mail & calendar features off for the organization in App settings — a new Mail & calendar section."
         },
         {
           "type": "improved",
           "cs": "Úvodní obrazovka nabízí rychlý výběr asistenta – vedle tlačítka Prohlédnout je nový vstup Vybrat asistenta s náhledem připravených person.",
-          "en": "The home screen offers a quick assistant pick – next to Browse there is a new Choose assistant entry with a preview of the ready-made personas."
+          "en": "The home screen offers a quick assistant pick — next to Browse there is a new Choose assistant entry with a preview of the ready-made personas."
         }
       ]
     },
@@ -1032,7 +1032,7 @@
         {
           "type": "improved",
           "cs": "Výběr webu v Teams je chytřejší – aplikace zjišťuje, kde je nasazená, z centrální evidence aplikací v EP365 Homepage (a ověří, kam máte přístup). U každého webu vidíte, že je oficiálně registrovaný, i jeho verzi.",
-          "en": "Site selection in Teams is smarter – the app detects where it is deployed from the central app registry in EP365 Homepage (and verifies your access). Each site shows that it is officially registered, along with its version."
+          "en": "Site selection in Teams is smarter — the app detects where it is deployed from the central app registry in EP365 Homepage (and verifies your access). Each site shows that it is officially registered, along with its version."
         },
         {
           "type": "improved",
@@ -1042,12 +1042,12 @@
         {
           "type": "fixed",
           "cs": "V aplikaci Teams se už nezobrazuje plovoucí tlačítko asistenta – bylo zbytečné, když už jste přímo v AI Asistentovi.",
-          "en": "The floating assistant button no longer appears in the Teams app – it was redundant when you are already in the AI Assistant."
+          "en": "The floating assistant button no longer appears in the Teams app — it was redundant when you are already in the AI Assistant."
         },
         {
           "type": "fixed",
           "cs": "Na mobilu se už spodní část s polem zprávy neořezává – výška aplikace se měří přesně a přizpůsobí se i otevřené klávesnici.",
-          "en": "The bottom area with the message box is no longer cut off on mobile – the app height is measured precisely and adapts to an open keyboard."
+          "en": "The bottom area with the message box is no longer cut off on mobile — the app height is measured precisely and adapts to an open keyboard."
         },
         {
           "type": "fixed",
@@ -1057,22 +1057,22 @@
         {
           "type": "new",
           "cs": "AI Asistent je nově dostupný přímo v Microsoft Teams – jako osobní aplikace v levé liště i jako záložka v kanálu, na počítači i v mobilní aplikaci Teams.",
-          "en": "The AI Assistant is now available directly in Microsoft Teams – as a personal app in the left rail and as a channel tab, on desktop and in the Teams mobile app."
+          "en": "The AI Assistant is now available directly in Microsoft Teams — as a personal app in the left rail and as a channel tab, on desktop and in the Teams mobile app."
         },
         {
           "type": "new",
           "cs": "Výběr webu při spuštění v Teams – aplikace najde weby, kam máte přístup a kde je AI Asistent nasazený, a vy si vyberete, se kterým chcete pracovat. Volba se pamatuje a lze ji kdykoli změnit.",
-          "en": "Site selection when launched in Teams – the app finds the sites you can access where the AI Assistant is deployed, and you choose which one to work with. The choice is remembered and can be changed at any time."
+          "en": "Site selection when launched in Teams — the app finds the sites you can access where the AI Assistant is deployed, and you choose which one to work with. The choice is remembered and can be changed at any time."
         },
         {
           "type": "new",
           "cs": "Přizpůsobené zobrazení pro mobil – chat přes celou obrazovku, seznam konverzací ve vysouvacím panelu a méně používané akce hlavičky přehledně sbalené do menu.",
-          "en": "A tailored mobile view – full-screen chat, the conversation list in a slide-out panel and less-used header actions neatly collapsed into a menu."
+          "en": "A tailored mobile view — full-screen chat, the conversation list in a slide-out panel and less-used header actions neatly collapsed into a menu."
         },
         {
           "type": "improved",
           "cs": "Konverzace, Firemní znalosti i nastavení vybraného webu fungují v Teams stejně jako na SharePointu – včetně sdílených promptů a autoritativních zdrojů organizace.",
-          "en": "Conversations, Company knowledge and the selected site's settings work in Teams just like on SharePoint – including shared prompts and the organisation's authoritative sources."
+          "en": "Conversations, Company knowledge and the selected site's settings work in Teams just like on SharePoint — including shared prompts and the organisation's authoritative sources."
         },
         {
           "type": "improved",
@@ -1088,12 +1088,12 @@
         {
           "type": "new",
           "cs": "Prompt Studio – jedno okno pro všechny prompty. Otevřete ho ikonou Prompty v hlavičce chatu nebo napsáním lomítka / do pole zprávy.",
-          "en": "Prompt Studio – one place for all prompts. Open it with the Prompts icon in the chat header or by typing a slash / in the message box."
+          "en": "Prompt Studio — one place for all prompts. Open it with the Prompts icon in the chat header or by typing a slash / in the message box."
         },
         {
           "type": "new",
           "cs": "Dvě přehledně oddělené vrstvy: Úlohy (co chci teď – vloží se do zprávy) a Asistenti (kdo mi pomáhá – nastaví chování celé konverzace).",
-          "en": "Two clearly separated layers: Tasks (what I want now – inserted into the message) and Assistants (who helps me – set the behaviour of the whole conversation)."
+          "en": "Two clearly separated layers: Tasks (what I want now — inserted into the message) and Assistants (who helps me — set the behaviour of the whole conversation)."
         },
         {
           "type": "new",
@@ -1103,7 +1103,7 @@
         {
           "type": "new",
           "cs": "Prompty s proměnnými se před vložením doplní – text v hranatých závorkách vyplníte a chytré položky (dokument, osoba, konverzace) navážete na skutečná firemní data.",
-          "en": "Prompts with variables are filled in before insertion – you complete the bracketed text and link smart items (document, person, conversation) to real company data."
+          "en": "Prompts with variables are filled in before insertion — you complete the bracketed text and link smart items (document, person, conversation) to real company data."
         },
         {
           "type": "new",
@@ -1113,12 +1113,12 @@
         {
           "type": "improved",
           "cs": "Sjednocení – dřívější ikony pro prompt konverzace a šablony nahradila jediná ikona Prompty.",
-          "en": "Unified – the former conversation-prompt and templates icons are replaced by a single Prompts icon."
+          "en": "Unified — the former conversation-prompt and templates icons are replaced by a single Prompts icon."
         },
         {
           "type": "improved",
           "cs": "Hlavička chatu ukazuje jméno aktivního asistenta přímo (Asistent: …) – klik na něj otevře výběr, není nutné najíždět myší.",
-          "en": "The chat header shows the active assistant's name directly (Assistant: …) – click it to change the assistant; no hovering needed."
+          "en": "The chat header shows the active assistant's name directly (Assistant: …) — click it to change the assistant; no hovering needed."
         },
         {
           "type": "improved",
@@ -1128,7 +1128,7 @@
         {
           "type": "improved",
           "cs": "Přehlednější a vzdušnější úvodní obrazovka – místo dvou sekcí s ukázkami nabízí Pokračovat (rychlý návrat k nedávným a oblíbeným konverzacím) a Prompt Studio; prompty otevřete odtud nebo napsáním lomítka / v poli.",
-          "en": "Cleaner, airier home screen – instead of two example sections it offers Continue (a quick jump back to recent and favorite conversations) and Prompt Studio; open prompts from there or by typing a slash / in the box."
+          "en": "Cleaner, airier home screen — instead of two example sections it offers Continue (a quick jump back to recent and favorite conversations) and Prompt Studio; open prompts from there or by typing a slash / in the box."
         }
       ]
     },
@@ -1139,17 +1139,17 @@
         {
           "type": "new",
           "cs": "Autoritativní zdroje 2.0 – odpovědi Firemních znalostí vycházejí přednostně z centrálně určených autoritativních zdrojů organizace; při rozporu s běžným obsahem platí autoritativní a asistent na rozpor upozorní.",
-          "en": "Authoritative sources 2.0 – Company knowledge answers draw primarily from centrally defined authoritative sources; when regular content contradicts them, the authoritative source wins and the assistant flags the discrepancy."
+          "en": "Authoritative sources 2.0 — Company knowledge answers draw primarily from centrally defined authoritative sources; when regular content contradicts them, the authoritative source wins and the assistant flags the discrepancy."
         },
         {
           "type": "new",
           "cs": "Viditelné označení autority – citace se štítem, štítek Autoritativní na kartách zdrojů a řádek nad zdroji, že odpověď vychází přednostně z autoritativních zdrojů.",
-          "en": "Visible authority labelling – shielded citations, an Authoritative badge on source cards and a line above the sources saying the answer draws primarily from authoritative sources."
+          "en": "Visible authority labelling — shielded citations, an Authoritative badge on source cards and a line above the sources saying the answer draws primarily from authoritative sources."
         },
         {
           "type": "new",
           "cs": "Autoritativní zdroj lze volitelně vázat na skupiny Entra ID – platí pak jen pro jejich členy; oprávnění SharePointu platí vždy.",
-          "en": "An authoritative source can optionally be bound to Entra ID groups – it then applies only to their members; SharePoint permissions always apply."
+          "en": "An authoritative source can optionally be bound to Entra ID groups — it then applies only to their members; SharePoint permissions always apply."
         },
         {
           "type": "improved",
@@ -1159,7 +1159,7 @@
         {
           "type": "improved",
           "cs": "Změny globální konfigurace v EP365 Homepace (autoritativní zdroje, skupiny, motiv, nastavení) se projeví bez nutnosti obnovit stránku – aplikace je zaznamená při návratu na kartu.",
-          "en": "Changes to the global configuration in EP365 Homepage (authoritative sources, groups, theme, settings) now take effect without a page refresh – the app picks them up when you return to the tab."
+          "en": "Changes to the global configuration in EP365 Homepage (authoritative sources, groups, theme, settings) now take effect without a page refresh — the app picks them up when you return to the tab."
         }
       ]
     },
@@ -1170,7 +1170,7 @@
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -1180,7 +1180,7 @@
         {
           "type": "new",
           "cs": "Příkazová paleta ⌘K – okamžité hledání napříč konverzacemi i obsahem zpráv a rychlý skok na kteroukoli obrazovku přímo z klávesnice.",
-          "en": "Command palette ⌘K – instant keyboard search across conversations and message content plus a quick jump to any screen."
+          "en": "Command palette ⌘K — instant keyboard search across conversations and message content plus a quick jump to any screen."
         },
         {
           "type": "improved",
@@ -1201,7 +1201,7 @@
         {
           "type": "new",
           "cs": "Volba AI modelu – správce může vybrat model pro daný web, nebo se model dědí z globální konfigurace organizace.",
-          "en": "AI model selection – admins can pick the model for a site, or inherit it from the organisation's global configuration."
+          "en": "AI model selection — admins can pick the model for a site, or inherit it from the organisation's global configuration."
         },
         {
           "type": "new",
@@ -1221,7 +1221,7 @@
         {
           "type": "improved",
           "cs": "Připojení k AI službě se umí převzít z globální konfigurace organizace – bez ručního nastavování na každém webu.",
-          "en": "The AI service connection can be inherited from the organisation's global configuration – no manual setup on every site."
+          "en": "The AI service connection can be inherited from the organisation's global configuration — no manual setup on every site."
         },
         {
           "type": "improved",

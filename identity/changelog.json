@@ -10,7 +10,7 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze & informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "new",
@@ -107,7 +107,7 @@
         {
           "type": "fixed",
           "cs": "Úzké okno a mobil: hlavička stránky se zalomí místo toho, aby akční tlačítka ubíhala mimo plochu, a levé menu se na užších oknech zúží – pod 780 px zbydou jen ikony, takže na obsah je víc místa.",
-          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows – below 780 px only icons remain, leaving more room for the content."
+          "en": "Narrow windows and mobile: the page header now wraps instead of letting action buttons run off the edge, and the left menu shrinks on narrower windows — below 780 px only icons remain, leaving more room for the content."
         },
         {
           "type": "fixed",
@@ -437,7 +437,7 @@
         {
           "type": "new",
           "cs": "Roadmapa má sekci Co je nového – přehled změn podle verzí aplikace, s vyznačením verze nasazené u vás.",
-          "en": "The Roadmap now has a What's new section – a per-version overview of changes, highlighting the version deployed for you."
+          "en": "The Roadmap now has a What's new section — a per-version overview of changes, highlighting the version deployed for you."
         },
         {
           "type": "new",
@@ -447,22 +447,22 @@
         {
           "type": "improved",
           "cs": "Barevný motiv aplikace je nyní společný pro celou organizaci – správce ho nastaví jednou a platí všem uživatelům.",
-          "en": "The app colour theme is now organisation-wide – an admin sets it once and it applies to all users."
+          "en": "The app colour theme is now organisation-wide — an admin sets it once and it applies to all users."
         },
         {
           "type": "new",
           "cs": "Rizika přístupů lze exportovat do CSV – seznam nálezů si otevřete třeba v Excelu.",
-          "en": "Access risks can be exported to CSV – open the list of findings in Excel."
+          "en": "Access risks can be exported to CSV — open the list of findings in Excel."
         },
         {
           "type": "improved",
           "cs": "Dlaždice a rychlé vstupy na Přehledu fungují jako filtry – klik otevře seznam skupin s předvyplněným filtrem.",
-          "en": "Dashboard tiles and quick entries act as filters – a click opens the group list with the filter pre-applied."
+          "en": "Dashboard tiles and quick entries act as filters — a click opens the group list with the filter pre-applied."
         },
         {
           "type": "improved",
           "cs": "Ukázková data nově pokrývají i recertifikaci a klasifikaci hostů – governance funkce si vyzkoušíte bez ručního zakládání.",
-          "en": "Sample data now also covers recertification and guest classification – try the governance features without manual setup."
+          "en": "Sample data now also covers recertification and guest classification — try the governance features without manual setup."
         },
         {
           "type": "improved",
@@ -478,12 +478,12 @@
         {
           "type": "new",
           "cs": "Nový modul Uživatelé – správa účtů Entra ID: přehled uživatelů i hostů, blokace účtu a doplňující metadata.",
-          "en": "New Users module – Entra ID account management: an overview of users and guests, account blocking and extra metadata."
+          "en": "New Users module — Entra ID account management: an overview of users and guests, account blocking and extra metadata."
         },
         {
           "type": "new",
           "cs": "Detail uživatele se otevírá jako široký záznamový panel – identita 360 vlevo, záložky s podrobnostmi vpravo.",
-          "en": "The user detail opens as a wide record panel – identity 360 on the left, detail tabs on the right."
+          "en": "The user detail opens as a wide record panel — identity 360 on the left, detail tabs on the right."
         },
         {
           "type": "improved",

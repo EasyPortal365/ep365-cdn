@@ -11,17 +11,17 @@
         {
           "type": "new",
           "cs": "Více podporových schránek v jedné aplikaci (fronty) – v Nastavení – E-mail nově nadefinujete libovolný počet sdílených schránek, například podporu pro různé značky nebo produkty. Každý tiket si pamatuje svou frontu a všechny odpovědi, potvrzení i upomínky odchází z její adresy; pošta ze všech schránek se vyzvedává najednou.",
-          "en": "Multiple support mailboxes in one app (queues) – in Settings – E-mail you can now define any number of shared mailboxes, for example support for different brands or products. Each ticket remembers its queue and all replies, confirmations and reminders are sent from its address; mail from all mailboxes is collected together."
+          "en": "Multiple support mailboxes in one app (queues) — in Settings — E-mail you can now define any number of shared mailboxes, for example support for different brands or products. Each ticket remembers its queue and all replies, confirmations and reminders are sent from its address; mail from all mailboxes is collected together."
         },
         {
           "type": "new",
           "cs": "Vlastní značka e-mailů pro každou frontu – název, zkratka v barevném štítku, odkaz v patičce i podpis. Zákazník různých značek tak dostává poštu v „jejich“ vizuálu, přestože podporu obsluhuje jeden tým v jedné aplikaci.",
-          "en": "Custom e-mail branding per queue – name, badge tag, footer link and signature. Customers of different brands receive mail in “their” look, even though support is handled by one team in one app."
+          "en": "Custom e-mail branding per queue — name, badge tag, footer link and signature. Customers of different brands receive mail in “their” look, even though support is handled by one team in one app."
         },
         {
           "type": "new",
           "cs": "Ruční tiket s volbou fronty a přehlednější nezařazená pošta – u zpráv od neznámých odesílatelů vidíte, do které schránky přišly, a tiket z nich vznikne ve správné frontě.",
-          "en": "Manual tickets with queue selection and clearer unassigned mail – for messages from unknown senders you can see which mailbox they arrived in, and tickets created from them keep the right queue."
+          "en": "Manual tickets with queue selection and clearer unassigned mail — for messages from unknown senders you can see which mailbox they arrived in, and tickets created from them keep the right queue."
         }
       ]
     },
@@ -32,17 +32,17 @@
         {
           "type": "new",
           "cs": "Aktualizace bez nahrávání balíčku: nové verze aplikace se nově nasazují přímo z aplikace. V Nastavení – Verze a informace vidí správce vydané verze, jedním kliknutím aktivuje novější, a kdyby v ní narazil na potíže, stejně snadno se vrátí k předchozí. Balíček v katalogu aplikací se nahrává už jen jednou při instalaci.",
-          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings – Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
+          "en": "Updates without package uploads: new app versions are now deployed directly from the app. In Settings — Version & information the administrator sees released versions, activates a newer one with a single click, and can just as easily roll back to the previous one if anything goes wrong. The package in the app catalog is uploaded only once, at installation."
         },
         {
           "type": "new",
           "cs": "Interaktivní průvodce aplikací – projděte si HelpDesk krok za krokem přímo v aplikaci. Průvodce zvýrazní prvek, vysvětlí ho a ukáže, kam kliknout; krátké kapitoly odpovídají vaší roli. Spustíte ho z Nápovědy – a při prvním otevření se nabídne sám.",
-          "en": "Interactive app guide – walk through the HelpDesk step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help – and it offers itself on your first visit."
+          "en": "Interactive app guide — walk through the HelpDesk step by step, right in the app. The guide highlights an element, explains it and shows where to click; short chapters match your role. Start it from Help — and it offers itself on your first visit."
         },
         {
           "type": "fixed",
-          "cs": "Odkazy na přílohy se mezerou v názvu souboru už vedou na správné místo – dřív skončily chybou „stránka nenalezena\".",
-          "en": "Attachment links with a space in the file name now open correctly – previously they ended with a “page not found” error."
+          "cs": "Odkazy na přílohy se mezerou v názvu souboru už vedou na správné místo – dřív skončily chybou „stránka nenalezena“.",
+          "en": "Attachment links with a space in the file name now open correctly — previously they ended with a “page not found” error."
         }
       ]
     },
@@ -53,22 +53,22 @@
         {
           "type": "new",
           "cs": "První vydání aplikace HelpDesk – tikety z e-mailu i portálu, konverzační vlákna a fronta pro tým podpory.",
-          "en": "First release of HelpDesk – tickets from e-mail and portal, conversation threads and a queue for the support team."
+          "en": "First release of HelpDesk — tickets from e-mail and portal, conversation threads and a queue for the support team."
         },
         {
           "type": "new",
           "cs": "Zpracování sdílené schránky podpory přímo v aplikaci – bez Power Automate a bez serverové infrastruktury; odpovědi se párují do vláken a neznámí odesílatelé čekají v Nezařazené poště.",
-          "en": "Shared support mailbox processing directly in the app – no Power Automate, no server infrastructure; replies are threaded and unknown senders wait in the Unassigned mail queue."
+          "en": "Shared support mailbox processing directly in the app — no Power Automate, no server infrastructure; replies are threaded and unknown senders wait in the Unassigned mail queue."
         },
         {
           "type": "new",
           "cs": "Zákaznický portál – externí uživatelé vidí jen svoje tikety, role „Celá firma“ zpřístupní tikety kolegů; izolaci hlídají oprávnění přímo v SharePointu.",
-          "en": "Customer portal – external users see only their own tickets, the 'Whole company' role adds colleagues' tickets; isolation is enforced by SharePoint permissions."
+          "en": "Customer portal — external users see only their own tickets, the 'Whole company' role adds colleagues' tickets; isolation is enforced by SharePoint permissions."
         },
         {
           "type": "new",
           "cs": "SLA plány s hlídáním první reakce a vyřešení – lhůty dle priority, pauza ve stavu „Čeká na zákazníka“ a barevné odpočty ve frontě.",
-          "en": "SLA plans with first-response and resolution tracking – per-priority targets, paused while 'Waiting for customer', colour countdowns in the queue."
+          "en": "SLA plans with first-response and resolution tracking — per-priority targets, paused while 'Waiting for customer', colour countdowns in the queue."
         },
         {
           "type": "new",
@@ -78,7 +78,7 @@
         {
           "type": "new",
           "cs": "Uzavření tiketu s vykázáním práce – pracnost fakturovatelných tiketů se propisuje do EP365 Worklogu (projekt dle firmy, měsíční milník, kontrola zamčeného období).",
-          "en": "Ticket closure with time write-back – billable effort flows into EP365 Worklog (per-company project, monthly milestone, locked-period check)."
+          "en": "Ticket closure with time write-back — billable effort flows into EP365 Worklog (per-company project, monthly milestone, locked-period check)."
         },
         {
           "type": "new",
@@ -88,57 +88,57 @@
         {
           "type": "new",
           "cs": "Hlášení chyb a návrhy funkcí odchází e-mailem přímo na podporu EasyPortal 365 – z hlášení vzniká tiket s údaji o uživateli, tenantu a verzi aplikace.",
-          "en": "Bug reports and feature requests are sent by e-mail straight to EasyPortal 365 support – each report becomes a ticket with user, tenant and app version details."
+          "en": "Bug reports and feature requests are sent by e-mail straight to EasyPortal 365 support — each report becomes a ticket with user, tenant and app version details."
         },
         {
           "type": "new",
           "cs": "Testovací data na jedno kliknutí – ukázkové firmy, kontakty a tikety s konverzacemi pro rychlé předvedení; úplný reset dat za potvrzovacím checkboxem.",
-          "en": "One-click sample data – demo companies, contacts and tickets with conversations for a quick showcase; full data reset behind a confirmation checkbox."
+          "en": "One-click sample data — demo companies, contacts and tickets with conversations for a quick showcase; full data reset behind a confirmation checkbox."
         },
         {
           "type": "new",
           "cs": "Přehled využití pro správce – adopční metriky a chronologický report aktivit složený z razítek na tiketech.",
-          "en": "Usage overview for admins – adoption metrics and a chronological activity report built from ticket timestamps."
+          "en": "Usage overview for admins — adoption metrics and a chronological activity report built from ticket timestamps."
         },
         {
           "type": "new",
           "cs": "Ruční založení firmy a kontaktu – helpdesk lze provozovat i zcela bez propojení na CRM.",
-          "en": "Manual company and contact creation – the helpdesk can run entirely without a CRM connection."
+          "en": "Manual company and contact creation — the helpdesk can run entirely without a CRM connection."
         },
         {
           "type": "improved",
           "cs": "Synchronizace z CRM si rozepsanou adresu webu sama uloží – už žádné hlášky o nevyplněné adrese.",
-          "en": "CRM sync now saves a freshly typed site address automatically – no more 'fill in the address' messages."
+          "en": "CRM sync now saves a freshly typed site address automatically — no more 'fill in the address' messages."
         },
         {
           "type": "improved",
           "cs": "Ověření licence přímo z upozornění – po aktivaci licence stačí jedno kliknutí, bez čekání na vypršení denní paměti.",
-          "en": "License re-check right from the banner – one click after activation, no waiting for the daily cache to expire."
+          "en": "License re-check right from the banner — one click after activation, no waiting for the daily cache to expire."
         },
         {
           "type": "new",
           "cs": "Šablony odpovědí s proměnnými ({jmeno}, {tiket}, {firma}…) – správa v Nastavení, vkládání jedním kliknutím z composeru.",
-          "en": "Reply templates with variables ({name}, {ticket}, {company}…) – managed in Settings, inserted with one click from the composer."
+          "en": "Reply templates with variables ({name}, {ticket}, {company}…) — managed in Settings, inserted with one click from the composer."
         },
         {
           "type": "new",
           "cs": "Přílohy v odpovědích – agent přiloží soubory a odejdou e-mailem, zákazník je nahraje v portálu k tiketu i nové žádosti.",
-          "en": "Attachments in replies – agents attach files that go out by e-mail, customers upload them in the portal for tickets and new requests."
+          "en": "Attachments in replies — agents attach files that go out by e-mail, customers upload them in the portal for tickets and new requests."
         },
         {
           "type": "new",
           "cs": "SLA eskalace – při překročení lhůty odejde souhrnný e-mail na zvolenou adresu (ke každému tiketu jen jednou).",
-          "en": "SLA escalation – a summary e-mail goes to a chosen address when a deadline is breached (once per ticket)."
+          "en": "SLA escalation — a summary e-mail goes to a chosen address when a deadline is breached (once per ticket)."
         },
         {
           "type": "new",
           "cs": "Hromadné úpravy ve frontě – výběr tiketů a změna stavu, priority, kategorie nebo řešitele najednou; export fronty do CSV.",
-          "en": "Bulk edits in the queue – select tickets and change status, priority, category or assignee at once; queue export to CSV."
+          "en": "Bulk edits in the queue — select tickets and change status, priority, category or assignee at once; queue export to CSV."
         },
         {
           "type": "new",
           "cs": "Motiv aplikace – barevné presety i vlastní akcent, volitelné dědění globálního motivu z EP365 Homepage.",
-          "en": "App theme – colour presets or a custom accent, optional inheritance of the global EP365 Homepage theme."
+          "en": "App theme — colour presets or a custom accent, optional inheritance of the global EP365 Homepage theme."
         },
         {
           "type": "improved",
@@ -148,12 +148,12 @@
         {
           "type": "improved",
           "cs": "Automatické odpovědi (Out of Office) už nezakládají tikety ani nespouští potvrzení – žádné smyčky autoresponderů.",
-          "en": "Automatic replies (Out of Office) no longer create tickets or trigger confirmations – no autoresponder loops."
+          "en": "Automatic replies (Out of Office) no longer create tickets or trigger confirmations — no autoresponder loops."
         },
         {
           "type": "new",
           "cs": "Sledující na tiketu – další lidé dostávají odpovědi v kopii; z kopie původního e-mailu se přidají automaticky.",
-          "en": "Ticket watchers – additional people receive replies in CC; picked up automatically from the original e-mail's CC."
+          "en": "Ticket watchers — additional people receive replies in CC; picked up automatically from the original e-mail's CC."
         },
         {
           "type": "new",
@@ -163,22 +163,22 @@
         {
           "type": "new",
           "cs": "Slučování duplicitních tiketů – zdrojový se uzavře, žadatel dostává odpovědi v kopii a jeho e-maily se přesměrují na cílový tiket.",
-          "en": "Merging duplicate tickets – the source closes, its requester gets replies in CC and their e-mails are redirected to the target ticket."
+          "en": "Merging duplicate tickets — the source closes, its requester gets replies in CC and their e-mails are redirected to the target ticket."
         },
         {
           "type": "new",
           "cs": "Hodnocení spokojenosti – uzavírací e-mail s tlačítky Skvělé / V pořádku / Nespokojen (odpověď jedním kliknutím) i hodnocení v portálu; průměr v reportech.",
-          "en": "Satisfaction rating – a closure e-mail with Great / OK / Unhappy one-click buttons plus in-portal rating; averages in reports."
+          "en": "Satisfaction rating — a closure e-mail with Great / OK / Unhappy one-click buttons plus in-portal rating; averages in reports."
         },
         {
           "type": "new",
           "cs": "Výkonnost týmu v reportech – vyřešené tikety, fakturovatelné hodiny, průměrná reakce, doba vyřešení a spokojenost po řešitelích.",
-          "en": "Team performance in reports – resolved tickets, billable hours, average response, resolution time and satisfaction per assignee."
+          "en": "Team performance in reports — resolved tickets, billable hours, average response, resolution time and satisfaction per assignee."
         },
         {
           "type": "new",
           "cs": "Automatické přiřazování nových tiketů – rotace týmu nebo pevný řešitel, se záznamem v konverzaci.",
-          "en": "Automatic assignment of new tickets – team rotation or a fixed assignee, logged in the conversation."
+          "en": "Automatic assignment of new tickets — team rotation or a fixed assignee, logged in the conversation."
         },
         {
           "type": "new",
@@ -188,47 +188,47 @@
         {
           "type": "improved",
           "cs": "Sledující lze zadat už při založení tiketu – v portálu i při ručním založení.",
-          "en": "Watchers can be added right when creating a ticket – in the portal and when creating manually."
+          "en": "Watchers can be added right when creating a ticket — in the portal and when creating manually."
         },
         {
           "type": "new",
           "cs": "SLA se přebírá přímo ze servisní smlouvy v EP365 CRM – synchronizace firem plán ze smlouvy přidá nebo aktualizuje podle názvu a rovnou ho firmě přiřadí. Plány bez vazby na CRM zůstávají lokální.",
-          "en": "SLA is now taken straight from the service contract in EP365 CRM – company sync adds or updates the plan by name and assigns it to the company right away. Plans with no CRM link stay local."
+          "en": "SLA is now taken straight from the service contract in EP365 CRM — company sync adds or updates the plan by name and assigns it to the company right away. Plans with no CRM link stay local."
         },
         {
           "type": "new",
           "cs": "Pravidla příchozí pošty – nové tikety z e-mailu se automaticky roztřídí podle odesílatele, domény nebo textu: pravidlo nastaví kategorii, prioritu, řešitele či štítky (Nastavení – E-mail).",
-          "en": "Incoming mail rules – new e-mail tickets are triaged automatically by sender, domain or text: a rule sets the category, priority, assignee or tags (Settings – E-mail)."
+          "en": "Incoming mail rules — new e-mail tickets are triaged automatically by sender, domain or text: a rule sets the category, priority, assignee or tags (Settings — E-mail)."
         },
         {
           "type": "new",
           "cs": "Měsíční přehled zákazníkům – z Reportů odešlete firmám souhrn období e-mailem: počty požadavků, odpracované hodiny, čerpání paušálu a tabulka tiketů. Příjemci jsou kontakty s rolí Celá firma.",
-          "en": "Monthly customer summary – send companies a period digest by e-mail from Reports: request counts, hours worked, retainer usage and a ticket table. Recipients are contacts with the Whole company role."
+          "en": "Monthly customer summary — send companies a period digest by e-mail from Reports: request counts, hours worked, retainer usage and a ticket table. Recipients are contacts with the Whole company role."
         },
         {
           "type": "new",
           "cs": "Hlídání čerpání paušálu – při dosažení 80 % a 100 % měsíčního fondu hodin firmy odejde interní upozornění; karta firmy zvýrazní blížící se vyčerpání oranžově.",
-          "en": "Retainer usage watch – an internal alert goes out when a company reaches 80 % and 100 % of its monthly hour budget; the company card highlights approaching depletion in amber."
+          "en": "Retainer usage watch — an internal alert goes out when a company reaches 80 % and 100 % of its monthly hour budget; the company card highlights approaching depletion in amber."
         },
         {
           "type": "new",
           "cs": "Uložené pohledy fronty – kombinaci filtru, hledání a zobrazení si uložíte pod vlastním názvem a přepnete jedním kliknutím.",
-          "en": "Saved queue views – store a combination of filter, search and layout under your own name and switch with one click."
+          "en": "Saved queue views — store a combination of filter, search and layout under your own name and switch with one click."
         },
         {
           "type": "new",
           "cs": "Znalostní báze – návody a řešení častých situací. Publikované veřejné články si zákazníci sami čtou v portálu (sekce Nápověda a návody) a hodnotí jejich užitečnost; interní články slouží týmu.",
-          "en": "Knowledge base – guides and solutions to common situations. Published public articles are read by customers in the portal (Help and guides) and rated for usefulness; internal articles serve the team."
+          "en": "Knowledge base — guides and solutions to common situations. Published public articles are read by customers in the portal (Help and guides) and rated for usefulness; internal articles serve the team."
         },
         {
           "type": "new",
           "cs": "Správa článků pro tým – kategorie, štítky, perex a obsah, přepínání Koncept/Publikováno a Veřejná/Interní. Rozpracované i interní články jsou pro zákazníky nepřístupné i přes přímý odkaz (hlídá SharePoint).",
-          "en": "Article management for the team – categories, tags, excerpt and body, Draft/Published and Public/Internal toggles. Draft and internal articles are inaccessible to customers even via a direct link (enforced by SharePoint)."
+          "en": "Article management for the team — categories, tags, excerpt and body, Draft/Published and Public/Internal toggles. Draft and internal articles are inaccessible to customers even via a direct link (enforced by SharePoint)."
         },
         {
           "type": "new",
           "cs": "Vložení článku do odpovědi – při psaní odpovědi na tiket vložíte odkaz na návod tlačítkem Článek v liště composeru.",
-          "en": "Insert an article into a reply – add a link to a guide with the Article button in the composer toolbar while replying to a ticket."
+          "en": "Insert an article into a reply — add a link to a guide with the Article button in the composer toolbar while replying to a ticket."
         },
         {
           "type": "improved",
@@ -238,17 +238,17 @@
         {
           "type": "new",
           "cs": "Automatické uzavírání vyřešených tiketů – po zvoleném počtu dní bez reakce se tiket uzavře a zákazníkovi odejde uzavírací e-mail s možností hodnocení i znovuotevření (Nastavení – Automatizace a makra).",
-          "en": "Automatic closing of resolved tickets – after a chosen number of idle days the ticket closes and the customer gets a closure e-mail with rating and reopen options (Settings – Automation and macros)."
+          "en": "Automatic closing of resolved tickets — after a chosen number of idle days the ticket closes and the customer gets a closure e-mail with rating and reopen options (Settings — Automation and macros)."
         },
         {
           "type": "new",
           "cs": "Automatická upomínka u tiketů čekajících na zákazníka – po nastavené době odejde zdvořilé připomenutí, ke každému tiketu jen jednou (dokud zákazník neodpoví).",
-          "en": "Automatic reminder for tickets awaiting the customer – after a set period a polite nudge goes out, once per ticket (until the customer replies)."
+          "en": "Automatic reminder for tickets awaiting the customer — after a set period a polite nudge goes out, once per ticket (until the customer replies)."
         },
         {
           "type": "new",
           "cs": "Makra – kombinované akce v detailu tiketu. Jedním kliknutím nastavíte stav a prioritu, přiřadíte tiket sobě, přidáte štítky, vložíte text odpovědi a interní poznámku. Makra spravuje správce v Nastavení.",
-          "en": "Macros – combined actions in the ticket detail. In one click set status and priority, assign the ticket to yourself, add tags, insert reply text and an internal note. Macros are managed by admins in Settings."
+          "en": "Macros — combined actions in the ticket detail. In one click set status and priority, assign the ticket to yourself, add tags, insert reply text and an internal note. Macros are managed by admins in Settings."
         },
         {
           "type": "improved",
@@ -258,7 +258,7 @@
         {
           "type": "new",
           "cs": "Detail tiketu má záložku Aktivita – chronologii všech událostí (zprávy, interní poznámky, systémové akce, vyřešení a uzavření).",
-          "en": "The ticket detail has an Activity tab – a chronology of all events (messages, internal notes, system actions, resolution and closing)."
+          "en": "The ticket detail has an Activity tab — a chronology of all events (messages, internal notes, system actions, resolution and closing)."
         },
         {
           "type": "new",
@@ -278,57 +278,57 @@
         {
           "type": "improved",
           "cs": "Přidávání uživatelů do rolí (Správci, Tým podpory) má našeptávač – začnete psát jméno nebo e-mail a vyberete uživatele z Microsoft 365, stejně jako v ostatních aplikacích.",
-          "en": "Adding users to roles (Admins, Support team) now has a type-ahead – start typing a name or e-mail and pick a user from Microsoft 365, just like in the other apps."
+          "en": "Adding users to roles (Admins, Support team) now has a type-ahead — start typing a name or e-mail and pick a user from Microsoft 365, just like in the other apps."
         },
         {
           "type": "improved",
           "cs": "Nápověda je přehlednější a pokrývá celý rozsah aplikace – témata rozdělená do kategorií (tikety, e-mail a automatizace, zákazníci a znalosti, přehledy a bezpečnost), vyhledávání napříč vším a Tip dne.",
-          "en": "Help is clearer and covers the whole app – topics split into categories (tickets, e-mail and automation, customers and knowledge, reports and security), search across everything and a Tip of the day."
+          "en": "Help is clearer and covers the whole app — topics split into categories (tickets, e-mail and automation, customers and knowledge, reports and security), search across everything and a Tip of the day."
         },
         {
           "type": "new",
           "cs": "Odpovědi na tikety i obsah článků znalostní báze mají formátování textu – tučné, kurzíva, odrážky, číslovaný seznam a odkazy. Formátování se přenese i do e-mailu zákazníkovi.",
-          "en": "Ticket replies and knowledge-base article content now support text formatting – bold, italic, bullet and numbered lists and links. The formatting carries over into the customer e-mail."
+          "en": "Ticket replies and knowledge-base article content now support text formatting — bold, italic, bullet and numbered lists and links. The formatting carries over into the customer e-mail."
         },
         {
           "type": "improved",
           "cs": "Detail tiketu je přehlednější – širší levý sloupec bez posuvníku s lépe uspořádanými údaji a vyšší pole pro odpověď vpravo.",
-          "en": "The ticket detail is tidier – a wider left column without a scrollbar and better-arranged fields, plus a taller reply box on the right."
+          "en": "The ticket detail is tidier — a wider left column without a scrollbar and better-arranged fields, plus a taller reply box on the right."
         },
         {
           "type": "new",
           "cs": "Ve frontě tiketů lze filtrovat podle firmy – rychlý přehled požadavků jednoho zákazníka.",
-          "en": "The ticket queue can be filtered by company – a quick view of one customer's requests."
+          "en": "The ticket queue can be filtered by company — a quick view of one customer's requests."
         },
         {
           "type": "improved",
           "cs": "Měsíční přehled zákazníkovi jde vždy na jednu adresu – „kontakt pro měsíční reporty“ nastavený u firmy v EP365 CRM (bez něj se použije první kontakt s rolí „Celá firma“).",
-          "en": "The monthly customer report now always goes to a single address – the 'monthly report contact' set on the company in EP365 CRM (without it, the first 'Whole company' contact is used)."
+          "en": "The monthly customer report now always goes to a single address — the 'monthly report contact' set on the company in EP365 CRM (without it, the first 'Whole company' contact is used)."
         },
         {
           "type": "new",
           "cs": "Ceník je jen pro správce – paušál a sazbu nad rámec (i odhad fakturace v reportech) vidí a upravuje pouze role správce aplikace. Tým podpory vidí rozsah v ceně, čerpání a SLA, ne ceny.",
-          "en": "Pricing is admin-only – the retainer and over-rate (and the revenue estimate in reports) are visible and editable only to the app admin role. The support team sees the included scope, usage and SLA, but not prices."
+          "en": "Pricing is admin-only — the retainer and over-rate (and the revenue estimate in reports) are visible and editable only to the app admin role. The support team sees the included scope, usage and SLA, but not prices."
         },
         {
           "type": "improved",
           "cs": "Přehlednější detail tiketu i firmy – širší levý panel bez posuvníku, údaje uspořádané do dvou sloupců.",
-          "en": "Tidier ticket and company detail – a wider left panel without a scrollbar, with details arranged in two columns."
+          "en": "Tidier ticket and company detail — a wider left panel without a scrollbar, with details arranged in two columns."
         },
         {
           "type": "new",
           "cs": "Automatické čerpání předplaceného paušálu – servisní hodiny se berou z měsíčního fondu firmy (do vyčerpání zdarma), přetok se sám fakturuje sazbou. Tiket na hranici se rozdělí na část v paušálu a část nad rámec. Čerpá se chronologicky podle uzavření tiketů.",
-          "en": "Automatic retainer consumption – service hours draw from the company's monthly prepaid pool (free until exhausted), the overflow is billed automatically at the rate. A ticket on the boundary is split into a within-retainer and an over-retainer part. Consumption is chronological by ticket closure."
+          "en": "Automatic retainer consumption — service hours draw from the company's monthly prepaid pool (free until exhausted), the overflow is billed automatically at the rate. A ticket on the boundary is split into a within-retainer and an over-retainer part. Consumption is chronological by ticket closure."
         },
         {
           "type": "new",
           "cs": "U každého typu práce lze určit, zda čerpá paušál (Nastavení – Typy práce). Paušál čerpají jen fakturovatelné hodiny takto označených typů.",
-          "en": "Each work type can be set to draw from the retainer (Settings – Work types). Only billable hours of such types consume the retainer."
+          "en": "Each work type can be set to draw from the retainer (Settings — Work types). Only billable hours of such types consume the retainer."
         },
         {
           "type": "new",
           "cs": "Přepočet čerpání paušálu za měsíc – na kartě firmy jedním tlačítkem přerozdělí hodiny a přepíše výkazy ve Worklogu chronologicky. Už schválené výkazy nechá být.",
-          "en": "Recalculate the monthly retainer – one button on the company card reallocates hours and rewrites the Worklog entries chronologically. Already approved entries are left untouched."
+          "en": "Recalculate the monthly retainer — one button on the company card reallocates hours and rewrites the Worklog entries chronologically. Already approved entries are left untouched."
         },
         {
           "type": "improved",
@@ -338,12 +338,12 @@
         {
           "type": "new",
           "cs": "Přehled má novou sekci Provoz podpory – plnění SLA za týden, spokojenost zákazníků, fakturováno nad rámec paušálu, rozpad fronty podle stavu, zátěž řešitelů, firmy blízko limitu paušálu, trend za 14 dní, nejčastější kategorie, nejdéle otevřené tikety a odkud tikety chodí. Vše z existujících dat, bez dalšího nastavení.",
-          "en": "The Overview has a new Support operations section – weekly SLA compliance, customer satisfaction, over-retainer billing, queue breakdown by status, agent workload, companies near their retainer limit, a 14-day trend, top categories, the longest-open tickets and where tickets come from. All from existing data, no setup needed."
+          "en": "The Overview has a new Support operations section — weekly SLA compliance, customer satisfaction, over-retainer billing, queue breakdown by status, agent workload, companies near their retainer limit, a 14-day trend, top categories, the longest-open tickets and where tickets come from. All from existing data, no setup needed."
         },
         {
           "type": "new",
           "cs": "Firmy lze zobrazit jako přehledné dlaždice, nejen jako tabulku – přepínač je vpravo nad seznamem a volba se pamatuje.",
-          "en": "Companies can be shown as tidy tiles, not just a table – the switch is above the list on the right and the choice is remembered."
+          "en": "Companies can be shown as tidy tiles, not just a table — the switch is above the list on the right and the choice is remembered."
         },
         {
           "type": "improved",
@@ -363,27 +363,27 @@
         {
           "type": "improved",
           "cs": "Oprava – zařazení nezařazené pošty do nového tiketu proběhne bez chyby a e-mail zmizí z fronty (dříve akce hlásila chybu a pošta ve frontě zůstávala).",
-          "en": "Fix – filing unassigned mail into a new ticket now completes without error and the e-mail leaves the queue (the action previously reported an error and the mail stayed in the queue)."
+          "en": "Fix — filing unassigned mail into a new ticket now completes without error and the e-mail leaves the queue (the action previously reported an error and the mail stayed in the queue)."
         },
         {
           "type": "new",
           "cs": "Nová odpověď od zákazníka je vidět na první pohled – tiket ve frontě i na kanban tabuli dostane výrazný štítek „Nová odpověď“ a zůstane, dokud na něj tým nezareaguje (odpovědí nebo změnou stavu).",
-          "en": "A new customer reply stands out at a glance – the ticket gets a bold 'New reply' badge in the queue and on the kanban board, and keeps it until the team responds (a reply or a status change)."
+          "en": "A new customer reply stands out at a glance — the ticket gets a bold 'New reply' badge in the queue and on the kanban board, and keeps it until the team responds (a reply or a status change)."
         },
         {
           "type": "improved",
           "cs": "Otevřený detail tiketu se sám průběžně obnovuje – nová odpověď od zákazníka i odeslání e-mailu naskočí bez zavírání a znovuotevírání bladu.",
-          "en": "The open ticket detail now refreshes itself continuously – a new customer reply and the e-mail delivery status appear without closing and reopening the blade."
+          "en": "The open ticket detail now refreshes itself continuously — a new customer reply and the e-mail delivery status appear without closing and reopening the blade."
         },
         {
           "type": "improved",
           "cs": "Konverzace zůstávají přehledné – z příchozích odpovědí se automaticky ořízne citovaná historie a bezpečnostní upozornění poštovního serveru, do vlákna se uloží jen nový text.",
-          "en": "Conversations stay readable – incoming replies have their quoted history and mail-server security banners trimmed automatically, so only the new text is stored in the thread."
+          "en": "Conversations stay readable — incoming replies have their quoted history and mail-server security banners trimmed automatically, so only the new text is stored in the thread."
         },
         {
           "type": "improved",
           "cs": "E-maily zákazníkům dostaly svěží světlejší vzhled – hlavička s logem EasyPortal 365, barevný proužek podle typu zprávy (odpověď, vyřešení, upomínka, eskalace) a čitelná patička s odkazem. Sladěno se vzhledem ostatních aplikací EP365.",
-          "en": "Customer e-mails have a fresh, lighter look – a header with the EasyPortal 365 logo, a coloured strip by message type (reply, resolution, reminder, escalation) and a clear footer with a link. Aligned with the rest of the EP365 apps."
+          "en": "Customer e-mails have a fresh, lighter look — a header with the EasyPortal 365 logo, a coloured strip by message type (reply, resolution, reminder, escalation) and a clear footer with a link. Aligned with the rest of the EP365 apps."
         },
         {
           "type": "improved",
@@ -393,32 +393,32 @@
         {
           "type": "new",
           "cs": "HelpDesk běží i jako aplikace v Microsoft Teams – přidejte si ho jako osobní aplikaci a pracujte s tikety přímo v Teams; při prvním spuštění vyberete web se svou zákaznickou podporou.",
-          "en": "HelpDesk also runs as an app in Microsoft Teams – add it as a personal app and work with tickets right inside Teams; on first launch you pick the site with your customer support."
+          "en": "HelpDesk also runs as an app in Microsoft Teams — add it as a personal app and work with tickets right inside Teams; on first launch you pick the site with your customer support."
         },
         {
           "type": "new",
           "cs": "Přidělení firem členům týmu – správce může jednotlivým agentům přidělit konkrétní firmy (Nastavení – Přidělení firem). Agent pak v aplikaci vidí jen tikety a firmy z přidělených firem; správce vidí vždy vše.",
-          "en": "Company assignment for team members – an admin can assign specific companies to individual agents (Settings – Company assignment). An agent then sees only tickets and companies from the assigned ones; admins always see everything."
+          "en": "Company assignment for team members — an admin can assign specific companies to individual agents (Settings — Company assignment). An agent then sees only tickets and companies from the assigned ones; admins always see everything."
         },
         {
           "type": "new",
           "cs": "Reporty lze zúžit na jednu firmu – přepínač nad přehledem promítne výběr do všech čísel, grafů i tabulek, takže vidíte měsíc očima jediného zákazníka.",
-          "en": "Reports can be narrowed to a single company – a switch above the overview applies the choice to all numbers, charts and tables, so you see the month through one customer's eyes."
+          "en": "Reports can be narrowed to a single company — a switch above the overview applies the choice to all numbers, charts and tables, so you see the month through one customer's eyes."
         },
         {
           "type": "new",
           "cs": "Aplikaci lze roztáhnout na celou obrazovku – tlačítko vpravo nahoře skryje okolí SharePointu a dá frontě i přehledům víc místa; zpět klávesou Esc.",
-          "en": "The app can expand to full screen – a button in the top right hides the SharePoint surroundings and gives the queue and reports more room; press Esc to exit."
+          "en": "The app can expand to full screen — a button in the top right hides the SharePoint surroundings and gives the queue and reports more room; press Esc to exit."
         },
         {
           "type": "improved",
           "cs": "Oprava – zařazení pošty z Nezařazené pošty rozpozná už existující tiket a jen k němu připojí zprávu, místo aby zakládalo druhý, duplicitní tiket.",
-          "en": "Fix – filing mail from the Unassigned queue now recognises an existing ticket and just appends the message to it, instead of creating a second, duplicate ticket."
+          "en": "Fix — filing mail from the Unassigned queue now recognises an existing ticket and just appends the message to it, instead of creating a second, duplicate ticket."
         },
         {
           "type": "improved",
           "cs": "Oprava – přepočet čerpání paušálu je odolnější vůči krátkému výpadku spojení: při nejistotě raději nic nezapíše, aby nemohlo dojít ke zdvojení už fakturovaných hodin ve Worklogu.",
-          "en": "Fix – the retainer recalculation is more resilient to a brief connection glitch: when unsure it writes nothing, so already billed Worklog hours can never be duplicated."
+          "en": "Fix — the retainer recalculation is more resilient to a brief connection glitch: when unsure it writes nothing, so already billed Worklog hours can never be duplicated."
         },
         {
           "type": "improved",
@@ -428,7 +428,7 @@
         {
           "type": "new",
           "cs": "HelpDesk přispívá do přehledu „Můj den“ na EP365 Homepage – tým tam mezi upozorněními napříč aplikacemi uvidí tikety po termínu (SLA) a tikety, kde zákazník čeká na reakci. Kdo co vidí, hlídají oprávnění SharePointu.",
-          "en": "HelpDesk now contributes to the 'My day' overview on the EP365 Homepage – the team sees overdue (SLA) tickets and tickets awaiting a reply among the cross-app alerts. Who sees what is governed by SharePoint permissions."
+          "en": "HelpDesk now contributes to the 'My day' overview on the EP365 Homepage — the team sees overdue (SLA) tickets and tickets awaiting a reply among the cross-app alerts. Who sees what is governed by SharePoint permissions."
         }
       ]
     }
