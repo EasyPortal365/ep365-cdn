@@ -113,3 +113,12 @@
 !chat-function/deploy-azure.ps1
 !chat-function/setup-enrichment.ps1
 !chat-function/checksums.txt
+
+# Ukázkové dokumenty pro tlačítko „Ukázková data" v AI Asistentu
+# (cdn.easyportal365.cz/ai-chat/samples/). Appka je z prohlížeče správce stáhne
+# a nahraje do knihovny na jeho webu — binárku do SharePointu jinak nedostaneme
+# než přes veřejnou HTTPS URL (lekce §25.5). Bezpečné: vlastní vymyšlený firemní
+# obsah (benefity, směrnice, zápis z porady), žádná zákaznická ani osobní data.
+!ai-chat/samples/*.pdf
+!ai-chat/samples/*.docx
+!ai-chat/samples/manifest.json

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "note": "Ukázkové dokumenty pro tlačítko „Ukázková data\" v EP365 AI Asistentu. Appka je stáhne z CDN a nahraje do knihovny na webu správce. Obsah je vymyšlený — žádná zákaznická ani osobní data.",
+  "libraryTitle": "AI ukázky",
+  "libraryDescription": "Ukázkové dokumenty pro vyzkoušení AI Asistenta. Můžete je kdykoli smazat.",
+  "files": [
+    {
+      "name": "Zamestnanecke-vyhody-2026.pdf",
+      "title": "Zaměstnanecké výhody 2026",
+      "kind": "pdf",
+      "demonstrates": "Čtení dat z obrázku uvnitř PDF a citace se stránkou. Registrační kód i částky jsou POUZE na obrázku na 3. straně, v textové vrstvě nejsou."
+    },
+    {
+      "name": "Smernice-prace-z-domova.docx",
+      "title": "Směrnice: Práce z domova",
+      "kind": "docx",
+      "demonstrates": "Firemní znalosti nad Wordem — dotazy na pravidla, rozsah a náhrady."
+    },
+    {
+      "name": "Zapis-z-porady-2026-08-18.docx",
+      "title": "Zápis z porady vedení (18. 8. 2026)",
+      "kind": "docx",
+      "demonstrates": "Vytěžení úkolů z textu — kdo má co udělat a do kdy."
+    }
+  ]
+}
