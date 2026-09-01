@@ -12,9 +12,36 @@
  * Pravidlo (bezpečné by construction):
  *   • VŽDY zůstane každá verze uvedená v `<app>/releases.json` = ostré vydání,
  *     které si tahá zákazník bez pinu. Smazat ji = rozbít zákazníka.
- *   • VŽDY zůstane N nejnovějších verzí (default 15) — tam padají tiché verze,
- *     na které jsme připnutí my.
+ *   • VŽDY zůstane každá verze, na kterou míří PIN v našem tenantu (viz níž).
+ *   • VŽDY zůstane N nejnovějších verzí (default 15).
  *   • Cokoli jiného je stará tichá verze, ke které se nikdo nedostane.
+ *
+ * ⚠ PROČ NESTAČÍ „N nejnovějších" (TECH-DEBT #250, nález 2026-09-01):
+ *    Piny míří na TICHÉ verze, které v `releases.json` z definice NEJSOU —
+ *    chránilo je jedině to okno patnácti. A okno je prokazatelně úzké: byly dny,
+ *    kdy jedna appka vydala 27 tichých verzí (ai-chat 12. 8.), 24 a 20 (mydocs
+ *    21. a 23. 8.). Prořez spuštěný po takovém dni bez čerstvého pin sweepu
+ *    smaže verzi, na které visíme — a projeví se to TIŠE: loader spadne na
+ *    latest, pin zůstane zapsaný a mrtvý navždy (cache 1 h → znovu 404).
+ *
+ * PIN GUARD (fail-closed, nedá se přeskočit):
+ *    Piny žijí v nastavení appek na tenantu (řádek `runtime` v `EP365<App>Settings`)
+ *    a tenhle tool na tenant nedosáhne (běží bez přihlášení, z Node). Čte proto
+ *    SOUPIS PINŮ, který při každém sweepu vyrábí sám sweep:
+ *        ep365-docs/scripts/pin-state.json   (PRIVÁTNÍ repo — stejný vzor jako
+ *        forbidden-in-public-bundles.json; mapa našeho tenantu do PUBLIC repa nepatří)
+ *    Soupis vypíše `node ep365-docs/scripts/make-pin-sweep-snippet.js` v bloku
+ *    „PIN-STATE" na konci běhu snippetu.
+ *
+ *    Chybějící / nečitelný / neúplný / zastaralý soupis = TVRDÁ CHYBA (exit 1),
+ *    NIKDY tiché přeskočení: guard, který nemá podle čeho měřit, by jinak hlásil
+ *    bezpečí, které neověřil. Platí i pro režim PLÁNU — plán, kterému se nedá
+ *    věřit, je horší než žádný.
+ *
+ *    „Zastaralý" se neměří jen datem: pokud na disku leží verze NOVĚJŠÍ, než jakou
+ *    sweep viděl (`cdnSnapshot`), znamená to, že se od sweepu publikovalo a piny
+ *    mohly být přepnuty jinam. Tím je pořadí „pin sweep → teprve pak prořez"
+ *    vynucené mechanicky, ne jen napsané v `/release`.
  *
  * Bez `--apply` jen vypíše plán. Řadí se podle ČÍSEL verze (1.9.0.10 > 1.9.0.9),
  * ne abecedně — abecední řazení by smazalo novější verzi místo starší.
@@ -24,6 +51,11 @@
  *   node tools/prune-versions.mjs --keep 15       # jiný počet ponechaných
  *   node tools/prune-versions.mjs --app ai-chat   # jen jedna appka
  *   node tools/prune-versions.mjs --apply         # provede `git rm -r`
+ *   node tools/prune-versions.mjs --pin-state <cesta>      # jiný soupis pinů
+ *   node tools/prune-versions.mjs --max-age-days 7         # jiné stáří sweepu
+ *
+ * Ověření, že pin guard opravdu drží: `node tools/check-pin-guard.mjs`
+ * (syntetické mini-CDN + protipříklad s vystřiženým guardem).
  */
 import fs from 'fs';
 import path from 'path';
@@ -91,6 +123,103 @@ const apps = fs.readdirSync(ROOT, { withFileTypes: true })
   .filter(a => !ONLY || a === ONLY)
   .sort();
 
+// ============================ PIN GUARD (TECH-DEBT #250) =====================
+// Fallback hodnoty leží MIMO region SCHVÁLNĚ: když se region vystřihne
+// (protipříklad v `check-pin-guard.mjs`), zbude prázdná mapa = žádná ochrana
+// a prořez pinutou verzi smaže. Právě ten rozdíl test měří — kdyby se po
+// vystřižení skript rozbil na ReferenceError, protipříklad by nic nedokázal.
+let PINNED = new Map();          // app -> Set(verze, na které míří pin)
+let DEAD_PINS = [];              // pin míří na verzi, která na CDN UŽ NENÍ
+let PIN_INFO = '';
+// #region PIN-GUARD
+{
+  const psi = args.indexOf('--pin-state');
+  const PIN_STATE = psi !== -1 && args[psi + 1]
+    ? path.resolve(args[psi + 1])
+    : path.resolve(ROOT, '..', 'ep365-docs', 'scripts', 'pin-state.json');
+  const mai = args.indexOf('--max-age-days');
+  const man = mai !== -1 ? parseInt(args[mai + 1], 10) : NaN;
+  const MAX_AGE_DAYS = isNaN(man) ? 7 : Math.max(1, man);
+
+  const HOWTO = [
+    'Jak soupis vyrobit (trva minutu):',
+    '  1) node "ep365-docs/scripts/make-pin-sweep-snippet.js"        (nebo --check = jen cteni)',
+    '  2) snippet vloz do konzole prohlizece prihlaseneho do tenantu',
+    '  3) blok PIN-STATE z vypisu uloz cely do:',
+    '     ' + PIN_STATE,
+    '',
+    'Dokud soupis neplati, tool NEMAZE NIC — nema podle ceho poznat, na kterou',
+    'verzi visi pin, a smazat ji znamena tise rozbit web, ktery na ni bezi.'
+  ].join('\n');
+  const fatal = (m) => {
+    console.error('\nPIN GUARD ZASTAVIL PROREZ (nic nesmazano)\n  ' + m + '\n\n' + HOWTO);
+    process.exit(1);
+  };
+
+  let raw = null;
+  try { raw = fs.readFileSync(PIN_STATE, 'utf8'); }
+  catch (e) { fatal('soupis pinu nenalezen nebo necitelny: ' + PIN_STATE + ' (' + (e && e.code) + ')'); }
+  let st = null;
+  try { st = JSON.parse(raw); } catch (e) { fatal('soupis pinu neni platny JSON: ' + PIN_STATE); }
+  if (!st || typeof st !== 'object' || Array.isArray(st)) fatal('soupis pinu ma necekany tvar: ' + PIN_STATE);
+
+  if (st.complete !== true) {
+    fatal('posledni pin sweep NEBYL uplny (complete=' + JSON.stringify(st.complete) + ') — nevime, kam miri vsechny piny. '
+      + 'Typicky mu Search nevratil vsechny weby (viz POZORNOST ve vypisu sweepu).');
+  }
+  const swept = Date.parse(st.sweptAt || '');
+  if (isNaN(swept)) fatal('soupis pinu nema platne datum sweepu (sweptAt).');
+  const ageD = (Date.now() - swept) / 86400000;
+  if (ageD < -1) fatal('datum sweepu je v budoucnosti (' + st.sweptAt + ') — spatne hodiny nebo rucne psany soubor.');
+  if (ageD > MAX_AGE_DAYS) fatal('pin sweep je stary ' + ageD.toFixed(1) + ' dnu (limit ' + MAX_AGE_DAYS + ') — pin se mezitim mohl prepnout.');
+
+  const snap = st.cdnSnapshot;
+  if (!snap || typeof snap !== 'object') fatal('soupis pinu nema cdnSnapshot — nejde overit, ze sweep videl aktualni CDN.');
+
+  // Klicova kontrola: sweep MUSI byt novejsi nez posledni publikace. Kdyz na disku
+  // lezi verze, kterou sweep nevidel, publikovalo se po nem — a prave po takovem
+  // dni (27 tichych verzi za den) okno --keep nestaci. Tim je poradi
+  // "pin sweep -> teprve pak prorez" vynucene, ne jen napsane v /release.
+  const zastarale = [], neznama = [];
+  for (const app of apps) {
+    let vs = [];
+    try {
+      vs = fs.readdirSync(path.join(ROOT, app), { withFileTypes: true })
+        .filter(e => e.isDirectory() && VER_RE.test(e.name)).map(e => e.name).sort(cmpVer);
+    } catch (e) { /* neni adresar = neni co chranit */ }
+    if (!vs.length) continue;
+    const nejnovejsi = vs[vs.length - 1];
+    const videna = snap[app];
+    if (!videna) { neznama.push(app); continue; }
+    if (cmpVer(nejnovejsi, String(videna)) > 0) zastarale.push('    ' + app + ': na disku ' + nejnovejsi + ', sweep videl ' + videna);
+  }
+  if (neznama.length) fatal('sweep tyhle appky vubec neznal: ' + neznama.join(', ') + ' — soupis je z jineho tvaru CDN nebo appce chybi kontrakt pinu.');
+  if (zastarale.length) fatal('od sweepu pribyly na CDN nove verze, takze soupis pinu uz neplati:\n' + zastarale.join('\n'));
+
+  if (!Array.isArray(st.pins)) fatal('soupis pinu nema pole pins.');
+  const vadne = [];
+  st.pins.forEach((p, i) => {
+    if (!p || typeof p.app !== 'string' || typeof p.version !== 'string' || !VER_RE.test(p.version)) { vadne.push(i); return; }
+    if (!PINNED.has(p.app)) PINNED.set(p.app, new Set());
+    PINNED.get(p.app).add(p.version);
+  });
+  if (vadne.length) fatal('soupis pinu ma ' + vadne.length + ' vadnych zaznamu (indexy ' + vadne.slice(0, 5).join(',') + ') — necteme ho po castech.');
+  let pocet = 0; PINNED.forEach(s => { pocet += s.size; });
+  if (!pocet) fatal('sweep nenasel ANI JEDEN pin. U nas je kazda bezici appka pinuta, takze to je '
+    + 'skoro jiste vada sweepu (spatny kontrakt listu, jina identita) — ne stav "neni co chranit".');
+
+  // Mrtvy pin = pin miri na verzi, ktera na CDN uz neni. Presne symptom #250:
+  // loader spadne na latest a pin zustane zapsany navzdy. Prorez ho nezpusobil,
+  // ale je jediny, kdo se na to diva — tak to musi rict nahlas.
+  PINNED.forEach((set, app) => set.forEach(v => {
+    if (!fs.existsSync(path.join(ROOT, app, v))) DEAD_PINS.push(app + '/' + v);
+  }));
+
+  PIN_INFO = 'Pin guard OK: soupis z ' + st.sweptAt + ' (stari ' + ageD.toFixed(1) + ' dnu), '
+    + (st.websSeen != null ? st.websSeen : '?') + ' webu, ' + pocet + ' pinu ve ' + PINNED.size + ' appkach.';
+}
+// #endregion PIN-GUARD
+
 const rows = [];
 const toDelete = [];
 let freed = 0;
@@ -113,21 +242,35 @@ for (const app of apps) {
   }
 
   const keepNewest = new Set(versions.slice(0, KEEP));
-  const del = versions.filter(v => !keepNewest.has(v) && !released.has(v));
+  const pinned = PINNED.get(app) || new Set();
+  // Pin mimo okno --keep = jediny duvod, proc tenhle radek existuje (#250).
+  const pinnedMimoOkno = versions.filter(v => pinned.has(v) && !keepNewest.has(v) && !released.has(v));
+  const del = versions.filter(v => !keepNewest.has(v) && !released.has(v) && !pinned.has(v));
   let mb = 0;
   del.forEach(v => { const s = dirSizeMB(path.join(appDir, v)); mb += s; toDelete.push(`${app}/${v}`); });
   freed += mb;
+
+  const pozn = [];
+  if (released.size) pozn.push(`${released.size} ostrych`); else pozn.push('zadne ostre vydani');
+  if (pinned.size) pozn.push(`${pinned.size} pinu`);
+  if (pinnedMimoOkno.length) pozn.push(`ZACHRANENO PINEM: ${pinnedMimoOkno.join(' ')}`);
 
   rows.push({
     app, verzi: versions.length,
     ponechano: versions.length - del.length,
     smazat: del.length,
     'uvolni MB': mb.toFixed(1),
-    pozn: released.size ? `${released.size} ostrych chraneno` : 'zadne ostre vydani'
+    pozn: pozn.join(', ')
   });
 }
 
 console.table(rows);
+if (PIN_INFO) console.log(PIN_INFO);
+if (DEAD_PINS.length) {
+  console.log('!!! MRTVE PINY (' + DEAD_PINS.length + ') — pin miri na verzi, ktera na CDN NENI: ' + DEAD_PINS.join(', '));
+  console.log('    Web na ni bezi pres nahradni volbu (fallback na latest) a sam se to nespravi.');
+  console.log('    Sprav pin sweepem (prepne na nejnovejsi) — prorez to neresi.');
+}
 // Co z toho git skutecne trackuje. Jedno volani na cely strom - `git ls-files`
 // per slozka by znamenalo stovky procesu a stejne cislo.
 const trackedSet = (function () {

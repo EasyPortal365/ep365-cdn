@@ -50,6 +50,16 @@
 !tools/prune-bundles.mjs
 !tools/prune-versions.mjs
 
+# Jediný vstupní bod prořezu (od 2026-09-01): pustí brány i oba prořezy v pevném pořadí,
+# parametry čte z politiky v ep365-docs (private). Bezpečné: sám nic neví o tom, kdo co
+# má nasazené — když politiku nenajde, odmítne běžet.
+!tools/prune-cdn.mjs
+
+# Důkaz, že pin guard v `prune-versions` drží: postaví syntetické mini-CDN v TEMPu, kde pin
+# míří mimo okno `--keep`, a ukáže, že prořez tu verzi nechá — a s vystřiženým guardem smaže.
+# Bezpečné: nezná ani nečte soupis pinů našeho tenantu, pracuje jen s vlastními daty v TEMPu.
+!tools/check-pin-guard.mjs
+
 # Kontrola před prořezem: stabilní kořen (`<app>/ep-365-*-loader.js`) se přepisuje na místě,
 # takže mu commit stárne a vypadne z okna `--keep` — a smazat ho znamená shodit appku všem
 # zákazníkům naráz. `prune-bundles` ho proto značí vždy; tenhle skript měří rezervu a ověřuje,
