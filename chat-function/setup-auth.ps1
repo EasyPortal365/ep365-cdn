@@ -144,29 +144,46 @@ $scope = @{
 
 # Preautorizace SPFx principalu: bez ni SharePoint token nevyda ani po schvaleni
 # v API access (a chyba, kterou uzivatel uvidi, o duvodu nerika nic).
-$preAuth = @(@{ appId = $SPFX_PRINCIPAL; delegatedPermissionIds = @($scopeId) })
+#
+# POZOR: MUSI TO BYT DVA PATCHE, ne jeden (overeno zive 2026-09-03, jednim PATCHem
+# vraci Graph HTTP 400 "Property api.preAuthorizedApplications.delegatedPermissionIds
+# has a Permission Id that cannot be found in the AppPermissions sets"). Graph
+# validuje preautorizaci proti scope, ktere UZ NA OBJEKTU JSOU - scope zalozeny
+# v temze telu jeste neexistuje. Poradi je proto: nejdriv scope, pak odkaz na nej.
 
-$body = @{
+# Pomocna funkce: telo do docasneho souboru a PATCH pres az rest.
+# Absolutni cesta zamerne: "cd" v PowerShellu nemeni pracovni adresar .NET, takze
+# [System.IO.File] s relativni cestou zapisuje uplne jinam (lekce 25.19).
+function Invoke-GraphPatch([string]$uri, [hashtable]$payload) {
+    $json = $payload | ConvertTo-Json -Depth 10 -Compress
+    $tmp = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "ep365-auth-$([guid]::NewGuid()).json")
+    [System.IO.File]::WriteAllText($tmp, $json, (New-Object System.Text.UTF8Encoding($false)))
+    try {
+        az rest --method PATCH --uri $uri --headers 'Content-Type=application/json' --body "@$tmp" | Out-Null
+        if ($LASTEXITCODE -ne 0) { throw "Graph PATCH selhal (az rest exit $LASTEXITCODE): $uri" }
+    } finally {
+        Remove-Item $tmp -ErrorAction SilentlyContinue
+    }
+}
+
+$graphUri = "https://graph.microsoft.com/v1.0/applications/$appObjectId"
+
+# KROK 1 - identifikator, scope a verze tokenu.
+Invoke-GraphPatch $graphUri @{
     identifierUris = @($appIdUri)
     api            = @{
         oauth2PermissionScopes      = @($scope)
-        preAuthorizedApplications   = $preAuth
         requestedAccessTokenVersion = 2
     }
-} | ConvertTo-Json -Depth 10 -Compress
-
-# Absolutni cesta zamerne: "cd" v PowerShellu nemeni pracovni adresar .NET, takze
-# [System.IO.File] s relativni cestou zapisuje uplne jinam (lekce 25.19).
-$tmp = [System.IO.Path]::Combine([System.IO.Path]::GetTempPath(), "ep365-auth-$([guid]::NewGuid()).json")
-[System.IO.File]::WriteAllText($tmp, $body, (New-Object System.Text.UTF8Encoding($false)))
-try {
-    az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/applications/$appObjectId" `
-            --headers 'Content-Type=application/json' --body "@$tmp" | Out-Null
-} finally {
-    Remove-Item $tmp -ErrorAction SilentlyContinue
 }
 Write-Ok "App ID URI:  $appIdUri"
 Write-Ok 'Scope:       user_impersonation'
+
+# KROK 2 - teprve ted odkaz na scope z preautorizace.
+Start-Sleep -Seconds 3
+Invoke-GraphPatch $graphUri @{
+    api = @{ preAuthorizedApplications = @(@{ appId = $SPFX_PRINCIPAL; delegatedPermissionIds = @($scopeId) }) }
+}
 Write-Ok 'Preautorizace SharePoint Framework principalu nastavena'
 
 # ------------------------------------------------------- 4. Service principal
