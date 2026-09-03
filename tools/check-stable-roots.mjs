@@ -47,7 +47,7 @@
  *   node tools/check-stable-roots.mjs --keep 10    # jiné okno (default 10 = /release)
  *   node tools/check-stable-roots.mjs --no-probe   # jen měření, bez spouštění prořezu
  *   node tools/check-stable-roots.mjs --protect-patterns -widget_,-command_
- *                                                  # vzory bundlů ROZŠÍŘENÍ z politiky (23.9): syntetická
+ *                                                  # vzory bundlů ROZŠÍŘENÍ z politiky (23.10): syntetická
  *                                                  # zkouška ověří, že prořez takový bundle mimo okno drží
  *                                                  # a BEZ vzoru ho smaže (protipříklad)
  *
@@ -228,7 +228,7 @@ function selfTest() {
 
     const loader = path.join(root, 'demo', 'ep-365-demo-loader.js');
     fs.writeFileSync(loader, '// stabilni koren bez hashe - na tenhle soubor miri trvaly .sppkg\n');
-    // Bundle ROZSIRENI: hashovany, v NEJSTARSIM commitu (mimo okno) — na nej miri .sppkg primo (23.9).
+    // Bundle ROZSIRENI: hashovany, v NEJSTARSIM commitu (mimo okno) — na nej miri .sppkg primo (23.10).
     const widget = path.join(root, 'demo', 'ep-365-demo-widget_' + 'b'.repeat(20) + '.js');
     fs.writeFileSync(widget, '// bundle rozsireni (application customizer) - hash z nasazeneho .sppkg\n');
     commit('demo: loader');
@@ -277,7 +277,7 @@ if (!st.ok) {
   console.log('  Skutecny prune-bundles --apply loader SMAZAL -> pravidlo v prorezu NENI.');
   selfFail.push('synteticka zkouska: prorez smazal stabilni koren, ktery vypadl z okna');
 }
-// Bundle ROZSIRENI (23.9): se vzorem prezije, bez vzoru odejde — obe pulky jsou dukaz.
+// Bundle ROZSIRENI (23.10): se vzorem prezije, bez vzoru odejde — obe pulky jsou dukaz.
 if (st.ok) {
   if (st.widgetKept && st.widgetGoneWithout) {
     console.log(`  Bundle rozsireni mimo okno: s --protect-patterns ${SYNTH_PATTERN} PREZIL, bez vzoru SMAZAN -> vzor drzi a neni no-op.`);

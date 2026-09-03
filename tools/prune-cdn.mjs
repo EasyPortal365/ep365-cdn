@@ -116,7 +116,7 @@ function krok(nazev, tool, argy, { povinnyUspech = true } = {}) {
 
 // -------------------------------------------------------------- 1.-2. brany --
 const patternArg = PATTERNS.length ? ['--protect-patterns', PATTERNS.join(',')] : [];
-krok('1/5 kontrola stabilnich koreni (loader + bundly rozsireni) - par. 23.8/23.9', 'check-stable-roots.mjs', ['--keep', String(KEEP_BUNDLES)].concat(patternArg));
+krok('1/5 kontrola stabilnich koreni (loader + bundly rozsireni) - par. 23.8/23.10', 'check-stable-roots.mjs', ['--keep', String(KEEP_BUNDLES)].concat(patternArg));
 krok('2/5 kontrola pin guardu (protipriklad) - #250', 'check-pin-guard.mjs', []);
 
 // --------------------------------------------------------------- 3.-4. rez ---
