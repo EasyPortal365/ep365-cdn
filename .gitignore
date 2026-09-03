@@ -112,6 +112,7 @@
 !chat-function/ep365-chat-function-*.zip
 !chat-function/deploy-azure.ps1
 !chat-function/setup-enrichment.ps1
+!chat-function/setup-auth.ps1
 !chat-function/checksums.txt
 # Přehledová stránka složky (GitHub Pages nemá directory listing — holá URL vracela 404,
 # zatímco podklady pro zákazníky na ni odkazují). Bezpečné: statické HTML, tabulku skládá
