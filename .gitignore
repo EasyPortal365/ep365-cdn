@@ -136,3 +136,7 @@
 !fonts/LICENSE.md
 !tools/
 !tools/*.mjs
+n# Knihovna pro vykreslení diagramů v našich HTML dokumentech (mermaid, OFL/MIT).
+# Hostujeme ji sami ze stejného důvodu jako písma — dokument nemá chodit na cizí CDN.
+!lib/
+!lib/*.js
