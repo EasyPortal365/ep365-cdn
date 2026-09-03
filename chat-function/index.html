@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EP365 AI Asistent – distribuce backendu (chat-function)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;600&family=Fraunces:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#002163;--teal:#00CED7;--teal7:#00A8B0;--teal-soft:#E0FAFB;--bg:#FFFFFF;--bg2:#F4F7FB;--bg3:#EAEFF6;--line:#E0E6EF;--line2:#C7D0DC;--muted:#4A5874;--soft:#7A8499;--green:#34B36A;--amber:#E6A23C;--red:#D14343;--r-md:14px;--r-pill:999px;--shadow:0 1px 2px rgba(11,30,63,.06),0 1px 1px rgba(11,30,63,.04)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg2);color:var(--navy);font-family:"Plus Jakarta Sans","Manrope",system-ui,sans-serif;font-size:14.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:28px 22px 70px}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--teal7)}
+.hero{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow);padding:28px 32px 24px;margin-bottom:18px}
+h1{font-family:"Manrope",sans-serif;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.12;margin:10px 0 12px}
+h1 .fr{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;color:var(--teal)}
+p{color:var(--muted);margin:0 0 12px}
+p strong,td strong{color:var(--navy)}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow);padding:22px 26px;margin-bottom:18px}
+h2{font-family:"Manrope",sans-serif;font-size:19px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+code{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--navy)}
+.twrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);text-align:left;padding:9px 12px;border-bottom:2px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+tbody tr:nth-child(even){background:#F8FAFD}
+td.hash{font-family:"JetBrains Mono",monospace;font-size:11px;word-break:break-all;color:var(--soft)}
+a{color:var(--teal7);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--navy)}
+.pill{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:var(--r-pill);border:1px solid var(--line2);background:var(--bg2);color:var(--muted);white-space:nowrap}
+.pill.latest{background:var(--teal-soft);border-color:#99EAEE;color:var(--teal7)}
+.pill.old{color:var(--soft)}
+pre{background:#0A1850;color:#E6ECFF;border-radius:var(--r-md);padding:16px 18px;overflow-x:auto;font-family:"JetBrains Mono",monospace;font-size:12.5px;line-height:1.6;margin:10px 0 14px}
+.status{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--soft);margin-top:8px}
+.ok{color:var(--green)} .err{color:var(--red)}
+.foot{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;padding:16px 4px 0;border-top:1px solid var(--line)}
+@media (max-width:700px){.wrap{padding:14px 10px 50px}.hero,.card{padding:18px 16px}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">EasyPortal 365 · CDN · chat-function</div>
+  <h1>EP365 AI Asistent. <span class="fr">Distribuce backendu.</span></h1>
+  <p>Soubory pro nasazení Azure části AI Asistenta (Function App <code>ep365-chat-function</code>)
+    ve vaší subscription: deployment skript pro Azure Cloud Shell, ARM šablona pro tlačítko
+    Deploy to Azure, skript Znalostní přípravy a release balíčky kódu. Na této adrese je
+    <strong>jen kód</strong> – žádná zákaznická data. Postup nasazení najdete v podkladech,
+    které jste od nás dostali.</p>
+</header>
+
+<section class="card">
+  <h2>Soubory a otisky (SHA256)</h2>
+  <p>Tabulka se načítá živě z <code>checksums.txt</code>, takže odpovídá tomu, co CDN
+    právě servíruje. Nejnovější release je zvýrazněný; starší balíčky zůstávají dostupné
+    pro instance, které na ně odkazují.</p>
+  <div class="twrap">
+    <table>
+      <thead><tr><th>Soubor</th><th>Co to je</th><th>SHA256</th></tr></thead>
+      <tbody id="rows"><tr><td colspan="3">Načítám <code>checksums.txt</code>…</td></tr></tbody>
+    </table>
+  </div>
+  <div class="status" id="status"></div>
+</section>
+
+<section class="card">
+  <h2>Ověření integrity staženého souboru</h2>
+  <p>Otisk staženého souboru musí odpovídat řádku v tabulce (PowerShell, i v Azure Cloud Shellu):</p>
+  <pre>Get-FileHash .\deploy-azure.ps1 -Algorithm SHA256</pre>
+  <p>Skript <code>deploy-azure.ps1</code> si aktuální release balíček stahuje sám a při
+    opakovaném spuštění instanci bezpečně aktualizuje (nastavení Function App zachová).</p>
+</section>
+
+<footer class="foot">EasyPortal 365 · cdn.easyportal365.cz/chat-function · veřejné artefakty pro nasazení u zákazníka</footer>
+</div>
+<script>
+(function(){
+'use strict';
+var DESC = [
+  [/^deploy-azure\.ps1$/, 'Deployment skript pro Azure Cloud Shell – založí infrastrukturu i Azure OpenAI a nasadí kód (doporučená cesta)'],
+  [/^setup-enrichment\.ps1$/, 'Skript Znalostní přípravy – app registrace, Sites.Selected, per-site granty, nastavení funkce'],
+  [/^main\.json$/, 'ARM šablona (tlačítko Deploy to Azure / az deployment group create)'],
+  [/^ep365-chat-function-(\d+(?:\.\d+)+)\.zip$/, 'Release balíček kódu funkce']
+];
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function verOf(name){ var m = /^ep365-chat-function-(\d+(?:\.\d+)+)\.zip$/.exec(name); return m ? m[1] : null; }
+function cmpVer(a, b){
+  var pa = a.split('.').map(Number), pb = b.split('.').map(Number);
+  for (var i = 0; i < Math.max(pa.length, pb.length); i++) { var d = (pa[i] || 0) - (pb[i] || 0); if (d) return d; }
+  return 0;
+}
+var rows = document.getElementById('rows'), status = document.getElementById('status');
+fetch('checksums.txt?_=' + Date.now(), { cache: 'no-store' })
+  .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+  .then(function(txt){
+    var items = txt.split(/\r?\n/).map(function(l){ var m = /^([0-9a-f]{64})\s+(\S+)$/.exec(l.trim()); return m ? { hash: m[1], name: m[2] } : null; }).filter(Boolean);
+    var vers = items.map(function(i){ return verOf(i.name); }).filter(Boolean).sort(cmpVer);
+    var latest = vers[vers.length - 1];
+    items.sort(function(a, b){
+      var va = verOf(a.name), vb = verOf(b.name);
+      if (va && vb) return cmpVer(vb, va);
+      if (va) return 1; if (vb) return -1;
+      return a.name.localeCompare(b.name);
+    });
+    rows.innerHTML = items.map(function(i){
+      var v = verOf(i.name), desc = '';
+      DESC.forEach(function(d){ if (d[0].test(i.name)) desc = d[1]; });
+      var pill = v ? (v === latest ? '<span class="pill latest">aktuální ' + esc(v) + '</span>' : '<span class="pill old">' + esc(v) + '</span>') : '';
+      return '<tr><td><a href="' + esc(i.name) + '">' + esc(i.name) + '</a><br>' + pill + '</td><td>' + esc(desc) + (v && v === latest ? ' – <strong>verze, kterou nasadí skript i šablona</strong>' : '') + '</td><td class="hash">' + esc(i.hash) + '</td></tr>';
+    }).join('');
+    status.innerHTML = '<span class="ok">✓</span> ' + items.length + ' souborů · <a href="checksums.txt">checksums.txt</a>';
+  })
+  .catch(function(e){
+    rows.innerHTML = '<tr><td colspan="3"><span class="err">Nepodařilo se načíst checksums.txt (' + esc(e.message) + ').</span> Soubory: <a href="deploy-azure.ps1">deploy-azure.ps1</a>, <a href="setup-enrichment.ps1">setup-enrichment.ps1</a>, <a href="main.json">main.json</a>, <a href="checksums.txt">checksums.txt</a>.</td></tr>';
+  });
+})();
+</script>
+</body>
+</html>

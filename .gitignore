@@ -113,6 +113,10 @@
 !chat-function/deploy-azure.ps1
 !chat-function/setup-enrichment.ps1
 !chat-function/checksums.txt
+# Přehledová stránka složky (GitHub Pages nemá directory listing — holá URL vracela 404,
+# zatímco podklady pro zákazníky na ni odkazují). Bezpečné: statické HTML, tabulku skládá
+# živě z checksums.txt, žádné secrets.
+!chat-function/index.html
 
 # Ukázkové dokumenty pro tlačítko „Ukázková data" v AI Asistentu
 # (cdn.easyportal365.cz/ai-chat/samples/). Appka je z prohlížeče správce stáhne
