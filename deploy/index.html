@@ -177,7 +177,7 @@ td code{white-space:normal;word-break:break-word}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--teal7);box-shadow:0 0 0 3px rgba(0,206,215,.12)}
 .field .hint{font-size:12px;color:var(--soft);margin-top:5px;line-height:1.5}
 .field .err{display:none;font-size:12px;color:var(--red);margin-top:5px;font-weight:600}
-.field.invalid input,.field.invalid select{border-color:var(--red)}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--red)}
 .field.invalid .err{display:block}
 
 /* radio karty (cesty) */
@@ -406,10 +406,10 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
     </div>
   </div>
   <div class="field" id="f-site">
-    <label>SharePoint web, kde aplikace poběží</label>
-    <input type="text" id="in-site" maxlength="300" placeholder="https://contoso.sharepoint.com/sites/intranet" spellcheck="false">
-    <div class="hint">Nepovinné (jde doplnit později). Kdo má přístup na tento web, dostane se k AI Asistentovi.</div>
-    <div class="err">Web musí začínat adresou SharePointu výše.</div>
+    <label>SharePoint weby, kde aplikace poběží</label>
+    <textarea id="in-site" rows="3" maxlength="300" placeholder="https://contoso.sharepoint.com/sites/intranet&#10;https://contoso.sharepoint.com/sites/hr" spellcheck="false"></textarea>
+    <div class="hint">Nepovinné, jeden web na řádek (další jde doplnit později). Každý web má vlastní data a nastavení, Azure backend je společný; k AI Asistentovi se dostanou členové webu.</div>
+    <div class="err">Každý web musí začínat adresou SharePointu výše (max. cca 3 weby – další doplníme spolu).</div>
   </div>
 
   <h3>Cesta nasazení Azure části</h3>
@@ -484,7 +484,7 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
     <span><strong>Znalostní příprava</strong> – AI souhrny dokumentů na pozadí (vyžaduje navíc souhlas vašeho Global admina; postup dostanete v kroku 3).</span>
   </label>
   <label class="chkline"><input type="checkbox" id="in-hub">
-    <span><strong>EP365 Homepage (hub)</strong> – máme/plánujeme centrální konfiguraci přes EP365 Homepage.</span>
+    <span><strong>EP365 Workplace (hub)</strong> – máme/plánujeme centrální konfiguraci přes EP365 Workplace.</span>
   </label>
 
   <div class="field" style="margin-top:14px">
@@ -672,7 +672,8 @@ function collectForm(){
   var email = document.getElementById('in-email').value.trim();
   var tenant = document.getElementById('in-tenant').value.trim().toLowerCase();
   var origin = document.getElementById('in-origin').value.trim().toLowerCase().replace(/\/+$/,'');
-  var site = document.getElementById('in-site').value.trim().replace(/\/+$/,'');
+  var sites = document.getElementById('in-site').value.split(/[\r\n;,]+/).map(function(s){ return s.trim().replace(/\/+$/,''); }).filter(Boolean);
+  var site = sites.join(' ; ');
   var pathEl = document.querySelector('input[name=path]:checked');
   var rg = document.getElementById('in-rg').value.trim().toLowerCase();
   var func = document.getElementById('in-func').value.trim().toLowerCase();
@@ -685,7 +686,7 @@ function collectForm(){
   ok = setInvalid('f-email', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) && ok;
   ok = setInvalid('f-tenant', !GUID_RE.test(tenant)) && ok;
   ok = setInvalid('f-origin', !/^https:\/\/[a-z0-9-]+\.sharepoint\.com$/.test(origin)) && ok;
-  ok = setInvalid('f-site', !!site && site.toLowerCase().indexOf(origin + '/') !== 0 && site.toLowerCase() !== origin) && ok;
+  ok = setInvalid('f-site', site.length > 300 || sites.some(function(s){ var l = s.toLowerCase(); return l.indexOf(origin + '/') !== 0 && l !== origin; })) && ok;
   ok = setInvalid('f-rg', !NAME_RE.test(rg)) && ok;
   ok = setInvalid('f-func', !NAME_RE.test(func)) && ok;
   ok = setInvalid('f-oaiep', hasOai && !!oaiEp && !/^https:\/\/[a-z0-9.-]+$/.test(oaiEp)) && ok;
@@ -863,20 +864,23 @@ function buildPath3(d){
 }
 
 function buildSharePoint(d){
-  var site = d.siteUrl || (d.spOrigin + '/sites/…');
+  var sites = String(d.siteUrl || '').split(/\s*;\s*/).filter(Boolean);
+  if (!sites.length) sites = [d.spOrigin + '/sites/…'];
+  var multi = sites.length > 1;
+  var siteList = '<code>' + sites.map(esc).join('</code>, <code>') + '</code>';
   return '<section class="card"><h2><span class="sec-badge">B</span>SharePoint aplikace</h2>'
     + '<ol class="steps">'
     + '<li class="step"><span class="step-num">1</span><div class="step-body"><strong>App Catalog:</strong> balíček <code>ep-365-ai-chat.sppkg</code> (posíláme e-mailem) nahraje SharePoint admin do App Catalogu (SharePoint admin centrum → More features → Apps) a v dialogu zvolí <strong>„Enable this app and add it to all sites"</strong> (tzv. global deploy – nutné pro plovoucí bublinu na stránkách webu a pro Microsoft Teams). Při pozdější <em>aktualizaci</em> balíčku už tuto volbu nezaškrtávejte. Verze balíčku v katalogu je trvale <code>10.0.0.0</code> – to je v pořádku, aplikace si svůj kód aktualizuje sama; nový balíček posíláme jen velice zřídka.</div></li>'
     + '<li class="step"><span class="step-num">2</span><div class="step-body"><strong>Schválení oprávnění</strong> (účet s rolí Global Administrator – u oprávnění k Microsoft Graph nestačí Application Administrator ani SharePoint Administrator): SharePoint admin centrum → Advanced → <strong>API access</strong> – u všech <strong>6 čekajících žádostí</strong> od „EP365 AI Asistent" (Microsoft Graph, delegovaná: <code>GroupMember.Read.All</code>, <code>Mail.ReadWrite</code>, <code>Calendars.Read</code>, <code>Tasks.ReadWrite</code>, <code>Chat.Read</code>, <code>ChannelMessage.Read.All</code>) klikněte <strong>Approve</strong>. Aplikace pracuje vždy jménem přihlášeného uživatele a nikdy nevidí víc než on; každé oprávnění funguje nezávisle – neschválené jen vypne svou funkci. Uživatelé se poté odhlásí a znovu přihlásí.</div></li>'
-    + '<li class="step"><span class="step-num">3</span><div class="step-body"><strong>Instalace na web</strong> <code>' + esc(site) + '</code>: Obsah webu → Nová → Aplikace → EP365 AI Asistent; poté vložit webpart na stránku a publikovat.</div></li>'
-    + '<li class="step"><span class="step-num">4</span><div class="step-body"><strong>První otevření jako správce webu</strong> – aplikace si sama založí seznamy a skupiny a zaregistruje tlačítko „Zeptat se AI" v knihovnách dokumentů. Pak v nastavení webpartu (tužka) vyplňte <strong>URL Azure Function</strong> = API URL z kroku A' + (d.hub ? ' (nebo jen URL hubu – nastavení se zdědí)' : '') + '.</div></li>'
+    + '<li class="step"><span class="step-num">3</span><div class="step-body"><strong>Stránka s aplikací</strong>' + (multi ? ' na každém z webů ' : ' na webu ') + siteList + ': Nová → Stránka → <em>Full-page apps</em> → šablona EP365 AI Asistent (nebo prázdná stránka + webpart) → publikovat. Aplikaci není třeba na web „přidávat" – díky global deploy je k dispozici na všech webech.' + (multi ? ' Každý web má vlastní data a nastavení; backend z kroku A je společný.' : '') + '</div></li>'
+    + '<li class="step"><span class="step-num">4</span><div class="step-body"><strong>První otevření jako správce webu</strong>' + (multi ? ' (na každém webu)' : '') + ' – aplikace si sama založí seznamy a skupiny a zaregistruje tlačítko „Zeptat se AI" v knihovnách dokumentů. Pak v nastavení webpartu (tužka) vyplňte <strong>URL Azure Function</strong> = API URL z kroku A' + (d.hub ? ' (nebo jen URL hubu – nastavení se zdědí)' : '') + '.</div></li>'
     + '<li class="step"><span class="step-num">5</span><div class="step-body"><strong>Microsoft Teams (volitelné):</strong> Teams admin centrum → Manage apps → „EP365 AI Asistent" musí být <em>Unblocked</em>; předinstalaci uživatelům řeší Setup policies → Global. Podrobně v instalační příručce, část B.6.</div></li>'
     + '</ol></section>';
 }
 
 function buildEnrich(d){
   if (!d.enrich) return '';
-  var site = d.siteUrl || 'https://…/sites/vas-web';
+  var site = String(d.siteUrl || '').split(/\s*;\s*/).filter(Boolean)[0] || 'https://…/sites/vas-web';
   var cmd = 'iwr ' + CDN_BASE + '/setup-enrichment.ps1 -OutFile setup-enrichment.ps1\n'
     + './setup-enrichment.ps1 -FunctionAppName "' + d.funcName + '" -ResourceGroupName "' + d.rgName + '" `\n'
     + '    -SettingsSiteUrl "' + site + '" `\n'

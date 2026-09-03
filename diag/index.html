@@ -156,7 +156,27 @@
 <script>
 (function () {
   "use strict";
-  var APPS = ["fleet","documents","hub","ai-chat","homepage","lifecenter","identity","multimedia","crm"];
+  // Všechny aplikace EasyPortal 365 distribuované z této CDN (názvy jako v App Catalogu / na webu).
+  var APPS = [
+    { id: "ai-chat",       name: "AI Asistent" },
+    { id: "homepage",      name: "Workplace" },
+    { id: "quick-actions", name: "Quick Actions" },
+    { id: "documents",     name: "Documents (řízené dokumenty)" },
+    { id: "fleet",         name: "Vozový park" },
+    { id: "absence",       name: "Absence" },
+    { id: "crm",           name: "CRM" },
+    { id: "helpdesk",      name: "Helpdesk" },
+    { id: "worklog",       name: "Worklog" },
+    { id: "marketing",     name: "Marketing" },
+    { id: "products",      name: "Produktový katalog" },
+    { id: "eshop",         name: "E-shop" },
+    { id: "identity",      name: "Identity Manager" },
+    { id: "site-manager",  name: "Site Manager (řízené weby)" },
+    { id: "atlas",         name: "Atlas" },
+    { id: "lifecenter",    name: "Centrum životních situací" },
+    { id: "multimedia",    name: "Multimediální centrum" },
+    { id: "mydocs",        name: "Moje dokumenty" }
+  ];
   var TIMEOUT = 12000;
   var state = { tests: [], apps: [] };
 
@@ -195,8 +215,9 @@
       var d = document.createElement("div");
       d.className = "app " + (a.reachable ? "ok" : "fail");
       d.innerHTML = '<span class="s"></span><span class="nm"></span><span class="st"></span>';
-      d.querySelector(".nm").textContent = a.app;
-      d.querySelector(".st").textContent = a.reachable ? ("HTTP " + a.status) : "nedostupné";
+      d.querySelector(".nm").textContent = a.name || a.app;
+      d.querySelector(".st").textContent = a.reachable ? "dostupné" : (a.status === "…" ? "…" : "nedostupné");
+      d.title = a.app + (a.reachable ? " · HTTP " + a.status : (a.error ? " · " + a.error : ""));
       c.appendChild(d);
     });
   }
@@ -258,12 +279,14 @@
   }
 
   // Test C: reachability of each app folder
-  function pingApp(app){
+  // Jakákoli odpověď serveru (i 404 u appky bez releases.json) = síť k CDN pro tuto appku pustí;
+  // „nedostupné" je jen chyba spojení (blokovaná doména, certifikát, proxy).
+  function pingApp(a){
     var t0 = now();
-    return fetch("/" + app + "/?cb=" + now(), { cache: "no-store" }).then(function(r){
-      return { app: app, reachable: true, status: r.status, ms: now()-t0 };
+    return fetch("/" + a.id + "/releases.json?cb=" + now(), { cache: "no-store" }).then(function(r){
+      return { app: a.id, name: a.name, reachable: true, status: r.status, ms: now()-t0 };
     }).catch(function(e){
-      return { app: app, reachable: false, error: String(e), ms: now()-t0 };
+      return { app: a.id, name: a.name, reachable: false, error: String(e), ms: now()-t0 };
     });
   }
 
@@ -274,7 +297,7 @@
       { name: "Stažení a spuštění skriptu z CDN", detail: "Probíhá…", status: "", ms: null },
       { name: "Přímé stažení a ověření souboru", detail: "Probíhá…", status: "", ms: null }
     ];
-    state.apps = APPS.map(function(a){ return { app: a, reachable: false, status: "…" }; });
+    state.apps = APPS.map(function(a){ return { app: a.id, name: a.name, reachable: false, status: "…" }; });
     setVerdict("running", "Probíhá test připojení…", "Ověřuji spojení s cdn.easyportal365.cz. Vyčkejte prosím.", "…");
     renderTests(); renderApps(); renderKv();
     checkHost();
@@ -335,7 +358,7 @@
     lines.push("");
     lines.push("Aplikace:");
     state.apps.forEach(function(a){
-      lines.push("  " + (a.reachable?"[OK]":"[CHYBA]") + " " + a.app + " — " + (a.reachable?("HTTP "+a.status):("nedostupné "+(a.error||""))));
+      lines.push("  " + (a.reachable?"[OK]":"[CHYBA]") + " " + (a.name || a.app) + " (" + a.app + ") — " + (a.reachable?("dostupné, HTTP "+a.status):("nedostupné "+(a.error||""))));
     });
     return lines.join("\n");
   }
