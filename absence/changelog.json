@@ -4,6 +4,157 @@
   "name": "EP365 Absence",
   "entries": [
     {
+      "version": "1.1",
+      "date": "2026-09-03",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Schvalovatel se o nové žádosti dozví hned e-mailem. Upozornění mělo v aplikaci hotové i texty, jenže se nikdy neodesílalo – schvalovatel objevil žádost, jen když se sám podíval do fronty, typicky až po urgenci. Nově zpráva odchází hned po podání, a to ze schránky toho, kdo žádost podal, takže se dá rovnou odpovědět. Když se upozornění nepodaří odeslat nebo když ho není komu poslat, žádost se přesto uloží a aplikace to řekne nahlas i s tím, co má žadatel udělat – dosud by v obou případech mlčela stejně. Žádost podaná za kolegu má navíc v e-mailu uvedeno, koho se týká i kdo ji zapsal.",
+          "en": "An approver now learns about a new request by e-mail right away. The notification had its texts ready in the app, but it was never sent — an approver discovered a request only by looking into the queue, typically after being chased. The message now goes out immediately after submission, from the mailbox of the person who submitted it, so it can be replied to directly. When the notification cannot be sent, or there is nobody to send it to, the request is still saved and the app says so out loud, together with what the requester should do — until now it stayed silent in both cases. A request submitted on behalf of a colleague also states in the e-mail both who it concerns and who filed it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Storno a zamítnutí schválené absence hlásí úklid týmového kalendáře pravdivě. Aplikace dosud oznámila hotovo i tehdy, když v kalendáři nic nesmazala – kolegové pak dál viděli nepřítomnost, ke které nedojde, a nikdo se to nedozvěděl. Nově se výsledek ověřuje: chybí-li záznam, který tam měl být, nebo se ho nepodaří odebrat, obrazovka to přizná a poradí, kde kalendář srovnat.",
+          "en": "Cancelling or rejecting an approved absence now reports the team calendar clean-up truthfully. The app used to announce success even when it deleted nothing — colleagues kept seeing an absence that will not happen and nobody found out. The result is now verified: if the entry that should have been there is missing, or cannot be removed, the screen admits it and points to where the calendar can be reconciled."
+        },
+        {
+          "type": "fixed",
+          "cs": "O rozhodnutí se žadatel dozví – a když ne, řekne se to schvalovateli. Zpráva o schválení či zamítnutí se dosud odesílala naslepo: když ji Microsoft 365 odmítl nebo když žádost neměla u sebe adresu žadatele, aplikace o tom mlčela a schvalovatel odcházel s pocitem, že je hotovo. Zamítnutá žádost přitom žadateli jen zmizela z fronty a on čekal dál. Neúspěch se nově napíše rovnou k výsledku rozhodnutí, a to i v mobilním zobrazení, kde se dosud nehlásil ani nepovedený zápis do týmového kalendáře.",
+          "en": "The requester now learns the decision — and when they do not, the approver is told. The approval or rejection message used to be sent blind: when Microsoft 365 refused it, or the request carried no address for the requester, the app said nothing and the approver walked away believing the matter was closed. A rejected request simply vanished from the requester's queue while they kept waiting. The failure is now stated right next to the decision result, including in the mobile view, which until now reported neither that nor a failed write to the team calendar."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zabezpečení seznamu žádostí se dokončí, i když první pokus neprojde celý. Aplikace dosud hlásila hotovo, jakmile seznam dostal vlastní oprávnění – tedy i tehdy, když se pak nepodařilo snížit práva skupině Členové webu a ta si podržela přístup ke všem žádostem včetně poznámky žadatele. Ověření se přitom zapsalo natrvalo a už se nikdy neopakovalo. Nově se hotovo hlásí až tehdy, když projdou všechny kroky, a nedokončené zabezpečení se dorovná při dalším otevření aplikace správcem – i tam, kde už bylo dřív odškrtnuté. Stejně se opravilo zakládání skupin aplikace: skupina bez přiděleného oprávnění se dřív považovala za hotovou, takže schvalovateli vycházela fronta prázdná místo chybové.",
+          "en": "Securing the requests list now completes even when the first attempt does not go all the way through. The app used to report success as soon as the list got its own permissions — including when lowering the Site Members group's rights then failed and that group kept access to every request, notes included. The verification was recorded permanently and never retried. Success is now reported only when every step goes through, and unfinished protection is completed the next time an administrator opens the app, even where it had already been ticked off. The same was fixed for creating the app's groups: a group with no permission assigned used to count as done, so an approver's queue came up empty instead of showing an error."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hledání osob přizná výpadek místo toho, aby tvrdilo „nikoho jsem nenašla“. Když adresář neodpověděl, dostal správce, který zakládá schvalovatele, prázdný výsledek k nerozeznání od ověřeného „takový člověk v adresáři není“ – a přestal to zkoušet. Nově obrazovka řekne, že se hledání nepodařilo.",
+          "en": "People search now admits an outage instead of claiming “nobody found”. When the directory did not answer, an administrator setting up approvers got an empty result indistinguishable from a verified “no such person in the directory” — and stopped trying. The screen now says that the search failed."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení aplikace smí nově měnit jen její správci. Seznam, ve kterém Absence drží podtitulek, firemní barvu a volbu běžící verze, dosud dědil oprávnění webu – kdokoli, kdo na webu smí upravovat obsah, si tedy mohl mimo aplikaci přepsat její vzhled i to, ve které verzi se Absence spustí celému týmu. Seznam má nově vlastní oprávnění: číst ho může každý – bez toho by se aplikace nespustila –, zapisovat jen skupina EP365AbsenceAdmins.",
+          "en": "Application settings may now be changed only by the app's administrators. The list where Absence keeps the subtitle, the brand colour and the pinned version used to inherit the site's permissions — so anyone allowed to edit content on the site could rewrite the app's appearance, and the version the whole team runs, from outside the app. The list now has its own permissions: everyone may read it (without that the app would not start), only the EP365AbsenceAdmins group may write."
+        },
+        {
+          "type": "fixed",
+          "cs": "Pevně zvolenou verzi aplikace nově přepíše kterýkoli její správce, ne jen ten, kdo volbu zapsal jako první. Volba se ukládá do záznamu v seznamu nastavení a ten měl zapnuté omezení „upravovat smí jen autor záznamu“ – druhý správce tedy při přepnutí verze narazil na odmítnutí a karta „Správa verzí“ zůstala viset na staré volbě.",
+          "en": "A pinned app version can now be changed by any of the app's administrators, not just the one who first wrote the choice. The choice lives in a record in the settings list, and that list had the “only the author may edit an item” restriction switched on — so a second administrator was refused when switching versions and the Version management card stayed on the old choice."
+        },
+        {
+          "type": "fixed",
+          "cs": "Uložení nastavení už nemůže přepsat to, co se nepodařilo přečíst. Celé nastavení aplikace je uložené v jednom záznamu, a když se ten záznam poškodí, aplikace ho dosud při ukládání brala jako prázdný – uložení podtitulku tak zapsalo nastavení bez firemní barvy, a hlásilo přitom „Uloženo“. Nově se v takové situaci NEULOŽÍ nic: obrazovka rovnou napíše, že se nastavení nedá přečíst, proč se kvůli tomu neukládá a kde ho opravit.",
+          "en": "Saving settings can no longer overwrite what could not be read. All application settings live in a single record, and when that record was damaged the app used to treat it as empty when saving — so saving a subtitle wrote back settings with no brand colour, while reporting “Saved”. Nothing is saved in that situation now: the screen states that the settings cannot be read, why that blocks saving, and where to fix them."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace se spolehlivě spustí i tehdy, když zvolená verze na serveru chybí. Dosud se hledala náhrada jen v úplně nejnovější verzi – a právě když chyběla ta, aplikace se vůbec nenačetla. Nově se náhrada hledá postupně mezi vydanými verzemi, a pokud se nepodaří načíst žádnou, obrazovka napíše důvod a poradí zrušit pevně zvolenou verzi v Nastavení → Správa verzí, místo obecného „obnovte stránku“. Informace, že běží náhradní verze, navíc vydrží i po hodině, takže karta Správa verzí přizná nedostupnou volbu při každém načtení, ne jen při prvním.",
+          "en": "The application starts reliably even when the selected version is missing on the server. A replacement used to be looked for only among the very newest version — and when precisely that one was missing, the app did not load at all. The replacement is now sought step by step among the released versions, and if none can be loaded the screen explains why and suggests clearing the pinned version under Settings → Version management, instead of a generic “reload the page”. The fact that a substitute version is running now also survives the one-hour cache, so the Version management card admits an unavailable selection on every load, not just the first one."
+        },
+        {
+          "type": "fixed",
+          "cs": "Absence a Worklog na jedné stránce si už nepřebíjejí vzhled. Obě aplikace vznikly ze stejného základu a sdílely názvy stylů i vlastní blok s barvami, takže když byly vedle sebe na jedné stránce, přepsala ta později načtená té druhé firemní barvu a na úzkém displeji i chování levého menu. Každá aplikace má nově vlastní jmenný prostor stylů a pracuje jen se svým vzhledem.",
+          "en": "Absence and Worklog on the same page no longer override each other’s appearance. Both applications grew from the same base and shared style names and a colour block, so when placed side by side on one page the one loaded later overwrote the other’s brand colour and, on narrow screens, the behaviour of the left menu. Each application now has its own style namespace and only ever touches its own appearance."
+        },
+        {
+          "type": "fixed",
+          "cs": "Karta „Správa verzí“ přizná, když zvolená verze aplikace už není dostupná. Dosud psala, že běží pevně zvolená verze, i když ji mezitím odstranilo běžné promazávání starších verzí a aplikace dávno běžela v nejnovější – volba tak zůstala zapsaná napořád a nešlo poznat proč. Nově je na kartě vidět, která verze chybí, ve které aplikace doopravdy běží, a jedním tlačítkem se volba zruší.",
+          "en": "The Version management card now admits when the selected app version is no longer available. It used to say the app was running the pinned version even after routine cleanup of older versions had removed it and the app had long been running the latest one — the selection stayed in place forever with no way to tell why. The card now shows which version is missing, which one is actually running, and clears the selection with a single button."
+        },
+        {
+          "type": "fixed",
+          "cs": "Citlivé typy absence zůstanou v týmovém kalendáři skryté i tehdy, když se aplikaci nepodaří načíst číselník typů. Dosud se v takové situaci maskování vyplo a do sdíleného kalendáře se zapsal skutečný název – například „Nemoc“ nebo „Lékař“ – a to jak při schválení žádosti, tak při správcovském přepočtu kalendáře. Nově si přepočet číselník načte sám a u typu, který nezná, raději maskuje.",
+          "en": "Sensitive absence types stay hidden in the team calendar even when the app fails to load the list of types. Until now masking simply switched off in that situation and the real name — “Sick leave” or “Doctor”, for example — was written into the shared calendar, both when a request was approved and when an administrator recalculated the calendar. The recalculation now loads the list itself, and any type it does not recognise is masked."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení podtitulku a motivu se při neúspěšném načtení neotevře s výchozími hodnotami – dřív je uložení zapsalo místo skutečných.",
+          "en": "The subtitle and theme settings no longer open with default values after a failed load — saving used to write those defaults over the real ones."
+        },
+        {
+          "type": "fixed",
+          "cs": "Firemní barvy platí i v průvodci a v paletě zkratek. Průvodce aplikací i paleta zkratek (Ctrl+K) se kreslí mimo vlastní plochu aplikace, takže se k nim barvy zvolené v Nastavení ani zděděné z „Workplace“ nedostaly – uprostřed jinak přebarvené aplikace zůstávaly tyrkysové a tmavomodré. Nově berou stejnou paletu jako zbytek aplikace.",
+          "en": "Company colours now reach the guided tour and the shortcut palette. The tour and the shortcut palette (Ctrl+K) are drawn outside the application canvas, so colours picked in Settings or inherited from Workplace never got to them — they stayed teal and navy in the middle of an otherwise recoloured app. They now use the same palette as the rest of the application."
+        },
+        {
+          "type": "fixed",
+          "cs": "Uložené nastavení se propíše spolehlivě i při několika změnách za sebou. Aplikace zjišťovala stav před zápisem i po něm stejným dotazem, na který jí prohlížeč mohl odpovědět ze své paměti – tedy stavem před uložením. Kvůli tomu mohla ohlásit neúspěch u něčeho, co proběhlo, nebo založit druhý řádek nastavení a od té chvíle číst jiný, než do kterého zapisuje; to se týkalo i volby aktivní verze aplikace. Nově se takové ověření ptá vždy serveru. Stejná vada byla i v kontrole zabezpečení seznamu žádostí: oprávnění byla nastavená správně, ale kontrola po zápisu tvrdila opak a zabezpečení se pokoušelo nastavit znovu při každém otevření aplikace.",
+          "en": "Saved settings now take effect reliably even across several changes in a row. The app looked up the state before and after a write with the same query, which the browser could answer from its own memory — that is, with the state from before the save. It could therefore report a failure for something that had worked, or create a second settings row and from then on read a different one than it writes to; the same applied to the choice of the active app version. Such a check now always asks the server. The same flaw affected the check on the requests list: permissions were set correctly, but the verification that ran afterwards claimed otherwise and the app tried to secure the list again on every load."
+        },
+        {
+          "type": "improved",
+          "cs": "Vlastní firemní barva se teď promítá i tam, kde dosud zůstávala výchozí tyrkysová: popisky na barevných tlačítkách se automaticky přepínají na světlé nebo tmavé podle jasu vaší barvy, takže zůstanou čitelné i na tmavém odstínu. Sjednotily se i světlé podkladové plochy, které dřív držely tyrkys napevno.",
+          "en": "Your own brand colour now reaches places that kept the default teal: labels on coloured buttons switch between light and dark automatically based on how bright your colour is, so they stay readable even on a dark shade. The light background tints that used to be hard-wired to teal now follow the brand colour too."
+        },
+        {
+          "type": "improved",
+          "cs": "Typy absencí, svátky a roční nároky jsou nově chráněné přímo oprávněními SharePointu. Zadává je jen správce – dosud si je mohl kdokoli s přístupem na web přepsat mimo aplikaci, přes seznamy SharePointu, a navýšit si tak vlastní nárok na dovolenou nebo si přidat firemní volno. Číst je dál může každý: bez typů a svátků by nešlo podat žádost ani spočítat zůstatek. Podávání a schvalování žádostí se nemění. Oprávnění si aplikace srovná sama, jakmile ji poprvé otevře správce webu.",
+          "en": "Absence types, public holidays and annual entitlements are now protected by SharePoint permissions themselves. Only an administrator sets them — until now anyone with site access could rewrite them outside the app, via SharePoint lists, and raise their own leave entitlement or grant themselves a company day off. Everyone can still read them: without types and holidays no request could be filed and no balance calculated. Filing and approving requests is unchanged. The app arranges the permissions itself as soon as a site administrator first opens it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se nastavení oprávnění seznamů nedokončí, aplikace to nyní řekne nahlas – dosud se hlásil jen úspěch, takže nedokončený krok vypadal, jako by se nic nestalo.",
+          "en": "When list permission setup does not finish, the app now says so — until now only success was reported, so an unfinished step looked like nothing had happened."
+        },
+        {
+          "type": "improved",
+          "cs": "Notifikační e-maily z Absence – nová žádost ke schválení i výsledek rozhodnutí – se nově skládají tak, aby vypadaly stejně ve webové poště, na mobilu i v klasickém Outlooku na počítači, který HTML zobrazuje po svém a dosud si zprávu rozházel. Zpráva má hlavičku s označením aplikace, barevně odlišený stav (nová žádost, schváleno, zamítnuto) a přehlednou tabulku s údaji o absenci; důvod zamítnutí je v ní samostatným řádkem. Co e-maily sdělují, se nemění.",
+          "en": "Notification e-mails from Absence — a new request awaiting approval and the outcome of a decision — are now composed so that they look the same in webmail, on a phone and in the classic desktop Outlook, which renders HTML its own way and used to break the layout. The message has a header naming the app, a colour-coded state (new request, approved, rejected) and a clear table of the absence details, with the rejection reason as a row of its own. What the e-mails say is unchanged."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nárok zaměstnance už nejde přepsat hodnotami, které aplikace nepřečetla. Když se stávající nárok nepodaří načíst, formulář to napíše a „Uložit“ zůstane nedostupné – dosud vypadal stejně jako u člověka bez nároku, takže uložení tiše nahradilo skutečných 25 dnů výchozími dvaceti.",
+          "en": "An employee entitlement can no longer be overwritten with values the app never read. When the existing entitlement fails to load, the form says so and „Save“ stays disabled — until now it looked identical to a person with no entitlement, so saving silently replaced a real 25 days with the default twenty."
+        },
+        {
+          "type": "fixed",
+          "cs": "Firemní barva z Workplace se propíše i tehdy, když je v ní nastavená jen hlavní barva bez doplňkové, a nezmizí pouhým otevřením obrazovky Nastavení – Motiv. Barvu navíc nově skutečně přebírají nadpisy sekcí, hodnoty v přehledových kartách i hlavní tlačítka.",
+          "en": "The company colour from Workplace now comes through even when only the main colour is set and the accent is left out, and it no longer disappears simply by opening Settings — Theme. Section headings, overview card values and primary buttons now genuinely pick the colour up as well."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odznak u fronty ke schválení už neukazuje nulu, když se počet nepodařilo zjistit. Místo něj se objeví tlumený otazník, takže schvalovatel pozná rozdíl mezi „nic nečeká“ a „nevíme“.",
+          "en": "The approval queue badge no longer shows zero when the count could not be established. A muted question mark appears instead, so an approver can tell „nothing is waiting“ from „we do not know“."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zamítnutí i storno žádosti nově přiznají, když se absenci nepodařilo odebrat z týmového kalendáře. Dosud rozhodnutí proběhlo, ale záznam v kalendáři zůstal a nikdo se to nedozvěděl, takže kolegové viděli nepřítomnost, která se nekonala.",
+          "en": "Rejecting and cancelling a request now admit when the absence could not be removed from the team calendar. Until now the decision went through but the calendar entry stayed and nobody was told, so colleagues saw an absence that was not happening."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vyhledávání osob v Nastavení – Role a v náhledu očima uživatele rozlišuje „nikdo takový se nenašel“ a „vyhledávání neodpovědělo“. Správce tak kvůli výpadku nedojde k závěru, že hledaný člověk v adresáři není.",
+          "en": "People search in Settings — Roles and in the preview through a user’s eyes now distinguishes „nobody found“ from „search did not answer“. An administrator therefore will not conclude from an outage that the person is missing from the directory."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení viditelnosti záznamů v seznamech aplikace se dorovná i na webech, které běží delší dobu – dosud se uplatnilo jen při zakládání seznamů.",
+          "en": "Item visibility settings on the app lists are now brought into line on sites that have been running for a while — until now they were applied only when the lists were first created."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hromadné operace nad daty se nespustí, pokud na ně nevidíte celé. Přepočet týmového kalendáře i smazání dat aplikace pracují se všemi žádostmi – jenže žádosti jsou chráněné tak, že běžný uživatel vidí jen ty svoje, a SharePoint mu zbytek nezatají chybou, prostě je nepošle. Operace tak dosud mohla z týmového kalendáře odebrat záznamy kolegů, které si k ničemu nespárovala, a ohlásit úspěch. Nově se rozsah nejdřív porovná se skutečným počtem položek a při neúplném pohledu se nic nesmaže – obrazovka místo toho napíše, kolik položek z kolika vidíte a koho o roli požádat.",
+          "en": "Bulk operations no longer run when you cannot see the whole data set. Recalculating the team calendar and clearing the app data both work across every request — but requests are protected so that an ordinary user sees only their own, and SharePoint does not report the rest as an error, it simply omits them. Until now the operation could therefore remove colleagues’ entries from the team calendar that it had nothing to match them to, and report success. The scope is now compared against the real item count first, and nothing is deleted from a partial view — the screen states how many items out of how many you can see and which role to ask for instead."
+        },
+        {
+          "type": "fixed",
+          "cs": "Výpočet čerpaných dnů a skrývání citlivých absencí už nemůže minout položku z delšího seznamu. Svátky, firemní volna i číselník typů se dosud četly po jedné stránce, takže ve firmě s delší historií mohl výpočet přehlédnout svátek (a prodloužit tím čerpání dovolené) nebo nepoznat, že je typ citlivý – a do sdíleného týmového kalendáře by se pak dostal jeho skutečný název místo neutrální „Nepřítomnosti“. Nově se oba seznamy načítají celé.",
+          "en": "Day counts and the masking of sensitive absences can no longer miss an item from a longer list. Public holidays, company days off and the absence-type list were read one page at a time, so in an organisation with a longer history the calculation could overlook a holiday (and extend the leave taken) or fail to recognise a type as sensitive — in which case its real name would reach the shared team calendar instead of the neutral “Away”. Both lists are now read in full."
+        },
+        {
+          "type": "improved",
+          "cs": "E-maily o žádostech nově přebírají firemní barvu z motivu aplikace – dosud chodily vždy v barvách EasyPortal 365. Firemní barvě se podřizují i záře pod logem, zvýraznění v přehledu schvalování, nároků, svátků a typů absencí a výchozí barva v Nastavení. Zabezpečení seznamu žádostí se hlásí jako hotové až po ověření skutečně přidělených rolí: zaměstnanci nesmí mít úroveň, která obchází ochranu vlastních položek, a schvalovatelé ji naopak mít musí.",
+          "en": "Request emails now pick up the brand colour from the app theme — until now they were always sent in EasyPortal 365 colours. The brand colour is also respected by the glow under the logo, highlights in the approvals, entitlements, holidays and absence-types overviews and the default colour in Settings. Securing the requests list is reported as done only after verifying the roles actually granted: employees must not hold a level that bypasses own-item protection, while approvers must hold it."
+        },
+        {
+          "type": "improved",
+          "cs": "Zaměstnanci, kteří na starších webech dostali roli Úpravy, ji při první návštěvě správce vymění za Přispívat – Úpravy obsahovaly správu seznamů, která obchází ochranu vlastních položek. Panel žádosti a náhled za jiného uživatele nejdou zavřít během ukládání. Po aktualizaci balíčku v katalogu aplikací navíc zavaděč rozliší dočasnou chybu při čtení pinu verze od stavu „bez pinu“: dočasnou chybu si hodinu nepamatuje a použije poslední známý pin místo nejnovější verze.",
+          "en": "Employees who received the Edit role on older sites get it swapped for Contribute on the administrator’s first visit — Edit included list management, which bypasses own-item protection. The request panel and the run-as preview cannot be closed while saving. After the package is updated in the app catalogue, the loader also distinguishes a transient error while reading the version pin from “no pin”: it does not remember the transient error for an hour and uses the last known pin instead of the newest version."
+        }
+      ]
+    },
+    {
       "version": "1.0",
       "date": "2026-08-30",
       "changes": [
