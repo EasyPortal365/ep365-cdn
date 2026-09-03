@@ -127,3 +127,12 @@
 !ai-chat/samples/*.pdf
 !ai-chat/samples/*.docx
 !ai-chat/samples/manifest.json
+
+# Firemní písma (cdn.easyportal365.cz/fonts/) — hostujeme je sami, aby prohlížeče
+# uživatelů nechodily na Google Fonts. Generuje tools/fetch-fonts.mjs.
+!fonts/
+!fonts/*.woff2
+!fonts/ep365-fonts.css
+!fonts/LICENSE.md
+!tools/
+!tools/*.mjs
