@@ -46,6 +46,10 @@
  *   node tools/check-stable-roots.mjs              # měření + obě zkoušky chování
  *   node tools/check-stable-roots.mjs --keep 10    # jiné okno (default 10 = /release)
  *   node tools/check-stable-roots.mjs --no-probe   # jen měření, bez spouštění prořezu
+ *   node tools/check-stable-roots.mjs --protect-patterns -widget_,-command_
+ *                                                  # vzory bundlů ROZŠÍŘENÍ z politiky (23.9): syntetická
+ *                                                  # zkouška ověří, že prořez takový bundle mimo okno drží
+ *                                                  # a BEZ vzoru ho smaže (protipříklad)
  *
  * NÁVRATOVÝ KÓD
  *   0 = prořez stabilní kořeny nemaže (a je to čím doložit)
@@ -65,6 +69,10 @@ const argv = process.argv.slice(2);
 const flag = (n, d) => { const i = argv.indexOf(n); return i !== -1 && argv[i + 1] ? argv[i + 1] : d; };
 const KEEP = Math.max(1, parseInt(flag('--keep', '10'), 10) || 10);
 const PROBE = argv.indexOf('--no-probe') === -1;
+// Vzory bundlu ROZSIRENI (z politiky). Synteticka zkouska pouziva VZDY '-widget_' — meri mechanismus,
+// ne konkretni politiku; skutecne vzory se jen vypisou, aby bylo videt, s cim prorez pobezi.
+const PATTERNS = flag('--protect-patterns', '').split(',').map(s => s.trim()).filter(Boolean);
+const SYNTH_PATTERN = '-widget_';
 const PROBE_KEEP = 1;   // okno, pri kterem se obe varianty MUSI rozejit vsude, kde je pozice > 1
 
 // ⚠ Musi byt TOTOZNE s prune-bundles.mjs. Kdyby se rozeslo, ohlasi to zkouska
@@ -220,6 +228,9 @@ function selfTest() {
 
     const loader = path.join(root, 'demo', 'ep-365-demo-loader.js');
     fs.writeFileSync(loader, '// stabilni koren bez hashe - na tenhle soubor miri trvaly .sppkg\n');
+    // Bundle ROZSIRENI: hashovany, v NEJSTARSIM commitu (mimo okno) — na nej miri .sppkg primo (23.9).
+    const widget = path.join(root, 'demo', 'ep-365-demo-widget_' + 'b'.repeat(20) + '.js');
+    fs.writeFileSync(widget, '// bundle rozsireni (application customizer) - hash z nasazeneho .sppkg\n');
     commit('demo: loader');
     for (let i = 0; i < HASHED; i++) {
       const h = (i + 10).toString(16);
@@ -227,11 +238,18 @@ function selfTest() {
       commit('demo: release ' + i);
     }
 
-    const r = spawnSync(process.execPath, [path.join(root, 'tools', 'prune-bundles.mjs'), '--keep', String(FIX_KEEP), '--apply'],
+    // Beh 1: SE vzorem — loader i widget musi prezit, hashovane web-party mimo okno odejdou.
+    const r = spawnSync(process.execPath, [path.join(root, 'tools', 'prune-bundles.mjs'), '--keep', String(FIX_KEEP), '--apply', '--protect-patterns', SYNTH_PATTERN],
       { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
     const survived = fs.existsSync(loader);
+    const widgetKept = fs.existsSync(widget);
     const others = fs.readdirSync(path.join(root, 'demo')).length;
-    return { ok: true, survived, others, out: (r.stdout || '') + (r.stderr || '') };
+    // Beh 2: PROTIPRIKLAD bez vzoru — widget mimo okno MUSI odejit; jinak by zkouska nic nemerila (77.3).
+    const r2 = spawnSync(process.execPath, [path.join(root, 'tools', 'prune-bundles.mjs'), '--keep', String(FIX_KEEP), '--apply'],
+      { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+    const widgetGoneWithout = !fs.existsSync(widget);
+    const survived2 = fs.existsSync(loader);
+    return { ok: true, survived: survived && survived2, widgetKept, widgetGoneWithout, others, out: (r.stdout || '') + (r.stderr || '') + (r2.stdout || '') + (r2.stderr || '') };
   } catch (e) {
     return { ok: false, reason: String(e && e.message ? e.message : e) };
   } finally {
@@ -253,11 +271,26 @@ if (!st.ok) {
   console.log('  ! ZKOUSKA NEPROBEHLA: ' + st.reason);
   console.log('    (chyba prostredi, ne dukaz vady - ale plati jen zkouska na zivych datech nize)');
 } else if (st.survived) {
-  console.log(`  Skutecny prune-bundles --apply nechal loader na disku (zbylo ${st.others} z 6 souboru) -> pravidlo ZIJE.`);
+  console.log(`  Skutecny prune-bundles --apply nechal loader na disku (zbylo ${st.others} z 7 souboru) -> pravidlo ZIJE.`);
   proofs++;
 } else {
   console.log('  Skutecny prune-bundles --apply loader SMAZAL -> pravidlo v prorezu NENI.');
   selfFail.push('synteticka zkouska: prorez smazal stabilni koren, ktery vypadl z okna');
+}
+// Bundle ROZSIRENI (23.9): se vzorem prezije, bez vzoru odejde — obe pulky jsou dukaz.
+if (st.ok) {
+  if (st.widgetKept && st.widgetGoneWithout) {
+    console.log(`  Bundle rozsireni mimo okno: s --protect-patterns ${SYNTH_PATTERN} PREZIL, bez vzoru SMAZAN -> vzor drzi a neni no-op.`);
+    proofs++;
+  } else if (!st.widgetKept) {
+    console.log('  Bundle rozsireni mimo okno byl SMAZAN i se vzorem -> --protect-patterns v prorezu nefunguje.');
+    selfFail.push('synteticka zkouska: prorez smazal bundle rozsireni navzdory --protect-patterns');
+  } else {
+    console.log('  Bundle rozsireni prezil i BEZ vzoru -> zkouska nic nemeri (soubor nebyl mimo okno?).');
+    selfFail.push('synteticka zkouska: protipriklad neprosel, vzor se nedokazal');
+  }
+  if (PATTERNS.length) console.log('  Politika prorezu drzi vzory: ' + PATTERNS.join(' '));
+  else console.log('  ! Prorez pobezi BEZ vzoru bundlu rozsireni (politika je neprodava) - hashovany kontrakt .sppkg neni chraneny.');
 }
 
 console.log(`\nZKOUSKA NA ZIVYCH DATECH: poustim skutecny prune-bundles.mjs --keep ${PROBE_KEEP} (jen PLAN, nic nemaze).`);

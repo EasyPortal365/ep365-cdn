@@ -73,6 +73,11 @@ const LIMIT_MB = cislo('limitTrackedMB');
 if (!Array.isArray(pol.protectBundles)) konec('politika nema pole "protectBundles" (prazdne pole je platna, ale VEDOMA volba)');
 const PROTECT = pol.protectBundles.filter(s => typeof s === 'string' && s.length);
 if (PROTECT.length !== pol.protectBundles.length) konec('politika ma v "protectBundles" neplatnou polozku');
+// Bundly ROZSIRENI (widget, command set) jsou hashovany kontrakt .sppkg — bez vzoru by je okno
+// --keep vytlacilo (naostro 2026-09-03, ai-chat widget 404 od 31. 8.). Chybejici pole = CHYBA.
+if (!Array.isArray(pol.protectRootPatterns)) konec('politika nema pole "protectRootPatterns" (bundly rozsireni = kontrakt .sppkg; prazdne pole je platna, ale VEDOMA volba)');
+const PATTERNS = pol.protectRootPatterns.filter(s => typeof s === 'string' && s.trim().length);
+if (PATTERNS.length !== pol.protectRootPatterns.length) konec('politika ma v "protectRootPatterns" neplatnou polozku');
 
 // Chranena appka, ktera na CDN neexistuje, znamena preklep — a preklep v seznamu
 // chranenych je tise stejne nebezpecny jako chybejici polozka.
@@ -96,7 +101,7 @@ const pred = trackedMB();
 if (pred === null) konec('nepodarilo se zmerit velikost trackovaneho obsahu (git ls-tree) - bez cisla se prorez neplanuje');
 console.log('Politika: ' + POLICY);
 console.log('  bundly --keep ' + KEEP_BUNDLES + ' --protect ' + (PROTECT.join(',') || '(nic)') + ' | verze --keep ' + KEEP_VERSIONS
-  + ' | prahy ' + WARN_MB + '/' + LIMIT_MB + ' MB');
+  + ' | prahy ' + WARN_MB + '/' + LIMIT_MB + ' MB | vzory rozsireni ' + (PATTERNS.join(' ') || '(zadne)'));
 console.log('CDN pred prorezem: ' + pred.toFixed(1) + ' MB trackovaneho obsahu (Pages limit ~1 GB)');
 console.log('Rezim: ' + (APPLY ? 'APPLY (maze)' : 'PLAN (nic se nemaze)') + '\n');
 
@@ -110,13 +115,14 @@ function krok(nazev, tool, argy, { povinnyUspech = true } = {}) {
 }
 
 // -------------------------------------------------------------- 1.-2. brany --
-krok('1/5 kontrola stabilnich koreni (loader) - par. 23.8', 'check-stable-roots.mjs', ['--keep', String(KEEP_BUNDLES)]);
+const patternArg = PATTERNS.length ? ['--protect-patterns', PATTERNS.join(',')] : [];
+krok('1/5 kontrola stabilnich koreni (loader + bundly rozsireni) - par. 23.8/23.9', 'check-stable-roots.mjs', ['--keep', String(KEEP_BUNDLES)].concat(patternArg));
 krok('2/5 kontrola pin guardu (protipriklad) - #250', 'check-pin-guard.mjs', []);
 
 // --------------------------------------------------------------- 3.-4. rez ---
 const protectArg = PROTECT.length ? ['--protect', PROTECT.join(',')] : [];
 krok('3/5 prorez bundlu v koreni appek', 'prune-bundles.mjs',
-  ['--keep', String(KEEP_BUNDLES)].concat(protectArg, APPLY ? ['--apply'] : []));
+  ['--keep', String(KEEP_BUNDLES)].concat(protectArg, patternArg, APPLY ? ['--apply'] : []));
 krok('4/5 prorez verznich slozek runtime kanalu', 'prune-versions.mjs',
   ['--keep', String(KEEP_VERSIONS)].concat(APPLY ? ['--apply'] : []));
 

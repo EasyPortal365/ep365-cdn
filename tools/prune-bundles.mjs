@@ -9,6 +9,8 @@
 //
 //   --keep N       kolik poslednich releasu (= commitu) per appka ponechat (default 10)
 //   --protect a,b  slozky, kterych se NEDOTKNE (viz "POLITIKA" nize)
+//   --protect-patterns x,y  hashovane koreny, jejichz JMENO obsahuje x nebo y, se drzi
+//                  VZDY jako stabilni kontrakt (viz "ROZSIRENI" nize)
 //   --apply        skutecne smaze (jinak jen vypis plan)
 //
 // PROC MARK & SWEEP A NE "SMAZ STARSI NEZ X"
@@ -40,6 +42,17 @@
 //   slozky se predavaji v --protect. KTERE to jsou a PROC je v interni
 //   evidenci (ep365-docs), NE tady — tohle repo je verejne.
 //
+// ROZSIRENI (--protect-patterns)
+//   Hashovany koren muze byt KONTRAKT .sppkg stejne jako stabilni loader: bundle SPFx
+//   ROZSIRENI (application customizer = widget, command set) se nestabilizuje, takze
+//   manifest v App Catalogu ukazuje na `ep-365-<app>-widget_<hash>.js` PRIMO. Ktery
+//   hash je zrovna nasazeny, z CDN nepoznas (zije v katalogu zakaznika) a okno --keep
+//   ho po par releasech vytlaci. Naostro 2026-09-03: widget AI chatu vracel 404 od
+//   prorezu 31. 8. — bundle z nasazeneho .sppkg (16. 8.) byl 11. nejnovejsi a vypadl
+//   z okna 10. Proto se koreny, jejichz jmeno obsahuje nektery ze vzoru, drzi VZDY
+//   (jsou male, radove desitky KB); uklidit je jde az s novym .sppkg, ktery miri jinam.
+//   Vzory prichazeji z politiky (ep365-docs, `protectRootPatterns`), ne odsud.
+//
 // VRATNOST
 //   Maze jen z pracovniho stromu (git rm). Soubory zustavaji v git historii:
 //     git checkout <commit> -- <cesta>
@@ -57,6 +70,7 @@ const flag = (n, d) => { const i = argv.indexOf(n); return i !== -1 && argv[i + 
 const KEEP = parseInt(flag('--keep', '10'), 10);
 const APPLY = argv.includes('--apply');
 const PROTECT = new Set(flag('--protect', '').split(',').map(s => s.trim()).filter(Boolean));
+const PATTERNS = flag('--protect-patterns', '').split(',').map(s => s.trim()).filter(Boolean);
 
 // Slozky, ktere nejsou bundly appek.
 const NOT_APPS = new Set(['.git', '.github', 'tools', 'licenses', 'deploy', 'brand',
@@ -125,7 +139,9 @@ for (const app of apps) {
 
   // MARK — tranzitivne z ponechanych korenu (+ vzdy ze stabilnich kontraktu)
   const marked = new Set();
-  const queue = roots.filter(f => isStableRoot(f) || keepCommits.has(info(f).commit));
+  // Bundle ROZSIRENI = hashovany kontrakt .sppkg (viz hlavicka "ROZSIRENI"): drzi se VZDY.
+  const isExtensionBundle = f => PATTERNS.some(p => f.indexOf(p) !== -1);
+  const queue = roots.filter(f => isStableRoot(f) || isExtensionBundle(f) || keepCommits.has(info(f).commit));
   while (queue.length) {
     const f = queue.pop();
     if (marked.has(f)) continue;
@@ -150,7 +166,8 @@ for (const app of apps) {
 
 console.table(rows);
 console.log(`\nUvolni ${mb(freed)} MB v ${sweep.length} souborech (--keep ${KEEP}` +
-  (PROTECT.size ? `, chraneno: ${[...PROTECT].join(', ')}` : '') + `)`);
+  (PROTECT.size ? `, chraneno: ${[...PROTECT].join(', ')}` : '') +
+  (PATTERNS.length ? `, vzory drzene vzdy: ${PATTERNS.join(' ')}` : '') + `)`);
 
 if (!sweep.length) { console.log('Neni co mazat.'); process.exit(0); }
 
