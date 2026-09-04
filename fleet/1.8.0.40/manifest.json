@@ -1,0 +1,35 @@
+{
+  "id": "b7e5dadc-ff0c-4183-b733-b6a2263b576d",
+  "alias": "FleetAppLibrary",
+  "componentType": "Library",
+  "version": "1.6.6",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "loaderConfig": {
+    "internalModuleBaseUrls": [
+      "https://cdn.easyportal365.cz/fleet/1.8.0.40/"
+    ],
+    "entryModuleId": "ep-365-fleet-app",
+    "scriptResources": {
+      "ep-365-fleet-app": {
+        "type": "path",
+        "path": "ep-365-fleet-app_cff6633b7c45b05f37bb.js"
+      },
+      "react": {
+        "type": "component",
+        "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+        "version": "17.0.1"
+      },
+      "react-dom": {
+        "type": "component",
+        "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+        "version": "17.0.1"
+      },
+      "@microsoft/sp-http": {
+        "type": "component",
+        "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6",
+        "version": "1.22.2"
+      }
+    }
+  }
+}
