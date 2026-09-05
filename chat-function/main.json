@@ -50,7 +50,7 @@
     },
     "packageUrl": {
       "type": "string",
-      "defaultValue": "https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.7.0.zip",
+      "defaultValue": "https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.7.1.zip",
       "metadata": {
         "description": "VOLITELNÉ — URL release zip balíčku s kódem funkce. Vyplněné = WEBSITE_RUN_FROM_PACKAGE ukazuje na tento zip a kód se načte přímo z něj (cesta „Deploy to Azure“). Prázdné = WEBSITE_RUN_FROM_PACKAGE se nastaví na 1 a kód nasadíte zvlášť (deploy skript / zip deploy / func publish / GitHub Actions)."
       }
