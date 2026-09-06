@@ -597,10 +597,16 @@ try {
     if (-not $SkipSmokeTest) {
         Write-Step 'Smoke test - zkusebni dotaz na /api/chat (par sekund, spotrebuje par tokenu)'
         $smokeBody = '{"messages":[{"role":"user","content":"Odpovez presne jednim slovem: OK"}],"conversationId":"deploy-smoke-test"}'
+        # Brana na origin (od 1.7.0) je FAIL-CLOSED a plati i mimo prohlizec: volani bez
+        # povolene hlavicky Origin funkce odmitne 403 'Pozadavek z nepovoleneho puvodu'.
+        # Smoke test proto posila prvni povoleny origin - skript ho zna, je to jeho parametr.
+        # (Bez toho hlasil SELHAL u zdraveho nasazeni; nalez P-2 z revize prirucky 09/2026.)
+        $smokeOrigin = ($AllowedOrigin -split ',')[0].Trim()
+        $smokeHeaders = @{ Origin = $smokeOrigin }
         $smokeInfo = 'SELHAL - overte konfiguraci'
         for ($attempt = 1; $attempt -le 3; $attempt++) {
             try {
-                $resp = Invoke-RestMethod -Method Post -Uri ($apiUrl + '/chat') -ContentType 'application/json; charset=utf-8' -Body $smokeBody -TimeoutSec 120
+                $resp = Invoke-RestMethod -Method Post -Uri ($apiUrl + '/chat') -Headers $smokeHeaders -ContentType 'application/json; charset=utf-8' -Body $smokeBody -TimeoutSec 120
                 $modelInfo = ''
                 if ($resp.PSObject.Properties['model'] -and $resp.model) { $modelInfo = ' (model: ' + $resp.model + ')' }
                 Write-Host ('Odpoved AI' + $modelInfo + ': ' + $resp.content) -ForegroundColor Green
@@ -614,7 +620,7 @@ try {
                 }
                 else {
                     Write-Host ('Smoke test selhal: ' + $_.Exception.Message) -ForegroundColor Yellow
-                    Write-Host 'Infrastruktura je nasazena; zkontrolujte Azure OpenAI klic/endpoint a stav model deploymentu (Environment variables Function App), pripadne zopakujte test dle casti A.6 instalacni prirucky.' -ForegroundColor Yellow
+                    Write-Host ('Infrastruktura je nasazena. Nejcastejsi priciny v tomto poradi: (1) prvni start funkce jeste nedobehl - zkuste za minutu znovu; (2) ALLOWED_ORIGIN neodpovida hodnote '' + $smokeOrigin + '', kterou test posila; (3) Azure OpenAI klic/endpoint nebo stav model deploymentu.') -ForegroundColor Yellow
                 }
             }
         }
@@ -633,7 +639,7 @@ try {
     Write-Host (' Function App          : ' + $FunctionAppName)
     Write-Host (' API URL pro webpart   : ' + $apiUrl) -ForegroundColor Green
     Write-Host (' CORS (ALLOWED_ORIGIN) : ' + $AllowedOrigin)
-    Write-Host (' Smoke test /api/chat  : ' + $smokeInfo)
+    Write-Host (' Smoke test /api/chat  : ' + $smokeInfo + $(if ($SkipSmokeTest) { '' } else { ' (Origin: ' + $smokeOrigin + ')' }))
     Write-Host (' Zdroj kodu            : ' + $codeSourceInfo)
     Write-Host (' Azure OpenAI ucet     : ' + $aoaiAccountInfo)
     Write-Host (' Azure OpenAI endpoint : ' + $aoaiEndpoint)
