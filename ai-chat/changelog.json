@@ -4,6 +4,197 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.52",
+      "date": "2026-09-06",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nová záložka Lekce v Prompt Studiu učí asistenta používat: šestnáct krátkých lekcí v pěti cestách (Základy, Dokumenty, Firemní znalosti, Pošta a kalendář, Pokročilé). Každá lekce jedním kliknutím položí dotaz a pod odpovědí vysvětlí, čeho si všimnout – funkce se tak rovnou předvede, místo aby se o ní jen psalo. Nabídnou se jen lekce k tomu, co má vaše organizace zapnuté. Správci k nim v Nastavení najdou tlačítko Ukázková data, které založí knihovnu s dokumenty, na kterých lekce běží, a vedle něj tlačítko „Ověřit, že je asistent vidí“: SharePoint nové dokumenty zaindexuje obvykle do hodiny a do té doby je asistent nenajde, takže kontrola řekne, kolik ukázek už vyhledávání zná a lekce nekončí zbytečným „nenašel jsem“. U ukázkových PDF pozná nahrání i starší verzi souboru v knihovně a poradí ji smazat a nahrát znovu. Ukázkový dokument Zaměstnanecké výhody 2026 má opravený text a názvy benefitů uvedené i v textu, takže ho najde i běžná otázka (např. „jaký máme příspěvek na penzijní připojištění?“) – částky a registrační kód zůstávají jen na obrázku na třetí straně. A když se asistenta zeptáte, co umí, vypíše skutečné schopnosti podle toho, co má váš správce zapnuté; dřív si je domýšlel.",
+          "en": "A new Lessons tab in Prompt Studio teaches you to use the assistant: sixteen short lessons across five paths (Basics, Documents, Company knowledge, Mail & calendar, Advanced). Each lesson asks a question in one click and explains below the answer what to notice — so the feature demonstrates itself instead of being merely described. Only lessons for what your organisation has enabled are offered. Administrators find a Sample data button in Settings that creates a library with the documents the lessons run on, and next to it a “Check the assistant can see them” button: SharePoint usually indexes new documents within an hour and the assistant cannot find them until then, so the check tells you how many samples search already knows and Lessons no longer end in a needless “not found”. For the sample PDFs, loading also spots an older version of the file in the library and suggests deleting it and loading again. The sample document Employee benefits 2026 has corrected wording and now lists the benefit names in its text, so an ordinary question (e.g. “what is our pension contribution?”) finds it — the amounts and the registration code remain only in the picture on page three. And when you ask the assistant what it can do, it lists its real abilities based on what your administrator enabled; previously it improvised."
+        },
+        {
+          "type": "new",
+          "cs": "Plovoucí asistent umí vytvářet dokumenty. Když ho o dokument požádáte, objeví se pod odpovědí karta „Návrh dokumentu“ – text si upravíte a pak ho stáhnete jako Word, uložíte do knihovny SharePointu nebo z něj rovnou vytvoříte stránku. Na stránkách se zároveň vrátila zkratka „Udělej z toho dokument“. Dosud plovoucí panel vytváření dokumentů jen sliboval: na dotaz „co umíš“ ho nabízel, ale dokument z něj nikdy nevznikl. Dokumenty vytvořené v plné aplikaci se navíc nově ukazují i v plovoucím panelu – konverzace je společná pro obojí. Vše se řídí týmž přepínačem organizace jako v aplikaci (Nastavení → Dokumenty).",
+          "en": "The floating assistant can now create documents. Ask it for one and a “Document draft” card appears below the answer — edit the text, then download it as Word, save it into a SharePoint library, or turn it straight into a page. The “Turn this into a document” shortcut is back on pages as well. Until now the floating panel only promised document creation: it offered the ability when asked “what can you do”, but no document ever came out of it. Documents created in the full app now show up in the floating panel too — the conversation is shared by both. Everything follows the same organisation-wide switch as the app (Settings → Documents)."
+        },
+        {
+          "type": "new",
+          "cs": "AI čte i obrázky vložené v PDF dokumentech – tabulky, hodnoty a texty na obrázcích (třeba vložené ceníky nebo letáky) se nově stávají součástí odpovědi, a to včetně kratších skenovaných PDF bez textové vrstvy. U PDF odpověď uvádí číslo stránky a otevření dokumentu z citace skočí rovnou na stránku, ze které odpověď čerpá; citaci nově nese i odpověď z jediného dokumentu. Když fulltextové hledání nenajde přímou shodu, otevře asistent nejnovější nalezené dokumenty a přečte je do hloubky včetně obrázků – informace, které jsou jen v obrázku (třeba kód na letáku), se tak najdou, i když je fulltext nevidí. Znalostní příprava navíc obsah obrázků ukládá do připravených souhrnů, takže se takové informace příště najdou i přímým dotazem.",
+          "en": "The AI now reads images embedded in PDF documents — tables, values and text inside pictures (such as embedded price lists or flyers) become part of the answer, including shorter scanned PDFs with no text layer. For PDFs the answer cites the page number and opening the document from a citation jumps straight to the page the answer draws from; an answer drawn from a single document now carries a citation as well. When full-text search finds no direct match, the assistant opens the most recent documents found and reads them in depth, images included — information that lives only in a picture (such as a code on a flyer) is found even though full-text search cannot see it. Knowledge preparation also stores image content in the prepared summaries, so such information is found by a direct query next time."
+        },
+        {
+          "type": "new",
+          "cs": "Dokumenty vznikají ve firemním vzhledu – a nově i jako PowerPoint. Word i prezentace se skládají z téhož textu podle profilu z Firemní identity: okraje, hlavička, patička s firemními údaji, číslování stran i titulní strana. V prezentaci se navíc uplatní vaše písmo, velikosti a barvy nadpisů i zvýraznění a z každého nadpisu se stane samostatný slajd s odrážkami jako body; ve Wordu se profilové písmo a barvy zatím projeví v hlavičce a na titulní straně, nadpisy v těle dokumentu zůstávají ve výchozím vzhledu. Firemní logo je v hlavičce Wordu jako obrázek v obvyklé velikosti a se zachovaným poměrem stran – bere se z Firemní identity, takže se nikde nenastavuje zvlášť. Když logo chybí, nemáte na knihovnu právo nebo je uložené jako SVG (to Word v hlavičce spolehlivě nevykreslí), zůstane hlavička textová – radši nic než rozbitý obrázek. Bez vyplněné Firemní identity se použije neutrální výchozí profil: dokument dostane hlavičku s názvem, patičku s číslem stránky a jednotné okraje. Nic vymyšleného se nedoplňuje.",
+          "en": "Documents are produced in your company look — and newly also as PowerPoint. Word and the presentation are built from the same text according to the profile in the Company identity: margins, header, a footer with company details, page numbers and a cover page. The presentation additionally uses your font, sizes and heading and accent colours, and each heading becomes its own slide with the bullet points as its content; in Word the profile font and colours currently apply to the header and the cover page, while headings in the body keep the default look. Your company logo appears in the Word header as an image at a sensible size with the aspect ratio preserved — it comes from the Company identity, so there is nothing extra to set up. When the logo is missing, you lack permission to the library, or it is stored as SVG (which Word does not render reliably in a header), the header stays textual — better nothing than a broken image. With no Company identity filled in, a neutral default profile is used: the document gets a header with its title, a footer with the page number and consistent margins. Nothing is invented."
+        },
+        {
+          "type": "new",
+          "cs": "AI Asistent píše podle firemní identity. Pokud máte ve Workplace vyplněnou Firemní identitu – oslovení, tón, vaše názvosloví, čemu se vyhnout a podpis – dostane je asistent jako závazná pravidla ke každé odpovědi, a to i u specializovaných asistentů. Platí to stejně v aplikaci i v postranním panelu, takže týž člověk dostane stejně psaný text bez ohledu na to, kde se zeptal; v anglickém rozhraní se pravidla předávají anglicky (dosud chodila do panelu vždy česky). Co ve firemní identitě nevyplníte, se do zadání nepřidává – asistent si vaše názvosloví ani firemní údaje nedomýšlí. Jediná hodnota, která platí i nevyplněná, je vykání.",
+          "en": "The AI Assistant writes according to your company identity. If the Company identity is filled in inside Workplace — the form of address, tone, your terminology, what to avoid and the signature — the assistant receives it as binding rules for every answer, specialised assistants included. It applies in the app and in the side panel alike, so the same person gets consistently written text no matter where they asked; in the English interface the rules are passed on in English (until now the panel always received them in Czech). Whatever you leave empty in the company identity is not passed on — the assistant invents neither your terminology nor your company details. The one value that applies even when left empty is the formal form of address."
+        },
+        {
+          "type": "new",
+          "cs": "Do skupin Správci aplikace a Uživatelé AI lze přidat i skupiny Entra ID (zabezpečení i Microsoft 365), ne jen jednotlivé osoby. Hledání v Nastavení → Správa rolí nabízí obojí; členy skupiny dosazuje adresář a omezení přístupu i práva správce se vyhodnocují i přes členství v takové skupině, a to jak v aplikaci, tak v plovoucím asistentovi. Když se skupiny nepodaří prohledat, aplikace to řekne místo toho, aby ukázala jen osoby.",
+          "en": "Entra ID groups (security and Microsoft 365) can now be added to the Application administrators and AI users groups, not just individual people. The search in Settings → Role management offers both; the directory supplies the group members, and access restriction as well as administrator rights are evaluated through such membership too — in the app and in the floating assistant alike. If groups cannot be searched, the app says so instead of silently listing only people."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled využití – záložka Náklady nově ukazuje průběh čerpání měsíčního rozpočtu jako graf: kolik procent rozpočtu zbývá den po dni, tečkovaná linie rovnoměrného tempa jako měřítko a absolutní částky v legendě. Když rozpočet není nastaven, karta to řekne a ukáže aspoň dosavadní útratu za měsíc.",
+          "en": "Usage overview — the Costs tab now shows the monthly budget burn-down as a chart: what share of the budget remains day by day, a dotted even-pace line as a yardstick and absolute amounts in the legend. When no budget is set, the card says so and shows at least the spend so far this month."
+        },
+        {
+          "type": "improved",
+          "cs": "Konverzace, zápisy ze schůzek i auditní stopa jsou nově chráněné oprávněními SharePointu, ne jen nastavením aplikace. Seznamy, do kterých asistent ukládá vaše konverzace, projekty, osobní nastavení a zápisy ze schůzek, dosud přebíraly oprávnění celého webu – a protože běžný člen týmového webu smí v SharePointu spravovat seznamy, mohl se k obsahu ostatních dostat mimo aplikaci. Každý z těchto seznamů má teď vlastní oprávnění: každý vidí a mění jen své vlastní záznamy. Totéž platí pro osobní šablony promptů – ukládají se do vlastního seznamu, do kterého vidí jen jejich autor; dosud stačilo, aby kolega otevřel seznam přímo v SharePointu, a vaše uložené prompty si přečetl. Sdílené šablony webu mají také vlastní seznam a upravit je smí jen správce aplikace – znění, které se dostává asistentovi celé organizace, tedy nikdo jiný nepřepíše. Pozor: sdílené šablony založené před touto aktualizací se do nového seznamu nepřenášejí a je potřeba je vytvořit znovu. Auditní záznamy o hledání ve firemních znalostech smí nově každý pouze přidávat, ne měnit ani mazat, a do nastavení aplikace i do sdílených šablon dokumentů zapisuje výhradně správce. Zpevnění provede aplikace sama, jakmile ji v prohlížeči poprvé otevře správce s úplným řízením webu. Pro správce se tím mění i dohled nad konverzacemi uživatelů: otevřít ho může jen člen skupiny „Vlastníci webu“ nebo správce kolekce webů – ostatním aplikace rovnou napíše, že vidí pouze své konverzace.",
+          "en": "Conversations, meeting notes and the audit trail are now protected by SharePoint permissions, not only by application settings. The lists where the assistant stores your conversations, projects, personal settings and meeting notes used to take their permissions from the whole site — and because an ordinary member of a team site is allowed to manage lists in SharePoint, they could reach other people’s content outside the application. Each of these lists now has its own permissions: everyone sees and changes only their own records. The same applies to personal prompt templates — they are stored in their own list that only their author can read; until now a colleague could simply open the list in SharePoint and read your saved prompts. Shared site templates get their own list too and only an application administrator may edit them, so the wording that reaches the whole organisation’s assistant cannot be overwritten by anyone else. Note: shared templates created before this update are not carried over to the new list and need to be created again. Audit records of company knowledge searches can now only be added, not edited or deleted, and application settings and shared document templates are written by an administrator only. The application applies the change itself as soon as an administrator with full control of the site opens it in a browser. One thing changes for administrators as well: oversight of user conversations can be opened only by a member of the “Site owners” group or by a site collection administrator — everyone else is told straight away that they are seeing their own conversations only."
+        },
+        {
+          "type": "improved",
+          "cs": "Zabezpečení: aplikace se nyní AI službě prokazuje přihlášením. Dřív ji chránila jen kontrola, ze které adresy požadavek přišel – tu si ale mimo prohlížeč lze nastavit libovolně, takže denní limit dotazů i měsíční rozpočet šly obejít voláním služby napřímo. Nově aplikace ke každému dotazu přikládá ověřený přístupový token přihlášeného uživatele a AI služba ho kryptograficky ověří. Zapíná se v Azure jedním skriptem a schválením oprávnění v centru pro správu SharePointu; do té doby vše funguje beze změny. Vyžaduje aktualizaci AI funkce na verzi 1.7.0.",
+          "en": "Security: the app now identifies itself to the AI service with the signed-in user's identity. Until now the service was protected only by a check of where the request came from, which can be forged outside a browser — so the daily question limit and the monthly budget could be bypassed by calling the service directly. Each request now carries a verified access token that the AI service checks cryptographically. It is enabled by one script in Azure plus an approval in the SharePoint admin center; until then everything works unchanged. Requires the AI function updated to version 1.7.0."
+        },
+        {
+          "type": "improved",
+          "cs": "Soukromí: aplikace už při běžné práci nenačítá nic z cizích serverů. Firemní písma se berou z naší distribuční sítě místo z Google Fonts a obrázek asistenta u každé odpovědi je nově součástí aplikace, místo aby se stažoval z cizí sítě. Dosud odcházela při každé odpovědi IP adresa a údaje o prohlížeči třetí straně. Jediné spojení ven zůstává na obrazovce Roadmapa, která záměrně čte naši veřejnou roadmapu – nikam se při tom neposílají žádná vaše data. Vzhled se nemění.",
+          "en": "Privacy: the app no longer loads anything from third-party servers during normal use. Brand fonts come from our own distribution network instead of Google Fonts, and the assistant image shown with every answer now ships inside the app rather than being fetched from an outside network. Until now each answer sent a user’s IP address and browser details to a third party. The only outbound connection left is on the Roadmap screen, which deliberately reads our public roadmap — none of your data is sent there. The look is unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Zpřísnili jsme kontrolu adres, na které se dá v aplikaci kliknout. Odkaz s neplatnou nebo nedůvěryhodnou adresou se nezobrazí jako klikatelný: v odpovědi asistenta zůstane adresa vidět jako text, takže o informaci nepřijdete, a u tlačítek a ikon kolem odpovědi se ovládací prvek raději nenabídne vůbec.",
+          "en": "We tightened the checks on addresses that can be opened from the app. A link with an invalid or untrusted address is no longer rendered as clickable: inside an assistant answer the address still shows as plain text, so no information is lost, and for buttons and icons around the answer the control is simply not offered."
+        },
+        {
+          "type": "improved",
+          "cs": "Formuláře „Nahlásit chybu“ a „Navrhnout funkci“ mají nově formátovaný popis – tučně, kurzíva, odrážky i odkaz – a přílohy. Snímek obrazovky stačí zkopírovat a vložit klávesou Ctrl+V přímo do popisu; objeví se jako příloha s náhledem. Přiložit jde i soubory přetažením nebo výběrem z disku a velké obrázky se samy zmenší. Hotové hlášení se otevře ve vašem poštovním klientovi s předvyplněným textem a aplikace jasně řekne, že ho odešlete odtud – AI Asistent záměrně nemá oprávnění posílat poštu za vás. Právě proto se přílohy do rozepsaného e-mailu nepřenesou: aplikace je vyjmenuje a poprosí vás, abyste je přiložili ručně. Hlášení nově uvádí jméno odesílatele místo obecného „Uživatel“ a v anglické verzi je celý formulář anglicky včetně oblasti pro přílohy a nástrojů pro formátování textu.",
+          "en": "The Report a bug and Suggest a feature forms now take formatted text — bold, italics, bullet lists and links — and attachments. Paste a screenshot with Ctrl+V straight into the description and it shows up as an attachment with a preview. Files can also be dropped in or picked from disk, and large images are shrunk automatically. The finished report opens in your mail client with the text prefilled and the app clearly states that you send it from there — the AI Assistant deliberately has no permission to send mail on your behalf. For that very reason the attachments do not carry over into the drafted e-mail: the app lists them and asks you to attach them by hand. Reports now state the sender’s name instead of a generic “User”, and in the English version the whole form is in English, including the attachment area and the text formatting tools."
+        },
+        {
+          "type": "improved",
+          "cs": "Otázky na evidované seznamy končí spolehlivěji u dat, ne u hledání v dokumentech. Když měl asistent odpověď vzít z ceníku, registru nebo jiného evidovaného seznamu, stačila drobná odchylka v tom, jak si to sám pro sebe poznamenal, a aplikace to nepoznala – místo čtení ze seznamu pak prohledávala dokumenty a odpověď vyšla naprázdno nebo mimo. Stejná odolnost platí nově i pro rozpoznání otázek, u kterých se ve firemních dokumentech hledat vůbec nemá. Asistent se navíc nespoléhá na jediný odhad, kde odpověď leží: registrovaný seznam se čte v témže kole jako hledání v dokumentech, takže se najdou i informace, které v seznamu nejsou. A když dotaz jmenuje konkrétní soubor („co je v souboru X“), nabídne aplikace pod odpovědí tlačítko, kterým hledání ve Firemních znalostech zapnete a dotaz rovnou zopakujete – místo aby vás asistent poslal soubor nahrát.",
+          "en": "Questions about registered lists now reliably end up at the data instead of a document search. When the assistant was supposed to answer from a price list, a register or another registered list, a small variation in how it noted that down for itself was enough for the app not to recognise it — it then searched documents instead of reading the list, and the answer came out empty or off target. The same robustness now applies to recognising questions where company documents should not be searched at all. The assistant also no longer relies on a single guess about where the answer lives: a registered list is read in the same round as the document search, so information outside the list is found as well. And when a question names a specific file (“what’s in file X”), the app offers a button below the answer that switches Company knowledge on and repeats the question — instead of the assistant telling you to upload the file."
+        },
+        {
+          "type": "improved",
+          "cs": "Plovoucí asistent na stránkách a příkazy nad dokumenty v knihovnách se nově aktualizují spolu s vydáním aplikace – bez nahrávání balíčku do katalogu aplikací. Dosud zůstávaly na verzi z naposledy nahraného balíčku, takže se k nim opravy a novinky z posledních týdnů nedostaly. Jednorázově je potřeba nahrát aktualizovaný balíček do katalogu aplikací.",
+          "en": "The floating assistant on pages and the document commands in libraries now update together with the app release — without uploading a package to the app catalog. Until now they stayed at the version of the last uploaded package, so fixes and news from recent weeks never reached them. A one-time upload of the updated package to the app catalog is required."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlé hledání ⌘K je sjednocené se sdílenou knihovnou EP365 – na telefonu má vlastní tlačítko Zavřít a větší plochu pro výsledky, klávesa Esc zavírá vždy jen nejvyšší otevřenou vrstvu a počet výsledků v patičce odpovídá skutečnosti.",
+          "en": "The ⌘K quick search now shares the common EP365 component — on a phone it has its own Close button and more room for results, Esc closes only the topmost open layer, and the result count in the footer is always accurate."
+        },
+        {
+          "type": "improved",
+          "cs": "Sjednotili jsme název: centrální rozcestník, ze kterého se dědí motiv, konfigurace a další nastavení, se všude jmenuje EasyPortal 365 Workplace. Dřív se na některých místech označoval jako EP365 Homepage – šlo o tutéž věc, jen pod starším názvem.",
+          "en": "We unified the naming: the central hub that themes, configuration and other settings are inherited from is now called EasyPortal 365 Workplace everywhere. Some screens still called it EP365 Homepage — the same thing under an older name."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlejší načítání na webech, kde některé sloupce ještě nejsou doplněné: konverzace, zprávy i nastavení organizace se čtou jedním dotazem místo až sedmnácti postupných pokusů. Uložení nastavení organizace navíc už neztratí hodnoty sloupců, které na webu existují.",
+          "en": "Faster loading on sites where some columns are not yet present: conversations, messages and organisation settings are read with one request instead of up to seventeen successive attempts. Saving organisation settings also no longer loses values of columns that exist on the site."
+        },
+        {
+          "type": "improved",
+          "cs": "Knihovna promptů v Nastavení a přehled konverzací uživatelů v Dohledu si nově pamatují, kolik položek chcete na stránku – stejně jako ostatní seznamy v aplikaci. Lišta stránkování má také stejný vzhled i ovládání jako všude jinde.",
+          "en": "The prompt library in Settings and the user conversations overview in Oversight now remember how many items you want per page — just like the other lists in the app. The pagination bar also looks and behaves the same as everywhere else."
+        },
+        {
+          "type": "improved",
+          "cs": "Odpovědi napsané v postranním panelu jsou v aplikaci úplné. Nesou nově dobu zpracování i spotřebu – stejně jako odpovědi vzniklé přímo v aplikaci, se kterou panel sdílí tytéž konverzace.",
+          "en": "Answers written in the side panel are now complete inside the application. They carry the processing time and the usage — just like answers created in the application itself, with which the panel shares the same conversations."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlášky o vyčerpaném denním limitu, chybějícím přístupu a režimu jen pro čtení začínají všude stejnou větou – v plovoucím asistentovi i v aplikaci. Dosud existovaly ve třech až čtyřech zněních a jedno z nich jako jediné v celé aplikaci tykalo. Pokračování hlášky se podle místa dál liší, protože jinde má smysl poradit jinak.",
+          "en": "Messages about the daily limit, missing access and read-only mode now open with the same sentence everywhere — in the floating assistant and in the app. They used to exist in three or four different wordings. What follows that sentence still differs by place, because different situations call for different advice."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení přizná, co se mu prověřit nepodařilo. Když nešlo přečíst členy některé skupiny webu, brala to Kontrola prostředí dosud jako „nic tam není“ a web označila za web bez nálezů – přestože se do skupiny vůbec nepodívala. Nově takový web skončí jako „kontrola neúplná“ a u nálezu je napsané, kterou skupinu si máte projít ručně; vypisuje se i upozornění, že webů v rozsahu bylo víc, než kolik jedna kontrola pokryje. Stejně tak výběr webů a knihoven pro Firemní znalosti přizná, když se podweby nepodařilo vypsat – dřív se tvářil, že web žádné podweby nemá, a rozsah znalostí se pak nastavil užší, než správce zamýšlel.",
+          "en": "Settings now admit what they could not verify. When the members of one of the site groups could not be read, the environment check used to treat that as “nothing there” and marked the site as having no findings — even though it never looked inside the group. Such a site is now reported as “check incomplete”, and the finding names the group you should review by hand; the notice that the scope held more sites than a single check covers is shown as well. Likewise, the site and library picker for Company knowledge admits when subsites could not be listed — previously it looked as if the site had no subsites at all, and the knowledge scope then ended up narrower than the administrator intended."
+        },
+        {
+          "type": "fixed",
+          "cs": "Uložené nastavení se propíše spolehlivě i při několika změnách za sebou, včetně volby aktivní verze aplikace.",
+          "en": "Saved settings take effect reliably even across several changes in a row, including the choice of the active app version."
+        },
+        {
+          "type": "fixed",
+          "cs": "Karta „Správa verzí“ přizná, když zvolená verze aplikace už není dostupná, a volbu jde jedním tlačítkem zrušit; u verze aplikace v Nastavení přibyl štítek Aktuální/Zastaralé.",
+          "en": "The “Version management” card now admits when the selected app version is no longer available and lets you clear the selection with one button; the app version in Settings gained a Current/Outdated pill."
+        },
+        {
+          "type": "fixed",
+          "cs": "Asistent v postranním panelu přizná, když se nepodařilo načíst historii konverzace nebo obsah knihovny, místo aby je ukázal jako prázdné.",
+          "en": "The side panel assistant now says when the conversation history or a library could not be read, instead of showing them as empty."
+        },
+        {
+          "type": "fixed",
+          "cs": "Karta zdroje pod odpovědí panelu vede vždy na dokument, ze kterého asistent čerpal – čísla zdrojů se už nekříží mezi kontextovou zkratkou a Firemními znalostmi.",
+          "en": "The source card under a panel answer always leads to the document the assistant actually used — source numbers no longer collide between a context shortcut and Company knowledge."
+        },
+        {
+          "type": "fixed",
+          "cs": "Plovoucí asistent počítá prostor pro podklady až po přibalení obsahu stránky nebo seznamu, takže se Firemní znalosti vždy vejdou do dotazu.",
+          "en": "The floating assistant sizes the room for supporting material after attaching the page or list content, so Company knowledge always fits in the request."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odpověď rozpracovaná v plovoucím asistentovi se už nevlije do nově založené konverzace.",
+          "en": "An answer still being composed in the floating assistant no longer spills into a newly started conversation."
+        },
+        {
+          "type": "fixed",
+          "cs": "Firemní barva se propíše i do vyskakovacích oken, nadpisů, Prompt Studia, nápovědy a diagramů; popisky na barevných tlačítkách zůstávají čitelné i u světlejších odstínů.",
+          "en": "Your company colour now reaches pop-up windows, headings, Prompt Studio, help and diagrams; labels on coloured buttons stay readable on lighter shades too."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení motivu opět nabízí přepínač „Dědit globální motiv z hubu“ pro dědění společného motivu z Workplace.",
+          "en": "Theme settings offer the “Inherit global theme from hub” switch again for inheriting the shared Workplace theme."
+        },
+        {
+          "type": "fixed",
+          "cs": "Členy rolí aplikace vidí každý správce, nejen ten, kdo aplikaci nasadil; odebrání člena z role už nehlásí chybu „Unexpected end of JSON input“.",
+          "en": "Members of the app roles are visible to every administrator, not only to whoever deployed the app; removing a member from a role no longer reports “Unexpected end of JSON input”."
+        },
+        {
+          "type": "fixed",
+          "cs": "„Upravit online“ ve výpisu nalezených dokumentů funguje i v aplikaci Teams a při blokování vyskakovacích oken.",
+          "en": "Edit online in the list of found documents now works inside the Teams app and with pop-up blocking switched on."
+        },
+        {
+          "type": "fixed",
+          "cs": "Ukazatel denního limitu v levém panelu se správně vyprázdní i tam, kde správce limit zpráv vypnul.",
+          "en": "The daily limit indicator in the left panel renders correctly even where an administrator turned the message limit off."
+        },
+        {
+          "type": "fixed",
+          "cs": "Čtení webových stránek: Nastavení pojmenuje skutečnou příčinu nedostupnosti, přechodný výpadek se zkusí znovu a asistent řekne, když odkaz míří mimo povolené weby.",
+          "en": "Reading web pages: Settings names the real cause when the feature is unavailable, transient outages are retried, and the assistant says when a link points outside the allowed sites."
+        },
+        {
+          "type": "fixed",
+          "cs": "Datové seznamy: adresa zapsaná bez schématu (začínající dvěma lomítky) se nově odmítne jako cizí adresa, stejně jako kterákoli jiná mimo váš SharePoint.",
+          "en": "Data lists: an address written without a scheme (starting with two slashes) is now refused as external, like any other outside your SharePoint."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přehled zátěže API (v aplikaci EP365 Atlas) dostává z aplikace přesná čísla i při souběžné práci více uživatelů – souběžné zápisy se už nepřepisují.",
+          "en": "The API load overview (in EP365 Atlas) receives accurate figures from the app even with several users working at once — concurrent writes no longer overwrite each other."
+        },
+        {
+          "type": "improved",
+          "cs": "Roadmapa ukazuje jen to, co posuzujeme, plánujeme a na čem právě pracujeme. Dokončené požadavky už nemají vlastní sloupec – najdete je u příslušné verze v části Co je nového.",
+          "en": "The roadmap now shows only what is under review, planned and in progress. Completed requests no longer have a column of their own — you will find them under the relevant version in the What's new section."
+        },
+        {
+          "type": "fixed",
+          "cs": "Znalostní příprava odmítne dokument, který se po rozbalení nafoukne nad únosnou mez, a napíše to k němu jako důvod – dřív mohl takový soubor vyčerpat paměť služby a zdržet zpracování ostatním.",
+          "en": "Knowledge preparation now refuses a document that inflates beyond a workable size once unpacked, and records that as the reason — such a file used to be able to exhaust the service memory and hold up everyone else."
+        }
+      ]
+    },
+    {
       "version": "1.51",
       "date": "2026-08-26",
       "changes": [
