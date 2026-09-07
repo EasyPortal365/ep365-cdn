@@ -4,6 +4,22 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.53",
+      "date": "2026-09-07",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Když je v nastavení firemního vzhledu uložená neplatná barva, aplikace ji nově ignoruje a zůstane u výchozího motivu – dosud se z takové hodnoty stala černá a aplikace vypadala rozbitě.",
+          "en": "When the company appearance settings hold an invalid colour, the app now ignores it and keeps the default theme — until now such a value turned black and the app looked broken."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení aplikace je nově chráněné i na úrovni seznamu – měnit ho může správce aplikace a vlastník webu, ostatní ho jen čtou. Dřív do něj mohl zapsat každý, kdo smí upravovat obsah webu, včetně volby verze aplikace.",
+          "en": "Application settings are now protected at list level too — only the application administrator and the site owner can change them, everyone else can read. Until now anyone allowed to edit site content could write to them, including the application version choice."
+        }
+      ]
+    },
+    {
       "version": "1.52",
       "date": "2026-08-31",
       "changes": [
