@@ -9,6 +9,8 @@
 
 export const VALID_TYPES = ['new', 'improved', 'fixed'];
 
+export const CESKA_DIAKRITIKA = /[áčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]/;
+
 export function collectIssues(data, appId) {
   const out = [];
   const bad = m => out.push(m);
@@ -36,6 +38,13 @@ export function collectIssues(data, appId) {
       // uz VYDANE karty jich nesou 34 a prepis by menil text, ktery zakaznici uz videli
       // (vedome rozhodnuti, TECH-DEBT #189).
       if (typeof c.cs === 'string' && c.cs.indexOf('"') !== -1) bad('pending: cs text obsahuje ASCII uvozovku (") - v cestine patri „ “');
+      // Cesky text BEZ JEDINE diakritiky je skoro jiste psany strojem, ne clovekem: vznikne,
+      // kdyz karty generuje skript napsany v ASCII (naostro 2026-09-07, 11 karet z jedne davky).
+      // `promote-release` texty NIJAK neupravuje, takze by k zakaznikovi odesly presne takhle.
+      // Prah 40 znaku: kratky retezec diakritiku legitimne mit nemusi, veta uz prakticky vzdy ano.
+      if (typeof c.cs === 'string' && c.cs.length > 40 && !CESKA_DIAKRITIKA.test(c.cs)) {
+        bad('pending: cs text delsi nez 40 znaku nema ANI JEDNU diakritiku - generovano v ASCII?');
+      }
       if (c.since !== undefined && !/^\d+(\.\d+){1,3}$/.test(c.since)) bad('pending: since musi byt cislo tiche verze (napr. 1.9.4.5)');
     }
   }
