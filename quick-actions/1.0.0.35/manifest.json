@@ -13,7 +13,7 @@
     "scriptResources": {
       "ep-365-quick-actions-app": {
         "type": "path",
-        "path": "ep-365-quick-actions-app_11677d94d00a8cdcf9f7.js"
+        "path": "ep-365-quick-actions-app_57ccf6ba8c51d4abbb56.js"
       },
       "@microsoft/sp-http": {
         "type": "component",
