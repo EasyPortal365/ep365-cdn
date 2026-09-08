@@ -140,3 +140,8 @@ n# Knihovna pro vykreslení diagramů v našich HTML dokumentech (mermaid, OFL/M
 # Hostujeme ji sami ze stejného důvodu jako písma — dokument nemá chodit na cizí CDN.
 !lib/
 !lib/*.js
+
+# Vlastni stranky v menu appek (CRM 1.17.3.102, Nastaveni - Vlastni stranky, typ vlozena stranka z adresy):
+# staticke HTML mimo appky, cdn.easyportal365.cz/pages/<projekt>/... - ram s vlastni politikou, protoze CSP tenantu
+# (script-src bez unsafe-inline) dedi srcdoc ram a inline skripty souboru z knihovny blokuje. Zadna jmena zakazniku.
+!pages/**/*.html

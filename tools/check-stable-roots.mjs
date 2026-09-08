@@ -78,7 +78,9 @@ const PROBE_KEEP = 1;   // okno, pri kterem se obe varianty MUSI rozejit vsude, 
 // ⚠ Musi byt TOTOZNE s prune-bundles.mjs. Kdyby se rozeslo, ohlasi to zkouska
 //    chovani jako "prorez vidi jine appky nez tahle kontrola" (nize).
 const NOT_APPS = new Set(['.git', '.github', 'tools', 'licenses', 'deploy', 'brand',
-  'browser-addons', 'chat-function', 'diag', 'node_modules']);
+  'browser-addons', 'chat-function', 'diag', 'node_modules',
+  // pages/ = staticke HTML stranky pro Vlastni stranky v menu appek (CRM 1.17.3.102), zadne bundly
+  'pages']);
 
 const HASH_RE = /(?<![0-9a-f])[0-9a-f]{20}(?![0-9a-f])/g;
 const isStableRoot = f => !/_[0-9a-f]{20}\.js$/.test(f);
