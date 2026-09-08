@@ -11,6 +11,31 @@ export const VALID_TYPES = ['new', 'improved', 'fixed'];
 
 export const CESKA_DIAKRITIKA = /[áčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]/;
 
+
+/**
+ * Obraty, které v zákaznickém changelogu POJMENOVÁVAJÍ, kdo dřív mohl zapsat do dat,
+ * která teď chráníme (pokyn Kamiho 2026-09-08: „u popisu chyb buď střídmá na detaily").
+ *
+ * Proč to je pravidlo, a ne vkus: changelog appky se zobrazuje i zákazníkům, kteří na
+ * aktualizaci ještě nesáhli. Věta „dosud to mohl přepsat každý, kdo smí upravovat obsah
+ * webu" je pro ně návod, ne informace. Co platí TEĎ a kdo to smí měnit stačí — proč se to
+ * mění, patří do interní lekce, ne do karty.
+ *
+ * Hlídá se JEN pojmenování aktéra. Věta o vadě zobrazení („dosud stačilo, aby chyběla
+ * zvýrazňovací barva") nebo o seedu, který přepsal reálná data, sem NEPATŘÍ — proto je
+ * seznam úzký a nikoli generický „dosud".
+ */
+export const NAVODNE_OBRATY = ['mohl kdokoli', 'mohl zapsat', 'mohl přepsat', 'mohl je přepsat',
+  'mohl je smazat', 'kdo smí upravovat obsah webu', 'mohl se k obsahu', 'přepsat beze stopy',
+  'navýšit si tak', 'přesměrovat tak schvalování', 'mohl přečíst', 'dosud přebíraly oprávnění'];
+
+/**
+ * Vědomé výjimky (§72.6: záměrnou NEopravu napiš do kódu, ne do hlavy).
+ * `atlas 1.0` — tam „mohl je přepsat" mluví o SEEDU, který přepsal reálné nálezy,
+ * ne o člověku s nadbytečným oprávněním. Jiná třída, text zůstává.
+ */
+export const NAVODNE_VYJIMKY = [{ app: 'ep365-atlas', version: '1.0' }];
+
 export function collectIssues(data, appId) {
   const out = [];
   const bad = m => out.push(m);
@@ -45,6 +70,11 @@ export function collectIssues(data, appId) {
       if (typeof c.cs === 'string' && c.cs.length > 40 && !CESKA_DIAKRITIKA.test(c.cs)) {
         bad('pending: cs text delsi nez 40 znaku nema ANI JEDNU diakritiku - generovano v ASCII?');
       }
+      if (typeof c.cs === 'string') {
+        for (const o of NAVODNE_OBRATY) {
+          if (c.cs.indexOf(o) !== -1) bad('pending: cs text pojmenovava, kdo driv mohl zapsat ("' + o + '") - zakaznicka karta ma rikat, co plati TED');
+        }
+      }
       if (c.since !== undefined && !/^\d+(\.\d+){1,3}$/.test(c.since)) bad('pending: since musi byt cislo tiche verze (napr. 1.9.4.5)');
     }
   }
@@ -59,6 +89,12 @@ export function collectIssues(data, appId) {
       if (c.en !== undefined && typeof c.en !== 'string') bad('verze ' + e.version + ': en musi byt string');
       // em-dash v CZ textu je proti typografickemu pravidlu EP365 (patri en-dash)
       if (typeof c.cs === 'string' && c.cs.indexOf('—') !== -1) bad('verze ' + e.version + ': cs text obsahuje em-dash (—) - v cestine patri en-dash (–)');
+      const vyjimka = NAVODNE_VYJIMKY.some(v => v.app === appId && v.version === e.version);
+      if (typeof c.cs === 'string' && !vyjimka) {
+        for (const o of NAVODNE_OBRATY) {
+          if (c.cs.indexOf(o) !== -1) bad('verze ' + e.version + ': cs text pojmenovava, kdo driv mohl zapsat ("' + o + '")');
+        }
+      }
     }
   }
   return out;
