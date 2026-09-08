@@ -4,6 +4,97 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.54",
+      "date": "2026-09-08",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Chybové hlášky z Microsoft 365 nově uvádějí konkrétní důvod – aplikace už nehádá, proč se něco nepovedlo, ale ukáže, co server odpověděl.",
+          "en": "Error messages from Microsoft 365 now state the actual reason — the app no longer guesses why something failed, it shows what the server replied."
+        },
+        {
+          "type": "fixed",
+          "cs": "Šablony Word se kontrolují na velikost už z hlavičky souboru, ještě než se rozbalí – nepřiměřeně velká nebo poškozená šablona vrátí srozumitelnou hlášku místo zamrznuté karty.",
+          "en": "Word templates are size-checked from the file header before they are unpacked — an oversized or corrupt template returns a clear message instead of a frozen card."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení ukazovalo u hloubky kontextu hodnotu, kterou aplikace ve skutečnosti nepoužívala – u nuly hlásilo „0 zpráv“ a přitom se posílalo 10.",
+          "en": "Settings showed a context depth the app did not actually use — zero was displayed as ’0 messages’ while 10 were being sent."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se data nepodařilo načíst, aplikace to říká i u čísel a prázdných seznamů – místo nuly ukáže „?“ nebo pomlčku a místo „nic tu není“ napíše, že se to nepovedlo přečíst.",
+          "en": "When data could not be loaded, the app says so on counters and empty lists too — a question mark or dash instead of zero, and an explanation instead of ’nothing here’."
+        },
+        {
+          "type": "improved",
+          "cs": "Plovoucí widget na webech, kde AI Asistent není nasazený, už nenačítá nastavení při každém přechodu mezi stránkami – na takových webech ubyla zbytečná volání.",
+          "en": "On sites where the assistant is not deployed, the floating widget no longer reads its settings on every page transition — unnecessary calls on those sites are gone."
+        },
+        {
+          "type": "fixed",
+          "cs": "Kontextový pruh plovoucího widgetu ukazuje aktuální počet položek knihovny i na stránce, kde právě nahráváte soubory.",
+          "en": "The floating widget context bar shows the current library item count even on a page where you are uploading files."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se při ukládání nastavení nepodaří načíst aktuální stav, uložení se zastaví a řekne to – dřív mohlo tiše přepsat změnu jiného správce a přesto hlásit „Uloženo“.",
+          "en": "If the current state cannot be read while saving settings, the save now stops and says so — previously it could silently overwrite another admin’s change and still report success."
+        },
+        {
+          "type": "fixed",
+          "cs": "Ukázková data se nenahrají podruhé – dřív mohl vzniknout druhý soubor a asistent pak citoval tentýž dokument dvakrát.",
+          "en": "Sample data is no longer uploaded twice — a duplicate file could appear and the assistant then cited the same document twice."
+        },
+        {
+          "type": "fixed",
+          "cs": "Doplnění sloupce pomocí AI už nepřepíše u dokumentů „Změněno“ a „Změnil“, nová knihovna nevznikne s dvojitými sloupci a dokončené kapitoly průvodce se neztratí.",
+          "en": "Filling a column with AI no longer overwrites the Modified and Modified By fields, a new library is not created with duplicated columns, and completed guide chapters are not lost."
+        },
+        {
+          "type": "fixed",
+          "cs": "Duplikování konverzace se nespustí dvakrát. Rychlé dvojité kliknutí dosud stihlo založit dvě kopie – nově je zámek okamžitý. A když se některé zprávy do kopie nepodaří přenést, aplikace to řekne, místo aby se neúplná kopie tvářila jako hotová.",
+          "en": "Duplicating a conversation no longer runs twice. A quick double click could previously create two copies — the lock is now immediate. And if some messages cannot be copied over, the app says so instead of presenting an incomplete copy as finished."
+        },
+        {
+          "type": "fixed",
+          "cs": "Skupiny oprávnění se při dočasném výpadku SharePointu už nezakládají naslepo. Dosud mohla neúspěšná kontrola vést k pokusu o vytvoření skupiny, která už existovala – a role se jí pak nepřiřadila. Nyní se v takové chvíli nesahá na nic a vše se dorovná při dalším otevření aplikace.",
+          "en": "Permission groups are no longer created blindly during a temporary SharePoint outage. A failed check could previously lead to an attempt to create a group that already existed — and the role was then not assigned to it. Nothing is touched in that situation now, and everything is reconciled the next time the app opens."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se nepodaří načíst nabídku k výběru – hledání osoby, skupiny nebo číselník – aplikace to řekne místo aby napsala „nikdo nenalezen“. Prázdná nabídka z výpadku totiž vypadá stejně jako skutečně prázdný výsledek a svádí k tomu založit záznam, který už existuje.",
+          "en": "When a picker fails to load — a person or group search, or a lookup list — the app says so instead of reporting that nothing was found. An empty list caused by an outage looks exactly like a genuinely empty result and invites creating a record that already exists."
+        },
+        {
+          "type": "fixed",
+          "cs": "Asistent se přestal ptát na volitelné sloupce u knihoven, které je nemají – jedna otázka dřív vyrobila desítky zbytečných dotazů a konzole prohlížeče se zaplnila chybami, které nic neznamenaly.",
+          "en": "The assistant no longer asks for optional columns on libraries that do not have them — a single question previously produced dozens of pointless requests and filled the browser console with errors that meant nothing."
+        },
+        {
+          "type": "fixed",
+          "cs": "Diagnostické okno se samo vypne po dvanácti hodinách a jde zavřít tlačítkem „Vypnout“. Dosud zůstávalo zapnuté i týdny po ladění a vyskakovalo, aniž by se dalo poznat proč.",
+          "en": "The diagnostics overlay now switches itself off after twelve hours and can be dismissed with a button. Until now it stayed on for weeks after troubleshooting and appeared with no way to tell why."
+        },
+        {
+          "type": "fixed",
+          "cs": "Seznam, na který nemáte oprávnění, už aplikace nepovažuje za chybějící. Běžným uživatelům tím zmizely opakované chyby při načítání a aplikace startuje rychleji.",
+          "en": "A list you do not have permission to read is no longer treated as missing. Repeated errors during loading are gone for regular users and the app starts faster."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když aplikace přihlášení k AI službě vůbec nezkouší, řekne to teď v diagnostice. Dřív se to nedalo odlišit od odmítnutého přihlášení, protože obě cesty končily stejnou hláškou.",
+          "en": "When the app does not even attempt to sign in to the AI service, diagnostics now say so. Until now this was indistinguishable from a rejected sign-in, because both ended with the same message."
+        },
+        {
+          "type": "fixed",
+          "cs": "Plovoucí widget se u AI služby přihlašuje stejně jako aplikace na stránce. Dosud volal bez přihlášení, a když služba přihlášení vyžadovala, hlásil chybu tokenu.",
+          "en": "The floating widget signs in to the AI service the same way the in-page app does. Until now it called without signing in, and when the service required it, reported a token error."
+        }
+      ]
+    },
+    {
       "version": "1.53",
       "date": "2026-09-07",
       "changes": [
@@ -14,8 +105,8 @@
         },
         {
           "type": "improved",
-          "cs": "Nastavení aplikace je nově chráněné i na úrovni seznamu – měnit ho může správce aplikace a vlastník webu, ostatní ho jen čtou. Dřív do něj mohl zapsat každý, kdo smí upravovat obsah webu, včetně volby verze aplikace.",
-          "en": "Application settings are now protected at list level too — only the application administrator and the site owner can change them, everyone else can read. Until now anyone allowed to edit site content could write to them, including the application version choice."
+          "cs": "Nastavení aplikace je nově chráněné i na úrovni seznamu – měnit ho může správce aplikace a vlastník webu, ostatní ho jen čtou.",
+          "en": "Application settings are now protected at list level as well — the application administrator and the site owner can change them, everyone else has read-only access."
         }
       ]
     },
@@ -60,8 +151,8 @@
         },
         {
           "type": "improved",
-          "cs": "Konverzace, zápisy ze schůzek i auditní stopa jsou nově chráněné oprávněními SharePointu, ne jen nastavením aplikace. Seznamy, do kterých asistent ukládá vaše konverzace, projekty, osobní nastavení a zápisy ze schůzek, dosud přebíraly oprávnění celého webu – a protože běžný člen týmového webu smí v SharePointu spravovat seznamy, mohl se k obsahu ostatních dostat mimo aplikaci. Každý z těchto seznamů má teď vlastní oprávnění: každý vidí a mění jen své vlastní záznamy. Totéž platí pro osobní šablony promptů – ukládají se do vlastního seznamu, do kterého vidí jen jejich autor; dosud stačilo, aby kolega otevřel seznam přímo v SharePointu, a vaše uložené prompty si přečetl. Sdílené šablony webu mají také vlastní seznam a upravit je smí jen správce aplikace – znění, které se dostává asistentovi celé organizace, tedy nikdo jiný nepřepíše. Pozor: sdílené šablony založené před touto aktualizací se do nového seznamu nepřenášejí a je potřeba je vytvořit znovu. Auditní záznamy o hledání ve firemních znalostech smí nově každý pouze přidávat, ne měnit ani mazat, a do nastavení aplikace i do sdílených šablon dokumentů zapisuje výhradně správce. Zpevnění provede aplikace sama, jakmile ji v prohlížeči poprvé otevře správce s úplným řízením webu. Pro správce se tím mění i dohled nad konverzacemi uživatelů: otevřít ho může jen člen skupiny „Vlastníci webu“ nebo správce kolekce webů – ostatním aplikace rovnou napíše, že vidí pouze své konverzace.",
-          "en": "Conversations, meeting notes and the audit trail are now protected by SharePoint permissions, not only by application settings. The lists where the assistant stores your conversations, projects, personal settings and meeting notes used to take their permissions from the whole site — and because an ordinary member of a team site is allowed to manage lists in SharePoint, they could reach other people’s content outside the application. Each of these lists now has its own permissions: everyone sees and changes only their own records. The same applies to personal prompt templates — they are stored in their own list that only their author can read; until now a colleague could simply open the list in SharePoint and read your saved prompts. Shared site templates get their own list too and only an application administrator may edit them, so the wording that reaches the whole organisation’s assistant cannot be overwritten by anyone else. Note: shared templates created before this update are not carried over to the new list and need to be created again. Audit records of company knowledge searches can now only be added, not edited or deleted, and application settings and shared document templates are written by an administrator only. The application applies the change itself as soon as an administrator with full control of the site opens it in a browser. One thing changes for administrators as well: oversight of user conversations can be opened only by a member of the “Site owners” group or by a site collection administrator — everyone else is told straight away that they are seeing their own conversations only."
+          "cs": "Konverzace, zápisy ze schůzek i auditní stopa jsou nově chráněné oprávněními SharePointu, ne jen nastavením aplikace. Každý z těchto seznamů má vlastní oprávnění: každý vidí a mění jen své vlastní záznamy. Totéž platí pro osobní šablony promptů – ukládají se do vlastního seznamu, do kterého vidí jen jejich autor. Sdílené šablony webu mají také vlastní seznam a upravit je smí jen správce aplikace. Pozor: sdílené šablony založené před touto aktualizací se do nového seznamu nepřenášejí a je potřeba je vytvořit znovu. Auditní záznamy o hledání ve firemních znalostech smí nově každý pouze přidávat, ne měnit ani mazat, a do nastavení aplikace i do sdílených šablon dokumentů zapisuje výhradně správce. Zpevnění provede aplikace sama, jakmile ji v prohlížeči poprvé otevře správce s úplným řízením webu. Pro správce se tím mění i dohled nad konverzacemi uživatelů: otevřít ho může jen člen skupiny „Vlastníci webu“ nebo správce kolekce webů – ostatním aplikace rovnou napíše, že vidí pouze své konverzace.",
+          "en": "Conversations, meeting notes and the audit trail are now protected by SharePoint permissions, not only by application settings. Each of these lists has its own permissions: everyone sees and changes only their own records. The same applies to personal prompt templates — they are stored in their own list, visible only to their author. Shared site templates also have their own list and only the application administrator may edit them. Please note: shared templates created before this update are not migrated to the new list and need to be created again. Audit records of searches in company knowledge can now only be added, not changed or deleted, and only an administrator writes to application settings and shared document templates. The app applies the hardening itself the first time an administrator with full control of the site opens it in a browser. This also changes oversight of user conversations for administrators: only a member of the Site Owners group or a site collection administrator can open it — everyone else is told directly that they see only their own conversations."
         },
         {
           "type": "improved",
