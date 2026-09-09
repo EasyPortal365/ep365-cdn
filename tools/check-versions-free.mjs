@@ -23,6 +23,7 @@
  *
  * Exit 1 = aspoň jedna appka by publikovala do existující verze.
  */
+import os from 'node:os';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -47,6 +48,27 @@ if (!repos.length) {
 
 let nalezu = 0;
 let overeno = 0;
+/**
+ * PROTIPŘÍKLAD (`--selftest`): rozhodovací pravidlo se pustí nad podvrženým stromem
+ * v TEMPu — jednou s obsazenou verzí (musí hlásit nález) a jednou s volnou (nesmí).
+ * Bez druhé půlky by tvrzení prošlo i strážci, který hlásí nález vždycky.
+ */
+function obsazena(dirCdn, app, verze) {
+  return fs.existsSync(path.join(dirCdn, app, verze));
+}
+
+if (process.argv.indexOf('--selftest') !== -1) {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'vf-'));
+  fs.mkdirSync(path.join(tmp, 'demo', '1.2.3.4'), { recursive: true });
+  let chyb = 0;
+  if (!obsazena(tmp, 'demo', '1.2.3.4')) { console.error('  x  selftest: obsazenou verzi NENASEL'); chyb++; }
+  if (obsazena(tmp, 'demo', '1.2.3.5')) { console.error('  x  selftest: volnou verzi oznacil za obsazenou'); chyb++; }
+  if (obsazena(tmp, 'jina', '1.2.3.4')) { console.error('  x  selftest: plete si appky'); chyb++; }
+  fs.rmSync(tmp, { recursive: true, force: true });
+  console.log(chyb ? 'check-versions-free --selftest: SELHAL' : 'check-versions-free --selftest: OK (3 tvrzeni vcetne obou polarit)');
+  process.exit(chyb ? 1 : 0);
+}
+
 const radky = [];
 
 for (const repo of repos) {
@@ -64,7 +86,7 @@ for (const repo of repos) {
     radky.push('  -  ' + repo.padEnd(24) + verze.padEnd(12) + 'na CDN jeste neni zadna verze (prvni vydani)');
     continue;
   }
-  if (fs.existsSync(path.join(dir, verze))) {
+  if (obsazena(CDN, cdnDir(repo), verze)) {
     nalezu++;
     radky.push('  X  ' + repo.padEnd(24) + verze.padEnd(12) + 'UZ NA CDN JE — publikace by prepsala vydany build');
   } else {

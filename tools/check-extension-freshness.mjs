@@ -30,6 +30,24 @@ const HASH = /^(.*)_[0-9a-f]{20}\.js$/;
 
 const md5 = p => createHash('md5').update(readFileSync(p)).digest('hex');
 
+/**
+ * PROTIPŘÍKLAD (`--selftest`): rozpoznání hashovaného jména je celé měřidlo —
+ * kdyby vzor přestal sedět, vyšlo by „0 stabilnich bundlu" a to je (od #325) chyba.
+ * Test proto ověří obě polarity vzoru i to, že stabilní jméno hashem NENÍ.
+ */
+if (process.argv.indexOf('--selftest') !== -1) {
+  let chyb = 0;
+  const hash = 'ep-365-ai-chat-widget_0a8fd1ad5fe589aa663b.js';
+  const stabil = 'ep-365-ai-chat-widget.js';
+  if (!HASH.test(hash)) { console.error('  x  selftest: hashovane jmeno neprošlo vzorem'); chyb++; }
+  if (HASH.test(stabil)) { console.error('  x  selftest: stabilni jmeno oznaceno za hashovane'); chyb++; }
+  const m = HASH.exec(hash);
+  if (!m || m[1] !== 'ep-365-ai-chat-widget') { console.error('  x  selftest: zaklad jmena se nevytahl spravne'); chyb++; }
+  if (HASH.test('ep-365-ai-chat-widget_kratky.js')) { console.error('  x  selftest: vzor pousti i nehexa hash'); chyb++; }
+  console.log(chyb ? 'check-extension-freshness --selftest: SELHAL' : 'check-extension-freshness --selftest: OK (4 tvrzeni vcetne obou polarit)');
+  process.exit(chyb ? 1 : 0);
+}
+
 const appky = readdirSync(ROOT, { withFileTypes: true })
   .filter(d => d.isDirectory() && d.name.charAt(0) !== '.' && d.name !== 'tools' && d.name !== 'pages')
   .map(d => d.name).sort();
