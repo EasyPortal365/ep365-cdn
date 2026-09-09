@@ -4,6 +4,52 @@
   "name": "EP365 Quick Actions",
   "entries": [
     {
+      "version": "1.1",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Odeslání e-mailem se ptá, kde chcete zprávu otevřít – v poštovním programu na počítači, nebo v prohlížeči; volba se pamatuje. V počítači se buď rovnou otevře nový e-mail s odkazem ve vašem Outlooku, nebo se stáhne rozepsaná zpráva i s připojeným dokumentem až do 15 MB, kterou Outlook otevře jako nový e-mail – bez schvalování oprávnění správcem. V prohlížeči zůstává dosavadní cesta přes Outlook na webu, tedy odkaz vždy a příloha do 3 MB po schválení oprávnění. Nic se neodesílá samo, odeslání je pořád na vás.",
+          "en": "Sending by e-mail now asks where you want to open the message — in the desktop mail client or in the browser; the choice is remembered. On the desktop it either opens a new e-mail with the link in your Outlook, or downloads a prepared message with the document attached (up to 15 MB) that Outlook opens as a new e-mail — with no administrator consent needed. In the browser the existing path through Outlook on the web stays: always a link, attachments up to 3 MB after consent. Nothing is sent automatically; sending is still up to you."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odesílání do Řízených dokumentů je spolehlivější. Dokument se přiřadí tomu, kdo ho poslal, akce míří vždy na tu instalaci Řízených dokumentů, která patří k webu, odkud dokument odchází, a krátký výpadek už ji nenechá na deset minut zmizet z nabídky. Když se nepodaří ověřit oprávnění k publikaci, akce v nabídce zůstane a řekne to – dřív zmizela bez vysvětlení.",
+          "en": "Sending to Controlled documents is more reliable. A document is attributed to whoever sent it, the action always targets the Controlled documents installation belonging to the site the document comes from, and a brief outage no longer makes it disappear from the menu for ten minutes. When publishing permissions cannot be verified, the action stays in the menu and says so — it used to vanish without explanation."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rozdělaná akce nezmizí uprostřed práce. Dialog Oprávnění, okno Odeslat do Řízených dokumentů ani panel akce se během probíhající změny nezavřou klávesou Esc ani kliknutím vedle okna.",
+          "en": "Work in progress no longer disappears. The Permissions dialog, the Send to Controlled documents window and the action panel no longer close on Esc or a click outside while a change is running."
+        },
+        {
+          "type": "fixed",
+          "cs": "Kontrola citlivých údajů říká pravdu o tom, co prohlédla. Nad více vybranými soubory projde skutečně všechny dokumenty (limit třiceti se dosud počítal jinak), spustí se teprve tehdy, když je jisté, zda je k dispozici firemní slovník výrazů – dřív mohla proběhnout bez něj a výsledek „nic nenalezeno“ pak znamenal jen to, že se slovník nestihl načíst. Dokument, který se po rozbalení nafoukne nad únosnou mez, kontrola i porovnání verzí odmítnou s vlastní hláškou místo toho, aby zablokoval celou záložku prohlížeče.",
+          "en": "The sensitive data check tells the truth about what it examined. Across several selected files it really goes through all documents (the limit of thirty used to be counted differently), and it starts only once it is certain whether the company term dictionary is available — it could previously run without it, so a result of nothing found merely meant the dictionary had not loaded in time. A document that expands beyond a reasonable size when unpacked is now rejected by both the check and version comparison with its own message, instead of freezing the whole browser tab."
+        },
+        {
+          "type": "fixed",
+          "cs": "Uložené nastavení se propíše spolehlivě i při několika změnách za sebou. Aplikace ověřovala stav dotazem, na který jí prohlížeč mohl odpovědět ze své paměti – tedy stavem před uložením. Kvůli tomu mohla ohlásit neúspěch u něčeho, co proběhlo, nebo číst jiný řádek nastavení, než do kterého zapisuje; týkalo se to i volby aktivní verze aplikace. Nejvíc to bylo znát v dialogu Oprávnění, kde se po každé změně tabulka načítala znovu s příslibem, že ukazuje skutečný stav.",
+          "en": "Saved settings are written through reliably even with several changes in a row. The app verified the state with a query the browser could answer from its own memory — that is, with the state from before saving. It could therefore report failure for something that succeeded, or read a different settings row than the one it writes to; this affected the choice of the active application version as well. It showed most in the Permissions dialog, where the table reloaded after every change promising to show the real state."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlé akce méně zatěžují SharePoint a po sobě uklízejí. Nabídka u dokumentu už nesleduje pohyb myši, dokud není otevřená, kontrola nad složkou zpracuje víc souborů najednou, porovnání verzí stahuje obě verze současně. Rozšíření navíc maže prošlé záznamy v úložišti prohlížeče – dosud si pro každý navštívený web ukládalo jeden, který se nikdy nesmazal, a po stovkách webů se tiše ztrácely uložené volby.",
+          "en": "Quick actions put less load on SharePoint and clean up after themselves. The document menu no longer tracks mouse movement until it is opened, a folder check processes more files at once, and version comparison downloads both versions in parallel. The extension also deletes expired records from browser storage — it used to keep one per visited site that was never removed, and after hundreds of sites saved choices were quietly lost."
+        },
+        {
+          "type": "improved",
+          "cs": "Zpřísnili jsme kontrolu adres, na které se dá kliknout. Odkaz s neplatnou nebo nedůvěryhodnou adresou se nezobrazí jako klikatelný – adresa zůstane vidět jako text, takže o informaci nepřijdete. Tlačítko Zrušit odkaz v dialogu Oprávnění navíc zvládne i sdílecí odkazy, které SharePoint popisuje jinou dvojicí údajů.",
+          "en": "We have tightened the check on addresses you can click. A link with an invalid or untrusted address is no longer rendered as clickable — the address stays visible as text, so you do not lose the information. The Remove link button in the Permissions dialog also handles sharing links that SharePoint describes with a different pair of values."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozšíření startuje spolehlivěji. Seznam, na který nemáte oprávnění, už nepovažuje za chybějící, při dočasném výpadku SharePointu nezakládá své seznamy naslepo a nepřepne se na nejnovější verzi místo té, kterou jste zvolili – použije poslední známou volbu.",
+          "en": "The extension starts more reliably. A list you lack permission to read is no longer treated as missing, during a temporary SharePoint outage it does not create its lists blindly, and it does not switch to the newest version instead of the one you selected — it uses the last known choice."
+        }
+      ]
+    },
+    {
       "version": "1.0",
       "date": "2026-08-19",
       "changes": [
