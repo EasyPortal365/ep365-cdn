@@ -4,6 +4,67 @@
   "name": "EP365 Moje dokumenty",
   "entries": [
     {
+      "version": "1.4",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Soukromí. Osobní sady typů, vlastní pravidla ukládání i oblíbená místa jsou nově opravdu soukromé – vidí a mění je jen jejich majitel. Firemní písma se navíc načítají z naší distribuční sítě místo z Google Fonts: dosud si je prohlížeč každého uživatele stahoval přímo od Googlu, kterému tím odcházela IP adresa a údaje o prohlížeči. Při práci s aplikací tak neodchází žádné spojení mimo Microsoft a EasyPortal 365.",
+          "en": "Privacy. Personal type sets, custom saving rules and favourite places are now genuinely private — only their owner sees and changes them. Corporate fonts also load from our own distribution network instead of Google Fonts: until now every user’s browser downloaded them straight from Google, which received their IP address and browser details. No connection now leaves Microsoft and EasyPortal 365 while you work with the app."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nic, co nezjistila. Když se nepodaří něco načíst – vaši roli, nastavení, nabídku k výběru, počet dokumentů čekajících na seznámení – řekne to místo toho, aby ukázala nulu, prázdný seznam nebo odmítnutí s nepravdivým důvodem. Průvodce uložením i karta Správa verzí to nově přiznají také, a když zvolená verze na serveru chybí, aplikace se přesto spustí a vysvětlí proč.",
+          "en": "The app no longer claims anything it has not determined. When something cannot be loaded — your role, settings, a picker list, the number of documents awaiting acknowledgement — it says so instead of showing a zero, an empty list or a refusal with an untrue reason. The saving wizard and the Version management card now admit it too, and when the selected version is missing on the server the app still starts and explains why."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení a oprávnění se propíšou spolehlivě i při několika změnách za sebou. Aplikace ověřovala stav dotazem, na který jí prohlížeč mohl odpovědět ze své paměti – tedy stavem před uložením – takže povedený i nepovedený zápis vypadaly stejně. Okno s oprávněními dokumentu teď ukazuje po každé změně čerstvě načtený stav, nastavení se nemůže přepsat výchozími hodnotami a pevně zvolenou verzi aplikace nově přepíše kterýkoli její správce, ne jen ten, kdo volbu zapsal jako první.",
+          "en": "Settings and permissions are written through reliably even with several changes in a row. The app verified the state with a query the browser could answer from its own memory — the state from before saving — so a successful and an unsuccessful write looked the same. The document permissions window now shows a freshly loaded state after every change, settings cannot be overwritten with defaults, and the pinned application version can now be changed by any of its administrators, not only whoever wrote the choice first."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rozdělaná práce nezmizí uprostřed. Okna, ve kterých právě něco probíhá – zakládání a přejmenování složky, přesun dokumentu, ukládání typu nebo cíle v Mých sadách – se nedají zavřít klávesou Esc ani kliknutím vedle.",
+          "en": "Work in progress no longer disappears halfway. Windows with something running — creating and renaming a folder, moving a document, saving a type or target in My sets — can no longer be closed with Esc or a click outside."
+        },
+        {
+          "type": "fixed",
+          "cs": "Seznamy se načítají celé a hlavička se aktualizuje hned. Číselník typů, pravidla ukládání i Přehled využití se dosud četly po částech a delší seznam mohl přijít useknutý. Hlavička knihovny a počty u složek se navíc obnoví ihned po nahrání nebo smazání souboru.",
+          "en": "Lists load in full and the header updates immediately. The type list, saving rules and the Usage overview used to be read in parts, so a longer list could arrive truncated. The library header and folder counts also refresh right after a file is uploaded or deleted."
+        },
+        {
+          "type": "improved",
+          "cs": "Na telefonu se aplikace ovládá stejně jako ostatní aplikace EP365 – spodní lišta má nově i tlačítko Hledat. Přechod do Řízených dokumentů po odeslání dokumentu do fronty publikace funguje i v aplikaci Teams.",
+          "en": "On phones the app is operated like every other EP365 app — the bottom bar now includes a Search button. Moving to Controlled documents after sending a document to the publishing queue also works inside the Teams app."
+        },
+        {
+          "type": "improved",
+          "cs": "Vzhled a ovládání sedí se zbytkem EasyPortal 365. Záhlaví tabulky v přehledu dokumentů vypadá jako v ostatních aplikacích, typ i pravidlo otevřete klikem kamkoli na řádek (tužka v řádku už není potřeba), firemní barvy platí i v interaktivním průvodci a propíšou se i tehdy, když je ve Workplace nastavená jen hlavní barva bez doplňkové. E-maily, které aplikace posílá, se navíc správně zobrazí i v Outlooku.",
+          "en": "Look and handling match the rest of EasyPortal 365. The table header in the document overview looks like in the other apps, a type or rule opens by clicking anywhere on the row (the pencil is no longer needed), corporate colours apply in the interactive guide too and carry over even when only the primary colour is set in Workplace without a secondary one. E-mails the app sends also display correctly in Outlook."
+        },
+        {
+          "type": "improved",
+          "cs": "Zpřísnili jsme, co aplikace pustí dál. Odkaz s neplatnou nebo nedůvěryhodnou adresou se nezobrazí jako klikatelný – adresa zůstane vidět jako text. Kontrola citlivých údajů i porovnání verzí odmítnou dokument, který se po rozbalení nafoukne nad únosnou mez, místo aby zablokoval záložku prohlížeče. Pomocné seznamy aplikace navíc zůstanou skryté v Obsahu webu i tehdy, když aplikaci po nasazení otevře jako první běžný uživatel.",
+          "en": "We have tightened what the app lets through. A link with an invalid or untrusted address is no longer rendered as clickable — the address stays visible as text. The sensitive data check and version comparison reject a document that expands beyond a reasonable size when unpacked, instead of freezing the browser tab. The app’s helper lists also stay hidden in Site contents even when a regular user is the first to open the app after deployment."
+        },
+        {
+          "type": "fixed",
+          "cs": "Stahování a nahrávání dávají zpětnou vazbu. Stažení více dokumentů už neblokuje prohlížeč, a když přetáhnete víc souborů, než aplikace zvládne najednou, okno Uložit sem i první krok průvodce to řeknou místo tichého ořezu.",
+          "en": "Downloading and uploading give feedback. Downloading several documents no longer blocks the browser, and when you drag in more files than the app can handle at once, both the Save here window and the wizard’s first step say so instead of silently trimming the list."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace startuje spolehlivěji. Seznam, na který nemáte oprávnění, už nepovažuje za chybějící, při dočasném výpadku SharePointu nezakládá své seznamy naslepo a nepřepne se na nejnovější verzi místo té, kterou jste zvolili – použije poslední známou volbu.",
+          "en": "The app starts more reliably. A list you lack permission to read is no longer treated as missing, during a temporary SharePoint outage it does not create its lists blindly, and it does not switch to the newest version instead of the one you selected — it uses the last known choice."
+        },
+        {
+          "type": "improved",
+          "cs": "Sjednotili jsme název: centrální rozcestník, ze kterého se dědí motiv i konfigurace, se všude jmenuje EasyPortal 365 Workplace (dříve místy EP365 Homepage). Roadmapa ukazuje jen to, co posuzujeme, plánujeme a na čem pracujeme; dokončené požadavky najdete u příslušné verze v části Co je nového. A když se hlášení chyby nebo nápadu nepodaří odeslat přímo z aplikace, uvidíte technický detail toho, co Microsoft 365 odpověděl.",
+          "en": "We have unified the naming: the central hub from which the theme and configuration are inherited is called EasyPortal 365 Workplace everywhere (previously EP365 Homepage in places). The roadmap shows only what is under review, planned and in progress; completed requests appear with their version under What’s new. And when a bug report or idea cannot be sent straight from the app, you see the technical detail of what Microsoft 365 replied."
+        }
+      ]
+    },
+    {
       "version": "1.3",
       "date": "2026-08-30",
       "changes": [
