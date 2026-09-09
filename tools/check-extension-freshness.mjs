@@ -34,7 +34,7 @@ const appky = readdirSync(ROOT, { withFileTypes: true })
   .filter(d => d.isDirectory() && d.name.charAt(0) !== '.' && d.name !== 'tools' && d.name !== 'pages')
   .map(d => d.name).sort();
 
-let radku = 0, zastaralych = 0, bezOtisku = 0;
+let radku = 0, zastaralych = 0, bezOtisku = 0, chybiOtisk = 0;
 console.log('');
 console.log('  soubor'.padEnd(46) + 'obsahuje build'.padEnd(16) + 'novejsich'.padEnd(11) + (CAP ? 'otisk' : ''));
 console.log('  ' + '-'.repeat(CAP ? 84 : 72));
@@ -68,6 +68,7 @@ for (const app of appky) {
       // Cejchovani: kdyz otisk neni ani v nejnovejsim buildu, meridlo o schopnosti nic netvrdi.
       otisk = !vNejnovejsim ? 'NEMERITELNY (ani v nejnovejsim)' : (vSouboru ? 'JE' : 'CHYBI');
       if (!vNejnovejsim) bezOtisku++;
+      else if (!vSouboru) chybiOtisk++;
     }
 
     radku++;
@@ -77,6 +78,14 @@ for (const app of appky) {
   }
 }
 
+// Meridlo, ktere nenaslo ANI JEDEN kandidat, netvrdi „je cisto" — tvrdi „nemerilo jsem".
+// Regex ceka presne 20 hex znaku v hashi; zmena vzoru nebo prejmenovani slozky appky by
+// jinak vyrobily trvale zelenou zpravu a lekce 40.14 by prestala byt hlidana.
+if (radku === 0) {
+  console.error('');
+  console.error('  CHYBA: nenasel jsem ANI JEDEN stabilni bundle rozsireni — meridlo je rozbite, ne CDN cista.');
+  process.exit(1);
+}
 console.log('');
 console.log('  ' + radku + ' stabilnich bundlu rozsireni, ' + zastaralych + ' pozadu za nejnovejsim publikovanym buildem.');
 if (zastaralych) {
@@ -87,3 +96,14 @@ if (CAP && bezOtisku) {
   console.log('  POZOR: u ' + bezOtisku + ' bundlu neni otisk ani v nejnovejsim buildu - meridlo o nich nic netvrdi.');
 }
 console.log('');
+// S `--capability` je vysledek TVRZENI, ne prehled: chybejici otisk v tom, co se servíruje,
+// i nemeritelny otisk (neni ani v nejnovejsim buildu) musi zastavit automat.
+// Otisk plati PER BUNDLE, ne globalne: widget nese jinou pulku kontraktu nez command set,
+// takze „neni v nejnovejsim buildu" je u ciziho bundlu legitimni odpoved, ne nalez.
+// Tvrdou chybou jsou proto jen dve situace:
+//   a) otisk JE v nejnovejsim buildu, ale v servirovanem souboru CHYBI — oprava nedojela,
+//   b) otisk neni MERITELNY NIKDE — volajici zadal retezec, ktery v zadnem buildu neni.
+if (CAP) {
+  if (chybiOtisk) { console.error('  CHYBA: ' + chybiOtisk + ' servirovanych bundlu otisk nema, prestoze v nejnovejsim buildu je — oprava se k uzivatelum nedostala.'); process.exit(1); }
+  if (bezOtisku === radku) { console.error('  CHYBA: otisk "' + CAP + '" neni ani v jednom nejnovejsim buildu — meridlo netvrdi nic.'); process.exit(1); }
+}

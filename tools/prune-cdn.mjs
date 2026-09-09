@@ -118,6 +118,10 @@ function krok(nazev, tool, argy, { povinnyUspech = true } = {}) {
 const patternArg = PATTERNS.length ? ['--protect-patterns', PATTERNS.join(',')] : [];
 krok('1/5 kontrola stabilnich koreni (loader + bundly rozsireni) - par. 23.8/23.10', 'check-stable-roots.mjs', ['--keep', String(KEEP_BUNDLES)].concat(patternArg));
 krok('2/5 kontrola pin guardu (protipriklad) - #250', 'check-pin-guard.mjs', []);
+// Jmena zakazniku ve VEREJNEM `pages/` (#325): strazce existoval, ale nevolal ho nikdo -
+// v publikacnich skriptech byl jen v komentari. Prorez je jediny krok, ktery nad timhle
+// repem bezi pravidelne, takze brana patri sem.
+krok('2b/5 kontrola verejnych stranek (zakazane retezce)', 'check-public-pages.mjs', []);
 
 // --------------------------------------------------------------- 3.-4. rez ---
 const protectArg = PROTECT.length ? ['--protect', PROTECT.join(',')] : [];

@@ -36,10 +36,12 @@ if (!Array.isArray(vzorky) || vzorky.length === 0) {
   process.exit(2);
 }
 
-if (!fs.existsSync(PAGES)) {
-  console.log('check-public-pages: slozka pages/ neexistuje — neni co merit.');
-  process.exit(0);
-}
+// Korpus se NEVAZE na jmeno slozky (#325). Drive se meril jen `pages/`; ta v repu dnes
+// neni, takze strazce hlasil OK a netvrdil nic - a po presunu HTML jinam by oslepl stejne.
+// Bereme proto vsechny textove soubory MIMO verzovane adresare `<app>/<verze>/`, tedy
+// presne to, co na CDN lezi verejne a NEprochazi guardem v publish-cdn.ps1.
+const TEXTOVE = ['.html', '.htm', '.md', '.txt', '.json', '.css', '.svg'];
+const VERZE = /^d+(.d+){1,3}$/;
 
 function souboryPod(dir) {
   const out = [];
@@ -51,7 +53,25 @@ function souboryPod(dir) {
   return out;
 }
 
-const soubory = souboryPod(PAGES);
+function korpusMimoVerze(dir, hloubka) {
+  const out = [];
+  let polozky;
+  try { polozky = fs.readdirSync(dir, { withFileTypes: true }); } catch (e) { return out; }
+  polozky.forEach((d) => {
+    if (d.name.charAt(0) === '.' || d.name === 'node_modules' || d.name === 'tools') return;
+    const p = path.join(dir, d.name);
+    if (d.isDirectory()) {
+      // `<app>/<verze>/` uz proveril publish-cdn.ps1 pri nahravani - sem nepatri.
+      if (hloubka === 1 && VERZE.test(d.name)) return;
+      out.push.apply(out, korpusMimoVerze(p, hloubka + 1));
+      return;
+    }
+    if (TEXTOVE.indexOf(path.extname(d.name).toLowerCase()) !== -1) out.push(p);
+  });
+  return out;
+}
+
+const soubory = korpusMimoVerze(CDN, 0);
 let nalezu = 0;
 soubory.forEach((f) => {
   let t;
@@ -64,9 +84,10 @@ soubory.forEach((f) => {
 });
 
 // Sebekontrola: kdyby se neprecetl ani jeden soubor, „0 nalezu" by byla falesna zelena.
+// Nad celym repem je prazdny korpus opravdu podezrely (jsou tu changelogy i versions.json).
 if (soubory.length === 0) {
-  console.log('check-public-pages: pages/ je prazdna — neni co merit.');
-  process.exit(0);
+  console.error('CHYBA: nenasel jsem ANI JEDEN verejny textovy soubor — meridlo je rozbite, ne repo ciste.');
+  process.exit(2);
 }
 // Protipriklad meridla: podvrzeny obsah MUSI byt videt.
 const zkusebni = ('x ' + String(vzorky[0]) + ' x').toLowerCase();
@@ -76,9 +97,9 @@ if (vzorky.filter((s) => s && zkusebni.indexOf(String(s).toLowerCase()) !== -1).
 }
 
 if (nalezu) {
-  console.error('\n' + nalezu + ' souboru v pages/ nese jmeno ze seznamu. `pages/` je VEREJNE a je');
+  console.error('\n' + nalezu + ' verejnych textovych souboru nese jmeno ze seznamu. `pages/` je VEREJNE a je');
   console.error('v historii i po smazani — oprav to PRED commitem, potom uz jen prepisem historie.');
   process.exit(1);
 }
-console.log('check-public-pages: OK (' + soubory.length + ' souboru v pages/, ' + vzorky.length + ' vzorku, 0 nalezu)');
+console.log('check-public-pages: OK (' + soubory.length + ' verejnych textovych souboru, ' + vzorky.length + ' vzorku, 0 nalezu)');
 console.log('  Pozor: guard meri OBSAH, ne CESTU. Nazvy slozek a souboru jsou taky verejne.');
