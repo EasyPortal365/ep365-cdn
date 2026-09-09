@@ -4,6 +4,67 @@
   "name": "EP365 Absence",
   "entries": [
     {
+      "version": "1.2",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Roli v Absenci přiřadíte celé skupině Entra ID. V Nastavení → Role ji najdete stejným vyhledáváním jako jednotlivce a roli pak mají všichni její členové – včetně kolegů, kteří do skupiny přibudou později. U schvalovatelů to znamená přístup k žádostem všech zaměstnanců, takže skupinu vybírejte s rozmyslem.",
+          "en": "You can assign an Absence role to a whole Entra ID group. In Settings → Roles you find it with the same search as individuals, and every member gets the role — including colleagues who join the group later. For approvers this means access to all employees’ requests, so choose the group carefully."
+        },
+        {
+          "type": "improved",
+          "cs": "Soukromí: firemní písma se načítají z naší distribuční sítě místo z Google Fonts. Dosud si je prohlížeč každého uživatele stahoval přímo od Googlu, kterému tím odcházela IP adresa a údaje o prohlížeči. Nově při práci s aplikací neodchází žádné spojení mimo Microsoft a EasyPortal 365. Vzhled se nemění a povolovat nic nového není potřeba.",
+          "en": "Privacy: corporate fonts now load from our own distribution network instead of Google Fonts. Until now every user’s browser downloaded them straight from Google, which received their IP address and browser details. No connection now leaves Microsoft and EasyPortal 365 while you work with the app. The look is unchanged and nothing new needs allow-listing."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nulu tam, kde data nezná. Když se něco nepodaří načíst, uvidíte u čísel otazník a u seznamu větu, že se ho nepovedlo přečíst – ne prázdno, které vypadá jako „nic tu není“. Totéž platí pro vaši roli: když ji nejde ověřit, aplikace to řekne, místo aby tvrdila, že na obrazovky nemáte právo.",
+          "en": "The app no longer reports zero where it does not know. When something cannot be loaded you see a question mark instead of a number and a sentence instead of an empty list — not blankness that looks like there is nothing. The same goes for your role: if it cannot be verified, the app says so instead of claiming you have no access."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nepřítomnosti a nároky na dovolenou zůstávají bez duplicit. Záznam v týmovém kalendáři se už nemůže objevit dvakrát a po zrušené žádosti se spolehlivě uklidí; úprava nároku se projeví správně, místo aby vznikl druhý řádek a zůstatek se počítal ze starých čísel. Nový typ absence navíc nejde přidat ve chvíli, kdy se seznam typů nepodařilo načíst – dřív dostal pořadové číslo kolidující s prvním existujícím typem.",
+          "en": "Absences and leave entitlements stay free of duplicates. A record can no longer appear twice in the team calendar and is reliably cleaned up after a cancelled request; editing an entitlement now takes effect instead of creating a second row that made the balance come from stale numbers. A new absence type also cannot be added while the list of types failed to load — it used to get a number clashing with the first existing type."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace startuje rychleji a bez chyb v pozadí. Seznam, na který nemáte oprávnění, už nepovažuje za chybějící, a když si při výpadku SharePointu není jistá stavem svých seznamů nebo skupin, počká na další načtení místo toho, aby zakládala naslepo. Běžným uživatelům tím zmizely opakované chyby při každém otevření.",
+          "en": "The app starts faster and without background errors. A list you lack permission to read is no longer treated as missing, and when a SharePoint outage leaves it unsure about its lists or groups, it waits for the next load instead of creating things blindly. Repeated errors on every open are gone for regular users."
+        },
+        {
+          "type": "improved",
+          "cs": "Ochranu žádostí o absenci nastavuje aplikace stejným způsobem jako u všech ostatních seznamů. Dosud to obstarával samostatný krok navíc; nově je součástí společného mechanismu, který se sám zopakuje i tam, kde se dřív nedokončil – například když aplikaci po nasazení otevřel jako první běžný zaměstnanec. Kdo co vidí a mění, zůstává stejné: zaměstnanec svoji žádost, schvalovatel a správce celý tým.",
+          "en": "Protection of absence requests is now set up the same way as for every other list. Until now a separate extra step handled it; it is now part of the shared mechanism, which retries by itself where it previously did not finish — for example when a regular employee was the first to open the app after deployment. Who sees and changes what is unchanged: an employee their own request, an approver and administrator the whole team."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobnosti v ovládání: nárok zaměstnance i typ absence otevřete klikem kamkoli na řádek, tlačítko Upravit už není potřeba (mazání typu zůstává). Rychlé hledání pod Ctrl+K navíc po zavření a novém otevření neukáže na okamžik zastaralé výsledky.",
+          "en": "Small handling improvements: open an employee entitlement or an absence type by clicking anywhere on the row — the Edit button is no longer needed (deleting a type stays). Quick search under Ctrl+K also no longer flashes stale results after you close and reopen it."
+        },
+        {
+          "type": "improved",
+          "cs": "Když se hlášení chyby nebo nápadu nepodaří odeslat přímo z aplikace, uvidíte i technický detail toho, co Microsoft 365 odpověděl – a stejný údaj putuje do připraveného e-mailu. Dosud se jen otevřela pošta bez vysvětlení, takže chybějící oprávnění vypadalo stejně jako dočasný výpadek.",
+          "en": "When a bug report or idea cannot be sent straight from the app, you now also see the technical detail of what Microsoft 365 replied — and the same detail goes into the prepared e-mail. Until now the mail client just opened with no explanation, so a missing permission looked exactly like a temporary outage."
+        },
+        {
+          "type": "improved",
+          "cs": "Sjednotili jsme název: centrální rozcestník, ze kterého se dědí motiv i konfigurace, se všude jmenuje EasyPortal 365 Workplace (dříve místy EP365 Homepage – šlo o tutéž věc). Roadmapa nově ukazuje jen to, co posuzujeme, plánujeme a na čem pracujeme; dokončené požadavky najdete u příslušné verze v části Co je nového.",
+          "en": "We have unified the naming: the central hub from which the theme and configuration are inherited is called EasyPortal 365 Workplace everywhere (previously EP365 Homepage in places — the same thing). The roadmap now shows only what is under review, planned and in progress; completed requests appear with their version under What’s new."
+        },
+        {
+          "type": "fixed",
+          "cs": "Interaktivní průvodce spadl hned na prvním kroku, který měl něco zvýraznit – místo výkladu zůstala prázdná obrazovka. Chyba byla v tom, jak měl průvodce zapsané, kam v aplikaci ukazovat. Nově projde všech šest kapitol od začátku do konce.",
+          "en": "The interactive guide crashed on the very first step that was supposed to highlight something — instead of the walkthrough you got a blank screen. The fault was in how the guide recorded where to point in the app. It now runs through all six chapters from start to finish."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce a nápověda se výrazně rozrostly. Průvodce má nově jedenáct kapitol místo šesti – kromě orientace projde i žádost o volno, kalendář týmu, schvalování, nároky, podklady pro mzdy a celé nastavení, a kapitoly se nabízejí podle vaší role. Nápověda má 51 odpovědí v osmi tématech (dříve 22 ve třech) včetně nových okruhů o rolích a o tom, co dělat, když něco nejde; hledání v ní funguje i bez diakritiky.",
+          "en": "The interactive guide and help have grown substantially. The guide now has eleven chapters instead of six – besides getting around, it covers requesting leave, the team calendar, approvals, entitlements, payroll data and the whole of settings, and chapters are offered according to your role. Help now holds 51 answers in eight topics (previously 22 in three), including new sections on roles and on what to do when something does not work; its search works without diacritics too."
+        }
+      ]
+    },
+    {
       "version": "1.1",
       "date": "2026-09-03",
       "changes": [
@@ -89,8 +150,8 @@
         },
         {
           "type": "improved",
-          "cs": "Typy absencí, svátky a roční nároky jsou nově chráněné přímo oprávněními SharePointu. Zadává je jen správce – dosud si je mohl kdokoli s přístupem na web přepsat mimo aplikaci, přes seznamy SharePointu, a navýšit si tak vlastní nárok na dovolenou nebo si přidat firemní volno. Číst je dál může každý: bez typů a svátků by nešlo podat žádost ani spočítat zůstatek. Podávání a schvalování žádostí se nemění. Oprávnění si aplikace srovná sama, jakmile ji poprvé otevře správce webu.",
-          "en": "Absence types, public holidays and annual entitlements are now protected by SharePoint permissions themselves. Only an administrator sets them — until now anyone with site access could rewrite them outside the app, via SharePoint lists, and raise their own leave entitlement or grant themselves a company day off. Everyone can still read them: without types and holidays no request could be filed and no balance calculated. Filing and approving requests is unchanged. The app arranges the permissions itself as soon as a site administrator first opens it."
+          "cs": "Typy absencí, svátky a roční nároky jsou nově chráněné přímo oprávněními SharePointu – zadává je jen správce. Číst je dál může každý: bez typů a svátků by nešlo podat žádost ani spočítat zůstatek. Podávání a schvalování žádostí se nemění. Oprávnění si aplikace srovná sama, jakmile ji poprvé otevře správce webu.",
+          "en": "Absence types, public holidays and annual entitlements are now protected directly by SharePoint permissions — only an administrator sets them. Everyone can still read them: without types and holidays a request could not be submitted or a balance calculated. Submitting and approving requests is unchanged. The app aligns the permissions itself the first time a site administrator opens it."
         },
         {
           "type": "fixed",
