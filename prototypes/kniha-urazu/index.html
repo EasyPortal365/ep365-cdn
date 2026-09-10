@@ -5287,6 +5287,12 @@ ul.clean b{color:var(--ep-text);}
     function recount(){
       setNav('s16', CELKEM);
       setKpi('s16', 'Letos nahlášeno', CELKEM);
+      var chips = scr.querySelectorAll('.chip');
+      for (var ch = 0; ch < chips.length; ch++){
+        if (chips[ch].textContent.indexOf('2026') !== 0) continue;
+        var num = chips[ch].querySelector('.n');
+        if (num) num.textContent = CELKEM;
+      }
       var info = scr.querySelectorAll('.info');
       for (var i = 0; i < info.length; i++){
         var t = info[i].textContent;
