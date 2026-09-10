@@ -4,6 +4,77 @@
   "name": "EP365 Worklog",
   "entries": [
     {
+      "version": "1.3",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Vykazování za kolegu a hromadné úpravy. Správce a projektový vedoucí mohou zapsat výkaz za jiného člověka i odeslat jeho koncepty ke schválení, aby uzavření měsíce nezdržel někdo, kdo je zrovna pryč – vlastník to pozná podle štítku u řádku a přijde mu e-mail. Ve Výkazech týmu navíc označíte víc řádků naráz a nastavíte jim společně typ práce, projekt s milníkem, fakturovatelnost nebo datum; sazba se přepočítá u každého zvlášť podle jeho vlastníka a data.",
+          "en": "Logging on behalf of a colleague and bulk edits. An administrator or project lead can log time for someone else and submit their drafts for approval, so closing the month is not held up by whoever happens to be away – the owner sees a label on the row and receives an e-mail. In Team timesheets you can also select several rows at once and set their work type, project and milestone, billability or date together; the rate is recalculated for each one separately according to its owner and date."
+        },
+        {
+          "type": "new",
+          "cs": "Role a rozsah přístupu jde nově přiřadit celé skupině Entra ID. V Nastavení → Role ji najdete stejným vyhledáváním jako jednotlivce a roli i rozsah zákazníků a projektů pak mají všichni její členové – včetně kolegů, kteří do skupiny přibudou později. Členy skupiny navíc vidí každý správce aplikace, ne jen ten, kdo ji na webu zakládal.",
+          "en": "Roles and access scope can now be assigned to a whole Entra ID group. In Settings → Roles you find it with the same search as individuals, and every member then gets the role along with the customer and project scope – including colleagues who join the group later. Group members are also visible to every application administrator, not only whoever set the app up on the site."
+        },
+        {
+          "type": "new",
+          "cs": "Ceník umí měny a typ práce si nese fakturovatelnost. U každé úrovně ceníku zvolíte CZK, nebo EUR; volba „Dle projektu“ se chová jako dosud. V Nastavení → Typy prací pak u typu odškrtnete Fakturovatelné a při jeho volbě v zápisu se fakturovatelnost odškrtne sama – je to předvolba, ne zámek, takže u konkrétního výkazu ji pořád přepnete ručně.",
+          "en": "The price list supports currencies and a work type carries its billability. For each price list level you choose CZK or EUR; the „By project\" option behaves as before. In Settings → Work types you can then untick Billable for a type, and choosing it in an entry unticks billability by itself – it is a default, not a lock, so you can still switch it on a particular entry."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nic, co nezjistila. Když se nepodaří něco načíst – vaši roli, ceník, soupisku osob, nabídku k výběru, data z CRM nebo obsah kterékoli obrazovky – řekne to místo toho, aby ukázala nulu, prázdný seznam nebo odmítnutí s nepravdivým důvodem. U čísel se objeví otazník, u seznamů věta o tom, že se je nepodařilo přečíst. Formulář rychlého zápisu i mobilní zápis se v takové chvíli vůbec nenabídnou, takže nemůže vzniknout výkaz s nulovou sazbou; stejně tak se neuloží sazby ani delegace nad nepřečtenou soupiskou osob a neotevře se editor přístupu nad nenačteným seznamem projektů.",
+          "en": "The app no longer claims anything it has not determined. When something cannot be loaded – your role, the price list, the list of people, a picker, data from CRM or the content of any screen – it says so instead of showing a zero, an empty list or a refusal with an untrue reason. Numbers show a question mark and lists a sentence explaining that they could not be read. The quick entry form and mobile entry are not offered at all in that situation, so an entry with a zero rate cannot arise; likewise rates and delegations are not saved over an unread list of people, and the access editor does not open over an unloaded project list."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení aplikace se nemůže tiše ztratit. Uzamčená období, delegace schvalování i volba běžící verze leží v jednom záznamu, a když se ten záznam nepodaří přečíst, aplikace teď neuloží nic a rovnou napíše proč – dřív mohlo uložení podtitulku nebo šablony výkazu zapsat nastavení bez uzávěrek a delegací. Čtení zůstává beze změny, takže aplikace dál funguje. Zápisy se navíc propíšou spolehlivě i při několika změnách za sebou a krátkodobý výpadek při ukládání už nevyrábí dvojité záznamy projektů, milníků, zákazníků ani přiřazení.",
+          "en": "Application settings can no longer be lost silently. Locked periods, approval delegations and the chosen running version live in a single record, and when that record cannot be read the app now saves nothing and says why – previously saving a subtitle or a report template could write settings without the locks and delegations. Reading is unchanged, so the app keeps working. Writes also come through reliably even with several changes in a row, and a brief outage while saving no longer produces duplicate projects, milestones, customers or assignments."
+        },
+        {
+          "type": "improved",
+          "cs": "Data aplikace jsou chráněná přímo oprávněními SharePointu. Ceník, nákladové sazby, projekty, milníky, zákazníci, přiřazení i nastavení smí měnit jen správce; u výkazů platí, že cizí výkaz upraví nebo smaže jen vedoucí, fakturant a správce. Zápis výkazu za jiného člověka a import z CSV vidí a spouští jen správce aplikace, takže u každého řádku sedí, kdo ho zapsal. Klíčové seznamy si navíc uchovávají historii verzí a otevřený výkaz ukazuje, kdo a kdy ho naposledy uložil a kolikátá je to verze.",
+          "en": "The app’s data is protected directly by SharePoint permissions. The price list, cost rates, projects, milestones, customers, assignments and settings can be changed only by an administrator; for time entries, someone else’s entry can be edited or deleted only by a lead, a billing user or an administrator. Logging time for another person and CSV import are visible and available only to the administrator, so every row correctly shows who entered it. Key lists also keep version history, and an open entry shows who last saved it, when, and which version it is."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace se otevírá rychleji a velké seznamy reagují okamžitě i po letech dat. Výkazy týmu, Fakturace, Projekty a Přehled využití si nenačítají celou historii při každém stisku a při otevření se stejná data nestahují dvakrát. Zmizelo také dorovnávání nastavení seznamů, které se dosud pokoušelo proběhnout při každém načtení.",
+          "en": "The app opens faster and large lists respond instantly even after years of data. Team timesheets, Invoicing, Projects and the Usage overview no longer load the whole history on every keystroke, and the same data is not downloaded twice when opening. The list-settings reconciliation that used to run on every load is gone as well."
+        },
+        {
+          "type": "improved",
+          "cs": "Filtrování a hledání jsou použitelné i ve velkém provozu. Ve Výkazech týmu si vedle Tento měsíc / Minulý měsíc / Vše zvolíte libovolný časový úsek a filtrujete podle zákazníka; Schvalování má filtry na člověka, zákazníka a projekt plus přepínač Jen po termínu. V zápisu výkazu zúží volba Zákazník nabídku projektů, ve Fakturaci vyberete víc projektů naráz jako pilulky. Rychlé hledání pod Ctrl+K neukáže po znovuotevření zastaralý výsledek a na telefonu funguje lupa ve spodní liště.",
+          "en": "Filtering and search are usable at scale. In Team timesheets you can pick any date range alongside This month / Last month / All and filter by customer; Approvals has filters for person, customer and project plus an Overdue only toggle. In the entry form the Customer choice narrows the project list, and in Invoicing you can select several projects at once as pills. Quick search under Ctrl+K no longer flashes a stale result when reopened, and the magnifier in the bottom bar works on phones."
+        },
+        {
+          "type": "improved",
+          "cs": "Servisní smlouvy jsou vidět i běžným uživatelům. Čerpání předplacených hodin se ukazuje na úvodní obrazovce, na kartách projektů i v mobilním Přehledu, a počítá se s paušálem uloženým k danému měsíci – změna předplacených hodin ve smlouvě už zpětně nemění starší měsíce. U rozdílu proti předchozímu měsíci je nově napsáno, s čím se srovnává, protože rozdělaný měsíc se porovnává s celým předchozím.",
+          "en": "Service contracts are visible to ordinary users too. Prepaid hour usage is shown on the home screen, on project cards and in the mobile overview, and is calculated from the allowance stored for that month – changing the prepaid hours in a contract no longer alters earlier months retroactively. The difference against the previous month now states what it is compared with, since a month in progress is compared against a full previous one."
+        },
+        {
+          "type": "improved",
+          "cs": "Vzhled a ovládání sedí se zbytkem EasyPortal 365. Firemní barva se propíše do celé aplikace včetně interaktivního průvodce, palety zkratek, záře pod ikonou a odchozích e-mailů, a platí i tehdy, když je ve Workplace nastavená jen hlavní barva bez doplňkové; popisky na barevných tlačítkách se automaticky přepínají na světlé nebo tmavé. Výkaz otevřete klikem kamkoli na řádek (tužka už není potřeba), popis práce má v seznamech vlastní řádek a e-maily z aplikace se správně zobrazí i v Outlooku. Plnou aplikaci lze ovládat i na telefonu.",
+          "en": "Look and handling match the rest of EasyPortal 365. The corporate colour carries through the whole app including the interactive guide, the shortcut palette, the glow under the icon and outgoing e-mails, and applies even when only the primary colour is set in Workplace without a secondary one; labels on coloured buttons switch to light or dark automatically. An entry opens by clicking anywhere on the row (the pencil is no longer needed), the work description has its own line in lists, and e-mails from the app display correctly in Outlook. The full app can also be operated on a phone."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce a nápověda se výrazně rozrostly. Průvodce má nově 14 kapitol místo čtyř – kromě orientace projde vykazování času, týdenní mřížku, projekty a milníky, úkoly, výkazy týmu, schvalování, fakturaci, ceník i celé nastavení, a kapitoly se nabízejí podle vaší role. Nápověda má 66 odpovědí v 11 tématech (dříve 34 v pěti) včetně nových okruhů o projektech, o cenách a nákladech a o tom, co dělat, když něco nejde.",
+          "en": "The interactive guide and help have grown substantially. The guide now has 14 chapters instead of four – besides getting around it covers time logging, the weekly grid, projects and milestones, tasks, team timesheets, approvals, invoicing, the price list and the whole of settings, and chapters are offered according to your role. Help now holds 66 answers in 11 topics (previously 34 in five), including new sections on projects, on prices and costs, and on what to do when something does not work."
+        },
+        {
+          "type": "improved",
+          "cs": "Import z CSV je opatrnější. Nespustí se, dokud spolehlivě nepřečte dosavadní výkazy, takže nemůže zdvojit celý měsíc, a typ práce mimo číselník nahradí odpovídající položkou – v náhledu je u řádku vidět původní i náhradní hodnota a hláška po importu shrne, kolika záznamů se to týkalo.",
+          "en": "CSV import is more careful. It does not start until it has reliably read the existing entries, so it cannot duplicate a whole month, and a work type outside the code list is replaced by the matching item – the preview shows both the original and the replacement on the row, and the message after the import summarises how many records were affected."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobnosti, které se počítají. Formuláře Nahlásit chybu a Navrhnout funkci mají formátovaný popis a přílohy, takže snímek obrazovky stačí přetáhnout; když se hlášení nepodaří odeslat přímo z aplikace, uvidíte technický detail toho, co Microsoft 365 odpověděl. Export do CSV má nové pořadí sloupců (Zákazník, Datum, Popis, Hodiny hned zleva) a fakturovatelnost je samostatný sloupec. Sjednotili jsme také název: centrální rozcestník se všude jmenuje EasyPortal 365 Workplace, a roadmapa ukazuje jen to, co posuzujeme, plánujeme a na čem pracujeme – hotové věci najdete u příslušné verze v části Co je nového.",
+          "en": "Small things that add up. The Report a bug and Suggest a feature forms support formatted descriptions and attachments, so a screen capture can simply be dragged in; when a report cannot be sent straight from the app, you see the technical detail of what Microsoft 365 replied. CSV export has a new column order (Customer, Date, Description, Hours right at the left) and billability is a separate column. We have also unified the naming: the central hub is called EasyPortal 365 Workplace everywhere, and the roadmap shows only what is under review, planned and in progress – finished items appear with their version under What’s new."
+        }
+      ]
+    },
+    {
       "version": "1.2",
       "date": "2026-07-29",
       "changes": [
