@@ -781,7 +781,7 @@ ul.clean b{color:var(--ep-text);}
     <div class="kpi" data-go="s2"><div class="kpi-l">Úrazy v knize · 2026</div><div class="kpi-v">31</div><div class="kpi-s">z toho 9 se záznamem o úrazu</div></div>
     <div class="kpi" data-go="s10"><div class="kpi-l">Dny pracovní neschopnosti</div><div class="kpi-v">248</div><div class="kpi-s">průměr 27,6 dne na případ se záznamem</div></div>
     <div class="kpi" data-go="s6"><div class="kpi-l">Lhůty v běhu</div><div class="kpi-v red">3</div><div class="kpi-s">1 dnes, 2 v příštích deseti dnech</div></div>
-    <div class="kpi" data-go="s10"><div class="kpi-l">Četnost úrazů</div><div class="kpi-v amber">12,4</div><div class="kpi-s">úrazů s neschopností na milion odpracovaných hodin · hodiny z docházky</div></div>
+    <div class="kpi" data-go="s17"><div class="kpi-l">Závažné úrazy</div><div class="kpi-v amber">2</div><div class="kpi-s">hospitalizace nad pět dnů · ohlášeno inspektorátu</div></div>
     <div class="kpi" data-go="s9"><div class="kpi-l">Opatření v řešení</div><div class="kpi-v">5</div><div class="kpi-s">1 po termínu splnění</div></div>
     <div class="kpi" data-go="s2"><div class="kpi-l">Dny od posledního úrazu</div><div class="kpi-v">2</div><div class="kpi-s">naposledy 8. 9. · ÚR-2026-031 · nejdelší letos 34 dnů</div></div>
    </div>
@@ -1196,7 +1196,7 @@ ul.clean b{color:var(--ep-text);}
          <div class="lbl">Co se stalo</div>
          <div style="border:1px solid var(--ep-line);border-radius:8px;padding:8px 10px;margin-top:6px;font-size:12.5px;line-height:1.5;color:var(--ep-text-muted)">Při seřizování nástroje si přiskřípl ukazovák levé ruky mezi nástroj a doraz.<span style="display:inline-block;width:2px;height:13px;background:var(--ep-accent-strong);vertical-align:-2px;margin-left:2px"></span></div>
          <div style="display:flex;gap:6px;margin-top:8px">
-          <button class="btn ghost sm" style="height:28px;font-size:11.5px;padding:0 10px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Nadiktovat</button>
+          
           <button class="btn ghost sm" style="height:28px;font-size:11.5px;padding:0 10px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><path d="M3 8h3l1.5-2h9L18 8h3v11H3Z"/><circle cx="12" cy="13" r="3.4"/></svg>Foto místa</button>
          </div>
         </div>
@@ -1446,7 +1446,7 @@ ul.clean b{color:var(--ep-text);}
         <div class="kv"><div class="k">Personalistika a mzdy</div><div class="v">Doklady o výdělku, náhrady, podklady pojišťovně. <span class="note">3 osoby</span></div></div>
         <div class="kv"><div class="k">Zraněný zaměstnanec</div><div class="v">Vidí jen svůj případ a své dokumenty.</div></div>
         <div class="kv" style="margin-bottom:0"><div class="k">Vedení firmy</div><div class="v">Statistiky a trendy bez jmen.</div></div>
-        <div class="banner amber" style="margin-top:12px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><div>Skrytí sloupce v přehledu není ochrana. Zdravotní údaje leží v odděleném seznamu s vlastním oprávněním, ne jen ve skryté kolonce.</div></div>
+        <div class="banner amber" style="margin-top:12px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><div>Skrytí sloupce v přehledu není ochrana. Proto aplikace lékařské zprávy vůbec neukládá – vede jen údaje, které předpis vyžaduje v knize a v záznamu: délku neschopnosti, druh zranění podle číselníku a hospitalizaci.</div></div>
        </div>
       </div>
      </div>
@@ -1467,7 +1467,7 @@ ul.clean b{color:var(--ep-text);}
         </div>
         <div>
          <div class="kv"><div class="k">Kde data leží</div><div class="v">Ve vašem Microsoftu 365 · samostatný web Kniha úrazů</div></div>
-         <div class="kv"><div class="k">Lékařské údaje</div><div class="v">Oddělený seznam, do kterého vidí jen určené osoby</div></div>
+         <div class="kv"><div class="k">Lékařské zprávy</div><div class="v">Aplikace je neukládá – zůstávají u mzdové účtárny</div></div>
          <div class="kv"><div class="k">Přílohy (fotografie, lékařské zprávy)</div><div class="v mono">knihovna s omezeným přístupem</div></div>
          <div class="kv" style="margin-bottom:0"><div class="k">Kdo se dívá</div><div class="v">Přístup k jednotlivému případu se loguje – kdo, kdy, co otevřel.</div></div>
         </div>
@@ -1633,7 +1633,7 @@ ul.clean b{color:var(--ep-text);}
         <div style="display:flex;align-items:center;gap:8px"><span class="t-pri">R-14 · Práce ve výšce do 3 m</span><span class="pill p-open" style="margin-left:auto"><span class="d"></span>K přehodnocení</span></div>
         <div class="note" style="margin-top:6px">Míra rizika 8 (střední) → navrhováno 12 (vysoké) po dvou úrazech za 18 měsíců.</div>
        </div>
-       <button class="btn ghost sm" style="width:100%;justify-content:center">Otevřít registr rizik</button>
+       <button class="btn ghost sm" style="width:100%;justify-content:center" data-go="s9">Zobrazit všechna opatření</button>
        <div class="note" style="margin-top:8px">Registr rizik je samostatná agenda – aplikace do něj jen předá podnět.</div>
       </div>
      </div>
@@ -1686,7 +1686,7 @@ ul.clean b{color:var(--ep-text);}
    <div class="kpis">
     <div class="kpi"><div class="kpi-l">Úrazy celkem</div><div class="kpi-v">31 <small style="color:var(--ep-red)">▲ 4</small></div><div class="kpi-s">za stejné období loni 27</div></div>
     <div class="kpi"><div class="kpi-l">Se záznamem o úrazu</div><div class="kpi-v">9</div><div class="kpi-s">29 % zápisů · z toho 2 závažné</div></div>
-    <div class="kpi"><div class="kpi-l">Četnost úrazů</div><div class="kpi-v amber">12,4</div><div class="kpi-s">úrazů s neschopností na milion odpracovaných hodin · hodiny z docházky</div></div>
+    <div class="kpi"><div class="kpi-l">Dny bez úrazu</div><div class="kpi-v amber">2</div><div class="kpi-s">nejdelší letos 34 dnů · 6. 4. až 10. 5.</div></div>
     <div class="kpi"><div class="kpi-l">Závažnost</div><div class="kpi-v">27,6</div><div class="kpi-s">průměrná délka neschopnosti u případu se záznamem</div></div>
     <div class="kpi"><div class="kpi-l">Skoro-nehody</div><div class="kpi-v green">26</div><div class="kpi-s">poměr 0,8 : 1 k úrazům</div></div>
    </div>
@@ -1851,7 +1851,7 @@ ul.clean b{color:var(--ep-text);}
          V lisovně je letos <b>8 úrazů</b> z celkových 31 – nejvíc ze všech pracovišť. Dva z nich měly neschopnost delší než tři dny, dohromady 44 dní.<br><br>
          Jako příčina se nejčastěji objevuje <b>„nedostatky osobních předpokladů“ (4×)</b> a <b>„vadný stav zdroje úrazu“ (2×)</b>. Pět z osmi se stalo při seřizování nebo údržbě stroje, ne při běžné obsluze.<br><br>
          Dva případy (ÚR-2026-027 a ÚR-2026-031) míří na stejné místo – rošt a doraz u lisu L2.
-         <div class="srcline"><span>Sestaveno z:</span><span class="srcchip">8 zápisů v knize</span><span class="srcchip">3 protokoly o šetření</span><span class="srcchip">registr rizik R-08, R-14</span></div>
+         <div class="srcline"><span>Sestaveno z:</span><span class="srcchip">8 zápisů v knize</span><span class="srcchip">3 protokoly o šetření</span><span class="srcchip">opakující se riziko – třetí pád ze žebříku za dva roky</span></div>
         </div></div>
         <div class="msg me"><span class="av" style="background:var(--ep-navy);color:#fff">KJ</span><div class="bub">Co ještě chybí u případu ÚR-2026-029?</div></div>
         <div class="msg"><span class="av" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)">AI</span><div class="bub">
@@ -2070,7 +2070,7 @@ ul.clean b{color:var(--ep-text);}
       <div class="feed">
        <div class="feed-i"><span class="feed-ic" style="background:#FDEBEB;color:#B23A3A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/></svg></span><div><div class="feed-t">Záznam o úrazu · ÚR-2026-030.pdf</div><div class="feed-m">4. 9. · podepsáno · 218 kB</div></div></div>
        <div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l5-5 4 4 3-3 4 4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg></span><div><div class="feed-t">Fotografie místa (3×)</div><div class="feed-m">2. 9. · pořídil mistr směny</div></div></div>
-       <div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a4 4 0 0 0-4 4v1H7a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-7a3 3 0 0 0-3-3h-1V7a4 4 0 0 0-4-4Z"/></svg></span><div><div class="feed-t">Lékařská zpráva · urgentní příjem</div><div class="feed-m">2. 9. · omezený přístup <span class="tag" style="font-size:10px">jen BOZP + mzdy</span></div></div></div>
+       <div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a4 4 0 0 0-4 4v1H7a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-7a3 3 0 0 0-3-3h-1V7a4 4 0 0 0-4-4Z"/></svg></span><div><div class="feed-t">Vyjádření zraněného</div><div class="feed-m">3. 9. · podepsal P. Dvořák <span class="tag" style="font-size:10px">jen BOZP + mzdy</span></div></div></div>
        <div class="feed-i"><span class="feed-ic" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Doklady o odeslání – OIP, VZP, Kooperativa</div><div class="feed-m">5. 9. · e-mail z aplikace, potvrzení ze schránky nahráno ručně</div></div></div>
       </div>
      </div>
@@ -3237,7 +3237,7 @@ ul.clean b{color:var(--ep-text);}
     <div class="card"><div class="card-h"><span class="card-t">Aplikace umí</span></div><div class="card-b">
      <ul class="clean">
        <li>Vést knihu úrazů elektronicky v podobě platné od ledna 2026, s tiskovou verzí pro kontrolu</li>
-       <li>Přijmout hlášení z telefonu přímo z provozu – včetně QR kódů u strojů a nadiktovaného popisu</li>
+       <li>Přijmout hlášení z telefonu přímo z provozu – včetně QR kódů u strojů</li>
        <li>Sama zařadit úraz do kategorie a spočítat všechny lhůty</li>
        <li>Připravit záznam o úrazu se všemi náležitostmi a <b>provést vás jeho podáním na portál</b> inspekce práce</li>
        <li>Hlídat okamžiky, kdy je nutná aktualizace už odeslaného záznamu</li>
@@ -3718,7 +3718,8 @@ ul.clean b{color:var(--ep-text);}
       '<p class="note" style="margin:0 0 12px">Zápis výše je jedním řádkem knihy úrazů. Celou knihu i tiskovou podobu pro kontrolu najdete zde.</p>'
       + '<button class="btn ghost sm" data-go="s2">Otevřít knihu úrazů</button>', 1);
     card('dokumenty', 'K dokumentům případu',
-      '<p class="note" style="margin:0 0 12px">Lékařské zprávy leží v <b>samostatné knihovně s vlastním oprávněním</b>. Ostatní role je neotevřou ani přímým odkazem – nejde o skrytí v seznamu, ale o hranici v SharePointu.</p>'
+      '<p class="note" style="margin:0 0 12px"><b>Lékařské zprávy a neschopenky tu nenajdete.</b> Aplikace je vědomě neukládá – zůstávají tam, kde jsou dnes, u mzdové účtárny. K případu si bere jen to, co z nich plyne a co po ní chce předpis: délku neschopnosti, druh zranění podle číselníku a jestli byla hospitalizace.</p>'
+      + '<p class="note" style="margin:0 0 12px">Míň citlivých dat v aplikaci znamená míň starostí se souhlasy, přístupy a s tím, kdo co viděl.</p>'
       + '<button class="btn ghost sm" data-go="s13">Nastavení přístupů</button>', 1);
 
     function hasVisible(col){
@@ -4222,7 +4223,7 @@ ul.clean b{color:var(--ep-text);}
         { s:'s4', pane:'setreni', sel:'txt:Šetření příčin a opatření', t:'Záložka Šetření: proč se to stalo',
           x:'Zjištěná příčina a opatření, která z ní vzešla – každé se svým řešitelem a termínem. Tady je vidět i souvislost se skoro-nehodou, která se na stejném místě stala už dřív.' },
         { s:'s4', pane:'dokumenty', sel:'txt:Dokumenty případu', t:'Záložka Dokumenty: všechno u případu',
-          x:'Lékařské zprávy, fotky místa, podepsaný záznam, doručenky. Každý řádek se dá <b>otevřít, stáhnout i smazat</b> a nový soubor se nahraje tlačítkem „+ Nahrát“. Zdravotní údaje vidí jen ten, kdo na ně má právo – ostatní je v seznamu vůbec nenajdou.' },
+          x:'Fotky místa, podepsaný záznam, vyjádření zraněného, doklady o odeslání. Každý řádek se dá <b>otevřít, stáhnout i smazat</b> a nový soubor se nahraje tlačítkem „+ Nahrát dokument“. <b>Lékařské zprávy tu vědomě nejsou</b> – zůstávají u mzdové účtárny, aplikace si z nich bere jen délku neschopnosti a druh zranění.' },
         { s:'s4', pane:'historie', sel:'txt:Historie případu', t:'Záložka Historie: kdo co kdy udělal',
           x:'U zdravotních údajů je důležité vědět nejen co se změnilo, ale i <b>kdo se do případu díval</b>. Historie proto zaznamenává i otevření lékařské zprávy.' }
       ] },
@@ -4478,7 +4479,7 @@ ul.clean b{color:var(--ep-text);}
         d:'Mistr nebo vedoucí směny nahlásí úraz z mobilu během dvou minut. Zápis do knihy vznikne hned, technik BOZP jej doplní u počítače.' },
       { c:'F3', t:'QR kódy u strojů a pracovišť', s:'Na telefonu',
         d:'Sken štítku vyplní pracoviště, provoz a stroj – tři údaje, ve kterých se v ručně vedené knize chybuje nejčastěji.' },
-      { c:'F4', t:'Nadiktovaný popis úrazu', s:'Na telefonu',
+      { c:'F4', t:'Popis úrazu z telefonu', s:'Na telefonu',
         d:'Hlásící popíše událost nahlas, aplikace z toho udělá souvislý text. Text jde vždy přepsat a nic se neodesílá bez potvrzení.' },
       { c:'F5', t:'Návrh zařazení úrazu do kategorie', s:'Nahlásit úraz · Lhůty',
         d:'Aplikace z vyplněných údajů pozná, zda jde o úraz lehký, s neschopností, závažný nebo smrtelný – a z toho odvodí všechny povinnosti a lhůty.' },
@@ -4521,7 +4522,7 @@ ul.clean b{color:var(--ep-text);}
       { c:'F20', t:'Statistika a sestavy pro vedení', s:'Statistika a rizika',
         d:'Četnost, závažnost, rozpad podle zdroje a části těla, roční podklad pro zprávu o BOZP a tisk knihy pro kontrolu.' },
       { c:'F21', t:'Rozdělení přístupů podle rolí', s:'Nastavení',
-        d:'Technik BOZP vidí vše, mistr jen svůj provoz bez lékařských podrobností, mzdová účtárna doklady, zaměstnanec pouze svůj případ. Zdravotní údaje leží odděleně s vlastním oprávněním.' },
+        d:'Technik BOZP vidí vše, mistr jen svůj provoz bez lékařských podrobností, mzdová účtárna doklady, zaměstnanec pouze svůj případ. Lékařské zprávy aplikace neukládá vůbec.' },
       { c:'F22', t:'Pohled zraněného zaměstnance', s:'Na telefonu',
         d:'Zaměstnanec vidí stav svého případu, své dokumenty a může se k záznamu vyjádřit – právo, které mu předpis dává.' },
       { c:'F23', t:'Asistent pro dotazy nad vlastní evidencí', s:'Zeptat se knihy',
@@ -4891,8 +4892,6 @@ ul.clean b{color:var(--ep-text);}
   var DOCS = [
     { n: 'Záznam o úrazu · ÚR-2026-030.pdf', m: '4. 9. · podepsáno všemi stranami · 218 kB', i: 'pdf', c: '#FDEBEB', f: '#B23A3A' },
     { n: 'Fotografie místa (3×)', m: '2. 9. · pořídil mistr směny · 4,1 MB', i: 'img' },
-    { n: 'Lékařská zpráva · urgentní příjem', m: '2. 9. · omezený přístup: jen BOZP a mzdy', i: 'lock', lock: 1 },
-    { n: 'Neschopenka · díl II', m: '2. 9. · omezený přístup: jen BOZP a mzdy', i: 'lock', lock: 1 },
     { n: 'Vyjádření zraněného', m: '3. 9. · podepsal P. Dvořák · 96 kB', i: 'pdf' },
     { n: 'Protokol o šetření příčin', m: '3. 9. · 2 strany · 143 kB', i: 'pdf' },
     { n: 'Doklady o odeslání – OIP, VZP, Kooperativa', m: '5. 9. · odchozí e-maily a potvrzení z datové schránky', i: 'ok', c: 'var(--ep-accent-soft)', f: 'var(--ep-accent-strong)' }
@@ -4968,9 +4967,9 @@ ul.clean b{color:var(--ep-text);}
         + '<div class="note" id="dpick" style="margin:10px 0 18px">Zatím není vybrán žádný soubor.</div>',
       fields: [
         { l: 'Název dokumentu', n: 'nazev', t: 'text', v: '', w2: true, req: true, hint: 'Když necháte prázdné, použije se název souboru.' },
-        { l: 'Druh dokumentu', n: 'druh', t: 'select', v: 'Ostatní', o: ['Lékařská zpráva', 'Fotografie místa', 'Vyjádření zraněného', 'Vyjádření svědka', 'Protokol o šetření', 'Doklad o odeslání', 'Doklad o výdělku', 'Ostatní'] },
+        { l: 'Druh dokumentu', n: 'druh', t: 'select', v: 'Ostatní', o: ['Fotografie místa', 'Vyjádření zraněného', 'Vyjádření svědka', 'Protokol o šetření', 'Doklad o odeslání', 'Doklad o výdělku', 'Ostatní'] },
         { l: 'Datum', n: 'datum', t: 'date', v: '2026-09-10' },
-        { l: 'Kdo to smí vidět', n: 'pristup', t: 'select', v: 'Všichni s přístupem k případu', o: ['Všichni s přístupem k případu', 'Jen technik BOZP a mzdy', 'Jen technik BOZP'], w2: true, hint: 'Zdravotní údaje patří do omezeného přístupu – nastavení rolí je v Nastavení aplikace.' }
+        { l: 'Kdo to smí vidět', n: 'pristup', t: 'select', v: 'Všichni s přístupem k případu', o: ['Všichni s přístupem k případu', 'Jen technik BOZP a mzdy', 'Jen technik BOZP'], w2: true, hint: 'Lékařské zprávy a neschopenky sem nenahrávejte – aplikace je vědomě nevede.' }
       ],
       save: 'Nahrát',
       onSave: function(v){
@@ -4984,9 +4983,9 @@ ul.clean b{color:var(--ep-text);}
     var z = document.getElementById('dzone');
     if (z) z.addEventListener('click', function(){
       var pick = document.getElementById('dpick');
-      if (pick) pick.innerHTML = '<b>lekarska-zprava-dvorak.pdf</b> · 218 kB · připraveno k nahrání <span class="note">(ukázkový soubor)</span>';
+      if (pick) pick.innerHTML = '<b>vyjadreni-dvorak.pdf</b> · 218 kB · připraveno k nahrání <span class="note">(ukázkový soubor)</span>';
       var nm = document.getElementById('fld0');
-      if (nm && !nm.value) nm.value = 'lekarska-zprava-dvorak.pdf';
+      if (nm && !nm.value) nm.value = 'vyjadreni-dvorak.pdf';
     });
   }
 
@@ -5716,7 +5715,6 @@ ul.clean b{color:var(--ep-text);}
     ['Kopie pro pojišťovnu', function(){ say('Kopie pro pojišťovnu – v ukázce se soubor nestahuje.'); }],
     ['Otevřít v Teams', function(){ say('Aplikace běží i jako záložka v Teams – hlášení z mobilu je pak o krok kratší.'); }],
     ['QR na nástěnku', function(){ say('Vytiskne arch QR kódů na nástěnku dílny: sken telefonem otevře hlášení rovnou u toho stroje.'); }],
-    ['Nadiktovat', function(){ say('Popis úrazu se dá nadiktovat – text se přepíše a nechá ke kontrole.'); }],
     ['Foto místa', function(){ say('Fotka z telefonu se připojí k případu jako dokument.'); }],
     ['Odeslat hlášení', function(){ say('Hlášení odešlo. Technik BOZP dostane upozornění do minuty.'); }],
     ['Napsat vyjádření', function(){ say('Zraněný nebo svědek napíše vyjádření na telefonu – uloží se jako dokument případu.'); }],
@@ -5737,7 +5735,6 @@ ul.clean b{color:var(--ep-text);}
     ['Uložit změny', function(){ say('Nastavení uloženo.'); }],
     ['Zkontrolovat aktualizace', function(){ say('Číselníky klasifikace jsou aktuální · poslední změna 1. 1. 2026.'); }],
     ['Nahrát nový soubor číselníků', function(){ say('Nahraje se soubor číselníků od úřadu – v ukázce se nic nenahrává.'); }],
-    ['Otevřít registr rizik', function(){ say('Registr rizik je samostatná evidence – opatření z úrazů se do něj propisují.'); }],
     ['Sestavit', function(){ say('Sestava se připraví z evidence – v ukázce se soubor nestahuje.'); }],
     ['Historie dotazů', function(){ say('Historie dotazů ukáže, na co se kdo ptal – odpovědi se nikam mimo firmu neposílají.'); }],
     ['Co asistent umí', function(){ say('Asistent odpovídá jen z vaší evidence a u každé odpovědi ukáže, ze kterých případů ji sestavil.'); }],
