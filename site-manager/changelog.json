@@ -4,6 +4,77 @@
   "name": "EP365 Site Manager",
   "entries": [
     {
+      "version": "1.5",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Aplikace se dá pohodlně používat i na telefonu – místo bočního menu se dole objeví lišta s hlavními obrazovkami a obsah se přeskládá pod sebe. Dřív po levém okraji zůstávalo prázdné místo po postranním menu, takže se obsah mačkal do úzkého sloupce.",
+          "en": "The app is comfortable to use on a phone – instead of the side menu a bottom bar with the main screens appears and content stacks vertically. Previously an empty strip remained on the left where the side menu had been, squeezing the content into a narrow column."
+        },
+        {
+          "type": "new",
+          "cs": "Do rolí Správci i Schvalovatelé nově přidáte celou skupinu Entra ID, nejen jednotlivce – přístup se pak řídí složením té skupiny. Vyhledávání najde účty i skupiny a v soupisce je od sebe poznáte. Členy skupiny navíc vidí každý správce aplikace, ne jen ten, kdo ji na webu zakládal.",
+          "en": "You can now add a whole Entra ID group to the Administrators and Approvers roles, not just individuals – access then follows the group’s membership. Search finds both accounts and groups and you can tell them apart in the list. Group members are also visible to every application administrator, not only whoever set the app up on the site."
+        },
+        {
+          "type": "new",
+          "cs": "Žádosti o web mají historii verzí – po každé změně zůstane dohledatelné, kdo a kdy do žádosti zapsal. Detail rozhodnuté žádosti uvádí, kdo o ní rozhodl, kdy, a pod kterým účtem do ní přišel poslední zápis; audit stejně tak ukáže vedle jména i účet, pod kterým záznam skutečně vznikl, když se od sebe liší. V Nastavení navíc uvidíte, jestli aplikace běží v nejnovější verzi.",
+          "en": "Site requests keep version history – after every change it remains traceable who wrote to the request and when. The detail of a decided request states who decided it, when, and under which account the last write arrived; the audit likewise shows the account a record was actually created under next to the name when the two differ. Settings also show whether the app is running the latest version."
+        },
+        {
+          "type": "improved",
+          "cs": "Katalog webů a auditní stopa jsou chráněné přímo oprávněními SharePointu – stav životního cyklu, vlastníka i klasifikaci mění jen ten, komu to patří. Org-wide nastavení Správce webů, tedy pravidla zakládání, životní cyklus i volba verze aplikace, uloží jen správce. Karta datových seznamů v Nastavení nově ukazuje jejich skutečný stav, ne jen výpis názvů, a Přehled nehlásí zamčený seznam, dokud zamčený opravdu není.",
+          "en": "The site catalogue and the audit trail are protected directly by SharePoint permissions – the lifecycle state, owner and classification are changed only by those entitled to. The organisation-wide Site Manager settings, that is the creation rules, lifecycle and the application version choice, are saved only by an administrator. The data lists card in Settings now shows their actual state, not just a list of names, and the Overview does not report a list as locked until it genuinely is."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nic, co nezjistila. Když se seznam nepodaří načíst, řekne to místo toho, aby zobrazila prázdno – týká se to Schvalování, Žádostí, Katalogu i dalších obrazovek. Přehled využití přiznává, co se nepodařilo načíst, místo aby tvrdil nulu webů a nulu žádostí. Karta Správa verzí přizná i poškozený záznam o zvolené verzi. Když se členství nepodaří ověřit, protože SharePoint nebo Microsoft Graph neodpoví, aplikace to napíše místo aby tvrdila, že nemáte přístup.",
+          "en": "The app no longer claims anything it has not determined. When a list cannot be loaded it says so instead of showing emptiness – this covers Approvals, Requests, the Catalogue and other screens. The Usage overview admits what could not be loaded rather than claiming zero sites and zero requests. The version management card also admits a damaged record of the chosen version. When membership cannot be verified because SharePoint or Microsoft Graph does not respond, the app says so instead of claiming you have no access."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení se nedá přepsat ani rozbít souběhem. Výpadek při načítání ho nepřepíše výchozími hodnotami a poškozená uložená konfigurace se nepovažuje za prázdnou. Každá sekce ukládá jen svá vlastní pole a před uložením si načte aktuální stav, takže uložení pravidel zakládání webů nepřepíše politiku životního cyklu – ani naopak.",
+          "en": "Settings can no longer be overwritten or broken by concurrency. An outage while loading does not overwrite them with defaults and a damaged stored configuration is not treated as empty. Each section saves only its own fields and reads the current state first, so saving the site creation rules does not overwrite the lifecycle policy – nor the other way round."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zakládání a import webů se dají bezpečně opakovat. Opakovaný pokus o založení webu nejdřív zjistí, co se povedlo minule, takže na existující web nenaráží znovu. Import nemůže založit duplicitní záznam kvůli neúplně načtené evidenci, testovací data se založí jen do prázdné aplikace a žádost o nový web nejde odeslat, dokud se neověří, že adresa není obsazená – dřív to padlo až u schvalovatele. Když skenování webů selže, tabulka nálezů se vyprázdní, místo aby ukazovala zastaralý výsledek.",
+          "en": "Creating and importing sites can safely be repeated. A repeated attempt to create a site first determines what succeeded last time, so it does not collide with an existing site again. Import cannot create a duplicate record because of an incompletely loaded register, test data is only created into an empty app, and a request for a new site cannot be submitted until the address is verified as free – previously that failed only at the approver. When a site scan fails, the findings table is emptied rather than showing a stale result."
+        },
+        {
+          "type": "fixed",
+          "cs": "Sken tenantu i evidence webů čtou vše, ne jen prvních pár set záznamů – sken se dosud zastavil na prvních stovkách. U dlouhých seznamů šlo navíc přejít jen na prvních osm stránek; stránkování teď nabízí celý rozsah. Vyhledávání osob nabízí jména k tomu, co je právě napsané, protože pomalejší odpověď na starší dotaz už nabídku nepřepíše.",
+          "en": "The tenant scan and the site register read everything, not just the first few hundred records – the scan used to stop after the first few hundred. On long lists it was also possible to jump only to the first eight pages; pagination now offers the whole range. People search offers names matching what is currently typed, because a slower answer to an older query no longer overwrites the suggestions."
+        },
+        {
+          "type": "improved",
+          "cs": "Firemní barva se propíše do celé aplikace – dědí se i tehdy, když má centrální rozcestník nastavenou jen hlavní barvu bez doplňkové. Dosáhne na zvýrazněnou větu v nadpisu, rámečky informačních pruhů, zvýraznění vybraného typu webu v průvodci, tlačítko pro testovací data, kartu Správa verzí i do e-mailových upozornění, kde barevný proužek v hlavičce zůstával tyrkysový. Popisky na barevných tlačítkách se automaticky přepínají na světlé nebo tmavé.",
+          "en": "The corporate colour carries through the whole app – it is inherited even when the central hub has only the primary colour set without a secondary one. It reaches the highlighted sentence in screen titles, information bar borders, the highlight of a selected site type in the wizard, the test data button, the version management card and e-mail notifications, where the coloured strip in the header used to stay teal. Labels on coloured buttons switch to light or dark automatically."
+        },
+        {
+          "type": "improved",
+          "cs": "Soukromí: firemní písma se načítají z naší distribuční sítě místo z Google Fonts. Dosud si je prohlížeč každého uživatele stahoval přímo od Googlu, kterému tím odcházela IP adresa a údaje o prohlížeči. Zpřísnili jsme také kontrolu adres – odkaz s neplatnou nebo nedůvěryhodnou adresou se nezobrazí jako klikatelný.",
+          "en": "Privacy: corporate fonts now load from our own distribution network instead of Google Fonts. Until now every user’s browser downloaded them straight from Google, which received their IP address and browser details. We have also tightened address checks – a link with an invalid or untrusted address is no longer rendered as clickable."
+        },
+        {
+          "type": "improved",
+          "cs": "Ovládání sedí se zbytkem EasyPortal 365. Rychlé hledání pod Ctrl+K řadí výsledky do pojmenovaných skupin (Obrazovka, Žádosti, Weby), nabízí přesně ty obrazovky, které máte v menu, a Esc zavře jen je – otevřený panel pod nimi zůstane. Záhlaví tabulek vypadá stejně jako jinde, vybraný řádek v katalogu i při importu je zvýrazněný podbarvením, a panel žádosti ani panel webu nejde zavřít během běžící akce, takže se rozhodnutí neztratí.",
+          "en": "Handling matches the rest of EasyPortal 365. Quick search under Ctrl+K groups results into named sections (Screen, Requests, Sites), offers exactly the screens you have in the menu, and Esc closes only the search – the panel underneath stays open. Table headers look the same as elsewhere, a selected row in the catalogue and during import is highlighted, and the request and site panels cannot be closed while an action is running, so a decision is not lost."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce se výrazně rozrostl – má nově devět kapitol místo pěti. Kromě orientace projde žádost o nový web, katalog webů, schvalování, životní cyklus a expirace, podchycení existujících webů i celé nastavení. Opravili jsme také případ, kdy průvodce otevřel Nastavení, ale levá lišta zůstala v hlavní navigaci, takže krok neměl na co ukázat.",
+          "en": "The interactive guide has grown substantially – it now has nine chapters instead of five. Besides getting around it covers requesting a new site, the site catalogue, approvals, the lifecycle and expiry, bringing existing sites under management and the whole of settings. We also fixed a case where the guide opened Settings but the left bar stayed in the main navigation, so a step had nothing to point at."
+        },
+        {
+          "type": "improved",
+          "cs": "Chybové hlášky říkají, co se opravdu stalo. Chyby při archivaci a odarchivování webu, odeslání upomínky, založení webu i při správě členů skupin ukazují odpověď Microsoftu 365 místo dohadu; u nepřečtených členů skupiny aplikace netvrdí příčinu, kterou nezná. Upozornění na novou žádost neselže, když je mezi schvalovateli skupina bez e-mailové schránky. Formuláře Nahlásit chybu a Navrhnout funkci mají formátovaný popis a přílohy a hlášení odchází e-mailem z vaší schránky na podporu, kde z něj vzniká tiket. Sjednotili jsme také název: centrální rozcestník se všude jmenuje EasyPortal 365 Workplace.",
+          "en": "Error messages state what actually happened. Errors when archiving and unarchiving a site, sending a reminder, creating a site and managing group members show the Microsoft 365 response instead of a guess; for unread group members the app does not assert a cause it does not know. The new request notification does not fail when a group without a mailbox is among the approvers. The Report a bug and Suggest a feature forms support formatted descriptions and attachments, and a report is sent by e-mail from your mailbox to support, where it becomes a ticket. We have also unified the naming: the central hub is called EasyPortal 365 Workplace everywhere."
+        }
+      ]
+    },
+    {
       "version": "1.4",
       "date": "2026-07-31",
       "changes": [
