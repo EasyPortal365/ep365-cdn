@@ -4,6 +4,82 @@
   "name": "EP365 Identity Manager",
   "entries": [
     {
+      "version": "2.5",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nic, co nezjistila. Rizika přístupů, Úklid, Přehled i Přehled využití přiznají, když se skupiny nepodařilo načíst – zelená karta se zaškrtnutím totiž vypadá jako výsledek kontroly, i když se žádná neprovedla. Místo nuly se u čísel ukáže otazník, výpis auditu nehlásí „zatím žádné záznamy“, fronta žádostí o skupinu se netváří jako prázdná a přehled privilegovaných účtů označí, že jsou čísla neúplná. Nenačtená taxonomie se pozná a nevypadá jako prázdná.",
+          "en": "The app no longer claims anything it has not determined. Access risks, Cleanup, the Overview and the Usage overview admit when groups could not be loaded – a green card with a tick looks like the result of a check even when none was performed. Numbers show a question mark instead of zero, the audit trail does not report „no records yet\", the group request queue does not look empty, and the privileged accounts overview marks its numbers as incomplete. An unloaded taxonomy is recognised and does not look like an empty one."
+        },
+        {
+          "type": "fixed",
+          "cs": "Poškozená nebo nepřečtená data se už nepřepíšou prázdnem. Když se u skupiny nepodaří přečíst seznam správců, zařazení v taxonomii nebo udělené výjimky, aplikace uložení zamkne a řekne proč – dřív mohla evidence u skupin a uživatelů zmizet. Totéž platí pro politiky útvarů a stewardy i pro mapování úrovní na atributy Entra, které se neodemkne, dokud se opravdu nenačte. V Recertifikaci a Úklidu se uložená klasifikace, štítky a poznámky už nevracejí zpět.",
+          "en": "Corrupted or unread data is no longer overwritten with emptiness. When a group’s owner list, taxonomy placement or granted exceptions cannot be read, the app locks saving and says why – previously the records on groups and users could disappear. The same applies to department policies and stewards, and to the mapping of levels onto Entra attributes, which does not unlock until it has genuinely loaded. In Recertification and Cleanup, saved classification, labels and notes no longer revert."
+        },
+        {
+          "type": "improved",
+          "cs": "Governance data jsou chráněná přímo oprávněními SharePointu. Auditní stopa, nastavení, klasifikační schémata, politiky útvarů, žádosti o skupinu i interní poznámky u uživatelů mají vlastní ochranu; žádost smí podat každý, měnit ji jen ten, komu to patří. Hromadné úpravy v seznamu skupin – přiřazení správců, klasifikace a návrh zařazení – jsou nově jen pro správce aplikace. Ochrana se prosadí i na webech, kde aplikace už běží.",
+          "en": "Governance data is protected directly by SharePoint permissions. The audit trail, settings, classification schemes, department policies, group requests and internal notes on users all have their own protection; anyone may raise a request, only the right people may change it. Bulk edits in the group list – assigning owners, classification and placement suggestions – are now for application administrators only. The protection is enforced on sites where the app is already running as well."
+        },
+        {
+          "type": "new",
+          "cs": "Sekce Datové seznamy nově ukazuje, jestli ochrana skutečně platí. Dosud se porovnávalo jen to, že seznam má vlastní oprávnění; nově se ověřuje, že odpovídají tomu, co aplikace u daného seznamu předepisuje. U rozhodnutí o recertifikaci je navíc vidět, co o záznamu tvrdí sám SharePoint – jméno recenzenta zapisuje aplikace, ale kdo a kdy záznam skutečně uložil, říká úložiště.",
+          "en": "The Data lists section now shows whether the protection actually holds. Until now it only compared that a list had its own permissions; it now verifies that they match what the app prescribes for that list. For recertification decisions you also see what SharePoint itself says about the record – the reviewer name is written by the app, but who actually saved the record and when comes from the storage."
+        },
+        {
+          "type": "new",
+          "cs": "Do role Správce nově přidáte celou skupinu Entra ID, nejen jednotlivce – přístup se pak řídí složením té skupiny, takže při personální změně není co dohledávat. Vyhledávání v Rolích najde účty i skupiny a v soupisce je od sebe poznáte: skupina má vlastní ikonu a označení. Členy skupiny navíc vidí každý správce aplikace, ne jen ten, kdo ji na webu zakládal.",
+          "en": "You can now add a whole Entra ID group to the Administrator role, not just individuals – access then follows the group’s membership, so a staffing change needs no follow-up here. Search in Roles finds both accounts and groups and you can tell them apart in the list: a group has its own icon and label. Group members are also visible to every application administrator, not only whoever set the app up on the site."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikace je nově použitelná na telefonu. Na úzkém displeji ustoupí boční menu spodní liště se čtyřmi obrazovkami, které jsou na mobilu k něčemu, a obsah se přeskládá pod sebe. V Nastavení navíc aplikace pozná, že běží na starší verzi, než je vydaná – u řádku Verze aplikace se správci ukáže štítek Aktuální nebo Zastaralá.",
+          "en": "The app is now usable on a phone. On a narrow display the side menu gives way to a bottom bar with the four screens that make sense on mobile, and content stacks vertically. Settings also recognise when the app runs an older version than the released one – the Application version row shows an Up to date or Outdated label to administrators."
+        },
+        {
+          "type": "fixed",
+          "cs": "Souběh a výpadky už nevyrábějí duplicity. Automatická kola recertifikace se nezaloží dvakrát, metadata skupiny ani uživatele nevytvoří druhý řádek, když aplikace nedokáže ověřit, jestli už existuje, a uložené pohledy se při přenosu do SharePointu neztratí – razítko „převedeno“ se zapíše až po skutečném uložení. Při slučování skupin se zdrojová skupina smaže jen tehdy, když se členové opravdu přenesli. Aplikace se také nepouští do zakládání svých seznamů, když si není jistá, jestli už existují.",
+          "en": "Concurrency and outages no longer produce duplicates. Automatic recertification rounds are not created twice, group and user metadata does not create a second row when the app cannot verify whether it already exists, and saved views are not lost when transferred into SharePoint – the „migrated\" stamp is written only after the save actually succeeds. When merging groups, the source group is deleted only once the members have genuinely been transferred. The app also does not start creating its lists when it is unsure whether they already exist."
+        },
+        {
+          "type": "fixed",
+          "cs": "Audit se sám tiše nevypne. Když se nepodaří zjistit, jestli je zapnutý, aplikace raději zaznamenává a nastavení to přizná. Audit a trendy navíc zůstanou čitelné i ve velkých organizacích – u seznamů, které rostou s každou akcí, přestával výpis nad pěti tisíci položkami fungovat. Úprava účtu už nepřepíše oblast použití na „CZ“, když se nepodařilo načíst stav licencí, a smazání všech dat nehlásí hotovo nad daty, která se nesmazala.",
+          "en": "Auditing does not switch itself off silently. When it cannot be determined whether it is on, the app records rather than not, and the settings say so. Audit and trends also stay readable in large organisations – lists that grow with every action used to stop listing above five thousand items. Editing an account no longer overwrites the usage location with „CZ\" when the licence state could not be loaded, and deleting all data does not report success over data that was not deleted."
+        },
+        {
+          "type": "improved",
+          "cs": "Chybové hlášky od Microsoftu nově uvádějí, co se opravdu stalo – místo dohadu „chybí oprávnění?“ vypíše aplikace stavový kód a text odpovědi. Údaj „poslední přihlášení“ se nevypne kvůli dočasnému omezení Microsoft Graphu: aplikace odliší „organizace tuhle funkci nemá“ od „teď to nešlo“. Když se členství nepodaří ověřit, protože SharePoint nebo Graph neodpoví, aplikace to napíše místo aby tvrdila, že nemáte přístup.",
+          "en": "Error messages from Microsoft now state what actually happened – instead of guessing „missing permission?\" the app prints the status code and the response text. The „last sign-in\" value is not switched off by a temporary Microsoft Graph limit: the app distinguishes „the organisation does not have this feature\" from „it did not work right now\". When membership cannot be verified because SharePoint or Graph does not respond, the app says so instead of claiming you have no access."
+        },
+        {
+          "type": "improved",
+          "cs": "Start i přepínání jsou rychlejší. Při načítání je vidět „Načítám aplikaci“ místo prázdné stránky, skupiny se čtou po větších stránkách a karta datových seznamů ukazuje aktuální počty položek místo čísla, které si prohlížeč pamatoval z minula. Přehled využití má stejné stránkování jako zbytek aplikace – u aktivit i u auditu se nabízejí čísla stránek. Správa rolí navíc přestala ke každé změně přidávat vlastní bezpečnostní token, který SharePointu bránil zotavit se z vypršení.",
+          "en": "Starting up and switching screens are faster. While loading you see „Loading the app\" instead of a blank page, groups are read in larger pages, and the data lists card shows current item counts rather than a number the browser remembered from before. The Usage overview has the same pagination as the rest of the app – both activities and the audit offer page numbers. Role management also stopped adding its own security token to every change, which was preventing SharePoint from recovering when one expired."
+        },
+        {
+          "type": "improved",
+          "cs": "Firemní barva se propíše do celé aplikace. Platí i tehdy, když si organizace nastavila jen hlavní barvu a odstín zvýraznění nechala na aplikaci, a dosáhne i tam, kde dosud zůstávala modrá EP365 nebo výchozí tyrkysová: na kartu zdraví skupiny, informační pruhy, odznaky v detailu, kartu správy verzí, interaktivního průvodce, rychlou nabídku i odchozí e-maily. Popisky na barevných tlačítkách se automaticky přepínají na světlé nebo tmavé.",
+          "en": "The corporate colour carries through the whole app. It applies even when the organisation set only the primary colour and left the accent to the app, and it now reaches places that stayed EP365 blue or the default teal: the group health card, information bars, badges in details, the version management card, the interactive guide, the quick menu and outgoing e-mails. Labels on coloured buttons switch to light or dark automatically."
+        },
+        {
+          "type": "improved",
+          "cs": "Soukromí: firemní písma se načítají z naší distribuční sítě místo z Google Fonts. Dosud si je prohlížeč každého uživatele stahoval přímo od Googlu, kterému tím odcházela IP adresa a údaje o prohlížeči. Při práci s aplikací tak neodchází žádné spojení mimo Microsoft a EasyPortal 365.",
+          "en": "Privacy: corporate fonts now load from our own distribution network instead of Google Fonts. Until now every user’s browser downloaded them straight from Google, which received their IP address and browser details. No connection now leaves Microsoft and EasyPortal 365 while you work with the app."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce se výrazně rozrostl – má nově 11 kapitol místo čtyř. Kromě orientace projde práci se skupinami, žádost o novou skupinu, taxonomii a pravidla, úklid a rizika, recertifikaci členství, uživatele a privilegia, reporty i celé nastavení. Průvodce nově umí přepnout i sekci v Nastavení, takže jimi projde jednu po druhé.",
+          "en": "The interactive guide has grown substantially – it now has 11 chapters instead of four. Besides getting around it covers working with groups, requesting a new group, taxonomy and policies, cleanup and risks, membership recertification, users and privileges, reports and the whole of settings. The guide can now also switch the section in Settings, so it walks through them one by one."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobnosti, které se počítají. Formuláře Nahlásit chybu a Navrhnout funkci mají formátovaný popis a přílohy a hlášení odchází e-mailem z vaší schránky na podporu, kde z něj vzniká tiket; když se odeslat nepodaří, uvidíte technický detail odpovědi Microsoftu 365. Panel skupiny se během ukládání nezavře sám od sebe. Data u výjimek a kol recertifikace sedí i po půlnoci a náhled e-mailové adresy nové skupiny ukazuje správnou doménu i tehdy, když zakládáte účtem bez schránky. Sjednotili jsme také název: centrální rozcestník se všude jmenuje EasyPortal 365 Workplace, a roadmapa ukazuje jen to, co posuzujeme, plánujeme a na čem pracujeme.",
+          "en": "Small things that add up. The Report a bug and Suggest a feature forms support formatted descriptions and attachments, and a report is sent by e-mail from your mailbox to support, where it becomes a ticket; when sending fails, you see the technical detail of the Microsoft 365 response. The group panel no longer closes by itself while saving. Dates on exceptions and recertification rounds are correct after midnight, and the e-mail address preview for a new group shows the right domain even when you create it from an account without a mailbox. We have also unified the naming: the central hub is called EasyPortal 365 Workplace everywhere, and the roadmap shows only what is under review, planned and in progress."
+        }
+      ]
+    },
+    {
       "version": "2.4",
       "date": "2026-07-31",
       "changes": [
