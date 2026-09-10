@@ -62,11 +62,11 @@ button{font-family:var(--fb);}
 
 
 /* ============ Panel, potvrzení, hlášky (DS 10.10, 10.14) ============ */
-.bl-wrap{position:fixed;inset:0;z-index:9300;background:rgba(11,30,63,.34);display:none;justify-content:flex-end;}
+.bl-wrap{position:fixed;inset:0;z-index:9300;background:rgba(11,30,63,.5);display:none;align-items:center;justify-content:center;padding:20px;}
 .bl-wrap.on{display:flex;}
-.bl{width:min(560px,96vw);background:var(--ep-bg);height:100%;display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(11,30,63,.22);}
-.bl.wide{width:min(820px,96vw);}
-.bl-hd{padding:20px 24px 16px;border-bottom:1px solid var(--ep-line);display:flex;align-items:flex-start;gap:14px;}
+.bl{width:min(640px,96vw);max-height:92vh;background:var(--ep-bg);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-lg);display:flex;flex-direction:column;overflow:hidden;}
+.bl.wide{width:min(880px,96vw);}
+.bl-hd{padding:18px 24px 14px;border-bottom:1px solid var(--ep-line);display:flex;align-items:flex-start;gap:14px;}
 .bl-hd .k{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-accent-strong);display:block;}
 .bl-hd .t{font-family:var(--fd);font-weight:800;font-size:19px;letter-spacing:-0.01em;display:block;margin-top:5px;line-height:1.25;}
 .bl-hd .s{display:block;font-size:12.5px;color:var(--ep-text-muted);margin-top:6px;line-height:1.5;}
@@ -1511,7 +1511,7 @@ ul.clean b{color:var(--ep-text);}
    </div>
 
    <div class="card" style="margin-bottom:20px">
-    <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="card-t">Šetření podle případů</span><button class="card-a" id="setNew">+ Zahájit šetření</button></div>
+    <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="card-t">Šetření podle případů</span><button class="btn ghost sm" id="setNew">+ Zahájit šetření</button></div>
     <div class="tbl-wrap" style="border:none;box-shadow:none;border-radius:0">
      <table class="tbl" id="setTbl">
       <thead><tr><th>Případ</th><th>Kdo šetří</th><th>Zahájeno</th><th>Kořenová příčina</th><th>Stav</th></tr></thead>
@@ -1574,7 +1574,7 @@ ul.clean b{color:var(--ep-text);}
      </div>
 
      <div class="card">
-      <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><span class="card-t">Opatření proti opakování</span><button class="card-a">+ Přidat</button></div>
+      <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><span class="card-t">Opatření proti opakování</span><button class="btn ghost sm">+ Přidat opatření</button></div>
       <div class="tbl-wrap" style="border:none;box-shadow:none;border-radius:0">
        <table class="tbl">
         <thead><tr><th>Opatření</th><th>Řešitel</th><th>Termín</th><th>Stav</th></tr></thead>
@@ -2002,7 +2002,7 @@ ul.clean b{color:var(--ep-text);}
      </div>
 
      <div class="card">
-      <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/></svg></span><span class="card-t">Zápis v knize úrazů</span><button class="card-a">Upravit</button></div>
+      <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/></svg></span><span class="card-t">Zápis v knize úrazů</span><button class="btn ghost sm">Upravit zápis</button></div>
       <div class="card-b">
        <div class="grid2">
         <div>
@@ -2667,7 +2667,7 @@ ul.clean b{color:var(--ep-text);}
    <div class="grid2" style="grid-template-columns:1.4fr 1fr">
     <div>
      <div class="card" style="margin-bottom:18px">
-      <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/></svg></span><span class="card-t">Nároky zraněného</span><button class="card-a">+ Přidat nárok</button></div>
+      <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/></svg></span><span class="card-t">Nároky zraněného</span><button class="btn ghost sm">+ Přidat nárok</button></div>
       <div class="tbl-wrap" style="border:none;box-shadow:none;border-radius:0">
        <table class="tbl">
         <thead><tr><th>Nárok</th><th>Podklad</th><th>Částka</th><th>Stav</th></tr></thead>
@@ -4923,9 +4923,9 @@ ul.clean b{color:var(--ep-text);}
   }
   var head = card.querySelector('.card-h');
   var up = document.createElement('button');
-  up.className = 'card-a';
+  up.className = 'btn ghost sm';
   up.setAttribute('data-act', 'upload');
-  up.textContent = '+ Nahrát';
+  up.textContent = '+ Nahrát dokument';
   if (head) head.insertBefore(up, head.querySelector('.card-a'));
 
   function render(){
@@ -5164,14 +5164,15 @@ ul.clean b{color:var(--ep-text);}
     var head = tAll.closest('.card').querySelector('.card-h');
     if (head){
       var b = document.createElement('button');
-      b.className = 'card-a';
+      b.className = 'btn ghost sm';
       b.textContent = '+ Nové opatření';
       b.addEventListener('click', function(e){ e.stopPropagation(); addTo(tAll, true); });
       head.appendChild(b);
     }
     // „+ Přidat“ u opatření konkrétního šetření
     if (tCase){
-      var h2 = tCase.closest('.card').querySelector('.card-a');
+      var h2 = null, hb = tCase.closest('.card').querySelectorAll('.card-h button');
+      for (var q = 0; q < hb.length; q++) if (hb[q].textContent.indexOf('+ Přidat') === 0) h2 = hb[q];
       if (h2) h2.addEventListener('click', function(e){ e.stopPropagation(); addTo(tCase, false); });
       tCase.addEventListener('click', function(e){
         var tr = e.target.closest('tbody tr');
@@ -5203,7 +5204,7 @@ ul.clean b{color:var(--ep-text);}
     }
     if (stepCard){
       var eb = document.createElement('button');
-      eb.className = 'card-a';
+      eb.className = 'btn ghost sm';
       eb.textContent = 'Upravit šetření';
       stepCard.querySelector('.card-h').appendChild(eb);
       eb.addEventListener('click', function(){
