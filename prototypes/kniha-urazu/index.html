@@ -5069,9 +5069,9 @@ ul.clean b{color:var(--ep-text);}
 // ---------- Zápis a úpravy: opatření, nemoci z povolání, skoro-nehody ----------
 (function(){
   var esc = window.epEsc, M = ['ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince'];
-  var PILL = { 'V řešení':'p-open', 'Po termínu':'p-late', 'Splněno':'p-closed', 'Čeká na schválení':'p-arch',
-    'Uznána':'p-sent', 'Ohrožení nemocí':'p-open', 'V posuzování':'p-arch',
-    'Posuzuje se':'p-open', 'Opatření zavedeno':'p-closed', 'Předáno k šetření':'p-late', 'Bez opatření':'p-arch' };
+  var PILL = { 'V řešení':'p-open', 'Po termínu':'p-late', 'Splněno':'p-closed', 'Naplánováno':'p-new',
+    'Uznána':'p-sent', 'Ohrožení':'p-open', 'V posuzování':'p-arch',
+    'Posuzuje se':'p-open', 'Vedlo k opatření':'p-closed', 'Opatření splněno':'p-closed', 'Opakuje se':'p-late', 'Bez opatření':'p-arch' };
   function pill(t){ return '<span class="pill ' + (PILL[t] || 'p-open') + '"><span class="d"></span>' + esc(t) + '</span>'; }
   function ini(n){
     var parts = String(n || '').replace(/\(.*\)/, '').replace(/\./g, '').trim().split(/\s+/);
@@ -5126,7 +5126,7 @@ ul.clean b{color:var(--ep-text);}
     if (!tAll) return;
 
     var URAZY = ['ÚR-2026-030 · P. Dvořák', 'ÚR-2026-028 · L. Němec', 'ÚR-2026-027 · A. Veselá', 'ÚR-2026-026 · M. Bílý', 'Bez vazby na konkrétní úraz'];
-    var STAVY = ['V řešení', 'Po termínu', 'Čeká na schválení', 'Splněno'];
+    var STAVY = ['Naplánováno', 'V řešení', 'Po termínu', 'Splněno'];
 
     function recount(){
       var rows = tAll.querySelectorAll('tbody tr'), open = 0;
@@ -5292,14 +5292,14 @@ ul.clean b{color:var(--ep-text);}
     if (!scr) return;
     var tbl = scr.querySelector('table.tbl');
     if (!tbl) return;
-    var STAVY = ['Uznána', 'Ohrožení nemocí', 'V posuzování'];
+    var STAVY = ['Uznána', 'Ohrožení', 'V posuzování'];
 
     function recount(){
       var rows = tbl.querySelectorAll('tbody tr'), uzn = 0, ohr = 0;
       for (var i = 0; i < rows.length; i++){
         var st = txt(rows[i], 4);
-        if (st === 'Uznána') uzn++;
-        if (st === 'Ohrožení nemocí') ohr++;
+        if (st.indexOf('Uzn') === 0) uzn++;
+        if (st.indexOf('Ohrož') === 0) ohr++;
       }
       setNav('s15', rows.length);
       setKpi('s15', 'Uznané nemoci', uzn);
@@ -5369,7 +5369,7 @@ ul.clean b{color:var(--ep-text);}
     if (!scr) return;
     var tbl = scr.querySelector('table.tbl');
     if (!tbl) return;
-    var REAKCE = ['Posuzuje se', 'Předáno k šetření', 'Opatření zavedeno', 'Bez opatření'];
+    var REAKCE = ['Posuzuje se', 'Vedlo k opatření', 'Opatření splněno', 'Opakuje se', 'Bez opatření'];
     var CELKEM = 26;
 
     function recount(){
@@ -5416,7 +5416,7 @@ ul.clean b{color:var(--ep-text);}
           { l: 'Co se stalo', n: 'co', t: 'text', v: v.co, w2: true, req: true, hint: 'Krátce a bez viníka: co se stalo a co se stát mohlo.' },
           { l: 'Proč k tomu došlo', n: 'proc', t: 'text', v: v.proc, w2: true },
           { l: 'Pracoviště', n: 'kde', t: 'text', v: v.kde, req: true },
-          { l: 'Reakce', n: 'reakce', t: 'select', v: v.reakce, o: REAKCE, hint: 'Z „Předáno k šetření“ se dělá opatření na obrazovce Šetření a opatření.' }
+          { l: 'Reakce', n: 'reakce', t: 'select', v: v.reakce, o: REAKCE, hint: 'Z „Vedlo k opatření“ se dělá opatření na obrazovce Šetření a opatření.' }
         ],
         save: v.co ? 'Uložit změny' : 'Nahlásit',
         onSave: onSave,
@@ -5687,8 +5687,8 @@ ul.clean b{color:var(--ep-text);}
     var PARAGRAF = { 'Ztráta na výdělku po dobu neschopnosti': '§ 271a', 'Ztráta na výdělku po skončení neschopnosti': '§ 271b',
       'Bolestné': '§ 271c', 'Ztížení společenského uplatnění': '§ 271c', 'Účelně vynaložené náklady léčení': '§ 271d',
       'Věcná škoda': '§ 271e', 'Náklady spojené s pohřbem': '§ 271g' };
-    var STAVY = ['Chybí doklad', 'Uplatněno', 'Vyplaceno', 'Posuzuje pojišťovna'];
-    var PL = { 'Chybí doklad': 'p-open', 'Uplatněno': 'p-sent', 'Vyplaceno': 'p-closed', 'Posuzuje pojišťovna': 'p-arch' };
+    var STAVY = ['Chybí doklad', 'Doloženo', 'Neuplatněno', 'Předčasné', 'Vyplaceno'];
+    var PL = { 'Chybí doklad': 'p-open', 'Doloženo': 'p-sent', 'Neuplatněno': 'p-arch', 'Předčasné': 'p-new', 'Vyplaceno': 'p-closed' };
     window.epBlade({
       kicker: 'Pojistná událost PU-2026-0041 · P. Dvořák',
       title: 'Přidat nárok',
@@ -5776,7 +5776,7 @@ ul.clean b{color:var(--ep-text);}
     }],
     ['Otevřít portál SÚIP', function(){ try { window.open('https://www.suip.cz', '_blank', 'noopener'); } catch(e){} say('Portál inspekce práce se otevřel v novém okně.'); }],
     ['Rozeslat kopie', function(){
-      window.epConfirm({ title: 'Rozeslat kopie?', text: 'Odejde zraněnému, zástupci pro BOZP, zdravotní pojišťovně a Kooperativě. Odeslání se eviduje – doručenky se uloží k případu.', ok: 'Rozeslat', onOk: function(){ say('Kopie rozeslány, doručenky se ukládají k případu.'); } });
+      window.epConfirm({ title: 'Rozeslat kopie?', text: 'Odejde zraněnému, zástupci pro BOZP, zdravotní pojišťovně a Kooperativě. Aplikace e-maily posílá sama z vaší schránky a ukládá je k případu jako doklad o odeslání.', ok: 'Rozeslat', onOk: function(){ say('Kopie rozeslány. Odchozí e-maily se ukládají k případu jako doklad o odeslání.'); } });
     }],
     ['Otevřít průvodce aktualizací', aktualizace],
     ['+ Přidat nárok', narok],
