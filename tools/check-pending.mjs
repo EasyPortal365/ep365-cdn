@@ -27,6 +27,35 @@ const APPS_ROOT = resolve(__dirname, '..', '..');
 
 const argv = process.argv.slice(2);
 
+// ── Prahy nevydanych zmen ────────────────────────────────────────────────────
+// PROC: `pending` roste v rytmu BUILDU (kazde tiche vydani prida polozky) a mazne
+// se az v rytmu OSTREHO VYDANI, ktere je rozhodnuti Kamiho. Mezi tim byva tydny.
+// V zari 2026 se takhle naslo 615 polozek v devíti appkach naraz a jejich kuratura
+// zabrala cely den. Nic to do te chvile nehlasilo — soubor byl formalne "ok".
+//
+// Proc dva prahy a ne jeden tvrdy: remedura neni oprava kodu, ale VYDANI, tedy
+// rozhodnuti Kamiho. Kdyby /wrap-up padal pri kazdem behu, prestane se cist
+// (tatáž past jako u hlasice driftu v1 — vystraha, ktera sviti vzdycky, je sum).
+// Proto: VAROVANI jmenuje appky, ktere si o vydani rikaji, a HRANICE (exit 1) se
+// ozve, teprve az je to prokazatelne z ruky.
+// Zmereno v OBOU polaritach nad ZIVYMI repy (§43.26), ne nad fixturou:
+//   node tools/check-pending.mjs worklog fleet   -> 0 polozek, zadny blok, exit 0
+//   node tools/check-pending.mjs                 -> crm 130 + homepage 121, exit 1
+//   node tools/check-pending.mjs crm --max 500   -> tatáž data, exit 0
+// Prahy jdou pretizit `--warn N` / `--max N`; nekladne cislo skript odmitne.
+const PRAH_VAROVANI = 30;
+const PRAH_HRANICE = 100;
+const cislo = (jmeno, vychozi) => {
+  const i = argv.indexOf(jmeno);
+  if (i === -1) return vychozi;
+  const v = Number(argv[i + 1]);
+  if (!Number.isFinite(v) || v < 1) { console.error('CHYBA: ' + jmeno + ' chce kladne cislo'); process.exit(2); }
+  argv.splice(i, 2);
+  return v;
+};
+const prahVarovani = cislo('--warn', PRAH_VAROVANI);
+const prahHranice = cislo('--max', PRAH_HRANICE);
+
 if (argv.indexOf('--selftest') !== -1) {
   // Kazda fixtura je jinak vadna a MUSI dat aspon jeden nalez. Kdyby pravidlo nekdo
   // omylem vyradil, projde tady nula nalezu a selftest spadne — presne o to jde.
@@ -76,6 +105,7 @@ if (!repos.length) {
 }
 
 let bad = 0, broken = 0, unreleased = 0;
+const prekrocene = [];
 const rows = [];
 
 for (const repo of repos) {
@@ -99,6 +129,10 @@ for (const repo of repos) {
   if (Array.isArray(data.pending)) unreleased += data.pending.length;
 
   rows.push({ repo, shape, n: issues.length });
+  if (Array.isArray(data.pending) && data.pending.length >= prahVarovani) {
+    const od = data.pending[0] && data.pending[0].since ? data.pending[0].since : '?';
+    prekrocene.push({ repo, pocet: data.pending.length, od, hranice: data.pending.length >= prahHranice });
+  }
   if (issues.length) {
     bad++;
     console.log('');
@@ -117,5 +151,20 @@ console.log('');
 console.log('  ' + rows.length + ' appek, ' + unreleased + ' nevydanych zmen v pending, '
   + (bad ? bad + ' appek s nalezem' : 'zadny nalez'));
 
+if (prekrocene.length) {
+  const zaHranici = prekrocene.filter(p => p.hranice);
+  console.log('');
+  console.log('  NEVYDANE ZMENY - ' + prekrocene.length + ' appek nad prahem ' + prahVarovani + ':');
+  for (const p of prekrocene) {
+    console.log('    ' + (p.hranice ? '!! ' : '   ') + p.repo + ' '.repeat(Math.max(1, 22 - p.repo.length))
+      + p.pocet + ' polozek, nejstarsi od tiche verze ' + p.od);
+  }
+  console.log('  Remedura je VYDANI, ne uprava souboru: promote-release.mjs <app> <MAJOR.MINOR>.');
+  if (zaHranici.length) {
+    console.log('  !! ' + zaHranici.length + ' appek pres hranici ' + prahHranice
+      + ' - kuratura takove karty je prace na hodiny, ne na minuty.');
+  }
+}
+
 if (broken) { console.error('  ! ' + broken + ' souboru se nepodarilo zkontrolovat'); process.exit(2); }
-process.exit(bad ? 1 : 0);
+process.exit(bad || prekrocene.some(p => p.hranice) ? 1 : 0);
