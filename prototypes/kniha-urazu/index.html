@@ -321,6 +321,7 @@ html.appmode .qchip.tourgo{display:inline-flex;align-items:center;gap:6px;border
 
 /* ============ KPI · karty · feed ============ */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px;}
+#s1 .kpis{grid-template-columns:repeat(auto-fit,minmax(168px,1fr));}
 .kpi{background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-sm);padding:16px 18px;position:relative;}
 .kpi-l{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-text-soft);}
 .kpi-v{font-family:var(--fd);font-weight:800;font-size:30px;letter-spacing:-0.02em;margin-top:6px;color:var(--ep-text);}
@@ -699,8 +700,8 @@ ul.clean b{color:var(--ep-text);}
     </ul>
   </div>
   <div class="foot">
-    <span class="foot-av">MN</span>
-    <span style="min-width:0"><span class="foot-n">Martina Nováková</span><span class="foot-r" style="display:block">Technik BOZP · správce knihy</span></span>
+    <span class="foot-av">KJ</span>
+    <span style="min-width:0"><span class="foot-n">Kamil Juřík</span><span class="foot-r" style="display:block">Technik BOZP · správce knihy</span></span>
     <button class="foot-buoy" data-go="s13" title="Nastavení aplikace, nápověda a podpora"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.6"/><path d="m14.5 9.5 3-3M6.5 17.5l3-3M14.5 14.5l3 3M6.5 6.5l3 3"/></svg></button>
   </div>
 </aside>
@@ -721,6 +722,12 @@ ul.clean b{color:var(--ep-text);}
  <div class="wz-rail" id="wzRail"></div>
  <div class="wz-b" id="wzB"></div>
  <div class="wz-ft"><span class="note" id="wzN" style="margin-right:auto"></span><button class="btn ghost sm" id="wzPrev">Zpět</button><button class="btn accent sm" id="wzNext">Pokračovat</button></div>
+</div></div>
+<div class="wz-wrap" id="wz2Wrap"><div class="wz">
+ <div class="wz-hd"><div style="min-width:0"><span class="wz-k">Aktualizace odeslaného záznamu</span><span class="wz-t" id="wz2T"></span></div><button class="bl-x" id="wz2X" title="Zavřít">×</button></div>
+ <div class="wz-rail" id="wz2Rail"></div>
+ <div class="wz-b" id="wz2B"></div>
+ <div class="wz-ft"><span class="note" id="wz2N" style="margin-right:auto"></span><button class="btn ghost sm" id="wz2Prev">Zpět</button><button class="btn accent sm" id="wz2Next">Pokračovat</button></div>
 </div></div>
 <div class="tour-mask" id="tourMask"><i data-t="top"></i><i data-t="right"></i><i data-t="bottom"></i><i data-t="left"></i><div class="tour-ring" id="tourRing"></div></div>
 <div class="tour-bub" id="tourBub">
@@ -752,7 +759,7 @@ ul.clean b{color:var(--ep-text);}
     <div class="lh-split">
      <div>
       <div class="eyebrow">Kniha úrazů · Výrobní závod Kolín</div>
-      <h1 class="lh-greet">Dobré ráno, paní Nováková.<span class="hl" style="font-family:var(--fi);font-style:italic;font-weight:500;color:var(--ep-accent-strong)">Dva případy dnes potřebují vaši ruku.</span></h1>
+      <h1 class="lh-greet">Dobré ráno, Kamile.<span class="hl" style="font-family:var(--fi);font-style:italic;font-weight:500;color:var(--ep-accent-strong)">Dva případy dnes potřebují vaši ruku.</span></h1>
       <p class="lh-lead">První obrazovka po přihlášení. Ukáže, co dnes potřebuje vaši pozornost: kterým případům běží lhůta, co je rozepsané a co se v knize stalo naposledy. Všechna čísla se počítají z evidence – nic se nepřepisuje ručně.</p>
       <div class="lh-chips">
        <span class="lab">Rychle</span>
@@ -776,6 +783,7 @@ ul.clean b{color:var(--ep-text);}
     <div class="kpi" data-go="s6"><div class="kpi-l">Lhůty v běhu</div><div class="kpi-v red">3</div><div class="kpi-s">1 dnes, 2 v příštích deseti dnech</div></div>
     <div class="kpi" data-go="s10"><div class="kpi-l">Četnost úrazů</div><div class="kpi-v amber">12,4</div><div class="kpi-s">úrazů s neschopností na milion odpracovaných hodin</div></div>
     <div class="kpi" data-go="s9"><div class="kpi-l">Opatření v řešení</div><div class="kpi-v">5</div><div class="kpi-s">1 po termínu splnění</div></div>
+    <div class="kpi" data-go="s2"><div class="kpi-l">Dny od posledního úrazu</div><div class="kpi-v">2</div><div class="kpi-s">naposledy 8. 9. · ÚR-2026-031 · nejdelší letos 34 dnů</div></div>
    </div>
 
    <div class="two-col">
@@ -862,7 +870,7 @@ ul.clean b{color:var(--ep-text);}
       <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/></svg></span><span class="card-t">Dění v knize</span><button class="card-a" data-go="s2">Kniha</button></div>
       <div class="feed">
        <div class="feed-i"><span class="feed-ic" style="background:#FDEBEB;color:#B23A3A"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3 9 16H3Z"/></svg></span><div><div class="feed-t"><b>Jan Kolář</b> nahlásil úraz z mobilu – čeká na doplnění klasifikace.</div><div class="feed-m">dnes 06:52 · ÚR-2026-031</div></div></div>
-       <div class="feed-i"><span class="feed-ic" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Záznam <b>ÚR-2026-030</b> podán na portálu SÚIP, kopie odešly VZP a Kooperativě.</div><div class="feed-m">4. 9. 09:40 · Martina Nováková</div></div></div>
+       <div class="feed-i"><span class="feed-ic" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Záznam <b>ÚR-2026-030</b> podán na portálu SÚIP, kopie odešly VZP a Kooperativě.</div><div class="feed-m">4. 9. 09:40 · Kamil Juřík</div></div></div>
        <div class="feed-i"><span class="feed-ic" style="background:#FEF6E7;color:#8A5A00"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></span><div><div class="feed-t">Pojišťovna vyžádala doklad o výdělku k <b>PU-2026-0041</b>.</div><div class="feed-m">4. 9. 13:40 · Kooperativa</div></div></div>
        <div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><div><div class="feed-t">Šetření příčin <b>ÚR-2026-028</b> uzavřeno – 2 opatření.</div><div class="feed-m">2. 9. 16:20 · Ing. Pavel Říha, bezpečnostní technik</div></div></div>
       </div>
@@ -1503,6 +1511,23 @@ ul.clean b{color:var(--ep-text);}
    </div>
 
    <div class="card" style="margin-bottom:20px">
+    <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="card-t">Šetření podle případů</span><button class="card-a" id="setNew">+ Zahájit šetření</button></div>
+    <div class="tbl-wrap" style="border:none;box-shadow:none;border-radius:0">
+     <table class="tbl" id="setTbl">
+      <thead><tr><th>Případ</th><th>Kdo šetří</th><th>Zahájeno</th><th>Kořenová příčina</th><th>Stav</th></tr></thead>
+      <tbody>
+       <tr><td><span class="t-id">ÚR-2026-028</span><div class="t-sub">L. Němec · pád ze žebříku</div></td><td><span class="who"><span class="avatar">KJ</span><span class="n">K. Juřík</span></span></td><td class="mono" style="font-size:12px">21. 8. 2026</td><td><div class="t-pri">Není plošina, žebřík je zavedená praxe</div></td><td><span class="pill p-open"><span class="d"></span>Probíhá</span></td></tr>
+       <tr><td><span class="t-id">ÚR-2026-030</span><div class="t-sub">P. Dvořák · naražení ve skladu</div></td><td><span class="who"><span class="avatar">PN</span><span class="n">P. Novák</span></span></td><td class="mono" style="font-size:12px">3. 9. 2026</td><td><div class="t-pri">Ulička C se zúžila po přesunu palet</div></td><td><span class="pill p-closed"><span class="d"></span>Uzavřeno</span></td></tr>
+       <tr><td><span class="t-id">ÚR-2026-027</span><div class="t-sub">A. Veselá · podvrtnutí kotníku</div></td><td><span class="who"><span class="avatar">RS</span><span class="n">R. Šimek</span></span></td><td class="mono" style="font-size:12px">15. 8. 2026</td><td><div class="t-pri">Vadný rošt u lisu L2</div></td><td><span class="pill p-closed"><span class="d"></span>Uzavřeno</span></td></tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="card-b" style="border-top:1px solid var(--ep-line)">
+     <div class="note"><b>Šetření nezakládáte ručně u každého úrazu.</b> Aplikace ho založí sama, jakmile v knize přibude úraz s neschopností nad tři dny nebo závažný úraz – přiřadí ho tomu, kdo agendu vede, a hlídá, aby se nezapomnělo. Tlačítkem výše se zahájí šetření navíc: třeba u drobného úrazu, který se opakuje, nebo u skoro-nehody.</div>
+    </div>
+   </div>
+
+   <div class="card" style="margin-bottom:20px">
     <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><span class="card-t">Opatření, která ještě běží</span><span class="pill p-open" style="margin-left:4px"><span class="d"></span>5 nesplněných</span><button class="card-a">Vše včetně splněných</button></div>
     <div class="tbl-wrap" style="border:none;box-shadow:none;border-radius:0">
      <table class="tbl">
@@ -1562,7 +1587,7 @@ ul.clean b{color:var(--ep-text);}
          </tr>
          <tr>
           <td><div class="t-pri">Zavést žebříky do evidence pravidelných kontrol</div><div class="t-sub">Vyřazeny 4 kusy, doplněny patky u 11 kusů</div></td>
-          <td><span class="who"><span class="avatar teal">MN</span><span class="n">M. Nováková</span></span></td>
+          <td><span class="who"><span class="avatar teal">KJ</span><span class="n">K. Juřík</span></span></td>
           <td class="mono" style="font-size:12px">15. 9. 2026</td>
           <td><span class="pill p-closed"><span class="d"></span>Splněno</span></td>
          </tr>
@@ -1746,17 +1771,17 @@ ul.clean b{color:var(--ep-text);}
      <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="card-t">Pracoviště × měsíc</span></div>
      <div class="card-b" style="overflow-x:auto">
       <table style="border-collapse:separate;border-spacing:4px;font-family:var(--fm);font-size:10px;color:var(--ep-text-soft)">
-       <tr><td></td><td>I</td><td>II</td><td>III</td><td>IV</td><td>V</td><td>VI</td><td>VII</td><td>VIII</td><td>IX</td></tr>
+       <tr><td></td><td>I</td><td>II</td><td>III</td><td>IV</td><td>V</td><td>VI</td><td>VII</td><td>VIII</td><td>IX</td><td>X</td><td>XI</td><td>XII</td></tr>
        <tr><td style="text-align:right;padding-right:6px;color:var(--ep-text);font-family:var(--fb);font-size:12px;font-weight:600">Lisovna</td>
-        <td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#00A8B0"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#00A8B0"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#D14343"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td></tr>
+        <td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#00A8B0"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#00A8B0"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#D14343"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td></tr>
        <tr><td style="text-align:right;padding-right:6px;color:var(--ep-text);font-family:var(--fb);font-size:12px;font-weight:600">Sklad</td>
-        <td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td></tr>
+        <td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td></tr>
        <tr><td style="text-align:right;padding-right:6px;color:var(--ep-text);font-family:var(--fb);font-size:12px;font-weight:600">Expedice</td>
-        <td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td></tr>
+        <td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td></tr>
        <tr><td style="text-align:right;padding-right:6px;color:var(--ep-text);font-family:var(--fb);font-size:12px;font-weight:600">Údržba</td>
-        <td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#D14343"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td></tr>
+        <td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#8FD9DD"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#E4F7F6"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#D14343"></span></td><td><span style="display:block;width:26px;height:22px;border-radius:5px;background:#F4F7FB"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td><td><span style="display:block;box-sizing:border-box;width:26px;height:22px;border-radius:5px;background:#EDEFF3;border:1px dashed var(--ep-line-2)"></span></td></tr>
       </table>
-      <div class="note" style="margin-top:12px">Srpen: čtyři úrazy během dovolených, kdy práci přebírali zastupující – dva z nich v lisovně a údržbě. Vzorec, který v ročním souhrnu zanikne.</div>
+      <div class="note" style="margin-top:12px">Srpen: čtyři úrazy během dovolených, kdy práci přebírali zastupující – dva z nich v lisovně a údržbě. Vzorec, který v ročním souhrnu zanikne. Říjen až prosinec jsou přerušovaně orámované: ještě nebyly, není to nula.</div>
      </div>
     </div>
    </div>
@@ -1820,14 +1845,14 @@ ul.clean b{color:var(--ep-text);}
      <div class="card" style="margin-bottom:18px">
       <div class="card-b">
        <div class="chat">
-        <div class="msg me"><span class="av" style="background:var(--ep-navy);color:#fff">MN</span><div class="bub">Kolik jsme letos měli úrazů v lisovně a co je jejich nejčastější příčina?</div></div>
+        <div class="msg me"><span class="av" style="background:var(--ep-navy);color:#fff">KJ</span><div class="bub">Kolik jsme letos měli úrazů v lisovně a co je jejich nejčastější příčina?</div></div>
         <div class="msg"><span class="av" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)">AI</span><div class="bub">
          V lisovně je letos <b>8 úrazů</b> z celkových 31 – nejvíc ze všech pracovišť. Dva z nich měly neschopnost delší než tři dny, dohromady 44 dní.<br><br>
          Jako příčina se nejčastěji objevuje <b>„nedostatky osobních předpokladů“ (4×)</b> a <b>„vadný stav zdroje úrazu“ (2×)</b>. Pět z osmi se stalo při seřizování nebo údržbě stroje, ne při běžné obsluze.<br><br>
          Dva případy (ÚR-2026-027 a ÚR-2026-031) míří na stejné místo – rošt a doraz u lisu L2.
          <div class="srcline"><span>Sestaveno z:</span><span class="srcchip">8 zápisů v knize</span><span class="srcchip">3 protokoly o šetření</span><span class="srcchip">registr rizik R-08, R-14</span></div>
         </div></div>
-        <div class="msg me"><span class="av" style="background:var(--ep-navy);color:#fff">MN</span><div class="bub">Co ještě chybí u případu ÚR-2026-029?</div></div>
+        <div class="msg me"><span class="av" style="background:var(--ep-navy);color:#fff">KJ</span><div class="bub">Co ještě chybí u případu ÚR-2026-029?</div></div>
         <div class="msg"><span class="av" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)">AI</span><div class="bub">
          U <b>ÚR-2026-029 (M. Svobodová, řezná rána předloktí)</b> je záznam o úrazu rozepsaný a chybí v něm:
          <ul class="clean" style="margin-top:8px">
@@ -1966,7 +1991,7 @@ ul.clean b{color:var(--ep-text);}
        <div class="steps">
         <div class="step done"><span class="step-n">✓</span><div><div class="step-t">2. 9. 14:05 · Úraz</div><div class="step-d">Při ukládání palety naboural čelo vozíku do regálu, náraz hrudníkem o sloupek.</div></div></div>
         <div class="step done"><span class="step-n">✓</span><div><div class="step-t">2. 9. 14:20 · Ošetření</div><div class="step-d">Odvoz na urgentní příjem, RTG bez zlomeniny, kontuze hrudní stěny. Neschopnost od 2. 9.</div></div></div>
-        <div class="step done"><span class="step-n">✓</span><div><div class="step-t">2. 9. 15:40 · Zápis do knihy úrazů</div><div class="step-d">Zapsal mistr směny z telefonu, doplnila M. Nováková (technik BOZP). <span class="law">NV 322/2025 § 3</span></div></div></div>
+        <div class="step done"><span class="step-n">✓</span><div><div class="step-t">2. 9. 15:40 · Zápis do knihy úrazů</div><div class="step-d">Zapsal mistr směny z telefonu, doplnila K. Juřík (technik BOZP). <span class="law">NV 322/2025 § 3</span></div></div></div>
         <div class="step done"><span class="step-n">✓</span><div><div class="step-t">2. 9. 16:10 · Ohlášení bez zbytečného odkladu</div><div class="step-d">Zástupce zaměstnanců pro BOZP, vedoucí skladu, pojišťovna zákonného pojištění. Inspektorátu se neohlašuje – nejde o závažný úraz. <span class="law">NV 322/2025 § 5</span></div></div></div>
         <div class="step done"><span class="step-n">✓</span><div><div class="step-t">4. 9. · Záznam vyplněn a podán na portálu SÚIP</div><div class="step-d">Lhůta 15 pracovních dnů od zjištění úrazu (do 23. 9.). Spisová značka z portálu uložena k případu. <span class="law">NV 322/2025 § 6</span></div></div></div>
         <div class="step done"><span class="step-n">✓</span><div><div class="step-t">5. 9. · Podpisy a rozeslání kopií</div><div class="step-d">Záznam vytištěn z portálu, podepsán zraněným, zástupcem pro BOZP a zaměstnavatelem. Kopie: zraněný, VZP, Kooperativa. Podepsaný originál se uchová 10 let.</div></div></div>
@@ -1994,7 +2019,7 @@ ul.clean b{color:var(--ep-text);}
          <div class="kv"><div class="k">Zdroje úrazu</div><div class="v">12.02 Lehká vozidla osobní i nákladní</div></div>
          <div class="kv"><div class="k">Příčiny úrazu</div><div class="v">14 Špatně nebo nedostatečně odhadnuté riziko</div></div>
          <div class="kv"><div class="k">Svědci</div><div class="v">Michal Bílý · Jana Kučerová</div></div>
-         <div class="kv" style="margin-bottom:0"><div class="k">Zapsal</div><div class="v">Martina Nováková, technik BOZP</div></div>
+         <div class="kv" style="margin-bottom:0"><div class="k">Zapsal</div><div class="v">Kamil Juřík, technik BOZP</div></div>
         </div>
        </div>
       </div>
@@ -2346,7 +2371,7 @@ ul.clean b{color:var(--ep-text);}
     <div class="card">
      <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><span class="card-t">Historie odeslání</span><button class="card-a">Vše</button></div>
      <div class="feed">
-      <div class="feed-i"><span class="feed-ic" style="background:#E7F6ED;color:#1F7A3C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Záznam <b>ÚR-2026-028</b> podán na portálu SÚIP</div><div class="feed-m">25. 8. 09:12 · sp. zn. 12345/2026/8.10 · podala M. Nováková</div></div></div>
+      <div class="feed-i"><span class="feed-ic" style="background:#E7F6ED;color:#1F7A3C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Záznam <b>ÚR-2026-028</b> podán na portálu SÚIP</div><div class="feed-m">25. 8. 09:12 · sp. zn. 12345/2026/8.10 · podala K. Juřík</div></div></div>
       <div class="feed-i"><span class="feed-ic" style="background:#E7F6ED;color:#1F7A3C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Ohlášení závažného úrazu <b>ÚR-2026-028</b> → portál SÚIP</div><div class="feed-m">21. 8. 13:05 · hospitalizace 7 dní · téhož dne</div></div></div>
       <div class="feed-i"><span class="feed-ic" style="background:#E7F6ED;color:#1F7A3C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Škodná událost <b>ÚR-2026-028</b> → Kooperativa</div><div class="feed-m">24. 8. 10:40 · potvrzeno č. PU-2026-0038</div></div></div>
       <div class="feed-i"><span class="feed-ic" style="background:#FDEBEB;color:#B23A3A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></span><div><div class="feed-t">Aktualizace záznamu <b>ÚR-2026-030</b> <b>dosud neprovedena</b> – upřesněnou délku neschopnosti známe od 8. 9.</div><div class="feed-m">upozorněno 8. a 9. 9. · lhůta „bez zbytečného odkladu“</div></div></div>
@@ -2465,7 +2490,7 @@ ul.clean b{color:var(--ep-text);}
       <div class="card-b">
        <p class="note" style="margin:0 0 12px">Portál zatím žádné rozhraní pro programy nemá – ministerstvo ho při přípravě nařízení odmítlo a import dat slibuje až ve druhé fázi digitalizace. Průvodce proto otevře portál vedle aplikace a vede vás částmi I–XV: u každé ukáže hodnotu a jedním klikem ji zkopíruje.</p>
        <div class="steps">
-        <div class="step done"><span class="step-n">✓</span><div><div class="step-t">Přihlášení do portálu</div><div class="step-d">Identitou občana nebo bankovní identitou; oprávnění má M. Nováková a J. Pokorný.</div></div></div>
+        <div class="step done"><span class="step-n">✓</span><div><div class="step-t">Přihlášení do portálu</div><div class="step-d">Identitou občana nebo bankovní identitou; oprávnění má K. Juřík a J. Pokorný.</div></div></div>
         <div class="step act"><span class="step-n">2</span><div><div class="step-t">Přepis částí I–XV</div><div class="step-d">10 z 15 částí je připraveno ke zkopírování.</div></div></div>
         <div class="step"><span class="step-n">3</span><div><div class="step-t">Uložení spisové značky</div><div class="step-d">Po odeslání ji vložíte zpět – aplikace si zapamatuje datum, čas a kdo podal.</div></div></div>
         <div class="step"><span class="step-n">4</span><div><div class="step-t">Tisk a podpisy</div><div class="step-d">Vytisknout z portálu, podepsat, naskenovat zpět. Nebo elektronicky uznávanými podpisy.</div></div></div>
@@ -2555,7 +2580,6 @@ ul.clean b{color:var(--ep-text);}
        <div class="banner info" style="margin-top:14px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg><div>Aktualizace se dělá <b>v témže záznamu na portálu</b>, ne novým podáním. Aplikace si drží obě verze, aby bylo dohledatelné, co a kdy se změnilo.</div></div>
        <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
         <button class="btn accent">Otevřít průvodce aktualizací</button>
-        <button class="btn ghost" data-go="s4">Otevřít případ P. Dvořáka</button>
        </div>
       </div>
      </div>
@@ -2956,10 +2980,14 @@ ul.clean b{color:var(--ep-text);}
        <button class="icobtn" data-go="s0" title="Nápověda k návrhu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.7M12 17h.01"/></svg></button>
        <button class="icobtn" data-go="s14" title="Nahlásit připomínku"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h8l1 4a5 5 0 0 1-10 0Z"/><path d="M12 10v9M5 13h2M17 13h2"/></svg></button>
        <button class="icobtn" data-go="s14" title="Navrhnout vylepšení"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.2.9 1.9V16h5.2v-.2c0-.7.3-1.4.9-1.9A6 6 0 0 0 12 3Z"/></svg></button>
+       <span class="vline"></span>
+       <button class="btn accent sm" id="puNew">Nahlásit pojišťovně</button>
       </div>
      </div>
     </div>
    </div>
+
+   <div class="banner info"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg><div><b>Událost se nezakládá od nuly.</b> Jakmile u úrazu vznikne nárok – tedy vždycky, když je neschopnost delší než tři dny nebo když jsou náklady léčení – aplikace pojistnou událost <b>nabídne sama</b> a předvyplní ji z případu: koho se týká, kdy se stal, jaké jsou nároky. Vy ji jen zkontrolujete a odešlete. Tlačítkem <b>Nahlásit pojišťovně</b> se dá založit i ručně, třeba u úrazu převzatého ze starší evidence.</div></div>
 
    <div class="kpis" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr))">
     <div class="kpi"><div class="kpi-l">Případů letos</div><div class="kpi-v">9</div><div class="kpi-s">tolik úrazů má záznam a nárok</div></div>
@@ -3065,7 +3093,8 @@ ul.clean b{color:var(--ep-text);}
        <li><b>Pojištění máte ze zákona</b>, ať chcete nebo ne – vzniká dnem, kdy zaměstnáte prvního člověka. Žádná smlouva se neuzavírá, platí se čtvrtletně.</li>
        <li><b>Peníze dostane zraněný, ne firma.</b> Zaměstnavatel škodu uhradí a pojišťovna mu ji vrátí – nebo ji na jeho pokyn vyplatí přímo zraněnému.</li>
        <li><b>Platí se jen to, co doložíte.</b> Chybějící doklad likvidaci zastaví; nejčastěji chybí potvrzení o výdělku před úrazem a potvrzení lékaře, že neschopnost souvisí s úrazem.</li>
-       <li><b>Agenturní zaměstnanci</b> mají pojištění u své agentury – vy dodáváte podklady a záznam o úrazu.</li>
+       <li><b>Odkud se událost bere.</b> Vzniká z úrazu: aplikace ji nabídne, jakmile je v případu nárok, a předvyplní ji z knihy a ze záznamu o úrazu. Ručně se zakládá jen výjimečně – u úrazů převzatých z dřívější evidence.</li>
+      <li><b>Agenturní zaměstnanci</b> mají pojištění u své agentury – vy dodáváte podklady a záznam o úrazu.</li>
       </ul>
      </div>
     </div>
@@ -3632,7 +3661,7 @@ ul.clean b{color:var(--ep-text);}
       + '<div class="kv"><div class="k">Stav</div><div class="v">Podán na portálu SÚIP 4. 9. 2026</div></div>'
       + '<div class="kv"><div class="k">Spisová značka</div><div class="v mono">12678/2026/8.10</div></div>'
       + '<div class="kv"><div class="k">Lhůta byla</div><div class="v">do 23. 9. 2026 · 15 pracovních dnů</div></div>'
-      + '<div class="kv" style="margin-bottom:0"><div class="k">Podal</div><div class="v">Martina Nováková</div></div>'
+      + '<div class="kv" style="margin-bottom:0"><div class="k">Podal</div><div class="v">Kamil Juřík</div></div>'
       + '</div><div>'
       + '<div class="kv"><div class="k">Podepsáno</div><div class="v">Zraněný · zástupce pro BOZP · zaměstnavatel</div></div>'
       + '<div class="kv"><div class="k">Svědci</div><div class="v">M. Bílý, J. Kučerová – podepsáno 5. 9.</div></div>'
@@ -3672,8 +3701,8 @@ ul.clean b{color:var(--ep-text);}
     // HISTORIE
     card('historie', 'Historie případu',
       '<div class="feed" style="margin:-16px -18px -16px">'
-      + '<div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)">MN</span><div><div class="feed-t"><b>Martina Nováková</b> aktualizovala část XII – doplněno druhé opatření.</div><div class="feed-m">8. 9. 2026 10:12</div></div></div>'
-      + '<div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)">MN</span><div><div class="feed-t"><b>Martina Nováková</b> nahrála podepsaný záznam a doručenky.</div><div class="feed-m">5. 9. 2026 08:15</div></div></div>'
+      + '<div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)">KJ</span><div><div class="feed-t"><b>Kamil Juřík</b> aktualizovala část XII – doplněno druhé opatření.</div><div class="feed-m">8. 9. 2026 10:12</div></div></div>'
+      + '<div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)">KJ</span><div><div class="feed-t"><b>Kamil Juřík</b> nahrála podepsaný záznam a doručenky.</div><div class="feed-m">5. 9. 2026 08:15</div></div></div>'
       + '<div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)">PD</span><div><div class="feed-t"><b>Petr Dvořák</b> vložil vyjádření zaměstnance.</div><div class="feed-m">3. 9. 2026 16:40</div></div></div>'
       + '<div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)">JN</span><div><div class="feed-t"><b>Jan Novotný</b> (mistr směny) založil zápis z telefonu.</div><div class="feed-m">2. 9. 2026 15:40</div></div></div>'
       + '<div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)">JP</span><div><div class="feed-t"><b>Jiří Pokorný</b> (zástupce pro BOZP) otevřel lékařskou zprávu.</div><div class="feed-m">3. 9. 2026 09:05</div></div></div>'
@@ -4024,7 +4053,7 @@ ul.clean b{color:var(--ep-text);}
       var ans = A[text] || 'Na tohle zatím v ukázkových datech nemám podklad. Ve skutečné aplikaci bych odpověď složila z vaší evidence.';
       var me = document.createElement('div');
       me.className = 'msg me';
-      me.innerHTML = '<span class="av" style="background:var(--ep-navy);color:#fff">MN</span><div class="bub">' + text + '</div>';
+      me.innerHTML = '<span class="av" style="background:var(--ep-navy);color:#fff">KJ</span><div class="bub">' + text + '</div>';
       var bot = document.createElement('div');
       bot.className = 'msg';
       bot.innerHTML = '<span class="av" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)">AI</span>'
@@ -4943,7 +4972,7 @@ ul.clean b{color:var(--ep-text);}
       save: 'Nahrát',
       onSave: function(v){
         var lock = v.pristup !== 'Všichni s přístupem k případu';
-        var d = { n: v.nazev || 'Nový dokument.pdf', m: (v.datum || '').split('-').reverse().join('. ').replace(/^0/, '') + ' · ' + v.druh + (lock ? ' · omezený přístup' : ' · nahrála M. Nováková'), i: lock ? 'lock' : 'pdf', lock: lock ? 1 : 0 };
+        var d = { n: v.nazev || 'Nový dokument.pdf', m: (v.datum || '').split('-').reverse().join('. ').replace(/^0/, '') + ' · ' + v.druh + (lock ? ' · omezený přístup' : ' · nahrála K. Juřík'), i: lock ? 'lock' : 'pdf', lock: lock ? 1 : 0 };
         DOCS.unshift(d);
         render();
         window.epSay('Dokument „' + d.n + '“ nahrán.');
@@ -5027,15 +5056,22 @@ ul.clean b{color:var(--ep-text);}
   }
   window.epTblUtil = { pill: pill, who: who, toIso: toIso, toCz: toCz, txt: txt, setNav: setNav, setKpi: setKpi, ini: ini };
 
-  var LIDE = ['J. Malý (údržba)', 'P. Novák (vedoucí skladu)', 'M. Nováková (technik BOZP)', 'I. Horáková (personalistika)', 'R. Šimek (mistr lisovny)', 'J. Pokorný (zástupce pro BOZP)'];
+  var LIDE = ['J. Malý (údržba)', 'P. Novák (vedoucí skladu)', 'K. Juřík (technik BOZP)', 'I. Horáková (personalistika)', 'R. Šimek (mistr lisovny)', 'J. Pokorný (zástupce pro BOZP)'];
   var PRACOVISTE = ['Sklad hotových výrobků', 'Lisovna', 'Expedice', 'Hala A – údržba', 'Hala B – montáž', 'Parkoviště závodu'];
 
   // ============ ŠETŘENÍ A OPATŘENÍ (s9) ============
   (function(){
     var scr = document.getElementById('s9');
     if (!scr) return;
-    var tbls = scr.querySelectorAll('table.tbl');
-    var tAll = tbls[0], tCase = tbls[1];
+    function tblOf(nazev){
+      var cs = scr.querySelectorAll('.card');
+      for (var c = 0; c < cs.length; c++){
+        var t = cs[c].querySelector('.card-t');
+        if (t && t.textContent.trim().indexOf(nazev) === 0) return cs[c].querySelector('table.tbl');
+      }
+      return null;
+    }
+    var tAll = tblOf('Opatření, která ještě běží'), tCase = tblOf('Opatření proti opakování');
     if (!tAll) return;
 
     var URAZY = ['ÚR-2026-030 · P. Dvořák', 'ÚR-2026-028 · L. Němec', 'ÚR-2026-027 · A. Veselá', 'ÚR-2026-026 · M. Bílý', 'Bez vazby na konkrétní úraz'];
@@ -5044,7 +5080,7 @@ ul.clean b{color:var(--ep-text);}
     function recount(){
       var rows = tAll.querySelectorAll('tbody tr'), open = 0;
       for (var i = 0; i < rows.length; i++) if (txt(rows[i], 4) !== 'Splněno') open++;
-      var pl = scr.querySelector('.card-h .pill');
+      var pl = tAll.closest('.card').querySelector('.card-h .pill');
       if (pl) pl.innerHTML = '<span class="d"></span>' + open + ' nesplněných';
       setNav('s9', open);
       setKpi('s1', 'Opatření v řešení', open);
@@ -5437,7 +5473,7 @@ ul.clean b{color:var(--ep-text);}
     else if (step === 1){
       h += '<p class="note" style="margin:0 0 16px">Portál inspekce práce <b>nemá rozhraní pro programy</b>. Ministerstvo ho při přípravě nařízení odmítlo a import dat slibuje až ve druhé fázi digitalizace. Podání proto vždycky dělá člověk – aplikace mu k tomu připraví hodnoty a hlídá termín.</p>';
       h += '<div class="steps">'
-        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Kdo se smí přihlásit</div><div class="step-d">Identitou občana nebo bankovní identitou. Ve firmě mají oprávnění M. Nováková a J. Pokorný – seznam je v Nastavení.</div></div></div>'
+        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Kdo se smí přihlásit</div><div class="step-d">Identitou občana nebo bankovní identitou. Ve firmě mají oprávnění K. Juřík a J. Pokorný – seznam je v Nastavení.</div></div></div>'
         + '<div class="step act"><span class="step-n">2</span><div><div class="step-t">Otevřete portál v druhém okně</div><div class="step-d">Nechte tenhle průvodce otevřený vedle. V dalším kroku budete hodnoty jednu po druhé kopírovat.</div></div></div>'
         + '</div>';
       h += '<div style="margin-top:18px"><a class="btn accent sm" href="https://www.suip.cz" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex">Otevřít portál inspekce práce</a></div>';
@@ -5460,7 +5496,7 @@ ul.clean b{color:var(--ep-text);}
       h += '<div class="fgrid">'
         + '<div class="field w2"><label for="wzZn">Spisová značka z portálu<span class="req">*</span></label><input id="wzZn" type="text" value="' + esc(znacka) + '" placeholder="např. 12678/2026/8.10"><div class="hint">Přepište přesně, včetně lomítek a teček.</div></div>'
         + '<div class="field"><label>Podáno dne</label><input type="date" value="2026-09-10"></div>'
-        + '<div class="field"><label>Podal</label><input type="text" value="Martina Nováková"></div>'
+        + '<div class="field"><label>Podal</label><input type="text" value="Kamil Juřík"></div>'
         + '</div>';
       h += '<div class="banner info"><div><b>Až teď přijdou podpisy.</b> Od roku 2026 se nejdřív elektronicky odešle, teprve pak se záznam tiskne a podepisuje. Kdo čeká s podáním na podpis zraněného, propásne lhůtu.</div></div>';
       note.textContent = 'Krok 4 z 5 · doklad o podání';
@@ -5658,33 +5694,7 @@ ul.clean b{color:var(--ep-text);}
     });
   }
 
-  // ---- aktualizace záznamu (s7) ----
-  function aktualizace(){
-    window.epBlade({
-      kicker: 'ÚR-2026-030 · P. Dvořák',
-      title: 'Aktualizace odeslaného záznamu',
-      sub: 'Záznam je na portálu už podaný. Když se údaj změní, opraví se <b>tentýž záznam</b> a odešle znovu – od roku 2026 se na to nepodává zvláštní hlášení změn.',
-      wide: true,
-      html: '<div class="card" style="margin:0 0 16px"><div class="card-b" style="padding:6px 18px">'
-        + '<div class="cpy"><span class="k">Bylo odesláno</span><span class="v" style="text-decoration:line-through;color:var(--ep-text-soft)">Neschopnost 10 dní (odhad)</span></div>'
-        + '<div class="cpy"><span class="k">Nová hodnota</span><span class="v" style="color:var(--ep-green)">Neschopnost 18 dní (ukončena 20. 9.)</span></div>'
-        + '<div class="cpy"><span class="k">Zdroj změny</span><span class="v">Ošetřující lékař, potvrzení z 9. 9. 2026</span></div>'
-        + '</div></div>'
-        + '<div class="banner amber"><div><b>Změna má dopad i jinam.</b> S delší neschopností se mění náhrada za ztrátu na výdělku – pojišťovně se pošle doplněk k pojistné události.</div></div>',
-      fields: [
-        { l: 'Co se v portálu opraví', n: 'co', t: 'text', v: 'Část VII · délka pracovní neschopnosti', w2: true },
-        { l: 'Odesláno dne', n: 'kdy', t: 'date', v: '2026-09-10' },
-        { l: 'Odeslal', n: 'kdo', t: 'select', v: 'Martina Nováková', o: ['Martina Nováková', 'Jiří Pokorný'] }
-      ],
-      save: 'Odeslat aktualizaci',
-      onSave: function(){
-        say('Aktualizace odeslána. Kopie doplňku odchází Kooperativě.');
-        var b = document.querySelectorAll('.nav button[data-go="s7"] .badge, .nav button[data-go="s7"] .ct');
-        for (var i = 0; i < b.length; i++) b[i].textContent = '0';
-        if (U) U.setKpi('s1', 'Lhůty v běhu', 2);
-      }
-    });
-  }
+  function aktualizace(){ if (window.epUpdateWizard) window.epUpdateWizard(); }
 
   // ---- co která akce udělá ----
   var MAP = [
@@ -5780,7 +5790,7 @@ ul.clean b{color:var(--ep-text);}
     for (var i = 0; i < cas.length; i++) if (cas[i].textContent.indexOf('Vše včetně splněných') === 0) b9 = cas[i];
     if (b9) expandAll(b9, s9.querySelector('table.tbl'), [
       '<td><div class="t-pri">Doplnit protiskluzové patky na všechny žebříky</div><div class="t-sub">zkontrolováno 24 kusů</div></td><td><span class="t-id">ÚR-2026-028</span><div class="t-sub">L. Němec</div></td><td><span class="who"><span class="avatar">JM</span><span class="n">J. Malý</span></span></td><td class="mono" style="font-size:12px">20. 8. 2026</td><td><span class="pill p-closed"><span class="d"></span>Splněno</span></td>',
-      '<td><div class="t-pri">Zavést žebříky do evidence pravidelných kontrol</div><div class="t-sub">kontrola jednou za půl roku</div></td><td><span class="t-id">ÚR-2026-028</span><div class="t-sub">L. Němec</div></td><td><span class="who"><span class="avatar">MN</span><span class="n">M. Nováková</span></span></td><td class="mono" style="font-size:12px">28. 8. 2026</td><td><span class="pill p-closed"><span class="d"></span>Splněno</span></td>',
+      '<td><div class="t-pri">Zavést žebříky do evidence pravidelných kontrol</div><div class="t-sub">kontrola jednou za půl roku</div></td><td><span class="t-id">ÚR-2026-028</span><div class="t-sub">L. Němec</div></td><td><span class="who"><span class="avatar">KJ</span><span class="n">K. Juřík</span></span></td><td class="mono" style="font-size:12px">28. 8. 2026</td><td><span class="pill p-closed"><span class="d"></span>Splněno</span></td>',
       '<td><div class="t-pri">Doplnit rukavice odolné proti pořezu na expedici</div><div class="t-sub">výdejna doplnila 30 párů</div></td><td><span class="t-id">ÚR-2026-029</span><div class="t-sub">M. Svobodová</div></td><td><span class="who"><span class="avatar">PN</span><span class="n">P. Novák</span></span></td><td class="mono" style="font-size:12px">2. 9. 2026</td><td><span class="pill p-closed"><span class="d"></span>Splněno</span></td>'
     ]);
   }
@@ -5822,7 +5832,7 @@ ul.clean b{color:var(--ep-text);}
       if (!q) { window.epSay('Napište otázku – třeba „kolik úrazů bylo letos v lisovně“.'); return; }
       var me = document.createElement('div');
       me.className = 'msg me';
-      me.innerHTML = '<span class="av" style="background:var(--ep-navy);color:#fff">MN</span><div class="bub">' + esc(q) + '</div>';
+      me.innerHTML = '<span class="av" style="background:var(--ep-navy);color:#fff">KJ</span><div class="bub">' + esc(q) + '</div>';
       chat.appendChild(me);
       var ai = document.createElement('div');
       ai.className = 'msg';
@@ -5834,6 +5844,271 @@ ul.clean b{color:var(--ep-text);}
     }
     if (send) send.addEventListener('click', ask);
     if (inp) inp.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); ask(); } });
+  }
+})();
+</script>
+
+
+<script>
+// ---------- Průvodce aktualizací záznamu ----------
+(function(){
+  var esc = window.epEsc;
+  var wrap = document.getElementById('wz2Wrap'), rail = document.getElementById('wz2Rail'),
+      body = document.getElementById('wz2B'), title = document.getElementById('wz2T'),
+      note = document.getElementById('wz2N'), bPrev = document.getElementById('wz2Prev'), bNext = document.getElementById('wz2Next');
+  if (!wrap) return;
+  var step = 0, hotovo = false;
+  var STEPS = ['Co se mění', 'Čeho se to dotkne', 'Přepis v portálu', 'Odeslání', 'Hotovo'];
+  var ZMENY = [
+    ['Jak dlouho neschopnost trvá', 'trvá, odhad 10 dní', 'trvá od 2. 9., podle lékaře do 19. 9. · 18 kalendářních dnů', 1],
+    ['Opatření proti opakování (část XII)', '1 opatření', '2 opatření – doplněno rozšíření uličky C', 1],
+    ['Vyjádření postiženého (část XIII)', 'nevyjádřil se', 'doplněno 3. 9. 2026', 1],
+    ['Druh úrazu podle § 2', 'c) s neschopností nad 3 dny', 'beze změny', 0]
+  ];
+
+  function copy(text, btn){
+    var done = function(){ btn.textContent = 'Zkopírováno'; btn.className = 'ok'; };
+    try { if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, done); return; } } catch(e){}
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.cssText = 'position:fixed;left:-9999px';
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+    } catch(e2){}
+    done();
+  }
+
+  function render(){
+    title.textContent = 'ÚR-2026-030 · Petr Dvořák';
+    var r = '';
+    for (var i = 0; i < STEPS.length; i++) r += '<i class="' + (i === step ? 'on' : (i < step ? 'done' : '')) + '">' + (i + 1) + ' · ' + STEPS[i] + '</i>';
+    rail.innerHTML = r;
+    var h = '';
+    if (step === 0){
+      h += '<p class="note" style="margin:0 0 14px">Záznam je na portálu podaný od <b>4. 9. 2026</b> pod značkou <span class="mono">12678/2026/8.10</span>. Tohle se od té doby změnilo:</p>';
+      h += '<div class="mtx-wrap"><table class="mtx" style="min-width:560px"><thead><tr><th style="width:210px">Údaj</th><th>Odesláno 4. 9.</th><th>Nově</th></tr></thead><tbody>';
+      for (var z = 0; z < ZMENY.length; z++){
+        h += '<tr><td class="rcp">' + esc(ZMENY[z][0]) + '</td>'
+          + '<td class="note"' + (ZMENY[z][3] ? ' style="text-decoration:line-through"' : '') + '>' + esc(ZMENY[z][1]) + '</td>'
+          + '<td>' + (ZMENY[z][3] ? '<b>' + esc(ZMENY[z][2]) + '</b>' : '<span class="note">' + esc(ZMENY[z][2]) + '</span>') + '</td></tr>';
+      }
+      h += '</tbody></table></div>';
+      h += '<div class="banner info" style="margin-top:14px"><div>Změnu ohlásil ošetřující lékař potvrzením z 9. 9. Aplikace ji zachytila sama – sleduje konec neschopnosti, délku hospitalizace i upřesnění diagnózy.</div></div>';
+      note.textContent = 'Krok 1 z 5 · tři údaje se mění';
+      bNext.textContent = 'Pokračovat';
+    }
+    else if (step === 1){
+      h += '<p class="note" style="margin:0 0 14px">Delší neschopnost není jen jiné číslo ve formuláři. Tady je, co z ní plyne:</p>';
+      h += '<div class="steps">'
+        + '<div class="step done"><span class="step-n">1</span><div><div class="step-t">Klasifikace zůstává stejná</div><div class="step-d">Nad tři dny to bylo i předtím. Kdyby neschopnost přesáhla hospitalizaci pěti dnů, stal by se z případu <b>závažný úraz</b> a musel by se ohlásit inspektorátu – i zpětně.</div></div></div>'
+        + '<div class="step act"><span class="step-n">2</span><div><div class="step-t">Mění se náhrada za ztrátu na výdělku</div><div class="step-d">Osm dnů navíc. Doplněk k pojistné události <span class="mono">PU-2026-0041</span> se pošle Kooperativě spolu s potvrzením o výdělku.</div></div></div>'
+        + '<div class="step act"><span class="step-n">3</span><div><div class="step-t">Roste roční počet dnů neschopnosti</div><div class="step-d">Z 248 na 256. Promítne se do četnosti úrazů i do sestavy pro vedení.</div></div></div>'
+        + '<div class="step"><span class="step-n">4</span><div><div class="step-t">Lhůta na aktualizaci</div><div class="step-d">Bez zbytečného odkladu – tedy hned, jak se o změně dozvíte. Aplikace ji vede jako povinnost od 9. 9.</div></div></div>'
+        + '</div>';
+      note.textContent = 'Krok 2 z 5 · dopady změny';
+      bNext.textContent = 'Pokračovat';
+    }
+    else if (step === 2){
+      h += '<p class="note" style="margin:0 0 12px">V portálu otevřete <b>tentýž záznam</b> pod spisovou značkou a přepíšete v něm jen to, co se změnilo. Nové podání se nedělá – vzniklo by druhé hlášení téhož úrazu.</p>';
+      h += '<div class="card" style="margin:0"><div class="card-b" style="padding:6px 18px">';
+      h += '<div class="cpy"><span class="k">Spisová značka</span><span class="v mono">12678/2026/8.10</span><button data-cpy="0">Kopírovat</button></div>';
+      var idx = 1;
+      for (var y = 0; y < ZMENY.length; y++){
+        if (!ZMENY[y][3]) continue;
+        h += '<div class="cpy"><span class="k">' + esc(ZMENY[y][0]) + '</span><span class="v" title="' + esc(ZMENY[y][2]) + '">' + esc(ZMENY[y][2]) + '</span><button data-cpy="' + idx + '">Kopírovat</button></div>';
+        idx++;
+      }
+      h += '</div></div>';
+      h += '<div class="banner amber" style="margin-top:14px"><div>Aplikace si drží <b>obě verze</b> – odeslanou i opravenou. Při kontrole je dohledatelné, co a kdy se změnilo a proč.</div></div>';
+      note.textContent = 'Krok 3 z 5 · přepis do portálu';
+      bNext.textContent = 'Přepsal jsem to';
+    }
+    else if (step === 3){
+      h += '<p class="note" style="margin:0 0 16px">Zapište, kdy a kdo aktualizaci odeslal. Je to doklad, že se změna promítla bez zbytečného odkladu.</p>';
+      h += '<div class="fgrid">'
+        + '<div class="field"><label>Odesláno dne</label><input type="date" value="2026-09-10"></div>'
+        + '<div class="field"><label>Odeslal</label><select><option>Kamil Juřík</option><option>Jiří Pokorný</option></select></div>'
+        + '<div class="field w2"><label>Poznámka k aktualizaci</label><input type="text" value="Upřesnění délky neschopnosti podle potvrzení ošetřujícího lékaře z 9. 9. 2026"></div>'
+        + '</div>';
+      h += '<div class="field"><label style="display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:13px;font-weight:600;color:var(--ep-text)"><input type="checkbox" id="wz2Dop" checked style="width:auto">Poslat současně doplněk k pojistné události</label></div>';
+      note.textContent = 'Krok 4 z 5 · doklad o odeslání';
+      bNext.textContent = 'Odeslat aktualizaci';
+    }
+    else {
+      h += '<div class="banner green" style="margin-bottom:16px"><div><b>Aktualizace odeslána.</b> Záznam <span class="mono">12678/2026/8.10</span> na portálu odpovídá skutečnosti.</div></div>';
+      h += '<div class="steps">'
+        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Obě verze uložené</div><div class="step-d">Odeslaná ze 4. 9. i opravená z 10. 9. Rozdíl je vidět v historii případu.</div></div></div>'
+        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Doplněk pro Kooperativu odešel</div><div class="step-d">Osm dnů neschopnosti navíc k pojistné události PU-2026-0041.</div></div></div>'
+        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Čísla přepočítána</div><div class="step-d">Dny neschopnosti 248 → 256, četnost úrazů přepočítána.</div></div></div>'
+        + '<div class="step"><span class="step-n">4</span><div><div class="step-t">Podpisy se nemění</div><div class="step-d">Aktualizace se nepodepisuje znovu. Podepsaný záznam ze 4. 9. platí dál.</div></div></div>'
+        + '</div>';
+      note.textContent = 'Hotovo';
+      bNext.textContent = 'Zavřít';
+    }
+    body.innerHTML = h;
+    bPrev.style.display = step === 0 ? 'none' : '';
+    body.scrollTop = 0;
+  }
+
+  function done(){
+    var b = document.querySelectorAll('.nav button[data-go="s7"] .badge, .nav button[data-go="s7"] .ct');
+    for (var i = 0; i < b.length; i++) b[i].textContent = '0';
+    if (window.epTblUtil){
+      window.epTblUtil.setKpi('s1', 'Lhůty v běhu', 2);
+      window.epTblUtil.setKpi('s1', 'Dny pracovní neschopnosti', 256);
+    }
+    var rows = document.querySelectorAll('#s6 table tbody tr');
+    for (var r = 0; r < rows.length; r++){
+      var rc = rows[r].querySelector('.rcp');
+      if (rc && rc.textContent.indexOf('ÚR-2026-030') === 0){
+        var td = rows[r].children;
+        if (td[5]) td[5].innerHTML = '<span class="pill p-sent"><span class="d"></span>Aktualizováno</span>';
+      }
+    }
+  }
+
+  function open(){ step = 0; hotovo = false; wrap.className = 'wz-wrap on'; render(); }
+  function close(){ wrap.className = 'wz-wrap'; }
+  bNext.addEventListener('click', function(){
+    if (step === 3 && !hotovo){ hotovo = true; done(); }
+    if (step === STEPS.length - 1){ close(); window.epSay('Aktualizace záznamu ÚR-2026-030 odeslána.'); return; }
+    step++; render();
+  });
+  bPrev.addEventListener('click', function(){ if (step > 0){ step--; render(); } });
+  document.getElementById('wz2X').addEventListener('click', close);
+  wrap.addEventListener('click', function(e){ if (e.target === wrap) close(); });
+  body.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-cpy]');
+    if (!b) return;
+    var i = parseInt(b.getAttribute('data-cpy'), 10);
+    if (i === 0) { copy('12678/2026/8.10', b); return; }
+    var k = 0;
+    for (var y = 0; y < ZMENY.length; y++){
+      if (!ZMENY[y][3]) continue;
+      k++;
+      if (k === i) { copy(ZMENY[y][2], b); return; }
+    }
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && wrap.className.indexOf('on') !== -1) close(); });
+  window.epUpdateWizard = open;
+
+  var s7 = document.getElementById('s7');
+  if (s7){
+    var bs = s7.querySelectorAll('.btn');
+    for (var i = 0; i < bs.length; i++) if (bs[i].textContent.trim().indexOf('Otevřít průvodce aktualizací') === 0)
+      bs[i].addEventListener('click', function(e){ e.stopPropagation(); open(); });
+  }
+})();
+
+// ---------- Zakládání pojistné události a šetření ----------
+(function(){
+  var esc = window.epEsc, U = window.epTblUtil;
+
+  // --- pojistná událost ---
+  var puBtn = document.getElementById('puNew');
+  var puTbl = document.querySelector('#s18 table.tbl');
+  if (puBtn && puTbl){
+    var PRIPADY = ['ÚR-2026-031 · Jan Kolář · pohmoždění prstu', 'ÚR-2026-025 · Roman Šimek · tržná rána', 'ÚR-2026-022 · Eva Malá · popálení', 'Úraz z dřívější evidence (mimo knihu)'];
+    var NAROKY = ['Ztráta na výdělku po dobu neschopnosti', 'Bolestné', 'Náklady léčení', 'Věcná škoda'];
+    function nextPu(){
+      var max = 0, ids = puTbl.querySelectorAll('tbody .t-id');
+      for (var i = 0; i < ids.length; i++){
+        var m = ids[i].textContent.match(/(\d+)$/);
+        if (m && parseInt(m[1], 10) > max) max = parseInt(m[1], 10);
+      }
+      return 'PU-2026-' + ('000' + (max + 1)).slice(-4);
+    }
+    puBtn.addEventListener('click', function(){
+      var cislo = nextPu();
+      window.epBlade({
+        kicker: 'Zákonné pojištění zaměstnavatele · § 205d',
+        title: 'Nahlásit pojistnou událost',
+        sub: 'Obvykle ji aplikace nabídne sama z případu. Ručně se zakládá u úrazů, které v knize nejsou – třeba převzatých z dřívější evidence.',
+        wide: true,
+        fields: [
+          { l: 'Číslo události', n: 'cislo', t: 'static', v: cislo },
+          { l: 'Ze kterého úrazu', n: 'uraz', t: 'select', v: PRIPADY[0], o: PRIPADY },
+          { l: 'Pojišťovna', n: 'pojistovna', t: 'select', v: 'Kooperativa', o: ['Kooperativa', 'Česká pojišťovna (Generali)'], hint: 'U zákonného pojištění nemáte na výběr – řídí se tím, kdy firma vznikla.' },
+          { l: 'Nahlášeno dne', n: 'kdy', t: 'date', v: '2026-09-10' },
+          { l: 'Které nároky se uplatňují', n: 'naroky', t: 'select', v: NAROKY[0], o: NAROKY, w2: true, hint: 'Další nároky se přidávají v detailu události; ke každému patří doklad.' }
+        ],
+        save: 'Nahlásit',
+        onSave: function(v){
+          var uraz = v.uraz.split(' · ');
+          var jmeno = uraz[1] || 'Neuvedeno';
+          var tr = document.createElement('tr');
+          tr.setAttribute('data-go', 's8');
+          tr.innerHTML = '<td><span class="t-id">' + esc(cislo) + '</span><div class="t-sub">' + esc(uraz[0]) + '</div></td>'
+            + '<td>' + U.who(jmeno) + '</td>'
+            + '<td class="mono" style="font-size:12px">' + esc(U.toCz(v.kdy)) + '</td>'
+            + '<td class="mono" style="font-weight:700">0 Kč</td>'
+            + '<td><span class="pill p-open"><span class="d"></span>Čeká na doklady</span></td>';
+          var tb = puTbl.querySelector('tbody');
+          tb.insertBefore(tr, tb.firstChild);
+          var n = tb.querySelectorAll('tr').length;
+          U.setNav('s18', n);
+          U.setKpi('s18', 'Případů letos', n);
+          var chips = document.querySelectorAll('#s18 .chip');
+          for (var c = 0; c < chips.length; c++) if (chips[c].textContent.indexOf('2026') === 0){
+            var num = chips[c].querySelector('.n');
+            if (num) num.textContent = n;
+          }
+          window.epSay('Pojistná událost ' + cislo + ' nahlášena. Chybí doklady – aplikace na ně upozorní.');
+        }
+      });
+    });
+  }
+
+  // --- šetření ---
+  var setBtn = document.getElementById('setNew'), setTbl = document.getElementById('setTbl');
+  if (setBtn && setTbl){
+    var URAZY = ['ÚR-2026-031 · Jan Kolář · pohmoždění prstu', 'ÚR-2026-029 · Marie Svobodová · řezná rána', 'ÚR-2026-026 · Michal Bílý · otřes mozku', 'SN-2026-026 · skoro-nehoda ve skladu'];
+    var LIDE = ['K. Juřík (technik BOZP)', 'P. Novák (vedoucí skladu)', 'R. Šimek (mistr lisovny)', 'J. Pokorný (zástupce pro BOZP)'];
+    setBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      window.epBlade({
+        kicker: 'Objasnění příčin · ZP § 105 odst. 5',
+        title: 'Zahájit šetření',
+        sub: 'U úrazů s neschopností nad tři dny a u závažných úrazů zakládá šetření aplikace sama. Tady se zahajuje šetření navíc – u drobného úrazu, který se opakuje, nebo u skoro-nehody.',
+        wide: true,
+        fields: [
+          { l: 'Čeho se šetření týká', n: 'uraz', t: 'select', v: URAZY[0], o: URAZY, w2: true },
+          { l: 'Kdo šetří', n: 'kdo', t: 'select', v: LIDE[0], o: LIDE },
+          { l: 'Zahájeno', n: 'kdy', t: 'date', v: '2026-09-10' },
+          { l: 'Kdo se zúčastní', n: 'ucast', t: 'text', v: 'zraněný, svědci, vedoucí pracoviště', w2: true, hint: 'Objasnění se dělá za účasti zraněného a svědků – vyžaduje to zákoník práce.' },
+          { l: 'První otázka', n: 'proc', t: 'area', rows: 2, v: '', w2: true, hint: 'Začněte tím, co se stalo. Na „proč“ se ptejte tak dlouho, dokud odpověď nejde ovlivnit opatřením.' }
+        ],
+        save: 'Zahájit šetření',
+        onSave: function(v){
+          var u = v.uraz.split(' · ');
+          var tr = document.createElement('tr');
+          tr.innerHTML = '<td><span class="t-id">' + esc(u[0]) + '</span><div class="t-sub">' + esc((u[1] || '') + (u[2] ? ' · ' + u[2] : '')) + '</div></td>'
+            + '<td>' + U.who(v.kdo) + '</td>'
+            + '<td class="mono" style="font-size:12px">' + esc(U.toCz(v.kdy)) + '</td>'
+            + '<td><div class="t-pri note">zatím nezjištěna</div></td>'
+            + '<td><span class="pill p-open"><span class="d"></span>Probíhá</span></td>';
+          var tb = setTbl.querySelector('tbody');
+          tb.insertBefore(tr, tb.firstChild);
+          window.epSay('Šetření zahájeno. Otevřete ho v seznamu a doplňte, proč k úrazu došlo.');
+        }
+      });
+    });
+    setTbl.style.cursor = 'pointer';
+    setTbl.addEventListener('click', function(e){
+      var tr = e.target.closest('tbody tr');
+      if (!tr) return;
+      var id = (tr.querySelector('.t-id') || {}).textContent || '';
+      var kdo = (tr.querySelector('.t-sub') || {}).textContent || '';
+      var cards = document.querySelectorAll('#s9 .card');
+      for (var c = 0; c < cards.length; c++){
+        var t = cards[c].querySelector('.card-t');
+        if (t && t.textContent.indexOf('Šetření jednoho případu') === 0){
+          if (cards[c].scrollIntoView) cards[c].scrollIntoView({ block: 'start' });
+        }
+      }
+      var cr = document.querySelector('#s9 .crumbs b');
+      if (cr) cr.textContent = id + ' · ' + kdo.split(' · ')[0];
+      window.epSay('Otevřeno šetření ' + id + '.');
+    });
   }
 })();
 </script>
