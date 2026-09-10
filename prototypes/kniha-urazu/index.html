@@ -60,6 +60,85 @@ button{font-family:var(--fb);}
 
 
 
+
+/* ============ Panel, potvrzení, hlášky (DS 10.10, 10.14) ============ */
+.bl-wrap{position:fixed;inset:0;z-index:9300;background:rgba(11,30,63,.34);display:none;justify-content:flex-end;}
+.bl-wrap.on{display:flex;}
+.bl{width:min(560px,96vw);background:var(--ep-bg);height:100%;display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(11,30,63,.22);}
+.bl.wide{width:min(820px,96vw);}
+.bl-hd{padding:20px 24px 16px;border-bottom:1px solid var(--ep-line);display:flex;align-items:flex-start;gap:14px;}
+.bl-hd .k{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-accent-strong);display:block;}
+.bl-hd .t{font-family:var(--fd);font-weight:800;font-size:19px;letter-spacing:-0.01em;display:block;margin-top:5px;line-height:1.25;}
+.bl-hd .s{display:block;font-size:12.5px;color:var(--ep-text-muted);margin-top:6px;line-height:1.5;}
+.bl-x{margin-left:auto;flex-shrink:0;border:1px solid var(--ep-line-2);background:var(--ep-bg);border-radius:999px;width:30px;height:30px;display:grid;place-items:center;cursor:pointer;color:var(--ep-text-muted);font-size:17px;line-height:1;font-family:var(--fb);}
+.bl-x:hover{background:var(--ep-bg-2);}
+.bl-b{padding:20px 24px;overflow-y:auto;flex:1;}
+.bl-ft{padding:14px 24px;border-top:1px solid var(--ep-line);background:var(--ep-side);display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+.bl-ft .note{margin-right:auto;}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;}
+.fgrid .field.w2{grid-column:1 / -1;}
+
+.cf-wrap{position:fixed;inset:0;z-index:9450;background:rgba(11,30,63,.45);display:none;align-items:center;justify-content:center;padding:20px;}
+.cf-wrap.on{display:flex;}
+.cf{width:min(430px,94vw);background:var(--ep-bg);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-lg);overflow:hidden;}
+.cf-b{padding:22px 24px 6px;}
+.cf-b .t{font-family:var(--fd);font-weight:800;font-size:17px;display:block;}
+.cf-b .s{display:block;font-size:13px;color:var(--ep-text-muted);margin-top:9px;line-height:1.6;}
+.cf-ft{padding:14px 24px 18px;display:flex;gap:10px;justify-content:flex-end;}
+.btn.danger{background:var(--ep-red);border-color:transparent;color:#fff;}
+
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:9800;background:#0B1E3F;color:#fff;border-radius:999px;padding:11px 20px;font-size:13px;font-weight:600;box-shadow:0 8px 26px rgba(11,30,63,.32);display:none;align-items:center;gap:9px;}
+.toast.on{display:flex;}
+.toast .u{color:var(--ep-accent);cursor:pointer;font-weight:700;text-decoration:underline;}
+
+/* seznam dokumentů */
+.docs{display:flex;flex-direction:column;}
+.doc{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--ep-line);}
+.doc:last-child{border-bottom:none;}
+.doc-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;background:var(--ep-bg-3);color:var(--ep-text-muted);}
+.doc-tx{min-width:0;}
+.doc-n{display:block;font-weight:700;font-size:12.5px;line-height:1.35;}
+.doc-m{display:block;font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft);margin-top:3px;}
+.doc-a{margin-left:auto;display:flex;gap:5px;flex-shrink:0;opacity:.5;transition:opacity .15s;}
+.doc:hover .doc-a{opacity:1;}
+.doc-a button{border:1px solid var(--ep-line-2);background:var(--ep-bg);border-radius:8px;width:28px;height:28px;display:grid;place-items:center;cursor:pointer;color:var(--ep-text-muted);}
+.doc-a button:hover{border-color:var(--ep-accent);color:var(--ep-accent-strong);}
+.doc-a button.del:hover{border-color:var(--ep-red);color:var(--ep-red);}
+
+.drop{border:2px dashed var(--ep-line-2);border-radius:var(--ep-r-md);padding:26px;text-align:center;background:var(--ep-bg-2);cursor:pointer;}
+.drop:hover{border-color:var(--ep-accent);background:var(--ep-mint);}
+.drop .t{display:block;font-weight:700;font-size:13.5px;}
+.drop .s{display:block;font-size:12px;color:var(--ep-text-soft);margin-top:5px;}
+
+/* náhled dokumentu */
+.prev{background:var(--ep-bg-2);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);padding:26px 28px;min-height:320px;}
+.prev .ph1{font-family:var(--fd);font-weight:800;font-size:15px;margin-bottom:4px;}
+.prev .ph2{font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft);letter-spacing:.06em;text-transform:uppercase;}
+.prev .ln{height:9px;border-radius:5px;background:var(--ep-line);margin-top:11px;}
+.prev .ln.s{width:62%;}
+.prev .ln.m{width:84%;}
+
+/* průvodce podáním */
+.wz-wrap{position:fixed;inset:0;z-index:9400;background:rgba(11,30,63,.5);display:none;align-items:center;justify-content:center;padding:20px;}
+.wz-wrap.on{display:flex;}
+.wz{width:min(860px,96vw);max-height:92vh;background:var(--ep-bg);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-lg);display:flex;flex-direction:column;overflow:hidden;}
+.wz-hd{padding:18px 24px 14px;border-bottom:1px solid var(--ep-line);display:flex;align-items:flex-start;gap:14px;}
+.wz-k{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-accent-strong);display:block;}
+.wz-t{font-family:var(--fd);font-weight:800;font-size:19px;display:block;margin-top:5px;}
+.wz-rail{display:flex;padding:12px 24px;border-bottom:1px solid var(--ep-line);background:var(--ep-side);overflow-x:auto;}
+.wz-rail i{flex:1;min-width:92px;font-style:normal;font-family:var(--fm);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ep-text-soft);border-top:3px solid var(--ep-line);padding-top:8px;margin-right:8px;}
+.wz-rail i.on{color:var(--ep-accent-strong);border-top-color:var(--ep-accent);font-weight:700;}
+.wz-rail i.done{color:var(--ep-green);border-top-color:var(--ep-green);}
+.wz-b{padding:22px 24px;overflow-y:auto;flex:1;}
+.wz-ft{padding:14px 24px;border-top:1px solid var(--ep-line);background:var(--ep-side);display:flex;gap:10px;align-items:center;}
+.cpy{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--ep-line);}
+.cpy:last-child{border-bottom:none;}
+.cpy .k{font-family:var(--fm);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ep-text-soft);width:132px;flex-shrink:0;}
+.cpy .v{font-size:12.5px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cpy button{margin-left:auto;flex-shrink:0;border:1px solid var(--ep-line-2);background:var(--ep-bg);border-radius:999px;height:26px;padding:0 11px;font-family:var(--fb);font-size:11px;font-weight:700;cursor:pointer;color:var(--ep-text-muted);}
+.cpy button:hover{border-color:var(--ep-accent);color:var(--ep-accent-strong);}
+.cpy button.ok{border-color:var(--ep-green);color:var(--ep-green);}
+
 /* ============ Režim aplikace (vložení do stránky SharePointu) ============ */
 html.appmode .cbar{display:none;}
 html.appmode, html.appmode body{height:100%;overflow:hidden;}
@@ -627,6 +706,22 @@ ul.clean b{color:var(--ep-text);}
 </aside>
 </template>
 
+<div class="bl-wrap" id="blWrap"><div class="bl" id="bl">
+ <div class="bl-hd"><div style="min-width:0"><span class="k" id="blK"></span><span class="t" id="blT"></span><span class="s" id="blS"></span></div><button class="bl-x" id="blX" title="Zavřít">×</button></div>
+ <div class="bl-b" id="blB"></div>
+ <div class="bl-ft" id="blF"></div>
+</div></div>
+<div class="cf-wrap" id="cfWrap"><div class="cf">
+ <div class="cf-b"><span class="t" id="cfT"></span><span class="s" id="cfS"></span></div>
+ <div class="cf-ft"><button class="btn ghost sm" id="cfNo">Zrušit</button><button class="btn danger sm" id="cfYes">Smazat</button></div>
+</div></div>
+<div class="toast" id="toast"><span id="toastT"></span><span class="u" id="toastU" style="display:none">Vrátit</span></div>
+<div class="wz-wrap" id="wzWrap"><div class="wz">
+ <div class="wz-hd"><div style="min-width:0"><span class="wz-k">Podání na portál inspekce práce</span><span class="wz-t" id="wzT"></span></div><button class="bl-x" id="wzX" title="Zavřít">×</button></div>
+ <div class="wz-rail" id="wzRail"></div>
+ <div class="wz-b" id="wzB"></div>
+ <div class="wz-ft"><span class="note" id="wzN" style="margin-right:auto"></span><button class="btn ghost sm" id="wzPrev">Zpět</button><button class="btn accent sm" id="wzNext">Pokračovat</button></div>
+</div></div>
 <div class="tour-mask" id="tourMask"><i data-t="top"></i><i data-t="right"></i><i data-t="bottom"></i><i data-t="left"></i><div class="tour-ring" id="tourRing"></div></div>
 <div class="tour-bub" id="tourBub">
  <div class="tour-dots" id="tourDots"></div>
@@ -1093,8 +1188,8 @@ ul.clean b{color:var(--ep-text);}
          <div class="lbl">Co se stalo</div>
          <div style="border:1px solid var(--ep-line);border-radius:8px;padding:8px 10px;margin-top:6px;font-size:12.5px;line-height:1.5;color:var(--ep-text-muted)">Při seřizování nástroje si přiskřípl ukazovák levé ruky mezi nástroj a doraz.<span style="display:inline-block;width:2px;height:13px;background:var(--ep-accent-strong);vertical-align:-2px;margin-left:2px"></span></div>
          <div style="display:flex;gap:6px;margin-top:8px">
-          <button class="btn ghost sm" style="height:28px;font-size:11.5px;padding:0 10px">🎙 Nadiktovat</button>
-          <button class="btn ghost sm" style="height:28px;font-size:11.5px;padding:0 10px">📷 Foto místa</button>
+          <button class="btn ghost sm" style="height:28px;font-size:11.5px;padding:0 10px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Nadiktovat</button>
+          <button class="btn ghost sm" style="height:28px;font-size:11.5px;padding:0 10px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:5px;vertical-align:-2px"><path d="M3 8h3l1.5-2h9L18 8h3v11H3Z"/><circle cx="12" cy="13" r="3.4"/></svg>Foto místa</button>
          </div>
         </div>
         <div class="mcard" style="margin-left:0;margin-right:0">
@@ -1174,8 +1269,8 @@ ul.clean b{color:var(--ep-text);}
         <div class="mcard">
          <div class="lbl">Co mám k dispozici</div>
          <div style="display:flex;flex-direction:column;gap:7px;margin-top:8px">
-          <button class="btn ghost sm" style="justify-content:flex-start;height:34px">📄 Záznam o úrazu (PDF)</button>
-          <button class="btn ghost sm" style="justify-content:flex-start;height:34px">📄 Kopie pro pojišťovnu</button>
+          <button class="btn ghost sm" style="justify-content:flex-start;height:34px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;vertical-align:-2px"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/></svg>Záznam o úrazu (PDF)</button>
+          <button class="btn ghost sm" style="justify-content:flex-start;height:34px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;vertical-align:-2px"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/></svg>Kopie pro pojišťovnu</button>
          </div>
         </div>
         <div class="mcard">
@@ -4082,7 +4177,7 @@ ul.clean b{color:var(--ep-text);}
           x:'Tenhle sloupec je jádro celé věci: podle vyplněných údajů průběžně ukazuje, <b>jaké povinnosti právě vznikají</b> – co se musí komu ohlásit, co se ještě netýká a do kdy je čas. Zelená znamená hotovo, oranžová běží, šedá se vás netýká.' }
       ] },
 
-    { t: 'Jeden případ od začátku do konce', s: '5 kroků · 2 minuty',
+    { t: 'Jeden případ od začátku do konce', s: '6 kroků · 2 minuty',
       d: 'Detail jednoho úrazu: časová osa, úřední záznam, šetření příčin a historie – vše na jedné obrazovce.',
       o: ['Záložky případu', 'Časová osa', 'Záznam, šetření a historie'],
       steps: [
@@ -4094,6 +4189,8 @@ ul.clean b{color:var(--ep-text);}
           x:'Kdy se podalo, jaké spisové číslo přidělil portál, kdo ho podepsal a do kdy se musí uchovat. Vidíte i to, že bude potřeba <b>aktualizace</b> – lékař upřesnil délku neschopnosti a v odeslaném záznamu je původní odhad.' },
         { s:'s4', pane:'setreni', sel:'txt:Šetření příčin a opatření', t:'Záložka Šetření: proč se to stalo',
           x:'Zjištěná příčina a opatření, která z ní vzešla – každé se svým řešitelem a termínem. Tady je vidět i souvislost se skoro-nehodou, která se na stejném místě stala už dřív.' },
+        { s:'s4', pane:'dokumenty', sel:'txt:Dokumenty případu', t:'Záložka Dokumenty: všechno u případu',
+          x:'Lékařské zprávy, fotky místa, podepsaný záznam, doručenky. Každý řádek se dá <b>otevřít, stáhnout i smazat</b> a nový soubor se nahraje tlačítkem „+ Nahrát“. Zdravotní údaje vidí jen ten, kdo na ně má právo – ostatní je v seznamu vůbec nenajdou.' },
         { s:'s4', pane:'historie', sel:'txt:Historie případu', t:'Záložka Historie: kdo co kdy udělal',
           x:'U zdravotních údajů je důležité vědět nejen co se změnilo, ale i <b>kdo se do případu díval</b>. Historie proto zaznamenává i otevření lékařské zprávy.' }
       ] },
@@ -4109,7 +4206,7 @@ ul.clean b{color:var(--ep-text);}
         { s:'s5', sel:'txt:Kontrola úplnosti', t:'Co ještě chybí',
           x:'Deset částí z patnácti je hotových. Chybí zaznamenat kontrolu na alkohol – <b>bez toho pojišťovna neposoudí, jestli si úraz zavinil sám zaměstnanec</b> – a dvě vyjádření. Tohle je přesně to, co se u ručně vedených formulářů zjistí až pozdě.' },
         { s:'s5', sel:'txt:Průvodce podáním', t:'Jak se to dostane na portál',
-          x:'Portál inspekce práce nemá propojení pro programy – ministerstvo ho při přípravě nařízení odmítlo. Aplikace proto otevře portál vedle sebe a <b>provede vás přepisem</b>: u každé části ukáže hodnotu a jedním klikem ji zkopíruje. Po odeslání si uloží spisovou značku a datum.' },
+          x:'Portál inspekce práce nemá propojení pro programy – ministerstvo ho při přípravě nařízení odmítlo. Aplikace proto otevře portál vedle sebe a <b>provede vás přepisem</b>: u každé části ukáže hodnotu a jedním klikem ji zkopíruje. Po odeslání si uloží spisovou značku a datum. <b>Zkuste si ho spustit</b> – tlačítko je hned pod tímhle výčtem.' },
         { s:'s6', sel:'txt:Fronta podání · každý případ má vlastní lhůtu', t:'Lhůty: každý případ má svůj termín',
           x:'Od ledna 2026 skončily měsíční dávky – <b>záznam se podává do 15 pracovních dnů</b> ode dne, kdy jste se o úrazu dozvěděli. Tabulka ukazuje, co komu ještě musí jít a kde už je splněno.' },
         { s:'s7', sel:'txt:Co se mění · ÚR-2026-030', t:'Když se něco změní, záznam se opravuje',
@@ -4624,6 +4721,1114 @@ ul.clean b{color:var(--ep-text);}
 
   restore();
   status();
+})();
+</script>
+
+
+<script>
+// ---------- Panel, potvrzení, hláška, stavěč formulářů ----------
+(function(){
+  var blWrap = document.getElementById('blWrap'), bl = document.getElementById('bl');
+  var cfWrap = document.getElementById('cfWrap');
+  var toast = document.getElementById('toast'), toastT = document.getElementById('toastT'), toastU = document.getElementById('toastU');
+  var tHide = null, cfFn = null;
+
+  function esc(v){ return String(v == null ? '' : v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  // hláška dole; volitelně s odkazem „Vrátit“
+  function say(text, undo){
+    toastT.textContent = text;
+    toast.className = 'toast on';
+    toastU.style.display = undo ? '' : 'none';
+    toastU.onclick = function(){ toast.className = 'toast'; if (undo) undo(); };
+    if (tHide) clearTimeout(tHide);
+    tHide = setTimeout(function(){ toast.className = 'toast'; }, undo ? 6000 : 3200);
+  }
+
+  // pole formuláře: {l:popisek, n:jméno, t:text|area|select|date|time|num, v:hodnota, o:[volby], hint:'', w2:true, req:true}
+  function fieldHtml(f, i){
+    var id = 'fld' + i, cls = 'field' + (f.w2 ? ' w2' : '');
+    var h = '<div class="' + cls + '"><label for="' + id + '">' + esc(f.l) + (f.req ? '<span class="req">*</span>' : '')
+      + (f.law ? '<span class="law">' + esc(f.law) + '</span>' : '') + '</label>';
+    if (f.t === 'area') h += '<textarea id="' + id + '" rows="' + (f.rows || 3) + '">' + esc(f.v) + '</textarea>';
+    else if (f.t === 'select'){
+      h += '<select id="' + id + '">';
+      for (var j = 0; j < (f.o || []).length; j++) h += '<option' + (f.o[j] === f.v ? ' selected' : '') + '>' + esc(f.o[j]) + '</option>';
+      h += '</select>';
+    }
+    else if (f.t === 'static') h += '<div class="v" style="font-size:13px;padding-top:3px;font-family:var(--fm)">' + esc(f.v) + '</div>';
+    else h += '<input id="' + id + '" type="' + (f.t === 'date' ? 'date' : f.t === 'time' ? 'time' : f.t === 'num' ? 'number' : 'text') + '" value="' + esc(f.v) + '">';
+    if (f.hint) h += '<div class="hint">' + f.hint + '</div>';
+    return h + '</div>';
+  }
+
+  // otevře panel; o = {kicker,title,sub,wide,fields,html,note,save,onSave,extra:[{t,cls,fn}]}
+  function blade(o){
+    document.getElementById('blK').textContent = o.kicker || '';
+    document.getElementById('blT').textContent = o.title || '';
+    document.getElementById('blS').innerHTML = o.sub || '';
+    document.getElementById('blS').style.display = o.sub ? '' : 'none';
+    bl.className = 'bl' + (o.wide ? ' wide' : '');
+    var body = '';
+    if (o.html) body += o.html;
+    if (o.fields && o.fields.length){
+      body += '<div class="fgrid">';
+      for (var i = 0; i < o.fields.length; i++) body += fieldHtml(o.fields[i], i);
+      body += '</div>';
+    }
+    if (o.after) body += o.after;
+    document.getElementById('blB').innerHTML = body;
+    var ft = document.getElementById('blF');
+    ft.innerHTML = (o.note ? '<span class="note">' + o.note + '</span>' : '<span class="note"></span>')
+      + '<button class="btn ghost sm" data-bl-close>Zavřít</button>'
+      + (o.save ? '<button class="btn accent sm" id="blSave">' + esc(o.save) + '</button>' : '');
+    if (o.extra) for (var k = 0; k < o.extra.length; k++){
+      var b = document.createElement('button');
+      b.className = 'btn ' + (o.extra[k].cls || 'ghost') + ' sm';
+      b.innerHTML = o.extra[k].t;
+      (function(fn){ b.addEventListener('click', function(){ fn(vals(o.fields)); }); })(o.extra[k].fn);
+      ft.insertBefore(b, ft.querySelector('[data-bl-close]'));
+    }
+    var sv = document.getElementById('blSave');
+    if (sv) sv.addEventListener('click', function(){
+      var v = vals(o.fields);
+      close();
+      if (o.onSave) o.onSave(v);
+    });
+    blWrap.className = 'bl-wrap on';
+    var first = document.querySelector('#blB input, #blB textarea, #blB select');
+    if (first && first.focus) try { first.focus(); } catch(e){}
+  }
+  function vals(fields){
+    var out = {};
+    for (var i = 0; i < (fields || []).length; i++){
+      var el = document.getElementById('fld' + i);
+      out[fields[i].n || fields[i].l] = el ? el.value : (fields[i].v || '');
+    }
+    return out;
+  }
+  function close(){ blWrap.className = 'bl-wrap'; }
+  blWrap.addEventListener('click', function(e){
+    if (e.target === blWrap || e.target.closest('[data-bl-close]') || e.target.id === 'blX') close();
+  });
+
+  // potvrzení; o = {title,text,ok,onOk}
+  function confirm2(o){
+    document.getElementById('cfT').textContent = o.title || 'Opravdu?';
+    document.getElementById('cfS').innerHTML = o.text || '';
+    document.getElementById('cfYes').textContent = o.ok || 'Smazat';
+    cfFn = o.onOk;
+    cfWrap.className = 'cf-wrap on';
+  }
+  document.getElementById('cfNo').addEventListener('click', function(){ cfWrap.className = 'cf-wrap'; });
+  cfWrap.addEventListener('click', function(e){ if (e.target === cfWrap) cfWrap.className = 'cf-wrap'; });
+  document.getElementById('cfYes').addEventListener('click', function(){
+    cfWrap.className = 'cf-wrap';
+    if (cfFn) cfFn();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key !== 'Escape') return;
+    if (cfWrap.className.indexOf('on') !== -1) { cfWrap.className = 'cf-wrap'; return; }
+    if (blWrap.className.indexOf('on') !== -1) close();
+  });
+
+  window.epBlade = blade;
+  window.epConfirm = confirm2;
+  window.epSay = say;
+  window.epEsc = esc;
+  window.epCloseBlade = close;
+})();
+</script>
+
+
+<script>
+// ---------- Dokumenty případu: otevřít, stáhnout, nahrát, smazat ----------
+(function(){
+  var esc = window.epEsc;
+  var IC = {
+    pdf: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/></svg>',
+    img: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l5-5 4 4 3-3 4 4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>',
+    lock: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a4 4 0 0 0-4 4v1H7a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-7a3 3 0 0 0-3-3h-1V7a4 4 0 0 0-4-4Z"/></svg>',
+    ok: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>'
+  };
+  var EYE = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="2.6"/></svg>';
+  var DL = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11m0 0 4-4m-4 4-4-4"/><path d="M5 19h14"/></svg>';
+  var TRASH = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13"/></svg>';
+
+  var DOCS = [
+    { n: 'Záznam o úrazu · ÚR-2026-030.pdf', m: '4. 9. · podepsáno všemi stranami · 218 kB', i: 'pdf', c: '#FDEBEB', f: '#B23A3A' },
+    { n: 'Fotografie místa (3×)', m: '2. 9. · pořídil mistr směny · 4,1 MB', i: 'img' },
+    { n: 'Lékařská zpráva · urgentní příjem', m: '2. 9. · omezený přístup: jen BOZP a mzdy', i: 'lock', lock: 1 },
+    { n: 'Neschopenka · díl II', m: '2. 9. · omezený přístup: jen BOZP a mzdy', i: 'lock', lock: 1 },
+    { n: 'Vyjádření zraněného', m: '3. 9. · podepsal P. Dvořák · 96 kB', i: 'pdf' },
+    { n: 'Protokol o šetření příčin', m: '3. 9. · 2 strany · 143 kB', i: 'pdf' },
+    { n: 'Doručenky – OIP, VZP, Kooperativa', m: '5. 9. · datová schránka a e-mail', i: 'ok', c: 'var(--ep-accent-soft)', f: 'var(--ep-accent-strong)' }
+  ];
+
+  function rowHtml(d, idx){
+    return '<div class="doc" data-doc="' + idx + '">'
+      + '<span class="doc-ic"' + (d.c ? ' style="background:' + d.c + ';color:' + (d.f || 'inherit') + '"' : '') + '>' + (IC[d.i] || IC.pdf) + '</span>'
+      + '<span class="doc-tx"><span class="doc-n">' + esc(d.n) + '</span><span class="doc-m">' + esc(d.m) + '</span></span>'
+      + '<span class="doc-a">'
+      + '<button data-act="open" title="Otevřít">' + EYE + '</button>'
+      + '<button data-act="dl" title="Stáhnout">' + DL + '</button>'
+      + '<button data-act="del" class="del" title="Smazat">' + TRASH + '</button>'
+      + '</span></div>';
+  }
+
+  var card = null, list = null;
+  var cards = document.querySelectorAll('#s4 .card');
+  for (var i = 0; i < cards.length; i++){
+    var t = cards[i].querySelector('.card-t');
+    if (t && t.textContent.trim() === 'Dokumenty případu') { card = cards[i]; break; }
+  }
+  if (!card) return;
+
+  var feed = card.querySelector('.feed');
+  if (feed){
+    list = document.createElement('div');
+    list.className = 'docs';
+    list.style.padding = '4px 18px 14px';
+    feed.parentNode.replaceChild(list, feed);
+  }
+  var head = card.querySelector('.card-h');
+  var up = document.createElement('button');
+  up.className = 'card-a';
+  up.setAttribute('data-act', 'upload');
+  up.textContent = '+ Nahrát';
+  if (head) head.insertBefore(up, head.querySelector('.card-a'));
+
+  function render(){
+    var h = '';
+    for (var i = 0; i < DOCS.length; i++) h += rowHtml(DOCS[i], i);
+    list.innerHTML = h;
+    var tab = document.querySelector('#caseTabs button[data-pane="dokumenty"] .tn');
+    if (tab) tab.textContent = DOCS.length;
+  }
+
+  function preview(d){
+    window.epBlade({
+      kicker: 'Dokument případu ÚR-2026-030',
+      title: d.n,
+      sub: esc(d.m) + (d.lock ? ' · <b>omezený přístup</b>' : ''),
+      wide: true,
+      html: '<div class="prev">'
+        + '<div class="ph2">Výrobní závod Kolín · ÚR-2026-030 · P. Dvořák</div>'
+        + '<div class="ph1" style="margin-top:6px">' + esc(d.n) + '</div>'
+        + '<div class="ln m"></div><div class="ln"></div><div class="ln s"></div>'
+        + '<div class="ln m" style="margin-top:22px"></div><div class="ln"></div><div class="ln"></div><div class="ln s"></div>'
+        + '<div class="ln m" style="margin-top:22px"></div><div class="ln s"></div>'
+        + '</div>'
+        + '<div class="banner info" style="margin-top:16px"><div><b>Toto je ukázka.</b> V návrhu není skutečný soubor – jde o to ukázat, že se dokument otevře přímo v aplikaci, bez stahování a bez hledání ve sdílené složce.</div></div>',
+      note: d.lock ? 'Vidí jen technik BOZP a mzdová účtárna.' : '',
+      extra: [{ t: 'Stáhnout', cls: 'ghost', fn: function(){ window.epSay('Stahuji „' + d.n + '“ – v ukázce se soubor nestahuje.'); } },
+              { t: 'Sdílet odkaz', cls: 'ghost', fn: function(){ window.epSay('Odkaz zkopírován do schránky.'); } }]
+    });
+  }
+
+  function upload(){
+    window.epBlade({
+      kicker: 'Případ ÚR-2026-030',
+      title: 'Nahrát dokument',
+      sub: 'Soubor se uloží k případu a zapíše do historie – včetně toho, kdo a kdy ho vložil.',
+      html: '<div class="drop" id="dzone"><span class="t">Přetáhněte soubor sem</span><span class="s">nebo klikněte a vyberte z počítače · PDF, JPG, PNG, DOCX do 20 MB</span></div>'
+        + '<div class="note" id="dpick" style="margin:10px 0 18px">Zatím není vybrán žádný soubor.</div>',
+      fields: [
+        { l: 'Název dokumentu', n: 'nazev', t: 'text', v: '', w2: true, req: true, hint: 'Když necháte prázdné, použije se název souboru.' },
+        { l: 'Druh dokumentu', n: 'druh', t: 'select', v: 'Ostatní', o: ['Lékařská zpráva', 'Fotografie místa', 'Vyjádření zraněného', 'Vyjádření svědka', 'Protokol o šetření', 'Doručenka', 'Doklad o výdělku', 'Ostatní'] },
+        { l: 'Datum', n: 'datum', t: 'date', v: '2026-09-10' },
+        { l: 'Kdo to smí vidět', n: 'pristup', t: 'select', v: 'Všichni s přístupem k případu', o: ['Všichni s přístupem k případu', 'Jen technik BOZP a mzdy', 'Jen technik BOZP'], w2: true, hint: 'Zdravotní údaje patří do omezeného přístupu – nastavení rolí je v Nastavení aplikace.' }
+      ],
+      save: 'Nahrát',
+      onSave: function(v){
+        var lock = v.pristup !== 'Všichni s přístupem k případu';
+        var d = { n: v.nazev || 'Nový dokument.pdf', m: (v.datum || '').split('-').reverse().join('. ').replace(/^0/, '') + ' · ' + v.druh + (lock ? ' · omezený přístup' : ' · nahrála M. Nováková'), i: lock ? 'lock' : 'pdf', lock: lock ? 1 : 0 };
+        DOCS.unshift(d);
+        render();
+        window.epSay('Dokument „' + d.n + '“ nahrán.');
+      }
+    });
+    var z = document.getElementById('dzone');
+    if (z) z.addEventListener('click', function(){
+      var pick = document.getElementById('dpick');
+      if (pick) pick.innerHTML = '<b>lekarska-zprava-dvorak.pdf</b> · 218 kB · připraveno k nahrání <span class="note">(ukázkový soubor)</span>';
+      var nm = document.getElementById('fld0');
+      if (nm && !nm.value) nm.value = 'lekarska-zprava-dvorak.pdf';
+    });
+  }
+
+  list.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-act]');
+    if (!b) return;
+    var row = b.closest('[data-doc]');
+    var idx = parseInt(row.getAttribute('data-doc'), 10);
+    var d = DOCS[idx];
+    var act = b.getAttribute('data-act');
+    if (act === 'open') { preview(d); return; }
+    if (act === 'dl') { window.epSay('Stahuji „' + d.n + '“ – v ukázce se soubor nestahuje.'); return; }
+    if (act === 'del') window.epConfirm({
+      title: 'Smazat dokument?',
+      text: '„' + esc(d.n) + '“ se odebere z případu. Smazání se zapíše do historie případu – u úrazů se doklady nemažou potichu.',
+      ok: 'Smazat',
+      onOk: function(){
+        var back = DOCS.splice(idx, 1)[0];
+        render();
+        window.epSay('Dokument smazán.', function(){ DOCS.splice(idx, 0, back); render(); window.epSay('Vráceno zpět.'); });
+      }
+    });
+  });
+  up.addEventListener('click', function(e){ e.stopPropagation(); upload(); });
+
+  render();
+})();
+</script>
+
+
+<script>
+// ---------- Zápis a úpravy: opatření, nemoci z povolání, skoro-nehody ----------
+(function(){
+  var esc = window.epEsc, M = ['ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince'];
+  var PILL = { 'V řešení':'p-open', 'Po termínu':'p-late', 'Splněno':'p-closed', 'Čeká na schválení':'p-arch',
+    'Uznána':'p-sent', 'Ohrožení nemocí':'p-open', 'V posuzování':'p-arch',
+    'Posuzuje se':'p-open', 'Opatření zavedeno':'p-closed', 'Předáno k šetření':'p-late', 'Bez opatření':'p-arch' };
+  function pill(t){ return '<span class="pill ' + (PILL[t] || 'p-open') + '"><span class="d"></span>' + esc(t) + '</span>'; }
+  function ini(n){
+    var parts = String(n || '').replace(/\(.*\)/, '').replace(/\./g, '').trim().split(/\s+/);
+    var a = (parts[0] || '?').charAt(0), b = (parts[parts.length - 1] || '').charAt(0);
+    return (a + (parts.length > 1 ? b : '')).toUpperCase();
+  }
+  function who(n){ return '<span class="who"><span class="avatar">' + ini(n) + '</span><span class="n">' + esc(String(n).replace(/\s*\(.*\)/, '')) + '</span></span>'; }
+  function toIso(cz){
+    var m = String(cz || '').match(/(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})/);
+    if (!m) return '';
+    return m[3] + '-' + ('0' + m[2]).slice(-2) + '-' + ('0' + m[1]).slice(-2);
+  }
+  function toCz(iso){
+    var m = String(iso || '').match(/(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return '';
+    return parseInt(m[3], 10) + '. ' + parseInt(m[2], 10) + '. ' + m[1];
+  }
+  function txt(row, i, sel){
+    var td = row.children[i]; if (!td) return '';
+    var e = sel ? td.querySelector(sel) : td;
+    return e ? e.textContent.replace(/\s+/g, ' ').trim() : '';
+  }
+  function setNav(go, n){
+    var e = document.querySelectorAll('.nav button[data-go="' + go + '"] .ct, .nav button[data-go="' + go + '"] .badge');
+    for (var i = 0; i < e.length; i++) e[i].textContent = n;
+  }
+  function setKpi(screen, label, val){
+    var k = document.querySelectorAll('#' + screen + ' .kpi');
+    for (var i = 0; i < k.length; i++){
+      var l = k[i].querySelector('.kpi-l'), v = k[i].querySelector('.kpi-v');
+      if (l && v && l.textContent.replace(/\s+/g, ' ').trim().toLowerCase() === label.toLowerCase()) v.textContent = val;
+    }
+  }
+  window.epTblUtil = { pill: pill, who: who, toIso: toIso, toCz: toCz, txt: txt, setNav: setNav, setKpi: setKpi, ini: ini };
+
+  var LIDE = ['J. Malý (údržba)', 'P. Novák (vedoucí skladu)', 'M. Nováková (technik BOZP)', 'I. Horáková (personalistika)', 'R. Šimek (mistr lisovny)', 'J. Pokorný (zástupce pro BOZP)'];
+  var PRACOVISTE = ['Sklad hotových výrobků', 'Lisovna', 'Expedice', 'Hala A – údržba', 'Hala B – montáž', 'Parkoviště závodu'];
+
+  // ============ ŠETŘENÍ A OPATŘENÍ (s9) ============
+  (function(){
+    var scr = document.getElementById('s9');
+    if (!scr) return;
+    var tbls = scr.querySelectorAll('table.tbl');
+    var tAll = tbls[0], tCase = tbls[1];
+    if (!tAll) return;
+
+    var URAZY = ['ÚR-2026-030 · P. Dvořák', 'ÚR-2026-028 · L. Němec', 'ÚR-2026-027 · A. Veselá', 'ÚR-2026-026 · M. Bílý', 'Bez vazby na konkrétní úraz'];
+    var STAVY = ['V řešení', 'Po termínu', 'Čeká na schválení', 'Splněno'];
+
+    function recount(){
+      var rows = tAll.querySelectorAll('tbody tr'), open = 0;
+      for (var i = 0; i < rows.length; i++) if (txt(rows[i], 4) !== 'Splněno') open++;
+      var pl = scr.querySelector('.card-h .pill');
+      if (pl) pl.innerHTML = '<span class="d"></span>' + open + ' nesplněných';
+      setNav('s9', open);
+      setKpi('s1', 'Opatření v řešení', open);
+    }
+
+    function rowAll(v){
+      var uraz = (v.uraz || '').split(' · ');
+      return '<td><div class="t-pri">' + esc(v.co) + '</div>' + (v.sub ? '<div class="t-sub">' + esc(v.sub) + '</div>' : '') + '</td>'
+      + '<td>' + (uraz[0] && uraz[0].indexOf('ÚR') === 0
+          ? '<span class="t-id">' + esc(uraz[0]) + '</span><div class="t-sub">' + esc(uraz[1] || '') + '</div>'
+          : '<span class="note">bez vazby</span>') + '</td>'
+      + '<td>' + who(v.kdo) + '</td>'
+      + '<td class="mono" style="font-size:12px' + (v.stav === 'Po termínu' ? ';color:var(--ep-red)' : '') + '">' + esc(toCz(v.termin)) + '</td>'
+      + '<td>' + pill(v.stav) + '</td>';
+    }
+    function rowCase(v){
+      return '<td><div class="t-pri">' + esc(v.co) + '</div>' + (v.sub ? '<div class="t-sub">' + esc(v.sub) + '</div>' : '') + '</td>'
+      + '<td>' + who(v.kdo) + '</td>'
+      + '<td class="mono" style="font-size:12px' + (v.stav === 'Po termínu' ? ';color:var(--ep-red)' : '') + '">' + esc(toCz(v.termin)) + '</td>'
+      + '<td>' + pill(v.stav) + '</td>';
+    }
+
+    function form(v, onSave, del){
+      var f = [
+        { l: 'Co se udělá', n: 'co', t: 'text', v: v.co, w2: true, req: true, hint: 'Jedna věta, ze které je poznat hotovo. „Zvýšit pozornost“ není opatření.' },
+        { l: 'Upřesnění', n: 'sub', t: 'text', v: v.sub, w2: true }
+      ];
+      if (v.hasUraz) f.push({ l: 'Z jakého úrazu', n: 'uraz', t: 'select', v: v.uraz, o: URAZY, w2: true });
+      f.push({ l: 'Řešitel', n: 'kdo', t: 'select', v: v.kdo, o: LIDE, req: true });
+      f.push({ l: 'Termín', n: 'termin', t: 'date', v: v.termin, req: true });
+      f.push({ l: 'Stav', n: 'stav', t: 'select', v: v.stav, o: STAVY, w2: true });
+      window.epBlade({
+        kicker: 'Šetření a opatření · ZP § 105 odst. 5',
+        title: v.co ? 'Upravit opatření' : 'Nové opatření',
+        sub: 'Opatření má vždy <b>řešitele a termín</b> – bez toho ho inspekce nebere jako splněnou povinnost.',
+        fields: f,
+        save: v.co ? 'Uložit změny' : 'Založit opatření',
+        onSave: onSave,
+        extra: del ? [{ t: 'Smazat', cls: 'ghost', fn: del }] : null
+      });
+    }
+
+    function editRow(tr, hasUraz){
+      var v = { co: txt(tr, 0, '.t-pri'), sub: txt(tr, 0, '.t-sub'), hasUraz: hasUraz };
+      if (hasUraz){
+        var id = txt(tr, 1, '.t-id'), nm = txt(tr, 1, '.t-sub');
+        v.uraz = id ? (id + ' · ' + nm) : 'Bez vazby na konkrétní úraz';
+        v.kdo = txt(tr, 2, '.n'); v.termin = toIso(txt(tr, 3)); v.stav = txt(tr, 4);
+      } else {
+        v.kdo = txt(tr, 1, '.n'); v.termin = toIso(txt(tr, 2)); v.stav = txt(tr, 3);
+      }
+      for (var i = 0; i < LIDE.length; i++) if (LIDE[i].indexOf(v.kdo) === 0) v.kdo = LIDE[i];
+      form(v, function(nv){
+        nv.hasUraz = hasUraz;
+        tr.innerHTML = hasUraz ? rowAll(nv) : rowCase(nv);
+        recount();
+        window.epSay('Opatření uloženo.');
+      }, function(){
+        window.epCloseBlade();
+        window.epConfirm({ title: 'Smazat opatření?', text: 'Smazání se zapíše do historie případu.', ok: 'Smazat', onOk: function(){
+          var parent = tr.parentNode, next = tr.nextSibling;
+          tr.parentNode.removeChild(tr); recount();
+          window.epSay('Opatření smazáno.', function(){ parent.insertBefore(tr, next); recount(); window.epSay('Vráceno zpět.'); });
+        } });
+      });
+    }
+
+    function addTo(tbl, hasUraz){
+      form({ co: '', sub: '', uraz: URAZY[0], kdo: LIDE[0], termin: '2026-10-15', stav: 'V řešení', hasUraz: hasUraz }, function(nv){
+        var tr = document.createElement('tr');
+        nv.hasUraz = hasUraz;
+        tr.innerHTML = hasUraz ? rowAll(nv) : rowCase(nv);
+        var tb = tbl.querySelector('tbody');
+        tb.insertBefore(tr, tb.firstChild);
+        recount();
+        window.epSay('Opatření založeno – termín hlídá aplikace.');
+      });
+    }
+
+    // tlačítko „+ Nové opatření“ do hlavičky přehledové karty
+    var head = tAll.closest('.card').querySelector('.card-h');
+    if (head){
+      var b = document.createElement('button');
+      b.className = 'card-a';
+      b.textContent = '+ Nové opatření';
+      b.addEventListener('click', function(e){ e.stopPropagation(); addTo(tAll, true); });
+      head.appendChild(b);
+    }
+    // „+ Přidat“ u opatření konkrétního šetření
+    if (tCase){
+      var h2 = tCase.closest('.card').querySelector('.card-a');
+      if (h2) h2.addEventListener('click', function(e){ e.stopPropagation(); addTo(tCase, false); });
+      tCase.addEventListener('click', function(e){
+        var tr = e.target.closest('tbody tr');
+        if (tr) editRow(tr, false);
+      });
+      tCase.style.cursor = 'pointer';
+    }
+    tAll.addEventListener('click', function(e){
+      var tr = e.target.closest('tbody tr');
+      if (tr) editRow(tr, true);
+    });
+    tAll.style.cursor = 'pointer';
+
+    // hlavičkové akce obrazovky
+    var acts = scr.querySelectorAll('.acts .btn');
+    for (var i = 0; i < acts.length; i++){
+      var lab = acts[i].textContent.trim();
+      if (lab.indexOf('Protokol') === 0) acts[i].addEventListener('click', function(){ window.epSay('Protokol o šetření se sestaví z vyplněných kroků – v ukázce se nestahuje.'); });
+      if (lab.indexOf('Uzavřít') === 0) acts[i].addEventListener('click', function(){
+        window.epConfirm({ title: 'Uzavřít šetření?', text: 'Uzavřením se šetření zamkne proti úpravám. Opatření zůstávají otevřená a dál se hlídají jejich termíny.', ok: 'Uzavřít', onOk: function(){ window.epSay('Šetření uzavřeno.'); } });
+      });
+    }
+
+    // úprava vlastního šetření (proč se to stalo)
+    var stepCard = null, cards = scr.querySelectorAll('.card');
+    for (var c = 0; c < cards.length; c++){
+      var t = cards[c].querySelector('.card-t');
+      if (t && t.textContent.indexOf('Šetření jednoho případu') === 0) { stepCard = cards[c]; break; }
+    }
+    if (stepCard){
+      var eb = document.createElement('button');
+      eb.className = 'card-a';
+      eb.textContent = 'Upravit šetření';
+      stepCard.querySelector('.card-h').appendChild(eb);
+      eb.addEventListener('click', function(){
+        var steps = stepCard.querySelectorAll('.step');
+        var f = [];
+        for (var i = 0; i < steps.length; i++){
+          f.push({ l: (i === 0 ? 'Co se stalo' : 'Proč · ' + i), n: 'k' + i, t: 'area', rows: 2, w2: true,
+            v: (steps[i].querySelector('.step-d') || {}).textContent ? steps[i].querySelector('.step-d').textContent.replace(/\s+/g, ' ').trim() : '' });
+        }
+        window.epBlade({
+          kicker: 'ÚR-2026-028 · L. Němec',
+          title: 'Šetření příčin',
+          sub: 'Ptejte se „proč“ tak dlouho, dokud odpověď nejde ovlivnit opatřením. Poslední odpověď je kořenová příčina.',
+          wide: true,
+          fields: f,
+          save: 'Uložit šetření',
+          onSave: function(v){
+            for (var i = 0; i < steps.length; i++){
+              var d = steps[i].querySelector('.step-d');
+              if (d) d.textContent = v['k' + i];
+            }
+            window.epSay('Šetření uloženo.');
+          }
+        });
+      });
+    }
+
+    recount();
+  })();
+
+  // ============ NEMOCI Z POVOLÁNÍ (s15) ============
+  (function(){
+    var scr = document.getElementById('s15');
+    if (!scr) return;
+    var tbl = scr.querySelector('table.tbl');
+    if (!tbl) return;
+    var STAVY = ['Uznána', 'Ohrožení nemocí', 'V posuzování'];
+
+    function recount(){
+      var rows = tbl.querySelectorAll('tbody tr'), uzn = 0, ohr = 0;
+      for (var i = 0; i < rows.length; i++){
+        var st = txt(rows[i], 4);
+        if (st === 'Uznána') uzn++;
+        if (st === 'Ohrožení nemocí') ohr++;
+      }
+      setNav('s15', rows.length);
+      setKpi('s15', 'Uznané nemoci', uzn);
+      setKpi('s15', 'Ohrožení nemocí', ohr);
+    }
+    function row(v){
+      return '<td><span class="who"><span class="avatar">' + window.epTblUtil.ini(v.jmeno) + '</span><span><span class="n">' + esc(v.jmeno) + '</span><div class="t-sub">' + esc(v.osc) + '</div></span></span></td>'
+        + '<td><div class="t-pri">' + esc(v.nemoc) + '</div><div class="t-sub">' + esc(v.polozka) + '</div></td>'
+        + '<td class="mono" style="font-size:12px">' + esc(toCz(v.datum)) + '</td>'
+        + '<td><div class="t-pri">' + esc(v.pracoviste) + '</div><div class="t-sub">' + esc(v.faktor) + '</div></td>'
+        + '<td>' + pill(v.stav) + '</td>';
+    }
+    function form(v, onSave, del){
+      window.epBlade({
+        kicker: 'Evidence podle § 105 odst. 6 zákoníku práce',
+        title: v.jmeno ? 'Upravit zápis' : 'Zapsat nemoc z povolání',
+        sub: 'Nemoc uznává <b>středisko nemocí z povolání</b>, ne zaměstnavatel. Sem se opisuje, co je v lékařském posudku.',
+        wide: true,
+        fields: [
+          { l: 'Zaměstnanec', n: 'jmeno', t: 'text', v: v.jmeno, req: true },
+          { l: 'Osobní číslo a zařazení', n: 'osc', t: 'text', v: v.osc, hint: 'Například: os. č. 10041 · obsluha lisu' },
+          { l: 'Nemoc podle posudku', n: 'nemoc', t: 'text', v: v.nemoc, w2: true, req: true },
+          { l: 'Položka seznamu nemocí', n: 'polozka', t: 'text', v: v.polozka, hint: 'NV č. 290/1995 Sb. – kapitola a položka.' },
+          { l: 'Datum posudku', n: 'datum', t: 'date', v: v.datum, req: true },
+          { l: 'Pracoviště', n: 'pracoviste', t: 'select', v: v.pracoviste, o: PRACOVISTE },
+          { l: 'Rizikový faktor', n: 'faktor', t: 'text', v: v.faktor, hint: 'Hluk, vibrace, jednostranná zátěž, chemická látka…' },
+          { l: 'Stav', n: 'stav', t: 'select', v: v.stav, o: STAVY, w2: true, hint: 'Uznaná nemoc zakládá stejné nároky jako pracovní úraz – vzniká i pojistná událost.' }
+        ],
+        save: v.jmeno ? 'Uložit změny' : 'Zapsat',
+        onSave: onSave,
+        extra: del ? [{ t: 'Smazat', cls: 'ghost', fn: del }] : null
+      });
+    }
+    tbl.addEventListener('click', function(e){
+      var tr = e.target.closest('tbody tr');
+      if (!tr) return;
+      var v = { jmeno: txt(tr, 0, '.n'), osc: txt(tr, 0, '.t-sub'), nemoc: txt(tr, 1, '.t-pri'), polozka: txt(tr, 1, '.t-sub'),
+        datum: toIso(txt(tr, 2)), pracoviste: txt(tr, 3, '.t-pri'), faktor: txt(tr, 3, '.t-sub'), stav: txt(tr, 4) };
+      form(v, function(nv){ tr.innerHTML = row(nv); recount(); window.epSay('Zápis uložen.'); }, function(){
+        window.epCloseBlade();
+        window.epConfirm({ title: 'Smazat zápis?', text: 'Evidence nemocí z povolání se uchovává 10 let – mazat by se mělo jen omylem založené zápisy.', ok: 'Smazat', onOk: function(){
+          var parent = tr.parentNode, next = tr.nextSibling;
+          parent.removeChild(tr); recount();
+          window.epSay('Zápis smazán.', function(){ parent.insertBefore(tr, next); recount(); window.epSay('Vráceno zpět.'); });
+        } });
+      });
+    });
+    tbl.style.cursor = 'pointer';
+    var acts = scr.querySelectorAll('.acts .btn');
+    for (var i = 0; i < acts.length; i++) if (acts[i].textContent.indexOf('Zapsat') === 0)
+      acts[i].addEventListener('click', function(){
+        form({ jmeno: '', osc: '', nemoc: '', polozka: '', datum: '2026-09-10', pracoviste: PRACOVISTE[0], faktor: '', stav: 'Uznána' }, function(nv){
+          var tr = document.createElement('tr');
+          tr.innerHTML = row(nv);
+          var tb = tbl.querySelector('tbody');
+          tb.insertBefore(tr, tb.firstChild);
+          recount();
+          window.epSay('Nemoc z povolání zapsána.');
+        });
+      });
+    recount();
+  })();
+
+  // ============ SKORO-NEHODY (s16) ============
+  (function(){
+    var scr = document.getElementById('s16');
+    if (!scr) return;
+    var tbl = scr.querySelector('table.tbl');
+    if (!tbl) return;
+    var REAKCE = ['Posuzuje se', 'Předáno k šetření', 'Opatření zavedeno', 'Bez opatření'];
+    var CELKEM = 26;
+
+    function recount(){
+      setNav('s16', CELKEM);
+      setKpi('s16', 'Letos nahlášeno', CELKEM);
+      var info = scr.querySelectorAll('.info');
+      for (var i = 0; i < info.length; i++){
+        var t = info[i].textContent;
+        if (/\bz \d+\b/.test(t)) info[i].textContent = t.replace(/(\d+)–(\d+) z \d+/, function(_, a){ return a + '–' + tbl.querySelectorAll('tbody tr').length + ' z ' + CELKEM; });
+      }
+    }
+    function row(v){
+      return '<td><span class="t-id">' + esc(v.cislo) + '</span><div class="t-sub">' + esc(toCz(v.datum).replace(/ \d{4}$/, '')) + ' · ' + esc(v.cas) + '</div></td>'
+        + '<td>' + who(v.kdo) + '</td>'
+        + '<td><div class="t-pri">' + esc(v.co) + '</div>' + (v.proc ? '<div class="t-sub">' + esc(v.proc) + '</div>' : '') + '</td>'
+        + '<td>' + esc(v.kde) + '</td>'
+        + '<td>' + pill(v.reakce) + '</td>';
+    }
+    function nextId(){
+      var max = 0, ids = tbl.querySelectorAll('tbody .t-id');
+      for (var i = 0; i < ids.length; i++){
+        var m = ids[i].textContent.match(/(\d+)$/);
+        if (m && parseInt(m[1], 10) > max) max = parseInt(m[1], 10);
+      }
+      return 'SN-2026-' + ('00' + (max + 1)).slice(-3);
+    }
+    function form(v, onSave, del){
+      window.epBlade({
+        kicker: 'Prevence · nad rámec zákona',
+        title: v.co ? 'Upravit skoro-nehodu' : 'Nahlásit skoro-nehodu',
+        sub: 'Událost, která dopadla dobře. Hlásí se <b>bez postihu</b> – smyslem je zachytit riziko dřív, než z něj bude úraz.',
+        wide: true,
+        fields: [
+          { l: 'Číslo', n: 'cislo', t: 'static', v: v.cislo },
+          { l: 'Nahlásil', n: 'kdo', t: 'select', v: v.kdo, o: ['M. Bílý', 'J. Kolář', 'A. Veselá', 'R. Šimek', 'P. Novák', 'L. Němec'] },
+          { l: 'Datum', n: 'datum', t: 'date', v: v.datum, req: true },
+          { l: 'Čas', n: 'cas', t: 'time', v: v.cas },
+          { l: 'Co se stalo', n: 'co', t: 'text', v: v.co, w2: true, req: true, hint: 'Krátce a bez viníka: co se stalo a co se stát mohlo.' },
+          { l: 'Proč k tomu došlo', n: 'proc', t: 'text', v: v.proc, w2: true },
+          { l: 'Pracoviště', n: 'kde', t: 'text', v: v.kde, req: true },
+          { l: 'Reakce', n: 'reakce', t: 'select', v: v.reakce, o: REAKCE, hint: 'Z „Předáno k šetření“ se dělá opatření na obrazovce Šetření a opatření.' }
+        ],
+        save: v.co ? 'Uložit změny' : 'Nahlásit',
+        onSave: onSave,
+        extra: del ? [{ t: 'Smazat', cls: 'ghost', fn: del }] : null
+      });
+    }
+    tbl.addEventListener('click', function(e){
+      var tr = e.target.closest('tbody tr');
+      if (!tr) return;
+      var sub = txt(tr, 0, '.t-sub').split(' · ');
+      var v = { cislo: txt(tr, 0, '.t-id'), datum: toIso((sub[0] || '') + ' 2026'), cas: sub[1] || '',
+        kdo: txt(tr, 1, '.n'), co: txt(tr, 2, '.t-pri'), proc: txt(tr, 2, '.t-sub'), kde: txt(tr, 3), reakce: txt(tr, 4) };
+      form(v, function(nv){ tr.innerHTML = row(nv); recount(); window.epSay('Skoro-nehoda uložena.'); }, function(){
+        window.epCloseBlade();
+        window.epConfirm({ title: 'Smazat skoro-nehodu?', text: 'Hlášení zmizí z evidence i ze statistiky prevence.', ok: 'Smazat', onOk: function(){
+          var parent = tr.parentNode, next = tr.nextSibling;
+          parent.removeChild(tr); CELKEM--; recount();
+          window.epSay('Skoro-nehoda smazána.', function(){ parent.insertBefore(tr, next); CELKEM++; recount(); window.epSay('Vráceno zpět.'); });
+        } });
+      });
+    });
+    tbl.style.cursor = 'pointer';
+    var acts = scr.querySelectorAll('.acts .btn');
+    for (var i = 0; i < acts.length; i++){
+      var lab = acts[i].textContent.trim();
+      if (lab.indexOf('Nahlásit') === 0) acts[i].addEventListener('click', function(){
+        form({ cislo: nextId(), datum: '2026-09-10', cas: '09:30', kdo: 'M. Bílý', co: '', proc: '', kde: 'Sklad, ulička C', reakce: 'Posuzuje se' }, function(nv){
+          var tr = document.createElement('tr');
+          tr.innerHTML = row(nv);
+          var tb = tbl.querySelector('tbody');
+          tb.insertBefore(tr, tb.firstChild);
+          CELKEM++;
+          recount();
+          window.epSay('Skoro-nehoda ' + nv.cislo + ' nahlášena.');
+        });
+      });
+      if (lab.indexOf('Nastavit odměny') === 0) acts[i].addEventListener('click', function(){ if (window.epGo) window.epGo('s13'); });
+    }
+    recount();
+  })();
+})();
+</script>
+
+
+<script>
+// ---------- Průvodce podáním na portál inspekce práce ----------
+(function(){
+  var esc = window.epEsc;
+  var wrap = document.getElementById('wzWrap'), rail = document.getElementById('wzRail'),
+      body = document.getElementById('wzB'), title = document.getElementById('wzT'),
+      note = document.getElementById('wzN'), bPrev = document.getElementById('wzPrev'), bNext = document.getElementById('wzNext');
+  var step = 0, ctx = null, znacka = '';
+
+  var CASES = {
+    'ÚR-2026-029': {
+      id: 'ÚR-2026-029', kdo: 'Marie Svobodová', kdy: '28. 8. 2026 · 09:20', kde: 'Expedice, linka 3 – balení výrobků',
+      lhuta: '18. 9. 2026', hotovo: 10, chybi: ['XI · Vyjádření svědků', 'XII · Předchozí školení a lékařská prohlídka', 'XIII · Kontrola alkoholu a jiných látek', 'XIV · Přijatá opatření', 'XV · Podpisy'],
+      pole: [
+        ['Zaměstnavatel', 'Výrobní závod Kolín s.r.o. · IČO 27842119'],
+        ['Postižený', 'Marie Svobodová · nar. 1984 · skladnice'],
+        ['Datum a hodina', '28. 8. 2026, 09:20'],
+        ['Místo úrazu', 'Expedice, linka 3 – balení výrobků'],
+        ['Druh úrazu', 'Úraz s neschopností delší než 3 dny'],
+        ['Úrazový děj', 'Při balení výrobku sjel nůž po fólii a zasáhl předloktí pravé ruky.'],
+        ['Zdroj úrazu', 'Materiál a břemena'],
+        ['Příčina úrazu', 'Chybějící ochranné pomůcky – nebyly použity rukavice odolné proti pořezu.'],
+        ['Zranění', 'Rány a povrchová zranění · předloktí (pravé)'],
+        ['Neschopnost', '6 kalendářních dnů']
+      ]
+    }
+  };
+
+  var STEPS = ['Kontrola', 'Portál', 'Přepis hodnot', 'Spisová značka', 'Hotovo'];
+
+  function copy(text, btn){
+    var done = function(){ btn.textContent = 'Zkopírováno'; btn.className = 'ok'; };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, done); return; }
+    } catch(e){}
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.cssText = 'position:fixed;left:-9999px';
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+    } catch(e2){}
+    done();
+  }
+
+  function render(){
+    var c = ctx;
+    title.textContent = c.id + ' · ' + c.kdo;
+    var r = '';
+    for (var i = 0; i < STEPS.length; i++) r += '<i class="' + (i === step ? 'on' : (i < step ? 'done' : '')) + '">' + (i + 1) + ' · ' + STEPS[i] + '</i>';
+    rail.innerHTML = r;
+
+    var h = '';
+    if (step === 0){
+      h += '<p class="note" style="margin:0 0 14px">Záznam se podává <b>do 15 pracovních dnů</b> od zjištění úrazu. U tohoto případu lhůta běží do <b>' + esc(c.lhuta) + '</b>. Chybějící části se dají doplnit i po odeslání – lhůtu je lepší nepropásnout.</p>';
+      h += '<div class="prog-row" style="margin-bottom:14px"><span class="prog-l">Vyplněné části záznamu</span><span class="prog-v">' + c.hotovo + '/15</span></div>';
+      h += '<div class="banner amber" style="margin-bottom:14px"><div><b>Pět částí zatím chybí.</b> Žádná z nich není podmínkou podání – jsou to údaje, které se běžně doplňují až po vyšetření a po podpisech.</div></div>';
+      h += '<ul style="margin:0;padding-left:18px;font-size:13px;line-height:1.85;color:var(--ep-text-muted)">';
+      for (var j = 0; j < c.chybi.length; j++) h += '<li>' + esc(c.chybi[j]) + '</li>';
+      h += '</ul>';
+      note.textContent = 'Krok 1 z 5 · co ještě chybí';
+      bNext.textContent = 'Pokračovat';
+    }
+    else if (step === 1){
+      h += '<p class="note" style="margin:0 0 16px">Portál inspekce práce <b>nemá rozhraní pro programy</b>. Ministerstvo ho při přípravě nařízení odmítlo a import dat slibuje až ve druhé fázi digitalizace. Podání proto vždycky dělá člověk – aplikace mu k tomu připraví hodnoty a hlídá termín.</p>';
+      h += '<div class="steps">'
+        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Kdo se smí přihlásit</div><div class="step-d">Identitou občana nebo bankovní identitou. Ve firmě mají oprávnění M. Nováková a J. Pokorný – seznam je v Nastavení.</div></div></div>'
+        + '<div class="step act"><span class="step-n">2</span><div><div class="step-t">Otevřete portál v druhém okně</div><div class="step-d">Nechte tenhle průvodce otevřený vedle. V dalším kroku budete hodnoty jednu po druhé kopírovat.</div></div></div>'
+        + '</div>';
+      h += '<div style="margin-top:18px"><a class="btn accent sm" href="https://www.suip.cz" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex">Otevřít portál inspekce práce</a></div>';
+      note.textContent = 'Krok 2 z 5 · přihlášení';
+      bNext.textContent = 'Mám portál otevřený';
+    }
+    else if (step === 2){
+      h += '<p class="note" style="margin:0 0 12px">Hodnoty jsou připravené přesně v pořadí formuláře na portálu. Kliknutím se zkopírují do schránky, v portálu je pak vložíte klávesami Ctrl+V.</p>';
+      h += '<div class="card" style="margin:0"><div class="card-b" style="padding:6px 18px">';
+      for (var k = 0; k < c.pole.length; k++){
+        h += '<div class="cpy"><span class="k">' + esc(c.pole[k][0]) + '</span><span class="v" title="' + esc(c.pole[k][1]) + '">' + esc(c.pole[k][1]) + '</span>'
+          + '<button data-cpy="' + k + '">Kopírovat</button></div>';
+      }
+      h += '</div></div>';
+      note.textContent = 'Krok 3 z 5 · ' + c.pole.length + ' hodnot k přepsání';
+      bNext.textContent = 'Přepsal jsem vše';
+    }
+    else if (step === 3){
+      h += '<p class="note" style="margin:0 0 16px">Po odeslání dá portál <b>spisovou značku</b>. Vložte ji sem – aplikace si k ní zapamatuje datum, čas a kdo podal, takže je při kontrole čím doložit, že se lhůta stihla.</p>';
+      h += '<div class="fgrid">'
+        + '<div class="field w2"><label for="wzZn">Spisová značka z portálu<span class="req">*</span></label><input id="wzZn" type="text" value="' + esc(znacka) + '" placeholder="např. 12678/2026/8.10"><div class="hint">Přepište přesně, včetně lomítek a teček.</div></div>'
+        + '<div class="field"><label>Podáno dne</label><input type="date" value="2026-09-10"></div>'
+        + '<div class="field"><label>Podal</label><input type="text" value="Martina Nováková"></div>'
+        + '</div>';
+      h += '<div class="banner info"><div><b>Až teď přijdou podpisy.</b> Od roku 2026 se nejdřív elektronicky odešle, teprve pak se záznam tiskne a podepisuje. Kdo čeká s podáním na podpis zraněného, propásne lhůtu.</div></div>';
+      note.textContent = 'Krok 4 z 5 · doklad o podání';
+      bNext.textContent = 'Uložit a označit jako podané';
+    }
+    else {
+      h += '<div class="banner green" style="margin-bottom:16px"><div><b>Záznam ' + esc(c.id) + ' je označený jako podaný.</b>' + (znacka ? ' Spisová značka <span class="mono">' + esc(znacka) + '</span>.' : '') + '</div></div>';
+      h += '<p class="note" style="margin:0 0 12px">Co aplikace udělala sama:</p>';
+      h += '<div class="steps">'
+        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Zapsala datum, čas a kdo podal</div><div class="step-d">Doklad o dodržení patnáctidenní lhůty. Ve frontě podání případ zmizel z termínů.</div></div></div>'
+        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Připravila kopie k rozeslání</div><div class="step-d">Zraněné, zástupci pro BOZP a zdravotní pojišťovně. Odejdou po vašem potvrzení a odeslání se eviduje.</div></div></div>'
+        + '<div class="step done"><span class="step-n">✓</span><div><div class="step-t">Nastavila uchování na 10 let</div><div class="step-d">Do roku 2036, počítáno od podpisu záznamu.</div></div></div>'
+        + '<div class="step act"><span class="step-n">4</span><div><div class="step-t">Zbývá vytisknout a nechat podepsat</div><div class="step-d">Zraněná, svědci, zástupce pro BOZP a zaměstnavatel. Podepsaný sken se vloží zpět k případu.</div></div></div>'
+        + '</div>';
+      note.textContent = 'Hotovo';
+      bNext.textContent = 'Zavřít';
+    }
+    body.innerHTML = h;
+    bPrev.style.display = step === 0 ? 'none' : '';
+    body.scrollTop = 0;
+  }
+
+  function markSubmitted(id){
+    var rows = document.querySelectorAll('#s6 table tbody tr');
+    for (var i = 0; i < rows.length; i++){
+      var rc = rows[i].querySelector('.rcp');
+      if (!rc || rc.textContent.indexOf(id) !== 0) continue;
+      var td = rows[i].children;
+      if (td[1]) td[1].innerHTML = '<span class="dot g"></span> <span class="note">podáno 10. 9.</span>';
+      if (td[5]) td[5].innerHTML = '<span class="pill p-sent"><span class="d"></span>Podáno</span>';
+      if (td[6]) td[6].innerHTML = '<button class="btn ghost sm" data-go="s4">Případ</button>';
+    }
+  }
+
+  function open(id){
+    ctx = CASES[id] || CASES['ÚR-2026-029'];
+    step = 0; znacka = '';
+    wrap.className = 'wz-wrap on';
+    render();
+  }
+  function close(){ wrap.className = 'wz-wrap'; }
+
+  bNext.addEventListener('click', function(){
+    if (step === 3){
+      var zn = document.getElementById('wzZn');
+      znacka = zn ? zn.value.trim() : '';
+      if (!znacka){
+        if (zn) { zn.parentNode.className = 'field w2 err'; zn.focus(); }
+        window.epSay('Bez spisové značky nemá podání čím být doloženo.');
+        return;
+      }
+      markSubmitted(ctx.id);
+    }
+    if (step === STEPS.length - 1){ close(); window.epSay('Záznam ' + ctx.id + ' je podaný.'); return; }
+    step++; render();
+  });
+  bPrev.addEventListener('click', function(){ if (step > 0){ step--; render(); } });
+  document.getElementById('wzX').addEventListener('click', close);
+  wrap.addEventListener('click', function(e){ if (e.target === wrap) close(); });
+  body.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-cpy]');
+    if (!b) return;
+    copy(ctx.pole[parseInt(b.getAttribute('data-cpy'), 10)][1], b);
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && wrap.className.indexOf('on') !== -1) close(); });
+
+  window.epWizard = open;
+
+  // vstupní body
+  var s6 = document.getElementById('s6');
+  if (s6){
+    var btns = s6.querySelectorAll('.btn');
+    for (var i = 0; i < btns.length; i++){
+      if (btns[i].textContent.trim().indexOf('Spustit průvodce') === 0){
+        btns[i].removeAttribute('data-go');
+        btns[i].addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); open('ÚR-2026-029'); });
+      }
+    }
+    var tb = s6.querySelector('table');
+    if (tb){
+      var pods = tb.querySelectorAll('tbody button');
+      for (var q = 0; q < pods.length; q++) if (pods[q].textContent.trim() === 'Podat') pods[q].removeAttribute('data-go');
+    }
+    if (tb) tb.addEventListener('click', function(e){
+      var b = e.target.closest('button');
+      if (!b || b.textContent.trim() !== 'Podat') return;
+      e.preventDefault(); e.stopPropagation();
+      var row = b.closest('tr'), rc = row ? row.querySelector('.rcp') : null;
+      var id = rc ? rc.textContent.split(' · ')[0].trim() : 'ÚR-2026-029';
+      open(id);
+    }, true);
+  }
+  var s5 = document.getElementById('s5');
+  if (s5){
+    var cards = s5.querySelectorAll('.card');
+    for (var c2 = 0; c2 < cards.length; c2++){
+      var t = cards[c2].querySelector('.card-t');
+      if (!t || t.textContent.trim() !== 'Průvodce podáním') continue;
+      var b2 = document.createElement('button');
+      b2.className = 'btn accent sm';
+      b2.textContent = 'Spustit průvodce podáním';
+      b2.style.marginTop = '14px';
+      b2.addEventListener('click', function(){ open('ÚR-2026-029'); });
+      cards[c2].querySelector('.card-b').appendChild(b2);
+    }
+  }
+})();
+</script>
+
+
+<script>
+// ---------- Ostatní akce: aby v ukázce nic neklikalo naprázdno ----------
+(function(){
+  var esc = window.epEsc, U = window.epTblUtil;
+  function say(t, u){ window.epSay(t, u); }
+  function copyText(t){
+    try { if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t); return; } } catch(e){}
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = t; ta.style.cssText = 'position:fixed;left:-9999px';
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+    } catch(e2){}
+  }
+
+  // ---- nárok v pojistné události ----
+  function narok(){
+    var card = null, cards = document.querySelectorAll('#s8 .card');
+    for (var i = 0; i < cards.length; i++){
+      var t = cards[i].querySelector('.card-t');
+      if (t && t.textContent.trim() === 'Nároky zraněného') { card = cards[i]; break; }
+    }
+    if (!card) return;
+    var tbl = card.querySelector('table');
+    var DRUHY = ['Ztráta na výdělku po dobu neschopnosti', 'Ztráta na výdělku po skončení neschopnosti', 'Bolestné',
+      'Ztížení společenského uplatnění', 'Účelně vynaložené náklady léčení', 'Věcná škoda', 'Náklady spojené s pohřbem'];
+    var PARAGRAF = { 'Ztráta na výdělku po dobu neschopnosti': '§ 271a', 'Ztráta na výdělku po skončení neschopnosti': '§ 271b',
+      'Bolestné': '§ 271c', 'Ztížení společenského uplatnění': '§ 271c', 'Účelně vynaložené náklady léčení': '§ 271d',
+      'Věcná škoda': '§ 271e', 'Náklady spojené s pohřbem': '§ 271g' };
+    var STAVY = ['Chybí doklad', 'Uplatněno', 'Vyplaceno', 'Posuzuje pojišťovna'];
+    var PL = { 'Chybí doklad': 'p-open', 'Uplatněno': 'p-sent', 'Vyplaceno': 'p-closed', 'Posuzuje pojišťovna': 'p-arch' };
+    window.epBlade({
+      kicker: 'Pojistná událost PU-2026-0041 · P. Dvořák',
+      title: 'Přidat nárok',
+      sub: 'Každý nárok má svůj paragraf a doklad, který k němu pojišťovna chce. Bez dokladu se nevyplácí.',
+      wide: true,
+      fields: [
+        { l: 'Druh nároku', n: 'druh', t: 'select', v: DRUHY[2], o: DRUHY, w2: true },
+        { l: 'Podklady, které pojišťovna chce', n: 'podklad', t: 'area', rows: 2, v: '', w2: true, hint: 'Každý doklad na samostatný řádek.' },
+        { l: 'Částka (Kč)', n: 'castka', t: 'num', v: '' },
+        { l: 'Stav', n: 'stav', t: 'select', v: STAVY[0], o: STAVY }
+      ],
+      save: 'Přidat nárok',
+      onSave: function(v){
+        var tr = document.createElement('tr');
+        var castka = (v.castka || '0').replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        tr.innerHTML = '<td><div class="t-pri">' + esc(v.druh) + '</div><div class="t-sub">' + esc(PARAGRAF[v.druh] || '') + '</div></td>'
+          + '<td><div class="t-sub">' + esc(v.podklad || 'zatím neurčeno').split('\n').join('<br>') + '</div></td>'
+          + '<td class="mono" style="font-weight:700">' + esc(castka) + ' Kč</td>'
+          + '<td><span class="pill ' + (PL[v.stav] || 'p-open') + '"><span class="d"></span>' + esc(v.stav) + '</span></td>';
+        var tb = tbl.querySelector('tbody');
+        tb.insertBefore(tr, tb.firstChild);
+        say('Nárok přidán. Součet uplatněných částek se přepočítá po doložení.');
+      }
+    });
+  }
+
+  // ---- provoz v nastavení ----
+  function provoz(){
+    var tbl = null, btn = null, all = document.querySelectorAll('#s13 .btn');
+    for (var i = 0; i < all.length; i++) if (all[i].textContent.trim() === 'Přidat provoz') btn = all[i];
+    if (!btn) return;
+    var host = btn.closest('.card') || btn.parentNode;
+    while (host && !tbl){ tbl = host.querySelector('table'); host = host.parentNode; }
+    if (!tbl) return;
+    window.epBlade({
+      kicker: 'Nastavení · Pracoviště a stroje',
+      title: 'Přidat provoz',
+      sub: 'Podle adresy provozu se určí <b>místně příslušný inspektorát</b> – tomu se hlásí závažné úrazy.',
+      fields: [
+        { l: 'Název provozu', n: 'nazev', t: 'text', v: '', req: true },
+        { l: 'Upřesnění', n: 'hala', t: 'text', v: '', hint: 'Například: hala C' },
+        { l: 'Adresa', n: 'adresa', t: 'text', v: '', w2: true, req: true },
+        { l: 'Inspektorát podle místa', n: 'oip', t: 'select', v: 'OIP pro Středočeský kraj', o: ['OIP pro Středočeský kraj', 'OIP pro hl. m. Prahu', 'OIP pro Jihomoravský kraj', 'OIP pro Moravskoslezský kraj'], w2: true },
+        { l: 'Počet strojů s QR štítkem', n: 'stroje', t: 'num', v: '0' }
+      ],
+      save: 'Přidat',
+      onSave: function(v){
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td class="rcp">' + esc(v.nazev) + '<span class="m">' + esc(v.hala) + '</span></td>'
+          + '<td class="note">' + esc(v.adresa) + '</td><td class="note">' + esc(v.oip) + '</td>'
+          + '<td class="note">' + esc(v.stroje || '0') + ' strojů</td>';
+        tbl.querySelector('tbody').appendChild(tr);
+        say('Provoz přidán.');
+      }
+    });
+  }
+
+  // ---- aktualizace záznamu (s7) ----
+  function aktualizace(){
+    window.epBlade({
+      kicker: 'ÚR-2026-030 · P. Dvořák',
+      title: 'Aktualizace odeslaného záznamu',
+      sub: 'Záznam je na portálu už podaný. Když se údaj změní, opraví se <b>tentýž záznam</b> a odešle znovu – od roku 2026 se na to nepodává zvláštní hlášení změn.',
+      wide: true,
+      html: '<div class="card" style="margin:0 0 16px"><div class="card-b" style="padding:6px 18px">'
+        + '<div class="cpy"><span class="k">Bylo odesláno</span><span class="v" style="text-decoration:line-through;color:var(--ep-text-soft)">Neschopnost 10 dní (odhad)</span></div>'
+        + '<div class="cpy"><span class="k">Nová hodnota</span><span class="v" style="color:var(--ep-green)">Neschopnost 18 dní (ukončena 20. 9.)</span></div>'
+        + '<div class="cpy"><span class="k">Zdroj změny</span><span class="v">Ošetřující lékař, potvrzení z 9. 9. 2026</span></div>'
+        + '</div></div>'
+        + '<div class="banner amber"><div><b>Změna má dopad i jinam.</b> S delší neschopností se mění náhrada za ztrátu na výdělku – pojišťovně se pošle doplněk k pojistné události.</div></div>',
+      fields: [
+        { l: 'Co se v portálu opraví', n: 'co', t: 'text', v: 'Část VII · délka pracovní neschopnosti', w2: true },
+        { l: 'Odesláno dne', n: 'kdy', t: 'date', v: '2026-09-10' },
+        { l: 'Odeslal', n: 'kdo', t: 'select', v: 'Martina Nováková', o: ['Martina Nováková', 'Jiří Pokorný'] }
+      ],
+      save: 'Odeslat aktualizaci',
+      onSave: function(){
+        say('Aktualizace odeslána. Kopie doplňku odchází Kooperativě.');
+        var b = document.querySelectorAll('.nav button[data-go="s7"] .badge, .nav button[data-go="s7"] .ct');
+        for (var i = 0; i < b.length; i++) b[i].textContent = '0';
+        if (U) U.setKpi('s1', 'Lhůty v běhu', 2);
+      }
+    });
+  }
+
+  // ---- co která akce udělá ----
+  var MAP = [
+    ['Obnovit', function(){ say('Data načtena znovu · dnes v 9:41.'); }],
+    ['Sdílet', function(){ copyText(String(location.href)); say('Odkaz na tuhle obrazovku zkopírován do schránky.'); }],
+    ['Tisk knihy', function(){ say('Otevře se tisková podoba knihy úrazů pro kontrolu – v ukázce se netiskne.'); }],
+    ['Náhled k tisku', function(){ say('Otevře se tisková podoba záznamu – v ukázce se netiskne.'); }],
+    ['Vytisknout QR štítky', function(){ say('Připraví arch štítků pro stroje a pracoviště – v ukázce se netiskne.'); }],
+    ['Filtry', function(){ say('Rozbalí panel filtrů: pracoviště, období, druh úrazu, klasifikace, řešitel.'); }],
+    ['Export do Excelu', function(){ say('Sestava odejde do Excelu – v ukázce se soubor nestahuje.'); }],
+    ['Export', function(){ say('Seznam odejde do Excelu nebo CSV – v ukázce se soubor nestahuje.'); }],
+    ['Stáhnout podepsaný záznam', function(){ say('Podepsaný záznam ve formátu PDF – v ukázce se soubor nestahuje.'); }],
+    ['Podklady k odeslání', function(){ say('Složka s doklady pro pojišťovnu – v ukázce se soubor nestahuje.'); }],
+    ['Záznam o úrazu (PDF)', function(){ say('Záznam ve formátu PDF – v ukázce se soubor nestahuje.'); }],
+    ['Kopie pro pojišťovnu', function(){ say('Kopie pro pojišťovnu – v ukázce se soubor nestahuje.'); }],
+    ['Otevřít v Teams', function(){ say('Aplikace běží i jako záložka v Teams – hlášení z mobilu je pak o krok kratší.'); }],
+    ['QR na nástěnku', function(){ say('Vytiskne arch QR kódů na nástěnku dílny: sken telefonem otevře hlášení rovnou u toho stroje.'); }],
+    ['Nadiktovat', function(){ say('Popis úrazu se dá nadiktovat – text se přepíše a nechá ke kontrole.'); }],
+    ['Foto místa', function(){ say('Fotka z telefonu se připojí k případu jako dokument.'); }],
+    ['Odeslat hlášení', function(){ say('Hlášení odešlo. Technik BOZP dostane upozornění do minuty.'); }],
+    ['Napsat vyjádření', function(){ say('Zraněný nebo svědek napíše vyjádření na telefonu – uloží se jako dokument případu.'); }],
+    ['Poslat odkaz k vyjádření', function(){ say('Zraněné odešel odkaz na formulář vyjádření.'); }],
+    ['Zapsat za ni podle rozhovoru', function(){ say('Vyjádření zapsané za zraněnou se označí, kdo ho zapsal a kdy.'); }],
+    ['Rozbalit vše', function(){
+      var ds = document.querySelectorAll('#s5 details');
+      for (var i = 0; i < ds.length; i++) ds[i].open = true;
+      say(ds.length ? 'Všech ' + ds.length + ' částí rozbaleno.' : 'Všechny části záznamu jsou rozbalené.');
+    }],
+    ['Otevřít portál SÚIP', function(){ try { window.open('https://www.suip.cz', '_blank', 'noopener'); } catch(e){} say('Portál inspekce práce se otevřel v novém okně.'); }],
+    ['Rozeslat kopie', function(){
+      window.epConfirm({ title: 'Rozeslat kopie?', text: 'Odejde zraněnému, zástupci pro BOZP, zdravotní pojišťovně a Kooperativě. Odeslání se eviduje – doručenky se uloží k případu.', ok: 'Rozeslat', onOk: function(){ say('Kopie rozeslány, doručenky se ukládají k případu.'); } });
+    }],
+    ['Otevřít průvodce aktualizací', aktualizace],
+    ['+ Přidat nárok', narok],
+    ['Přidat provoz', provoz],
+    ['Uložit změny', function(){ say('Nastavení uloženo.'); }],
+    ['Zkontrolovat aktualizace', function(){ say('Číselníky klasifikace jsou aktuální · poslední změna 1. 1. 2026.'); }],
+    ['Nahrát nový soubor číselníků', function(){ say('Nahraje se soubor číselníků od úřadu – v ukázce se nic nenahrává.'); }],
+    ['Otevřít registr rizik', function(){ say('Registr rizik je samostatná evidence – opatření z úrazů se do něj propisují.'); }],
+    ['Sestavit', function(){ say('Sestava se připraví z evidence – v ukázce se soubor nestahuje.'); }],
+    ['Historie dotazů', function(){ say('Historie dotazů ukáže, na co se kdo ptal – odpovědi se nikam mimo firmu neposílají.'); }],
+    ['Co asistent umí', function(){ say('Asistent odpovídá jen z vaší evidence a u každé odpovědi ukáže, ze kterých případů ji sestavil.'); }],
+    ['Upravit', function(){ say('Otevře se úprava zápisu v knize úrazů – změny se zapisují do historie případu.'); }]
+  ];
+
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('button.btn, button.card-a, button.icobtn');
+    if (!b) return;
+    if (b.getAttribute('data-go') || b.getAttribute('data-pane') || b.getAttribute('data-pal')) return;
+    if (b.closest('#blWrap') || b.closest('#wzWrap') || b.closest('#cfWrap') || b.closest('#s14') || b.closest('.docs') || b.closest('#s3') || b.closest('.tour-bub') || b.closest('.tour-hub')) return;
+    var lab = (b.textContent || b.getAttribute('title') || '').replace(/\s+/g, ' ').trim();
+    for (var i = 0; i < MAP.length; i++){
+      if (lab.indexOf(MAP[i][0]) === 0){ MAP[i][1](); return; }
+    }
+  });
+})();
+</script>
+
+
+<script>
+// ---------- Doplňky: filtry „vše“, ukázková data, dotaz asistentovi ----------
+(function(){
+  var esc = window.epEsc;
+
+  // „Vše“ a „Vše včetně splněných“ – rozbalí zbytek seznamu
+  function expandAll(btn, tbl, texty){
+    if (!tbl) return;
+    btn.addEventListener('click', function(){
+      if (btn.getAttribute('data-open') === '1'){
+        var extra = tbl.querySelectorAll('tbody tr[data-extra]');
+        for (var i = 0; i < extra.length; i++) extra[i].parentNode.removeChild(extra[i]);
+        btn.textContent = btn.getAttribute('data-lbl');
+        btn.removeAttribute('data-open');
+        return;
+      }
+      btn.setAttribute('data-lbl', btn.textContent);
+      var tb = tbl.querySelector('tbody');
+      for (var j = 0; j < texty.length; j++){
+        var tr = document.createElement('tr');
+        tr.setAttribute('data-extra', '1');
+        tr.innerHTML = texty[j];
+        tb.appendChild(tr);
+      }
+      btn.textContent = 'Skrýt splněné';
+      btn.setAttribute('data-open', '1');
+      window.epSay('Doplněno ' + texty.length + ' splněných položek.');
+    });
+  }
+
+  var s9 = document.getElementById('s9');
+  if (s9){
+    var b9 = null, cas = s9.querySelectorAll('.card-a');
+    for (var i = 0; i < cas.length; i++) if (cas[i].textContent.indexOf('Vše včetně splněných') === 0) b9 = cas[i];
+    if (b9) expandAll(b9, s9.querySelector('table.tbl'), [
+      '<td><div class="t-pri">Doplnit protiskluzové patky na všechny žebříky</div><div class="t-sub">zkontrolováno 24 kusů</div></td><td><span class="t-id">ÚR-2026-028</span><div class="t-sub">L. Němec</div></td><td><span class="who"><span class="avatar">JM</span><span class="n">J. Malý</span></span></td><td class="mono" style="font-size:12px">20. 8. 2026</td><td><span class="pill p-closed"><span class="d"></span>Splněno</span></td>',
+      '<td><div class="t-pri">Zavést žebříky do evidence pravidelných kontrol</div><div class="t-sub">kontrola jednou za půl roku</div></td><td><span class="t-id">ÚR-2026-028</span><div class="t-sub">L. Němec</div></td><td><span class="who"><span class="avatar">MN</span><span class="n">M. Nováková</span></span></td><td class="mono" style="font-size:12px">28. 8. 2026</td><td><span class="pill p-closed"><span class="d"></span>Splněno</span></td>',
+      '<td><div class="t-pri">Doplnit rukavice odolné proti pořezu na expedici</div><div class="t-sub">výdejna doplnila 30 párů</div></td><td><span class="t-id">ÚR-2026-029</span><div class="t-sub">M. Svobodová</div></td><td><span class="who"><span class="avatar">PN</span><span class="n">P. Novák</span></span></td><td class="mono" style="font-size:12px">2. 9. 2026</td><td><span class="pill p-closed"><span class="d"></span>Splněno</span></td>'
+    ]);
+  }
+  var s6 = document.getElementById('s6');
+  if (s6){
+    var b6 = null, ca6 = s6.querySelectorAll('.card-a');
+    for (var k = 0; k < ca6.length; k++) if (ca6[k].textContent.trim() === 'Vše') b6 = ca6[k];
+    if (b6) expandAll(b6, s6.querySelector('table'), [
+      '<td><div class="rcp">ÚR-2026-027 · A. Veselá<span class="m">podvrtnutí kotníku · neschopnost 21 dní</span></div></td><td><span class="dot g"></span> <span class="note">podáno 20. 8.</span></td><td><span class="dot g"></span> <span class="note">VZP · odesláno</span></td><td><span class="dot g"></span> <span class="note">Kooperativa</span></td><td><span class="dot g"></span> <span class="note">rozesláno</span></td><td><span class="pill p-sent"><span class="d"></span>Podáno</span></td><td><button class="btn ghost sm" data-go="s4">Případ</button></td>',
+      '<td><div class="rcp">ÚR-2026-026 · M. Bílý<span class="m">otřes mozku · neschopnost 9 dní</span></div></td><td><span class="dot g"></span> <span class="note">podáno 10. 8.</span></td><td><span class="dot g"></span> <span class="note">VZP · odesláno</span></td><td><span class="dot g"></span> <span class="note">Kooperativa</span></td><td><span class="dot g"></span> <span class="note">rozesláno</span></td><td><span class="pill p-closed"><span class="d"></span>Uzavřeno</span></td><td><button class="btn ghost sm" data-go="s4">Případ</button></td>'
+    ]);
+  }
+
+  // ukázková data v Nastavení (DS 10.24: jen tlačítkem, nikdy samo)
+  var s13 = document.getElementById('s13');
+  if (s13){
+    var bs = s13.querySelectorAll('.btn');
+    for (var m = 0; m < bs.length; m++){
+      var lab = bs[m].textContent.trim();
+      if (lab === 'Vytvořit ukázková data') bs[m].addEventListener('click', function(){
+        window.epConfirm({ title: 'Vytvořit ukázková data?', text: 'Do knihy se založí 31 smyšlených úrazů, 9 záznamů a 26 skoro-nehod, ať je na čem vyzkoušet sestavy a lhůty. Skutečné zápisy zůstanou nedotčené.', ok: 'Vytvořit', onOk: function(){ window.epSay('Ukázková data vytvořena.'); } });
+      });
+      if (lab === 'Odstranit ukázková data') bs[m].addEventListener('click', function(){
+        window.epConfirm({ title: 'Odstranit ukázková data?', text: 'Smažou se jen zápisy označené jako ukázkové. Skutečných úrazů se to nedotkne.', ok: 'Odstranit', onOk: function(){ window.epSay('Ukázková data odstraněna.'); } });
+      });
+    }
+  }
+
+  // dotaz asistentovi
+  var s12 = document.getElementById('s12');
+  if (s12){
+    var inp = s12.querySelector('input.search[placeholder]');
+    var chat = s12.querySelector('.chat');
+    var send = null, b12 = s12.querySelectorAll('.btn');
+    for (var n = 0; n < b12.length; n++) if (b12[n].textContent.trim() === 'Odeslat') send = b12[n];
+    function ask(){
+      if (!inp || !chat) return;
+      var q = inp.value.trim();
+      if (!q) { window.epSay('Napište otázku – třeba „kolik úrazů bylo letos v lisovně“.'); return; }
+      var me = document.createElement('div');
+      me.className = 'msg me';
+      me.innerHTML = '<span class="av" style="background:var(--ep-navy);color:#fff">MN</span><div class="bub">' + esc(q) + '</div>';
+      chat.appendChild(me);
+      var ai = document.createElement('div');
+      ai.className = 'msg';
+      ai.innerHTML = '<span class="av" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)">AI</span>'
+        + '<div class="bub">V tomhle návrhu mám připravené odpovědi na šest otázek vlevo. V hotové aplikaci bych odpověď složila <b>z vaší evidence</b> a ukázala, ze kterých případů – nic si nedomýšlím a nic neposílám mimo firmu.</div>';
+      chat.appendChild(ai);
+      inp.value = '';
+      if (chat.scrollHeight) chat.scrollTop = chat.scrollHeight;
+    }
+    if (send) send.addEventListener('click', ask);
+    if (inp) inp.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); ask(); } });
+  }
 })();
 </script>
 
