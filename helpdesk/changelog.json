@@ -5,6 +5,82 @@
   "name": "EP365 HelpDesk",
   "entries": [
     {
+      "version": "1.3",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Přidělení firem agentům se dá promítnout do oprávnění SharePointu. V Nastavení → Přidělení firem přibylo tlačítko, které z dosavadního rozdělení udělá skutečnou hranici v datech – dosud šlo o rozdělení práce uvnitř aplikace.",
+          "en": "Company assignments to agents can be projected into SharePoint permissions. Settings → Company assignments gained a button that turns the existing split into a real boundary in the data – until now it was a division of work inside the app."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikace sama pozná, že běží na zastaralé verzi – v Nastavení → Verze a informace přibyl štítek Aktuální nebo Zastaralá. Tatáž karta má nově přehled datových seznamů, do kterých HelpDesk ukládá data, včetně jejich ochrany; samotné seznamy zůstávají v Obsahu webu skryté.",
+          "en": "The app recognises when it runs an outdated version – Settings → Version and info gained an Up to date or Outdated label. The same card now holds an overview of the data lists HelpDesk stores data in, including their protection; the lists themselves stay hidden in Site contents."
+        },
+        {
+          "type": "new",
+          "cs": "Ovládání na telefonu: místo bočního menu je dole lišta s pěti nejčastějšími sekcemi a tlačítkem Více, kde najdete zbytek.",
+          "en": "Phone handling: instead of the side menu there is a bottom bar with the five most-used sections and a More button holding the rest."
+        },
+        {
+          "type": "improved",
+          "cs": "Zabezpečení seznamů je důslednější a ověřuje se, ne jen spouští. Každá skupina HelpDesku dostává na seznamu přesně tu úroveň oprávnění, která jí patří, a z každého seznamu se odstraní všechny skupiny a uživatelé, kteří do něj nepatří. Po nastavení se výsledek ověří proti serveru, ne proti odpovědi z mezipaměti prohlížeče, a když se něco nepovede, aplikace do protokolu napíše, který konkrétní přístup zůstal navíc. Skrytí datových seznamů se dokončí i na webech, kde aplikaci poprvé otevřel běžný člen.",
+          "en": "List protection is more thorough and is verified, not merely triggered. Every HelpDesk group gets exactly the permission level that belongs to it on a list, and every group or user that does not belong is removed from it. After the setup the result is verified against the server, not against a browser-cached response, and when something fails the app logs which specific access remained. Hiding the data lists is completed even on sites where a regular member opened the app first."
+        },
+        {
+          "type": "fixed",
+          "cs": "Interní poznámky zůstávají jen pro tým i po dodatečné opravě oprávnění tiketu. Když se oprávnění nepodařilo nastavit hned při založení, dorovnají se později – a poznámky se přitom neodkryjí.",
+          "en": "Internal notes stay team-only even after a ticket’s permissions are repaired later. When permissions could not be set right at creation, they are reconciled afterwards – and the notes are not exposed in the process."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nic, co nezjistila. Přehled přiznává, když se tikety nebo firmy nepodařilo načíst – dosud ukazoval nuly a větu „vše ve lhůtách“, takže výpadek vypadal jako klidný den. Nastavení říká, když se seznam správců, týmu podpory nebo přidělení firem nepodařilo přečíst; u čísel se místo nuly objeví otazník. Nový tiket se nezaloží na agenta místo na zákazníka, když se nepodařilo načíst kontakty, a mapování firmy na projekt Worklogu se nedá uložit nad nenačteným seznamem projektů.",
+          "en": "The app no longer claims anything it has not determined. The overview admits when tickets or companies could not be loaded – it used to show zeros and the phrase „all within SLA\", so an outage looked like a quiet day. Settings say when the administrator list, the support team or company assignments could not be read; numbers show a question mark instead of zero. A new ticket is not created on an agent instead of a customer when contacts fail to load, and a company-to-Worklog-project mapping cannot be saved over an unloaded project list."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zápisy do Worklogu a měsíční reporty nevznikají z neúplných dat. Uzavření tiketu nezapíše výkaz bez uživatele – když se nepodaří ověřit účet ve Worklogu, zápis se neprovede a aplikace to řekne – a nevykáže hodiny jako „v paušálu“ za nula korun, když se nepodařilo zjistit čerpání. Měsíční report se nesestaví z dat, která se nepodařilo přečíst, takže zákazníkovi nemůže odejít report ze samých nul. Synchronizace z CRM nepřepíše smluvní údaje, když se smlouvy nepodaří načíst.",
+          "en": "Worklog entries and monthly reports are not built from incomplete data. Closing a ticket does not write a timesheet entry without a user – when the Worklog account cannot be verified, nothing is written and the app says so – and does not report hours as „within the allowance\" at zero when the usage could not be determined. A monthly report is not assembled from data that could not be read, so a customer cannot receive a report of all zeros. CRM synchronisation does not overwrite contract details when the contracts fail to load."
+        },
+        {
+          "type": "fixed",
+          "cs": "Souběh a výpadky už nevyrábějí duplicity ani ztracené změny. Příchozí pošta při výpadku nezaloží tiket dvakrát, změna stavu tiketu se počítá z aktuálního stavu (ne z toho, co bylo na obrazovce při otevření), počítadlo zobrazení a hlasy o užitečnosti u článků se nesnižují, a nastavení se nedá přepsat výchozími hodnotami ani tehdy, když je uložený obsah poškozený. Uložené nastavení se propíše spolehlivě i při několika změnách za sebou.",
+          "en": "Concurrency and outages no longer produce duplicates or lost changes. Incoming mail does not create a ticket twice during an outage, a ticket status change is computed from the current state (not from what was on screen when it was opened), article view counters and helpfulness votes do not decrease, and settings cannot be overwritten with defaults even when the stored content is damaged. Saved settings come through reliably even with several changes in a row."
+        },
+        {
+          "type": "fixed",
+          "cs": "Tikety, zprávy a články se načítají celé, i když jich je hodně – čtení se dosud zastavilo na první stránce. Počty zobrazení u článků znalostní báze navíc říkají, co doopravdy měří: otevření článku zákazníkem se do počítadla nezapočítávalo.",
+          "en": "Tickets, messages and articles load in full even when there are many – reading used to stop at the first page. Knowledge base view counts also now say what they really measure: a customer opening an article was not being counted."
+        },
+        {
+          "type": "improved",
+          "cs": "Psaní odpovědí je pohodlnější. Do odpovědi stačí vložit snímek obrazovky klávesou Ctrl+V nebo do ní přetáhnout soubor – rovnou se přidá mezi přílohy. Obsah zkopírovaný z webové stránky se vloží jako čistý text, takže se do článku ani odpovědi nepropíše kus cizího stylu. Panel článku, tiketu, firmy ani fronty pošty se během ukládání nebo odesílání nezavře klikem vedle ani křížkem, takže rozdělaná práce nezmizí.",
+          "en": "Writing replies is more comfortable. You can paste a screen capture into a reply with Ctrl+V or drag a file into it – it is added straight to the attachments. Content copied from a web page is inserted as clean text, so no foreign styling gets into an article or a reply. The article, ticket, company and mail queue panels do not close on a click outside or on the cross while saving or sending, so work in progress does not disappear."
+        },
+        {
+          "type": "improved",
+          "cs": "Firemní barva se propíše do celého HelpDesku. Platí i tehdy, když je ve Workplace nastavená jen ona a zvýrazňovací barvu si HelpDesk dopočítá, pamatuje se pro příští načtení (takže aplikace nenaskočí nejdřív v modré EP365) a dosáhne i na grafy na Přehledu, ve Výkazech a v Přehledu využití, na interaktivního průvodce, paletu zkratek i do odchozích e-mailů – tam přesně tak, jak ji máte nastavenou, bez posunu odstínu.",
+          "en": "The corporate colour carries through the whole of HelpDesk. It applies even when only it is set in Workplace and HelpDesk derives the accent itself, it is remembered for the next load (so the app no longer flashes EP365 blue first), and it reaches the charts on the Overview, in Reports and in the Usage overview, the interactive guide, the shortcut palette and outgoing e-mails – there exactly as you set it, with no shift in hue."
+        },
+        {
+          "type": "improved",
+          "cs": "Soukromí: firemní písma se načítají z naší distribuční sítě místo z Google Fonts. Dosud si je prohlížeč každého uživatele stahoval přímo od Googlu, kterému tím odcházela IP adresa a údaje o prohlížeči.",
+          "en": "Privacy: corporate fonts now load from our own distribution network instead of Google Fonts. Until now every user’s browser downloaded them straight from Google, which received their IP address and browser details."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce se výrazně rozrostl – má nově devět kapitol místo šesti. Přibyly kapitoly o frontě nezařazené pošty, o tom, co znamená SLA a kdy se čas staví, a o nastavení provozu i lidí; texty se navíc liší pro všechny tři role: správce, tým podpory a zákazníka.",
+          "en": "The interactive guide has grown substantially – it now has nine chapters instead of six. New chapters cover the unassigned mail queue, what SLA means and when the clock pauses, and setting up both operations and people; the texts now also differ for all three roles: administrator, support team and customer."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobnosti, které se počítají. Rychlé hledání pod Ctrl+K řadí výsledky do pojmenovaných skupin (Stránka, Tikety, Firmy, Články), Esc zavře jen je a otevřený panel pod nimi zůstane. Stránkování i záhlaví tabulek vypadají stejně jako ve zbytku EP365 a řádky, které otevírají detail, se podbarví a mají na konci šipku. Záložka Aktivita u tiketu ukáže i účet, pod kterým zápis skutečně vznikl, pokud se liší od uvedeného jména. Když se nepodaří zpracovat poštu ze schránky podpory nebo odeslat hlášení, aplikace ukáže, co přesně Microsoft 365 odpověděl. Sjednotili jsme také název: centrální rozcestník se všude jmenuje EasyPortal 365 Workplace.",
+          "en": "Small things that add up. Quick search under Ctrl+K groups results into named sections (Page, Tickets, Companies, Articles), Esc closes only the search and the panel underneath stays open. Pagination and table headers look the same as in the rest of EP365, and rows that open a detail are highlighted and carry an arrow. A ticket’s Activity tab also shows the account a record was actually created under when it differs from the stated name. When mail from the support mailbox cannot be processed or a report cannot be sent, the app shows exactly what Microsoft 365 replied. We have also unified the naming: the central hub is called EasyPortal 365 Workplace everywhere."
+        }
+      ]
+    },
+    {
       "version": "1.2",
       "date": "2026-08-04",
       "changes": [
