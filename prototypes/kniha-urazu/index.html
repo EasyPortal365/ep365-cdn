@@ -362,7 +362,7 @@ html.appmode .qchip.tourgo{display:inline-flex;align-items:center;gap:6px;border
 .p-late{background:#FDEBEB;color:#B23A3A;}
 .p-fatal{background:#3B1111;color:#FFD9D9;}
 .p-cat{background:var(--ep-bg);color:var(--ep-navy);border:1px solid var(--ep-line-2);}
-.p-book{background:#F2EFFB;color:#5B4AA8;}
+.p-book{background:var(--ep-bg-3);color:var(--ep-text-muted);}
 
 /* ============ Toolbar + tabulka ============ */
 .toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
@@ -781,7 +781,7 @@ ul.clean b{color:var(--ep-text);}
     <div class="kpi" data-go="s2"><div class="kpi-l">Úrazy v knize · 2026</div><div class="kpi-v">31</div><div class="kpi-s">z toho 9 se záznamem o úrazu</div></div>
     <div class="kpi" data-go="s10"><div class="kpi-l">Dny pracovní neschopnosti</div><div class="kpi-v">248</div><div class="kpi-s">průměr 27,6 dne na případ se záznamem</div></div>
     <div class="kpi" data-go="s6"><div class="kpi-l">Lhůty v běhu</div><div class="kpi-v red">3</div><div class="kpi-s">1 dnes, 2 v příštích deseti dnech</div></div>
-    <div class="kpi" data-go="s10"><div class="kpi-l">Četnost úrazů</div><div class="kpi-v amber">12,4</div><div class="kpi-s">úrazů s neschopností na milion odpracovaných hodin</div></div>
+    <div class="kpi" data-go="s10"><div class="kpi-l">Četnost úrazů</div><div class="kpi-v amber">12,4</div><div class="kpi-s">úrazů s neschopností na milion odpracovaných hodin · hodiny z docházky</div></div>
     <div class="kpi" data-go="s9"><div class="kpi-l">Opatření v řešení</div><div class="kpi-v">5</div><div class="kpi-s">1 po termínu splnění</div></div>
     <div class="kpi" data-go="s2"><div class="kpi-l">Dny od posledního úrazu</div><div class="kpi-v">2</div><div class="kpi-s">naposledy 8. 9. · ÚR-2026-031 · nejdelší letos 34 dnů</div></div>
    </div>
@@ -1341,7 +1341,7 @@ ul.clean b{color:var(--ep-text);}
        <h1 class="h1">Nastavení aplikace.<span class="hl">Jednou pořádně, pak už jen sledovat lhůty.</span></h1>
        <p class="ph-sub">Co se nastaví jednou na začátku: komu se hlášení posílají, jaká máte pracoviště a stroje, kdo smí co vidět a jak dlouho se dokumenty uchovávají. Údaje o firmě a firemní barvy se přebírají z vašeho intranetu, nezadávají se znovu.</p>
       </div>
-      <div class="acts"><button class="btn ghost sm" data-go="s1">Zpět do aplikace</button><button class="btn primary sm">Uložit změny</button></div>
+      <div class="acts"><button class="icobtn" title="Obnovit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.5M4 4v4.5h4.5"/><path d="M4 13a8 8 0 0 0 13.7 4.7L20 15.5M20 20v-4.5h-4.5"/></svg></button><button class="icobtn" title="Sdílet odkaz"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l2-2A5 5 0 0 0 12.5 4.5l-1 1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2A5 5 0 0 0 11.5 19.5l1-1"/></svg></button><span class="vline"></span><button class="icobtn" data-go="s0" title="Nápověda k návrhu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.6v.3M12 17h.01"/></svg></button><button class="icobtn" data-go="s14" title="Nahlásit připomínku"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h8l1 4a5 5 0 0 1-10 0Z"/><path d="M12 14v6M8 20h8"/></svg></button><button class="icobtn" data-go="s14" title="Navrhnout vylepšení"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></button><span class="vline"></span><button class="btn ghost sm" data-go="s1">Zpět do aplikace</button><button class="btn primary sm">Uložit změny</button></div>
      </div>
     </div>
    </div>
@@ -1498,6 +1498,7 @@ ul.clean b{color:var(--ep-text);}
        <p class="ph-sub">Proč se úraz stal a co se udělá, aby se neopakoval. Zákon vyžaduje obojí a inspekce se ptá hlavně na to druhé. Opatření tu proto mají svého řešitele a termín – jinak zůstanou jen větou v protokolu.</p>
       </div>
       <div class="acts">
+       <button class="icobtn" title="Obnovit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.5M4 4v4.5h4.5"/><path d="M4 13a8 8 0 0 0 13.7 4.7L20 15.5M20 20v-4.5h-4.5"/></svg></button>
        <button class="icobtn" title="Sdílet"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l2-2A5 5 0 0 0 12.5 4.5l-1 1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2A5 5 0 0 0 11.5 19.5l1-1"/></svg></button>
        <span class="vline"></span>
        <button class="icobtn" data-go="s0" title="Nápověda k návrhu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.7M12 17h.01"/></svg></button>
@@ -1685,7 +1686,7 @@ ul.clean b{color:var(--ep-text);}
    <div class="kpis">
     <div class="kpi"><div class="kpi-l">Úrazy celkem</div><div class="kpi-v">31 <small style="color:var(--ep-red)">▲ 4</small></div><div class="kpi-s">za stejné období loni 27</div></div>
     <div class="kpi"><div class="kpi-l">Se záznamem o úrazu</div><div class="kpi-v">9</div><div class="kpi-s">29 % zápisů · z toho 2 závažné</div></div>
-    <div class="kpi"><div class="kpi-l">Četnost úrazů</div><div class="kpi-v amber">12,4</div><div class="kpi-s">úrazů s neschopností na milion odpracovaných hodin</div></div>
+    <div class="kpi"><div class="kpi-l">Četnost úrazů</div><div class="kpi-v amber">12,4</div><div class="kpi-s">úrazů s neschopností na milion odpracovaných hodin · hodiny z docházky</div></div>
     <div class="kpi"><div class="kpi-l">Závažnost</div><div class="kpi-v">27,6</div><div class="kpi-s">průměrná délka neschopnosti u případu se záznamem</div></div>
     <div class="kpi"><div class="kpi-l">Skoro-nehody</div><div class="kpi-v green">26</div><div class="kpi-s">poměr 0,8 : 1 k úrazům</div></div>
    </div>
@@ -1945,6 +1946,7 @@ ul.clean b{color:var(--ep-text);}
       <div>
        <div class="eyebrow">Případ · 2. 9. 2026, 14:05 · sklad hotových výrobků</div>
        <h1 class="h1">Naražení hrudníku o regál.<span class="hl">Petr Dvořák, skladník – 18 dní neschopnosti.</span></h1>
+       <p class="ph-sub">Všechno k jednomu úrazu na jednom místě: zápis v knize, úřední záznam a jeho lhůty, pojistná událost, šetření příčin, dokumenty a historie. Záložky nahoře přepínají mezi těmito částmi téhož případu – nikam se neodchází.</p>
        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
         <span class="pill p-sent"><span class="d"></span>Záznam odeslán</span>
         <span class="pill p-cat">Zapsáno v knize 2. 9.</span>
@@ -2069,7 +2071,7 @@ ul.clean b{color:var(--ep-text);}
        <div class="feed-i"><span class="feed-ic" style="background:#FDEBEB;color:#B23A3A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/></svg></span><div><div class="feed-t">Záznam o úrazu · ÚR-2026-030.pdf</div><div class="feed-m">4. 9. · podepsáno · 218 kB</div></div></div>
        <div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l5-5 4 4 3-3 4 4"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg></span><div><div class="feed-t">Fotografie místa (3×)</div><div class="feed-m">2. 9. · pořídil mistr směny</div></div></div>
        <div class="feed-i"><span class="feed-ic" style="background:var(--ep-bg-3);color:var(--ep-text-muted)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a4 4 0 0 0-4 4v1H7a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-7a3 3 0 0 0-3-3h-1V7a4 4 0 0 0-4-4Z"/></svg></span><div><div class="feed-t">Lékařská zpráva · urgentní příjem</div><div class="feed-m">2. 9. · omezený přístup <span class="tag" style="font-size:10px">jen BOZP + mzdy</span></div></div></div>
-       <div class="feed-i"><span class="feed-ic" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Doručenky – OIP, VZP, Kooperativa</div><div class="feed-m">5. 9. · datová schránka + e-mail</div></div></div>
+       <div class="feed-i"><span class="feed-ic" style="background:var(--ep-accent-soft);color:var(--ep-accent-strong)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg></span><div><div class="feed-t">Doklady o odeslání – OIP, VZP, Kooperativa</div><div class="feed-m">5. 9. · e-mail z aplikace, potvrzení ze schránky nahráno ručně</div></div></div>
       </div>
      </div>
 
@@ -2265,7 +2267,7 @@ ul.clean b{color:var(--ep-text);}
    </div>
 
    <div class="card" style="margin-bottom:18px">
-    <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg></span><span class="card-t">Fronta podání · každý případ má vlastní lhůtu</span><span class="law accent">NV 322/2025 § 6 až § 8</span><button class="card-a" data-go="s5">Průvodce podáním</button></div>
+    <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg></span><span class="card-t">Fronta podání · každý případ má vlastní lhůtu</span><span class="law accent">NV 322/2025 § 6 až § 8</span></div>
     <div class="card-b">
      <div class="banner amber" style="margin-bottom:16px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><div><b>Měsíční dávky skončily.</b> Od ledna 2026 se záznam podává do <b>15 pracovních dnů ode dne, kdy jste se o úrazu dozvěděli</b> – a výhradně přes portál inspekce práce. Každý případ si tedy nese vlastní termín, společná uzávěrka k 5. dni v měsíci už neexistuje.</div></div>
      <div class="mtx-wrap"><table class="mtx" style="min-width:640px">
@@ -2644,6 +2646,7 @@ ul.clean b{color:var(--ep-text);}
        <p class="ph-sub">Spis jedné pojistné události: na co má zraněný nárok, jaké doklady k tomu pojišťovna chce a co ještě chybí. Tady se z papírování stávají peníze pro zraněného. Pojišťovna proplatí přesně to, co zaměstnavatel doloží – proto je všechno pohromadě, ne roztroušené v e-mailech.</p>
       </div>
       <div class="acts">
+       <button class="icobtn" title="Obnovit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.5M4 4v4.5h4.5"/><path d="M4 13a8 8 0 0 0 13.7 4.7L20 15.5M20 20v-4.5h-4.5"/></svg></button>
        <button class="icobtn" title="Sdílet"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l2-2A5 5 0 0 0 12.5 4.5l-1 1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2A5 5 0 0 0 11.5 19.5l1-1"/></svg></button>
        <span class="vline"></span>
        <button class="icobtn" data-go="s0" title="Nápověda k návrhu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.7M12 17h.01"/></svg></button>
@@ -3715,7 +3718,7 @@ ul.clean b{color:var(--ep-text);}
       '<p class="note" style="margin:0 0 12px">Zápis výše je jedním řádkem knihy úrazů. Celou knihu i tiskovou podobu pro kontrolu najdete zde.</p>'
       + '<button class="btn ghost sm" data-go="s2">Otevřít knihu úrazů</button>', 1);
     card('dokumenty', 'K dokumentům případu',
-      '<p class="note" style="margin:0 0 12px">Lékařské zprávy vidí jen technik BOZP a mzdová účtárna – ostatní role je v seznamu nenajdou.</p>'
+      '<p class="note" style="margin:0 0 12px">Lékařské zprávy leží v <b>samostatné knihovně s vlastním oprávněním</b>. Ostatní role je neotevřou ani přímým odkazem – nejde o skrytí v seznamu, ale o hranici v SharePointu.</p>'
       + '<button class="btn ghost sm" data-go="s13">Nastavení přístupů</button>', 1);
 
     function hasVisible(col){
@@ -4477,7 +4480,7 @@ ul.clean b{color:var(--ep-text);}
         d:'Sken štítku vyplní pracoviště, provoz a stroj – tři údaje, ve kterých se v ručně vedené knize chybuje nejčastěji.' },
       { c:'F4', t:'Nadiktovaný popis úrazu', s:'Na telefonu',
         d:'Hlásící popíše událost nahlas, aplikace z toho udělá souvislý text. Text jde vždy přepsat a nic se neodesílá bez potvrzení.' },
-      { c:'F5', t:'Automatické zařazení úrazu do kategorie', s:'Nahlásit úraz · Lhůty',
+      { c:'F5', t:'Návrh zařazení úrazu do kategorie', s:'Nahlásit úraz · Lhůty',
         d:'Aplikace z vyplněných údajů pozná, zda jde o úraz lehký, s neschopností, závažný nebo smrtelný – a z toho odvodí všechny povinnosti a lhůty.' },
       { c:'F6', t:'Evidence drobných událostí a skoro-nehod', s:'Levé menu',
         d:'Nad rámec zákona: události bez zranění, které příště mohou dopadnout hůř. Slouží prevenci, ne úřadům.' }
@@ -4892,7 +4895,7 @@ ul.clean b{color:var(--ep-text);}
     { n: 'Neschopenka · díl II', m: '2. 9. · omezený přístup: jen BOZP a mzdy', i: 'lock', lock: 1 },
     { n: 'Vyjádření zraněného', m: '3. 9. · podepsal P. Dvořák · 96 kB', i: 'pdf' },
     { n: 'Protokol o šetření příčin', m: '3. 9. · 2 strany · 143 kB', i: 'pdf' },
-    { n: 'Doručenky – OIP, VZP, Kooperativa', m: '5. 9. · datová schránka a e-mail', i: 'ok', c: 'var(--ep-accent-soft)', f: 'var(--ep-accent-strong)' }
+    { n: 'Doklady o odeslání – OIP, VZP, Kooperativa', m: '5. 9. · odchozí e-maily a potvrzení z datové schránky', i: 'ok', c: 'var(--ep-accent-soft)', f: 'var(--ep-accent-strong)' }
   ];
 
   function rowHtml(d, idx){
@@ -4965,7 +4968,7 @@ ul.clean b{color:var(--ep-text);}
         + '<div class="note" id="dpick" style="margin:10px 0 18px">Zatím není vybrán žádný soubor.</div>',
       fields: [
         { l: 'Název dokumentu', n: 'nazev', t: 'text', v: '', w2: true, req: true, hint: 'Když necháte prázdné, použije se název souboru.' },
-        { l: 'Druh dokumentu', n: 'druh', t: 'select', v: 'Ostatní', o: ['Lékařská zpráva', 'Fotografie místa', 'Vyjádření zraněného', 'Vyjádření svědka', 'Protokol o šetření', 'Doručenka', 'Doklad o výdělku', 'Ostatní'] },
+        { l: 'Druh dokumentu', n: 'druh', t: 'select', v: 'Ostatní', o: ['Lékařská zpráva', 'Fotografie místa', 'Vyjádření zraněného', 'Vyjádření svědka', 'Protokol o šetření', 'Doklad o odeslání', 'Doklad o výdělku', 'Ostatní'] },
         { l: 'Datum', n: 'datum', t: 'date', v: '2026-09-10' },
         { l: 'Kdo to smí vidět', n: 'pristup', t: 'select', v: 'Všichni s přístupem k případu', o: ['Všichni s přístupem k případu', 'Jen technik BOZP a mzdy', 'Jen technik BOZP'], w2: true, hint: 'Zdravotní údaje patří do omezeného přístupu – nastavení rolí je v Nastavení aplikace.' }
       ],
@@ -6111,6 +6114,67 @@ ul.clean b{color:var(--ep-text);}
       window.epSay('Otevřeno šetření ' + id + '.');
     });
   }
+})();
+</script>
+
+
+<script>
+// Sjednocení: každá karta má v hlavičce ikonu (většina jich ji měla, část ne)
+(function(){
+  var SVG = {
+    doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/>',
+    shield: '<path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    book: '<path d="M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2Z"/><path d="M18 16H7a2 2 0 0 0-2 2"/>',
+    hist: '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 4v4h4"/><path d="M12 8v4.5l3 1.8"/>',
+    cog: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    list: '<path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>',
+    money: '<circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h4a1.8 1.8 0 0 1 0 3.6h-3a1.8 1.8 0 0 0 0 3.6h4"/>',
+    lupa: '<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>',
+    chat: '<path d="M20 15a3 3 0 0 1-3 3H8l-4 3V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3Z"/>',
+    place: '<path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/>',
+    tag: '<path d="M3 12V5a2 2 0 0 1 2-2h7l9 9-9 9Z"/><circle cx="8" cy="8" r="1.4"/>',
+    info: '<circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/>'
+  };
+  var KEY = [
+    ['dokument', 'doc'], ['šablon', 'doc'], ['záznam', 'doc'],
+    ['pojist', 'shield'], ['pojišť', 'shield'], ['nárok', 'money'], ['částk', 'money'],
+    ['lhůt', 'clock'], ['čísl', 'tag'], ['číseln', 'tag'],
+    ['kniha', 'book'], ['histor', 'hist'],
+    ['nastav', 'cog'], ['testovac', 'cog'], ['aplikac', 'info'],
+    ['e-mail', 'mail'], ['oznámen', 'mail'],
+    ['pracoviště', 'place'], ['provoz', 'place'],
+    ['šetření', 'lupa'], ['ptají', 'chat'], ['smysl', 'info'], ['předvypln', 'info']
+  ];
+  function pick(t){
+    var l = t.toLowerCase();
+    for (var i = 0; i < KEY.length; i++) if (l.indexOf(KEY[i][0]) !== -1) return SVG[KEY[i][1]];
+    return SVG.list;
+  }
+  var n = 0;
+  var heads = document.querySelectorAll('.card-h');
+  for (var i = 0; i < heads.length; i++){
+    var h = heads[i], t = h.querySelector('.card-t');
+    if (!t || h.querySelector('.icbox')) continue;
+    var span = document.createElement('span');
+    span.className = 'icbox';
+    span.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + pick(t.textContent) + '</svg>';
+    h.insertBefore(span, h.firstChild);
+    n++;
+  }
+  // karty, které vzniknou skriptem později, dostanou ikonu při otevření záložky
+  window.epCardIcons = function(){
+    var hs = document.querySelectorAll('.card-h');
+    for (var j = 0; j < hs.length; j++){
+      var hh = hs[j], tt = hh.querySelector('.card-t');
+      if (!tt || hh.querySelector('.icbox')) continue;
+      var sp = document.createElement('span');
+      sp.className = 'icbox';
+      sp.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + pick(tt.textContent) + '</svg>';
+      hh.insertBefore(sp, hh.firstChild);
+    }
+  };
 })();
 </script>
 
