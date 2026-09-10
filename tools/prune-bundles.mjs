@@ -74,7 +74,7 @@ const PATTERNS = flag('--protect-patterns', '').split(',').map(s => s.trim()).fi
 
 // Slozky, ktere nejsou bundly appek.
 const NOT_APPS = new Set(['.git', '.github', 'tools', 'licenses', 'deploy', 'brand',
-  'browser-addons', 'chat-function', 'diag', 'node_modules']);
+  'browser-addons', 'chat-function', 'diag', 'node_modules', 'prototypes']);
 
 const git = a => execFileSync('git', ['-C', CDN, ...a], { maxBuffer: 1024 ** 3 }).toString();
 const HASH_RE = /(?<![0-9a-f])[0-9a-f]{20}(?![0-9a-f])/g;

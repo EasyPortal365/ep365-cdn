@@ -55,6 +55,13 @@
 # má nasazené — když politiku nenajde, odmítne běžet.
 !tools/prune-cdn.mjs
 
+# Koncepty aplikací k posouzení u zákazníka (prototypes/<koncept>/index.html) — jeden
+# samostatný HTML soubor bez skriptů třetích stran a bez dat, který se vkládá do stránky
+# SharePointu web partem Vložit (SharePoint HTML z knihovny nevykreslí, vynutí stažení).
+# Bezpečné: ukázková data jsou smyšlená, žádný zákazník ani tenant se v nich nejmenuje.
+# POZOR: obsah je veřejně dosažitelný bez přihlášení — nedávat sem nic zákaznického.
+!prototypes/*/index.html
+
 # Důkaz, že pin guard v `prune-versions` drží: postaví syntetické mini-CDN v TEMPu, kde pin
 # míří mimo okno `--keep`, a ukáže, že prořez tu verzi nechá — a s vystřiženým guardem smaže.
 # Bezpečné: nezná ani nečte soupis pinů našeho tenantu, pracuje jen s vlastními daty v TEMPu.
