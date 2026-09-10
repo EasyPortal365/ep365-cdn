@@ -4,6 +4,72 @@
   "name": "EP365 E-shop",
   "entries": [
     {
+      "version": "1.1",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "E-shop na telefonu. Místo bočního menu je dole lišta s hlavními cíli, hledání je na dotyk a seznamy se překlopí do karet, aby se daly číst na úzkém displeji.",
+          "en": "The e-shop on a phone. Instead of the side menu there is a bottom bar with the main destinations, search is touch-friendly, and lists flip into cards so they can be read on a narrow display."
+        },
+        {
+          "type": "new",
+          "cs": "Mezi správce e-shopu jde nově přidat celou skupinu Entra ID – nemusíte klikat lidi po jednom a kdo do skupiny přibude, správcem se stane sám. Vyhledávání nabízí kromě účtů i skupiny a v seznamu je skupina rozeznatelná na první pohled. Členy skupiny navíc vidí každý správce, ne jen ten, kdo aplikaci na webu zakládal.",
+          "en": "You can now add a whole Entra ID group to the e-shop administrators – no clicking people one by one, and whoever joins the group becomes an administrator automatically. Search offers groups alongside accounts and a group is recognisable at a glance. Group members are also visible to every administrator, not only whoever set the app up on the site."
+        },
+        {
+          "type": "new",
+          "cs": "V Nastavení přibyla karta Verze a informace s údajem o tom, jestli aplikace běží v nejnovější verzi – u čísla verze se objeví štítek a při dostupnosti novější odkaz na to, co je v ní nového. Karta obsahuje i úplný přehled datových seznamů aplikace včetně toho, jak jsou nastavené a kdo do nich smí psát.",
+          "en": "Settings gained a Version and info card telling you whether the app is running the latest version – a label appears next to the version number and, when a newer one is available, a link to what is new in it. The card also holds a complete overview of the app’s data lists, including how they are configured and who may write to them."
+        },
+        {
+          "type": "improved",
+          "cs": "Košíky, objednávky a katalog jsou chráněné přímo oprávněními SharePointu. Každý čte a mění jen svůj košík; svoji objednávku založí, doplní i zruší její zadavatel a cizí objednávky vyřizují správci. Katalog, číselníky kategorií a dodavatelů, skladový žurnál i nastavení aplikace mění jen správce e-shopu – a spravovat je může kterýkoli z nich.",
+          "en": "Baskets, orders and the catalogue are protected directly by SharePoint permissions. Everyone reads and changes only their own basket; an order is created, amended and cancelled by whoever placed it, and other people’s orders are handled by administrators. The catalogue, category and supplier code lists, the stock journal and the application settings are changed only by e-shop administrators – and any of them can manage them."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nic, co nezjistila. Když se katalog, objednávky, sklad nebo košík nepodaří načíst, řekne to nahlas místo prázdného seznamu, který vypadá jako vyprodáno. Přehled po neúspěšném načtení netvrdí, že žádná objednávka nečeká a že je sklad na nule – čísla, která neznáme, ukazují otazník, a to i u odznaků u košíku a fronty vyřízení. Žurnál skladu, hodnocení produktu i položky objednávky se po neúspěšném čtení netváří jako prázdné a Přehled využití neukazuje samé nuly.",
+          "en": "The app no longer claims anything it has not determined. When the catalogue, orders, stock or basket cannot be loaded, it says so out loud instead of showing an empty list that looks like everything is sold out. After a failed load the overview does not claim that no order is waiting and that stock is at zero – unknown numbers show a question mark, including on the basket and fulfilment queue badges. The stock journal, product ratings and order lines do not pretend to be empty after a failed read, and the Usage overview does not show all zeros."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení se nedá přepsat výchozími hodnotami. Obrazovka se otevře, teprve až aplikace spolehlivě zjistí, co je uložené – při pomalém nebo neúspěšném načtení se dosud ukázaly výchozí hodnoty a uložení jimi to skutečné nastavení přepsalo. Zápisy se navíc propíšou spolehlivě i při několika změnách za sebou.",
+          "en": "Settings can no longer be overwritten with defaults. The screen opens only once the app has reliably determined what is stored – on a slow or failed load it used to show defaults, and saving then overwrote the real settings with them. Writes also come through reliably even with several changes in a row."
+        },
+        {
+          "type": "fixed",
+          "cs": "Duplicity a poloviční stavy zmizely. Přidání do košíku nevyrobí druhý řádek téže položky a objednávka ji nenese dvakrát; košík se po odeslání objednávky spolehlivě vyprázdní. Kontrola duplicitního čísla produktu se nespoléhá na odpověď z paměti prohlížeče, takže při výpadku nevznikne druhý produkt se stejným číslem. Novou kategorii ani variantu nepůjde přidat ve chvíli, kdy se seznam nepodařilo načíst, a testovací data nejde vložit podruhé.",
+          "en": "Duplicates and half-finished states are gone. Adding to the basket does not create a second row for the same item and an order does not carry it twice; the basket is reliably emptied after an order is submitted. The duplicate product number check does not rely on a browser-cached answer, so an outage cannot create a second product with the same number. A new category or variant cannot be added while its list failed to load, and test data cannot be inserted a second time."
+        },
+        {
+          "type": "fixed",
+          "cs": "Dlouhé seznamy se načtou celé. Katalog, objednávky, žurnál skladových pohybů, hodnocení i košík se dosud načítaly jen po první stránku, takže u větších e-shopů část zboží i objednávek prostě chyběla.",
+          "en": "Long lists load in full. The catalogue, orders, the stock movement journal, ratings and the basket used to load only the first page, so in larger e-shops some goods and orders were simply missing."
+        },
+        {
+          "type": "improved",
+          "cs": "Firemní barvy z Workplace se propíšou do celého e-shopu. Dosud se přebíraly jen tehdy, když správce nastavil zároveň i doplňkovou barvu; nově platí i samotná hlavní. Barva dosáhne na odznaky s počty, kolečka ikon, hlavní tlačítka, nápovědu, interaktivního průvodce i paletu zkratek a do odchozích e-mailů, a text na barevných ploškách se automaticky přepíná na světlý nebo tmavý, aby zůstal čitelný.",
+          "en": "Corporate colours from Workplace carry through the whole e-shop. Until now they were inherited only when the administrator also set a secondary colour; the primary one alone now applies too. The colour reaches count badges, icon circles, primary buttons, help, the interactive guide, the shortcut palette and outgoing e-mails, and text on coloured areas switches to light or dark automatically so it stays readable."
+        },
+        {
+          "type": "improved",
+          "cs": "Soukromí: firemní písma se načítají z naší distribuční sítě místo z Google Fonts. Dosud si je prohlížeč každého uživatele stahoval přímo od Googlu, kterému tím odcházela IP adresa a údaje o prohlížeči. Zpřísnili jsme také kontrolu adres – odkaz s neplatnou nebo nedůvěryhodnou adresou se nezobrazí jako klikatelný.",
+          "en": "Privacy: corporate fonts now load from our own distribution network instead of Google Fonts. Until now every user’s browser downloaded them straight from Google, which received their IP address and browser details. We have also tightened address checks – a link with an invalid or untrusted address is no longer rendered as clickable."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce a nápověda se výrazně rozrostly. Průvodce má nově devět kapitol místo pěti – projde katalog, košík i sledování objednávky, a pro správce vyřizování, sklad a nastavení; v předchozí verzi se navíc devět jeho kroků tiše přeskakovalo. Nápověda dostala rozcestník témat a hledání (dosud byla jen souvislý text) a nabízí 47 odpovědí v osmi tématech místo osmi otázek.",
+          "en": "The interactive guide and help have grown substantially. The guide now has nine chapters instead of five – it covers the catalogue, the basket and order tracking, and for administrators order handling, stock and settings; in the previous version nine of its steps were also silently skipped. Help gained a topic rail and search (until now it was one continuous text) and offers 47 answers in eight topics instead of eight questions."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobnosti, které se počítají. Seznamy objednávek, vyřizování a skladu se otevírají jednotně jako ve zbytku EP365 – klik kamkoli na řádek se zvýrazněním. Karta e-shopu se objeví na hlavní stránce Workplace mezi tím, co čeká na vaši akci. Datum a měsíc se počítají podle místního času, takže objednávka pořízená krátce po půlnoci spadne do správného dne. Formuláře Nahlásit chybu a Navrhnout funkci mají formátovaný popis a přílohy, a když se hlášení nepodaří odeslat, uvidíte technický detail odpovědi Microsoftu 365. Sjednotili jsme také název: centrální rozcestník se všude jmenuje EasyPortal 365 Workplace.",
+          "en": "Small things that add up. Order, fulfilment and stock lists open uniformly as in the rest of EP365 – click anywhere on the row, with a highlight. The e-shop card appears on the Workplace home page among the things awaiting your action. Dates and months are calculated in local time, so an order placed shortly after midnight falls on the right day. The Report a bug and Suggest a feature forms support formatted descriptions and attachments, and when a report cannot be sent you see the technical detail of the Microsoft 365 response. We have also unified the naming: the central hub is called EasyPortal 365 Workplace everywhere."
+        }
+      ]
+    },
+    {
       "version": "1.0",
       "date": "2026-08-01",
       "changes": [
