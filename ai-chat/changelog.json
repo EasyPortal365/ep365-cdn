@@ -4,6 +4,37 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.55",
+      "date": "2026-09-10",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Hranice označení „mimo AI“ se už nevypne tím, že se nastavení nepodaří přečíst. Asistent použije poslední známé nastavení a výpadek ohlásí; dosud se prázdné nastavení nedalo odlišit od „nic není vyloučeno“ a vyloučené dokumenty mohly do odpovědi projít.",
+          "en": "The “outside AI” boundary is no longer switched off by settings that could not be read. The assistant uses the last known settings and reports the outage; until now empty settings were indistinguishable from “nothing is excluded”, and excluded documents could make it into an answer."
+        },
+        {
+          "type": "fixed",
+          "cs": "Specializovaný asistent zůstává ve své roli. Asistent s vlastním zadáním (například Překladač) už na konec odpovědi nepřidá nabídku prohledání firemních znalostí – ani v textu, ani jako kartu pod odpovědí. Omezení dosud platilo jen na zadání pro model, ne na to, co aplikace zobrazila; dostanete tedy přesně to, co má asistent zadáno, a nic navíc.",
+          "en": "A specialised assistant stays in its role. An assistant with its own brief (a Translator, say) no longer appends an offer to search the corporate knowledge at the end of an answer – neither in the text nor as a card below it. The restriction used to apply only to the brief given to the model, not to what the app displayed; you now get exactly what the assistant was briefed to do and nothing more."
+        },
+        {
+          "type": "fixed",
+          "cs": "Asistent už neslibuje, že se někam podívá. Když se ptáte na interní věc a firemní znalosti nejsou zapnuté, řekne to rovnou a aplikace nabídne tlačítko, které je zapne a otázku zopakuje. Dosud si v některých případech vyžádal potvrzení a pak napsal, že máte chvíli počkat, aniž se cokoli dělo.",
+          "en": "The assistant no longer promises to go and look something up. When you ask about an internal matter and the corporate knowledge is not enabled, it says so straight away and the app offers a button that enables it and repeats the question. Until now it sometimes asked for confirmation and then said to wait a moment while nothing was happening."
+        },
+        {
+          "type": "improved",
+          "cs": "Asistent přesněji říká, co umí – a widget sedí s aplikací. Nabízí Word, PowerPoint, Markdown i HTML místo dřívějšího chybného PDF, ve widgetu už neslibuje koncepty e-mailů a úkoly, které tam nejsou, a návrhy dalšího kroku nenabízejí odeslání ani uložení: to dělá vždy člověk tlačítkem. Plovoucí widget se navíc řídí týmž zadáním jako aplikace na stránce – nově umí i diagramy, které dosud sliboval, ale nekreslil, a naopak už nechce od asistenta věci, které stejně nezobrazí.",
+          "en": "The assistant states its capabilities more accurately – and the widget matches the app. It offers Word, PowerPoint, Markdown and HTML instead of the previously incorrect PDF, the widget no longer promises e-mail drafts and tasks that are not there, and next-step suggestions do not offer to send or save: a person always does that with a button. The floating widget now also follows the same brief as the app on the page – it can draw the diagrams it used to promise but not deliver, and conversely no longer asks the assistant for things it cannot display."
+        },
+        {
+          "type": "fixed",
+          "cs": "Dočasný výpadek SharePointu už nezaloží nic naslepo ani nepřepne verzi. Aplikace se nepouští do zakládání svých seznamů, když si není jistá, jestli už existují – dřív po takovém druhém záznamu o stavu znovu a znovu přehrávala nastavení při každém otevření. Skupiny oprávnění se stejně tak nezakládají naslepo: dosud mohlo selhání skončit tím, že se skupině nepřiřadila role a nikdo se to nedozvěděl. A když se nepodaří přečíst zvolenou verzi aplikace, použije se poslední známá volba místo přepnutí na nejnovější.",
+          "en": "A temporary SharePoint outage no longer creates anything blindly or switches the version. The app does not start creating its lists when it is unsure whether they already exist – previously such a second status record made it replay the settings on every opening, again and again. Permission groups are likewise not created blindly: until now a failure could end with no role assigned to the group and nobody finding out. And when the chosen application version cannot be read, the last known choice is used instead of switching to the latest."
+        }
+      ]
+    },
+    {
       "version": "1.54",
       "date": "2026-09-08",
       "changes": [
