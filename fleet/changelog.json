@@ -4,6 +4,82 @@
   "name": "EP365 Vozový park",
   "entries": [
     {
+      "version": "1.9",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Citlivé údaje vozidel jsou oddělené od provozních. Číslo tankovací karty, číslo pojistky, číslo havarijního pojištění i leasingová smlouva mají vlastní ochranu, takže je vidí jen ten, kdo je potřebuje. Vozidla, incidenty, lokality a dálniční známky smí měnit jen role vozového parku – správci, dispečeři a řidiči podle toho, co která role dělá. Knihovna dokumentů s pojistkami, leasingovými smlouvami, protokoly a fotografiemi z nehod má také vlastní oprávnění.",
+          "en": "Sensitive vehicle data is separated from operational data. The fuel card number, insurance and accident policy numbers and the lease contract have their own protection, so only those who need them can see them. Vehicles, incidents, locations and motorway vignettes can be changed only by fleet roles – administrators, dispatchers and drivers according to what each role does. The document library with policies, lease contracts, handover records and accident photos has its own permissions as well."
+        },
+        {
+          "type": "improved",
+          "cs": "Provozní evidence jsou chráněné přímo oprávněními SharePointu. Kniha jízd, předávací protokoly, servisní historie, tankování a technické kontroly se zapisují a už se zpětně nepřepisují. Nehody a škodní události zůstávají záměrně upravitelné – u nich se informace průběžně doplňují a případ se uzavírá. Nastavení aplikace, kde leží motiv, výchozí schvalování rezervací i volba aktivní verze, mění jen správce.",
+          "en": "Operational records are protected directly by SharePoint permissions. The journey log, handover records, service history, refuelling and inspections are written and no longer overwritten retroactively. Accidents and damage events remain editable on purpose – information there is added over time as the case is closed. Application settings, which hold the theme, the default reservation approval and the active version choice, are changed only by an administrator."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nic, co nezjistila. Když se nepodaří něco načíst – vaši roli, nastavení, členy skupiny, nabídku k výběru, termíny údržby nebo obsah kterékoli obrazovky – řekne to místo toho, aby ukázala nulu, prázdný seznam nebo hlášku, že je vše v pořádku. Plán údržby, tankování, lokality, kniha jízd i pneumatiky přiznají výpadek; u čísel se objeví otazník. Nepřečtené nastavení navíc nevypne schvalování rezervací a formulář rezervace otevře nabídku osob vždy, takže rezervace nemůže tiše vzniknout na někoho jiného.",
+          "en": "The app no longer claims anything it has not determined. When something cannot be loaded – your role, settings, group members, a picker, maintenance dates or the content of any screen – it says so instead of showing a zero, an empty list or an all-clear. The maintenance plan, refuelling, locations, journey log and tyres all admit a failure; numbers show a question mark. Unread settings also no longer switch off reservation approval, and the reservation form always opens the people picker, so a reservation cannot quietly end up on someone else."
+        },
+        {
+          "type": "fixed",
+          "cs": "Souběžné zápisy se navzájem nepřepíšou. Nastavení ukládá každá sekce jen svá vlastní pole a před uložením si načte aktuální stav, takže uložení rezervačních pravidel už nevrátí zpět motiv ani podtitulek. Spolucestující přidaní ke stejné rezervaci ve stejnou chvíli zůstanou oba, stav tachometru se opožděným vrácením vozidla nesníží a mapa nezaloží duplicitní záznam destinace, když je služba pro převod adres dočasně nedostupná.",
+          "en": "Concurrent writes no longer overwrite each other. Each settings section saves only its own fields and reads the current state before saving, so saving reservation rules no longer reverts the theme or the subtitle. Passengers added to the same reservation at the same moment both remain, the odometer reading is not lowered by a delayed vehicle return, and the map does not create a duplicate destination record when the address lookup service is temporarily unavailable."
+        },
+        {
+          "type": "new",
+          "cs": "Na obrazovce Ke schválení je vidět, co čeká příliš dlouho. Každá žádost starší než 48 hodin dostane oranžové označení s dobou čekání a nahoře je souhrn, kolik jich je po termínu. U opakovaných rezervací navíc aplikace řekne, kolik termínů ze série se skutečně založilo – dřív se část série mohla nevytvořit bez upozornění.",
+          "en": "The Approvals screen shows what has been waiting too long. Every request older than 48 hours gets an amber marker with the waiting time, and a summary at the top says how many are overdue. For recurring reservations the app also states how many dates in the series were actually created – previously part of a series could fail to be created without warning."
+        },
+        {
+          "type": "new",
+          "cs": "V Nastavení nově uvidíte, jestli aplikace běží v nejnovější verzi – u čísla verze se objeví štítek a při dostupnosti novější přibude odkaz na to, co je v ní nového. Nastavení také vypisuje všechny datové seznamy aplikace i s jejich ochranou; samotné seznamy zůstávají v Obsahu webu skryté, aby tam nedělaly nepořádek. Detail rezervace navíc ukazuje, co o záznamu tvrdí sám SharePoint: kdo a kdy ho naposledy uložil a kolikátá je to verze.",
+          "en": "Settings now show whether the app is running the latest version – a label appears next to the version number and, when a newer one is available, a link to what is new in it. Settings also list all the app’s data lists together with their protection; the lists themselves stay hidden in Site contents so they do not clutter it. The reservation detail additionally shows what SharePoint itself says about the record: who last saved it, when, and which version it is."
+        },
+        {
+          "type": "improved",
+          "cs": "Vozový park se načítá rychleji a seznamy jsou úplné. Kroky, které nastavují skupiny a oprávnění, se už neopakují při každém otevření a běží až na pozadí, takže se aplikace vykreslí hned. Počty u položek Ke schválení a Incidenty se nenačítají znovu při každém přepnutí obrazovky. Delší seznamy – nad sto záznamů vozidla, rezervace, kniha jízd, protokoly i tankování – se načítají celé, stejně jako celá skupina ve správě rolí a u příjemců upozornění. Kalendář vozidel a Moje jízdy získávají data jedním společným dotazem.",
+          "en": "Fleet loads faster and lists are complete. The steps that set up groups and permissions no longer repeat on every open and run in the background, so the app renders immediately. The counts next to Approvals and Incidents are not reloaded every time you switch screens. Longer lists – over a hundred vehicles, reservations, journey log entries, handover records or refuellings – load in full, as does an entire group in role management and in notification recipients. The vehicle calendar and My journeys fetch their data with a single shared query."
+        },
+        {
+          "type": "improved",
+          "cs": "Firemní barva se propíše do celé aplikace. Dosud se z centrálního nastavení přebírala jen doplňková barva, takže hlavní firemní odstín se nikde neprojevil; nově platí i tehdy, když je ve Workplace nastavená jen hlavní barva bez doplňkové. Vidíte ji na aktivní položce v levém menu, v pilulkách stavu incidentů, v detailech, na tlačítkách i v odchozích e-mailech; popisky na barevných tlačítkách se automaticky přepínají na světlé nebo tmavé. Neplatná barva v nastavení se ignoruje a aplikace zůstane u výchozího motivu.",
+          "en": "The corporate colour carries through the whole app. Until now only the secondary colour was inherited from the central settings, so the main corporate shade appeared nowhere; it now applies even when only the primary colour is set in Workplace without a secondary one. You see it on the active item in the left menu, in incident status pills, in details, on buttons and in outgoing e-mails; labels on coloured buttons switch to light or dark automatically. An invalid colour in the settings is ignored and the app stays with the default theme."
+        },
+        {
+          "type": "improved",
+          "cs": "Soukromí: firemní písma se načítají z naší distribuční sítě místo z Google Fonts. Dosud si je prohlížeč každého uživatele stahoval přímo od Googlu, kterému tím odcházela IP adresa a údaje o prohlížeči. Při práci s aplikací tak neodchází žádné spojení mimo Microsoft a EasyPortal 365. Zpřísnili jsme také kontrolu adres: odkaz s neplatnou nebo nedůvěryhodnou adresou se nezobrazí jako klikatelný – adresa zůstane vidět jako text.",
+          "en": "Privacy: corporate fonts now load from our own distribution network instead of Google Fonts. Until now every user’s browser downloaded them straight from Google, which received their IP address and browser details. No connection now leaves Microsoft and EasyPortal 365 while you work with the app. We have also tightened address checks: a link with an invalid or untrusted address is no longer rendered as clickable – the address stays visible as text."
+        },
+        {
+          "type": "improved",
+          "cs": "Ovládání sedí se zbytkem EasyPortal 365. Detail se ze seznamu otevírá kliknutím kamkoli na řádek, se šipkou vpravo a podbarvením pod myší – tlačítka v řádku zmizela; seznamy bez detailu (Skóre řidičů) se naopak netváří jako klikatelné. Záhlaví tabulek vypadá stejně napříč aplikacemi, klávesa Esc zavře jen rychlé hledání a v hlavičce se přestala zobrazovat tlačítka, která na dané obrazovce nic nedělala. Doklady vozidla se nově otevřou i v Microsoft Teams.",
+          "en": "Handling matches the rest of EasyPortal 365. A detail opens from a list by clicking anywhere on the row, with an arrow on the right and a hover highlight – in-row buttons are gone; lists without a detail (Driver scores) no longer look clickable. Table headers look the same across the apps, Esc closes only quick search, and the header no longer shows buttons that did nothing on that screen. Vehicle documents now also open inside Microsoft Teams."
+        },
+        {
+          "type": "improved",
+          "cs": "Testovací data a import z palivové karty se dají bezpečně opakovat. Opakované vytvoření testovacích dat nezaloží druhou flotilu – vozidla a lokality se převezmou podle SPZ a názvu. Import tankování porovnává řádky tak, aby překryv výpisů na přelomu měsíce nevytvořil duplicity. Testovací incidenty nově používají jen typy a závažnosti, které jdou v aplikaci zadat, takže filtry i statistiky nad nimi sedí.",
+          "en": "Test data and fuel card import can safely be repeated. Creating test data again does not produce a second fleet – vehicles and locations are matched by registration plate and name. The refuelling import compares rows so that overlapping statements at a month boundary do not create duplicates. Test incidents now use only the types and severities that can actually be entered in the app, so filters and statistics over them add up."
+        },
+        {
+          "type": "improved",
+          "cs": "Role přiřazená přes skupinu Entra ID funguje a nastavení se dorovná i na běžících webech. Vložíte-li do role vozového parku celou skupinu, mají ji všichni její členové. Nastavení rolí, zabezpečení evidencí a skrytí interních seznamů se nově dorovná i tam, kde aplikace už běží – a když se dorovnat nepodaří, aplikace to řekne a zkusí to při dalším otevření místo aby si krok označila za hotový.",
+          "en": "A role assigned through an Entra ID group works, and the setup is reconciled on running sites too. If you put a whole group into a fleet role, all of its members get it. Role setup, record protection and hiding of internal lists are now reconciled even where the app is already running – and when reconciliation fails, the app says so and retries on the next open instead of marking the step as done."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce se výrazně rozrostl – má nově 12 kapitol místo čtyř. Kromě orientace projde rezervaci vozidla, převzetí a vrácení vozu, hlášení závad, evidenci vozidel, schvalování, provozní evidence, servis a pneumatiky, náklady i nastavení. Kapitoly se nabízejí podle vaší role, takže řidič nedostane kroky mířící na obrazovky, které nemá.",
+          "en": "The interactive guide has grown substantially – it now has 12 chapters instead of four. Besides getting around it covers reserving a vehicle, handover and return, reporting incidents, the vehicle register, approvals, operational records, servicing and tyres, costs and settings. Chapters are offered according to your role, so a driver does not get steps pointing at screens they do not have."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobnosti, které se počítají. Formuláře Nahlásit chybu a Navrhnout funkci mají formátovaný popis a přílohy – snímek obrazovky stačí přetáhnout – a hlášení odchází e-mailem z vaší schránky na podporu, kde z něj vzniká tiket; když se odeslat nepodaří, uvidíte technický detail toho, co Microsoft 365 odpověděl. Tankování zadané krátce po půlnoci má správné datum. Rychlé hledání pod Ctrl+K neukáže po znovuotevření zastaralý výsledek. Sjednotili jsme také název: centrální rozcestník se všude jmenuje EasyPortal 365 Workplace, a roadmapa ukazuje jen to, co posuzujeme, plánujeme a na čem pracujeme – hotové věci najdete u příslušné verze v části Co je nového.",
+          "en": "Small things that add up. The Report a bug and Suggest a feature forms support formatted descriptions and attachments – a screen capture can simply be dragged in – and a report is sent by e-mail from your mailbox to support, where it becomes a ticket; when sending fails, you see the technical detail of what Microsoft 365 replied. Refuelling entered shortly after midnight gets the right date. Quick search under Ctrl+K no longer flashes a stale result when reopened. We have also unified the naming: the central hub is called EasyPortal 365 Workplace everywhere, and the roadmap shows only what is under review, planned and in progress – finished items appear with their version under What’s new."
+        }
+      ]
+    },
+    {
       "version": "1.8",
       "date": "2026-07-22",
       "changes": [
