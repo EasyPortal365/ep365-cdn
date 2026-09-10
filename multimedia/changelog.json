@@ -4,6 +4,72 @@
   "name": "EP365 Mediální centrum",
   "entries": [
     {
+      "version": "1.15",
+      "date": "2026-09-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Detail média se otevírá jako plnohodnotná stránka místo úzkého panelu – větší náhled, metadata i hotové odkazy pro vložení na jednom místě. Seznamový režim knihovny navíc reaguje na najetí myší a dá se ovládat klávesnicí.",
+          "en": "A media detail now opens as a full page instead of a narrow panel – a larger preview, metadata and ready-made embed links all in one place. The library’s list mode also responds to hover and can be operated from the keyboard."
+        },
+        {
+          "type": "new",
+          "cs": "Štítky se vybírají ze seznamu, ne píší rukou. Dosud se štítek u každého média psal jako text, takže tentýž pojem vznikal v několika podobách a hledání podle něj nefungovalo spolehlivě. Nové tlačítko navíc nezaloží druhý štítek téhož jména, když se nepodařilo načíst číselník.",
+          "en": "Tags are picked from a list rather than typed. Until now a tag was entered as free text on each medium, so the same concept appeared in several forms and searching by it was unreliable. The new button also does not create a second tag of the same name when the code list fails to load."
+        },
+        {
+          "type": "new",
+          "cs": "Do role Správce jde nově přidat celou skupinu Entra ID – nemusíte klikat lidi po jednom a kdo do skupiny přibude, správcem se stane sám. Vyhledávání nabízí kromě účtů i skupiny a v seznamu členů je skupina rozeznatelná na první pohled. V Nastavení navíc aplikace pozná, že běží na starší verzi, než je vydaná.",
+          "en": "You can now add a whole Entra ID group to the Administrator role – no clicking people one by one, and whoever joins the group becomes an administrator automatically. Search offers groups alongside accounts and a group is recognisable at a glance in the member list. Settings also recognise when the app runs an older version than the released one."
+        },
+        {
+          "type": "improved",
+          "cs": "Brand knihovna je opravdu oddělená a seznamy mají vlastní oprávnění. U brandové knihovny si aplikace nastaví vlastní ochranu – nahrávat, přepisovat a mazat smí jen správce, ostatní si materiály jen berou. Kolekce, brand balíčky, firemní barvy a další seznamy, ve kterých aplikace drží data, mají také vlastní oprávnění a zůstávají v Obsahu webu skryté. Nastavení má novou kartu Datové seznamy a knihovny, která čte skutečná oprávnění a napíše, jak na tom která položka je.",
+          "en": "The brand library is genuinely separate and the lists have their own permissions. The app sets its own protection on the brand library – only an administrator may upload, overwrite and delete, everyone else just takes the assets. Collections, brand kits, corporate colours and the other lists the app stores data in also have their own permissions and stay hidden in Site contents. Settings gained a Data lists and libraries card that reads the actual permissions and states where each item stands."
+        },
+        {
+          "type": "improved",
+          "cs": "Kolekci lze přejmenovat, aniž by z ní vypadla média. Zařazení média se dosud pamatovalo jako název kolekce, takže přejmenování vazbu rozvázalo. Obrazovky vyhrazené správcům se navíc přes přímý odkaz nevykreslí nikomu jinému.",
+          "en": "A collection can be renamed without media falling out of it. A medium’s placement used to be remembered as the collection name, so renaming broke the link. Screens reserved for administrators are also no longer rendered for anyone else when reached by a direct link."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace už netvrdí nic, co nezjistila. Když se knihovnu nepodaří načíst, řekne to místo toho, aby tvrdila, že je prázdná – týká se to Oblíbených, Brandu i běžné knihovny. Otevření kolekce, kterou se nepodařilo načíst, netvrdí, že byla odstraněna. Počty zhlédnutí, stažení, kolekcí i médií ukazují otazník, když se je nepodařilo zjistit, a nastavení se nedá přepsat výchozími hodnotami, když se ho nepodařilo přečíst.",
+          "en": "The app no longer claims anything it has not determined. When a library cannot be loaded it says so instead of claiming it is empty – this covers Favourites, Brand and the ordinary library. Opening a collection that failed to load no longer claims it was deleted. View, download, collection and media counts show a question mark when they could not be determined, and settings cannot be overwritten with defaults when they could not be read."
+        },
+        {
+          "type": "fixed",
+          "cs": "Počítadla a osobní záznamy se přestaly navzájem přepisovat. Počty zobrazení a stažení se zvedaly z hodnoty uložené v prohlížeči, takže souběžné přístupy o sebe přišly; nově měří i přístupy běžných uživatelů, které se po zamčení brandové knihovny na správce vůbec nezapočítávaly. Naposledy prohlížená média ani volba jazyka uživateli nezmizí po výpadku spojení a nepřepíšou se obsahem jednoho prohlížeče.",
+          "en": "Counters and personal records no longer overwrite each other. View and download counts were incremented from a browser-stored value, so concurrent accesses were lost; they now also measure ordinary users’ accesses, which were not counted at all after the brand library was locked down to administrators. Recently viewed media and the language choice no longer disappear after a connection outage and are not overwritten by one browser’s content."
+        },
+        {
+          "type": "fixed",
+          "cs": "Souběžné zápisy a výpadky nevyrábějí duplicity. Nastavení nepřepíše změny, které mezitím uložil někdo jiný – každá sekce ukládá jen svá vlastní pole a před uložením si načte aktuální stav. Hromadné akce nenabídnou založení kolekce, dokud se nenačte seznam stávajících, a aplikace se nepouští do zakládání svých seznamů ani skupin, když si není jistá, jestli už existují.",
+          "en": "Concurrent writes and outages do not produce duplicates. Settings do not overwrite changes someone else saved in the meantime – each section saves only its own fields and reads the current state first. Bulk actions do not offer to create a collection until the list of existing ones has loaded, and the app does not start creating its lists or groups when it is unsure whether they already exist."
+        },
+        {
+          "type": "improved",
+          "cs": "Firemní barva se propíše do celé aplikace – i tehdy, když je vyplněná jen ona. Dosáhne na odkazy, sekundární plochy, průsvitné prvky, zaškrtávátka, přepínače i posuvníky (místo systémové modré), na interaktivního průvodce, vyhledávání pod ⌘K, kartu Správa verzí i do odchozích e-mailů. Barevný podklad při přetažení souborů nad knihovnu se opět objeví přes celou stránku a neplatná barva v nastavení se ignoruje.",
+          "en": "The corporate colour carries through the whole app – even when it is the only one set. It reaches links, secondary surfaces, translucent elements, checkboxes, switches and sliders (instead of the system blue), the interactive guide, ⌘K search, the version management card and outgoing e-mails. The full-page colour backdrop when dragging files over the library is back, and an invalid colour in the settings is ignored."
+        },
+        {
+          "type": "improved",
+          "cs": "Soukromí: firemní písma se načítají z naší distribuční sítě místo z Google Fonts. Dosud si je prohlížeč každého uživatele stahoval přímo od Googlu, kterému tím odcházela IP adresa a údaje o prohlížeči. Zpřísnili jsme také kontrolu adres – odkaz s neplatnou nebo nedůvěryhodnou adresou se nezobrazí jako klikatelný.",
+          "en": "Privacy: corporate fonts now load from our own distribution network instead of Google Fonts. Until now every user’s browser downloaded them straight from Google, which received their IP address and browser details. We have also tightened address checks – a link with an invalid or untrusted address is no longer rendered as clickable."
+        },
+        {
+          "type": "improved",
+          "cs": "Interaktivní průvodce se výrazně rozrostl – má nově devět kapitol místo pěti, česky i anglicky. Kromě orientace projde knihovnu médií, kolekce a oblíbené, brand materiály, a pro správce nahrávání a popisky, správu obsahu i nastavení. Průvodce nově umí přepnout i sekci v Nastavení.",
+          "en": "The interactive guide has grown substantially – it now has nine chapters instead of five, in Czech and English. Besides getting around it covers the media library, collections and favourites, brand assets, and for administrators uploading and metadata, content administration and settings. The guide can now also switch the section in Settings."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobnosti, které se počítají. Vysoký obrázek se ve zvětšeném náhledu i v režimu pro obrazovky ukáže celý. Import z existující složky přizná, když se u zkopírovaného souboru nepodařilo uložit typ, kolekci a štítky. Formuláře Nahlásit chybu a Navrhnout funkci mají formátovaný popis a přílohy – velký snímek se před odesláním sám zmenší, takže se příloha nezahodí – a v anglické verzi je nově anglicky i oblast pro přílohy; když se hlášení nepodaří odeslat, otevře se poštovní klient s předvyplněnou zprávou a uvidíte technický detail odpovědi. Kiosk načítá jen svou kolekci místo celé knihovny a Správa verzí funguje správci i bez aktivní licence. Sjednotili jsme také název: centrální rozcestník se všude jmenuje EasyPortal 365 Workplace.",
+          "en": "Small things that add up. A tall image is shown in full in the enlarged preview and in display mode. Import from an existing folder admits when the type, collection and tags could not be saved on a copied file. The Report a bug and Suggest a feature forms support formatted descriptions and attachments – a large capture is shrunk before sending so the attachment is not dropped – and in the English version the attachment area is in English too; when a report cannot be sent, the mail client opens with a prepared message and you see the technical detail of the response. Kiosk loads only its own collection instead of the whole library, and version management works for administrators even without an active licence. We have also unified the naming: the central hub is called EasyPortal 365 Workplace everywhere."
+        }
+      ]
+    },
+    {
       "version": "1.14",
       "date": "2026-08-24",
       "changes": [
