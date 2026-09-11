@@ -61,6 +61,11 @@ button{font-family:var(--fb);}
 
 
 
+.saved{font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft);margin-right:10px;}
+.saved.dirty{color:var(--ep-amber);font-weight:700;}
+tr.edit{cursor:pointer;}
+tr.edit:hover{background:var(--ep-bg-2);}
+
 /* ============ Rozcestník sekcí ============ */
 .rz{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;border:none;background:transparent;border-radius:10px;padding:11px 12px;cursor:pointer;font-family:var(--fb);border-bottom:1px solid var(--ep-line);}
 .rz:last-child{border-bottom:none;}
@@ -1460,9 +1465,13 @@ ul.clean b{color:var(--ep-text);}
    <div style="display:grid;grid-template-columns:246px 1fr;gap:22px;align-items:start">
     <div class="card" style="position:sticky;top:16px">
      <div style="padding:10px">
+      <div class="grp-h" style="padding:8px 10px 6px">Firma</div>
+      <ul class="nav">
+       <li><button class="on"><span class="lbl">Údaje o firmě</span></button></li>
+      </ul>
       <div class="grp-h" style="padding:8px 10px 6px">Evidence</div>
       <ul class="nav">
-       <li><button class="on"><span class="lbl">Adresáti hlášení</span></button></li>
+       <li><button><span class="lbl">Adresáti hlášení</span></button></li>
        <li><button><span class="lbl">Pracoviště a stroje</span></button></li>
        <li><button><span class="lbl">Číselníky klasifikace</span></button></li>
        <li><button><span class="lbl">Číslování a rok</span></button></li>
@@ -1477,7 +1486,7 @@ ul.clean b{color:var(--ep-text);}
       <ul class="nav">
        <li><button><span class="lbl">Role a přístup</span></button></li>
        <li><button><span class="lbl">Ochrana údajů a archivace</span></button></li>
-       <li><button><span class="lbl">Testovací data</span></button></li>
+       <li><button><span class="lbl">Data a import</span></button></li>
        <li><button><span class="lbl">O aplikaci</span></button></li>
       </ul>
      </div>
@@ -3965,6 +3974,7 @@ ul.clean b{color:var(--ep-text);}
     if (!content) return;
 
     var SEC = {
+      'Údaje o firmě': 'firma',
       'Adresáti hlášení': 'adresati',
       'Pracoviště a stroje': 'pracoviste',
       'Číselníky klasifikace': 'ciselniky',
@@ -3974,7 +3984,7 @@ ul.clean b{color:var(--ep-text);}
       'E-maily a oznámení': 'emaily',
       'Role a přístup': 'role',
       'Ochrana údajů a archivace': 'gdpr',
-      'Testovací data': 'testdata',
+      'Data a import': 'testdata',
       'O aplikaci': 'about'
     };
     var rail = grid.children[0].querySelectorAll('.nav button');
@@ -4002,6 +4012,21 @@ ul.clean b{color:var(--ep-text);}
         + (law ? '<span class="law accent">' + law + '</span>' : '') + '</div><div class="card-b">' + body + '</div>';
       content.appendChild(d);
     }
+
+    card('firma', 'Údaje o firmě',
+      '<p class="note" style="margin:0 0 14px">Tyhle údaje se dostanou do <b>části I každého záznamu o úrazu</b> a do průvodního dopisu pojišťovně. Vyplní se jednou a dál se jen kopírují – nikdo je nepřepisuje ručně u každého případu.</p>'
+      + '<div class="grid2"><div>'
+      + '<div class="field"><label>Obchodní firma<span class="req">*</span></label><input type="text" value="Výrobní závod Kolín s.r.o."></div>'
+      + '<div class="field"><label>IČO<span class="req">*</span></label><input type="text" value="27842119"><div class="hint">Podle IČO se dají zbylé údaje natáhnout z rejstříku.</div></div>'
+      + '<div class="field"><label>Sídlo</label><input type="text" value="Průmyslová 12, 280 02 Kolín"></div>'
+      + '<div class="field" style="margin-bottom:0"><label>Datová schránka</label><input type="text" value="k7dx29m"><div class="hint">Aplikace do ní neodesílá – slouží jako údaj do dokumentů.</div></div>'
+      + '</div><div>'
+      + '<div class="field"><label>Převažující činnost<span class="law">CZ-NACE</span></label><input type="text" value="25.62 – obrábění"></div>'
+      + '<div class="field"><label>Počet zaměstnanců</label><input type="number" value="214"><div class="hint">Uvádí se v ročním souhrnu a v sestavách pro vedení.</div></div>'
+      + '<div class="field"><label>Statutární zástupce</label><input type="text" value="Ing. Tomáš Hájek, jednatel"></div>'
+      + '<div class="field" style="margin-bottom:0"><label>Odborně způsobilá osoba v prevenci rizik</label><input type="text" value="Kamil Juřík"><div class="hint">Kdo za firmu odpovídá za BOZP. Podepisuje záznam o úrazu za zaměstnavatele.</div></div>'
+      + '</div></div>'
+      + '<div class="banner info" style="margin-top:14px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg><div>Má-li firma víc provozoven v různých krajích, adresu <b>nestačí jednu</b> – inspektorát se určuje podle místa úrazu. Provozovny se zadávají v sekci Pracoviště a stroje.</div></div>');
 
     card('pracoviste', 'Pracoviště, provozy a stroje',
       '<p class="note" style="margin:0 0 14px">Z pracoviště se odvozuje příslušný inspektorát práce a jeho QR štítek vyplní při hlášení místo, provoz i stroj.</p>'
@@ -4045,11 +4070,27 @@ ul.clean b{color:var(--ep-text);}
       '<p class="note" style="margin:0 0 14px">Dokumenty se skládají přímo v prohlížeči nad vaší šablonou – nic neodchází na cizí server.</p>'
       + '<div class="mtx-wrap"><table class="mtx" style="min-width:640px"><thead><tr><th>Šablona</th><th>Použití</th><th>Formát</th><th>Stav</th></tr></thead><tbody>'
       + '<tr><td class="rcp">Kniha úrazů – tisková podoba</td><td class="note">Kontrola inspekce práce</td><td class="note">PDF</td><td><span class="pill p-closed"><span class="d"></span>Aktivní</span></td></tr>'
+      + '<tr><td class="rcp">Záznam o úrazu – tisková podoba</td><td class="note">Podpisy a založení do spisu</td><td class="note">PDF</td><td><span class="pill p-closed"><span class="d"></span>Aktivní</span></td></tr>'
+      + '<tr><td class="rcp">Přehled pro vedení</td><td class="note">Statistika na poradu a do výroční zprávy</td><td class="note">PDF</td><td><span class="pill p-closed"><span class="d"></span>Aktivní</span></td></tr>'
       + '<tr><td class="rcp">Protokol o šetření úrazu</td><td class="note">Interní dokumentace</td><td class="note">Word</td><td><span class="pill p-closed"><span class="d"></span>Aktivní</span></td></tr>'
       + '<tr><td class="rcp">Průvodní dopis pojišťovně</td><td class="note">Příloha hlášení škodné události</td><td class="note">Word</td><td><span class="pill p-closed"><span class="d"></span>Aktivní</span></td></tr>'
       + '<tr><td class="rcp">Informace pro zraněného</td><td class="note">Co má zaměstnanec doložit</td><td class="note">PDF</td><td><span class="pill p-open"><span class="d"></span>Koncept</span></td></tr>'
       + '</tbody></table></div>'
       + '<div class="banner info" style="margin-top:14px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg><div>Samotný <b>záznam o úrazu</b> mezi šablonami není – jeho podobu určuje portál inspekce práce a tiskne se z něj.</div></div>');
+
+    card('sablony', 'Co platí pro všechny tisky',
+      '<p class="note" style="margin:0 0 14px">Hlavička, zápatí a formát jsou společné pro každý tisk z aplikace – ať tisknete knihu úrazů, jeden případ nebo statistiku. Co se má v konkrétním tisku objevit, si vyberete až v okně <b>Tisk</b>.</p>'
+      + '<div class="grid2"><div>'
+      + '<div class="field"><label>Hlavička</label><select><option>Logo a název firmy</option><option>Jen název firmy</option><option>Bez hlavičky</option></select><div class="hint">Logo a název se berou ze sekce Údaje o firmě.</div></div>'
+      + '<div class="field" style="margin-bottom:0"><label>Formát</label><select><option>A4 na výšku</option><option>A4 na šířku</option><option>Podle obsahu: seznamy na šířku, detaily na výšku</option></select></div>'
+      + '</div><div>'
+      + '<div class="field"><label>Zápatí</label><input type="text" value="Kniha úrazů · {firma} · strana {n} z {celkem}"><div class="hint">Ve složených závorkách se doplní skutečné hodnoty.</div></div>'
+      + '<div class="field" style="margin-bottom:0"><label>Datum a čas v zápatí</label><select><option>11. 9. 2026, 10:35</option><option>11. 9. 2026</option><option>Neuvádět</option></select></div>'
+      + '</div></div>'
+      + '<label class="switch" style="margin-top:14px"><span class="sw on"></span><span style="font-size:13px;font-weight:600">Do zápatí doplnit, kdo tisk pořídil</span></label><br>'
+      + '<label class="switch" style="margin-top:10px"><span class="sw on"></span><span style="font-size:13px;font-weight:600">Rozepsaný záznam tisknout s vodoznakem „koncept“</span></label><br>'
+      + '<label class="switch" style="margin-top:10px"><span class="sw"></span><span style="font-size:13px;font-weight:600">Ve všech tiscích nahrazovat jména osobními čísly</span></label>'
+      + '<div class="banner info" style="margin-top:14px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg><div>Zdravotní údaje jsou osobní údaje zvláštní kategorie. Kdo tiskne přehled pro vedení nebo na poradu, měl by jména vypnout – <b>v okně Tisk to jde zapnout u jednoho tisku</b>, tady se to dá nastavit natrvalo.</div></div>');
 
     card('emaily', 'E-maily a oznámení',
       '<div class="grid2"><div>'
@@ -4063,7 +4104,16 @@ ul.clean b{color:var(--ep-text);}
       + '<label class="switch"><span class="sw"></span><span style="font-size:13px;font-weight:600">Souhrn jednou týdně vedení firmy</span></label>'
       + '</div></div>');
 
-    card('testdata', 'Testovací data',
+    card('testdata', 'Převzetí historie z dřívější evidence',
+      '<p class="note" style="margin:0 0 14px">Úrazy z minulých let se dají nahrát z Excelu nebo CSV. Aplikace si nechá odsouhlasit, který sloupec je co, a u každého roku si drží <b>právní režim podle data úrazu</b> – zápisy do konce roku 2025 se řídí původním nařízením.</p>'
+      + '<div class="mtx-wrap"><table class="mtx" style="min-width:600px"><thead><tr><th>Ročník</th><th>Zdroj</th><th>Zápisů</th><th>Stav</th></tr></thead><tbody>'
+      + '<tr><td class="rcp">2025</td><td class="note">kniha-urazu-2025.xlsx</td><td class="mono">34</td><td><span class="pill p-closed"><span class="d"></span>Načteno</span></td></tr>'
+      + '<tr><td class="rcp">2024</td><td class="note">kniha-urazu-2024.xlsx</td><td class="mono">29</td><td><span class="pill p-closed"><span class="d"></span>Načteno</span></td></tr>'
+      + '<tr><td class="rcp">2023 a starší</td><td class="note">papírová kniha</td><td class="note">nepřevádí se</td><td><span class="pill p-arch"><span class="d"></span>Zůstává v archivu</span></td></tr>'
+      + '</tbody></table></div>'
+      + '<div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn ghost sm">Nahrát soubor s historií</button><button class="btn ghost sm">Stáhnout vzorový soubor</button></div>');
+
+    card('testdata', 'Ukázková data',
       '<p class="note" style="margin:0 0 14px">Pro zaškolení a zkoušení. Ukázkové případy jsou označené a jdou naráz smazat, aby se nepletly do statistik ani do knihy.</p>'
       + '<div class="banner amber" style="margin-bottom:14px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><div>Data se zakládají <b>jen tímto tlačítkem</b> – nikdy se nevytvoří sama při spuštění aplikace.</div></div>'
       + '<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost sm">Vytvořit ukázková data</button><button class="btn ghost sm">Odstranit ukázková data</button></div>');
@@ -4213,6 +4263,9 @@ ul.clean b{color:var(--ep-text);}
     { g:'Prevence',   t:'Statistika a rizika',      s:'s10', k:'statistika grafy ltifr sestavy' },
     { g:'Prevence',   t:'Zeptat se knihy',          s:'s12', k:'ai asistent dotaz' },
     { g:'Správa',     t:'Nastavení aplikace',       s:'s13', k:'nastaveni adresati ciselniky role gdpr' },
+    { g:'Tisk',       t:'Vytisknout knihu úrazů',   s:'s2',  k:'tisk vytisknout pdf kniha kontrola inspekce', fn:function(){ if (window.epTisk) window.epTisk('s2'); } },
+    { g:'Tisk',       t:'Vytisknout záznamy o úrazu', s:'s17', k:'tisk vytisknout pdf zaznamy', fn:function(){ if (window.epTisk) window.epTisk('s17'); } },
+    { g:'Tisk',       t:'Vytisknout přehled pro pojišťovnu', s:'s18', k:'tisk vytisknout pdf pojistovna udalosti', fn:function(){ if (window.epTisk) window.epTisk('s18'); } },
     { g:'Návrh',      t:'O návrhu a co se změnilo', s:'s0',  k:'uvod legislativa zmeny 2026' },
     { g:'Návrh',      t:'Aplikace na telefonu',     s:'s11', k:'mobil telefon qr' },
     { g:'Návrh',      t:'Vaše připomínky',          s:'s14', k:'pripominky formular stanovisko' }
@@ -4257,14 +4310,14 @@ ul.clean b{color:var(--ep-text);}
     palInput.addEventListener('keydown', function(e){
       if (e.key === 'ArrowDown'){ palSel = Math.min(palSel+1, palShown.length-1); renderPal(this.value); e.preventDefault(); }
       else if (e.key === 'ArrowUp'){ palSel = Math.max(palSel-1, 0); renderPal(this.value); e.preventDefault(); }
-      else if (e.key === 'Enter'){ if (palShown[palSel]) { go(palShown[palSel].s); closePal(); } }
+      else if (e.key === 'Enter'){ if (palShown[palSel]) { var it0 = palShown[palSel]; go(it0.s); closePal(); if (it0.fn) it0.fn(); } }
       else if (e.key === 'Escape'){ closePal(); }
     });
     palList.addEventListener('click', function(e){
       var row = e.target.closest('.pal-i');
       if (!row) return;
       var it = palShown[parseInt(row.getAttribute('data-idx'), 10)];
-      if (it) { go(it.s); closePal(); }
+      if (it) { go(it.s); closePal(); if (it.fn) it.fn(); }
     });
     palWrap.addEventListener('click', function(e){ if (e.target === palWrap) closePal(); });
   }
@@ -4310,9 +4363,9 @@ ul.clean b{color:var(--ep-text);}
           x:'Pětice ikon je všude stejná: obnovit, sdílet odkaz, <b>průvodce</b>, nahlásit chybu, navrhnout vylepšení. Vedle nich jsou akce té konkrétní obrazovky – tady tisk knihy a nahlášení úrazu. Nemusíte hledat, kde co je.' }
       ] },
 
-    { t: 'Evidence: kniha úrazů', s: '8 kroků · 3 minuty',
-      d: 'Základ celé agendy. Kam se zapisuje každý úraz, co musí obsahovat a jak se do ní dostane hlášení z provozu.',
-      o: ['Přehled jako první obrazovka', 'Kniha a co v ní musí být', 'Hlášení z telefonu od mistra', 'Průvodce hlášením v pěti krocích'],
+    { t: 'Evidence: kniha úrazů', s: '9 kroků · 4 minuty',
+      d: 'Základ celé agendy. Kam se zapisuje každý úraz, co musí obsahovat, jak se do ní dostane hlášení z provozu a jak se tiskne.',
+      o: ['Přehled jako první obrazovka', 'Kniha a co v ní musí být', 'Tisk knihy pro kontrolu', 'Hlášení z telefonu od mistra', 'Průvodce hlášením v pěti krocích'],
       steps: [
         { s:'s1', sel:'#s1 .lh', t:'Přehled je to, co uvidíte po přihlášení',
           x:'Neukazuje všechno, ale to, co dnes potřebuje vaši ruku. Nahoře je oslovení a čtyři rychlé akce – třeba „dokončit záznam“ nebo „aktualizovat záznam“ – a vpravo tři karty s tím, co se blíží k termínu.' },
@@ -4324,6 +4377,8 @@ ul.clean b{color:var(--ep-text);}
           x:'Nařízení vlády č. 322/2025 Sb. říká přesně, co v knize být musí. Od ledna 2026 se seznam změnil – <b>odpadly odpracované hodiny</b>, přibyl popis úrazového děje a druh úrazu. Aplikace na ty údaje ptá rovnou při zápisu, takže se na nic nezapomene.' },
         { s:'s2', sel:'txt:Kde se kniha nejčastěji rozpadne', t:'Čtyři místa, kde se kniha rozsype',
           x:'Zkušenost z kontrol: chybí drobné úrazy, protože „se nic nestalo“; kniha je ve dvou verzích na dvou počítačích; chybí popis děje; a čísla nesedí, protože se přepisovala ručně. Aplikace všechny čtyři případy řeší tím, že je jedna a počítá si sama.' },
+        { s:'s2', sel:'#s2 .acts', t:'Kniha se vytiskne, kdykoli ji někdo chce vidět',
+          x:'Inspektor chce knihu na papíře, vedení chce přehled na poradu. Tlačítko <b>Tisk</b> je vpravo nahoře na každém seznamu i na detailu případu – vždycky se nejdřív zeptá, <b>co se má vytisknout</b> (celý rok, jen vyfiltrované, vybrané období) a <b>co se do tisku dostane</b>: popis děje, čísla záznamů, souhrn, podpisové pole, nebo jména nahrazená osobními čísly.<br><br>Sestaví se PDF podle vaší šablony – tu si upravíte v Nastavení. Nic přitom neodchází ven z firmy.' },
         { s:'s11', sel:'#s11 .phones', t:'Úraz se nehlásí u počítače',
           x:'Mistr stojí u stroje a má v ruce telefon. Naskenuje QR kód na stroji nebo otevře aplikaci v Teams, vyplní čtyři věci – kdo, kdy, kde, co se stalo – a přiloží fotku. <b>Zápis v knize vzniká hned</b>, zbytek doplní technik BOZP později.' },
         { s:'s3', sel:'#wizSteps', t:'U počítače se zápis dokončí v pěti krocích',
@@ -5364,7 +5419,6 @@ ul.clean b{color:var(--ep-text);}
     var acts = scr.querySelectorAll('.acts .btn');
     for (var i = 0; i < acts.length; i++){
       var lab = acts[i].textContent.trim();
-      if (lab.indexOf('Protokol') === 0) acts[i].addEventListener('click', function(){ window.epSay('Protokol o šetření se sestaví z vyplněných kroků – v ukázce se nestahuje.'); });
       if (lab.indexOf('Uzavřít') === 0) acts[i].addEventListener('click', function(){
         window.epConfirm({ title: 'Uzavřít šetření?', text: 'Uzavřením se šetření zamkne proti úpravám. Opatření zůstávají otevřená a dál se hlídají jejich termíny.', ok: 'Uzavřít', onOk: function(){ window.epSay('Šetření uzavřeno.'); } });
       });
@@ -6556,6 +6610,320 @@ ul.clean b{color:var(--ep-text);}
     if (lab.indexOf('Podklady k odeslání') === 0) acts[a].addEventListener('click', function (e){ e.stopPropagation(); odeslat(); });
     if (lab.indexOf('Doplnit doklad') === 0) acts[a].addEventListener('click', function (e){ e.stopPropagation(); doplnit(); });
   }
+})();
+</script>
+
+
+<script>
+// ---------- Nastavení: úpravy a ukládání ----------
+(function(){
+  var esc = window.epEsc, U = window.epTblUtil;
+  var w = document.getElementById('s13');
+  if (!w || !esc) return;
+
+  // ---- přepínače se opravdu přepínají ----
+  w.addEventListener('click', function(e){
+    var lab = e.target.closest('.switch');
+    if (!lab) return;
+    var sw = lab.querySelector('.sw');
+    if (!sw) return;
+    sw.classList.toggle('on');
+    dirty(true);
+  });
+
+  // ---- stav „neuložené změny“ ----
+  var acts = w.querySelector('.acts');
+  var stav = document.createElement('span');
+  stav.className = 'saved';
+  stav.textContent = 'Uloženo 10. 9. v 16:22';
+  var saveBtn = null, bs = w.querySelectorAll('.acts .btn');
+  for (var i = 0; i < bs.length; i++) if (bs[i].textContent.trim().indexOf('Uložit') === 0) saveBtn = bs[i];
+  if (saveBtn && acts) acts.insertBefore(stav, saveBtn);
+  var je = false;
+  function dirty(v){
+    je = v;
+    stav.className = 'saved' + (v ? ' dirty' : '');
+    stav.textContent = v ? 'Neuložené změny' : 'Uloženo ' + new Date().getDate() + '. ' + (new Date().getMonth() + 1) + '. v ' + new Date().getHours() + ':' + ('0' + new Date().getMinutes()).slice(-2);
+    if (saveBtn) saveBtn.className = 'btn ' + (v ? 'primary' : 'ghost') + ' sm';
+  }
+  w.addEventListener('input', function(){ dirty(true); });
+  w.addEventListener('change', function(){ dirty(true); });
+  if (saveBtn) saveBtn.addEventListener('click', function(){
+    if (!je) { window.epSay('Beze změn – není co ukládat.'); return; }
+    dirty(false);
+    window.epSay('Nastavení uloženo.');
+  });
+  dirty(false);
+
+  // ---- úpravy řádků v tabulkách ----
+  function karta(nazev){
+    var cs = w.querySelectorAll('.card');
+    for (var i = 0; i < cs.length; i++){
+      var t = cs[i].querySelector('.card-t');
+      if (t && t.textContent.trim().indexOf(nazev) === 0) return cs[i];
+    }
+    return null;
+  }
+  function txt(e){ return e ? e.textContent.replace(/\s+/g, ' ').trim() : ''; }
+  function pill(cls, t){ return '<span class="pill ' + cls + '"><span class="d"></span>' + esc(t) + '</span>'; }
+
+  function tabulka(nazevKarty, sloupce, tlacitko, novy){
+    var c = karta(nazevKarty);
+    if (!c) return null;
+    var tbl = c.querySelector('table');
+    if (!tbl) return null;
+    [].forEach.call(tbl.querySelectorAll('tbody tr'), function (tr){ tr.className = 'edit'; });
+    tbl.addEventListener('click', function(e){
+      var tr = e.target.closest('tbody tr');
+      if (tr) uprav(tr);
+    });
+    function hodnoty(tr){
+      var v = {};
+      sloupce.forEach(function (s2, i){
+        var td = tr.children[i];
+        v[s2.n] = s2.pill ? txt(td.querySelector('.pill') || td)
+          : (s2.sub ? txt(td.querySelector('.rcp, .t-pri') || td).replace(txt(td.querySelector('.m, .t-sub')) || '\u0000', '') : txt(td));
+        if (s2.sub) v[s2.n + '_s'] = txt(td.querySelector('.m, .t-sub'));
+      });
+      return v;
+    }
+    function zapis(tr, v){
+      sloupce.forEach(function (s2, i){
+        var td = tr.children[i];
+        if (s2.pill) td.innerHTML = pill(s2.pill[v[s2.n]] || 'p-open', v[s2.n]);
+        else if (s2.sub) td.innerHTML = '<div class="rcp">' + esc(v[s2.n]) + (v[s2.n + '_s'] ? '<span class="m">' + esc(v[s2.n + '_s']) + '</span>' : '') + '</div>';
+        else td.innerHTML = '<span class="note">' + esc(v[s2.n]) + '</span>';
+      });
+    }
+    function pole(v){
+      var f = [];
+      sloupce.forEach(function (s2){
+        if (s2.pill) f.push({ l: s2.l, n: s2.n, t: 'select', v: v[s2.n], o: Object.keys(s2.pill) });
+        else f.push({ l: s2.l, n: s2.n, t: 'text', v: v[s2.n], w2: s2.w2, hint: s2.hint });
+        if (s2.sub) f.push({ l: s2.subL || 'Upřesnění', n: s2.n + '_s', t: 'text', v: v[s2.n + '_s'] });
+      });
+      return f;
+    }
+    function uprav(tr){
+      var v = hodnoty(tr);
+      window.epBlade({
+        kicker: 'Nastavení · ' + nazevKarty,
+        title: 'Upravit řádek',
+        sub: 'Změna se projeví všude, kde aplikace tenhle údaj používá.',
+        wide: true,
+        fields: pole(v),
+        save: 'Uložit',
+        onSave: function (nv){ zapis(tr, nv); dirty(true); window.epSay('Řádek upraven – nezapomeňte nastavení uložit.'); },
+        extra: [{ t: 'Smazat řádek', cls: 'ghost', fn: function (){
+          window.epCloseBlade();
+          window.epConfirm({ title: 'Smazat řádek?', text: 'Řádek zmizí z nastavení. Zapsané případy se nemění.', ok: 'Smazat', onOk: function (){
+            var par = tr.parentNode, next = tr.nextSibling;
+            par.removeChild(tr); dirty(true);
+            window.epSay('Řádek smazán.', function (){ par.insertBefore(tr, next); dirty(true); });
+          } });
+        } }]
+      });
+    }
+    if (tlacitko && novy){
+      var btns = c.querySelectorAll('.btn');
+      for (var b = 0; b < btns.length; b++) if (btns[b].textContent.trim().indexOf(tlacitko) === 0)
+        btns[b].addEventListener('click', function(e){
+          e.stopPropagation();
+          window.epBlade({
+            kicker: 'Nastavení · ' + nazevKarty,
+            title: tlacitko,
+            sub: 'Nový řádek se přidá na konec seznamu.',
+            wide: true,
+            fields: pole(novy),
+            save: 'Přidat',
+            onSave: function (nv){
+              var tr = document.createElement('tr');
+              tr.className = 'edit';
+              sloupce.forEach(function (){ tr.appendChild(document.createElement('td')); });
+              zapis(tr, nv);
+              tbl.querySelector('tbody').appendChild(tr);
+              dirty(true);
+              window.epSay('Řádek přidán – nezapomeňte nastavení uložit.');
+            }
+          });
+        }, true);
+    }
+    return tbl;
+  }
+
+  var STAV_A = { 'Ověřeno': 'p-closed', 'Aktivní': 'p-closed', 'Ruční': 'p-open', 'Koncept': 'p-open', 'Nepoužívá se': 'p-arch' };
+  tabulka('Adresáti hlášení', [
+    { l: 'Adresát', n: 'adresat', sub: true, subL: 'Upřesnění', w2: true },
+    { l: 'Kontakt nebo kanál', n: 'kontakt', w2: true },
+    { l: 'Kdy se použije', n: 'kdy', w2: true },
+    { l: 'Stav', n: 'stav', pill: STAV_A }
+  ]);
+  tabulka('Pracoviště, provozy a stroje', [
+    { l: 'Provoz', n: 'provoz', sub: true, subL: 'Hala nebo část' },
+    { l: 'Adresa', n: 'adresa', w2: true },
+    { l: 'Inspektorát podle místa', n: 'oip', w2: true },
+    { l: 'QR štítky', n: 'qr' }
+  ]);
+  tabulka('Šablony dokumentů', [
+    { l: 'Šablona', n: 'sablona', sub: true },
+    { l: 'Použití', n: 'pouziti', w2: true },
+    { l: 'Formát', n: 'format' },
+    { l: 'Stav', n: 'stav', pill: STAV_A }
+  ]);
+  tabulka('Převzetí historie', [
+    { l: 'Ročník', n: 'rocnik', sub: true },
+    { l: 'Zdroj', n: 'zdroj', w2: true },
+    { l: 'Zápisů', n: 'zapisu' },
+    { l: 'Stav', n: 'stav', pill: { 'Načteno': 'p-closed', 'Načítá se': 'p-open', 'Zůstává v archivu': 'p-arch' } }
+  ]);
+
+  // ---- role a přístup: co která role smí ----
+  (function(){
+    var c = karta('Role a přístup');
+    if (!c) return;
+    var PRAVA = ['Zapsat úraz do knihy', 'Vyplnit záznam o úrazu', 'Podat záznam na portál', 'Vidět doklady o výdělku',
+      'Vést šetření a opatření', 'Vidět statistiku bez jmen', 'Měnit nastavení aplikace'];
+    var kv = c.querySelectorAll('.kv');
+    for (var i = 0; i < kv.length; i++){
+      kv[i].style.cursor = 'pointer';
+      kv[i].setAttribute('title', 'Upravit oprávnění role');
+      (function (row){
+        row.addEventListener('click', function(){
+          var nazev = txt(row.querySelector('.k'));
+          var popis = txt(row.querySelector('.v'));
+          var html = '<div class="card" style="margin:0 0 16px"><div class="card-b" style="padding:6px 18px">';
+          PRAVA.forEach(function (pr, j){
+            var on = (nazev.indexOf('Technik') === 0) || (j < 2 && nazev.indexOf('Mistr') === 0)
+              || (j === 3 && nazev.indexOf('Personalistika') === 0) || (j === 5 && nazev.indexOf('Vedení') === 0);
+            html += '<label class="switch" style="display:flex;padding:8px 0;border-bottom:1px solid var(--ep-line)"><span class="sw' + (on ? ' on' : '') + '"></span><span style="font-size:13px;font-weight:600">' + esc(pr) + '</span></label>';
+          });
+          html += '</div></div>';
+          window.epBlade({
+            kicker: 'Nastavení · Role a přístup',
+            title: nazev,
+            sub: 'Role se přiřazují skupinám z Microsoftu 365. Co role nevidí, nenajde ani přímým odkazem.',
+            wide: true,
+            html: html,
+            fields: [{ l: 'Popis role', n: 'popis', t: 'text', v: popis, w2: true },
+                     { l: 'Skupina v Microsoftu 365', n: 'skupina', t: 'text', v: 'BOZP – ' + nazev.split(' ')[0], w2: true }],
+            save: 'Uložit roli',
+            onSave: function (nv){
+              var v = row.querySelector('.v');
+              if (v) v.textContent = nv.popis;
+              dirty(true);
+              window.epSay('Role upravena – nezapomeňte nastavení uložit.');
+            }
+          });
+        });
+      })(kv[i]);
+    }
+  })();
+})();
+</script>
+
+
+<script>
+// ---------- Tisk: z každého seznamu i z detailu ----------
+(function(){
+  var esc = window.epEsc;
+  if (!esc) return;
+  var IKONA = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V4h12v5M6 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1M7 14h10v7H7Z"/></svg> ';
+
+  // přepínače uvnitř okna se opravdu přepínají (tisk i role v nastavení)
+  var blWrap = document.getElementById('blWrap');
+  if (blWrap) blWrap.addEventListener('click', function(e){
+    var lab = e.target.closest('.switch');
+    if (!lab) return;
+    var sw = lab.querySelector('.sw');
+    if (sw) sw.classList.toggle('on');
+  });
+
+  // co se dá vytisknout z které obrazovky
+  var TISK = {
+    s2:  { t: 'Kniha úrazů', pod: 'Tisková podoba knihy – to, co chce inspekce práce vidět jako první.',
+           rozsah: ['Celý rok 2026 · 31 zápisů', 'Jen to, co je teď vyfiltrované', 'Vybrané období…', 'Jen jedno pracoviště'],
+           volby: [['Popis úrazového děje u každého zápisu', 1], ['Sloupec s číslem záznamu o úrazu', 1], ['Souhrn na konec: počty podle závažnosti', 1], ['Podpisové pole a datum uzávěrky', 0], ['Jména nahradit osobními čísly', 0]] },
+    s17: { t: 'Záznamy o úrazu', pod: 'Přehled úředních záznamů se spisovými značkami a stavem podání.',
+           rozsah: ['Všech 9 záznamů roku 2026', 'Jen podané', 'Jen rozepsané'],
+           volby: [['Spisové značky z portálu', 1], ['Datum a čas podání', 1], ['Kdo záznam podal', 1], ['Každý záznam i v plném znění (15 částí)', 0]] },
+    s5:  { t: 'Záznam o úrazu ÚR-2026-030', pod: 'Úřední formulář se všemi patnácti částmi – to, co se podepisuje a zakládá do spisu.',
+           rozsah: ['Celý záznam · 15 částí', 'Jen části, které se podepisují', 'Prázdný formulář k ručnímu vyplnění'],
+           volby: [['Údaje o firmě z nastavení', 1], ['Podpisová pole: zraněný, svědci, zástupce pro BOZP', 1], ['Poučení o opravných prostředcích', 1], ['Vodoznak „koncept“, dokud není podáno', 1]] },
+    s18: { t: 'Pojistné události', pod: 'Přehled odškodňovaných případů a stavu likvidace – obvyklá příloha k jednání s pojišťovnou.',
+           rozsah: ['Všech 9 událostí roku 2026', 'Jen v likvidaci', 'Jen uzavřené'],
+           volby: [['Uplatněné a vyplacené částky', 1], ['Co ještě chybí doložit', 1], ['Rozpad na jednotlivé nároky', 0]] },
+    s15: { t: 'Nemoci z povolání', pod: 'Evidence podle § 105 odst. 6 zákoníku práce.',
+           rozsah: ['Všechny zápisy', 'Jen uznané nemoci', 'Jen ohrožení nemocí'],
+           volby: [['Položka seznamu nemocí z povolání', 1], ['Rizikový faktor a pracoviště', 1], ['Jména nahradit osobními čísly', 0]] },
+    s16: { t: 'Skoro-nehody', pod: 'Podklad na poradu BOZP – události, které dopadly dobře, a co z nich vzešlo.',
+           rozsah: ['Všech 26 hlášení roku 2026', 'Jen ta, která vedla k opatření', 'Jen bez reakce'],
+           volby: [['Kdo událost nahlásil', 0], ['Vazba na pozdější úraz', 1], ['Přijatá opatření', 1]] },
+    s9:  { t: 'Šetření a opatření', pod: 'Protokol o šetření a přehled opatření s řešiteli a termíny – to, na co se inspekce ptá hned po záznamu.',
+           rozsah: ['Protokol o šetření · ÚR-2026-028', 'Všechna běžící opatření', 'Opatření včetně splněných'],
+           volby: [['Kroky šetření od události ke kořenové příčině', 1], ['Řešitelé a termíny', 1], ['Doklady o splnění', 0], ['Fotografie z místa', 0]] },
+    s6:  { t: 'Lhůty a odeslání', pod: 'Přehled toho, co komu odešlo a do kdy – doklad o dodržení lhůt.',
+           rozsah: ['Případy s běžící lhůtou', 'Celý rok 2026'],
+           volby: [['Datum odeslání u každého adresáta', 1], ['Doklady o odeslání', 1], ['I případy, kde se nic nepodává', 0]] },
+    s8:  { t: 'Pojistná událost PU-2026-0041', pod: 'Spis jedné události: nároky, doklady a částky. Hodí se i jako průvodní list k podkladům.',
+           rozsah: ['Celý spis', 'Jen nároky a částky', 'Jen soupis podkladů'],
+           volby: [['Podklady, které pojišťovna vyžaduje', 1], ['Zproštění odpovědnosti a jak je doložené', 1], ['Průvodní dopis pojišťovně', 1]] },
+    s4:  { t: 'Celý případ ÚR-2026-030', pod: 'Všechno k jednomu úrazu na jednom místě – zápis, záznam, lhůty, šetření i historie.',
+           rozsah: ['Celý případ', 'Jen zápis v knize', 'Jen záznam o úrazu'],
+           volby: [['Časová osa případu', 1], ['Šetření a opatření', 1], ['Seznam dokumentů', 1], ['Historie: kdo co kdy udělal', 0]] },
+    s10: { t: 'Statistika a rizika', pod: 'Čísla pro vedení a pro roční zprávu o BOZP.',
+           rozsah: ['Rok 2026', 'Srovnání s rokem 2025', 'Vybrané období…'],
+           volby: [['Grafy', 1], ['Tepelná mapa pracoviště × měsíc', 1], ['Komentář k číslům', 1], ['Jména zraněných', 0]] }
+  };
+
+  function tisk(id){
+    var d = TISK[id];
+    if (!d) return;
+    var after = '<div class="card" style="margin:2px 0 0"><div class="card-h"><span class="icbox">' + IKONA.replace('width="14" height="14"', 'width="15" height="15"') + '</span><span class="card-t">Co se do tisku dostane</span></div><div class="card-b" style="padding:4px 18px 10px">';
+    d.volby.forEach(function (v, j){
+      after += '<label class="switch" style="display:flex;align-items:center;gap:10px;padding:9px 0;cursor:pointer' + (j < d.volby.length - 1 ? ';border-bottom:1px solid var(--ep-line)' : '') + '"><span class="sw' + (v[1] ? ' on' : '') + '"></span><span style="font-size:13px;font-weight:600">' + esc(v[0]) + '</span></label>';
+    });
+    after += '</div></div>';
+    after += '<div class="banner info" style="margin-top:14px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg><div>Sestaví se <b>PDF podle vaší šablony</b> – rovnou u vás, nic neodchází na cizí server. Hlavička, logo a pořadí sloupců se mění v Nastavení, sekce <b>Šablony dokumentů</b>.</div></div>';
+    window.epBlade({
+      kicker: 'Tisk a PDF',
+      title: d.t,
+      sub: d.pod,
+      wide: true,
+      fields: [{ l: 'Co se vytiskne', n: 'rozsah', t: 'select', v: d.rozsah[0], o: d.rozsah, w2: true }],
+      after: after,
+      note: 'Tisk nic nemění – jen vezme to, co je v evidenci.',
+      save: 'Vytisknout',
+      extra: [{ t: 'Uložit jako PDF', cls: 'ghost', fn: function (){ window.epSay('PDF se sestaví ze šablony – v ukázce se soubor nestahuje.'); } }],
+      onSave: function (){ window.epSay('Odesláno na tiskárnu – v ukázce se netiskne.'); }
+    });
+  }
+  window.epTisk = tisk;
+
+  // tlačítko Tisk do hlavičky obrazovky; kde už tiskové tlačítko je, jen se navěsí
+  var MA = { s2: 'Tisk knihy', s5: 'Náhled k tisku', s9: 'Protokol o šetření' };
+  Object.keys(TISK).forEach(function (id){
+    var scr = document.getElementById(id);
+    if (!scr) return;
+    var acts = scr.querySelector('.acts');
+    if (!acts) return;
+    var b = null;
+    if (MA[id]){
+      var bs = acts.querySelectorAll('.btn');
+      for (var i = 0; i < bs.length; i++)
+        if (bs[i].textContent.replace(/\s+/g, ' ').trim().indexOf(MA[id]) === 0) b = bs[i];
+    }
+    if (!b){
+      b = document.createElement('button');
+      b.className = 'btn ghost sm';
+      b.innerHTML = IKONA + 'Tisk';
+      var prvni = acts.querySelector('.btn');
+      if (prvni) acts.insertBefore(b, prvni); else acts.appendChild(b);
+    }
+    b.setAttribute('title', 'Vytisknout nebo uložit jako PDF');
+    (function (key){
+      b.addEventListener('click', function (e){ e.stopPropagation(); tisk(key); });
+    })(id);
+  });
 })();
 </script>
 
