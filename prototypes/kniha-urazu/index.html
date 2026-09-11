@@ -2654,7 +2654,7 @@ ul.clean b{color:var(--ep-text);}
        <button class="icobtn" data-go="s14" title="Navrhnout vylepšení"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.2.9 1.9V16h5.2v-.2c0-.7.3-1.4.9-1.9A6 6 0 0 0 12 3Z"/></svg></button>
        <span class="vline"></span>
        <button class="btn ghost sm">Podklady k odeslání</button>
-       <button class="btn primary sm" data-go="s4">Doplnit doklad</button>
+       <button class="btn primary sm">Doplnit doklad</button>
       </div>
      </div>
     </div>
@@ -2683,13 +2683,13 @@ ul.clean b{color:var(--ep-text);}
          </tr>
          <tr>
           <td><div class="t-pri">Bolestné</div><div class="t-sub">§ 271c · 19 bodů × 481,71 Kč (hodnota bodu 2026)</div></td>
-          <td><div class="t-sub">Posudek o bolestném dle NV 276/2015<br>+ poplatek za vystavení</div></td>
+          <td><div class="t-sub"><span style="color:var(--ep-green)">✓</span> Posudek o bolestném dle NV 276/2015<br><span style="color:var(--ep-green)">✓</span> + poplatek za vystavení</div></td>
           <td class="mono" style="font-weight:700">9 152 Kč</td>
           <td><span class="pill p-closed"><span class="d"></span>Doloženo</span></td>
         </tr>
          <tr>
           <td><div class="t-pri">Účelně vynaložené náklady léčení</div><div class="t-sub">§ 271d · doplatky za léky, jízdné k lékaři</div></td>
-          <td><div class="t-sub">Vyúčtování s originály účtenek</div></td>
+          <td><div class="t-sub"><span style="color:var(--ep-green)">✓</span> Vyúčtování s originály účtenek</div></td>
           <td class="mono" style="font-weight:700">1 488 Kč</td>
           <td><span class="pill p-closed"><span class="d"></span>Doloženo</span></td>
          </tr>
@@ -4260,9 +4260,9 @@ ul.clean b{color:var(--ep-text);}
           x:'Skončí neschopnost, protáhne se pobyt v nemocnici, upřesní se diagnóza – pak se údaj musí v portálu opravit a záznam poslat znovu – <b>hned, jak se o změně dozvíte</b>. Aplikace ukáže, co přesně se změnilo proti odeslané verzi, a průvodce vás provede opravou.' }
       ] },
 
-    { t: 'Peníze: pojistná událost', s: '6 kroků · 2 minuty',
+    { t: 'Peníze: pojistná událost', s: '7 kroků · 3 minuty',
       d: 'Co z úrazu plyne pro zraněného a pro firmu. Nároky, doklady, zproštění odpovědnosti a pasti, které stojí peníze.',
-      o: ['Odkud se pojistná událost bere', 'Nároky a doklady k nim', 'Zproštění odpovědnosti', 'Částky platné pro daný rok'],
+      o: ['Odkud se pojistná událost bere', 'Nároky a doklady k nim', 'Doložení a odeslání pojišťovně', 'Zproštění a částky pro daný rok'],
       steps: [
         { s:'s18', sel:'#s18 .tbl-wrap', t:'Devět případů, ve kterých jde o peníze',
           x:'Každý úraz se záznamem znamená i nárok na odškodnění. Náhradu za ztrátu na výdělku, bolestné a náklady léčení platí pojišťovna, u které je firma pojištěná ze zákona – nikoli firma sama.' },
@@ -4270,6 +4270,8 @@ ul.clean b{color:var(--ep-text);}
           x:'Vzniká z úrazu: jakmile je v případu nárok, aplikace ji <b>nabídne předvyplněnou</b> z knihy a ze záznamu. Ručně se zakládá jen výjimečně – u úrazů převzatých ze starší evidence. Pojištění máte ze zákona, žádná smlouva se neuzavírá.' },
         { s:'s8', sel:'txt:Nároky zraněného', t:'Na co má zraněný nárok',
           x:'Náhrada za ztrátu na výdělku, bolestné, náklady léčení, případně věcná škoda. U každého nároku je vidět, <b>jaké doklady k němu pojišťovna chce</b>. Trvalé následky, které zraněnému zhorší život i po vyléčení, se posuzují až rok po úrazu – aplikace to ohlídá.' },
+        { s:'s8', sel:'#s8 .acts', t:'Jak se doklad doplní a odešle',
+          x:'Klik na nárok ukáže jeho podklady a u chybějícího je tlačítko <b>Doložit</b> – soubor se nahraje a rovnou se uloží i mezi dokumenty případu. <b>Doplnit doklad</b> vypíše všechno, co chybí napříč nároky. <b>Podklady k odeslání</b> složí záznam o úrazu a doložené doklady a pošle je e-mailem pojišťovně; odchozí e-mail zůstane u případu jako doklad o odeslání.' },
         { s:'s8', sel:'txt:Zproštění odpovědnosti', t:'Kdy firma neplatí všechno',
           x:'Zprostit se odpovědnosti znamená snížit náhradu, protože si úraz způsobil sám zaměstnanec – porušil předpisy, se kterými byl seznámen, nebo jednal lehkomyslně. Míru určuje zaměstnavatel a pojišťovna ji přebírá; aplikace vede, čím je doložená.' },
         { s:'s8', sel:'txt:Čtyři pasti, které stojí peníze', t:'Čtyři pasti, které firmu stojí peníze',
@@ -5065,6 +5067,9 @@ ul.clean b{color:var(--ep-text);}
   up.addEventListener('click', function(e){ e.stopPropagation(); upload(); });
 
   render();
+
+  // doklad nahraný u pojistné události se objeví i v dokumentech případu
+  window.epAddDoc = function (d) { DOCS.unshift(d); render(); };
 })();
 </script>
 
@@ -6225,6 +6230,218 @@ ul.clean b{color:var(--ep-text);}
       hh.insertBefore(sp, hh.firstChild);
     }
   };
+})();
+</script>
+
+
+<script>
+// ---------- Pojistná událost: doklady k nárokům a odeslání pojišťovně ----------
+(function(){
+  var esc = window.epEsc, U = window.epTblUtil;
+  var s8 = document.getElementById('s8');
+  if (!s8 || !U) return;
+  var card = null, cards = s8.querySelectorAll('.card');
+  for (var i = 0; i < cards.length; i++){
+    var t = cards[i].querySelector('.card-t');
+    if (t && t.textContent.trim() === 'Nároky zraněného') { card = cards[i]; break; }
+  }
+  if (!card) return;
+  var tbl = card.querySelector('table');
+  var PL = { 'Chybí doklad': 'p-open', 'Doloženo': 'p-sent', 'Neuplatněno': 'p-arch', 'Předčasné': 'p-new', 'Vyplaceno': 'p-closed' };
+  var odeslano = false;
+
+  function radky(){ return [].slice.call(tbl.querySelectorAll('tbody tr')); }
+  function txt(e){ return e ? e.textContent.replace(/\s+/g, ' ').trim() : ''; }
+  function stav(tr){ return txt(tr.children[3]); }
+  function nazev(tr){ return txt(tr.children[0].querySelector('.t-pri')); }
+  // podklady jsou v buňce oddělené <br>; ✓ na začátku znamená doložený
+  function podklady(tr){
+    var html = tr.children[1].innerHTML.replace(/<div[^>]*>/g, '').replace(/<\/div>/g, '');
+    return html.split(/<br\s*\/?>/i).map(function (x){
+      var plain = x.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+      return { t: plain.replace(/^✓\s*/, ''), ok: plain.indexOf('✓') === 0 };
+    }).filter(function (x){ return x.t; });
+  }
+  function zapisPodklady(tr, list){
+    tr.children[1].innerHTML = '<div class="t-sub">' + list.map(function (x){
+      return (x.ok ? '<span style="color:var(--ep-green)">✓</span> ' : '') + esc(x.t);
+    }).join('<br>') + '</div>';
+  }
+  function prepocti(tr){
+    var list = podklady(tr), st = stav(tr);
+    if (st === 'Neuplatněno' || st === 'Předčasné' || st === 'Vyplaceno') return;
+    var vse = list.length && list.every(function (x){ return x.ok; });
+    var novy = vse ? 'Doloženo' : 'Chybí doklad';
+    tr.children[3].innerHTML = '<span class="pill ' + PL[novy] + '"><span class="d"></span>' + novy + '</span>';
+    // KPI „Chybí doklad“ na obrazovce
+    var chybi = 0;
+    radky().forEach(function (r){ if (stav(r) === 'Chybí doklad') chybi++; });
+    var k = s8.querySelectorAll('.kpi');
+    for (var j = 0; j < k.length; j++){
+      var l = k[j].querySelector('.kpi-l');
+      if (l && l.textContent.indexOf('Chybí') === 0) k[j].querySelector('.kpi-v').textContent = chybi;
+    }
+  }
+
+  // ---- nahrání jednoho dokladu ----
+  function nahraj(tr, idx, potom){
+    var list = podklady(tr);
+    var polozka = list[idx];
+    window.epBlade({
+      kicker: 'PU-2026-0041 · ' + nazev(tr),
+      title: 'Doložit podklad',
+      sub: 'Pojišťovna bez tohohle dokladu nárok nevyplatí. Doklad zůstane i v dokumentech případu.',
+      html: '<div class="drop" id="puZone"><span class="t">' + esc(polozka.t) + '</span><span class="s">přetáhněte sem soubor nebo klikněte a vyberte z počítače</span></div>'
+        + '<div class="note" id="puPick" style="margin:10px 0 18px">Zatím není vybrán žádný soubor.</div>',
+      fields: [
+        { l: 'Název dokladu', n: 'nazev', t: 'text', v: polozka.t, w2: true },
+        { l: 'Datum vystavení', n: 'datum', t: 'date', v: '2026-09-11' },
+        { l: 'Kdo doklad vystavil', n: 'kdo', t: 'text', v: '', hint: 'Lékař, mzdová účtárna, prodejce…' }
+      ],
+      save: 'Doložit',
+      onSave: function (v){
+        list[idx].ok = true;
+        zapisPodklady(tr, list);
+        prepocti(tr);
+        if (window.epAddDoc) window.epAddDoc({
+          n: v.nazev || polozka.t,
+          m: U.toCz(v.datum) + ' · doklad k pojistné události' + (v.kdo ? ' · ' + v.kdo : ''),
+          i: 'pdf'
+        });
+        window.epSay('Doklad doložen a uložen k případu.');
+        if (potom) potom();
+      }
+    });
+    var z = document.getElementById('puZone');
+    if (z) z.addEventListener('click', function (){
+      var pick = document.getElementById('puPick');
+      if (pick) pick.innerHTML = '<b>doklad.pdf</b> · 164 kB · připraveno <span class="note">(ukázkový soubor)</span>';
+    });
+  }
+
+  // ---- detail nároku ----
+  function narok(tr){
+    var list = podklady(tr);
+    var html = '<div class="card" style="margin:0 0 16px"><div class="card-b" style="padding:6px 18px" id="puList">';
+    for (var i = 0; i < list.length; i++){
+      html += '<div class="cpy"><span class="k">' + (list[i].ok
+        ? '<span class="dot g"></span> doloženo'
+        : '<span class="dot r"></span> chybí') + '</span><span class="v">' + esc(list[i].t) + '</span>'
+        + (list[i].ok ? '<button disabled style="opacity:.5;cursor:default">Doloženo</button>' : '<button data-pod="' + i + '">Doložit</button>') + '</div>';
+    }
+    html += '</div></div>';
+    window.epBlade({
+      kicker: 'Pojistná událost PU-2026-0041 · P. Dvořák',
+      title: nazev(tr),
+      sub: 'Podklady, které k tomuhle nároku pojišťovna vyžaduje. Stav nároku se přepočítá podle toho, co je doložené.',
+      wide: true,
+      html: html,
+      fields: [
+        { l: 'Uplatněná částka (Kč)', n: 'castka', t: 'text', v: txt(tr.children[2]).replace(/\s*Kč/, '') },
+        { l: 'Stav nároku', n: 'stav', t: 'select', v: stav(tr), o: ['Chybí doklad', 'Doloženo', 'Neuplatněno', 'Předčasné', 'Vyplaceno'] }
+      ],
+      save: 'Uložit',
+      onSave: function (v){
+        tr.children[2].textContent = v.castka + (v.castka.indexOf('–') === -1 ? ' Kč' : '');
+        tr.children[3].innerHTML = '<span class="pill ' + (PL[v.stav] || 'p-open') + '"><span class="d"></span>' + esc(v.stav) + '</span>';
+        window.epSay('Nárok uložen.');
+      }
+    });
+    var box = document.getElementById('puList');
+    if (box) box.addEventListener('click', function (e){
+      var b = e.target.closest('button[data-pod]');
+      if (!b) return;
+      var i = parseInt(b.getAttribute('data-pod'), 10);
+      window.epCloseBlade();
+      nahraj(tr, i, function (){ narok(tr); });
+    });
+  }
+  tbl.style.cursor = 'pointer';
+  tbl.addEventListener('click', function (e){
+    var tr = e.target.closest('tbody tr');
+    if (tr) narok(tr);
+  });
+
+  // ---- co ještě chybí, napříč nároky ----
+  function doplnit(){
+    var chybi = [];
+    radky().forEach(function (tr){
+      if (stav(tr) === 'Neuplatněno' || stav(tr) === 'Předčasné') return;
+      podklady(tr).forEach(function (x, i){ if (!x.ok) chybi.push({ tr: tr, i: i, t: x.t, n: nazev(tr) }); });
+    });
+    if (!chybi.length){
+      window.epSay('Všechny podklady jsou doložené – událost je připravená k odeslání.');
+      return;
+    }
+    var html = '<div class="card" style="margin:0"><div class="card-b" style="padding:6px 18px" id="puMiss">';
+    for (var i = 0; i < chybi.length; i++){
+      html += '<div class="cpy"><span class="k"><span class="dot r"></span> chybí</span><span class="v">' + esc(chybi[i].t)
+        + '<span class="note"> · ' + esc(chybi[i].n) + '</span></span><button data-miss="' + i + '">Doložit</button></div>';
+    }
+    html += '</div></div>';
+    window.epBlade({
+      kicker: 'PU-2026-0041 · Kooperativa',
+      title: 'Co ještě chybí',
+      sub: 'Dokud tyhle doklady nedorazí, pojišťovna likvidaci nedokončí. Termín u posledního doložení hlídá aplikace.',
+      wide: true,
+      html: html
+    });
+    var box = document.getElementById('puMiss');
+    if (box) box.addEventListener('click', function (e){
+      var b = e.target.closest('button[data-miss]');
+      if (!b) return;
+      var x = chybi[parseInt(b.getAttribute('data-miss'), 10)];
+      window.epCloseBlade();
+      nahraj(x.tr, x.i, doplnit);
+    });
+  }
+
+  // ---- odeslání pojišťovně ----
+  function odeslat(){
+    var polozky = [{ t: 'Záznam o úrazu ÚR-2026-030 (PDF)', ok: true }];
+    var chybi = 0;
+    radky().forEach(function (tr){
+      if (stav(tr) === 'Neuplatněno' || stav(tr) === 'Předčasné') return;
+      podklady(tr).forEach(function (x){
+        polozky.push({ t: x.t + ' · ' + nazev(tr), ok: x.ok });
+        if (!x.ok) chybi++;
+      });
+    });
+    var html = '<div class="card" style="margin:0 0 16px"><div class="card-b" style="padding:6px 18px">';
+    polozky.forEach(function (x){
+      html += '<div class="cpy"><span class="k">' + (x.ok ? '<span class="dot g"></span> přiloží se' : '<span class="dot r"></span> chybí')
+        + '</span><span class="v">' + esc(x.t) + '</span></div>';
+    });
+    html += '</div></div>';
+    html += chybi
+      ? '<div class="banner amber"><div><b>' + chybi + ' ' + (chybi === 1 ? 'doklad chybí' : 'doklady chybí') + '.</b> Odeslat jde i tak – pojišťovna likvidaci zahájí a chybějící doklad si vyžádá. Rychlejší je doložit ho hned.</div></div>'
+      : '<div class="banner green"><div><b>Všechno je doložené.</b> Pojišťovna má vše, co k likvidaci potřebuje.</div></div>';
+    window.epBlade({
+      kicker: 'Odeslání pojišťovně',
+      title: 'Podklady pro Kooperativu',
+      sub: 'Odejde e-mailem z vaší schránky na <b>likvidace125@koop.cz</b>, číslo smlouvy 7158104812. Odchozí e-mail se uloží k případu jako doklad o odeslání.',
+      wide: true,
+      html: html,
+      save: 'Odeslat pojišťovně',
+      extra: chybi ? [{ t: 'Nejdřív doložit', cls: 'ghost', fn: function (){ window.epCloseBlade(); doplnit(); } }] : null,
+      onSave: function (){
+        odeslano = true;
+        if (window.epAddDoc) window.epAddDoc({
+          n: 'Podklady pro Kooperativu · PU-2026-0041',
+          m: '11. 9. · odchozí e-mail · doklad o odeslání',
+          i: 'ok', c: 'var(--ep-accent-soft)', f: 'var(--ep-accent-strong)'
+        });
+        window.epSay('Podklady odeslány Kooperativě. E-mail uložen k případu.');
+      }
+    });
+  }
+
+  var acts = s8.querySelectorAll('.acts .btn');
+  for (var a = 0; a < acts.length; a++){
+    var lab = acts[a].textContent.trim();
+    if (lab.indexOf('Podklady k odeslání') === 0) acts[a].addEventListener('click', function (e){ e.stopPropagation(); odeslat(); });
+    if (lab.indexOf('Doplnit doklad') === 0) acts[a].addEventListener('click', function (e){ e.stopPropagation(); doplnit(); });
+  }
 })();
 </script>
 
