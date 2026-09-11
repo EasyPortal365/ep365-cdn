@@ -1455,7 +1455,7 @@ ul.clean b{color:var(--ep-text);}
       <div>
        <div class="eyebrow">Správa aplikace</div>
        <h1 class="h1">Nastavení aplikace.<span class="hl">Jednou pořádně, pak už jen sledovat lhůty.</span></h1>
-       <p class="ph-sub">Co se nastaví jednou na začátku: komu se hlášení posílají, jaká máte pracoviště a stroje, kdo smí co vidět a jak dlouho se dokumenty uchovávají. Údaje o firmě a firemní barvy se přebírají z vašeho intranetu, nezadávají se znovu.</p>
+       <p class="ph-sub">Co se nastaví jednou na začátku: údaje o firmě, které jdou do každého záznamu, komu se hlášení posílají, jaká máte pracoviště a stroje, kdo smí co vidět a jak dlouho se dokumenty uchovávají. Název, logo a firemní barvy si aplikace bere z vašeho intranetu – ručně se doplní jen to, co po vás záznam o úrazu chce navíc.</p>
       </div>
       <div class="acts"><button class="icobtn" title="Obnovit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.5M4 4v4.5h4.5"/><path d="M4 13a8 8 0 0 0 13.7 4.7L20 15.5M20 20v-4.5h-4.5"/></svg></button><button class="icobtn" title="Sdílet odkaz"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l2-2A5 5 0 0 0 12.5 4.5l-1 1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2A5 5 0 0 0 11.5 19.5l1-1"/></svg></button><span class="vline"></span><button class="icobtn" data-go="s0" title="Nápověda k návrhu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.6v.3M12 17h.01"/></svg></button><button class="icobtn" data-go="s14" title="Nahlásit připomínku"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h8l1 4a5 5 0 0 1-10 0Z"/><path d="M12 14v6M8 20h8"/></svg></button><button class="icobtn" data-go="s14" title="Navrhnout vylepšení"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></button><span class="vline"></span><button class="btn ghost sm" data-go="s1">Zpět do aplikace</button><button class="btn primary sm">Uložit změny</button></div>
      </div>
@@ -4263,6 +4263,8 @@ ul.clean b{color:var(--ep-text);}
     { g:'Prevence',   t:'Statistika a rizika',      s:'s10', k:'statistika grafy ltifr sestavy' },
     { g:'Prevence',   t:'Zeptat se knihy',          s:'s12', k:'ai asistent dotaz' },
     { g:'Správa',     t:'Nastavení aplikace',       s:'s13', k:'nastaveni adresati ciselniky role gdpr' },
+    { g:'Když hoří',   t:'Vážný úraz – co dělat hned', s:'s6',  k:'vazny smrtelny prvni hodina misto urazu policie inspektorat neodklizet', fn:function(){ if (window.epVazny) window.epVazny(); } },
+    { g:'Správa',     t:'Uzávěrka ročníku knihy',   s:'s2',  k:'uzaverka rocnik zamek uzamknout kniha oprava', fn:function(){ if (window.epUzaverka) window.epUzaverka(); } },
     { g:'Tisk',       t:'Vytisknout knihu úrazů',   s:'s2',  k:'tisk vytisknout pdf kniha kontrola inspekce', fn:function(){ if (window.epTisk) window.epTisk('s2'); } },
     { g:'Tisk',       t:'Vytisknout záznamy o úrazu', s:'s17', k:'tisk vytisknout pdf zaznamy', fn:function(){ if (window.epTisk) window.epTisk('s17'); } },
     { g:'Tisk',       t:'Vytisknout přehled pro pojišťovnu', s:'s18', k:'tisk vytisknout pdf pojistovna udalosti', fn:function(){ if (window.epTisk) window.epTisk('s18'); } },
@@ -4363,9 +4365,9 @@ ul.clean b{color:var(--ep-text);}
           x:'Pětice ikon je všude stejná: obnovit, sdílet odkaz, <b>průvodce</b>, nahlásit chybu, navrhnout vylepšení. Vedle nich jsou akce té konkrétní obrazovky – tady tisk knihy a nahlášení úrazu. Nemusíte hledat, kde co je.' }
       ] },
 
-    { t: 'Evidence: kniha úrazů', s: '9 kroků · 4 minuty',
-      d: 'Základ celé agendy. Kam se zapisuje každý úraz, co musí obsahovat, jak se do ní dostane hlášení z provozu a jak se tiskne.',
-      o: ['Přehled jako první obrazovka', 'Kniha a co v ní musí být', 'Tisk knihy pro kontrolu', 'Hlášení z telefonu od mistra', 'Průvodce hlášením v pěti krocích'],
+    { t: 'Evidence: kniha úrazů', s: '10 kroků · 4 minuty',
+      d: 'Základ celé agendy. Kam se zapisuje každý úraz, co musí obsahovat, jak se do ní dostane hlášení z provozu, jak se tiskne a proč se nedá přepsat.',
+      o: ['Přehled jako první obrazovka', 'Kniha a co v ní musí být', 'Tisk knihy pro kontrolu', 'Uzávěrka ročníku a zámek', 'Hlášení z telefonu od mistra', 'Průvodce hlášením v pěti krocích'],
       steps: [
         { s:'s1', sel:'#s1 .lh', t:'Přehled je to, co uvidíte po přihlášení',
           x:'Neukazuje všechno, ale to, co dnes potřebuje vaši ruku. Nahoře je oslovení a čtyři rychlé akce – třeba „dokončit záznam“ nebo „aktualizovat záznam“ – a vpravo tři karty s tím, co se blíží k termínu.' },
@@ -4379,6 +4381,8 @@ ul.clean b{color:var(--ep-text);}
           x:'Zkušenost z kontrol: chybí drobné úrazy, protože „se nic nestalo“; kniha je ve dvou verzích na dvou počítačích; chybí popis děje; a čísla nesedí, protože se přepisovala ručně. Aplikace všechny čtyři případy řeší tím, že je jedna a počítá si sama.' },
         { s:'s2', sel:'#s2 .acts', t:'Kniha se vytiskne, kdykoli ji někdo chce vidět',
           x:'Inspektor chce knihu na papíře, vedení chce přehled na poradu. Tlačítko <b>Tisk</b> je vpravo nahoře na každém seznamu i na detailu případu – vždycky se nejdřív zeptá, <b>co se má vytisknout</b> (celý rok, jen vyfiltrované, vybrané období) a <b>co se do tisku dostane</b>: popis děje, čísla záznamů, souhrn, podpisové pole, nebo jména nahrazená osobními čísly.<br><br>Sestaví se PDF podle vaší šablony – tu si upravíte v Nastavení. Nic přitom neodchází ven z firmy.' },
+        { s:'s2', sel:'txt:Uzávěrka ročníku a zámek knihy', t:'Proč je kniha jinde než excel',
+          x:'Kontrola se neptá jen na to, <b>co v knize je</b>, ale jestli se to nedá zpětně přepsat. V excelu to nedoložíte. Tady se ročník po skončení roku <b>uzamkne</b> – zápisy se tím nezakonzervují do nečitelna, jen do nich už nejde sáhnout potichu.<br><br>Když se v uzavřeném roce opravdu musí něco opravit (chyba v přepisu, nově doložený doklad, pokyn inspektorátu), zápis se odemkne <b>se zdůvodněním</b>. Původní znění zůstane v historii a oprava je vidět i v tiskové podobě knihy.' },
         { s:'s11', sel:'#s11 .phones', t:'Úraz se nehlásí u počítače',
           x:'Mistr stojí u stroje a má v ruce telefon. Naskenuje QR kód na stroji nebo otevře aplikaci v Teams, vyplní čtyři věci – kdo, kdy, kde, co se stalo – a přiloží fotku. <b>Zápis v knize vzniká hned</b>, zbytek doplní technik BOZP později.' },
         { s:'s3', sel:'#wizSteps', t:'U počítače se zápis dokončí v pěti krocích',
@@ -4387,9 +4391,9 @@ ul.clean b{color:var(--ep-text);}
           x:'Jakmile zadáte délku neschopnosti a okolnosti, aplikace rovnou ukáže <b>navrženou kategorii úrazu</b>, jestli vzniká povinnost podat záznam, do kdy, a komu se má úraz ohlásit. Nemusíte to dohledávat v předpisu – ale potvrzujete to vy.' }
       ] },
 
-    { t: 'Jeden případ od začátku do konce', s: '7 kroků · 3 minuty',
-      d: 'Všechno k jednomu úrazu na jednom místě. Osm záložek, které drží pohromadě knihu, úřední záznam, peníze, šetření i dokumenty.',
-      o: ['Osm záložek jednoho případu', 'Časová osa a co z případu plyne', 'Dokumenty a co v nich není', 'Historie: kdo co kdy udělal'],
+    { t: 'Jeden případ od začátku do konce', s: '8 kroků · 4 minuty',
+      d: 'Všechno k jednomu úrazu na jednom místě. Osm záložek, které drží pohromadě knihu, úřední záznam, peníze, šetření i dokumenty – až po uzavření případu.',
+      o: ['Osm záložek jednoho případu', 'Časová osa a co z případu plyne', 'Dokumenty a co v nich není', 'Kdy případ skončí', 'Historie: kdo co kdy udělal'],
       steps: [
         { s:'s4', pane:'prehled', sel:'#caseTabs', t:'Případ má osm záložek',
           x:'Přehled, zápis v knize, úřední záznam, ohlášení a lhůty, pojistná událost, šetření, dokumenty a historie. <b>Všechny patří jednomu úrazu</b> – přepínají obsah pod sebou, nikam se neodchází. Nahoře je vidět, o který případ jde.' },
@@ -4403,13 +4407,15 @@ ul.clean b{color:var(--ep-text);}
           x:'Objasnění příčin za účasti zraněného a svědků, zjištěná příčina a opatření, která z ní vzešla – každé se svým řešitelem a termínem. Zákon chce obojí: záznam <b>i</b> to, aby se úraz neopakoval.' },
         { s:'s4', pane:'dokumenty', sel:'txt:Dokumenty případu', t:'Záložka Dokumenty: všechno u případu',
           x:'Podepsaný záznam, fotky místa, vyjádření zraněného, protokol o šetření, doklady o odeslání. Každý řádek jde <b>otevřít, stáhnout i smazat</b>, nový soubor se nahraje tlačítkem.<br><br>Co tu vědomě není: <b>lékařské zprávy a neschopenky</b>. Zůstávají u mzdové účtárny; aplikace si z nich bere jen délku neschopnosti a druh zranění.' },
+        { s:'s4', pane:'kniha', sel:'#s4 .acts', t:'Kdy případ skončí',
+          x:'Případ neskončí tím, že se podá záznam. Tlačítkem <b>Uzavřít případ</b> se zadá datum, kdy skončila pracovní neschopnost, a aplikace ukáže <b>kontrolní seznam</b>: je záznam podán, je doplněná skutečná délka neschopnosti, je vyřízená pojistná událost, jsou splněná opatření.<br><br>Uzavřít se dá i s nedokončenými body – jen se to napíše do historie a ty body se hlídají dál. V knize úrazů se případ přepne na <b>Uzavřeno</b>.<br><br>Ve stejné záložce je i <b>Přidat dalšího zraněného</b>: když se při jedné události zraní víc lidí, společné údaje se převezmou a každý dostane vlastní zápis i vlastní lhůty.' },
         { s:'s4', pane:'historie', sel:'txt:Historie případu', t:'Záložka Historie: kdo co kdy udělal',
           x:'Kompletní stopa případu. Při kontrole je čím doložit, že se ohlásilo včas a kdo záznam podal. Zapisuje se sama – nikdo ji nevede zvlášť.' }
       ] },
 
-    { t: 'Úřední cesta: záznam a portál', s: '8 kroků · 4 minuty',
+    { t: 'Úřední cesta: záznam a portál', s: '9 kroků · 4 minuty',
       d: 'Nejnáročnější část agendy: kdy vzniká záznam o úrazu, jak se vyplní, jak se dostane na portál a co dělat, když se pak něco změní.',
-      o: ['Kdy se záznam dělá a kdy ne', 'Patnáct částí formuláře', 'Průvodce podáním na portál', 'Lhůty a oprava odeslaného záznamu'],
+      o: ['Kdy se záznam dělá a kdy ne', 'Patnáct částí formuláře', 'Průvodce podáním na portál', 'Vážný úraz: první hodina', 'Lhůty a oprava odeslaného záznamu'],
       steps: [
         { s:'s17', sel:'#s17 .tbl-wrap', t:'Záznam se dělá jen u vážnějších úrazů',
           x:'Z 31 letošních zápisů v knize jich potřebuje záznam devět – u lehkých úrazů se zápis v knize a nikam se nic neposílá. Seznam ukazuje, kde je záznam podaný, kde rozepsaný a kde čeká na aktualizaci.' },
@@ -4425,6 +4431,8 @@ ul.clean b{color:var(--ep-text);}
           x:'Fronta ukazuje u každého případu čtyři adresáty naráz – portál, zdravotní pojišťovnu, pojišťovnu zákonného pojištění a kopie oprávněným osobám. Tečka u každého říká, jestli je hotovo, připraveno, nebo se to netýká. Vpravo běží lhůta.' },
         { s:'s6', sel:'txt:Které lhůty aplikace hlídá', t:'Šest různých lhůt, každá jinak dlouhá',
           x:'Ohlášení bez zbytečného odkladu, záznam do patnácti pracovních dnů, kopie po podpisu, aktualizace kdykoli se něco změní. U každého adresáta platí jiné pravidlo – a právě na tomhle se nejčastěji chybuje.' },
+        { s:'s6', sel:'txt:Vážný nebo smrtelný úraz: co udělat hned', t:'Když jde o vážný úraz, rozhoduje první hodina',
+          x:'Tohle je jediné místo v celé agendě, kde se chyba nedá napravit později. <b>Do objasnění příčin se nesmí bez vážných důvodů měnit stav na místě úrazu</b> – zákoník práce, § 105 odst. 1. Uklizená hala, spuštěný stroj nebo odvezený žebřík už nikdo zpátky nesloží.<br><br>Karta vede krok po kroku: postarat se o zraněného → nechat místo, jak je → ohlásit inspektorátu bez zbytečného odkladu → u smrtelného úrazu volat i Policii ČR a zdravotní pojišťovnu → vyrozumět zástupce pro BOZP a u cizího zaměstnance i jeho zaměstnavatele → zajistit svědky a fotky, dokud je směna na místě.<br><br>Stejný postup dostanou mistři na telefon – oni jsou u toho dřív než vy.' },
         { s:'s7', sel:'txt:Co se mění · ÚR-2026-030', t:'Když se něco změní, záznam se opravuje',
           x:'Skončí neschopnost, protáhne se pobyt v nemocnici, upřesní se diagnóza – pak se údaj musí v portálu opravit a záznam poslat znovu – <b>hned, jak se o změně dozvíte</b>. Aplikace ukáže, co přesně se změnilo proti odeslané verzi, a průvodce vás provede opravou.' }
       ] },
@@ -4484,7 +4492,7 @@ ul.clean b{color:var(--ep-text);}
         { s:'s12', sel:'txt:Hranice asistenta', t:'Co asistent naopak nedělá',
           x:'Nedělá právní výklad, nerozhoduje, neodesílá nic za vás a nevidí víc než vy. Data zůstávají u vás – neskládá odpovědi z ničeho mimo vaši firmu. Zdravotní zprávy nezná, protože je aplikace vůbec neukládá.' },
         { s:'s13', sec:'adresati', sel:'txt:Adresáti hlášení', t:'Nastavení se udělá jednou',
-          x:'Komu se hlášení posílají, jaká máte pracoviště a stroje, kdo smí co vidět a jak dlouho se dokumenty uchovávají. Vlevo je jedenáct sekcí – projdou se jednou na začátku a pak už se do nich nechodí.' }
+          x:'Komu se hlášení posílají, jaká máte pracoviště a stroje, kdo smí co vidět a jak dlouho se dokumenty uchovávají. Vlevo je dvanáct sekcí – projdou se jednou na začátku a pak už se do nich nechodí.' }
       ] },
 
     { t: 'O tomhle návrhu', s: '4 kroky · 1 minuta',
@@ -6821,6 +6829,331 @@ ul.clean b{color:var(--ep-text);}
 })();
 </script>
 
+
+
+<script>
+// ---------- Vážný úraz, uzavření případu, uzávěrka ročníku, hromadný úraz ----------
+(function(){
+  var esc = window.epEsc;
+  if (!esc) return;
+
+  function ico(d, w){ return '<svg width="' + (w || 15) + '" height="' + (w || 15) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + d + '</svg>'; }
+  var I_WARN = '<path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 2.6 17.2A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0Z"/>';
+  var I_LOCK = '<rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>';
+  var I_CHECK = '<path d="M20 6 9 17l-5-5"/>';
+  var I_USERS = '<path d="M16 19v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="9.5" cy="7" r="3"/><path d="M21 19v-1a4 4 0 0 0-3-3.9"/><path d="M16.5 4.1a4 4 0 0 1 0 5.8"/>';
+
+  function karta(cls, ikona, nadpis, telo, akce){
+    var d = document.createElement('div');
+    d.className = 'card' + (cls ? ' ' + cls : '');
+    d.innerHTML = '<div class="card-h"><span class="icbox">' + ico(ikona) + '</span><span class="card-t">' + esc(nadpis) + '</span>'
+      + (akce || '') + '</div><div class="card-b">' + telo + '</div>';
+    return d;
+  }
+  // vloží kartu před kartu s daným názvem (a před její mřížku, sedí-li v ní)
+  function predKartu(scr, nazev, uzel){
+    var cs = scr.querySelectorAll('.card'), cil = null;
+    for (var i = 0; i < cs.length; i++){
+      var t = cs[i].querySelector('.card-t');
+      if (t && t.textContent.replace(/\s+/g, ' ').trim().indexOf(nazev) === 0){ cil = cs[i]; break; }
+    }
+    if (!cil){ scr.appendChild(uzel); return; }
+    var rodic = cil.parentNode;
+    while (rodic && rodic !== scr && !/grid[23]/.test(rodic.className || '')) rodic = rodic.parentNode;
+    var kam = (rodic && rodic !== scr) ? rodic : cil;
+    kam.parentNode.insertBefore(uzel, kam);
+    // dorovnat mezeru, když následující blok žádnou nemá
+    try {
+      var mt = parseFloat(window.getComputedStyle(kam).marginTop) || 0;
+      if (mt < 12) uzel.style.marginBottom = '18px';
+    } catch (e) { uzel.style.marginBottom = '18px'; }
+  }
+  function tlacitko(scr, popisek, fn, cls){
+    var acts = scr.querySelector('.acts');
+    if (!acts) return null;
+    var b = document.createElement('button');
+    b.className = 'btn ' + (cls || 'ghost') + ' sm';
+    b.textContent = popisek;
+    b.addEventListener('click', function(e){ e.stopPropagation(); fn(); });
+    var prvni = acts.querySelector('.btn');
+    if (prvni) acts.insertBefore(b, prvni); else acts.appendChild(b);
+    return b;
+  }
+
+  // ══════════ 1) Vážný nebo smrtelný úraz: první hodina ══════════
+  var KROKY = [
+    ['Postarat se o zraněného a o ostatní', 'První pomoc, přivolat záchrannou službu, zastavit stroj nebo provoz, pokud hrozí další úraz. Tohle jde vždycky před papírováním.'],
+    ['Nechat místo, jak je', 'Do objasnění příčin se <b>stav na místě úrazu nesmí bez vážných důvodů měnit</b> – zákoník práce, § 105 odst. 1. Vážný důvod je odvracení další škody nebo ohrožení; co se muselo změnit, se vyfotí a napíše proč. Uklizené místo už nikdo zpětně nesloží.'],
+    ['Ohlásit inspektorátu práce', 'Bez zbytečného odkladu, u závažného i smrtelného úrazu. Aplikace ví, který z osmi oblastních inspektorátů je podle místa úrazu ten váš, a nabídne kontakt.'],
+    ['U smrtelného úrazu volat i Policii ČR', 'A také vždy, když je podezření na trestný čin. U smrtelného úrazu se navíc ohlašuje zdravotní pojišťovně zraněného.'],
+    ['Vyrozumět zástupce pro BOZP a odbory', 'Mají právo být u objasňování příčin. Jde-li o zaměstnance agentury nebo dodavatele, vyrozumí se <b>bez zbytečného odkladu i jeho zaměstnavatel</b>.'],
+    ['Zajistit svědky a fotografie', 'Než se směna rozejde: kdo co viděl, jméno a kontakt, fotky místa ze všech stran. Za dva dny už si nikdo nevzpomene a inspektor přijde později.']
+  ];
+  function vazny(){
+    var h = '<div class="steps">';
+    KROKY.forEach(function (k, i){
+      h += '<div class="step' + (i === 1 ? ' act' : '') + '"><span class="step-n">' + (i + 1) + '</span><div><div class="step-t">' + esc(k[0]) + '</div><div class="step-d">' + k[1] + '</div></div></div>';
+    });
+    h += '</div>';
+    window.epBlade({
+      kicker: 'Když se stane to zlé',
+      title: 'Vážný nebo smrtelný úraz: první hodina',
+      sub: 'Pořadí, ve kterém se to má dít. Papír počká, místo úrazu ne.',
+      wide: true,
+      html: h,
+      note: 'Stejný postup je i na telefonu – mistr ho má u sebe dřív, než dojdete na místo.',
+      save: 'Zahájit ohlášení',
+      extra: [{ t: 'Poslat postup na telefon', cls: 'ghost', fn: function (){ window.epSay('Postup se otevře v aplikaci na telefonu – v ukázce se nic neodesílá.'); } }],
+      onSave: function (){ window.epSay('Otevře se ohlášení inspektorátu s předvyplněnou provozovnou a kontaktem – v ukázce se nic neodesílá.'); }
+    });
+  }
+  window.epVazny = vazny;
+
+  (function(){
+    var s6 = document.getElementById('s6');
+    if (!s6) return;
+    var telo = '<p class="note" style="margin:0 0 12px">U závažného a smrtelného úrazu se rozhoduje v první hodině – a nejde jen o to, komu zavolat. <b>Do objasnění příčin se nesmí bez vážných důvodů měnit stav na místě úrazu</b> (§ 105 odst. 1 zákoníku práce). Uklizená hala je chyba, kterou už nikdo neopraví.</p>'
+      + '<div class="banner red" style="margin:0 0 12px">' + ico(I_WARN) + '<div>Nezakrývat, neuklízet, nespouštět stroj. Co se muselo změnit kvůli bezpečnosti, se vyfotí a zapíše proč.</div></div>'
+      + '<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary sm" id="vaznyBtn">Celý postup pro první hodinu</button><button class="btn ghost sm" id="vaznyTel">Poslat na telefon mistrům</button></div>';
+    var k = karta('', I_WARN, 'Vážný nebo smrtelný úraz: co udělat hned', telo);
+    predKartu(s6, 'Které lhůty aplikace hlídá', k);
+    k.querySelector('#vaznyBtn').addEventListener('click', function(e){ e.stopPropagation(); vazny(); });
+    k.querySelector('#vaznyTel').addEventListener('click', function(e){ e.stopPropagation(); window.epSay('Postup dostanou mistři do aplikace na telefonu – v ukázce se nic neodesílá.'); });
+  })();
+
+  // odkaz i tam, kde se úraz hlásí z provozu
+  (function(){
+    var s11 = document.getElementById('s11');
+    if (!s11) return;
+    var b = document.createElement('div');
+    b.className = 'banner red';
+    b.style.margin = '0 0 18px';
+    b.innerHTML = ico(I_WARN) + '<div><b>Vážný úraz vypadá na telefonu jinak.</b> Hlášení se zkrátí na dvě otázky a nahoře svítí, co se nesmí – <b>nezasahovat do místa úrazu</b>, dokud se neobjasní příčiny. <span class="note" style="display:block;margin-top:4px">Mistr nemusí vědět, komu volat: aplikace sama napíše, že jde o závažný úraz a že ho technik BOZP musí ohlásit inspektorátu bez zbytečného odkladu.</span></div>';
+    var kam = s11.querySelector('.ph-grid') || s11.querySelector('.card');
+    if (kam && kam.parentNode) kam.parentNode.insertBefore(b, kam);
+  })();
+
+  // ══════════ 2) Konec neschopnosti a uzavření případu ══════════
+  var HOTOVO = [
+    ['Zápis v knize úrazů', 1, 'Zapsáno 2. 9., doplněno technikem BOZP.'],
+    ['Záznam o úrazu podán na portál SÚIP', 1, 'Podáno 4. 9., spisová značka 12678/2026/8.10.'],
+    ['Kopie předány zraněnému a zástupci pro BOZP', 1, 'Předáno 5. 9. proti podpisu.'],
+    ['Skutečná délka neschopnosti doplněna do portálu', 0, 'Lékař upřesnil 18 dní; v odeslaném záznamu je původní odhad deseti.'],
+    ['Pojistná událost vyřízena', 0, 'PU-2026-0041 – pojišťovna čeká na doklad o výdělku, termín 12. 9.'],
+    ['Opatření ze šetření splněná', 0, 'Dvě běží: šířka uličky C do 30. 9., vodorovné značení do 31. 10.']
+  ];
+  function uzavrit(){
+    var h = '<div class="card" style="margin:0 0 4px"><div class="card-h"><span class="icbox">' + ico(I_CHECK) + '</span><span class="card-t">Co má být hotové, než se případ zavře</span></div><div class="card-b" style="padding:6px 18px 10px">';
+    HOTOVO.forEach(function (x, i){
+      h += '<div style="display:flex;gap:12px;align-items:flex-start;padding:9px 0' + (i < HOTOVO.length - 1 ? ';border-bottom:1px solid var(--ep-line)' : '') + '">'
+        + '<span class="pill ' + (x[1] ? 'p-closed' : 'p-open') + '" style="flex-shrink:0;min-width:86px;justify-content:center"><span class="d"></span>' + (x[1] ? 'Hotovo' : 'Zbývá') + '</span>'
+        + '<div><div style="font-size:13px;font-weight:700">' + esc(x[0]) + '</div><div class="note" style="margin-top:2px">' + esc(x[2]) + '</div></div></div>';
+    });
+    h += '</div></div>';
+    window.epBlade({
+      kicker: 'Případ ÚR-2026-030',
+      title: 'Uzavřít případ',
+      sub: 'Uzavřením případ zmizí z rozpracovaných a v knize úrazů se přepne na <b>Uzavřeno</b>. Zápis zůstává čitelný, jen se do něj už nezasahuje bez zdůvodnění.',
+      wide: true,
+      html: h,
+      fields: [
+        { l: 'Pracovní neschopnost skončila', n: 'konec', t: 'date', v: '2026-09-19', hint: 'Datum ukončí počítání dnů a spustí opravu záznamu v portálu, pokud se délka liší od odeslané.' },
+        { l: 'Poznámka k uzavření', n: 'pozn', t: 'text', v: '', hint: 'Nepovinné. Uloží se do historie případu.' }
+      ],
+      save: 'Uzavřít případ',
+      onSave: function (v){
+        var zbyva = HOTOVO.filter(function (x){ return !x[1]; });
+        if (zbyva.length){
+          window.epConfirm({
+            title: zbyva.length + ' body nejsou hotové',
+            text: 'Nedokončeno zůstává: <b>' + zbyva.map(function (x){ return esc(x[0]); }).join('</b>, <b>') + '</b>.<br><br>Případ se dá uzavřít i tak – důvod se uloží do historie a nedokončené věci se dál hlídají. Nic se tím nemaže.',
+            ok: 'Uzavřít přesto',
+            onOk: function (){ hotovo(v); }
+          });
+          return;
+        }
+        hotovo(v);
+      }
+    });
+  }
+  function hotovo(v){
+    var s4 = document.getElementById('s4');
+    var kroky = s4 ? s4.querySelectorAll('.steps .step') : [];
+    for (var i = 0; i < kroky.length; i++){
+      var t = kroky[i].querySelector('.step-t');
+      if (t && t.textContent.indexOf('konec neschopnosti') !== -1){
+        kroky[i].className = 'step done';
+        kroky[i].querySelector('.step-n').textContent = '\u2713';
+        t.textContent = '19. 9. \u00b7 Neschopnost skončila';
+        kroky[i].querySelector('.step-d').innerHTML = 'Trvala 18 dní. Skutečná délka se doplnila do portálu, záznam se odeslal znovu. <span class="law">NV 322/2025 § 9</span>';
+        var novy = document.createElement('div');
+        novy.className = 'step done';
+        novy.innerHTML = '<span class="step-n">\u2713</span><div><div class="step-t">' + new Date().getDate() + '. ' + (new Date().getMonth() + 1) + '. \u00b7 Případ uzavřen</div><div class="step-d">Uzavřel Kamil Juřík. ' + (v && v.pozn ? esc(v.pozn) + ' ' : '') + 'Nedokončené body se hlídají dál – pojistná událost a dvě opatření.</div></div>';
+        kroky[i].parentNode.appendChild(novy);
+        break;
+      }
+    }
+    window.epSay('Případ ÚR-2026-030 uzavřen. V knize úrazů se přepnul na Uzavřeno.');
+  }
+  window.epUzavritPripad = uzavrit;
+  (function(){
+    var s4 = document.getElementById('s4');
+    if (s4) tlacitko(s4, 'Uzavřít případ', uzavrit);
+  })();
+
+  // ══════════ 3) Uzávěrka ročníku a zámek knihy ══════════
+  function uzaverka(){
+    window.epBlade({
+      kicker: 'Kniha úrazů',
+      title: 'Uzávěrka ročníku',
+      sub: 'Uzávěrkou se ročník uzamkne. Právě tím se kniha liší od excelu – zpětná změna už není neviditelná.',
+      wide: true,
+      fields: [
+        { l: 'Ročník', n: 'rok', t: 'select', v: '2026 – běží, uzavře se po 31. 12.', o: ['2026 – běží, uzavře se po 31. 12.', '2025 – uzavřen 14. 1. 2026', '2024 – uzavřen 9. 1. 2025'], w2: true }
+      ],
+      after: '<div class="card" style="margin:2px 0 0"><div class="card-h"><span class="icbox">' + ico(I_LOCK) + '</span><span class="card-t">Co uzávěrka udělá</span></div><div class="card-b" style="padding:6px 18px 10px">'
+        + '<label class="switch" style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--ep-line);cursor:pointer"><span class="sw on"></span><span style="font-size:13px;font-weight:600">Uzamkne zápisy ročníku proti úpravám</span></label>'
+        + '<label class="switch" style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--ep-line);cursor:pointer"><span class="sw on"></span><span style="font-size:13px;font-weight:600">Uloží tiskovou podobu knihy do archivu</span></label>'
+        + '<label class="switch" style="display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--ep-line);cursor:pointer"><span class="sw on"></span><span style="font-size:13px;font-weight:600">Spočítá roční souhrn pro vedení a pro zprávu o BOZP</span></label>'
+        + '<label class="switch" style="display:flex;align-items:center;gap:10px;padding:9px 0;cursor:pointer"><span class="sw on"></span><span style="font-size:13px;font-weight:600">Pozdější opravu pustí jen se zdůvodněním a stopou v historii</span></label>'
+        + '</div></div>'
+        + '<div class="banner amber" style="margin-top:14px">' + ico(I_WARN) + '<div>Ročník <b>2026 ještě běží</b> – uzavírá se až po konci roku, kdy je jisté, že nepřibude zápis se zpětným datem. Uzavřít jde i dřív, ale pak se každý pozdější zápis musí zdůvodnit.</div></div>',
+      note: 'Uzavřené ročníky: 2024 · 2025',
+      save: 'Uzavřít ročník',
+      extra: [{ t: 'Opravit zápis v uzavřeném roce', cls: 'ghost', fn: function (){ window.epCloseBlade(); setTimeout(oprava, 60); } }],
+      onSave: function (v){ window.epSay('Ročník se uzavře, jakmile skončí – v ukázce se nic nezamyká.'); }
+    });
+  }
+  function oprava(){
+    window.epBlade({
+      kicker: 'Uzamčený ročník 2025',
+      title: 'Opravit zápis v uzavřeném roce',
+      sub: 'Jde to, ale ne potichu. Původní znění zůstává v historii a u zápisu je vidět, kdo ho a proč změnil.',
+      wide: true,
+      fields: [
+        { l: 'Zápis', n: 'zapis', t: 'static', v: 'ÚR-2025-029 · 14. 11. 2025 · M. Horák · pohmoždění ruky' },
+        { l: 'Důvod opravy', n: 'duvod', t: 'select', v: 'Chyba v přepisu údaje', o: ['Chyba v přepisu údaje', 'Doplnění podle nově doloženého dokladu', 'Oprava na pokyn inspektorátu práce', 'Jiný důvod – popsat níže'] },
+        { l: 'Co se opravuje a proč', n: 'popis', t: 'area', v: '', w2: true, hint: 'Text se uloží k zápisu natrvalo a objeví se i v tiskové podobě knihy.' }
+      ],
+      save: 'Odemknout k opravě',
+      onSave: function (){ window.epSay('Zápis odemčen k opravě. Původní znění zůstalo v historii – v ukázce se nic nemění.'); }
+    });
+  }
+  window.epUzaverka = uzaverka;
+
+  (function(){
+    var s2 = document.getElementById('s2');
+    if (!s2) return;
+    var telo = '<p class="note" style="margin:0 0 12px">Předpis dobu uchování knihy nestanoví, ale kontrola se ptá na jinou věc: <b>jestli se zápisy nedají zpětně přepsat</b>. V excelu se to doložit nedá. Tady se ročník po skončení uzamkne a pozdější oprava je vidět.</p>'
+      + '<div class="kv"><div class="k">Uzamčené ročníky</div><div class="v">2024 · 2025 <span class="note">jen ke čtení</span></div></div>'
+      + '<div class="kv"><div class="k">Běžící ročník</div><div class="v">2026 <span class="note">31 zápisů · uzavře se po 31. 12.</span></div></div>'
+      + '<div class="kv" style="margin-bottom:12px"><div class="k">Opravy v uzamčeném ročníku</div><div class="v">Za 2024 a 2025 <b>žádná</b> <span class="note">každá by byla v historii i v tisku</span></div></div>'
+      + '<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost sm" id="uzavBtn">Uzávěrka ročníku</button><button class="btn ghost sm" id="uzavOpr">Opravit zápis v uzavřeném roce</button></div>';
+    var k = karta('', I_LOCK, 'Uzávěrka ročníku a zámek knihy', telo);
+    predKartu(s2, 'Kde se kniha nejčastěji rozpadne', k);
+    k.querySelector('#uzavBtn').addEventListener('click', function(e){ e.stopPropagation(); uzaverka(); });
+    k.querySelector('#uzavOpr').addEventListener('click', function(e){ e.stopPropagation(); oprava(); });
+  })();
+
+  // v Nastavení otevře uzávěrku rovnou z řádku „Uzavřené ročníky“
+  (function(){
+    var s13 = document.getElementById('s13');
+    if (!s13) return;
+    s13.addEventListener('click', function(e){
+      var kv = e.target.closest('.kv');
+      if (!kv) return;
+      var k = kv.querySelector('.k');
+      if (k && k.textContent.trim().indexOf('Uzavřené ročníky') === 0) uzaverka();
+    });
+  })();
+
+  // ══════════ 4) Hromadný úraz: další zraněný ze stejné události ══════════
+  function dalsi(){
+    window.epBlade({
+      kicker: 'Událost U-2026-014',
+      title: 'Přidat dalšího zraněného',
+      sub: 'Jedna událost, víc zraněných. Společné údaje se přeberou, vyplní se jen osoba a její zranění – a každý dostane vlastní zápis i vlastní záznam o úrazu.',
+      wide: true,
+      html: '<div class="banner info" style="margin:0 0 16px">' + ico('<path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/>') + '<div>Společné je datum, místo, popis děje a šetření příčin. <b>Zvlášť se posuzuje závažnost a lhůty u každého zraněného</b> – jeden může skončit s neschopností nad tři dny a druhý bez ní.</div></div>',
+      fields: [
+        { l: 'Datum a hodina úrazu', n: 'kdy', t: 'static', v: '2. 9. 2026 · 14:05' },
+        { l: 'Místo úrazu', n: 'kde', t: 'static', v: 'Sklad hotových výrobků, ulička C, regál 14' },
+        { l: 'Popis úrazového děje', n: 'dej', t: 'static', v: 'Převzato z ÚR-2026-030 – lze upravit u každého zraněného zvlášť.', w2: true },
+        { l: 'Zraněný', n: 'jmeno', t: 'text', v: '', w2: true, hint: 'Zaměstnanec, agenturní pracovník nebo člověk dodavatele – u cizího se vyrozumí i jeho zaměstnavatel.' },
+        { l: 'Druh zranění a část těla', n: 'zraneni', t: 'text', v: '' },
+        { l: 'Předpokládaná neschopnost', n: 'pn', t: 'select', v: 'Zatím nevíme', o: ['Zatím nevíme', 'Bez neschopnosti', 'Do 3 kalendářních dnů', 'Nad 3 kalendářní dny', 'Hospitalizace nad 5 dnů'] }
+      ],
+      save: 'Založit zápis',
+      onSave: function (v){
+        var jm = (v.jmeno || '').trim() || 'Bez jména';
+        var s4 = document.getElementById('s4');
+        var kvs = s4 ? s4.querySelectorAll('.kv') : [];
+        for (var i = 0; i < kvs.length; i++){
+          var k = kvs[i].querySelector('.k');
+          if (k && k.textContent.trim().indexOf('Počet zraněných') === 0){
+            kvs[i].querySelector('.v').innerHTML = '<span class="mono">2</span> <span class="note">hromadná událost</span>';
+            var novy = document.createElement('div');
+            novy.className = 'kv';
+            novy.style.marginBottom = '0';
+            novy.innerHTML = '<div class="k">Další zraněný</div><div class="v"><span class="t-id">ÚR-2026-032</span> ' + esc(jm) + ' <span class="note">stejná událost U-2026-014</span></div>';
+            kvs[i].style.marginBottom = '14px';
+            kvs[i].parentNode.insertBefore(novy, kvs[i].nextSibling);
+            break;
+          }
+        }
+        window.epSay('Založen zápis ÚR-2026-032 pro ' + jm + ' – stejná událost, vlastní lhůty.');
+      }
+    });
+  }
+  (function(){
+    var s4 = document.getElementById('s4');
+    if (!s4) return;
+    var cs = s4.querySelectorAll('.card');
+    for (var i = 0; i < cs.length; i++){
+      var t = cs[i].querySelector('.card-t');
+      if (t && t.textContent.trim().indexOf('Zápis v knize úrazů') === 0){
+        var b = document.createElement('button');
+        b.className = 'btn ghost sm';
+        b.textContent = 'Přidat dalšího zraněného';
+        b.addEventListener('click', function(e){ e.stopPropagation(); dalsi(); });
+        var h = cs[i].querySelector('.card-h');
+        h.appendChild(b);
+        // číslo události k zápisu
+        var kvs = cs[i].querySelectorAll('.kv');
+        for (var j = 0; j < kvs.length; j++){
+          var k = kvs[j].querySelector('.k');
+          if (k && k.textContent.trim().indexOf('Datum a hodina') === 0){
+            var u = document.createElement('div');
+            u.className = 'kv';
+            u.innerHTML = '<div class="k">Číslo události</div><div class="v"><span class="t-id">U-2026-014</span> <span class="note">jeden děj, zatím jeden zraněný</span></div>';
+            kvs[j].parentNode.insertBefore(u, kvs[j].nextSibling);
+            break;
+          }
+        }
+        break;
+      }
+    }
+  })();
+
+  // šetření: u závažného úrazu se místo zachovalo
+  (function(){
+    function doplnit(id, zacatek, veta){
+      var scr = document.getElementById(id);
+      if (!scr) return;
+      var st = scr.querySelectorAll('.step-t');
+      for (var i = 0; i < st.length; i++){
+        if (st[i].textContent.trim().indexOf(zacatek) === 0){
+          var d = st[i].parentNode.querySelector('.step-d');
+          if (d) d.innerHTML = d.innerHTML + ' ' + veta;
+          return;
+        }
+      }
+    }
+    doplnit('s9', 'Co se stalo', 'Místo úrazu zůstalo beze změny do příchodu inspektora – <span class="law">ZP § 105 odst. 1</span>.');
+    doplnit('s4', 'Objasnění za účasti', 'Místo úrazu zůstalo beze změny, dokud se příčina neobjasnila.');
+  })();
+})();
+</script>
 
 <script>
 // ---------- Tisk: z každého seznamu i z detailu ----------
