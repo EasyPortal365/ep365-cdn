@@ -61,6 +61,24 @@ button{font-family:var(--fb);}
 
 
 
+/* ============ Rozcestník sekcí ============ */
+.rz{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;border:none;background:transparent;border-radius:10px;padding:11px 12px;cursor:pointer;font-family:var(--fb);border-bottom:1px solid var(--ep-line);}
+.rz:last-child{border-bottom:none;}
+.rz:hover{background:var(--ep-bg-2);}
+.rz-n{font-family:var(--fm);font-size:10px;color:var(--ep-text-soft);width:13px;flex-shrink:0;margin-top:3px;}
+.rz-t{display:block;font-weight:700;font-size:13px;color:var(--ep-text);line-height:1.35;}
+.rz-d{display:block;font-size:12px;color:var(--ep-text-muted);margin-top:3px;line-height:1.5;}
+.rz-go{margin-left:auto;flex-shrink:0;color:var(--ep-line-2);margin-top:2px;}
+.rz:hover .rz-go{color:var(--ep-accent-strong);}
+.rz-note{font-size:12.5px;color:var(--ep-text-muted);line-height:1.6;padding:0 12px 4px;}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center;}
+.flow-b{background:var(--ep-bg-2);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);padding:14px 16px;}
+.flow-b .k{font-family:var(--fm);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-accent-strong);display:block;}
+.flow-b .t{display:block;font-weight:700;font-size:13px;margin-top:5px;}
+.flow-b .d{display:block;font-size:12px;color:var(--ep-text-muted);margin-top:4px;line-height:1.5;}
+.flow-a{color:var(--ep-line-2);}
+@media(max-width:900px){.flow{grid-template-columns:1fr;}.flow-a{display:none;}}
+
 /* ============ Panel, potvrzení, hlášky (DS 10.10, 10.14) ============ */
 .bl-wrap{position:fixed;inset:0;z-index:9300;background:rgba(11,30,63,.5);display:none;align-items:center;justify-content:center;padding:20px;}
 .bl-wrap.on{display:flex;}
@@ -674,7 +692,12 @@ ul.clean b{color:var(--ep-text);}
     <span class="search-kbd" data-pal="1">⌘K</span>
   </div>
   <div class="grp">
-    <div class="grp-h">Evidence</div>
+    <ul class="nav" style="margin-bottom:2px">
+      <li><button data-v="rozcestnik" data-go="s19"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6"/></svg><span class="lbl">Co se kde dělá</span></button></li>
+    </ul>
+  </div>
+  <div class="grp">
+    <div class="grp-h" data-go="s19" style="cursor:pointer" title="Co se dělá v evidenci">Evidence</div>
     <ul class="nav">
       <li><button data-v="prehled" data-go="s1"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span class="lbl">Přehled</span></button></li>
       <li><button data-v="kniha" data-go="s2"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/><path d="M8 7h7M8 11h7"/></svg><span class="lbl">Kniha úrazů</span><span class="ct">31</span></button></li>
@@ -684,7 +707,7 @@ ul.clean b{color:var(--ep-text);}
     </ul>
   </div>
   <div class="grp">
-    <div class="grp-h">Ohlašování</div>
+    <div class="grp-h" data-go="s19" style="cursor:pointer" title="Co se dělá v ohlašování">Ohlašování</div>
     <ul class="nav">
       <li><button data-v="lhuty" data-go="s6"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="lbl">Lhůty a odeslání</span><span class="badge">3</span></button></li>
       <li><button data-v="pojistovna" data-go="s18"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg><span class="lbl">Pojistné události</span><span class="ct">9</span></button></li>
@@ -692,7 +715,7 @@ ul.clean b{color:var(--ep-text);}
     </ul>
   </div>
   <div class="grp">
-    <div class="grp-h">Prevence</div>
+    <div class="grp-h" data-go="s19" style="cursor:pointer" title="Co se dělá v prevenci">Prevence</div>
     <ul class="nav">
       <li><button data-v="setreni" data-go="s9"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v3M11 14h.01"/></svg><span class="lbl">Šetření a opatření</span><span class="badge amber">5</span></button></li>
       <li><button data-v="statistika" data-go="s10"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span class="lbl">Statistika a rizika</span></button></li>
@@ -748,6 +771,91 @@ ul.clean b{color:var(--ep-text);}
 </div></div>
 
 <div class="stage">
+<!-- ================================================================= 19 · ROZCESTNÍK -->
+<section class="screen" id="s19">
+ <div class="shell">
+  <div data-side="rozcestnik"></div>
+  <main class="main"><div class="canvas">
+
+   <div class="ph">
+    <div class="ph-grid"></div>
+    <div class="ph-in">
+     <div class="crumbs" data-go="s1" style="cursor:pointer">EP365 <span class="sep">›</span> Kniha úrazů <span class="sep">›</span> <b>Co se kde dělá</b></div>
+     <div class="ph-row">
+      <div>
+       <div class="eyebrow">Rozcestník · tři části agendy</div>
+       <h1 class="h1">Co se kde dělá.<span class="hl">Tři části, které na sebe navazují.</span></h1>
+       <p class="ph-sub">Aplikace je rozdělená stejně jako samotná agenda: nejdřív se zapíše, co se stalo, pak se ohlásí, co se ohlásit musí, a nakonec se udělá něco, aby se to neopakovalo. Tahle stránka říká, co konkrétně se v každé části dělá – a odkud se to spouští.</p>
+      </div>
+      <div class="acts">
+       <button class="icobtn" title="Obnovit"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.5M4 4v4.5h4.5"/><path d="M4 13a8 8 0 0 0 13.7 4.7L20 15.5M20 20v-4.5h-4.5"/></svg></button>
+       <button class="icobtn" title="Sdílet odkaz"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.5.5l2-2A5 5 0 0 0 12.5 4.5l-1 1"/><path d="M14 11a5 5 0 0 0-7.5-.5l-2 2A5 5 0 0 0 11.5 19.5l1-1"/></svg></button>
+       <span class="vline"></span>
+       <button class="icobtn" data-go="s0" title="Nápověda k návrhu"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .9-1 1.6v.3M12 17h.01"/></svg></button>
+       <button class="icobtn" data-go="s14" title="Nahlásit připomínku"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h8l1 4a5 5 0 0 1-10 0Z"/><path d="M12 14v6M8 20h8"/></svg></button>
+       <button class="icobtn" data-go="s14" title="Navrhnout vylepšení"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6V16h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg></button>
+       <span class="vline"></span>
+       <button class="btn accent sm" data-go="s3">+ Nahlásit úraz</button>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <div class="grid3" style="align-items:start;margin-bottom:20px">
+<div class="card">
+<div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2Z"/><path d="M18 16H7a2 2 0 0 0-2 2"/></svg></span><span class="card-t">Evidence</span><span class="pill p-cat"><span class="d"></span>31 úrazů letos</span></div>
+<div class="card-b" style="padding:10px 6px 14px">
+<div class="rz-note" style="padding-bottom:10px">Všechno, co se ve firmě stalo. Zapisuje se sem hned a nic z toho ještě nikam neodchází.</div>
+<button class="rz" data-go="s3"><span class="rz-n">1</span><span style="min-width:0"><span class="rz-t">Zapsat úraz</span><span class="rz-d">Z mobilu u stroje během dvou minut, nebo u počítače v pěti krocích.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s2"><span class="rz-n">2</span><span style="min-width:0"><span class="rz-t">Vést knihu úrazů</span><span class="rz-d">Dvanáct údajů podle nařízení, včetně drobných úrazů. Tisk pro kontrolu.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s17"><span class="rz-n">3</span><span style="min-width:0"><span class="rz-t">Vyplnit záznam o úrazu</span><span class="rz-d">U úrazů s neschopností nad tři dny a u závažných – patnáct částí.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s15"><span class="rz-n">4</span><span style="min-width:0"><span class="rz-t">Zapsat nemoc z povolání</span><span class="rz-d">Uznanou i ohrožení nemocí. Vede se stejně jako kniha úrazů.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s16"><span class="rz-n">5</span><span style="min-width:0"><span class="rz-t">Sbírat skoro-nehody</span><span class="rz-d">Dobrovolně. Táž informace jako z úrazu, jen bez zraněného.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<div class="rz-note" style="padding-top:12px">Co je tady, je jen zapsané. Že se to má někam poslat, řeší druhá část.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4Z"/></svg></span><span class="card-t">Ohlašování</span><span class="pill p-late"><span class="d"></span>3 lhůty běží</span></div>
+<div class="card-b" style="padding:10px 6px 14px">
+<div class="rz-note" style="padding-bottom:10px">Tady se nic nevymýšlí – odesílá se to, co už je v evidenci, a hlídá se, aby to odešlo včas.</div>
+<button class="rz" data-go="s6"><span class="rz-n">1</span><span style="min-width:0"><span class="rz-t">Hlídat lhůty</span><span class="rz-d">U každého případu čtyři adresáti a různé termíny. Aplikace je počítá sama.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s6"><span class="rz-n">2</span><span style="min-width:0"><span class="rz-t">Podat záznam na portál</span><span class="rz-d">Průvodce přepisem – portál inspekce práce nemá rozhraní pro programy.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s6"><span class="rz-n">3</span><span style="min-width:0"><span class="rz-t">Rozeslat kopie</span><span class="rz-d">Zraněnému, zástupci pro BOZP a zdravotní pojišťovně. E-mailem z aplikace.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s18"><span class="rz-n">4</span><span style="min-width:0"><span class="rz-t">Vyřídit pojistnou událost</span><span class="rz-d">Doložit doklady k nárokům a odeslat podklady pojišťovně.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s7"><span class="rz-n">5</span><span style="min-width:0"><span class="rz-t">Opravit odeslaný záznam</span><span class="rz-d">Když se protáhne neschopnost nebo se upřesní diagnóza.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<div class="rz-note" style="padding-top:12px">Nejčastější chyba celé agendy je právě tady: propásnutá lhůta. Proto má ohlašování vlastní obrazovku.</div>
+</div>
+</div>
+<div class="card">
+<div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="card-t">Prevence</span><span class="pill p-open"><span class="d"></span>5 opatření běží</span></div>
+<div class="card-b" style="padding:10px 6px 14px">
+<div class="rz-note" style="padding-bottom:10px">Zákon chce i tohle, ne jen záznam. A je to jediná část, po které úrazů ubývá.</div>
+<button class="rz" data-go="s9"><span class="rz-n">1</span><span style="min-width:0"><span class="rz-t">Prošetřit příčinu</span><span class="rz-d">Ptát se „proč“ tak dlouho, dokud odpověď nejde ovlivnit opatřením.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s9"><span class="rz-n">2</span><span style="min-width:0"><span class="rz-t">Zavést opatření</span><span class="rz-d">S řešitelem a termínem – bez toho je inspekce nebere jako splněná.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s10"><span class="rz-n">3</span><span style="min-width:0"><span class="rz-t">Číst čísla</span><span class="rz-d">Vývoj v roce, kde a čím se zraňujeme, sestavy pro vedení a pojišťovnu.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<button class="rz" data-go="s12"><span class="rz-n">4</span><span style="min-width:0"><span class="rz-t">Zeptat se knihy</span><span class="rz-d">Odpověď z vlastní evidence místo hledání v tabulkách.</span></span><span class="rz-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+<div class="rz-note" style="padding-top:12px">Opatření je jediná věc, kterou po roce poznáte na počtu úrazů. Zbytek agendy je papír.</div>
+</div>
+</div>
+   </div>
+
+   <div class="card">
+    <div class="card-h"><span class="icbox"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="card-t">Jak na sebe navazují</span></div>
+    <div class="card-b">
+     <div class="flow">
+      <div class="flow-b"><span class="k">1 · Evidence</span><span class="t">Stal se úraz</span><span class="d">Zápis v knize vzniká hned – i u drobného úrazu. Aplikace z něj navrhne kategorii.</span></div>
+      <div class="flow-a"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="flow-b"><span class="k">2 · Ohlašování</span><span class="t">Něco z toho jde ven</span><span class="d">U vážnějších vzniká záznam pro portál a pojistná událost. Lhůty začínají běžet dnem, kdy jste se o úrazu dozvěděli.</span></div>
+      <div class="flow-a"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="flow-b"><span class="k">3 · Prevence</span><span class="t">Aby se to neopakovalo</span><span class="d">Šetření najde příčinu, z ní vzejde opatření s termínem. To se pak objeví ve statistice.</span></div>
+     </div>
+     <div class="banner info" style="margin-top:16px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16v-4M12 8h.01"/><circle cx="12" cy="12" r="9"/></svg><div><b>Případ se mezi částmi posouvá sám.</b> Nemusíte ho nikam přeposílat ani zakládat podruhé – zápis v knize, úřední záznam, pojistná událost i šetření jsou pořád tentýž případ, jen se na něj díváte z jiné strany. V detailu případu je najdete vedle sebe jako záložky.</div></div>
+    </div>
+   </div>
+
+  </div></main>
+ </div>
+</section>
 <!-- ================================================================= 1 · PŘEHLED -->
 <section class="screen" id="s1">
  <div class="shell">
@@ -4085,6 +4193,7 @@ ul.clean b{color:var(--ep-text);}
 
   // ---------- paleta ⌘K ----------
   var TARGETS = [
+    { g:'Evidence',   t:'Co se kde dělá · rozcestník', s:'s19', k:'rozcestnik sekce evidence ohlasovani prevence mapa co kde' },
     { g:'Evidence',   t:'Přehled',                  s:'s1',  k:'prehled dashboard uvod' },
     { g:'Evidence',   t:'Kniha úrazů',              s:'s2',  k:'kniha evidence seznam zapis' },
     { g:'Evidence',   t:'Nahlásit úraz',            s:'s3',  k:'novy hlaseni zapsat pridat' },
@@ -4176,14 +4285,16 @@ ul.clean b{color:var(--ep-text);}
 /* ============ Průvodce dokumentem (DS 10.51) ============ */
 (function(){
   var CH = [
-    { t: 'Co v aplikaci je', s: '7 kroků · 3 minuty',
+    { t: 'Co v aplikaci je', s: '8 kroků · 3 minuty',
       d: 'Než půjdeme obrazovku po obrazovce: co aplikace obsahuje, jak do sebe části zapadají a co hlídá za vás.',
-      o: ['Tři části: evidence, ohlašování, prevence', 'Cesta jednoho úrazu od zápisu k opatření', 'Co počítá a hlídá aplikace sama', 'Co je na každé obrazovce stejné'],
+      o: ['Tři části: evidence, ohlašování, prevence', 'Rozcestník: co se v každé části dělá', 'Cesta jednoho úrazu od zápisu k opatření', 'Co počítá a hlídá aplikace sama'],
       steps: [
         { s:'s1', t:'Kniha úrazů v jedné větě',
           x:'Vede celou úrazovou agendu na jednom místě: od zápisu drobného pohmoždění přes úřední záznam pro inspekci práce až po peníze od pojišťovny a opatření, aby se totéž neopakovalo.<br><br>Nahrazuje tři věci naráz – <b>excelovou nebo papírovou knihu úrazů</b>, <b>ruční vyplňování formulářů</b> a <b>hlídání termínů v hlavě</b>. Za pár minut vám ukážu, co v ní je.' },
         { s:'s1', sel:'#s1 .side', t:'Aplikace má tři části',
           x:'<b>Evidence</b> – co se stalo: kniha úrazů, úřední záznamy, nemoci z povolání, skoro-nehody.<br><b>Ohlašování</b> – co z toho jde ven: lhůty a odesílání, pojišťovna, opravy už odeslaných záznamů.<br><b>Prevence</b> – co se s tím udělá: šetření příčin, opatření, statistika.<br><br>Čísla u položek jsou spočítaná z evidence, ne přepsaná ručně.' },
+        { s:'s19', sel:'#s19 .grid3', t:'Co se v každé části dělá',
+          x:'Rozcestník vypíše u každé ze tří částí, co se v ní konkrétně dělá – od zápisu úrazu po odeslání podkladů pojišťovně – a rovnou tam odkáže. Otevřete ho kdykoli z levého menu nebo kliknutím na název skupiny v menu. Dole na stránce je ukázané, jak tři části na sebe navazují.' },
         { s:'s1', t:'Cesta jednoho úrazu',
           x:'Vždycky stejná, ať jde o říznutí nebo o pád z výšky:<br><br><b>1.</b> Úraz se zapíše do knihy – hned, i ten drobný.<br><b>2.</b> Aplikace navrhne kategorii a spočítá, co z ní plyne.<br><b>3.</b> U vážnějších vznikne <b>záznam o úrazu</b> a jde na portál inspekce práce do 15 pracovních dnů.<br><b>4.</b> Pojišťovně vzniká pojistná událost – peníze pro zraněného.<br><b>5.</b> Šetření zjistí příčinu a z ní vzejdou opatření s termínem.<br><br>Každý z těch kroků má v aplikaci svou obrazovku a projdeme je popořadě.' },
         { s:'s1', sel:'#s1 .kpis', t:'Co aplikace hlídá za vás',
