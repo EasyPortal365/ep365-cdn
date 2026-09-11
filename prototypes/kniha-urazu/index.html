@@ -274,10 +274,11 @@ html.appmode .qchip.tourgo{display:inline-flex;align-items:center;gap:6px;border
 .nav button.on{background:var(--ep-accent-soft);color:var(--ep-text);font-weight:700;}
 .nav button.on svg{color:var(--ep-accent-strong);}
 .nav .lbl{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.badge{margin-left:auto;font-family:var(--fm);font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#FDEBEB;color:#B23A3A;}
+.badge,.ct{margin-left:auto;flex-shrink:0;box-sizing:border-box;min-width:26px;text-align:center;padding:2px 7px;border-radius:999px;font-family:var(--fm);}
+.badge{font-size:10px;font-weight:700;background:#FDEBEB;color:#B23A3A;}
 .badge.soft{background:var(--ep-accent-soft);color:var(--ep-accent-strong);}
 .badge.amber{background:#FEF6E7;color:#8A5A00;}
-.ct{margin-left:auto;font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft);}
+.ct{font-size:10.5px;color:var(--ep-text-soft);background:transparent;}
 .foot{margin-top:auto;padding:14px 18px;border-top:1px solid var(--ep-line);display:flex;align-items:center;gap:10px;flex-shrink:0;}
 .foot-av{width:32px;height:32px;border-radius:50%;background:var(--ep-accent-strong);color:#fff;display:grid;place-items:center;font-family:var(--fd);font-weight:700;font-size:12px;flex-shrink:0;}
 .foot-n{display:block;font-size:13px;font-weight:600;color:var(--ep-text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
