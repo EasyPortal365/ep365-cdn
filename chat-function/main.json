@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.46.1.21595",
-      "templateHash": "295879371888597807"
+      "version": "0.47.16.16243",
+      "templateHash": "2124491242231721661"
     },
     "poznamka": "ARM soubor infra/main.json je VYGENEROVANÝ z tohoto zdroje: az bicep build -f infra/main.bicep --outfile infra/main.json. main.json needitujte ručně – změny dělejte tady a přegenerujte, jinak se zdroj a artefakt tiše rozejdou. CDN kopie šablony pro tlačítko Deploy to Azure dostává při release vyplněný default packageUrl (viz scripts/build-release-zip.ps1)."
   },
@@ -55,6 +55,21 @@
         "description": "VOLITELNÉ — URL release zip balíčku s kódem funkce. Vyplněné = WEBSITE_RUN_FROM_PACKAGE ukazuje na tento zip a kód se načte přímo z něj (cesta „Deploy to Azure“). Prázdné = WEBSITE_RUN_FROM_PACKAGE se nastaví na 1 a kód nasadíte zvlášť (deploy skript / zip deploy / func publish / GitHub Actions)."
       }
     },
+    "planSku": {
+      "type": "string",
+      "defaultValue": "Y1",
+      "allowedValues": [
+        "Y1",
+        "B1",
+        "B2",
+        "S1",
+        "P0v3",
+        "EP1"
+      ],
+      "metadata": {
+        "description": "SKU App Service planu. Y1 = Consumption (serverless, platí se jen za běh) — VÝCHOZÍ a doporučené. Čerstvá Azure subscription má ale pro Y1 často nulovou kvótu („Current Limit (Y1 VMs): 0“, chyba SubscriptionIsOverQuotaForSku). Kvóta se vede na subscription i na region, takže první věc, kterou zkusit, je JINÝ REGION (parametr location) — ověřeno: tatáž subscription měla northeurope 0 a westeurope kvótu k dispozici. Až když kvótu nemá žádný region, přichází na řadu tento parametr (jiná kvótová rodina) nebo žádost o navýšení kvóty — ta ale nemusí projít self-service a přes support trvá hodiny až dny. B1 = nejlevnější vždy běžící plán (pevná měsíční cena), EP1 = Elastic Premium."
+      }
+    },
     "aadTenantId": {
       "type": "string",
       "defaultValue": "",
@@ -85,7 +100,17 @@
     }
   },
   "variables": {
-    "storageAccountName": "[toLower(take(replace(parameters('functionAppName'), '-', ''), 24))]"
+    "storageAccountName": "[toLower(take(replace(parameters('functionAppName'), '-', ''), 24))]",
+    "planTiers": {
+      "Y1": "Dynamic",
+      "B1": "Basic",
+      "B2": "Basic",
+      "S1": "Standard",
+      "P0v3": "PremiumV3",
+      "EP1": "ElasticPremium"
+    },
+    "usesContentShare": "[or(equals(parameters('planSku'), 'Y1'), equals(parameters('planSku'), 'EP1'))]",
+    "isDedicated": "[and(not(equals(parameters('planSku'), 'Y1')), not(equals(parameters('planSku'), 'EP1')))]"
   },
   "resources": [
     {
@@ -119,8 +144,8 @@
       "name": "[format('{0}-plan', parameters('functionAppName'))]",
       "location": "[parameters('location')]",
       "sku": {
-        "name": "Y1",
-        "tier": "Dynamic"
+        "name": "[parameters('planSku')]",
+        "tier": "[variables('planTiers')[parameters('planSku')]]"
       },
       "properties": {}
     },
@@ -132,75 +157,7 @@
       "kind": "functionapp",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', format('{0}-plan', parameters('functionAppName')))]",
-        "siteConfig": {
-          "nodeVersion": "~22",
-          "appSettings": [
-            {
-              "name": "AzureWebJobsStorage",
-              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)]"
-            },
-            {
-              "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)]"
-            },
-            {
-              "name": "WEBSITE_CONTENTSHARE",
-              "value": "[parameters('functionAppName')]"
-            },
-            {
-              "name": "FUNCTIONS_EXTENSION_VERSION",
-              "value": "~4"
-            },
-            {
-              "name": "FUNCTIONS_WORKER_RUNTIME",
-              "value": "node"
-            },
-            {
-              "name": "WEBSITE_NODE_DEFAULT_VERSION",
-              "value": "~22"
-            },
-            {
-              "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-              "value": "[reference(resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName'))), '2020-02-02').InstrumentationKey]"
-            },
-            {
-              "name": "AZURE_OPENAI_ENDPOINT",
-              "value": "[parameters('azureOpenAiEndpoint')]"
-            },
-            {
-              "name": "AZURE_OPENAI_KEY",
-              "value": "[parameters('azureOpenAiKey')]"
-            },
-            {
-              "name": "AZURE_OPENAI_DEPLOYMENT",
-              "value": "[parameters('azureOpenAiDeployment')]"
-            },
-            {
-              "name": "ALLOWED_ORIGIN",
-              "value": "[parameters('allowedOrigin')]"
-            },
-            {
-              "name": "AAD_TENANT_ID",
-              "value": "[parameters('aadTenantId')]"
-            },
-            {
-              "name": "AAD_CLIENT_ID",
-              "value": "[parameters('aadClientId')]"
-            },
-            {
-              "name": "AAD_CLIENT_SECRET",
-              "value": "[parameters('aadClientSecret')]"
-            },
-            {
-              "name": "EP365_SETTINGS_SITE_URL",
-              "value": "[parameters('settingsSiteUrl')]"
-            },
-            {
-              "name": "WEBSITE_RUN_FROM_PACKAGE",
-              "value": "[if(empty(parameters('packageUrl')), '1', parameters('packageUrl'))]"
-            }
-          ]
-        },
+        "siteConfig": "[if(variables('isDedicated'), union(createObject('nodeVersion', '~22', 'appSettings', concat(createArray(createObject('name', 'AzureWebJobsStorage', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value))), if(variables('usesContentShare'), createArray(createObject('name', 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)), createObject('name', 'WEBSITE_CONTENTSHARE', 'value', parameters('functionAppName'))), createArray()), createArray(createObject('name', 'FUNCTIONS_EXTENSION_VERSION', 'value', '~4'), createObject('name', 'FUNCTIONS_WORKER_RUNTIME', 'value', 'node'), createObject('name', 'WEBSITE_NODE_DEFAULT_VERSION', 'value', '~22'), createObject('name', 'APPINSIGHTS_INSTRUMENTATIONKEY', 'value', reference(resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName'))), '2020-02-02').InstrumentationKey), createObject('name', 'AZURE_OPENAI_ENDPOINT', 'value', parameters('azureOpenAiEndpoint')), createObject('name', 'AZURE_OPENAI_KEY', 'value', parameters('azureOpenAiKey')), createObject('name', 'AZURE_OPENAI_DEPLOYMENT', 'value', parameters('azureOpenAiDeployment')), createObject('name', 'ALLOWED_ORIGIN', 'value', parameters('allowedOrigin')), createObject('name', 'AAD_TENANT_ID', 'value', parameters('aadTenantId')), createObject('name', 'AAD_CLIENT_ID', 'value', parameters('aadClientId')), createObject('name', 'AAD_CLIENT_SECRET', 'value', parameters('aadClientSecret')), createObject('name', 'EP365_SETTINGS_SITE_URL', 'value', parameters('settingsSiteUrl')), createObject('name', 'WEBSITE_RUN_FROM_PACKAGE', 'value', if(empty(parameters('packageUrl')), '1', parameters('packageUrl')))))), createObject('alwaysOn', true())), createObject('nodeVersion', '~22', 'appSettings', concat(createArray(createObject('name', 'AzureWebJobsStorage', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value))), if(variables('usesContentShare'), createArray(createObject('name', 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)), createObject('name', 'WEBSITE_CONTENTSHARE', 'value', parameters('functionAppName'))), createArray()), createArray(createObject('name', 'FUNCTIONS_EXTENSION_VERSION', 'value', '~4'), createObject('name', 'FUNCTIONS_WORKER_RUNTIME', 'value', 'node'), createObject('name', 'WEBSITE_NODE_DEFAULT_VERSION', 'value', '~22'), createObject('name', 'APPINSIGHTS_INSTRUMENTATIONKEY', 'value', reference(resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName'))), '2020-02-02').InstrumentationKey), createObject('name', 'AZURE_OPENAI_ENDPOINT', 'value', parameters('azureOpenAiEndpoint')), createObject('name', 'AZURE_OPENAI_KEY', 'value', parameters('azureOpenAiKey')), createObject('name', 'AZURE_OPENAI_DEPLOYMENT', 'value', parameters('azureOpenAiDeployment')), createObject('name', 'ALLOWED_ORIGIN', 'value', parameters('allowedOrigin')), createObject('name', 'AAD_TENANT_ID', 'value', parameters('aadTenantId')), createObject('name', 'AAD_CLIENT_ID', 'value', parameters('aadClientId')), createObject('name', 'AAD_CLIENT_SECRET', 'value', parameters('aadClientSecret')), createObject('name', 'EP365_SETTINGS_SITE_URL', 'value', parameters('settingsSiteUrl')), createObject('name', 'WEBSITE_RUN_FROM_PACKAGE', 'value', if(empty(parameters('packageUrl')), '1', parameters('packageUrl')))))))]",
         "httpsOnly": true
       },
       "dependsOn": [

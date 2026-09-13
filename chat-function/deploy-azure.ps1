@@ -67,6 +67,32 @@
 
 .PARAMETER Location
     Azure region pro Function App a podpurne zdroje. Default: westeurope.
+    Kdyz resource group uz existuje v jinem regionu, skript ji NEPRESOUVA (to Azure neumi)
+    ani neselze - jen upozorni; region RG je jen metadata, zdroje vzniknou v -Location.
+
+.PARAMETER PlanSku
+    SKU App Service planu Function App. Default Y1 = Consumption (serverless, plati se jen
+    za beh) - doporucene. CERSTVA subscription ma ale pro Y1 casto nulovou kvotu a deployment
+    spadne na "SubscriptionIsOverQuotaForSku / Current Limit (Y1 VMs): 0".
+    Kvota se vede per subscription A ZAROVEN per region, takze prvni vec, kterou zkusit, je
+    JINY REGION (-Location) - overeno: tataz subscription mela northeurope 0 a westeurope
+    kvotu k dispozici. Kdyz skript na kvotu spadne, sam zmeri, ve kterych regionech kvota je,
+    a region doporuci. Az kdyz nema kvotu zadny region, prichazi na radu tenhle parametr
+    (jina kvotova rodina) nebo zadost o navyseni kvoty - ta ale nemusi projit self-service
+    a pres support trva hodiny az dny, viz README, cast "Nova Azure subscription".
+    B1 = nejlevnejsi vzdy bezici plan (pevna mesicni cena), dal B2 / S1 / P0v3 / EP1.
+    POZOR: hodnotu jinou nez Y1 zvladne jen sablona z teto verze - pri behu proti starsi
+    ARM sablone na CDN skript skonci chybou o neznamem parametru.
+
+.PARAMETER SkipProviderCheck
+    Volitelny. Preskoci uvodni registraci resource providers. Pouzijte, kdyz ucet nema pravo
+    registrovat providery na subscription (registraci udela admin predem) - viz README.
+
+.PARAMETER PurgeSoftDeletedOpenAi
+    Volitelny a DESTRUKTIVNI. Kdyz Azure OpenAI ucet stejneho jmena existuje ve stavu
+    "soft-deleted" (chyba FlagMustBeSetForRestore), skript ho standardne jen ohlasi a skonci.
+    S timto prepinacem ho TRVALE SMAZE (purge) a zalozi cisty novy. Data smazaneho uctu
+    (vcetne fine-tunovanych modelu) uz nepujdou obnovit. Bez prepinace se nic nemaze.
 
 .PARAMETER SubscriptionId
     Volitelny. Id subscription, pokud nechcete nasazovat do aktualne vybrane.
@@ -154,6 +180,14 @@ param(
     [string]$Location = 'westeurope',
     [string]$SubscriptionId = '',
 
+    # Hosting Function App. Default Y1 = Consumption; jine SKU jen jako nahrada pri nulove
+    # kvote Y1 (viz comment-based help a README, cast "Nova Azure subscription").
+    [ValidateSet('Y1', 'B1', 'B2', 'S1', 'P0v3', 'EP1')]
+    [string]$PlanSku = 'Y1',
+
+    [switch]$SkipProviderCheck,
+    [switch]$PurgeSoftDeletedOpenAi,
+
     # Existujici Azure OpenAI (kdyz jsou zadane endpoint + klic, novy ucet se nevytvari)
     [string]$AzureOpenAiEndpoint = '',
     [string]$AzureOpenAiKey = '',
@@ -185,6 +219,71 @@ function Write-Step([string]$Text) {
 
 function Assert-LastExit([string]$Message) {
     if ($LASTEXITCODE -ne 0) { throw $Message }
+}
+
+function Test-PlanQuotaInRegions {
+    <#
+      Zjisti, ve KTERYCH regionech ma subscription kvotu pro zvoleny App Service plan.
+
+      Proc takhle: kvota Function App se vede per subscription A ZAROVEN per region -
+      tataz subscription mela pri testovacim behu c. 11 v northeurope Y1 nulu a ve
+      westeurope kvotu k dispozici. Drive tu stalo "zmena regionu nepomuze"; to je
+      prokazatelne nepravda a posilalo to deployera zadat o kvotu misto toho, aby zkusil
+      sousedni region.
+
+      Meri se TOU cestou, ktera pada: ARM validace TEZE sablony, jen s jinym parametrem
+      location. Zadne zdroje nevznikaji. Zamerne se nepouziva `az quota` (extension, ktera
+      se doinstalovava za behu, a podpora Microsoft.Web v ni neni dolozena) ani
+      `az appservice list-locations --sku` (ten region vypise, i kdyz je limit nula - meri
+      dostupnost SKU, ne kvotu).
+
+      Fail-safe: co nejde jednoznacne prokazat, se oznaci 'neznamo' a volajici o tom mlci.
+      Nikdy netvrdit, ze region funguje, kdyz to nebylo zmereno.
+    #>
+    param(
+        [string[]]$Regions,
+        [string]$ResourceGroup,
+        [string[]]$BaseParams,
+        [string]$TemplatePath,
+        [string]$TemplateUri,
+        [bool]$UseLocalTemplate
+    )
+
+    $results = @()
+    $previousEap = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        foreach ($region in $Regions) {
+            # Kopie parametru s prepsanym location - vse ostatni (vc. planSku) zustava.
+            $probeParams = @()
+            foreach ($p in $BaseParams) {
+                if ($p -like 'location=*') { $probeParams += ('location=' + $region) }
+                else { $probeParams += $p }
+            }
+
+            $probeName = 'ep365-quota-probe-' + (Get-Date -Format 'yyyyMMddHHmmss') + '-' + $region
+            if ($UseLocalTemplate) {
+                $out = az deployment group validate --resource-group $ResourceGroup --name $probeName `
+                    --template-file $TemplatePath --parameters $probeParams -o none 2>&1
+            }
+            else {
+                $out = az deployment group validate --resource-group $ResourceGroup --name $probeName `
+                    --template-uri $TemplateUri --parameters $probeParams -o none 2>&1
+            }
+            $text = (@($out) | ForEach-Object { [string]$_ }) -join "`n"
+
+            $state = 'neznamo'
+            if ($LASTEXITCODE -eq 0) { $state = 'ok' }
+            elseif ($text -match 'SubscriptionIsOverQuotaForSku' -or $text -match 'VMs\)\s*:\s*0' -or $text -match 'quota of 0') { $state = 'kvota0' }
+            elseif ($text -match 'RequestDisallowedByAzure' -or $text -match 'not accepting new customers' -or $text -match 'locationineligible') { $state = 'blokovan' }
+
+            $results += (New-Object PSObject -Property @{ Region = $region; State = $state })
+        }
+    }
+    finally {
+        $ErrorActionPreference = $previousEap
+    }
+    return $results
 }
 
 $scriptDir = $PSScriptRoot
@@ -248,9 +347,20 @@ try {
         throw 'Parametr -AzureOpenAiKey byl zadan bez -AzureOpenAiEndpoint. Zadejte oba, nebo zadny (pak skript vytvori novy Azure OpenAI ucet).'
     }
 
-    # Sablona infrastruktury: lokalni infra/main.bicep (beh v repu), jinak ARM z CDN.
+    # Sablona infrastruktury: lokalni infra/main.bicep (beh v repu), jinak lokalni
+    # infra/main.json, jinak ARM z CDN. Prostredni krok je pro beh MIMO repo (typicky
+    # Cloud Shell): staci polozit main.json do ../infra/ vedle skriptu a nasazuje se
+    # ta sablona, ne ta z CDN - jinak by sablonu jeste nevydanou na CDN neslo vyzkouset.
+    # ARM JSON zamerne az druhy v poradi: bicep je zdroj, main.json z nej generovany.
     $templatePath = Join-Path (Join-Path $repoRoot 'infra') 'main.bicep'
     $useLocalTemplate = Test-Path $templatePath
+    if (-not $useLocalTemplate) {
+        $localArmPath = Join-Path (Join-Path $repoRoot 'infra') 'main.json'
+        if (Test-Path $localArmPath) {
+            $templatePath = $localArmPath
+            $useLocalTemplate = $true
+        }
+    }
     if ($useLocalTemplate) {
         Write-Host ('Sablona infrastruktury: lokalni (' + $templatePath + ')')
     }
@@ -259,13 +369,100 @@ try {
     }
 
     # ----------------------------------------------------------------------
+    # 1b. Resource providers
+    # ----------------------------------------------------------------------
+    # CERSTVA subscription ma vetsinu namespace ve stavu NotRegistered a prvni pokus o zdroj
+    # spadne na "MissingSubscriptionRegistration". U Azure OpenAI se to pozna hned, u Function
+    # App az uvnitr nasazeni sablony - a tam to vypada jako chyba SABLONY, ne subscription
+    # (naostro 2026-09-11: 'Failed to register resource provider microsoft.operationalinsights'
+    # schovane mezi detaily deploymentu). Registrace je idempotentni, zdarma a jednorazova,
+    # delame ji proto vzdy predem, at se na to nepreslo az pri deploymentu.
+    if ($SkipProviderCheck) {
+        Write-Step 'Resource providers - kontrola preskocena (-SkipProviderCheck)'
+    }
+    else {
+        Write-Step 'Resource providers (u nove subscription nutna jednorazova registrace)'
+
+        $requiredProviders = @(
+            'Microsoft.Web',                  # Function App + App Service plan
+            'Microsoft.Storage',              # Storage account
+            'Microsoft.Insights',             # Application Insights
+            'Microsoft.OperationalInsights',  # Log Analytics - saha po nem App Insights
+            'Microsoft.CognitiveServices'     # Azure OpenAI
+        )
+
+        $pendingProviders = @()
+        foreach ($ns in $requiredProviders) {
+            $provState = az provider show --namespace $ns --query 'registrationState' -o tsv 2>$null
+            if ($LASTEXITCODE -ne 0 -or -not $provState) { $provState = 'neznamy stav' }
+            $provState = $provState.Trim()
+
+            if ($provState -eq 'Registered') {
+                Write-Host ('  ' + $ns.PadRight(30) + 'Registered')
+                continue
+            }
+
+            Write-Host ('  ' + $ns.PadRight(30) + $provState + ' - registruji...')
+            az provider register --namespace $ns -o none 2>$null
+            if ($LASTEXITCODE -ne 0) {
+                Write-Host ('  ' + $ns.PadRight(30) + 'registraci NELZE spustit - ucet zrejme nema pravo registrovat providery na subscription.') -ForegroundColor Yellow
+            }
+            else {
+                $pendingProviders += $ns
+            }
+        }
+
+        # Registrace bezi asynchronne (desitky sekund). Pockame na ni tady, at deployment
+        # nevstoupi do sablony driv, nez je provider pripraveny.
+        if ($pendingProviders.Count -gt 0) {
+            Write-Host 'Cekam na dokonceni registrace (bezne desitky sekund)...'
+            $providerDeadline = (Get-Date).AddMinutes(5)
+            while ($pendingProviders.Count -gt 0 -and (Get-Date) -lt $providerDeadline) {
+                Start-Sleep -Seconds 10
+                $stillPending = @()
+                foreach ($ns in $pendingProviders) {
+                    $provState = az provider show --namespace $ns --query 'registrationState' -o tsv 2>$null
+                    if ($LASTEXITCODE -eq 0 -and $provState -and $provState.Trim() -eq 'Registered') {
+                        Write-Host ('  ' + $ns.PadRight(30) + 'Registered')
+                    }
+                    else {
+                        $stillPending += $ns
+                    }
+                }
+                $pendingProviders = $stillPending
+            }
+            if ($pendingProviders.Count -gt 0) {
+                Write-Host ('Upozorneni: po 5 minutach jeste nejsou registrovane: ' + ($pendingProviders -join ', ')) -ForegroundColor Yellow
+                Write-Host 'Pokracuji dal - registrace muze dobehnout na pozadi. Kdyby nasazeni spadlo na MissingSubscriptionRegistration, spustte skript znovu za par minut (je idempotentni).' -ForegroundColor Yellow
+            }
+        }
+    }
+
+    # ----------------------------------------------------------------------
     # 2. Resource group (idempotentni)
     # ----------------------------------------------------------------------
     Write-Step ('Resource group "' + $ResourceGroupName + '" (' + $Location + ')')
 
-    az group create --name $ResourceGroupName --location $Location -o none
-    Assert-LastExit 'Vytvoreni resource group selhalo.'
-    Write-Host 'Resource group pripravena.'
+    # Existujici RG NEPREVYTVARIME. `az group create` s jinym -Location nez ma existujici RG
+    # skonci chybou InvalidResourceGroupLocation a driv shodil cely skript - pritom region RG
+    # je jen evidencni udaj, zdroje stejne vznikaji v -Location. Presun RG Azure neumi.
+    $existingRgLocation = az group show --name $ResourceGroupName --query 'location' -o tsv 2>$null
+    if ($LASTEXITCODE -eq 0 -and $existingRgLocation) {
+        $existingRgLocation = $existingRgLocation.Trim()
+        $wantedRgLocation = ($Location -replace '\s', '').ToLower()
+        if ($existingRgLocation.ToLower() -ne $wantedRgLocation) {
+            Write-Host ('Resource group uz existuje, a to v regionu ' + $existingRgLocation + '.') -ForegroundColor Yellow
+            Write-Host ('Region resource group je jen evidencni udaj - Function App a dalsi zdroje vzniknou podle -Location, tedy v ' + $Location + '. Pokracuji.') -ForegroundColor Yellow
+        }
+        else {
+            Write-Host 'Resource group uz existuje - preskakuji vytvoreni.'
+        }
+    }
+    else {
+        az group create --name $ResourceGroupName --location $Location -o none
+        Assert-LastExit 'Vytvoreni resource group selhalo.'
+        Write-Host 'Resource group pripravena.'
+    }
 
     # ----------------------------------------------------------------------
     # 3. Azure OpenAI - existujici, nebo vytvorit novy ucet + deployment
@@ -292,6 +489,37 @@ try {
         Assert-LastExit 'Kontrola existence Azure OpenAI uctu selhala.'
 
         if ([int]$accCount -eq 0) {
+            # Smazany Azure OpenAI ucet drzi svoje jmeno dal (soft-delete) - v seznamu aktivnich
+            # uctu uz neni, ale `create` pod stejnym jmenem skonci na FlagMustBeSetForRestore.
+            # Puvodni hlaska pak mluvila o kvote a obsazenem jmenu a poslala deployera hledat
+            # uplne jinam (naostro 2026-09-11). Rozpoznavame to proto PREDEM. Purge je
+            # nevratny, takze se bez vyslovneho pokynu nic nemaze - jen se vypise, co lze delat.
+            $softDeletedLocation = ''
+            $deletedJson = az cognitiveservices account list-deleted -o json 2>$null
+            if ($LASTEXITCODE -eq 0 -and $deletedJson) {
+                try {
+                    foreach ($deletedAcc in @(ConvertFrom-Json (($deletedJson -join "`n")))) {
+                        if ([string]$deletedAcc.name -ne $OpenAiAccountName) { continue }
+                        if (([string]$deletedAcc.id) -notmatch ('/resourceGroups/' + [regex]::Escape($ResourceGroupName) + '/')) { continue }
+                        $softDeletedLocation = [string]$deletedAcc.location
+                    }
+                }
+                catch { $softDeletedLocation = '' }
+            }
+
+            if ($softDeletedLocation -ne '') {
+                $purgeCmd = 'az cognitiveservices account purge --name ' + $OpenAiAccountName + ' --resource-group ' + $ResourceGroupName + ' --location ' + $softDeletedLocation
+                if ($PurgeSoftDeletedOpenAi) {
+                    Write-Host ('Ucet "' + $OpenAiAccountName + '" je ve stavu soft-deleted (region ' + $softDeletedLocation + '). Na pokyn -PurgeSoftDeletedOpenAi ho TRVALE odstranuji...') -ForegroundColor Yellow
+                    az cognitiveservices account purge --name $OpenAiAccountName --resource-group $ResourceGroupName --location $softDeletedLocation -o none
+                    Assert-LastExit ('Trvale odstraneni soft-deleted uctu selhalo. Zkuste rucne:  ' + $purgeCmd)
+                    Write-Host 'Soft-deleted ucet odstranen, zakladam novy.'
+                }
+                else {
+                    throw ('Azure OpenAI ucet "' + $OpenAiAccountName + '" uz v teto resource group jednou existoval a Azure ho po smazani stale drzi (soft-delete, region ' + $softDeletedLocation + '). Jmeno je tim blokovane - zalozeni by skoncilo chybou FlagMustBeSetForRestore. NIC JSME NESMAZALI; mate tri moznosti: (1) pouzijte jine jmeno uctu parametrem -OpenAiAccountName <jine-jmeno>; (2) puvodni ucet TRVALE odstrante a zalozte cisty - pridejte prepinac -PurgeSoftDeletedOpenAi, nebo spustte rucne:  ' + $purgeCmd + ' ; (3) puvodni ucet i s jeho model deploymenty OBNOVTE - Azure Portal -> Azure OpenAI / Cognitive Services -> Manage deleted resources -> Recover, a pak skript spustte znovu.')
+                }
+            }
+
             Write-Host 'Ucet neexistuje - vytvarim (muze trvat 1-2 minuty)...'
             az cognitiveservices account create `
                 --name $OpenAiAccountName `
@@ -301,7 +529,7 @@ try {
                 --sku S0 `
                 --custom-domain $OpenAiAccountName `
                 --yes -o none
-            Assert-LastExit ('Vytvoreni Azure OpenAI uctu selhalo. Casta pricina: chybejici kvota pro Azure OpenAI v regionu ' + $OpenAiLocation + ' nebo jiz obsazeny nazev. Zkuste jiny region (-OpenAiLocation) nebo jiny nazev (-OpenAiAccountName).')
+            Assert-LastExit ('Vytvoreni Azure OpenAI uctu selhalo. Podle chyby VYSE: (a) "MissingSubscriptionRegistration" = subscription nema registrovany provider Microsoft.CognitiveServices - spustte "az provider register --namespace Microsoft.CognitiveServices" a skript znovu (ucet na to pravo mit musi); (b) "FlagMustBeSetForRestore" = ucet tohoto jmena byl smazan a Azure ho jeste drzi (soft-delete) - viz prepinac -PurgeSoftDeletedOpenAi nebo zvolte jine -OpenAiAccountName; (c) chybejici kvota pro Azure OpenAI v regionu ' + $OpenAiLocation + ' nebo obsazeny nazev - zkuste jiny region (-OpenAiLocation) nebo jine jmeno (-OpenAiAccountName).')
             Write-Host 'Ucet vytvoren.'
         }
         else {
@@ -423,26 +651,125 @@ try {
     )
     # Volitelne parametry Znalostni pripravy - predavaji se JEN kdyz jsou zadane
     # (sablona ma pro ne prazdne defaulty).
+    # planSku posilame JEN kdyz se lisi od defaultu: starsi ARM sablona na CDN ten parametr
+    # nezna a odmitla by cely deployment. Default Y1 tim zustava zpetne kompatibilni.
+    if ($PlanSku -ne 'Y1') { $bicepParams += ('planSku=' + $PlanSku) }
+
     if ($AadTenantId -ne '')     { $bicepParams += ('aadTenantId=' + $AadTenantId) }
     if ($AadClientId -ne '')     { $bicepParams += ('aadClientId=' + $AadClientId) }
     if ($AadClientSecret -ne '') { $bicepParams += ('aadClientSecret=' + $AadClientSecret) }
     if ($SettingsSiteUrl -ne '') { $bicepParams += ('settingsSiteUrl=' + $SettingsSiteUrl) }
 
-    if ($useLocalTemplate) {
-        az deployment group create `
-            --resource-group $ResourceGroupName `
-            --name $deployName `
-            --template-file $templatePath `
-            --parameters $bicepParams -o none
+    # Vystup deploymentu si zachytime, abychom z nej umeli PRECIST pricinu a rict, co s ni
+    # (driv se jen vypsal ARM JSON a hlaska "nasazeni selhalo" - deployer pak hledal chybu
+    # v sablone, i kdyz slo o kvotu nebo neregistrovany provider; naostro 2026-09-11).
+    # $ErrorActionPreference docasne na Continue: PS 5.1 jinak na presmerovani stderr
+    # nativniho prikazu (2>&1) vyhodi NativeCommandError driv, nez se dostaneme k analyze.
+    $previousEap = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        if ($useLocalTemplate) {
+            $deployOutput = az deployment group create `
+                --resource-group $ResourceGroupName `
+                --name $deployName `
+                --template-file $templatePath `
+                --parameters $bicepParams -o none 2>&1
+        }
+        else {
+            $deployOutput = az deployment group create `
+                --resource-group $ResourceGroupName `
+                --name $deployName `
+                --template-uri $CdnTemplateUrl `
+                --parameters $bicepParams -o none 2>&1
+        }
     }
-    else {
-        az deployment group create `
-            --resource-group $ResourceGroupName `
-            --name $deployName `
-            --template-uri $CdnTemplateUrl `
-            --parameters $bicepParams -o none
+    finally {
+        $ErrorActionPreference = $previousEap
     }
-    Assert-LastExit 'Nasazeni sablony selhalo. Detail chyby viz vystup vyse (pripadne Azure Portal -> resource group -> Deployments).'
+
+    if ($LASTEXITCODE -ne 0) {
+        $deployText = (@($deployOutput) | ForEach-Object { [string]$_ }) -join "`n"
+        if ($deployText.Trim() -ne '') { Write-Host $deployText }
+
+        Write-Host ''
+        Write-Host 'Nasazeni sablony selhalo. Rozbor chyby:' -ForegroundColor Red
+
+        $diagnosed = $false
+
+        if ($deployText -match 'SubscriptionIsOverQuotaForSku' -or $deployText -match 'VMs\)\s*:\s*0' -or $deployText -match 'quota of 0') {
+            $diagnosed = $true
+            Write-Host (' PRICINA: subscription nema v regionu ' + $Location + ' kvotu pro plan Function App (' + $PlanSku + '). Cerstve subscription ji maji casto nulovou.') -ForegroundColor Yellow
+            Write-Host ' Kvota se vede per subscription A ZAROVEN per region - v jinem regionu muze byt k dispozici, i kdyz tady je nula. Mereno nize.' -ForegroundColor Yellow
+
+            # Kde kvota JE: zmereno ARM validaci teze sablony s jinym location (zadne zdroje
+            # nevznikaji). Driv tu stalo "zmena regionu nepomuze" - beh c. 11 to vyvratil:
+            # tataz subscription mela northeurope 0 a westeurope kvotu k dispozici.
+            $candidateRegions = @('westeurope', 'northeurope', 'germanywestcentral', 'swedencentral', 'francecentral') | Where-Object { $_ -ne $Location }
+            Write-Host ''
+            Write-Host (' Zjistuji, kde kvota pro ' + $PlanSku + ' je - zkousim ' + $candidateRegions.Count + ' regionu, kazdy par sekund...')
+            $quotaProbe = Test-PlanQuotaInRegions -Regions $candidateRegions -ResourceGroup $ResourceGroupName `
+                -BaseParams $bicepParams -TemplatePath $templatePath -TemplateUri $CdnTemplateUrl -UseLocalTemplate $useLocalTemplate
+
+            foreach ($r in $quotaProbe) {
+                $label = switch ($r.State) {
+                    'ok'       { 'kvota k dispozici' }
+                    'kvota0'   { 'kvota 0' }
+                    'blokovan' { 'region neprijima nove zakazniky' }
+                    default    { 'nezjisteno (jina chyba validace)' }
+                }
+                Write-Host ('   ' + $r.Region.PadRight(20) + $label)
+            }
+            $regionsWithQuota = @($quotaProbe | Where-Object { $_.State -eq 'ok' })
+            Write-Host ''
+
+            if ($regionsWithQuota.Count -gt 0) {
+                $best = $regionsWithQuota[0].Region
+                Write-Host (' RESENI A (nejrychlejsi - kvota tam JE, prave zmereno): spustte skript znovu s -Location ' + $best) -ForegroundColor Green
+                Write-Host ('   Existujici resource group se tim nemeni, jen v ni zdroje vzniknou v regionu ' + $best + '.')
+            }
+            else {
+                Write-Host (' RESENI A: zadny z merenych regionu kvotu pro ' + $PlanSku + ' nema - tady zmena regionu opravdu nepomuze. Pokracujte bodem B nebo C.') -ForegroundColor Yellow
+            }
+
+            if ($PlanSku -eq 'Y1') {
+                Write-Host ' RESENI B (jina kvotova rodina): -PlanSku B1. Dedikovany plan ma vlastni kvotu nez serverless Y1, takze muze projit i tam, kde Y1 ne. Pevna mesicni cena misto platby za beh, bez studenych startu.'
+            }
+            else {
+                Write-Host ('   RESENI B (jina kvotova rodina): serverless -PlanSku Y1 ma vlastni kvotu nez dedikovane plany (' + $PlanSku + '). Kdyz uz selhal i Y1, jsou na teto subscription nulove obe rodiny - jdete na C.')
+            }
+
+            Write-Host ' RESENI C (kdyz A ani B neprojdou): pozadat o navyseni kvoty. Azure Portal -> Quotas -> App Service -> polozka pro zvoleny plan v cilovem regionu -> Request adjustment.'
+            Write-Host '   POZOR na ocekavani: self-service zadost umi Azure rovnou ZAMITNOUT ("Unsuccessful, Received 0 of 1") - pri nasem testu se to stalo u Y1 i B1 na cerstve subscription. Pak zbyva Help + support -> Create support request -> "Service and subscription limits (quotas)" -> App Service, kterou schvaluje clovek: pocitejte s hodinami az dny, ne s minutami.' -ForegroundColor Yellow
+            Write-Host '   Proto kvotu resit S PREDSTIHEM, ne az ve chvili nasazeni.'
+        }
+
+        if ($deployText -match 'RequestDisallowedByAzure' -or $deployText -match 'not accepting new customers' -or $deployText -match 'locationineligible') {
+            $diagnosed = $true
+            Write-Host (' PRICINA: region ' + $Location + ' aktualne neprijima nove zakazniky (kapacitni blok Azure).') -ForegroundColor Yellow
+            Write-Host ' RESENI: zvolte jiny region parametrem -Location (napr. northeurope, germanywestcentral, swedencentral). Existujici resource group se tim NEMENI - region zdroju urcuje -Location.'
+        }
+
+        if ($deployText -match 'MissingSubscriptionRegistration' -or $deployText -match 'Failed to register resource provider') {
+            $diagnosed = $true
+            Write-Host ' PRICINA: subscription nema registrovany nektery resource provider (jmeno je v chybe vyse).' -ForegroundColor Yellow
+            Write-Host ' RESENI: az provider register --namespace <jmeno-z-chyby>    a pote skript spustit znovu. Registrace je jednorazova a trva desitky sekund.'
+        }
+
+        # Uzka podminka zamerne: samotne slovo planSku se v chybe objevi i tehdy, kdyz je
+        # parametr v poradku a selhala treba kvota pro zvolene SKU. Radu "sablona je stara"
+        # smime dat jen u chyby, ktera vyslovne rika, ze parametr v sablone NENI.
+        if ($deployText -match 'planSku' -and ($deployText -match 'not present in the original template' -or $deployText -match 'parameters.{0,40}are not valid')) {
+            $diagnosed = $true
+            Write-Host ' PRICINA: pouzita ARM sablona parametr planSku nezna - je starsi nez tento skript.' -ForegroundColor Yellow
+            Write-Host ' RESENI: stahnete si aktualni deploy-azure.ps1 I sablonu z CDN, nebo skript spustte bez -PlanSku.'
+        }
+
+        if (-not $diagnosed) {
+            Write-Host ' Konkretni chybu hleda Azure Portal -> resource group -> Deployments -> posledni deployment -> Operation details.'
+        }
+
+        throw 'Nasazeni sablony selhalo (rozbor viz vyse).'
+    }
     Write-Host 'Infrastruktura nasazena (Function App, Storage Account, Application Insights, App Settings).'
 
     # N23: obnova zalohovanych App Settings. Parametr ma prednost - AAD_*/SETTINGS_SITE_URL
@@ -637,6 +964,7 @@ try {
     Write-Host '====================================================================='
     Write-Host (' Resource group        : ' + $ResourceGroupName + ' (' + $Location + ')')
     Write-Host (' Function App          : ' + $FunctionAppName)
+    Write-Host (' Plan                  : ' + $PlanSku + $(if ($PlanSku -eq 'Y1') { ' (Consumption - plati se za beh)' } else { ' (dedikovany plan - pevna mesicni cena)' }))
     Write-Host (' API URL pro webpart   : ' + $apiUrl) -ForegroundColor Green
     Write-Host (' CORS (ALLOWED_ORIGIN) : ' + $AllowedOrigin)
     Write-Host (' Smoke test /api/chat  : ' + $smokeInfo + $(if ($SkipSmokeTest) { '' } else { ' (Origin: ' + $smokeOrigin + ')' }))
