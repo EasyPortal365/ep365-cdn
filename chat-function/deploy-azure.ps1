@@ -76,10 +76,11 @@
     spadne na "SubscriptionIsOverQuotaForSku / Current Limit (Y1 VMs): 0".
     Kvota se vede per subscription A ZAROVEN per region, takze prvni vec, kterou zkusit, je
     JINY REGION (-Location) - overeno: tataz subscription mela northeurope 0 a westeurope
-    kvotu k dispozici. Kdyz skript na kvotu spadne, sam zmeri, ve kterych regionech kvota je,
-    a region doporuci. Az kdyz nema kvotu zadny region, prichazi na radu tenhle parametr
-    (jina kvotova rodina) nebo zadost o navyseni kvoty - ta ale nemusi projit self-service
-    a pres support trva hodiny az dny, viz README, cast "Nova Azure subscription".
+    kvotu k dispozici. Kdyz skript na kvotu spadne, sam zkusi ostatni z petice westeurope /
+    northeurope / germanywestcentral / swedencentral / francecentral a doporuci ten, kde kvota
+    je; o dalsich regionech Azure nerika nic. Az kdyz kvotu nema ani jeden z NICH, prichazi na
+    radu tenhle parametr (jina kvotova rodina) nebo zadost o navyseni kvoty - ta ale nemusi
+    projit self-service, viz README, cast "Nova Azure subscription".
     B1 = nejlevnejsi vzdy bezici plan (pevna mesicni cena), dal B2 / S1 / P0v3 / EP1.
     POZOR: hodnotu jinou nez Y1 zvladne jen sablona z teto verze - pri behu proti starsi
     ARM sablone na CDN skript skonci chybou o neznamem parametru.
@@ -221,9 +222,32 @@ function Assert-LastExit([string]$Message) {
     if ($LASTEXITCODE -ne 0) { throw $Message }
 }
 
+function Hide-Secrets {
+    <#
+      Zamaskuje tajne hodnoty v textu, ktery se chysta do konzole.
+
+      Proc: syrovy vystup `az` se pri chybe vypisuje cely, a parametry sablony predavame na
+      prikazove radce - je mezi nimi azureOpenAiKey a pripadne aadClientSecret. Vetsina chyb
+      je ARM chyba bez argumentu (a `@secure()` parametry ARM sam maskuje), ale chyba
+      PARSOVANI argumentu v az CLI cely prikaz zopakuje - a tenhle vypis deployer typicky
+      kopiruje do protokolu nebo e-mailu. Jednou takhle unikly klic staci.
+    #>
+    param([string]$Text, [string[]]$Secrets)
+
+    if ([string]::IsNullOrEmpty($Text)) { return $Text }
+    $out = $Text
+    foreach ($s in $Secrets) {
+        # Prazdny/kratky retezec by nahradil cokoli - takove preskakujeme.
+        if ([string]::IsNullOrEmpty($s) -or $s.Length -lt 8) { continue }
+        $out = $out -replace [regex]::Escape($s), '***'
+    }
+    return $out
+}
+
 function Test-PlanQuotaInRegions {
     <#
-      Zjisti, ve KTERYCH regionech ma subscription kvotu pro zvoleny App Service plan.
+      Zjisti, ktere z PREDANYCH regionu maji kvotu pro zvoleny App Service plan.
+      (O regionech mimo seznam $Regions nerika nic - volajici jich predava par, ne vsechny.)
 
       Proc takhle: kvota Function App se vede per subscription A ZAROVEN per region -
       tataz subscription mela pri testovacim behu c. 11 v northeurope Y1 nulu a ve
@@ -412,10 +436,10 @@ try {
             }
         }
 
-        # Registrace bezi asynchronne (desitky sekund). Pockame na ni tady, at deployment
+        # Registrace bezi asynchronne. Pockame na ni tady, at deployment
         # nevstoupi do sablony driv, nez je provider pripraveny.
         if ($pendingProviders.Count -gt 0) {
-            Write-Host 'Cekam na dokonceni registrace (bezne desitky sekund)...'
+            Write-Host 'Cekam na dokonceni registrace (u nas jednotky minut, cekam nejvys 5)...'
             $providerDeadline = (Get-Date).AddMinutes(5)
             while ($pendingProviders.Count -gt 0 -and (Get-Date) -lt $providerDeadline) {
                 Start-Sleep -Seconds 10
@@ -689,7 +713,9 @@ try {
 
     if ($LASTEXITCODE -ne 0) {
         $deployText = (@($deployOutput) | ForEach-Object { [string]$_ }) -join "`n"
-        if ($deployText.Trim() -ne '') { Write-Host $deployText }
+        # Do konzole (a odtud do protokolu) jen zamaskovane - viz Hide-Secrets.
+        # Klasifikace nize bezi nad PUVODNIM textem, maskovani ji neovlivnuje.
+        if ($deployText.Trim() -ne '') { Write-Host (Hide-Secrets -Text $deployText -Secrets @($aoaiKey, $AadClientSecret)) }
 
         Write-Host ''
         Write-Host 'Nasazeni sablony selhalo. Rozbor chyby:' -ForegroundColor Red
@@ -706,10 +732,24 @@ try {
             # tataz subscription mela northeurope 0 a westeurope kvotu k dispozici.
             $candidateRegions = @('westeurope', 'northeurope', 'germanywestcentral', 'swedencentral', 'francecentral') | Where-Object { $_ -ne $Location }
             Write-Host ''
-            Write-Host (' Zjistuji, kde kvota pro ' + $PlanSku + ' je - zkousim ' + $candidateRegions.Count + ' regionu, kazdy par sekund...')
-            $quotaProbe = Test-PlanQuotaInRegions -Regions $candidateRegions -ResourceGroup $ResourceGroupName `
-                -BaseParams $bicepParams -TemplatePath $templatePath -TemplateUri $CdnTemplateUrl -UseLocalTemplate $useLocalTemplate
+            Write-Host (' Zjistuji, kde kvota pro ' + $PlanSku + ' je - zkousim ' + $candidateRegions.Count + ' evropskych regionu, chvili to potrva...')
 
+            # Mereni je DOPLNEK rozboru, ne jeho podminka: kdyz selze (az nedostupne, sablona
+            # nectena, cokoli neceka), musi projit zbytek rady. Bez tohohle catch by vyjimka
+            # sebrala uzivateli i RESENI B a C - tedy vic, nez kolik mu mereni prida.
+            $quotaProbe = @()
+            $probeFailed = ''
+            try {
+                $quotaProbe = @(Test-PlanQuotaInRegions -Regions $candidateRegions -ResourceGroup $ResourceGroupName `
+                    -BaseParams $bicepParams -TemplatePath $templatePath -TemplateUri $CdnTemplateUrl -UseLocalTemplate $useLocalTemplate)
+            }
+            catch {
+                $probeFailed = Hide-Secrets -Text $_.Exception.Message -Secrets @($aoaiKey, $AadClientSecret)
+            }
+
+            if ($probeFailed -ne '') {
+                Write-Host ('   Mereni se nepodarilo provest (' + $probeFailed + ') - regiony proto neumim doporucit. Zbytek rady nize plati.') -ForegroundColor Yellow
+            }
             foreach ($r in $quotaProbe) {
                 $label = switch ($r.State) {
                     'ok'       { 'kvota k dispozici' }
@@ -722,24 +762,40 @@ try {
             $regionsWithQuota = @($quotaProbe | Where-Object { $_.State -eq 'ok' })
             Write-Host ''
 
+            # Tri RUZNE stavy, ktere se nesmi slit do jedne vety: nasel jsem region / zmeril
+            # jsem a nenasel / nezmeril jsem nic. Puvodne tu byly jen dva, takze pri selhani
+            # mereni skript tvrdil "zadny z merenych regionu kvotu nema" - o regionech,
+            # ktere nikdo nezmeril. Presne ta trida tvrzeni, kvuli ktere se tenhle rozbor
+            # prepisoval (nalez P-14).
+            $regionsZero = @($quotaProbe | Where-Object { $_.State -eq 'kvota0' })
+            $regionsUnknown = @($quotaProbe | Where-Object { $_.State -ne 'ok' -and $_.State -ne 'kvota0' })
+
             if ($regionsWithQuota.Count -gt 0) {
                 $best = $regionsWithQuota[0].Region
-                Write-Host (' RESENI A (nejrychlejsi - kvota tam JE, prave zmereno): spustte skript znovu s -Location ' + $best) -ForegroundColor Green
+                Write-Host (' RESENI A (nejrychlejsi): spustte skript znovu s -Location ' + $best) -ForegroundColor Green
+                Write-Host ('   Validace tam prosla bez chyby o kvote - je to tedy nejnadejnejsi region, ne zaruka (nasazeni je az dalsi krok).')
                 Write-Host ('   Existujici resource group se tim nemeni, jen v ni zdroje vzniknou v regionu ' + $best + '.')
             }
+            elseif ($regionsZero.Count -gt 0) {
+                # Neznama se NESMI pocitat mezi nuly - funkce o nich vyslovne mlci.
+                $vzkaz = ' RESENI A: kvotu pro ' + $PlanSku + ' nema ani jeden z ' + $regionsZero.Count + ' regionu, ktere se podarilo zmerit'
+                if ($regionsUnknown.Count -gt 0) { $vzkaz += ' (u ' + $regionsUnknown.Count + ' dalsich mereni neproslo, o tech nevime nic)' }
+                $vzkaz += '. Dalsi regiony Azure nabizi, zmerene je nemame - pokracujte bodem B nebo C.'
+                Write-Host $vzkaz -ForegroundColor Yellow
+            }
             else {
-                Write-Host (' RESENI A: zadny z merenych regionu kvotu pro ' + $PlanSku + ' nema - tady zmena regionu opravdu nepomuze. Pokracujte bodem B nebo C.') -ForegroundColor Yellow
+                Write-Host (' RESENI A: zkuste jiny region parametrem -Location (napr. westeurope, northeurope, germanywestcentral, swedencentral, francecentral). Ktery z nich kvotu ma, se tentokrat zmerit nepodarilo.') -ForegroundColor Yellow
             }
 
             if ($PlanSku -eq 'Y1') {
                 Write-Host ' RESENI B (jina kvotova rodina): -PlanSku B1. Dedikovany plan ma vlastni kvotu nez serverless Y1, takze muze projit i tam, kde Y1 ne. Pevna mesicni cena misto platby za beh, bez studenych startu.'
             }
             else {
-                Write-Host ('   RESENI B (jina kvotova rodina): serverless -PlanSku Y1 ma vlastni kvotu nez dedikovane plany (' + $PlanSku + '). Kdyz uz selhal i Y1, jsou na teto subscription nulove obe rodiny - jdete na C.')
+                Write-Host ('   RESENI B (jina kvotova rodina): serverless -PlanSku Y1 ma vlastni kvotu nez dedikovane plany (' + $PlanSku + '). Pokud jste ho jeste nezkousel, zkuste ho; pokud selhal ve stejnem regionu, byly tam nulove obe rodiny - v jinych regionech to zmerene nemame.')
             }
 
             Write-Host ' RESENI C (kdyz A ani B neprojdou): pozadat o navyseni kvoty. Azure Portal -> Quotas -> App Service -> polozka pro zvoleny plan v cilovem regionu -> Request adjustment.'
-            Write-Host '   POZOR na ocekavani: self-service zadost umi Azure rovnou ZAMITNOUT ("Unsuccessful, Received 0 of 1") - pri nasem testu se to stalo u Y1 i B1 na cerstve subscription. Pak zbyva Help + support -> Create support request -> "Service and subscription limits (quotas)" -> App Service, kterou schvaluje clovek: pocitejte s hodinami az dny, ne s minutami.' -ForegroundColor Yellow
+            Write-Host '   POZOR na ocekavani: self-service zadost umi Azure rovnou ZAMITNOUT ("Unsuccessful, Received 0 of 1") - pri nasem testu 2026-09-13 se to stalo u Y1 i B1 na cerstve subscription. Pak zbyva Help + support -> Create support request -> "Service and subscription limits (quotas)" -> App Service, kterou schvaluje clovek. Jak dlouho to trva, jsme nemerili - rozhodne s tim ale nepocitejte v radu minut.' -ForegroundColor Yellow
             Write-Host '   Proto kvotu resit S PREDSTIHEM, ne az ve chvili nasazeni.'
         }
 
@@ -752,7 +808,7 @@ try {
         if ($deployText -match 'MissingSubscriptionRegistration' -or $deployText -match 'Failed to register resource provider') {
             $diagnosed = $true
             Write-Host ' PRICINA: subscription nema registrovany nektery resource provider (jmeno je v chybe vyse).' -ForegroundColor Yellow
-            Write-Host ' RESENI: az provider register --namespace <jmeno-z-chyby>    a pote skript spustit znovu. Registrace je jednorazova a trva desitky sekund.'
+            Write-Host ' RESENI: az provider register --namespace <jmeno-z-chyby>    a pote skript spustit znovu. Registrace je jednorazova; u nas dobehla v jednotkach minut.'
         }
 
         # Uzka podminka zamerne: samotne slovo planSku se v chybe objevi i tehdy, kdyz je

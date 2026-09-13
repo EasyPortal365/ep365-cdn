@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.47.16.16243",
-      "templateHash": "2124491242231721661"
+      "templateHash": "15028717855944978296"
     },
     "poznamka": "ARM soubor infra/main.json je VYGENEROVANÝ z tohoto zdroje: az bicep build -f infra/main.bicep --outfile infra/main.json. main.json needitujte ručně – změny dělejte tady a přegenerujte, jinak se zdroj a artefakt tiše rozejdou. CDN kopie šablony pro tlačítko Deploy to Azure dostává při release vyplněný default packageUrl (viz scripts/build-release-zip.ps1)."
   },
@@ -67,7 +67,7 @@
         "EP1"
       ],
       "metadata": {
-        "description": "SKU App Service planu. Y1 = Consumption (serverless, platí se jen za běh) — VÝCHOZÍ a doporučené. Čerstvá Azure subscription má ale pro Y1 často nulovou kvótu („Current Limit (Y1 VMs): 0“, chyba SubscriptionIsOverQuotaForSku). Kvóta se vede na subscription i na region, takže první věc, kterou zkusit, je JINÝ REGION (parametr location) — ověřeno: tatáž subscription měla northeurope 0 a westeurope kvótu k dispozici. Až když kvótu nemá žádný region, přichází na řadu tento parametr (jiná kvótová rodina) nebo žádost o navýšení kvóty — ta ale nemusí projít self-service a přes support trvá hodiny až dny. B1 = nejlevnější vždy běžící plán (pevná měsíční cena), EP1 = Elastic Premium."
+        "description": "SKU App Service planu. Y1 = Consumption (serverless, platí se jen za běh) — VÝCHOZÍ a doporučené. Čerstvá Azure subscription má ale pro Y1 často nulovou kvótu („Current Limit (Y1 VMs): 0“, chyba SubscriptionIsOverQuotaForSku). Kvóta se vede na subscription i na region, takže první věc, kterou zkusit, je JINÝ REGION (parametr location) — ověřeno: tatáž subscription měla northeurope 0 a westeurope kvótu k dispozici. Skript při pádu na kvótu zkusí ostatní z pětice westeurope / northeurope / germanywestcentral / swedencentral / francecentral a doporučí ten, kde kvóta je; o dalších regionech Azure neříká nic. Až když kvótu nemá ani jeden z nich, přichází na řadu tento parametr (jiná kvótová rodina — ale i Basic VMs bývá na čerstvé subscription nulová) nebo žádost o navýšení kvóty, která nemusí projít self-service. B1 = nejlevnější vždy běžící plán (pevná měsíční cena), EP1 = Elastic Premium."
       }
     },
     "aadTenantId": {
