@@ -795,7 +795,7 @@ try {
             }
 
             Write-Host ' RESENI C (kdyz A ani B neprojdou): pozadat o navyseni kvoty. Azure Portal -> Quotas -> App Service -> polozka pro zvoleny plan v cilovem regionu -> Request adjustment.'
-            Write-Host '   POZOR na ocekavani: self-service zadost muze Azure rovnou ZAMITNOUT ("Unsuccessful, Received 0 of 1"), a to i pro Y1 i B1 zaroven. Pak zbyva Help + support -> Create support request -> "Service and subscription limits (quotas)" -> App Service, kterou schvaluje clovek - nepocitejte s tim v radu minut.' -ForegroundColor Yellow
+            Write-Host '   POZOR na ocekavani: self-service zadost muze Azure rovnou ZAMITNOUT ("Unsuccessful, Received 0 of 1"), a to i pro serverless i pro dedikovany plan. Pak zbyva Help + support -> Create support request -> "Service and subscription limits (quotas)" -> App Service, kterou schvaluje clovek - nepocitejte s tim v radu minut.' -ForegroundColor Yellow
             Write-Host '   Proto kvotu resit S PREDSTIHEM, ne az ve chvili nasazeni.'
         }
 
