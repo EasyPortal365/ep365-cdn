@@ -4,6 +4,22 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.12",
+      "date": "2026-09-14",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "V Atlasu přibyla sekce „Šablony webů“. Místo aby se struktura nových webů popisovala v konfiguraci, postavíte jeden VZOROVÝ web tak, jak mají weby ve firmě vypadat, a pořídíte z něj otisk – Atlas jeho tvar přečte a uloží jako šablonu. Otisk nese knihovny i seznamy se sloupci, pohledy a verzováním, strom složek, tvar oprávnění (názvy skupin a rolí – nikdy konkrétní osoby), kanály Microsoft Teams a stránky webu. Volitelně vezme i vzorové dokumenty – prázdný protokol, checklist, hlavičkový papír – a obrázky použité na stránkách; kopírují se schválně, aby šablona zůstala zmrazeným obrazem vzoru i poté, co někdo původní soubor přepíše. U každé šablony je vidět, co se na nový web přenese a co ne: položky seznamů, osobní a skryté pohledy, privátní a sdílené kanály Teams ani stránka hostící jedinou webovou část do šablony nepatří – a u každé takové věci je napsané proč. Když se některou větev nepodaří přečíst, řekne to: nepřečteno není totéž co prázdné. Zakládání a dorovnávání webů podle šablony dělá aplikace Řízené weby.",
+          "en": "Atlas has a new section, “Site templates”. Instead of describing the structure of new sites in a configuration screen, you build one REFERENCE site the way sites in your company should look and take a snapshot of it – Atlas reads its shape and stores it as a template. The snapshot carries libraries and lists with their columns, views and versioning, the folder tree, the SHAPE of permissions (group and role names – never actual people), Microsoft Teams channels and the site pages. Optionally it also takes reference documents – a blank protocol, a checklist, letterhead – and the images used on pages; they are copied on purpose, so the template stays a frozen picture of the reference site even after someone overwrites the original file. Every template shows what will and will not be transferred: list items, personal and hidden views, private and shared Teams channels and a page hosting a single web part do not belong in a template – and each of them says why. If a branch could not be read, Atlas says so: unread is not the same as empty. Creating and reconciling sites from a template is done by the Managed Sites app."
+        },
+        {
+          "type": "new",
+          "cs": "Šablony umí porovnat revize. Každé snímání téhož vzorového webu zakládá revizi a starší se nemažou, takže v detailu šablony vyberete starší revizi a uvidíte, co přesně se mezi nimi na vzoru změnilo – přibylé i zmizelé složky, knihovny, seznamy, pohledy a kanály, změněná oprávnění, sloupce i verzování. Rozbití dědičnosti se hlásí zvlášť, protože je to jiná změna než doplnění přístupu, a změna rolí u téže skupiny je jeden řádek „z čeho na co“, ne dvojice „zmizelo“ a „přibylo“, kterou si člověk musel sesadit sám. Když má některá revize nepřečtené větve, aplikace to řekne dřív než samotné rozdíly – „zmizelo“ totiž může znamenat jen „nebylo vidět“. A co starší otisk vůbec nezaznamenával, se vypíše zvlášť jako nesrovnatelné, místo aby se to vydávalo za změnu na vzoru.",
+          "en": "Templates can compare revisions. Every new snapshot of the same reference site creates a revision and older ones are kept, so in the template detail you pick an older revision and see exactly what changed on the reference site between them – folders, libraries, lists, views and channels added or gone, changed permissions, columns and versioning. Broken inheritance is reported separately, because it is a different change than granting access, and a role change on the same group is one line “from what to what”, not a pair of “gone” and “added” you had to piece together yourself. If a revision has unread branches, the app says so before the differences themselves – “gone” may simply mean “could not be seen”. And whatever an older snapshot never recorded is listed separately as not comparable, instead of being passed off as a change on the reference site."
+        }
+      ]
+    },
+    {
       "version": "1.11",
       "date": "2026-09-10",
       "changes": [
