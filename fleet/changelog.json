@@ -4,6 +4,187 @@
   "name": "EP365 Vozový park",
   "entries": [
     {
+      "version": "1.10",
+      "date": "2026-09-16",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Plán údržby neskryje termín, o kterém neví. Když se nepodaří načíst historii najetých kilometrů, aplikace to řekne a vysvětlí, že servisy vedené v kilometrech zatím nemají odhad termínu – dřív takové vozidlo ze seznamu tiše vypadlo a nahoře svítilo „vše v pořádku“. Stejně tak seznam vozidel: nepřečtená kniha jízd už nevypadá jako „0 km za 30 dní“ a „žádná jízda“, a nenačtený číselník lokalit neudělá z vozidla vozidlo bez lokality.",
+          "en": "The maintenance plan no longer hides a deadline it does not know about. If the mileage history cannot be loaded, the app says so and explains that services tracked in kilometres have no estimated date yet — previously such a vehicle silently dropped off the list while the page claimed everything was fine. The same applies to the vehicle list: an unread journey log no longer looks like \"0 km in 30 days\" and \"no journeys\", and an unread location list no longer turns a vehicle into a vehicle without a location."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nabídka typů vozidel, paliv a stavu pneumatik teď odpovídá tomu, co jde skutečně uložit. Formulář nového vozidla dřív nabízel minibus, nákladní vůz a LPG, které se ale nedaly uložit, a naopak chybělo CNG. V detailu vozidla se u pneumatik nabízely jiné stavy než v sekci Pneumatiky. Všechny nabídky teď vycházejí z jednoho místa, takže se znovu rozejít nemohou.",
+          "en": "The vehicle type, fuel and tyre condition options now match what can actually be saved. The new vehicle form used to offer minibus, truck and LPG, none of which could be stored, while CNG was missing entirely. Tyre conditions in the vehicle detail differed from those in the Tyres section. All option lists now come from a single place, so they cannot drift apart again."
+        },
+        {
+          "type": "new",
+          "cs": "Ze spolujízdy se dá zase odhlásit. V detailu cizí rezervace, ke které jste se přidali jako spolucestující, je nově tlačítko „Odebrat se“ – funguje, dokud vozidlo nebylo převzato. Dosud šlo připojit se, ale ne odejít, přestože to nápověda popisovala.",
+          "en": "You can leave a shared ride again. The detail of someone else’s reservation you joined as a passenger now has a \"Leave\" button, available until the vehicle is handed over. Until now you could join but not leave, even though the help described otherwise."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nečitelný záznam už nevypadá jako záznam bez závad. Kontrola vozidla, jejíž uložené položky nejdou přečíst, to nově přizná místo toho, aby se tvářila jako prověřená kontrola bez jediné závady. Mapa poškození se v takovém případě zamkne, aby nový zápis nepřepsal ten původní. Přehled novinek zase rozliší „žádné novinky“ od „seznam se nepodařilo načíst“.",
+          "en": "An unreadable record no longer looks like a record without defects. A vehicle inspection whose stored items cannot be read now admits it, instead of appearing to be a completed check with no defects at all. The damage map locks in that case so a new entry cannot overwrite the original one. And the what’s-new overview now distinguishes \"no news\" from \"the list could not be loaded\"."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikaci jde roztáhnout přes celou obrazovku. V řádku ikon vpravo nahoře přibyl přepínač, který Vozový park vytrhne ze stránky a roztáhne přes celé okno prohlížeče – užitečné u dlouhých seznamů, kalendáře a mapy rezervací. Druhým klikem se vrátí zpět.",
+          "en": "The app can now be expanded to full screen. The icon row at the top right has a new toggle that lifts Fleet out of the page and stretches it across the whole browser window — useful for long lists, the calendar and the reservation map. Click again to return."
+        },
+        {
+          "type": "improved",
+          "cs": "Tlačítko pro obnovení přibylo tam, kde chybělo. Karta vozidla a stránka Rezervovat vozidlo šly dosud načíst znovu jen obnovením celé stránky, přestože se na nich obsah mění nejčastěji – přibývají dokumenty, servisní záznamy i cizí rezervace.",
+          "en": "A refresh button was added where it was missing. The vehicle card and the Reserve a vehicle page could previously only be reloaded by refreshing the whole page, even though their content changes most often — documents, service records and other people’s reservations keep coming in."
+        },
+        {
+          "type": "improved",
+          "cs": "Seznamy se ovládají stejně napříč celou aplikací. Lokality nově mají hledání, Rezervovat vozidlo stránkování a Správa rolí u velkých skupin zobrazí prvních 24 členů s možností rozbalit zbytek. Hledací pole vypadá a chová se všude stejně.",
+          "en": "Lists now behave the same across the whole app. Locations gained search, Reserve a vehicle gained paging, and Roles shows the first 24 members of large groups with the rest one click away. The search field now looks and behaves the same everywhere."
+        },
+        {
+          "type": "improved",
+          "cs": "Sjednocený vzhled podle firemního standardu. Hlavičky Nákladů, Kontrol, Importu tankování a QR samolepek používají stejnou velikost jako ostatní přehledy, barvy stavů jsou popsané jedním názvem místo desítek různých zápisů téhož odstínu a ze rozhraní zmizely znakové symboly. Díky tomu se firemní barva z „Workplace“ propíše i tam, kde dosud zůstávala natvrdo zapsaná.",
+          "en": "A unified look according to the company standard. The headers of Costs, Inspections, Fuel import and QR labels now use the same size as other overviews, status colours are defined in one place instead of dozens of spellings of the same shade, and character symbols were removed from the interface. As a result the company colour from Workplace also reaches places where it used to be hard-coded."
+        },
+        {
+          "type": "new",
+          "cs": "Vozový park zvládne i jinou techniku než osobní auta. K typům vozidla přibyly autobus, tahač, přívěs, návěs, motocykl, traktor, zemědělská technika a pracovní stroj – stavební firma, dopravce nebo zemědělský podnik už nemusí všechno vést jako „Jiné“, což dřív rozbíjelo filtry i statistiky. V seznamech a na dlaždicích se navíc u každého záznamu ukáže ikona podle druhu techniky.",
+          "en": "Fleet now handles more than passenger cars. Vehicle types were extended with bus, tractor unit, trailer, semi-trailer, motorcycle, tractor, agricultural machinery and work machine — a construction company, carrier or farm no longer has to record everything as \"Other\", which used to break filters and statistics. Lists and tiles also show an icon matching the kind of machine."
+        },
+        {
+          "type": "new",
+          "cs": "Foto-protokol vozidla vede řidiče šesti pohledy. Při převzetí i vrácení nabídne aplikace pevnou sadu – přední maska, levý bok, záď, pravý bok, interiér a tachometr – u každého políčka je vodítko, jak snímek pořídit. Na telefonu se rovnou otevře fotoaparát. Sada není povinná, ale je vidět, co chybí, a fotografie se ukládají označené pohledem, takže se stav „před“ a „po“ dá porovnat kus po kuse. Nad rámec sady jde přiložit další fotky jako dřív.",
+          "en": "The vehicle photo protocol now guides the driver through six views. On handover and return the app offers a fixed set — front, left side, rear, right side, interior and odometer — each with a hint on how to take the shot. On a phone the camera opens directly. The set is not mandatory, but missing views are visible, and photos are stored labelled by view, so the \"before\" and \"after\" condition can be compared piece by piece. Extra photos beyond the set can be attached as before."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nahrávání fotografií z telefonu je spolehlivější. Aplikace pro čtení souboru používala novější funkci prohlížeče, kterou některé starší telefony nemají – na nich nahrání fotky do protokolu selhalo. Nově se používá způsob, který funguje všude.",
+          "en": "Uploading photos from a phone is more reliable. The app used a newer browser function to read the file, which some older phones lack — photo upload to the protocol failed on them. It now uses a method that works everywhere."
+        },
+        {
+          "type": "new",
+          "cs": "Předávací protokol vzniká jako PDF s podpisem. Na konci protokolu se nově podepíšete – prstem na telefonu, myší na počítači – a aplikace z protokolu složí PDF, které uloží do dokumentů vozidla. Obsahuje stav tachometru, palivo, čistotu, popis poškození, poznámky i podpis, a přiznává, které pohledy ve fotodokumentaci chybí. Papírový protokol tak není potřeba a doklad pro pojišťovnu nebo vedení je po ruce.",
+          "en": "The handover record is now produced as a signed PDF. At the end of the form you sign — with a finger on a phone, with a mouse on a computer — and the app composes a PDF stored in the vehicle documents. It contains the odometer reading, fuel, cleanliness, damage description, notes and the signature, and it states which photo views are missing. No paper record is needed and the document for the insurer or management is at hand."
+        },
+        {
+          "type": "new",
+          "cs": "QR kód na vozidle otevře rovnou tu akci, která dává smysl. Po naskenování samolepky aplikace zjistí, v jakém stavu vozidlo je a jakou na něj máte rezervaci, a nabídne odpovídající krok – protokol převzetí, protokol vrácení, kontrolu vozidla, nebo kartu vozidla. Když sedí víc možností, ukáže je všechny i s vysvětlením proč. Dříve vytištěné samolepky vedou na kartu vozidla a fungují dál beze změny.",
+          "en": "The QR code on a vehicle now opens the action that actually makes sense. After scanning the label the app checks the vehicle state and your reservation for it, and offers the matching step — handover record, return record, vehicle inspection, or the vehicle card. When several options fit, it shows them all with the reason why. Labels printed earlier lead to the vehicle card and keep working unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Režim celé obrazovky je teď i na úvodní obrazovce a aplikace si vaši volbu pamatuje. Přepínač přibyl do řádku ikon na Dashboardu, kde dosud chyběl, a pokud si aplikaci roztáhnete, zůstane roztažená i při příštím otevření. Volba platí jen pro vás, ne pro celou organizaci.",
+          "en": "Full-screen mode is now available on the home screen too, and the app remembers your choice. The toggle was added to the icon row on the Dashboard, where it was missing, and if you expand the app it stays expanded the next time you open it. The choice applies only to you, not to the whole organisation."
+        },
+        {
+          "type": "fixed",
+          "cs": "Texty v bočních panelech mají správné písmo. V detailu rezervace a v dalších vysouvacích panelech se údaje vykreslovaly patkovým systémovým písmem místo firemního – nadpis a SPZ přitom vypadaly správně, takže panel působil poskládaně ze dvou různých stylů. Týkalo se to i nabídek s výběrem osob a lokalit.",
+          "en": "Text in side panels now uses the correct typeface. In the reservation detail and other slide-out panels the values were rendered in a serif system font instead of the corporate one — while the heading and licence plate looked right, so the panel appeared assembled from two different styles. The same applied to the people and location pickers."
+        },
+        {
+          "type": "fixed",
+          "cs": "Mapa rezervací je zase čitelná. Poskytovatel podkladových map začal vyžadovat registrační klíč a přes celou mapu se objevil vodoznak „API KEY REQUIRED“. Mapa se přitom načítala, takže aplikace nehlásila žádnou chybu. Podklad je nově z OpenStreetMap, který klíč nevyžaduje – vozidla, destinace i trasy zůstávají beze změny.",
+          "en": "The reservation map is readable again. The basemap provider started requiring a registration key and an \"API KEY REQUIRED\" watermark appeared across the whole map. The map still loaded, so the app reported no error. The basemap now comes from OpenStreetMap, which needs no key — vehicles, destinations and routes are unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Nabídka po naskenování QR kódu říká konkrétní čas a nehádá, když data chybí. U běžící jízdy i čekající rezervace se nově píše, od kdy platí, takže je jasné, o kterou jízdu jde. A pokud se rezervace nepodaří načíst, aplikace nenabídne založení nové rezervace – vede na kartu vozidla, aby řidič omylem nezaložil druhou rezervaci na vůz, který už má převzatý.",
+          "en": "The offer after scanning a QR code now states a concrete time and does not guess when data is missing. A running journey and a waiting reservation now show when they start, so it is clear which journey is meant. And if reservations cannot be loaded, the app no longer offers creating a new one — it leads to the vehicle card, so a driver does not accidentally create a second reservation for a vehicle they already took over."
+        },
+        {
+          "type": "improved",
+          "cs": "Mapa rezervací má klidnější podklad. Barvy podkladové mapy jsou ztlumené, takže z ní vystupuje to podstatné – destinace, domovské lokality a trasy jízd. Mapa přitom zůstává čitelná, les, voda i dálnice jsou pořád rozeznatelné.",
+          "en": "The reservation map has a calmer basemap. The basemap colours are muted so that what matters stands out — destinations, home locations and journey routes. The map stays readable: forests, water and motorways remain distinguishable."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace si data hledá způsobem, který přežije přejmenování seznamu. Dosud se na seznamy a knihovnu odkazovala jménem, takže by je po přejmenování v SharePointu přestala nacházet – a to bez chybové hlášky, jen s prázdnými přehledy. Nově je adresuje podle jejich umístění; týká se to i mazání testovacích dat a nahrávání dokumentů, kde by tichý výpadek napáchal nejvíc škody.",
+          "en": "The app now looks up its data in a way that survives a list being renamed. Until now it referenced lists and the document library by name, so renaming them in SharePoint would make the app stop finding them — without any error, just empty overviews. It now addresses them by location; this also covers clearing test data and uploading documents, where a silent failure would do the most damage."
+        },
+        {
+          "type": "improved",
+          "cs": "Prázdné seznamy vypadají všude stejně a nic si nevymýšlí. Tam, kde dřív svítila jen holá věta „Žádné záznamy“, je teď jednotný stav s ikonou, vysvětlením a případně tlačítkem, které vede k dalšímu kroku – u rezervací, vozidel, protokolů, incidentů, kontrol, tankování, knihy jízd, lokalit, nákladů, statistik i plánu údržby. A hlavně: když se data nepodaří načíst, aplikace to řekne místo uklidňujícího „nic tu není“. Opraveno to bylo i v Kapse na telefonu, kde se u dokladů po selhaném čtení hlásilo, že vozidlo žádné doklady nemá.",
+          "en": "Empty lists now look the same everywhere and no longer overstate what they know. Where a bare “No records” line used to be, there is a consistent empty state with an icon, an explanation and, where it helps, a button to the next step — across reservations, vehicles, handover reports, incidents, inspections, refuelling, the journey log, locations, costs, statistics and the maintenance plan. Most importantly: when data cannot be loaded, the app says so instead of reassuring you that there is nothing there. The same fix landed in the mobile Glovebox, where a failed read used to claim the vehicle had no documents."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkaz „Co je nového“ na Roadmapě funguje i na celé obrazovce. V maximalizovaném zobrazení klik na něj nic neudělal – stránka zůstala nahoře a k přehledu novinek jste se museli dorolovat ručně.",
+          "en": "The “What’s new” link on the Roadmap now works in full-screen mode too. When the app was maximised, clicking it did nothing — the page stayed where it was and you had to scroll to the release notes yourself."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikace umí anglicky. Vpravo nahoře přibyl přepínač CS / EN – přepnutím se přeloží celé rozhraní včetně nápovědy, průvodce, mobilní verze i tiskových stránek. Volba je vaše osobní a aplikace si ji zapamatuje. Správce navíc může v Nastavení – Obecné určit výchozí jazyk pro celou organizaci, případně ho nechat na „Automaticky“, kdy se aplikace řídí jazykem účtu Microsoft 365. Vaše data – značky vozidel, účely cest, názvy lokalit – zůstávají tak, jak jste je zadali.",
+          "en": "The app now speaks English. A CS / EN switch has appeared in the top right corner — switching translates the whole interface, including help, the guided tour, the mobile version and printed pages. The choice is personal to you and the app remembers it. An administrator can also set a default language for the whole organisation in Settings — General, or leave it on “Automatic”, where the app follows your Microsoft 365 account language. Your data — vehicle makes, journey purposes, location names — stays exactly as you entered it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Režim celé obrazovky opraven. Hlavička stránky se v něm smršťovala, takže název sekce s popisem mizel pod obsahem – teď je všude celá. Levý panel se navíc posouval celý včetně loga a jméno s ozubeným kolečkem dole zůstávalo mimo obraz; nově se posouvá jen navigace a patička drží na místě. Přepnutí sekce také vrací obsah na začátek, místo aby vás nechalo uprostřed předchozí stránky.",
+          "en": "Full-screen mode fixed. The page header used to shrink in it, so the section title and its description disappeared behind the content — now it is always shown in full. The left panel also scrolled as a whole, including the logo, leaving your name and the settings cog off screen; only the navigation scrolls now and the footer stays put. Switching sections also returns the content to the top instead of leaving you mid-page."
+        },
+        {
+          "type": "fixed",
+          "cs": "Ve Správě pneumatik se v každém řádku tabulky zobrazoval technický text z kódu. Řádky jsou teď čisté.",
+          "en": "In Tyre management, a block of technical text from the code was showing in every table row. The rows are clean again."
+        },
+        {
+          "type": "fixed",
+          "cs": "Úvodní obrazovka přesahovala do stran, takže se dole objevil vodorovný posuvník, a shora si ukrajovala kousek sebe sama. Teď lícuje se zbytkem stránky.",
+          "en": "The dashboard overflowed sideways, which produced a horizontal scrollbar at the bottom, and clipped a strip off its own top. It now lines up with the rest of the page."
+        },
+        {
+          "type": "improved",
+          "cs": "Ikona sdílení je nově na každé obrazovce. Chyběla na formuláři protokolu o převzetí a vrácení vozidla, na zakládání nové kontroly, na roadmapě během načítání a na skenu QR kódu, který nenašel vozidlo. Odkaz vždy míří tam, kde má příjemce co dělat – u protokolu například na rezervaci, ze které se vyplňuje.",
+          "en": "The share icon is now on every screen. It was missing from the vehicle pick-up and return form, from creating a new inspection, from the roadmap while it loads and from a QR scan that could not find the vehicle. The link always points somewhere the recipient can act — for the handover report, for instance, at the reservation it belongs to."
+        },
+        {
+          "type": "new",
+          "cs": "Lokality mají vlastní polohu na mapě. Dohledá se jednou – u jedné lokality tlačítkem, nebo hromadně pro všechny – a mapa rezervací je pak kreslí okamžitě a spolehlivě, i když je veřejná vyhledávací služba nedostupná. Když adresu nenajde první služba, zkusí se záložní.",
+          "en": "Locations now carry their own position on the map. It is looked up once — per location or for all of them at once — and the reservation map then draws them instantly and reliably, even when the public lookup service is down. If the first service cannot find an address, a backup one is tried."
+        },
+        {
+          "type": "fixed",
+          "cs": "Protokol předání se už nezaloží dvakrát. Když se předtím nepovedlo nahrát fotku nebo vytvořit PDF, druhý pokus vyrobil druhý protokol i druhý záznam v knize jízd, takže se jedna jízda počítala dvakrát. Nově se opakovaným uložením jen dokončí, co zbylo.",
+          "en": "A handover report can no longer be created twice. Previously, if a photo upload or the PDF failed, a second attempt produced a second report and a second journey-log entry, so one journey was counted twice. Now a repeated save simply finishes what was left."
+        },
+        {
+          "type": "fixed",
+          "cs": "Stav tachometru už nejde nechtěně snížit. Při vrácení vozidla se nová hodnota zapisovala i tehdy, když se tu původní nepodařilo přečíst – vozidlo se 120 000 km tak šlo přepsat na nižší stav. Ruční oprava správcem v kartě vozidla zůstává.",
+          "en": "The odometer can no longer be lowered by accident. On vehicle return the new value was written even when the previous one could not be read, so a vehicle with 120,000 km could be overwritten with a lower figure. A manual correction by an administrator on the vehicle card still works."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vrácení vozidla už nepřebije důvod, proč vůz jezdit nesmí. Odevzdání klíčů dřív přepnulo na „Aktivní\" i vozidlo odstavené kvůli kritické nehodě nebo servisu a to se okamžitě vrátilo mezi nabízená.",
+          "en": "Returning a vehicle no longer overrides the reason it must not be driven. Handing back the keys used to switch even a vehicle grounded by a serious incident or by servicing back to “Active”, and it immediately reappeared among those on offer."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rezervace, kterou žadatel mezitím zrušil, už nejde schválit ani u ní zahájit jízdu. Fronta schvalování se načítá jednou, takže starší řádek dokázal zrušenou žádost vzkřísit a znovu zablokovat vozidlo.",
+          "en": "A reservation the requester has meanwhile cancelled can no longer be approved or started. The approval queue loads once, so a stale row could bring a cancelled request back to life and block the vehicle again."
+        },
+        {
+          "type": "fixed",
+          "cs": "Jízda přerušená nehodou na vozidle jde dokončit. Rezervace se překlopila do stavu „Čeká na uzavření\" a z něj nevedla žádná cesta ven – protokol vrácení se nedal vyplnit a jízda nikdy nedoputovala do knihy jízd.",
+          "en": "A journey interrupted by an incident on the vehicle can now be closed. The reservation moved to “Awaiting closure” and there was no way out of it — the return report could not be filled in and the journey never reached the journey log."
+        },
+        {
+          "type": "improved",
+          "cs": "Když se data nepodaří načíst, aplikace to řekne místo toho, aby tvrdila prázdno. Týká se to nabídky volných vozidel, karty vozidla i obrazovky po naskenování QR kódu – dřív mohly hlásit „žádné volné vozidlo\" nebo „vozidlo nenalezeno\" i ve chvíli, kdy se na ně jen nešlo zeptat.",
+          "en": "When data cannot be loaded, the app says so instead of claiming emptiness. This covers the list of free vehicles, the vehicle card and the screen after scanning a QR code — they could previously report “no vehicle available” or “vehicle not found” when the app had merely failed to ask."
+        },
+        {
+          "type": "fixed",
+          "cs": "Podpis v protokolu už nezmizí při posouvání stránky na telefonu. Skrytí adresního řádku prohlížeče plátno promazalo a doklad odešel bez podpisu.",
+          "en": "A signature in the report no longer disappears when scrolling on a phone. Hiding the browser address bar wiped the pad and the document went out unsigned."
+        },
+        {
+          "type": "improved",
+          "cs": "Rezervace a hlášení incidentů jsou nově chráněné i na úrovni SharePointu, ne jen v aplikaci. Každý upraví jen záznam, který sám založil; schvalovat a řešit cizí smí dispečer a správce. Zakládat vlastní rezervaci může dál kdokoli, komu jste dali přístup.",
+          "en": "Reservations and incident reports are now protected in SharePoint itself, not only in the app. Everyone can edit only the record they created; approving and handling other people’s records is up to dispatchers and administrators. Creating your own reservation still works for anyone you have given access to."
+        }
+      ]
+    },
+    {
       "version": "1.9",
       "date": "2026-09-10",
       "changes": [
