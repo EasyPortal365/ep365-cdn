@@ -130,7 +130,18 @@
     SKU model deploymentu. Default: GlobalStandard.
 
 .PARAMETER OpenAiSkuCapacity
-    Kapacita deploymentu (v tisicich TPM). Default: 10.
+    Kapacita deploymentu (v tisicich tokenu za minutu, TPM). Default: 50.
+
+    TPM je RYCHLOSTNI strop, ne rezervace - u SKU GlobalStandard se plati za skutecne
+    spotrebovane tokeny, takze vyssi kapacita sama o sobe nic nestoji. Drzet ji nizko
+    tedy nesetri nic a jen lame provoz: jeden dotaz nad firemnimi znalostmi ma prompt
+    v desetitisicich tokenu (rozpocet zpravy je 32 000 znaku), takze na 10 TPM narazi
+    na limit SAM O SOBE, i kdyz se nikdo dalsi nepta - Azure OpenAI vrati 429 a appka
+    hlasi "AI sluzba dotaz odmitla kvuli limitu kapacity". Presne to se stalo prvnimu
+    zakaznikovi s AI backendem (2026-09-17), protoze default byl 10; lekce 26.7 bod 3
+    to popsala dva mesice predem. Skript nove pred zalozenim deploymentu ZMERI zbyvajici
+    kvotu v regionu a kdyz na pozadovanou kapacitu nestaci, sestoupi na dostupnou misto
+    padu na InsufficientQuota.
 
 .PARAMETER AadTenantId
     Volitelny - Znalostni priprava. Entra ID tenant id (viz scripts/setup-enrichment.ps1).
@@ -200,7 +211,9 @@ param(
     [string]$OpenAiModelName = 'gpt-5-mini',
     [string]$OpenAiModelVersion = '2025-08-07',
     [string]$OpenAiSkuName = 'GlobalStandard',
-    [int]$OpenAiSkuCapacity = 10,
+    # 50 = 50 000 TPM. Nizsi hodnota nesetri nic (plati se za spotrebovane tokeny, ne za
+    # kvotu) a rozbiji dotazy nad firemnimi znalostmi - viz .PARAMETER vyse a lekce 26.7.
+    [int]$OpenAiSkuCapacity = 50,
 
     # Volitelne - Znalostni priprava (enrich); predavaji se do sablony jen kdyz jsou zadane
     [string]$AadTenantId = '',
@@ -324,7 +337,7 @@ if ($AzureOpenAiDeployment -eq '') { $AzureOpenAiDeployment = $OpenAiModelName }
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
 # (viz scripts/build-release-zip.ps1).
 $CdnTemplateUrl = 'https://cdn.easyportal365.cz/chat-function/main.json'
-$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.7.1.zip'
+$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.7.2.zip'
 
 # Docasna slozka - $env:TEMP na Windows, GetTempPath() v Azure Cloud Shellu (Linux)
 $TempBase = $env:TEMP
@@ -598,7 +611,42 @@ try {
                 }
             }
 
-            Write-Host ('Vytvarim model deployment "' + $AzureOpenAiDeployment + '" (' + $OpenAiModelName + ' ' + $resolvedModelVersion + ', ' + $OpenAiSkuName + ' ' + $OpenAiSkuCapacity + ')...')
+            # Preflight kvoty (lekce 26.7 bod 3, ktera to predepsala uz 2026-07-19):
+            # kdyz na pozadovanou kapacitu v regionu nezbyva kvota, SESTUP na dostupnou
+            # misto padu na InsufficientQuota. Selhani MERENI nesmi nasazeni zastavit -
+            # pak se posle pozadovana hodnota a rozhodne Azure (chovani do 2026-09-17).
+            $effectiveCapacity = $OpenAiSkuCapacity
+            try {
+                $usageJson = az cognitiveservices usage list --location $OpenAiLocation -o json 2>$null
+                if ($LASTEXITCODE -eq 0 -and $usageJson) {
+                    $usages = ConvertFrom-Json (($usageJson -join "`n"))
+                    $skuKey   = $OpenAiSkuName.ToLower()
+                    $modelKey = $OpenAiModelName.ToLower()
+                    # Kvota se jmenuje napr. "OpenAI.GlobalStandard.gpt-5-mini" - hledame
+                    # podle SKU i modelu, ne podle presneho tvaru (ten se u modelu lisi).
+                    $quota = @($usages | Where-Object {
+                        $n = ''
+                        if ($_.name -and $_.name.value) { $n = ([string]$_.name.value).ToLower() }
+                        ($n.Length -gt 0) -and $n.Contains($skuKey) -and $n.Contains($modelKey)
+                    } | Select-Object -First 1)
+                    if ($quota.Count -gt 0 -and [double]$quota[0].limit -gt 0) {
+                        $remaining = [int]([double]$quota[0].limit - [double]$quota[0].currentValue)
+                        Write-Host ('Kvota ' + $OpenAiSkuName + '/' + $OpenAiModelName + ' v regionu ' + $OpenAiLocation + ': zbyva ' + $remaining + ' z ' + [int][double]$quota[0].limit + ' (v tisicich TPM).')
+                        if ($remaining -lt $OpenAiSkuCapacity -and $remaining -ge 1) {
+                            $effectiveCapacity = $remaining
+                            Write-Host ('POZOR: na doporucenou kapacitu ' + $OpenAiSkuCapacity + ' kvota v tomto regionu nestaci - zakladam deployment s ' + $effectiveCapacity + '. Chat pojede, ale dotazy nad firemnimi znalostmi mohou vracet 429 (limit kapacity). Kvotu navyste v Azure Portalu (Quotas -> Azure OpenAI, region ' + $OpenAiLocation + ') a pak zvyste kapacitu deploymentu - nic to nestoji, plati se za spotrebovane tokeny.') -ForegroundColor Yellow
+                        }
+                        elseif ($remaining -lt 1) {
+                            Write-Host ('POZOR: v regionu ' + $OpenAiLocation + ' nezbyva pro ' + $OpenAiSkuName + '/' + $OpenAiModelName + ' zadna kvota - zalozeni nize nejspis skonci chybou InsufficientQuota. Reseni: jiny region (-OpenAiLocation), nebo navyseni kvoty v Azure Portalu (Quotas).') -ForegroundColor Yellow
+                        }
+                    }
+                }
+            }
+            catch {
+                # Mereni kvoty selhalo - posleme pozadovanou kapacitu a rozhodne Azure.
+            }
+
+            Write-Host ('Vytvarim model deployment "' + $AzureOpenAiDeployment + '" (' + $OpenAiModelName + ' ' + $resolvedModelVersion + ', ' + $OpenAiSkuName + ' ' + $effectiveCapacity + ')...')
             az cognitiveservices account deployment create `
                 --resource-group $ResourceGroupName `
                 --name $OpenAiAccountName `
@@ -607,12 +655,30 @@ try {
                 --model-version $resolvedModelVersion `
                 --model-format OpenAI `
                 --sku-name $OpenAiSkuName `
-                --sku-capacity $OpenAiSkuCapacity -o none
-            Assert-LastExit ('Vytvoreni model deploymentu selhalo. Pravdepodobne priciny: (1) model ' + $OpenAiModelName + ' (verze ' + $resolvedModelVersion + ') neni v regionu ' + $OpenAiLocation + ' dostupny; (2) chybi kvota pro SKU ' + $OpenAiSkuName + ' (kapacita ' + $OpenAiSkuCapacity + '); (3) model muze byt ve stavu Deprecating - Azure ho JIZ NEPRIJIMA pro nove deploymenty (i kdyz jeste nebyl retirovan) - v tom pripade zvolte GA (GenerallyAvailable) model nebo verzi parametry -OpenAiModelName / -OpenAiModelVersion. Dostupne GA modely v regionu vypisete prikazem:  az cognitiveservices model list -l ' + $OpenAiLocation + ' --query "[?kind==''OpenAI'' && model.lifecycleStatus==''GenerallyAvailable''].{Model:model.name, Verze:model.version}" -o table   Model/verzi/kapacitu zvolte parametry -OpenAiModelName / -OpenAiModelVersion / -OpenAiSkuCapacity (jmeno deploymentu -AzureOpenAiDeployment se jinak odvodi od modelu).')
+                --sku-capacity $effectiveCapacity -o none
+            Assert-LastExit ('Vytvoreni model deploymentu selhalo. Pravdepodobne priciny: (1) model ' + $OpenAiModelName + ' (verze ' + $resolvedModelVersion + ') neni v regionu ' + $OpenAiLocation + ' dostupny; (2) chybi kvota pro SKU ' + $OpenAiSkuName + ' (kapacita ' + $effectiveCapacity + '); (3) model muze byt ve stavu Deprecating - Azure ho JIZ NEPRIJIMA pro nove deploymenty (i kdyz jeste nebyl retirovan) - v tom pripade zvolte GA (GenerallyAvailable) model nebo verzi parametry -OpenAiModelName / -OpenAiModelVersion. Dostupne GA modely v regionu vypisete prikazem:  az cognitiveservices model list -l ' + $OpenAiLocation + ' --query "[?kind==''OpenAI'' && model.lifecycleStatus==''GenerallyAvailable''].{Model:model.name, Verze:model.version}" -o table   Model/verzi/kapacitu zvolte parametry -OpenAiModelName / -OpenAiModelVersion / -OpenAiSkuCapacity (jmeno deploymentu -AzureOpenAiDeployment se jinak odvodi od modelu).')
             Write-Host 'Model deployment vytvoren.'
         }
         else {
             Write-Host ('Model deployment "' + $AzureOpenAiDeployment + '" uz existuje - preskakuji vytvoreni.')
+            # Existujici deployment se drive jen PRESKOCIL, takze zakaznik nasazeny s
+            # nizkou kapacitou u ni zustal i po opakovanem spusteni skriptu a nikdo se o
+            # tom nedozvedel (Technicoat 2026-09-17: 10 TPM, tedy mene, nez unese jeden
+            # dotaz nad firemnimi znalostmi). Kapacitu proto ZMER a nesedici nahlas.
+            # Sama se NEMENI - je to zdroj zakaznika a nasazeni na nej pravo mit nemusi.
+            try {
+                $existingCapacityRaw = az cognitiveservices account deployment show --resource-group $ResourceGroupName --name $OpenAiAccountName --deployment-name $AzureOpenAiDeployment --query 'sku.capacity' -o tsv 2>$null
+                if ($LASTEXITCODE -eq 0 -and $existingCapacityRaw) {
+                    $existingCapacity = [int]$existingCapacityRaw
+                    Write-Host ('  Kapacita existujiciho deploymentu: ' + $existingCapacity + ' (v tisicich TPM).')
+                    if ($existingCapacity -lt $OpenAiSkuCapacity) {
+                        Write-Host ('  POZOR: kapacita ' + $existingCapacity + ' je pod doporucenou ' + $OpenAiSkuCapacity + '. Jeden dotaz nad firemnimi znalostmi ma prompt v desetitisicich tokenu, takze se do minutoveho okna nevejde a Azure OpenAI vrati 429 - uzivatel uvidi "AI sluzba dotaz odmitla kvuli limitu kapacity". Navyseni nic nestoji (plati se za spotrebovane tokeny, ne za kvotu): Azure Portal -> Azure OpenAI -> ' + $OpenAiAccountName + ' -> Deployments -> ' + $AzureOpenAiDeployment + ' -> Edit -> Tokens per Minute Rate Limit.') -ForegroundColor Yellow
+                    }
+                }
+            }
+            catch {
+                # Kapacitu nesla precist - nasazeni to nezastavuje.
+            }
         }
 
         $aoaiEndpoint = (az cognitiveservices account show -g $ResourceGroupName -n $OpenAiAccountName --query 'properties.endpoint' -o tsv)
