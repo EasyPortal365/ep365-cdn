@@ -664,18 +664,75 @@ try {
         }
         else {
             Write-Host ('Model deployment "' + $AzureOpenAiDeployment + '" uz existuje - preskakuji vytvoreni.')
-            # Existujici deployment se drive jen PRESKOCIL, takze zakaznik nasazeny s
-            # nizkou kapacitou u ni zustal i po opakovanem spusteni skriptu a nikdo se o
-            # tom nedozvedel (Technicoat 2026-09-17: 10 TPM, tedy mene, nez unese jeden
-            # dotaz nad firemnimi znalostmi). Kapacitu proto ZMER a nesedici nahlas.
-            # Sama se NEMENI - je to zdroj zakaznika a nasazeni na nej pravo mit nemusi.
+            # Existujici deployment se drive jen PRESKOCIL, takze zakaznik nasazeny s nizkou
+            # kapacitou u ni zustal i po opakovanem spusteni skriptu a nikdo se o tom nedozvedel
+            # (zivy nalez 2026-09-17: kapacita mensi, nez unese jediny dotaz nad dokumenty ->
+            # Azure OpenAI vracel 429 i kdyz se nikdo dalsi neptal). Kapacitu proto ZMERIME a
+            # kdyz je NIZSI nez pozadovana, DOROVNAME ji.
+            #
+            # Proc dorovnat, a ne jen varovat: u deploymentu, ktery tenhle skript sam zaklada,
+            # je kapacita soucast nasazeni, ne cizi nastaveni - a posilat deployera do portalu
+            # kvuli jednomu cislu znamena, ze se na to zapomene. Navyseni TPM je neztratove:
+            # nemaze data, nemeni model ani jeho verzi, jen zvedne rychlostni strop, za ktery
+            # se u pay-per-token SKU neplati.
+            #
+            # DVE POJISTKY:
+            #  (a) NIKDY NESNIZUJEME. Vyssi nebo stejnou kapacitu nechame byt, takze opakovane
+            #      spusteni nemuze nic zhorsit (zakaznik si ji mohl zvednout sam).
+            #  (b) Model a jeho VERZI cteme z existujiciho deploymentu a posilame je zpatky
+            #      nezmenene. Volani je ARM PUT, takze by se chybejicim parametrem dala verze
+            #      modelu prepsat - dorovnani kapacity nesmi tise zmenit, co je nasazene. Kdyz
+            #      se ty hodnoty precist nepodari, RADEJI NEDELAME NIC a jen hlasime.
             try {
-                $existingCapacityRaw = az cognitiveservices account deployment show --resource-group $ResourceGroupName --name $OpenAiAccountName --deployment-name $AzureOpenAiDeployment --query 'sku.capacity' -o tsv 2>$null
-                if ($LASTEXITCODE -eq 0 -and $existingCapacityRaw) {
-                    $existingCapacity = [int]$existingCapacityRaw
-                    Write-Host ('  Kapacita existujiciho deploymentu: ' + $existingCapacity + ' (v tisicich TPM).')
-                    if ($existingCapacity -lt $OpenAiSkuCapacity) {
-                        Write-Host ('  POZOR: kapacita ' + $existingCapacity + ' je pod doporucenou ' + $OpenAiSkuCapacity + '. Jeden dotaz nad firemnimi znalostmi ma prompt v desetitisicich tokenu, takze se do minutoveho okna nevejde a Azure OpenAI vrati 429 - uzivatel uvidi "AI sluzba dotaz odmitla kvuli limitu kapacity". Navyseni nic nestoji (plati se za spotrebovane tokeny, ne za kvotu): Azure Portal -> Azure OpenAI -> ' + $OpenAiAccountName + ' -> Deployments -> ' + $AzureOpenAiDeployment + ' -> Edit -> Tokens per Minute Rate Limit.') -ForegroundColor Yellow
+                $depJson = az cognitiveservices account deployment show --resource-group $ResourceGroupName --name $OpenAiAccountName --deployment-name $AzureOpenAiDeployment -o json 2>$null
+                if ($LASTEXITCODE -eq 0 -and $depJson) {
+                    $dep = ConvertFrom-Json (($depJson -join "`n"))
+                    $existingCapacity = 0
+                    if ($dep.sku -and $dep.sku.capacity) { $existingCapacity = [int]$dep.sku.capacity }
+                    $curModelName    = ''
+                    $curModelVersion = ''
+                    $curSkuName      = ''
+                    if ($dep.properties -and $dep.properties.model) {
+                        $curModelName    = [string]$dep.properties.model.name
+                        $curModelVersion = [string]$dep.properties.model.version
+                    }
+                    if ($dep.sku) { $curSkuName = [string]$dep.sku.name }
+
+                    if ($existingCapacity -gt 0) {
+                        Write-Host ('  Kapacita existujiciho deploymentu: ' + $existingCapacity + ' (v tisicich TPM).')
+                    }
+
+                    $rucniPostup = '  Navyste ji rucne: Azure Portal -> Azure OpenAI -> ' + $OpenAiAccountName + ' -> Deployments -> ' + $AzureOpenAiDeployment + ' -> Edit -> Tokens per Minute Rate Limit.'
+
+                    if ($existingCapacity -gt 0 -and $existingCapacity -lt $OpenAiSkuCapacity) {
+                        if ($curModelName -and $curModelVersion -and $curSkuName) {
+                            Write-Host ('  Kapacita ' + $existingCapacity + ' je pod pozadovanou ' + $OpenAiSkuCapacity + ' - dorovnavam (model ' + $curModelName + ' ' + $curModelVersion + ' zustava beze zmeny)...')
+                            az cognitiveservices account deployment create `
+                                --resource-group $ResourceGroupName `
+                                --name $OpenAiAccountName `
+                                --deployment-name $AzureOpenAiDeployment `
+                                --model-name $curModelName `
+                                --model-version $curModelVersion `
+                                --model-format OpenAI `
+                                --sku-name $curSkuName `
+                                --sku-capacity $OpenAiSkuCapacity -o none 2>$null
+                            if ($LASTEXITCODE -eq 0) {
+                                Write-Host ('  Kapacita navysena na ' + $OpenAiSkuCapacity + ' (' + ($OpenAiSkuCapacity * 1000) + ' TPM).') -ForegroundColor Green
+                            }
+                            else {
+                                # Nejcasteji vycerpana regionalni kvota predplatneho. Nasazeni to
+                                # NEZASTAVUJE - chat pojede, jen velke dotazy mohou vracet 429.
+                                Write-Host ('  Nepodarilo se kapacitu navysit (nejcasteji nezbyva regionalni kvota predplatneho pro ' + $OpenAiSkuName + '/' + $curModelName + ' v regionu ' + $OpenAiLocation + '; kvotu navysite v Azure Portalu -> Quotas). Deployment zustava na ' + $existingCapacity + ', takze dotazy nad dokumenty mohou vracet 429 (limit kapacity).') -ForegroundColor Yellow
+                                Write-Host $rucniPostup -ForegroundColor Yellow
+                            }
+                        }
+                        else {
+                            Write-Host ('  POZOR: kapacita ' + $existingCapacity + ' je pod pozadovanou ' + $OpenAiSkuCapacity + ', ale model/verzi existujiciho deploymentu se nepodarilo precist - NEDOROVNAVAM, abych nezmenila, co je nasazene.') -ForegroundColor Yellow
+                            Write-Host $rucniPostup -ForegroundColor Yellow
+                        }
+                    }
+                    elseif ($existingCapacity -ge $OpenAiSkuCapacity) {
+                        Write-Host '  Kapacita odpovida nebo je vyssi - nechavam beze zmeny (nikdy nesnizujeme).'
                     }
                 }
             }
