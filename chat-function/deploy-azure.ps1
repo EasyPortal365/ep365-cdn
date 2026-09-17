@@ -130,7 +130,7 @@
     SKU model deploymentu. Default: GlobalStandard.
 
 .PARAMETER OpenAiSkuCapacity
-    Kapacita deploymentu (v tisicich tokenu za minutu, TPM). Default: 50.
+    Kapacita deploymentu (v tisicich tokenu za minutu, TPM). Default: 100.
 
     TPM je RYCHLOSTNI strop, ne rezervace - u SKU GlobalStandard se plati za skutecne
     spotrebovane tokeny, takze vyssi kapacita sama o sobe nic nestoji. Drzet ji nizko
@@ -211,9 +211,12 @@ param(
     [string]$OpenAiModelName = 'gpt-5-mini',
     [string]$OpenAiModelVersion = '2025-08-07',
     [string]$OpenAiSkuName = 'GlobalStandard',
-    # 50 = 50 000 TPM. Nizsi hodnota nesetri nic (plati se za spotrebovane tokeny, ne za
-    # kvotu) a rozbiji dotazy nad firemnimi znalostmi - viz .PARAMETER vyse a lekce 26.7.
-    [int]$OpenAiSkuCapacity = 50,
+    # 100 = 100 000 TPM. Nizsi hodnota nesetri nic (plati se za spotrebovane tokeny, ne
+    # za kvotu) a rozbiji dotazy nad firemnimi znalostmi - viz .PARAMETER vyse a lekce 26.7.
+    # Proc rovnou 100 a ne 50: jeden dotaz nad dokumenty bere kolem 30 000 tokenu, takze na
+    # 50 000 staci dva lide naraz nebo soubezna Znalostni priprava (ta jede hodinove davkou)
+    # a chat zacne vracet 429. Cena je stejna, takze setrit tady nema co ziskat.
+    [int]$OpenAiSkuCapacity = 100,
 
     # Volitelne - Znalostni priprava (enrich); predavaji se do sablony jen kdyz jsou zadane
     [string]$AadTenantId = '',
