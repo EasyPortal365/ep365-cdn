@@ -4,6 +4,42 @@
   "name": "EP365 Atlas",
   "entries": [
     {
+      "version": "1.13",
+      "date": "2026-09-18",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Uchovávání verzí dokumentů. SharePoint umí omezit počet verzí jen pro celou knihovnu – Atlas to dělá podle toho, o jaký dokument jde. Politika řekne, kolik verzí si dokument daného typu (podle sloupce metadat nebo podle štítku uchování) nechá ve svém stavu a jak staré verze – třeba „schválená smlouva: do roka 3 verze, poté 1“. Stav se bere ze sloupce, ze schvalování obsahu SharePointu nebo z toho, jestli má dokument hlavní verzi; rozsah může být celý tenant, vybrané weby, nebo weby založené z jedné šablony. Úklid je dvoukrokový a nic se nemaže samo: nejdřív plán, který jen čte a ukáže, co je mimo pravidlo včetně místa, které se uvolní, a teprve po potvrzení se maže – buď do koše webu, nebo natrvalo. Každý běh zůstává v historii a uvolněné místo si zobrazíte za zvolené období. Tlačítko „Prověřit dokument“ ukáže verdikt pro jeden konkrétní soubor, verzi po verzi i s důvodem. Pro opravdu velké knihovny si necháte vygenerovat skript pro PowerShell a jeho výsledek pak naimportujete zpět do historie.",
+          "en": "Document version retention. SharePoint can only cap versions per library — Atlas does it per kind of document. A policy says how many versions a document of a given type (by a metadata column or by a retention label) keeps in its state and at what age — for example “approved contract: 3 versions within a year, then 1”. The state comes from a column, from SharePoint content approval or from whether the document has a major version; the scope can be the whole tenant, selected sites, or sites created from one template. Clean-up takes two steps and nothing is deleted on its own: first a read-only plan showing what falls outside the rules including the space it would free, and only after confirmation does the deletion run — either to the site recycle bin or permanently. Every run stays in the history and freed space can be shown for a chosen period. The “Inspect document” button gives the verdict for one specific file, version by version, with the reason. For really large libraries you can generate a PowerShell script and import its result back into the history."
+        },
+        {
+          "type": "improved",
+          "cs": "Nálezy: u každého je vidět, co s ním jde udělat rovnou z aplikace. Kam Atlas dosáhne, tam je tlačítko – včetně nálezu o sdílení s kýmkoli mimo organizaci. Kam nedosáhne, protože to Microsoft přes rozhraní nenabízí, je hotový příkaz pro PowerShell a jedna věta, proč to jinak nejde; dřív tam nebylo nic a vypadalo to jako nedodělek. U nálezu o citlivém obsahu si necháte vypsat konkrétní soubory: hledá se pod vaším účtem, takže uvidíte jen to, k čemu máte přístup, a seznam se nikam neukládá.",
+          "en": "Findings now say what you can do about them straight from the app. Where Atlas can make the change there is a button — including the finding about sharing with anyone outside the organisation. Where it cannot, because Microsoft does not offer it through the interface, there is a ready-made PowerShell command and one sentence explaining why; previously there was nothing, which looked like an omission. For the sensitive-content finding you can list the actual files: the search runs under your own account, so you only see what you have access to, and the list is never stored."
+        },
+        {
+          "type": "improved",
+          "cs": "Zdraví indexu ukáže, který obsah se vleče. Rozpad „Jak rychle je nový obsah k nalezení“ už není jen graf: klikem na pásmo se vypíše obsah, který za tím číslem stojí – adresa, web, kdy se změnil, kdy u něj byl naposled crawler a jak dlouho to trvalo. Adresa vede rovnou na dokument a pod výpisem jsou weby, kde se zpoždění hromadí, s odkazem do jejich nastavení hledání, odkud se dá web nechat projít znovu. Vlastní řádek má i obsah, který se změnil po posledním průchodu a na zaindexování teprve čeká.",
+          "en": "Index health shows which content lags behind. The “How quickly new content becomes findable” breakdown is no longer just a chart: click a band and it lists the content behind the number — address, site, when it changed, when the crawler last visited and how long it took. The address opens the document itself, and below the list are the sites where the delay piles up, with a link to their search settings where the site can be reindexed. Content that changed after the last crawl and is still waiting has its own row."
+        },
+        {
+          "type": "improved",
+          "cs": "Seznamy se řadí klikem do záhlaví sloupce, a to ve všech tabulkách aplikace. První klik řadí vzestupně, druhý směr otočí, šipka v záhlaví ukazuje podle čeho se právě řadí. Dokud nekliknete, drží se pořadí, které nese informaci – nejzávažnější nález nahoře, nejhorší zdraví webu nahoře, nejnovější sken nahoře. Řadí se celý filtrovaný seznam, ne jen zobrazená stránka.",
+          "en": "Lists sort by clicking a column header, in every table in the application. The first click sorts ascending, the second reverses it, and the arrow in the header shows what is being sorted. Until you click, the order that carries meaning is kept — the most severe finding first, the worst site health first, the newest scan first. The whole filtered list is sorted, not just the page you see."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější obrazovky. Panely s víc poli nebo oddíly se dělí na dva sloupce – vlevo zařazení (co záznam je a kam patří), vpravo vlastní práce – oddíly jsou očíslované, hlavička shrne celý záznam jednou větou a pod formulářem je shrnutí, jak to bude číst aplikace. V Zátěži API jsou karty „Okna potíží“ a „Kde to bolí“ vedle sebe a obě se stránkují; žebříček endpointů se dřív usekl na osmi řádcích bez upozornění. A stránka, která se jmenovala „Roadmapa“, se jmenuje „Co je nového“ a nese přehled vydaných verzí se zvýrazněnou verzí, kterou právě máte – aplikace tím nevolá žádnou službu mimo váš tenant a naši distribuční síť.",
+          "en": "Clearer screens. Panels with more fields or sections split into two columns — classification on the left (what the record is and where it belongs), the actual work on the right — sections are numbered, the header summarises the whole record in one sentence, and below the form there is a plain-language summary of how the application will read it. In API load, the “Trouble windows” and “Where it hurts” cards sit side by side and both are paginated; the endpoint ranking used to cut off at eight rows without saying so. And the page that was called “Roadmap” is now “What’s new”, carrying the overview of released versions with your current one highlighted — so the app no longer calls any service outside your tenant and our distribution network."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení aplikace šlo někdy uložit až po obnovení stránky – uložení hlásilo, že se nastavení nepodařilo načíst, přestože hodnoty byly v polích vidět. Vaše nastavení nebylo nikdy v ohrožení, pojistka proti přepsání konfigurace jen odmítla zápis. Opraveno. A záchranný kruh v levém panelu sliboval „Co je nového“, ale otevíral Nastavení – teď otevře to, co slibuje.",
+          "en": "Application settings could sometimes only be saved after reloading the page — saving reported that the settings could not be loaded even though the values were visible in the fields. Your settings were never at risk; the safeguard against overwriting the configuration simply refused to write. Fixed. And the lifebuoy in the left panel promised “What’s new” but opened Settings — now it opens what it promises."
+        }
+      ]
+    },
+    {
       "version": "1.12",
       "date": "2026-09-14",
       "changes": [
