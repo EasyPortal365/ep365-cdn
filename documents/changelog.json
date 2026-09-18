@@ -4,6 +4,52 @@
   "name": "EP365 Řízené dokumenty",
   "entries": [
     {
+      "version": "1.17",
+      "date": "2026-09-18",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nastupujícímu kolegovi doplníte dokumenty jedním kliknutím. V „Reportu dle osoby“ přibylo tlačítko „Doplnit dokumenty“: projde zveřejněné dokumenty s cílením a vybrané osobě zapíše vše, na co má dle aktuálního cílení nárok. Ostatních se akce nedotkne, takže je hotová o poznání dřív než re-distribuce celé firmy. Totéž pro víc lidí najednou spustíte v Nastavení – Údržba pod názvem „Onboarding backfill“. Kdo už dokument potvrdil, zůstává potvrzený – opakované spuštění nic nepokazí. Volba „Poslat e-mail novým adresátům“ je u obou údržbových akcí výchozí vypnutá. Posílá se totiž jeden e-mail za každý doplněný dokument, takže zaškrtnutá volba umí z tiché údržby udělat rozeslání desítek zpráv. Kdo e-maily poslat chce, zapne je v panelu jedním klikem. U obou akcí je popsáno, co přesně udělají a koho se dotknou.",
+          "en": "A new joiner gets their documents in a single click. The “Person report” now has an “Add documents” button: it walks through published documents with targeting and writes the selected person everything they are entitled to under the current targeting. Nobody else is touched, so it finishes far sooner than a company-wide redistribution. The same for several people at once runs from Settings — Maintenance under “Onboarding backfill”. Anyone who has already confirmed a document stays confirmed — running it again breaks nothing. The “Send e-mail to new recipients” option is off by default for both maintenance actions. One e-mail goes out per document added, so a ticked box can turn quiet maintenance into a send-out of dozens of messages. Anyone who does want the e-mails switches them on in the panel with a single click. Each action spells out exactly what it does and whom it affects."
+        },
+        {
+          "type": "fixed",
+          "cs": "E-maily chodí na skutečnou adresu schránky, ne na přihlašovací jméno. V organizacích, které přešly na vlastní doménu (přihlašovací jméno na „onmicrosoft.com“, pošta na firemní doméně), a u externích spolupracovníků byla dosud adresa odvozená z přihlašovacího jména nedoručitelná. Microsoft zprávu přesto přijal, aplikace hlásila „odesláno“, nedoručenka přišla odesílateli – a adresát zůstal v přehledu plnění jako ten, kdo nepotvrdil. Adresa se nově dohledá v adresáři těsně před odesláním. Pokud účet poštovní schránku vůbec nemá, aplikace to napíše a dotyčné vyjmenuje, místo aby odeslání jen tiše ohlásila jako úspěšné. Přidělení dokumentů se nemění – ten, komu e-mail nedorazí, má dokumenty dál v „Moje dokumenty“.",
+          "en": "E-mail now goes to the real mailbox address, not to the sign-in name. In organisations that moved to their own domain (sign-in name on “onmicrosoft.com”, mail on the company domain), and for external collaborators, the address derived from the sign-in name was undeliverable. Microsoft accepted the message anyway, the application reported “sent”, the bounce landed with the sender — and the recipient stayed in the compliance overview as someone who had not confirmed. The address is now looked up in the directory just before sending. If an account has no mailbox at all, the application says so and names the people concerned instead of quietly reporting success. Document assignments are unaffected — anyone who does not get the e-mail still has the documents in “My documents”."
+        },
+        {
+          "type": "new",
+          "cs": "Aplikace umí anglicky. Celé ovládání – navigace, obrazovky, formuláře, hlášky, nápověda i interaktivní průvodce – má anglickou verzi. Jazyk se nastavuje pro celou organizaci v Nastavení – Obecné – „Jazyk aplikace“; volba „Automaticky“ převezme jazyk z EP365 Workplace, a když ani ten není nastavený, řídí se jazykem Microsoft 365 daného uživatele. Překládá se ovládání, ne obsah: názvy dokumentů, kategorií a skupin zůstávají v jazyce, ve kterém je někdo napsal, a auditní záznamy o potvrzení se nemění vůbec – důkaz pro auditora musí jít přečíst stejně, jako vznikl.",
+          "en": "The application speaks English. The entire interface — navigation, screens, forms, messages, help and the guided tour — now has an English version. The language is set for the whole organisation in Settings — General — “Application language”; the “Automatic” option takes the language from EP365 Workplace, and if that is not set either, it follows each user's own Microsoft 365 language. What gets translated is the interface, not the content: names of documents, categories and groups stay in the language they were written in, and confirmation audit records do not change at all — evidence for an auditor has to read exactly as it was created."
+        },
+        {
+          "type": "fixed",
+          "cs": "Opraveno patnáct slepených slov v textech průvodce a v panelu skupin. Na místech, kde za zvýrazněným výrazem následoval nový řádek, se slova vykreslila bez mezery – třeba „Co je novéhos novinkami“ nebo „panel s detailemdokumentu“. Šlo o celou třídu, ne o jeden překlep, takže je teď hlídá kontrola při sestavení aplikace.",
+          "en": "Fifteen run-together words in the guided tour and in the group panel are fixed. Wherever a highlighted phrase was followed by a line break, the words rendered without a space — for example “Co je novéhos novinkami”. It was a whole class of defect rather than a single typo, so a build-time check now guards against it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Na telefonu jde znovu otevřít rychlé hledání. Spodní lišta neměla tlačítko pro paletu příkazů, takže se na mobilu nedalo vyvolat vůbec – na počítači přitom funguje přes „⌘K“.",
+          "en": "Quick search works on a phone again. The bottom bar had no button for the command palette, so on mobile there was no way to open it at all — on a computer it has always worked through “⌘K”."
+        },
+        {
+          "type": "fixed",
+          "cs": "Změna kategorie přesune i soubor dokumentu. Kategorie s omezeným čtením drží své soubory ve vlastní složce s vlastními právy, jenže při překategorizaci se dosud přepsalo jen zařazení – soubor zůstal ve složce té původní. Dokument pak buď sliboval ochranu, kterou u svého souboru neměl, nebo naopak zůstal zamčený lidem, kteří na něj nově nárok mají; v aplikaci obojí vypadalo úplně stejně jako správný stav. Nově se soubor přesune jako první a zařazení se zapíše jen dokumentu, u kterého přesun vyšel. Co neprošlo, aplikace vyjmenuje i s důvodem – soubor, který používá víc dokumentů, se totiž přesunout nesmí, odstřihl by ty ostatní. Platí pro hromadnou změnu kategorie i pro úpravu rozpracovaného dokumentu.",
+          "en": "Changing the category now moves the document file too. A category with restricted file access keeps its files in its own folder with its own permissions, but until now recategorising only rewrote the classification — the file stayed in the folder of the original category. The document then either promised protection its file did not have, or stayed locked away from people who were newly entitled to it; in the application both looked exactly like the correct state. The file is now moved first, and the classification is written only for documents whose file actually moved. Whatever did not go through is listed with a reason — a file used by several documents must not be moved, as that would cut off the others. This applies to the bulk category change and to editing a draft."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hromadná změna kategorie nepustí do kategorie s omezeným čtením dokument, jehož adresáti by na soubor nedosáhli. Při vydání se to hlídalo už dřív, při překategorizaci ne – zveřejněný dokument tak mohl skončit v kategorii, kterou jeho adresáti nemají mezi čtenáři. Ti by pak měli potvrdit něco, co jim SharePoint neotevře, a v přehledu plnění by vyšli jako ti, kdo nesplnili. Nově se u každého zveřejněného dokumentu s cílením ověří, že na soubor dosáhne, a kdo neprojde, ten zůstane ve své původní kategorii – aplikace ho vyjmenuje i s důvodem. Když ověřit nejde (nepodaří se rozbalit skupiny), taky neprojde: u přístupu k dokumentům se nehádá.",
+          "en": "The bulk category change no longer moves a document into a category with restricted file access if its recipients could not reach the file. This was already checked at publication but not when recategorising — a published document could end up in a category its recipients are not readers of. They would then have to confirm something SharePoint will not open for them, and would show up in the compliance overview as not having complied. Every published document with targeting is now checked, and whatever does not pass stays in its original category, listed with a reason. If the check cannot be made (groups fail to expand), it does not pass either: access to documents is never guessed."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zapnutí omezeného čtení u kategorie zvládne i soubor, který nese víc dokumentů. Soubory kategorie se při zapnutí přesouvají do chráněné složky; když na jeden soubor ukazovalo víc dokumentů, přesunul se jednou a ostatní dokumenty hlásily chybu a zůstaly s odkazem tam, kde už soubor nebyl. Nově se soubor přesune jednou a novou adresu dostanou všechny dokumenty, které na něj ukazují – a opakované uložení kategorie dorovná i odkazy, které takhle zůstaly viset.",
+          "en": "Turning on restricted file access now copes with a file that carries more than one document. The files of a category move into the protected folder when it is turned on; if several documents pointed at one file, it moved once and the remaining documents reported an error and kept pointing where the file no longer was. The file now moves once and every document pointing at it gets the new address — and saving the category again repairs links left dangling this way."
+        }
+      ]
+    },
+    {
       "version": "1.16",
       "date": "2026-09-17",
       "changes": [
