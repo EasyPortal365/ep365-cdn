@@ -143,7 +143,26 @@
 !fonts/LICENSE.md
 !tools/
 !tools/*.mjs
-n# Knihovna pro vykreslení diagramů v našich HTML dokumentech (mermaid, OFL/MIT).
+# Knihovna pro vykreslení diagramů v našich HTML dokumentech (mermaid, OFL/MIT).
 # Hostujeme ji sami ze stejného důvodu jako písma — dokument nemá chodit na cizí CDN.
 !lib/
 !lib/*.js
+
+# Governance balík (cdn.easyportal365.cz/governance/) — obsah kapitol SharePoint
+# Governance pro modul v Atlasu. Bezpečné a ZÁMĚRNĚ veřejné:
+#   index.json      ukazatel na vydanou verzi balíku,
+#   <verze>/manifest.json   seznam kapitol s cílem zavedení (katalog, ze kterého
+#                   se zákazník rozhoduje) — placený text v něm NENÍ,
+#   <verze>/maturity.json   dotazník zralosti (volná část),
+#   <verze>/{cs,en}/*.json      VOLNÉ kapitoly (zdarma i bez licence),
+#   <verze>/{cs,en}/*.json.enc  placené kapitoly, AES-GCM šifrované klíčem balíku,
+#   <verze>/wrap/*.json         klíč balíku zabalený aktivačním kódem tenanta.
+# ⚠ Klíč balíku ani aktivační kódy sem NIKDY nepatří — žijí v keyfile mimo repo
+#   (runbook 00-continuity/runbooks/governance-balik.md).
+!governance/index.json
+!governance/*/maturity.json
+!governance/*/cs/*.json
+!governance/*/en/*.json
+!governance/*/cs/*.json.enc
+!governance/*/en/*.json.enc
+!governance/*/wrap/*.json
