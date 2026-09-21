@@ -504,6 +504,25 @@ try {
         Write-Host 'Resource group pripravena.'
     }
 
+    # Idempotence musi platit i pro REGION - a pozor, tohle je OPAK situace o par radku vys.
+    # Region resource group je evidencni udaj, ktery se da ignorovat; region ZDROJE ne:
+    # storage account se stejnym jmenem nejde zalozit podruhe v jinem regionu ani presunout,
+    # takze deployment skonci na InvalidResourceLocation. Naostro u zakaznika 2026-09-21:
+    # zdroje byly ve swedencentral a dalsi beh skriptu bez -Location chtel vychozi region.
+    # Explicitne zadany -Location ma prednost: kdyz ho nekdo napise, mysli to vazne (a kdyz
+    # se splete, dostane nize rozbor chyby, ktery mu rekne, kde zdroje ve skutecnosti jsou).
+    if (-not $PSBoundParameters.ContainsKey('Location')) {
+        $existingAppLocation = az functionapp show -g $ResourceGroupName -n $FunctionAppName --query 'location' -o tsv 2>$null
+        if ($LASTEXITCODE -eq 0 -and $existingAppLocation) {
+            # Azure vraci zobrazovaci nazev ("Sweden Central"), parametry chteji kod ("swedencentral").
+            $existingAppLocation = ($existingAppLocation.Trim() -replace '\s', '').ToLower()
+            if ($existingAppLocation -ne ($Location -replace '\s', '').ToLower()) {
+                Write-Host ('Function App uz existuje v regionu ' + $existingAppLocation + ' - pouzivam ho misto vychoziho ' + $Location + '. (Prebiti: -Location <region>.)') -ForegroundColor Yellow
+                $Location = $existingAppLocation
+            }
+        }
+    }
+
     # ----------------------------------------------------------------------
     # 3. Azure OpenAI - existujici, nebo vytvorit novy ucet + deployment
     # ----------------------------------------------------------------------
@@ -935,6 +954,24 @@ try {
             $diagnosed = $true
             Write-Host ' PRICINA: subscription nema registrovany nektery resource provider (jmeno je v chybe vyse).' -ForegroundColor Yellow
             Write-Host ' RESENI: az provider register --namespace <jmeno-z-chyby>    a pote skript spustit znovu. Registrace je jednorazova; u nas dobehla v jednotkach minut.'
+        }
+
+        # Zdroj uz existuje v jinem regionu. Chyba sama nese region, ve kterem zdroj LEZI -
+        # vytahneme ho a rovnou poradime spravny prepinac, at deployer nehleda v portalu.
+        if ($deployText -match 'InvalidResourceLocation' -or $deployText -match 'cannot be created in location') {
+            $diagnosed = $true
+            $existsIn = ''
+            if ($deployText -match "already exists in location '([^']+)'") {
+                $existsIn = ($matches[1] -replace '\s', '').ToLower()
+            }
+            Write-Host ' PRICINA: nektery zdroj uz v teto resource group existuje v JINEM regionu, nez do ktereho ho sablona chce zalozit. Azure zdroje mezi regiony nepresouva a jmeno storage accountu se odvozuje od jmena Function App, takze ho nelze zalozit podruhe jinde.' -ForegroundColor Yellow
+            if ($existsIn -ne '') {
+                Write-Host ('   RESENI: spustte skript znovu s -Location ' + $existsIn + ' - tam uz zdroje jsou.') -ForegroundColor Green
+            }
+            else {
+                Write-Host '   RESENI: spustte skript s -Location <region>, kde uz zdroje jsou (region je v chybe vyse).'
+            }
+            Write-Host '   Nasazeni do JINEHO regionu znamena jinou resource group a jine jmeno Function App - stavajici instance tam neprejde.'
         }
 
         # Uzka podminka zamerne: samotne slovo planSku se v chybe objevi i tehdy, kdyz je
