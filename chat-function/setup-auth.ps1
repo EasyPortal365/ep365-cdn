@@ -96,7 +96,35 @@ Write-Ok "Subscription: $($account.name)"
 Write-Ok "Tenant ID:    $tenantId"
 
 $fn = az functionapp show --name $FunctionAppName --resource-group $ResourceGroup 2>$null | ConvertFrom-Json
-if (-not $fn) { throw "Function App '$FunctionAppName' v resource group '$ResourceGroup' nenalezena (nebo na ni nemate prava)." }
+if (-not $fn) {
+    # Samotne "nenalezena" nepomuze tomu, kdo jmeno nezna - a to je bezny pripad, protoze
+    # backend u zakaznika casto nasazoval nekdo jiny. Vypiseme, co v subscription je.
+    Write-Host ''
+    Write-Host ("Function App '" + $FunctionAppName + "' v resource group '" + $ResourceGroup + "' nenalezena (nebo na ni nemate prava).") -ForegroundColor Red
+
+    # Projekce jako POLE, ne objekt: u -o tsv se klice objektu radi abecedne, takze
+    # {Funkce:name, ResourceGroup:resourceGroup} by sloupce prohodilo.
+    $list = az functionapp list --query "[].[name, resourceGroup, location]" -o tsv 2>$null
+    if ($LASTEXITCODE -eq 0 -and $list) {
+        Write-Host ''
+        Write-Host 'Function Apps viditelne v teto subscription:' -ForegroundColor Yellow
+        foreach ($radek in @($list)) {
+            $c = $radek -split "`t"
+            if ($c.Count -ge 2) {
+                Write-Host ('   -FunctionAppName ' + $c[0] + '  -ResourceGroup ' + $c[1] + $(if ($c.Count -ge 3) { '   (' + $c[2] + ')' } else { '' }))
+            }
+        }
+        Write-Host ''
+        Write-Host 'Ktera z nich obsluhuje EP365 AI Asistenta poznate podle nastaveni ALLOWED_ORIGIN (je v nem vas SharePoint):'
+        Write-Host '   az functionapp config appsettings list --name <funkce> --resource-group <rg> --query "[?name==''ALLOWED_ORIGIN''].value" -o tsv'
+    }
+    else {
+        Write-Host 'Seznam Function Apps se nepodarilo nacist. Overte, ze jste ve spravne subscription:' -ForegroundColor Yellow
+        Write-Host '   az account list --query "[].[name, id, isDefault]" -o tsv        (vypis dostupnych subscription)'
+        Write-Host '   az account set --subscription "<jmeno nebo id>"                 (prepnuti)'
+    }
+    throw 'Function App nenalezena (moznosti viz vyse).'
+}
 Write-Ok "Function App: $($fn.defaultHostName)"
 
 # ------------------------------------------------------------ 2. App registrace
