@@ -76,5 +76,8 @@
   "ep365-injuries": {
     "description": "Evidence pracovních úrazů podle nařízení vlády 322/2025 Sb. – kniha úrazů, záznamy pro inspektorát, odškodnění a nápravná opatření.",
     "webUrl": "https://easyportal365.cz/aplikace/kniha-urazu/"
+  },
+  "ep365-training": {
+    "description": "Realizace školení — projektový list zakázky, termíny a lektoři, kalendář obsazenosti, příprava k odškrtání, vyhodnocení s klientem a milníky fakturace nad daty CRM."
   }
 }
