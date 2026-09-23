@@ -166,3 +166,7 @@
 !governance/*/cs/*.json.enc
 !governance/*/en/*.json.enc
 !governance/*/wrap/*.json
+
+# Kontrola commit/PR zprav (atribuce asistenta) - generuje ep365-docs/scripts/install-pr-attribution-workflow.js.
+# Bez teto vyjimky workflow na GitHub nikdy nedojel a kontrola v tomhle repu nebezela (audit 2026-09-23).
+!.github/workflows/no-assistant-attribution.yml
