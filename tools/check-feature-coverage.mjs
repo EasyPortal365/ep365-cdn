@@ -48,6 +48,7 @@
 // VYJIMKA KARTY (tvar a validace v changelog-rules.mjs -> parseDocs)
 //   "docs": "n/a"                            karta nepotrebuje zadnou oblast
 //   "docs": {"tour": "n/a", "seed": "n/a"}   nepotrebuje jen vyjmenovane (help|tour|seed|lessons)
+//   karta typu "fixed" BEZ pole "docs"       vyjimka automaticky (oprava nemeni, co appka umi)
 //   Pole je interni jako `since` - promote-release ho do zakaznicke karty nekopiruje.
 //
 // KDY SE POUSTI
@@ -378,7 +379,10 @@ export function checkFeatureCoverage(opts) {
     r.cards.total = pending.length;
     for (const c of pending) r.cards.byType[c.type] = (r.cards.byType[c.type] || 0) + 1;
 
-    const docsOf = pending.map(c => parseDocs(c.docs));
+    // Opravy (type "fixed") bez vlastniho "docs" se vyjimaji automaticky (rozhodnuti 2026-09-23):
+    // oprava chyby nemeni, co appka umi, takze napoveda/pruvodce/seed zmenu nepotrebuji.
+    // Kdo chce u opravy oblast presto vyzadovat, da karte explicitni "docs" objekt.
+    const docsOf = pending.map(c => ((c.type === 'fixed' && c.docs === undefined) ? parseDocs('n/a') : parseDocs(c.docs)));
     docsOf.forEach((d, i) => {
       if (d.invalid) r.cards.invalid.push({ since: pending[i].since || null, text: pending[i].cs || '', why: d.invalid });
     });
