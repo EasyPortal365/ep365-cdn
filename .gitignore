@@ -67,6 +67,15 @@
 # Bezpečné: nezná ani nečte soupis pinů našeho tenantu, pracuje jen s vlastními daty v TEMPu.
 !tools/check-pin-guard.mjs
 
+# Sdílené úložiště runtime verzí `<app>/chunks/` (od 2026-09-24): bundle knihovny a lazy
+# chunky se ukládají jednou, ne v každé verzní složce. `pool-lib.mjs` = pravidla (co do
+# úložiště smí, jak se počítají odkazy), `pool-version.mjs` = publikace verze (volá ji
+# publish-cdn.ps1 appky), `check-chunk-pool.mjs` = důkaz nad syntetickým mini-CDN v TEMPu.
+# Bezpečné: čistě mechanismus nad veřejným obsahem tohoto repa, žádná data ani tenant.
+!tools/pool-lib.mjs
+!tools/pool-version.mjs
+!tools/check-chunk-pool.mjs
+
 # Kontrola před prořezem: stabilní kořen (`<app>/ep-365-*-loader.js`) se přepisuje na místě,
 # takže mu commit stárne a vypadne z okna `--keep` — a smazat ho znamená shodit appku všem
 # zákazníkům naráz. `prune-bundles` ho proto značí vždy; tenhle skript měří rezervu a ověřuje,

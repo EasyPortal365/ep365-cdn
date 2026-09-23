@@ -18,6 +18,7 @@
  *   0. velikost TRACKOVANEHO obsahu (`git ls-tree`, ne `du` — §65 bod 2)
  *   1. check-stable-roots.mjs   — prorez nesmi smazat stabilni loader (§23.8)
  *   2. check-pin-guard.mjs      — pin guard v prune-versions.mjs skutecne drzi (#250)
+ *   2c. check-chunk-pool.mjs    — sdilene uloziste <app>/chunks/: pocitani odkazu drzi
  *   3. prune-bundles.mjs        — bundly v koreni appky (tvar CDN pred runtime verzemi)
  *   4. prune-versions.mjs       — slozky <app>/<verze>/ (runtime kanal; sam si vynuti
  *                                 cerstvy soupis pinu, viz jeho hlavicka)
@@ -118,6 +119,9 @@ function krok(nazev, tool, argy, { povinnyUspech = true } = {}) {
 const patternArg = PATTERNS.length ? ['--protect-patterns', PATTERNS.join(',')] : [];
 krok('1/5 kontrola stabilnich koreni (loader + bundly rozsireni) - par. 23.8/23.10', 'check-stable-roots.mjs', ['--keep', String(KEEP_BUNDLES)].concat(patternArg));
 krok('2/5 kontrola pin guardu (protipriklad) - #250', 'check-pin-guard.mjs', []);
+// Sdilene uloziste <app>/chunks/ (od 2026-09-24): prune-versions z nej maze jen soubory,
+// na ktere po prorezu nemiri zadna verze. Protipriklad dokazuje, ze pocitani odkazu drzi.
+krok('2c/5 kontrola sdileneho uloziste chunku (protipriklad)', 'check-chunk-pool.mjs', []);
 // Jmena zakazniku ve VEREJNEM `pages/` (#325): strazce existoval, ale nevolal ho nikdo -
 // v publikacnich skriptech byl jen v komentari. Prorez je jediny krok, ktery nad timhle
 // repem bezi pravidelne, takze brana patri sem.

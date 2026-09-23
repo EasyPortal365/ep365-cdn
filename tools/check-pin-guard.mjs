@@ -79,6 +79,9 @@ function postavCdn(nazev) {
 function napisVarianty(root) {
   const zdroj = fs.readFileSync(REAL, 'utf8');
   fs.writeFileSync(path.join(root, 'tools', 'prune-versions.mjs'), zdroj, 'utf8');
+  // prune-versions importuje pravidla sdileneho uloziste (`<app>/chunks/`) - bez knihovny
+  // vedle kopie by spadl na importu a protipriklad by meril pad, ne guard.
+  fs.copyFileSync(path.join(TOOLS, 'pool-lib.mjs'), path.join(root, 'tools', 'pool-lib.mjs'));
 
   const od = zdroj.indexOf('// #region PIN-GUARD');
   const doo = zdroj.indexOf('// #endregion PIN-GUARD');

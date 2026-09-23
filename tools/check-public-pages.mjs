@@ -38,10 +38,13 @@ if (!Array.isArray(vzorky) || vzorky.length === 0) {
 
 // Korpus se NEVAZE na jmeno slozky (#325). Drive se meril jen `pages/`; ta v repu dnes
 // neni, takze strazce hlasil OK a netvrdil nic - a po presunu HTML jinam by oslepl stejne.
-// Bereme proto vsechny textove soubory MIMO verzovane adresare `<app>/<verze>/`, tedy
-// presne to, co na CDN lezi verejne a NEprochazi guardem v publish-cdn.ps1.
+// Bereme proto vsechny textove soubory repa - i to, co na CDN lezi verejne a NEprochazi
+// guardem v publish-cdn.ps1.
 const TEXTOVE = ['.html', '.htm', '.md', '.txt', '.json', '.css', '.svg'];
-const VERZE = /^d+(.d+){1,3}$/;
+// Verzovane adresare se prochazi TAKY. Puvodni vyjimka mela regex bez zpetnych lomitek
+// (`/^d+(.d+){1,3}$/`), ktery na zadne cislo verze nesedl - od 2026-09-09 se tedy
+// manifesty verzi meri stejne (a je to v poradku: jsou male a merit dvakrat nevadi).
+// Mrtva vyjimka zmizela, aby komentar netvrdil neco, co kod nedela (2026-09-24).
 
 function souboryPod(dir) {
   const out = [];
@@ -61,8 +64,6 @@ function korpusMimoVerze(dir, hloubka) {
     if (d.name.charAt(0) === '.' || d.name === 'node_modules' || d.name === 'tools') return;
     const p = path.join(dir, d.name);
     if (d.isDirectory()) {
-      // `<app>/<verze>/` uz proveril publish-cdn.ps1 pri nahravani - sem nepatri.
-      if (hloubka === 1 && VERZE.test(d.name)) return;
       out.push.apply(out, korpusMimoVerze(p, hloubka + 1));
       return;
     }

@@ -57,11 +57,20 @@
  *
  * Ověření, že pin guard opravdu drží: `node tools/check-pin-guard.mjs`
  * (syntetické mini-CDN + protipříklad s vystřiženým guardem).
+ *
+ * SDÍLENÉ ÚLOŽIŠTĚ `<app>/chunks/` (od 2026-09-24, pilot marketing):
+ *    Nové verze můžou mít ve verzní složce jen `manifest.json` a bundle + chunky
+ *    v `<app>/chunks/` (viz `pool-version.mjs`). Soubor z úložiště smí pryč jen tehdy,
+ *    když na něj po prořezu nemíří ŽÁDNÁ zůstávající verze — ostrá, pinutá, z okna --keep
+ *    i netrackovaná. Počítání odkazů (manifest → bundle → chunky přes holý hash) a
+ *    nezávislou kontrolu dělá `pool-lib.mjs`; ověření: `node tools/check-chunk-pool.mjs`.
+ *    Nejistota (nečitelný manifest, rozbitá verze, běžící publikace) = z úložiště NIC.
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { execFileSync } from 'child_process';
+import { planPoolSweep, POOL_DIR } from './pool-lib.mjs';
 
 // ⚠ `import.meta.url` je URL — mezera v cestě je v ní `%20`. Ruční ořezávání pathname
 //    dá „EP365%20Apps" a `readdirSync` spadne na ENOENT; dekódovat musí `fileURLToPath`.
@@ -250,6 +259,7 @@ const rows = [];
 const toDelete = [];
 let freed = 0;
 let skipped = [];
+const keptByApp = new Map();     // app -> verze, ktere po prorezu zustanou (vstup pro uloziste)
 
 for (const app of apps) {
   const appDir = path.join(ROOT, app);
@@ -272,6 +282,7 @@ for (const app of apps) {
   // Pin mimo okno --keep = jediny duvod, proc tenhle radek existuje (#250).
   const pinnedMimoOkno = versions.filter(v => pinned.has(v) && !keepNewest.has(v) && !released.has(v));
   const del = versions.filter(v => !keepNewest.has(v) && !released.has(v) && !pinned.has(v));
+  keptByApp.set(app, versions.filter(v => del.indexOf(v) === -1));
   let mb = 0;
   del.forEach(v => { const s = dirSizeMB(path.join(appDir, v)); mb += s; toDelete.push(`${app}/${v}`); });
   freed += mb;
@@ -290,7 +301,46 @@ for (const app of apps) {
   });
 }
 
+// ======================================== ULOZISTE <app>/chunks/ (pool) ======
+// Soubor z uloziste patri VERZIM, ktere na nej miri manifestem. `keptByApp` vznika az
+// za pin guardem a ochranou releases.json, takze se ochrana ostrych a pinutych verzi
+// prenasi i na jejich soubory v ulozisti. Plan, pocitani odkazu i nezavislou kontrolu
+// dela pool-lib.mjs - tataz pravidla, podle kterych publikace do uloziste pousti.
+const poolRows = [];
+const poolDelete = [];
+const poolProblems = [];
+const poolVerifyFailed = [];
+let poolFreed = 0;
+const PUBLISH_LOCK = path.join(ROOT, '.publish.lock');
+for (const app of apps) {
+  if (!fs.existsSync(path.join(ROOT, app, POOL_DIR))) continue;
+  // Bezici publikace pise do uloziste DRIV nez manifest - soubor, na ktery jeste nic
+  // nemiri, by tu vypadal jako sirotek. Zamek = v ulozisti se nemaze nic.
+  if (fs.existsSync(PUBLISH_LOCK)) { poolProblems.push(app + ': prave bezi publikace (.publish.lock) - uloziste neprorezavam'); continue; }
+  if (!keptByApp.has(app)) { poolProblems.push(app + ': verze appky se neprorezavaly (necitelny releases.json nebo zadna verze) - uloziste neprorezavam'); continue; }
+  const plan = planPoolSweep(path.join(ROOT, app), app, keptByApp.get(app));
+  if (plan.state === 'verify-failed') { poolVerifyFailed.push(app + ': ' + plan.reasons.join('; ')); continue; }
+  if (plan.state === 'unknown' || plan.state === 'dead') {
+    poolProblems.push(app + ': ' + (plan.state === 'dead' ? '!!! ROZBITA VERZE - miri na soubor, ktery v ulozisti neni: ' : 'nevim, co odkazuje: ')
+      + plan.reasons.join('; ') + ' - uloziste neprorezavam');
+    continue;
+  }
+  let b = 0;
+  plan.sweep.forEach(f => { b += fs.statSync(path.join(ROOT, app, POOL_DIR, f)).size; poolDelete.push(app + '/' + POOL_DIR + '/' + f); });
+  poolFreed += b;
+  poolRows.push({ app, 'souboru v ulozisti': plan.files.length, odkazovano: plan.marked.size, smazat: plan.sweep.length, 'uvolni MB': (b / 1048576).toFixed(1) });
+}
+// Nezavisla kontrola nasla odkaz na soubor, ktery mel jit pryc = plan NENI duveryhodny.
+// Stop PRED jakymkoli mazanim (i verznich slozek) - radsi nic nez cast.
+if (poolVerifyFailed.length) {
+  console.log('\nOVERENI ULOZISTE SELHALO - nic nesmazano (ani verzni slozky):');
+  poolVerifyFailed.forEach(p => console.log('   ' + p));
+  process.exit(1);
+}
+
 console.table(rows);
+if (poolRows.length) { console.log('Sdilene uloziste <app>/' + POOL_DIR + '/ (soubory, na ktere po prorezu nemiri zadna verze):'); console.table(poolRows); }
+poolProblems.forEach(p => console.log('! ULOZISTE ' + p));
 if (PIN_INFO) console.log(PIN_INFO);
 if (DEAD_PINS.length) {
   console.log('!!! MRTVE PINY (' + DEAD_PINS.length + ') — pin miri na verzi, ktera na CDN NENI: ' + DEAD_PINS.join(', '));
@@ -299,39 +349,52 @@ if (DEAD_PINS.length) {
 }
 // Co z toho git skutecne trackuje. Jedno volani na cely strom - `git ls-files`
 // per slozka by znamenalo stovky procesu a stejne cislo.
-const trackedSet = (function () {
+const trackedFiles = (function () {
   try {
     const out = execFileSync('git', ['-C', ROOT, 'ls-files'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
-    const s = new Set();
-    out.split('\n').forEach(function (p) {
-      const i = p.indexOf('/'); if (i === -1) return;
-      const j = p.indexOf('/', i + 1); if (j === -1) return;
-      s.add(p.slice(0, j));                 // "<app>/<verze>"
-    });
-    return s;
+    return new Set(out.split('\n').map(p => p.trim()).filter(Boolean));
   } catch (e) { return null; }             // bez gitu radeji nic netvrdit
+})();
+const trackedSet = (function () {
+  if (!trackedFiles) return null;
+  const s = new Set();
+  trackedFiles.forEach(function (p) {
+    const i = p.indexOf('/'); if (i === -1) return;
+    const j = p.indexOf('/', i + 1); if (j === -1) return;
+    s.add(p.slice(0, j));                   // "<app>/<verze>"
+  });
+  return s;
 })();
 
 const naCdn = trackedSet ? toDelete.filter(function (d) { return trackedSet.has(d); }) : toDelete;
 const jenLokalne = toDelete.length - naCdn.length;
 let freedCdn = 0;
 naCdn.forEach(function (d) { const i = d.indexOf('/'); freedCdn += dirSizeMB(path.join(ROOT, d.slice(0, i), d.slice(i + 1))); });
+// Uloziste: maze se jen trackovane (netrackovany soubor na Pages neni; a je-li to zbytek
+// po prerusene publikaci, uklidi ho az ta publikace, ne prorez).
+const poolNaCdn = trackedFiles ? poolDelete.filter(p => trackedFiles.has(p)) : [];
+let poolFreedCdn = 0;
+poolNaCdn.forEach(p => { poolFreedCdn += fs.statSync(path.join(ROOT, p)).size; });
+poolFreedCdn = poolFreedCdn / (1024 * 1024);
 
 if (trackedSet) {
-  console.log(`\nZ CDN ubude ${freedCdn.toFixed(1)} MB ve ${naCdn.length} verznich slozkach (--keep ${KEEP}).`);
+  console.log(`\nZ CDN ubude ${(freedCdn + poolFreedCdn).toFixed(1)} MB: ${freedCdn.toFixed(1)} MB ve ${naCdn.length} verznich slozkach (--keep ${KEEP})`
+    + ` + ${poolFreedCdn.toFixed(1)} MB v ${poolNaCdn.length} souborech sdileneho uloziste.`);
   if (jenLokalne) console.log(`Dalsich ${jenLokalne} slozek (${(freed - freedCdn).toFixed(1)} MB) lezi jen lokalne — na Pages nejsou, takze se velikost webu o ne nezmensi.`);
+  if (poolDelete.length > poolNaCdn.length) console.log(`V ulozisti je dalsich ${poolDelete.length - poolNaCdn.length} neodkazovanych souboru jen lokalne (netrackovane) - nechavam je.`);
 } else {
-  console.log(`\nUvolni ${freed.toFixed(1)} MB ve ${toDelete.length} verznich slozkach (--keep ${KEEP}). ⚠ Nepodarilo se zjistit, co z toho git trackuje.`);
+  console.log(`\nUvolni ${freed.toFixed(1)} MB ve ${toDelete.length} verznich slozkach (--keep ${KEEP}). ⚠ Nepodarilo se zjistit, co z toho git trackuje - uloziste se proto neprorezava.`);
 }
 if (skipped.length) console.log(`⚠ Preskoceno (necitelny releases.json): ${skipped.join(', ')}`);
 
 if (!APPLY) {
   console.log('\nPLAN (nic nesmazano). Spust s --apply.');
   if (naCdn.length) console.log('Ukazka:', naCdn.slice(0, 5).join(', '), naCdn.length > 5 ? `… (+${naCdn.length - 5})` : '');
+  if (poolNaCdn.length) console.log('Ukazka z uloziste:', poolNaCdn.slice(0, 5).join(', '), poolNaCdn.length > 5 ? `… (+${poolNaCdn.length - 5})` : '');
   process.exit(0);
 }
 
-if (!toDelete.length) { console.log('Nic k mazani.'); process.exit(0); }
+if (!toDelete.length && !poolNaCdn.length) { console.log('Nic k mazani.'); process.exit(0); }
 
 // ⚠ Na disku jsou i verzní složky, které git VŮBEC NETRACKUJE (allowlist v .gitignore
 //    pustí jen část souborů, zbytek po publikaci zůstane lokálně). `git rm` na takové
@@ -345,8 +408,10 @@ const tracked = toDelete.filter(d => {
 });
 const untracked = toDelete.length - tracked.length;
 if (untracked) console.log(`Preskakuji ${untracked} netrackovanych slozek (nejsou v gitu, tedy ani na Pages).`);
-if (!tracked.length) { console.log('Nic trackovaneho k mazani.'); process.exit(0); }
 
+// POŘADÍ: nejdřív verzní složky, AŽ POTOM úložiště. Kdyby `git rm` spadl v půlce,
+// zbydou nanejvýš neodkazované soubory v úložišti (smete je příští prořez) — nikdy
+// verze, jejíž manifest míří na soubor, který už je pryč.
 // `git rm -r` po davkach — prilis dlouha prikazova radka spadne na Windows limitu.
 const BATCH = 40;
 for (let i = 0; i < tracked.length; i += BATCH) {
@@ -354,4 +419,9 @@ for (let i = 0; i < tracked.length; i += BATCH) {
   execFileSync('git', ['-C', ROOT, 'rm', '-r', '-q', '--ignore-unmatch', '--', ...batch], { stdio: 'inherit' });
   console.log(`  smazano ${Math.min(i + BATCH, tracked.length)}/${tracked.length}`);
 }
-console.log(`\nHOTOVO — ${tracked.length} slozek odstraneno z CDN (~${freedCdn.toFixed(1)} MB). Zkontroluj 'git status' a commitni.`);
+const POOL_BATCH = 100;
+for (let i = 0; i < poolNaCdn.length; i += POOL_BATCH) {
+  execFileSync('git', ['-C', ROOT, 'rm', '-q', '--ignore-unmatch', '--', ...poolNaCdn.slice(i, i + POOL_BATCH)], { stdio: 'inherit' });
+}
+if (poolNaCdn.length) console.log(`  z uloziste smazano ${poolNaCdn.length} souboru (~${poolFreedCdn.toFixed(1)} MB)`);
+console.log(`\nHOTOVO — ${tracked.length} slozek (~${freedCdn.toFixed(1)} MB) + ${poolNaCdn.length} souboru uloziste (~${poolFreedCdn.toFixed(1)} MB) odstraneno z CDN. Zkontroluj 'git status' a commitni.`);
