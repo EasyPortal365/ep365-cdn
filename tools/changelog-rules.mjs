@@ -5,11 +5,41 @@
 // Konzumenti:
 //   · tools/publish-changelog.mjs — spadne na PRVNIM nalezu (publikace musi stat)
 //   · tools/check-pending.mjs     — vypise VSECHNY napric flotilou (pousti /wrap-up)
+//   · tools/check-feature-coverage.mjs — cte vyjimku "docs" pres parseDocs()
 // Nove pravidlo pis SEM, ne do volajiciho (§43 „dva parsery").
 
 export const VALID_TYPES = ['new', 'improved', 'fixed'];
 
 export const CESKA_DIAKRITIKA = /[áčďéěíňóřšťúůýžÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]/;
+
+/**
+ * Vyjimka karty v `pending` z brany pokryti (tools/check-feature-coverage.mjs):
+ * nova funkce ma mit od sve tiche verze zmenu v napovede, pruvodci a testovacich datech.
+ *
+ *   "docs": "n/a"                             karta nepotrebuje ZADNOU z oblasti
+ *   "docs": { "tour": "n/a", "seed": "n/a" }  nepotrebuje jen vyjmenovane oblasti
+ *
+ * Pole je INTERNI jako `since`: promote-release.mjs ho do zakaznicke karty nekopiruje
+ * a publish-changelog.mjs posila na CDN jen `entries` (pending cele zahodi).
+ * Neplatny tvar se NEPOCITA jako vyjimka (brana zustane prisnejsi, ne volnejsi)
+ * a collectIssues ho hlasi, aby preklep neprezil do vydani.
+ */
+export const DOCS_AREAS = ['help', 'tour', 'seed', 'lessons'];
+export const DOCS_NA = 'n/a';
+
+export function parseDocs(docs) {
+  const none = invalid => ({ all: false, areas: [], invalid: invalid || null });
+  if (docs === undefined) return none();
+  if (docs === DOCS_NA) return { all: true, areas: DOCS_AREAS.slice(), invalid: null };
+  if (docs && typeof docs === 'object' && !Array.isArray(docs)) {
+    const keys = Object.keys(docs);
+    if (!keys.length) return none('prazdny objekt');
+    const bad = keys.filter(k => DOCS_AREAS.indexOf(k) === -1 || docs[k] !== DOCS_NA);
+    if (bad.length) return none('neznama oblast nebo hodnota jina nez "n/a": ' + bad.join(', '));
+    return { all: false, areas: keys, invalid: null };
+  }
+  return none('ocekavam "n/a" nebo objekt {oblast: "n/a"}');
+}
 
 
 /**
@@ -76,6 +106,8 @@ export function collectIssues(data, appId) {
         }
       }
       if (c.since !== undefined && !/^\d+(\.\d+){1,3}$/.test(c.since)) bad('pending: since musi byt cislo tiche verze (napr. 1.9.4.5)');
+      const docs = parseDocs(c.docs);
+      if (docs.invalid) bad('pending: docs - ' + docs.invalid + ' (povolene: "n/a" nebo {' + DOCS_AREAS.join('|') + ': "n/a"})');
     }
   }
 
