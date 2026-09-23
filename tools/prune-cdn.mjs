@@ -130,8 +130,12 @@ krok('3/5 prorez bundlu v koreni appek', 'prune-bundles.mjs',
 // `notApps` je nepovinne: starsi politika ho nema a prorez ma bezet i s ni.
 const notApps = Array.isArray(pol.notApps) ? pol.notApps.filter(x => typeof x === 'string' && x) : [];
 const notAppsArg = notApps.length ? ['--not-apps', notApps.join(',')] : [];
+// `keepVersionsPerApp` je nepovinne: { "ai-chat": 6 } = vyjimka z keepVersions pro jednu appku.
+const perApp = (pol.keepVersionsPerApp && typeof pol.keepVersionsPerApp === 'object') ? pol.keepVersionsPerApp : {};
+const perAppPairs = Object.keys(perApp).filter(a => typeof perApp[a] === 'number' && perApp[a] > 0).map(a => a + '=' + perApp[a]);
+const perAppArg = perAppPairs.length ? ['--keep-app', perAppPairs.join(',')] : [];
 krok('4/5 prorez verznich slozek runtime kanalu', 'prune-versions.mjs',
-  ['--keep', String(KEEP_VERSIONS)].concat(notAppsArg, APPLY ? ['--apply'] : []));
+  ['--keep', String(KEEP_VERSIONS)].concat(notAppsArg, perAppArg, APPLY ? ['--apply'] : []));
 
 // ------------------------------------------------------------ 5. verdikt -----
 console.log('--- 5/5 velikost po prorezu ---');

@@ -77,6 +77,20 @@ const ONLY = (() => {
   const i = args.indexOf('--app');
   return i !== -1 ? args[i + 1] : '';
 })();
+// --keep-app ai-chat=6,crm=10 : vyjimky z --keep pro jednotlive appky (politika
+// keepVersionsPerApp v cdn-prune-policy.json; audit 2026-09-23 – CDN 794/1000 MB).
+const KEEP_APP = (() => {
+  const i = args.indexOf('--keep-app');
+  const m = new Map();
+  if (i === -1 || !args[i + 1]) return m;
+  args[i + 1].split(',').forEach(pair => {
+    const [app, n] = pair.split('=');
+    const k = parseInt(n, 10);
+    if (app && !isNaN(k)) m.set(app.trim(), Math.max(1, k));
+  });
+  return m;
+})();
+const keepFor = app => (KEEP_APP.has(app) ? KEEP_APP.get(app) : KEEP);
 
 const VER_RE = /^\d+(\.\d+)*$/;
 
@@ -253,7 +267,7 @@ for (const app of apps) {
     continue;
   }
 
-  const keepNewest = new Set(versions.slice(0, KEEP));
+  const keepNewest = new Set(versions.slice(0, keepFor(app)));
   const pinned = PINNED.get(app) || new Set();
   // Pin mimo okno --keep = jediny duvod, proc tenhle radek existuje (#250).
   const pinnedMimoOkno = versions.filter(v => pinned.has(v) && !keepNewest.has(v) && !released.has(v));
