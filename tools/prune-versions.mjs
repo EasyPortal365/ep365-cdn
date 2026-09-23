@@ -49,6 +49,7 @@
  * Použití:
  *   node tools/prune-versions.mjs                 # plán, všechny appky
  *   node tools/prune-versions.mjs --keep 15       # jiný počet ponechaných
+ *   node tools/prune-versions.mjs --not-apps governance   # složky, které nejsou appky
  *   node tools/prune-versions.mjs --app ai-chat   # jen jedna appka
  *   node tools/prune-versions.mjs --apply         # provede `git rm -r`
  *   node tools/prune-versions.mjs --pin-state <cesta>      # jiný soupis pinů
@@ -117,9 +118,20 @@ function releasedVersions(appDir) {
   }
 }
 
+// Složky, které NEJSOU runtime kanál appky, ale mají podsložku ve tvaru verze
+// (governance/2026.09 = edice obsahového balíčku). Přeskakují se JMENOVITĚ, ze
+// seznamu v politice — tiché ignorování neznámé složky by skrylo i appku, která
+// v soupisu pinů chybí omylem, a právě tu je potřeba zastavit.
+const NOT_APPS = (() => {
+  const i = args.indexOf('--not-apps');
+  const raw = i !== -1 && args[i + 1] ? args[i + 1] : '';
+  return new Set(raw.split(',').map(s => s.trim()).filter(Boolean));
+})();
+
 const apps = fs.readdirSync(ROOT, { withFileTypes: true })
   .filter(e => e.isDirectory() && e.name.charAt(0) !== '.' && e.name !== 'tools' && e.name !== 'node_modules')
   .map(e => e.name)
+  .filter(a => !NOT_APPS.has(a))
   .filter(a => !ONLY || a === ONLY)
   .sort();
 

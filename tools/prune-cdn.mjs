@@ -127,8 +127,11 @@ krok('2b/5 kontrola verejnych stranek (zakazane retezce)', 'check-public-pages.m
 const protectArg = PROTECT.length ? ['--protect', PROTECT.join(',')] : [];
 krok('3/5 prorez bundlu v koreni appek', 'prune-bundles.mjs',
   ['--keep', String(KEEP_BUNDLES)].concat(protectArg, patternArg, APPLY ? ['--apply'] : []));
+// `notApps` je nepovinne: starsi politika ho nema a prorez ma bezet i s ni.
+const notApps = Array.isArray(pol.notApps) ? pol.notApps.filter(x => typeof x === 'string' && x) : [];
+const notAppsArg = notApps.length ? ['--not-apps', notApps.join(',')] : [];
 krok('4/5 prorez verznich slozek runtime kanalu', 'prune-versions.mjs',
-  ['--keep', String(KEEP_VERSIONS)].concat(APPLY ? ['--apply'] : []));
+  ['--keep', String(KEEP_VERSIONS)].concat(notAppsArg, APPLY ? ['--apply'] : []));
 
 // ------------------------------------------------------------ 5. verdikt -----
 console.log('--- 5/5 velikost po prorezu ---');
