@@ -93,15 +93,20 @@ export function reachable(roots, byHash, readText) {
 
 /**
  * Plan prorezu uloziste JEDNE appky. Koreny = soubory, na ktere miri manifesty verzi,
- * ktere po prorezu ZUSTANOU (`keptVersions`: vse, co na disku zustava - ostre, pinute,
- * okno --keep i netrackovane). Fail-closed:
- *   - verze bez manifestu / s necitelnym manifestem / s cizim internalModuleBaseUrls
+ * ktere po prorezu ZUSTANOU (`keptVersions`: ostre, pinute, okno --keep, netrackovane
+ * i verze, ktere jsou jen v HEAD). Fail-closed:
+ *   - manifest nejde precist / ma neznamy tvar / cizi internalModuleBaseUrls
  *     = nevime, co odkazuje -> 'unknown', z uloziste se NEMAZE NIC,
  *   - verze miri na soubor, ktery v ulozisti neni -> 'dead' (rozbita verze), NEMAZE se nic,
  *   - nezavisla kontrola (indexOf, bez regexu) najde odkaz na mazany soubor -> 'verify-failed'.
+ *
+ * `opts.manifestTexts(v)` = VSECHNY texty manifestu verze, ktere plati (disk i HEAD - Pages
+ * servíruje HEAD, takze lokalne smazany nebo zmeneny manifest v HEAD porad odkazuje);
+ * [] = verze manifest NEMA nikde (prazdna slozka po prorezu - nic nenacte, nic neodkazuje);
+ * null = nevime (chyba cteni) -> 'unknown'. Bez `opts` se cte jen disk.
  * Vraci { state, files, marked, sweep, reasons }.
  */
-export function planPoolSweep(appDir, app, keptVersions) {
+export function planPoolSweep(appDir, app, keptVersions, opts) {
   const poolDir = path.join(appDir, POOL_DIR);
   const res = { state: 'none', files: [], marked: new Set(), sweep: [], reasons: [] };
   if (!fs.existsSync(poolDir)) return res;
@@ -123,21 +128,27 @@ export function planPoolSweep(appDir, app, keptVersions) {
     catch (e) { readFailed.push(name); return null; }
   };
 
+  const manifestTexts = (opts && opts.manifestTexts) || ((v) => {
+    const mf = path.join(appDir, v, 'manifest.json');
+    if (!fs.existsSync(mf)) return [];
+    try { return [fs.readFileSync(mf, 'utf8')]; } catch (e) { return null; }
+  });
   const roots = new Set();
   const pooledManifests = [];
   const dead = [];
   for (const v of keptVersions) {
-    const mf = path.join(appDir, v, 'manifest.json');
-    let text = null;
-    try { text = fs.readFileSync(mf, 'utf8'); } catch (e) { res.reasons.push(v + ': chybi nebo nejde precist manifest.json'); continue; }
-    let refs = null;
-    try { refs = manifestRefs(text); } catch (e) { res.reasons.push(v + ': ' + e.message); continue; }
-    const base = refs.baseUrls[0];
-    if (base === versionUrl(app, v)) continue;            // samostatna verze - uloziste nepouziva
-    if (base !== poolUrl(app)) { res.reasons.push(v + ': neznamy internalModuleBaseUrls ' + base); continue; }
-    pooledManifests.push(text);
-    for (const p of refs.paths) {
-      if (files.indexOf(p) === -1) dead.push(v + ' -> ' + p); else roots.add(p);
+    const texts = manifestTexts(v);
+    if (texts === null) { res.reasons.push(v + ': manifest.json nejde precist'); continue; }
+    for (const text of texts) {
+      let refs = null;
+      try { refs = manifestRefs(text); } catch (e) { res.reasons.push(v + ': ' + e.message); continue; }
+      const base = refs.baseUrls[0];
+      if (base === versionUrl(app, v)) continue;            // samostatna verze - uloziste nepouziva
+      if (base !== poolUrl(app)) { res.reasons.push(v + ': neznamy internalModuleBaseUrls ' + base); continue; }
+      pooledManifests.push(text);
+      for (const p of refs.paths) {
+        if (files.indexOf(p) === -1) dead.push(v + ' -> ' + p); else roots.add(p);
+      }
     }
   }
   if (res.reasons.length) { res.state = 'unknown'; return res; }

@@ -318,6 +318,26 @@ console.log('B4) Fail-closed: z uloziste se nemaze nic, kdyz nevime, co odkazuje
   ok(r4.kod === 0 && vPoolu(p.root, p.E) && exists(p.root, APP + '/1.0.0.2') && r4.out.indexOf('souborech sdileneho uloziste') !== -1, 'B4d bez --apply jen plan (nic nesmazano, uloziste v souctu)');
 }
 
+console.log('B5) Zbytky a lokalni zmeny: prazdna slozka nic neodkazuje, manifest z HEAD odkazuje porad');
+{
+  // Po drivejsim prorezu zustavaji na disku slozky jen s netrackovanymi .LICENSE.txt (na
+  // skutecnem CDN 45 z 58 slozek marketingu). Kdyby "slozka bez manifestu" znamenala
+  // "nevim", uloziste by se neprorezalo nikdy. Tady je takova slozka navic PINUTA,
+  // takze je v mnozine ponechanych - a prorez uloziste presto musi probehnout.
+  const x = postavProrez('zbytek');
+  fs.mkdirSync(path.join(x.root, APP, '1.0.0.0'), { recursive: true });
+  fs.writeFileSync(path.join(x.root, APP, '1.0.0.0', 'x.js.LICENSE.txt'), 'licence', 'utf8');   // netrackovane
+  const st = JSON.parse(fs.readFileSync(x.ps, 'utf8'));
+  st.pins.push({ web: '/sites/demo2', app: APP, version: '1.0.0.0' });
+  fs.writeFileSync(x.ps, JSON.stringify(st), 'utf8');
+  // Manifest ponechane 1.0.0.6 smazany JEN lokalne (bez git rm): HEAD ho porad servíruje.
+  fs.rmSync(path.join(x.root, APP, '1.0.0.6', 'manifest.json'));
+  const r = prorez(x);
+  ok(r.kod === 0 && r.out.indexOf('nevim, co odkazuje') === -1, 'B5 prazdna pinuta slozka bez manifestu uloziste NEZABLOKOVALA (exit ' + r.kod + ')');
+  ok(!vPoolu(x.root, x.E) && !vPoolu(x.root, x.O2), 'B5 prorez uloziste probehl (sirotek i O2 pryc)');
+  ok(vPoolu(x.root, x.B['1.0.0.6']), 'B5 bundle verze, jejiz manifest chybi jen lokalne (v HEAD je), ZUSTAL');
+}
+
 for (const d of temps) { try { fs.rmSync(d, { recursive: true, force: true }); } catch (e) { /* TEMP */ } }
 console.log(chyby ? '\nVERDIKT: ' + chyby + ' CHYBA/CHYBY - uloziste NEPOUZIVAT a prorez NEPOUSTET'
                   : '\nVERDIKT: OK - publikace do uloziste i prorez s pocitanim odkazu drzi, protipriklady to dokazuji');

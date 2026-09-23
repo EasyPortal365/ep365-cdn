@@ -45,7 +45,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { POOL_DIR, VER_RE, POOL_NAME_RE, hashOf, poolUrl, versionUrl, manifestRefs, reachable } from './pool-lib.mjs';
+import { CDN_URL, POOL_DIR, VER_RE, POOL_NAME_RE, hashOf, poolUrl, versionUrl, manifestRefs, reachable } from './pool-lib.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -145,7 +145,7 @@ if (MODE === 'verify-live') {
   const head = headTree(APP + '/');
   const layout = headHas('pool', head) ? 'pool' : (headHas('standalone', head) ? 'standalone' : '');
   if (!layout) fail('HEAD neobsahuje verzi ' + verRel + ' ve tvaru tohoto buildu - neni co overovat');
-  const base = 'https://cdn.easyportal365.cz/';
+  const base = CDN_URL;
   const items = [];
   const push = (rel, buildBuf) => {
     const blob = head.get(rel);

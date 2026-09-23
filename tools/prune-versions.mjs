@@ -260,6 +260,7 @@ const toDelete = [];
 let freed = 0;
 let skipped = [];
 const keptByApp = new Map();     // app -> verze, ktere po prorezu zustanou (vstup pro uloziste)
+const delByApp = new Map();      // app -> verze, ktere tenhle prorez maze
 
 for (const app of apps) {
   const appDir = path.join(ROOT, app);
@@ -283,6 +284,7 @@ for (const app of apps) {
   const pinnedMimoOkno = versions.filter(v => pinned.has(v) && !keepNewest.has(v) && !released.has(v));
   const del = versions.filter(v => !keepNewest.has(v) && !released.has(v) && !pinned.has(v));
   keptByApp.set(app, versions.filter(v => del.indexOf(v) === -1));
+  delByApp.set(app, del);
   let mb = 0;
   del.forEach(v => { const s = dirSizeMB(path.join(appDir, v)); mb += s; toDelete.push(`${app}/${v}`); });
   freed += mb;
@@ -316,9 +318,38 @@ for (const app of apps) {
   if (!fs.existsSync(path.join(ROOT, app, POOL_DIR))) continue;
   // Bezici publikace pise do uloziste DRIV nez manifest - soubor, na ktery jeste nic
   // nemiri, by tu vypadal jako sirotek. Zamek = v ulozisti se nemaze nic.
-  if (fs.existsSync(PUBLISH_LOCK)) { poolProblems.push(app + ': prave bezi publikace (.publish.lock) - uloziste neprorezavam'); continue; }
+  if (fs.existsSync(PUBLISH_LOCK)) {
+    let min = '?';
+    try { min = ((Date.now() - fs.statSync(PUBLISH_LOCK).mtimeMs) / 60000).toFixed(0); } catch (e) { /* jen do hlasky */ }
+    poolProblems.push(app + ': prave bezi publikace (.publish.lock, stary ' + min + ' min; nad 25 min = mrtvy, smaz ho) - uloziste neprorezavam');
+    continue;
+  }
   if (!keptByApp.has(app)) { poolProblems.push(app + ': verze appky se neprorezavaly (necitelny releases.json nebo zadna verze) - uloziste neprorezavam'); continue; }
-  const plan = planPoolSweep(path.join(ROOT, app), app, keptByApp.get(app));
+  // Odkazy se ctou z DISKU i z HEAD: Pages servíruje HEAD, takze manifest smazany nebo
+  // zmeneny jen lokalne (necommitnuto) porad odkazuje. Verze, ktera je jen v HEAD, se
+  // pocita taky. Slozka bez manifestu na disku i v HEAD (zbytek po drivejsim prorezu,
+  // lezi v ni jen netrackovane .LICENSE.txt) nic nenacte, a tedy nic neodkazuje.
+  let headFiles = null;
+  try {
+    headFiles = new Map();
+    execFileSync('git', ['-C', ROOT, 'ls-tree', '-r', 'HEAD', '--', app + '/'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+      .split('\n').forEach(l => { const m = /^\d+\s+blob\s+([0-9a-f]+)\t(.+)$/.exec(l); if (m) headFiles.set(m[2], m[1]); });
+  } catch (e) { headFiles = null; }
+  if (!headFiles) { poolProblems.push(app + ': nejde precist HEAD (git ls-tree) - uloziste neprorezavam'); continue; }
+  const del = delByApp.get(app) || [];
+  const kept = new Set(keptByApp.get(app));
+  headFiles.forEach((blob, p) => { const s = p.split('/'); if (s.length === 3 && VER_RE.test(s[1]) && del.indexOf(s[1]) === -1) kept.add(s[1]); });
+  const manifestTexts = (v) => {
+    const out = [];
+    const abs = path.join(ROOT, app, v, 'manifest.json');
+    if (fs.existsSync(abs)) { try { out.push(fs.readFileSync(abs, 'utf8')); } catch (e) { return null; } }
+    const blob = headFiles.get(app + '/' + v + '/manifest.json');
+    if (blob) {
+      try { out.push(execFileSync('git', ['-C', ROOT, 'cat-file', 'blob', blob], { encoding: 'utf8' })); } catch (e) { return null; }
+    }
+    return out;
+  };
+  const plan = planPoolSweep(path.join(ROOT, app), app, Array.from(kept), { manifestTexts });
   if (plan.state === 'verify-failed') { poolVerifyFailed.push(app + ': ' + plan.reasons.join('; ')); continue; }
   if (plan.state === 'unknown' || plan.state === 'dead') {
     poolProblems.push(app + ': ' + (plan.state === 'dead' ? '!!! ROZBITA VERZE - miri na soubor, ktery v ulozisti neni: ' : 'nevim, co odkazuje: ')
