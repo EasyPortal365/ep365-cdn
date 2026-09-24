@@ -22,10 +22,6 @@
 # Bezpečné: jen licenční texty balíčků z npm, žádný zdroják ani secrets. Na CDN se dostanou
 # jen tam, kde je publikace zkopíruje (tools/pool-version.mjs zatím kopíruje jen *.js a manifest).
 !*.js.LICENSE.txt
-# DOČASNĚ: v ai-chat/ leží neodeslané LICENSE zbytky dřívějších publikací (i v prořezaných
-# verzních složkách) a další `git add ai-chat/` by je vzkřísil. Řádek odebrat, až budou
-# uklizené (náhled `git clean -ndX -- ai-chat`, pak do koše).
-ai-chat/**/*.js.LICENSE.txt
 
 # Changelogy aplikací (cdn.easyportal365.cz/<app>/changelog.json) — zákaznické
 # release notes, které appky zobrazují v sekci Roadmapa & novinky. Bezpečné:
