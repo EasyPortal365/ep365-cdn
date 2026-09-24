@@ -16,6 +16,17 @@
 !.gitignore
 !.gitkeep
 
+# Licence knihoven třetích stran k bundlům (<bundle>.js.LICENSE.txt). Webpack je z bundlu
+# vyjme a bundle na ně odkazuje komentářem „For license information please see …“ – bez
+# souboru vede odkaz na 404 a licenční podmínky třetích stran (MIT, BSD…) nejsou splněné.
+# Bezpečné: jen licenční texty balíčků z npm, žádný zdroják ani secrets. Na CDN se dostanou
+# jen tam, kde je publikace zkopíruje (tools/pool-version.mjs zatím kopíruje jen *.js a manifest).
+!*.js.LICENSE.txt
+# DOČASNĚ: v ai-chat/ leží neodeslané LICENSE zbytky dřívějších publikací (i v prořezaných
+# verzních složkách) a další `git add ai-chat/` by je vzkřísil. Řádek odebrat, až budou
+# uklizené (náhled `git clean -ndX -- ai-chat`, pak do koše).
+ai-chat/**/*.js.LICENSE.txt
+
 # Changelogy aplikací (cdn.easyportal365.cz/<app>/changelog.json) — zákaznické
 # release notes, které appky zobrazují v sekci Roadmapa & novinky. Bezpečné:
 # jen texty změn (zdroj = CHANGELOG.json v app repu, kopíruje publish-changelog.mjs).
