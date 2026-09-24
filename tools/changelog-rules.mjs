@@ -93,6 +93,12 @@ export function collectIssues(data, appId) {
       // uz VYDANE karty jich nesou 34 a prepis by menil text, ktery zakaznici uz videli
       // (vedome rozhodnuti, TECH-DEBT #189).
       if (typeof c.cs === 'string' && c.cs.indexOf('"') !== -1) bad('pending: cs text obsahuje ASCII uvozovku (") - v cestine patri „ “');
+      // Ceska otviraci uvozovka „ (U+201E) v ANGLICKEM textu: vznika, kdyz se ceska veta prelozi
+      // i s uvozovkami (naostro atlas 1.13.0.10: The „Create sample data“ button). Anglicky patri
+      // “ ” (U+201C + U+201D). Hlida se jen „ – ceska ZAVIRACI “ je totez co anglicka OTVIRACI
+      // (U+201C), takze zakaz by shodil i spravny anglicky text. Jen v pending: vydane karty se
+      // neprepisuji, i kdyz tu vadu nesou (rozhodnuti #189, stejne jako ASCII uvozovky vyse).
+      if (typeof c.en === 'string' && c.en.indexOf('„') !== -1) bad('pending: en text obsahuje ceskou uvozovku („) - v anglictine patri “ ”');
       // Cesky text BEZ JEDINE diakritiky je skoro jiste psany strojem, ne clovekem: vznikne,
       // kdyz karty generuje skript napsany v ASCII (naostro 2026-09-07, 11 karet z jedne davky).
       // `promote-release` texty NIJAK neupravuje, takze by k zakaznikovi odesly presne takhle.

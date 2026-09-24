@@ -67,6 +67,7 @@ if (argv.indexOf('--selftest') !== -1) {
     ['pending jako OBJEKT (ticha ztrata)', { ...okBase, pending: { since: '1.0.0.1', changes: [] } }],
     ['neplatny type added', { ...okBase, pending: [{ type: 'added', cs: 'Text' }] }],
     ['ASCII uvozovka v cs', { ...okBase, pending: [{ type: 'new', cs: 'Sekce "Prehled" je nova' }] }],
+    ['ceska uvozovka v en', { ...okBase, pending: [{ type: 'new', cs: 'Tlačítko „Uložit“ je nové', en: 'The „Save“ button is new' }] }],
     ['em-dash v cs', { ...okBase, pending: [{ type: 'new', cs: 'Text — dalsi' }] }],
     ['pending bez cs', { ...okBase, pending: [{ type: 'new', en: 'Text' }] }],
     ['since neni cislo verze', { ...okBase, pending: [{ type: 'new', cs: 'Text', since: 'nekdy' }] }]
@@ -83,7 +84,12 @@ if (argv.indexOf('--selftest') !== -1) {
     }
   }
   // Kladna kontrola: cisty vstup nesmi hlasit nic (jinak by "vsechno spadne" bylo bezcenne).
-  const clean = collectIssues({ ...okBase, pending: [{ type: 'improved', cs: 'Text', since: '1.0.0.2' }] }, 'ep365-test');
+  // Nese i spravne uvozovky obou jazyku: ceske „ “ v cs a anglicke “ ” v en – anglicka
+  // otviraci “ je tentyz znak jako ceska zaviraci, pravidlo pro en ji proto hlasit nesmi.
+  const clean = collectIssues({ ...okBase, pending: [
+    { type: 'improved', cs: 'Text', since: '1.0.0.2' },
+    { type: 'new', cs: 'Tlačítko „Uložit“ je nové', en: 'The “Save” button is new', since: '1.0.0.2' }
+  ] }, 'ep365-test');
   if (clean.length) { console.log('    X    cisty vstup hlasi nalez: ' + clean[0]); failed++; }
   else console.log('    ok   cisty vstup je bez nalezu');
   console.log('');
