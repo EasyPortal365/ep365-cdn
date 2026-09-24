@@ -10,8 +10,8 @@
       "changes": [
         {
           "type": "new",
-          "cs": "Přidělení firem agentům se dá promítnout do oprávnění SharePointu. V Nastavení → Přidělení firem přibylo tlačítko, které z dosavadního rozdělení udělá skutečnou hranici v datech – dosud šlo o rozdělení práce uvnitř aplikace.",
-          "en": "Company assignments to agents can be projected into SharePoint permissions. Settings → Company assignments gained a button that turns the existing split into a real boundary in the data – until now it was a division of work inside the app."
+          "cs": "Přidělení firem agentům se dá promítnout do oprávnění SharePointu. V Nastavení → Přidělení firem přibylo tlačítko, které pro každou firmu založí skupinu řešitelů a podle ní nastaví oprávnění jejích tiketů. Je to příprava na tvrdé oddělení dat – dokud oprávnění nepřevezme služba na pozadí, má tým podpory k datům dál plný přístup a rozdělení platí uvnitř aplikace.",
+          "en": "Company assignments to agents can be projected into SharePoint permissions. Settings → Company assignments gained a button that creates a resolver group for each company and sets the permissions of its tickets accordingly. It prepares hard data separation — until a background service takes over the permissions, the support team keeps full access to the data and the split applies inside the app."
         },
         {
           "type": "new",
