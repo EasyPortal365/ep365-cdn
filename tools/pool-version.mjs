@@ -188,7 +188,7 @@ if (MODE === 'verify-live') {
   }
   const nbad = last.filter(x => !x.ok).length;
   // Konec pres process.exitCode, NE process.exit(): na Windows (Node 24) process.exit() hned po fetch()
-  // obcas spadne v libuv ("Assertion failed: !(handle->flags & UV_HANDLE_CLOSING)", exit 127) a publikace
+  // obcas spadne v libuv ("Assertion failed: !(handle->flags & UV_HANDLE_CLOSING)", kod padu 3221226505) a publikace
   // pak hlasila falesne NEPINOVAT (helpdesk 1.3.0.4; lekce 25.63). Chyby PRED prvnim fetch smi dal koncit pres fail().
   if (nbad) {
     say('POOL: CHYBA - ' + nbad + ' z ' + last.length + ' souboru neni na CDN ve spravnem obsahu (po ' + round + ' kolech)');
