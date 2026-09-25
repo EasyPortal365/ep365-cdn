@@ -66,11 +66,31 @@ pre{background:#0A1850;color:#E6ECFF;border-radius:var(--r-md);padding:16px 18px
 </section>
 
 <section class="card">
+  <h2>Automatické aktualizace (od verze 1.9)</h2>
+  <p>Instance nasazená skriptem <code>deploy-azure.ps1</code> si jednou denně (01:30 UTC) ověří na tomto CDN
+    podepsaný manifest svého kanálu (výchozí <code>stable</code>) a novou verzi si připraví; projeví se při příštím
+    restartu instance. Balíček se použije jen tehdy, když manifest nese platný podpis EasyPortal365 a sedí jeho
+    velikost i otisk SHA-256. Stav ukazuje <code>GET /api/version</code> vaší funkce; vypnutí: skript znovu
+    s <code>-AutoUpdate off</code>.</p>
+</section>
+
+<section class="card">
   <h2>Ověření integrity staženého souboru</h2>
   <p>Otisk staženého souboru musí odpovídat řádku v tabulce (PowerShell, i v Azure Cloud Shellu):</p>
   <pre>Get-FileHash .\deploy-azure.ps1 -Algorithm SHA256</pre>
   <p>Skript <code>deploy-azure.ps1</code> si aktuální release balíček stahuje sám a při
     opakovaném spuštění instanci bezpečně aktualizuje (nastavení Function App zachová).</p>
+</section>
+
+<section class="card">
+  <h2>Kapacita modelu Azure OpenAI</h2>
+  <p>Model deployment AI Asistenta potřebuje kapacitu alespoň <strong>100K TPM</strong> –
+    v Microsoft Foundry (dřív Azure AI Foundry) pole <strong>Tokens per Minute Rate Limit</strong> v Deployments.
+    U pay-per-token nasazení (Standard, GlobalStandard) to nic nestojí: platí se za spotřebované
+    tokeny, ne za tento strop. Skript <code>deploy-azure.ps1</code> nastavuje 100K jako výchozí
+    a u deploymentu, který sám spravuje, nižší kapacitu dorovná (nestačí-li kvóta, jen upozorní). S parametrem
+    <code>-AzureOpenAiEndpoint</code> (vaše vlastní Azure OpenAI) ji ale nekontroluje a šablona
+    <code>main.json</code> deployment modelu nezakládá – tehdy kapacitu ověřte ručně.</p>
 </section>
 
 <footer class="foot">EasyPortal 365 · cdn.easyportal365.cz/chat-function · veřejné artefakty pro nasazení u zákazníka</footer>
@@ -83,7 +103,9 @@ var DESC = [
   [/^setup-enrichment\.ps1$/, 'Skript Znalostní přípravy – app registrace, Sites.Selected, per-site granty, nastavení funkce'],
   [/^setup-auth\.ps1$/, 'Skript přihlašování k AI službě – app registrace EP365 AI Function, oprávnění a nastavení funkce (od 1.7)'],
   [/^main\.json$/, 'ARM šablona (tlačítko Deploy to Azure / az deployment group create)'],
-  [/^ep365-chat-function-(\d+(?:\.\d+)+)\.zip$/, 'Release balíček kódu funkce']
+  [/^ep365-chat-function-(\d+(?:\.\d+)+)\.zip$/, 'Release balíček kódu funkce'],
+  [/^channels\/stable\.json$/, 'Podepsaný manifest kanálu stable – podle něj si instance s automatickými aktualizacemi (od 1.9) jednou denně ověří a stáhne novou verzi'],
+  [/^channels\/early\.json$/, 'Podepsaný manifest kanálu early – nové verze tu jsou dřív než ve stable']
 ];
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function verOf(name){ var m = /^ep365-chat-function-(\d+(?:\.\d+)+)\.zip$/.exec(name); return m ? m[1] : null; }
@@ -93,12 +115,17 @@ function cmpVer(a, b){
   return 0;
 }
 var rows = document.getElementById('rows'), status = document.getElementById('status');
-fetch('checksums.txt?_=' + Date.now(), { cache: 'no-store' })
+var stableVer = null;
+fetch('channels/stable.json?_=' + Date.now(), { cache: 'no-store' })
+  .then(function(r){ return r.ok ? r.json() : null; })
+  .catch(function(){ return null; })
+  .then(function(m){ if (m && typeof m.version === 'string') stableVer = m.version; })
+  .then(function(){ return fetch('checksums.txt?_=' + Date.now(), { cache: 'no-store' }); })
   .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
   .then(function(txt){
     var items = txt.split(/\r?\n/).map(function(l){ var m = /^([0-9a-f]{64})\s+(\S+)$/.exec(l.trim()); return m ? { hash: m[1], name: m[2] } : null; }).filter(Boolean);
     var vers = items.map(function(i){ return verOf(i.name); }).filter(Boolean).sort(cmpVer);
-    var latest = vers[vers.length - 1];
+    var latest = (stableVer && vers.indexOf(stableVer) !== -1) ? stableVer : vers[vers.length - 1];
     items.sort(function(a, b){
       var va = verOf(a.name), vb = verOf(b.name);
       if (va && vb) return cmpVer(vb, va);

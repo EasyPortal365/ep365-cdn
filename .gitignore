@@ -141,6 +141,11 @@
 # zatímco podklady pro zákazníky na ni odkazují). Bezpečné: statické HTML, tabulku skládá
 # živě z checksums.txt, žádné secrets.
 !chat-function/index.html
+# Podepsané manifesty kanálů automatických aktualizací (od 1.9.0; updater u zákazníka je
+# čte 1× denně z cdn.easyportal365.cz/chat-function/channels/<kanál>.json). Záměrně veřejné:
+# jen verze, jméno zipu, SHA-256, velikost, datum, rollback a podpis Ed25519 (kid + sig) –
+# soukromý klíč sem nikdy nepatří (žije mimo repa, vyrábí ho scripts/new-signing-key.mjs).
+!chat-function/channels/*.json
 
 # Ukázkové dokumenty pro tlačítko „Ukázková data" v AI Asistentu
 # (cdn.easyportal365.cz/ai-chat/samples/). Appka je z prohlížeče správce stáhne

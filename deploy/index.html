@@ -416,11 +416,11 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
   <div class="pathopts" id="pathopts">
     <label class="pathopt sel"><input type="radio" name="path" value="1" checked>
       <span><span class="pt">1 · Skript v Azure Cloud Shellu (doporučeno)</span><br>
-      <span class="pd">Váš admin spustí v prohlížeči (portal.azure.com) dva připravené řádky – nic se neinstaluje. Skript založí vše včetně Azure OpenAI a sám ověří, že AI odpovídá.</span></span>
+      <span class="pd">Váš admin spustí v prohlížeči (portal.azure.com) dva připravené řádky – nic se neinstaluje. Skript založí vše včetně Azure OpenAI a sám ověří, že AI odpovídá. Kapacitu modelu (100K TPM) tím ale neověří – na tu je v závěrečné kontrole samostatný krok.</span></span>
     </label>
     <label class="pathopt"><input type="radio" name="path" value="2">
       <span><span class="pt">2 · Formulář v Azure Portalu (Deploy to Azure)</span><br>
-      <span class="pd">Klikací cesta bez příkazové řádky. Službu Azure OpenAI + model je potřeba založit předem ručně.</span></span>
+      <span class="pd">Klikací cesta bez příkazové řádky. Službu Azure OpenAI + model je potřeba založit předem ručně (model v Microsoft Foundry s Tokens per Minute Rate Limit alespoň 100K).</span></span>
     </label>
     <label class="pathopt"><input type="radio" name="path" value="3">
       <span><span class="pt">3 · Asistovaně (nasadí EasyPortal365)</span><br>
@@ -433,7 +433,7 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
     <div class="field" id="f-rg">
       <label>Název resource group <span class="req">*</span></label>
       <input type="text" id="in-rg" maxlength="64" placeholder="rg-contoso-ai" spellcheck="false">
-      <div class="hint">„Složka" pro služby AI Asistenta – vytvoří se, pokud neexistuje.</div>
+      <div class="hint">„Složka“ pro služby AI Asistenta – vytvoří se, pokud neexistuje.</div>
       <div class="err">Jen malá písmena, číslice a pomlčky (3–60 znaků).</div>
     </div>
     <div class="field" id="f-func">
@@ -451,7 +451,7 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
         <option value="swedencentral">Sweden Central</option>
         <option value="francecentral">France Central</option>
       </select>
-      <div class="hint">U zcela nové Azure subscription bývá kvóta pro plán Function App nulová – nasazení pak skončí chybou „Current Limit (Y1 VMs): 0". Kvóta se vede na subscription <strong>i na region</strong>, takže <strong>jiný region je první věc, kterou zkusit</strong> – u jedné čerstvé subscription jsme viděli North Europe na nule a West Europe s volnou kvótou. Pak dedikovaný plán (i u něj ale bývá kvóta nulová), teprve nakonec navýšení kvóty v Azure Portalu → Quotas → App Service – to nemusí projít self-service a přes support ho schvaluje člověk – nepočítejte s minutami. Napište nám to do poznámky, projdeme to s vámi.</div>
+      <div class="hint">U zcela nové Azure subscription bývá kvóta pro plán Function App nulová – nasazení pak skončí chybou „Current Limit (Y1 VMs): 0“. Kvóta se vede na subscription <strong>i na region</strong>, takže <strong>jiný region je první věc, kterou zkusit</strong> – u jedné čerstvé subscription jsme viděli North Europe na nule a West Europe s volnou kvótou. Pak dedikovaný plán (i u něj ale bývá kvóta nulová), teprve nakonec navýšení kvóty v Azure Portalu → Quotas → App Service – to nemusí projít self-service a přes support ho schvaluje člověk – nepočítejte s minutami. Napište nám to do poznámky, projdeme to s vámi.</div>
     </div>
     <div class="field">
       <label>Region Azure OpenAI</label>
@@ -477,7 +477,7 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
     <div class="field">
       <label>Název model deploymentu</label>
       <input type="text" id="in-oaidep" maxlength="64" placeholder="gpt-5-mini" spellcheck="false">
-      <div class="hint">Azure AI Foundry → Deployments.</div>
+      <div class="hint">Microsoft Foundry (dřív Azure AI Foundry) → Deployments. Deployment musí mít <strong>Tokens per Minute Rate Limit</strong> alespoň <strong>100K</strong> – jeden dotaz nad dokumenty může mít až kolem 30 000 tokenů. U pay-per-token nasazení (Standard, GlobalStandard) se platí za spotřebované tokeny, ne za tento strop.</div>
     </div>
   </div>
 
@@ -566,11 +566,12 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
     v instalační příručce):</p>
   <ol class="steps">
     <li class="step"><input type="checkbox" class="step-check" data-ck="a1"><div class="step-body">Otevřít aplikaci jako správce – žádné chybové bannery.</div></li>
-    <li class="step"><input type="checkbox" class="step-check" data-ck="a2"><div class="step-body">Dotaz „Ahoj" – odpověď se vypisuje průběžně (streaming).</div></li>
-    <li class="step"><input type="checkbox" class="step-check" data-ck="a3"><div class="step-body">Příloha (DOCX/PDF) + dotaz – odpověď reflektuje obsah dokumentu.</div></li>
+    <li class="step"><input type="checkbox" class="step-check" data-ck="a2"><div class="step-body">Dotaz „Ahoj“ – odpověď se vypisuje průběžně (streaming). Ověří jen, že AI odpovídá – projde i s nízkou kapacitou modelu.</div></li>
+    <li class="step"><input type="checkbox" class="step-check" data-ck="a7"><div class="step-body"><strong>Kapacita modelu:</strong> v Microsoft Foundry → Deployments (případně Models + endpoints) má model deployment <strong>Tokens per Minute Rate Limit</strong> alespoň <strong>100K</strong>. Pokud ne: Edit → 100K → Save and close (funkci není třeba restartovat, změna se může projevit až za 15 minut); když posuvník na 100K nedosáhne, požádejte o navýšení kvóty (Microsoft Foundry → Quota → Request quota). V praxi kapacitu prověří dotaz nad dokumenty v dalších dvou krocích – musí projít bez hlášky „AI služba dotaz odmítla kvůli limitu kapacity“.</div></li>
+    <li class="step"><input type="checkbox" class="step-check" data-ck="a3"><div class="step-body">Příloha (delší DOCX/PDF) + dotaz – odpověď reflektuje obsah dokumentu.</div></li>
     <li class="step"><input type="checkbox" class="step-check" data-ck="a4"><div class="step-body">Firemní znalosti: dotaz na interní dokument – odpověď s citacemi a kartami zdrojů.</div></li>
     <li class="step"><input type="checkbox" class="step-check" data-ck="a5"><div class="step-body">Jiná stránka webu – plovoucí bublina vpravo dole funguje.</div></li>
-    <li class="step" id="ck-enrich-row"><input type="checkbox" class="step-check" data-ck="a6"><div class="step-body">(Znalostní příprava) ruční běh – log „zpracováno: N, chyb: 0", sloupce na knihovně.</div></li>
+    <li class="step" id="ck-enrich-row"><input type="checkbox" class="step-check" data-ck="a6"><div class="step-body">(Znalostní příprava) ruční běh – log „zpracováno: N, chyb: 0“, sloupce na knihovně.</div></li>
   </ol>
   <p style="margin-bottom:0">Hotovo? Napište nám – rádi projdeme výsledek společně
     a předáme tipy pro první týdny provozu.
@@ -782,7 +783,7 @@ function checkStatus(requestId, manual){
     .then(function(r){
       if (r.status === 404) throw new Error('not_found');
       // Cokoli jiného než 2xx je chyba, ne stav. Bez téhle brány spadla
-      // odpověď typu 429/502/503 do větve „zatím čeká na schválení" – tedy
+      // odpověď typu 429/502/503 do větve „zatím čeká na schválení“ – tedy
       // selhání kontroly se tvářilo jako platný stav žádosti.
       if (!r.ok) throw new Error('http_' + r.status);
       return r.json();
@@ -812,24 +813,34 @@ function checkStatus(requestId, manual){
 // Průvodce (schváleno) — generuje kroky dle dat žádosti
 // ---------------------------------------------------------------------------
 function copyBtnHtml(){ return '<button type="button" class="copy-btn"><span>Kopírovat</span></button>'; }
+var WARN_IC = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
 
 function buildPath1(d){
+  // Vlastní Azure OpenAI = příkaz nese -AzureOpenAiEndpoint. Jen tehdy skript Azure OpenAI
+  // nezakládá a kapacitu (TPM) deploymentu nekontroluje – texty níž se řídí stejnou podmínkou
+  // jako příkaz („máme“ bez endpointu = skript Azure OpenAI založí).
+  var ownAoai = !!(d.hasOpenAi && d.openAiEndpoint);
+  var dep = d.openAiDeployment || 'gpt-5-mini';
   var params = '-ResourceGroupName "' + d.rgName + '" -FunctionAppName "' + d.funcName + '" `\n    -AllowedOrigin "' + d.spOrigin + '"';
   if (d.location && d.location !== 'westeurope') params += ' `\n    -Location "' + d.location + '"';
-  if (!d.hasOpenAi && d.openAiLocation && d.openAiLocation !== 'swedencentral') params += ' `\n    -OpenAiLocation "' + d.openAiLocation + '"';
-  if (d.hasOpenAi && d.openAiEndpoint) {
-    params += ' `\n    -AzureOpenAiEndpoint "' + d.openAiEndpoint + '" `\n    -AzureOpenAiKey "VLOZTE-VAS-KLIC" `\n    -AzureOpenAiDeployment "' + (d.openAiDeployment || 'gpt-5-mini') + '"';
+  if (!ownAoai && d.openAiLocation && d.openAiLocation !== 'swedencentral') params += ' `\n    -OpenAiLocation "' + d.openAiLocation + '"';
+  if (ownAoai) {
+    params += ' `\n    -AzureOpenAiEndpoint "' + d.openAiEndpoint + '" `\n    -AzureOpenAiKey "VLOZTE-VAS-KLIC" `\n    -AzureOpenAiDeployment "' + dep + '"';
   }
   var cmd = 'iwr ' + CDN_BASE + '/deploy-azure.ps1 -OutFile deploy-azure.ps1\n./deploy-azure.ps1 ' + params;
   return '<section class="card"><h2><span class="sec-badge">A</span>Azure backend – Cloud Shell skript</h2>'
     + '<ol class="steps">'
     + '<li class="step"><span class="step-num">1</span><div class="step-body">Otevřete <a class="ext" href="https://shell.azure.com" target="_blank" rel="noopener">shell.azure.com</a> a zvolte <strong>PowerShell</strong> (jste rovnou přihlášeni; účet musí mít roli Owner/Contributor na subscription).</div></li>'
     + '<li class="step"><span class="step-num">2</span><div class="step-body"><p>Vložte a spusťte (hodnoty jsou předvyplněné z vaší žádosti'
-    + (d.hasOpenAi ? '; jen <code>VLOZTE-VAS-KLIC</code> nahraďte klíčem z Keys and Endpoint' : '')
+    + (ownAoai ? '; jen <code>VLOZTE-VAS-KLIC</code> nahraďte klíčem z Keys and Endpoint' : '')
     + '):</p><pre class="code"><code>' + esc(cmd) + '</code></pre>'
     + '<p>Skript založí vše potřebné'
-    + (d.hasOpenAi ? '' : ' včetně Azure OpenAI a modelu gpt-5-mini')
-    + ', provede zkušební dotaz na AI (uvidíte odpověď) a vypíše <strong>API URL</strong> – tu si zkopírujte pro krok B. Skript je bezpečné spustit opakovaně (aktualizace na novou verzi backendu = totéž spuštění; vaše nastavení Function App si zálohuje a obnoví).</p></div></li>'
+    + (ownAoai ? '' : ' včetně Azure OpenAI a modelu gpt-5-mini s kapacitou 100K TPM')
+    + ', provede zkušební dotaz na AI (uvidíte odpověď; kapacitu modelu tím ale neověří) a vypíše <strong>API URL</strong> – tu si zkopírujte pro krok B. Skript je bezpečné spustit opakovaně (aktualizace na novou verzi backendu = totéž spuštění; vaše nastavení Function App si zálohuje a obnoví).</p>'
+    + (ownAoai
+      ? '<div class="callout warn" style="margin-bottom:0">' + WARN_IC + '<div><strong>Kapacita modelu:</strong> u vašeho existujícího Azure OpenAI skript kapacitu deploymentu nekontroluje ani nenavyšuje. Ověřte proto ručně v Microsoft Foundry → Deployments → <code>' + esc(dep) + '</code>, že <strong>Tokens per Minute Rate Limit</strong> je alespoň <strong>100K</strong> (jinak Edit → 100K → Save and close). U pay-per-token nasazení (Standard, GlobalStandard) se platí za spotřebované tokeny, ne za tento strop.</div></div>'
+      : '<p>Nestačí-li v regionu kvóta na 100K, skript založí model s nižší kapacitou a vypíše <strong>POZOR</strong> – výstup proto čtěte. Pak požádejte o navýšení kvóty (Microsoft Foundry → Quota → Request quota) a skript spusťte znovu – kapacitu dorovná.</p>')
+    + '</div></li>'
     + '</ol></section>';
 }
 
@@ -837,8 +848,8 @@ function buildPath2(d){
   var deployUrl = 'https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(CDN_BASE + '/main.json');
   return '<section class="card"><h2><span class="sec-badge">A</span>Azure backend – Deploy to Azure</h2>'
     + (d.hasOpenAi ? '' :
-      '<div class="callout warn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'
-      + '<div><strong>Pozor:</strong> v žádosti jste uvedli, že Azure OpenAI ještě nemáte. Pro tuto cestu ho musíte založit předem ručně (Portál → Create resource → Azure OpenAI; model v Azure AI Foundry → Deployments), nebo zvolte raději Cloud Shell skript – ten to udělá za vás.</div></div>')
+      '<div class="callout warn">' + WARN_IC
+      + '<div><strong>Pozor:</strong> v žádosti jste uvedli, že Azure OpenAI ještě nemáte. Pro tuto cestu ho musíte založit předem ručně (Portál → Create resource → Azure OpenAI; model v Microsoft Foundry → Deployments – v dialogu nasazení modelu nastavte <strong>Tokens per Minute Rate Limit</strong> na <strong>100K</strong>, výchozí hodnotu nenechávejte), nebo zvolte raději Cloud Shell skript – ten to udělá za vás.</div></div>')
     + '<ol class="steps">'
     + '<li class="step"><span class="step-num">1</span><div class="step-body">Otevřete <a class="ext" href="' + deployUrl + '" target="_blank" rel="noopener">Deploy to Azure – formulář s naší šablonou</a>.</div></li>'
     + '<li class="step"><span class="step-num">2</span><div class="step-body">Vyplňte podle tabulky:'
@@ -847,7 +858,7 @@ function buildPath2(d){
     + '<tr><td>Function App Name</td><td><code>' + esc(d.funcName) + '</code></td></tr>'
     + '<tr><td>Azure Open Ai Endpoint</td><td>' + (d.openAiEndpoint ? '<code>' + esc(d.openAiEndpoint) + '</code>' : 'endpoint vašeho Azure OpenAI') + '</td></tr>'
     + '<tr><td>Azure Open Ai Key</td><td>klíč z Keys and Endpoint (nikomu nesdělujte)</td></tr>'
-    + '<tr><td>Azure Open Ai Deployment</td><td><code>' + esc(d.openAiDeployment || 'gpt-5-mini') + '</code> (u modelů GPT-5 / o-řady musí jméno deploymentu začínat <code>gpt-5</code> / <code>o</code>)</td></tr>'
+    + '<tr><td>Azure Open Ai Deployment</td><td><code>' + esc(d.openAiDeployment || 'gpt-5-mini') + '</code> (u modelů GPT-5 / o-řady musí jméno deploymentu začínat <code>gpt-5</code> / <code>o</code>). Deployment musí mít <strong>Tokens per Minute Rate Limit</strong> alespoň <strong>100K</strong> – šablona ho nezakládá ani nekontroluje.</td></tr>'
     + '<tr><td>Allowed Origin</td><td><code>' + esc(d.spOrigin) + '</code></td></tr>'
     + '<tr><td>Package Url</td><td>nechte předvyplněné</td></tr>'
     + '</tbody></table></div></div></li>'
@@ -861,7 +872,7 @@ function buildPath3(d){
     + '<ul class="plain">'
     + '<li><strong>Dočasný přístup:</strong> guest účet pro EasyPortal365 s rolí Contributor na subscription či resource group (Entra → Users → Invite external user; IAM → Add role assignment) – po nasazení ho odeberete. Alternativa: screen-share s vaším adminem.</li>'
     + '<li>Potvrzení názvů: resource group <code>' + esc(d.rgName) + '</code>, Function App <code>' + esc(d.funcName) + '</code>, regiony <code>' + esc(d.location) + '</code> / <code>' + esc(d.openAiLocation) + '</code>.</li>'
-    + (d.hasOpenAi ? '<li>Přístup ke klíči vašeho Azure OpenAI (zadává váš admin při nasazení, nám ho neposílejte).</li>' : '')
+    + (d.hasOpenAi ? '<li>Přístup ke klíči vašeho Azure OpenAI (zadává váš admin při nasazení, nám ho neposílejte) a model deployment s <strong>Tokens per Minute Rate Limit</strong> alespoň <strong>100K</strong> (Microsoft Foundry → Deployments).</li>' : '')
     + '</ul></section>';
 }
 
@@ -872,11 +883,11 @@ function buildSharePoint(d){
   var siteList = '<code>' + sites.map(esc).join('</code>, <code>') + '</code>';
   return '<section class="card"><h2><span class="sec-badge">B</span>SharePoint aplikace</h2>'
     + '<ol class="steps">'
-    + '<li class="step"><span class="step-num">1</span><div class="step-body"><strong>App Catalog:</strong> balíček <code>ep-365-ai-chat.sppkg</code> (posíláme e-mailem) nahraje SharePoint admin do App Catalogu (SharePoint admin centrum → More features → Apps) a v dialogu zvolí <strong>„Enable this app and add it to all sites"</strong> (tzv. global deploy – nutné pro plovoucí bublinu na stránkách webu a pro Microsoft Teams). Při pozdější <em>aktualizaci</em> balíčku už tuto volbu nezaškrtávejte. Verze balíčku v katalogu je trvale <code>10.0.0.0</code> – to je v pořádku, aplikace si svůj kód aktualizuje sama; nový balíček posíláme jen velice zřídka.</div></li>'
-    + '<li class="step"><span class="step-num">2</span><div class="step-body"><strong>Schválení oprávnění</strong> (účet s rolí Global Administrator – u oprávnění k Microsoft Graph nestačí Application Administrator ani SharePoint Administrator): SharePoint admin centrum → Advanced → <strong>API access</strong> – u všech <strong>6 čekajících žádostí</strong> od „EP365 AI Asistent" (Microsoft Graph, delegovaná: <code>GroupMember.Read.All</code>, <code>Mail.ReadWrite</code>, <code>Calendars.Read</code>, <code>Tasks.ReadWrite</code>, <code>Chat.Read</code>, <code>ChannelMessage.Read.All</code>) klikněte <strong>Approve</strong>. Aplikace pracuje vždy jménem přihlášeného uživatele a nikdy nevidí víc než on; každé oprávnění funguje nezávisle – neschválené jen vypne svou funkci. Uživatelé se poté odhlásí a znovu přihlásí.</div></li>'
-    + '<li class="step"><span class="step-num">3</span><div class="step-body"><strong>Stránka s aplikací</strong>' + (multi ? ' na každém z webů ' : ' na webu ') + siteList + ': Nová → Stránka → <em>Full-page apps</em> → šablona EP365 AI Asistent (nebo prázdná stránka + webpart) → publikovat. Aplikaci není třeba na web „přidávat" – díky global deploy je k dispozici na všech webech.' + (multi ? ' Každý web má vlastní data a nastavení; backend z kroku A je společný.' : '') + '</div></li>'
-    + '<li class="step"><span class="step-num">4</span><div class="step-body"><strong>První otevření jako správce webu</strong>' + (multi ? ' (na každém webu)' : '') + ' – aplikace si sama založí seznamy a skupiny a zaregistruje tlačítko „Zeptat se AI" v knihovnách dokumentů. Pak v nastavení webpartu (tužka) vyplňte <strong>URL Azure Function</strong> = API URL z kroku A' + (d.hub ? ' (nebo jen URL hubu – nastavení se zdědí)' : '') + '.</div></li>'
-    + '<li class="step"><span class="step-num">5</span><div class="step-body"><strong>Microsoft Teams (volitelné):</strong> Teams admin centrum → Manage apps → „EP365 AI Asistent" musí být <em>Unblocked</em>; předinstalaci uživatelům řeší Setup policies → Global. Podrobně v instalační příručce, část B.6.</div></li>'
+    + '<li class="step"><span class="step-num">1</span><div class="step-body"><strong>App Catalog:</strong> balíček <code>ep-365-ai-chat.sppkg</code> (posíláme e-mailem) nahraje SharePoint admin do App Catalogu (SharePoint admin centrum → More features → Apps) a v dialogu zvolí <strong>„Enable this app and add it to all sites“</strong> (tzv. global deploy – nutné pro plovoucí bublinu na stránkách webu a pro Microsoft Teams). Při pozdější <em>aktualizaci</em> balíčku už tuto volbu nezaškrtávejte. Verze balíčku v katalogu je trvale <code>10.0.0.0</code> – to je v pořádku, aplikace si svůj kód aktualizuje sama; nový balíček posíláme jen velice zřídka.</div></li>'
+    + '<li class="step"><span class="step-num">2</span><div class="step-body"><strong>Schválení oprávnění</strong> (účet s rolí Global Administrator – u oprávnění k Microsoft Graph nestačí Application Administrator ani SharePoint Administrator): SharePoint admin centrum → Advanced → <strong>API access</strong> – u všech <strong>6 čekajících žádostí</strong> od „EP365 AI Asistent“ (Microsoft Graph, delegovaná: <code>GroupMember.Read.All</code>, <code>Mail.ReadWrite</code>, <code>Calendars.Read</code>, <code>Tasks.ReadWrite</code>, <code>Chat.Read</code>, <code>ChannelMessage.Read.All</code>) klikněte <strong>Approve</strong>. Aplikace pracuje vždy jménem přihlášeného uživatele a nikdy nevidí víc než on; každé oprávnění funguje nezávisle – neschválené jen vypne svou funkci. Uživatelé se poté odhlásí a znovu přihlásí.</div></li>'
+    + '<li class="step"><span class="step-num">3</span><div class="step-body"><strong>Stránka s aplikací</strong>' + (multi ? ' na každém z webů ' : ' na webu ') + siteList + ': Nová → Stránka → <em>Full-page apps</em> → šablona EP365 AI Asistent (nebo prázdná stránka + webpart) → publikovat. Aplikaci není třeba na web „přidávat“ – díky global deploy je k dispozici na všech webech.' + (multi ? ' Každý web má vlastní data a nastavení; backend z kroku A je společný.' : '') + '</div></li>'
+    + '<li class="step"><span class="step-num">4</span><div class="step-body"><strong>První otevření jako správce webu</strong>' + (multi ? ' (na každém webu)' : '') + ' – aplikace si sama založí seznamy a skupiny a zaregistruje tlačítko „Zeptat se AI“ v knihovnách dokumentů. Pak v nastavení webpartu (tužka) vyplňte <strong>URL Azure Function</strong> = API URL z kroku A' + (d.hub ? ' (nebo jen URL hubu – nastavení se zdědí)' : '') + '.</div></li>'
+    + '<li class="step"><span class="step-num">5</span><div class="step-body"><strong>Microsoft Teams (volitelné):</strong> Teams admin centrum → Manage apps → „EP365 AI Asistent“ musí být <em>Unblocked</em>; předinstalaci uživatelům řeší Setup policies → Global. Podrobně v instalační příručce, část B.6.</div></li>'
     + '</ol></section>';
 }
 

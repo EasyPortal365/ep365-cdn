@@ -20,6 +20,13 @@
          spotrebuje par tokenu; preskocit lze prepinacem -SkipSmokeTest).
       7. Vypis API URL pro property pane webpartu EP365 AI Chat.
 
+    Automaticke aktualizace (od 1.9.0): funkce si dalsi verze kodu stahuje SAMA. Kazdou
+    noc (01:30 UTC) zkontroluje podepsany manifest kanalu na CDN EasyPortal365, novou verzi
+    overi (podpis EasyPortal365, SHA-256) a pripravi vedle bezici; projevi se po pristim
+    restartu instance. Vychozi zapnuto (kanal stable) - tenhle skript tedy staci spustit
+    jednou. Vypnuti: -AutoUpdate off (nebo app setting EP365_AUTO_UPDATE=off v Azure
+    Portalu). Stav ukazuje GET /api/version. Detail v README, cast "Automaticke aktualizace".
+
     Doporucene prostredi: Azure Cloud Shell (PowerShell) - az CLI je predinstalovane,
     nic se neinstaluje. Staci:
       iwr https://cdn.easyportal365.cz/chat-function/deploy-azure.ps1 -OutFile deploy-azure.ps1
@@ -155,6 +162,20 @@
 .PARAMETER SettingsSiteUrl
     Volitelny - Znalostni priprava. URL webu se settings listem EP365AIChatAppSettings.
 
+.PARAMETER AutoUpdate
+    Automaticke aktualizace kodu funkce (app setting EP365_AUTO_UPDATE):
+      on    - kazdou noc kontrola podepsaneho manifestu na CDN EasyPortal365 a priprava
+              nove verze; projevi se po pristim restartu instance (vychozi pro nove nasazeni),
+      off   - vypnuto; novou verzi nasadi az dalsi beh tohoto skriptu,
+      probe - jen zkouska (zapis do data/SitePackages + overeni kanalu), nic se nenasazuje.
+    Kdyz parametr NEZADATE, zachova se hodnota z predchoziho nasazeni - redeploy tedy
+    nezapne, co jste drive vypnuli. Zapnuti zpet: -AutoUpdate on.
+
+.PARAMETER UpdateChannel
+    Kanal automatickych aktualizaci (app setting EP365_UPDATE_CHANNEL): stable (vychozi,
+    overene verze) nebo early (nove verze o nekolik dni driv - pro testovaci instance).
+    Bez zadani se zachova hodnota z predchoziho nasazeni.
+
 .PARAMETER SkipSmokeTest
     Volitelny. Preskoci zaverecny zkusebni dotaz na /api/chat.
 
@@ -175,6 +196,10 @@
         -AadClientId 11111111-1111-1111-1111-111111111111 `
         -AadClientSecret "<secret>" `
         -SettingsSiteUrl https://contoso.sharepoint.com/sites/ai
+
+.EXAMPLE
+    .\deploy-azure.ps1 -ResourceGroupName rg-contoso-ai -FunctionAppName func-contoso-ai `
+        -AllowedOrigin https://contoso.sharepoint.com -AutoUpdate off
 #>
 [CmdletBinding()]
 param(
@@ -223,6 +248,15 @@ param(
     [string]$AadClientId = '',
     [string]$AadClientSecret = '',
     [string]$SettingsSiteUrl = '',
+
+    # Automaticke aktualizace kodu funkce (app settings EP365_AUTO_UPDATE / EP365_UPDATE_CHANNEL).
+    # Retezec, ne [switch]: prepinac umi jen jeden smer, a protoze skript pri redeployi App
+    # Settings zachovava, zakaznik by po "vypnout" nemel cim zapnout zpet. Nezadany parametr =
+    # hodnota z predchoziho nasazeni (nikdy tise nezapnout, co nekdo vypnul); u noveho on/stable.
+    [ValidateSet('on', 'off', 'probe')]
+    [string]$AutoUpdate = 'on',
+    [ValidateSet('stable', 'early')]
+    [string]$UpdateChannel = 'stable',
 
     [switch]$SkipSmokeTest
 )
@@ -340,7 +374,7 @@ if ($AzureOpenAiDeployment -eq '') { $AzureOpenAiDeployment = $OpenAiModelName }
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
 # (viz scripts/build-release-zip.ps1).
 $CdnTemplateUrl = 'https://cdn.easyportal365.cz/chat-function/main.json'
-$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.8.0.zip'
+$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.9.0.zip'
 
 # Docasna slozka - $env:TEMP na Windows, GetTempPath() v Azure Cloud Shellu (Linux)
 $TempBase = $env:TEMP
@@ -539,6 +573,10 @@ try {
         $aoaiStateInfo = 'predano parametrem - skript stav neoveroval'
         Write-Host ('Endpoint: ' + $aoaiEndpoint)
         Write-Host ('Deployment: ' + $AzureOpenAiDeployment)
+        # U uctu mimo spravu skriptu nezname resource group ani jmeno, takze kapacitu nezmerime ani
+        # nedorovname - a prave nizka kapacita je nejcastejsi pricina 429 u dotazu nad dokumenty
+        # (lekce 26.13). Proto aspon jasne upozornit.
+        Write-Host ('POZOR: kapacitu deploymentu "' + $AzureOpenAiDeployment + '" u existujiciho uctu skript NEKONTROLUJE. Overte v Microsoft Foundry -> Deployments, ze Tokens per Minute Rate Limit je alespon ' + $OpenAiSkuCapacity + 'K - jinak dotazy nad dokumenty skonci chybou 429 (limit kapacity).') -ForegroundColor Yellow
     }
     else {
         if ($OpenAiAccountName -eq '') { $OpenAiAccountName = $FunctionAppName + '-openai' }
@@ -656,10 +694,10 @@ try {
                         Write-Host ('Kvota ' + $OpenAiSkuName + '/' + $OpenAiModelName + ' v regionu ' + $OpenAiLocation + ': zbyva ' + $remaining + ' z ' + [int][double]$quota[0].limit + ' (v tisicich TPM).')
                         if ($remaining -lt $OpenAiSkuCapacity -and $remaining -ge 1) {
                             $effectiveCapacity = $remaining
-                            Write-Host ('POZOR: na doporucenou kapacitu ' + $OpenAiSkuCapacity + ' kvota v tomto regionu nestaci - zakladam deployment s ' + $effectiveCapacity + '. Chat pojede, ale dotazy nad firemnimi znalostmi mohou vracet 429 (limit kapacity). Kvotu navyste v Azure Portalu (Quotas -> Azure OpenAI, region ' + $OpenAiLocation + ') a pak zvyste kapacitu deploymentu - nic to nestoji, plati se za spotrebovane tokeny.') -ForegroundColor Yellow
+                            Write-Host ('POZOR: na doporucenou kapacitu ' + $OpenAiSkuCapacity + ' kvota v tomto regionu nestaci - zakladam deployment s ' + $effectiveCapacity + '. Chat pojede, ale dotazy nad firemnimi znalostmi mohou vracet 429 (limit kapacity). O navyseni kvoty pozadejte v Microsoft Foundry (Quota -> Request quota, region ' + $OpenAiLocation + ') a pak zvyste kapacitu deploymentu - nic to nestoji, plati se za spotrebovane tokeny.') -ForegroundColor Yellow
                         }
                         elseif ($remaining -lt 1) {
-                            Write-Host ('POZOR: v regionu ' + $OpenAiLocation + ' nezbyva pro ' + $OpenAiSkuName + '/' + $OpenAiModelName + ' zadna kvota - zalozeni nize nejspis skonci chybou InsufficientQuota. Reseni: jiny region (-OpenAiLocation), nebo navyseni kvoty v Azure Portalu (Quotas).') -ForegroundColor Yellow
+                            Write-Host ('POZOR: v regionu ' + $OpenAiLocation + ' nezbyva pro ' + $OpenAiSkuName + '/' + $OpenAiModelName + ' zadna kvota - zalozeni nize nejspis skonci chybou InsufficientQuota. Reseni: jiny region (-OpenAiLocation), nebo navyseni kvoty (Microsoft Foundry -> Quota -> Request quota).') -ForegroundColor Yellow
                         }
                     }
                 }
@@ -698,10 +736,13 @@ try {
             # DVE POJISTKY:
             #  (a) NIKDY NESNIZUJEME. Vyssi nebo stejnou kapacitu nechame byt, takze opakovane
             #      spusteni nemuze nic zhorsit (zakaznik si ji mohl zvednout sam).
-            #  (b) Model a jeho VERZI cteme z existujiciho deploymentu a posilame je zpatky
-            #      nezmenene. Volani je ARM PUT, takze by se chybejicim parametrem dala verze
-            #      modelu prepsat - dorovnani kapacity nesmi tise zmenit, co je nasazene. Kdyz
-            #      se ty hodnoty precist nepodari, RADEJI NEDELAME NIC a jen hlasime.
+            #  (b) Menime JEN kapacitu: PATCH "Deployments - Update" (api-version 2024-10-01)
+            #      s telem {"sku": {...}}. Drive to byl `az cognitiveservices account deployment
+            #      create`, tedy plny ARM PUT: model a verzi jsme sice posilali zpatky, ale CLI
+            #      nema parametr pro filtr obsahu (raiPolicyName) ani versionUpgradeOption, takze
+            #      zakaznik s vlastnim filtrem by o nej mohl prijit (TECH-DEBT #408, overeno
+            #      proti Microsoft Learn 2026-09-25). PATCH model, verzi ani filtr neposila.
+            #      Kdyz se ID deploymentu nebo nazev SKU precist nepodari, RADEJI NEDELAME NIC.
             try {
                 $depJson = az cognitiveservices account deployment show --resource-group $ResourceGroupName --name $OpenAiAccountName --deployment-name $AzureOpenAiDeployment -o json 2>$null
                 if ($LASTEXITCODE -eq 0 -and $depJson) {
@@ -721,32 +762,46 @@ try {
                         Write-Host ('  Kapacita existujiciho deploymentu: ' + $existingCapacity + ' (v tisicich TPM).')
                     }
 
-                    $rucniPostup = '  Navyste ji rucne: Azure Portal -> Azure OpenAI -> ' + $OpenAiAccountName + ' -> Deployments -> ' + $AzureOpenAiDeployment + ' -> Edit -> Tokens per Minute Rate Limit.'
+                    $rucniPostup = '  Navyste ji rucne: Microsoft Foundry (Azure OpenAI ' + $OpenAiAccountName + ') -> Deployments -> ' + $AzureOpenAiDeployment + ' -> Edit -> Tokens per Minute Rate Limit = ' + $OpenAiSkuCapacity + 'K -> Save and close. Kdyz posuvnik na tuto hodnotu nedosahne, dosla kvota predplatneho: Quota -> Request quota.'
+
+                    $curDeploymentId = ''
+                    if ($dep.id) { $curDeploymentId = [string]$dep.id }
 
                     if ($existingCapacity -gt 0 -and $existingCapacity -lt $OpenAiSkuCapacity) {
-                        if ($curModelName -and $curModelVersion -and $curSkuName) {
-                            Write-Host ('  Kapacita ' + $existingCapacity + ' je pod pozadovanou ' + $OpenAiSkuCapacity + ' - dorovnavam (model ' + $curModelName + ' ' + $curModelVersion + ' zustava beze zmeny)...')
-                            az cognitiveservices account deployment create `
-                                --resource-group $ResourceGroupName `
-                                --name $OpenAiAccountName `
-                                --deployment-name $AzureOpenAiDeployment `
-                                --model-name $curModelName `
-                                --model-version $curModelVersion `
-                                --model-format OpenAI `
-                                --sku-name $curSkuName `
-                                --sku-capacity $OpenAiSkuCapacity -o none 2>$null
-                            if ($LASTEXITCODE -eq 0) {
-                                Write-Host ('  Kapacita navysena na ' + $OpenAiSkuCapacity + ' (' + ($OpenAiSkuCapacity * 1000) + ' TPM).') -ForegroundColor Green
+                        if ($curDeploymentId -and $curSkuName) {
+                            Write-Host ('  Kapacita ' + $existingCapacity + ' je pod pozadovanou ' + $OpenAiSkuCapacity + ' - dorovnavam (menim jen kapacitu; model ' + $curModelName + ' ' + $curModelVersion + ' i filtr obsahu zustavaji)...')
+                            # Telo pres docasny soubor: JSON v argumentu se v PowerShellu 5.1/7
+                            # rozbiji na uvozovkach (az rest --body @soubor je jednoznacne).
+                            $patchBodyPath = Join-Path $TempBase ('ep365-aoai-capacity-' + [guid]::NewGuid().ToString('N') + '.json')
+                            $patchBody = @{ sku = @{ name = $curSkuName; capacity = $OpenAiSkuCapacity } } | ConvertTo-Json -Depth 3 -Compress
+                            [System.IO.File]::WriteAllText($patchBodyPath, $patchBody, (New-Object System.Text.UTF8Encoding($false)))
+                            az rest --method patch `
+                                --url ('https://management.azure.com' + $curDeploymentId + '?api-version=2024-10-01') `
+                                --body ('@' + $patchBodyPath) -o none 2>$null
+                            $patchExit = $LASTEXITCODE
+                            Remove-Item $patchBodyPath -Force -ErrorAction SilentlyContinue
+                            # Kontrola po zapisu: PATCH muze vratit 202 (asynchronni) - precteme
+                            # kapacitu znovu a hlasime, co v Azure opravdu je.
+                            $afterCapacity = 0
+                            if ($patchExit -eq 0) {
+                                $afterRaw = az cognitiveservices account deployment show --resource-group $ResourceGroupName --name $OpenAiAccountName --deployment-name $AzureOpenAiDeployment --query 'sku.capacity' -o tsv 2>$null
+                                if ($LASTEXITCODE -eq 0 -and $afterRaw) { $afterCapacity = [int]("$afterRaw".Trim()) }
+                            }
+                            if ($patchExit -eq 0 -and $afterCapacity -ge $OpenAiSkuCapacity) {
+                                Write-Host ('  Kapacita navysena na ' + $afterCapacity + ' (' + ($afterCapacity * 1000) + ' TPM). Microsoft uvadi, ze se zmena muze projevit az za 15 minut.') -ForegroundColor Green
+                            }
+                            elseif ($patchExit -eq 0) {
+                                Write-Host ('  Zmena kapacity odeslana, Azure zatim hlasi ' + $afterCapacity + '. Zkontrolujte ji za par minut (Deployments -> ' + $AzureOpenAiDeployment + ').') -ForegroundColor Yellow
                             }
                             else {
                                 # Nejcasteji vycerpana regionalni kvota predplatneho. Nasazeni to
                                 # NEZASTAVUJE - chat pojede, jen velke dotazy mohou vracet 429.
-                                Write-Host ('  Nepodarilo se kapacitu navysit (nejcasteji nezbyva regionalni kvota predplatneho pro ' + $OpenAiSkuName + '/' + $curModelName + ' v regionu ' + $OpenAiLocation + '; kvotu navysite v Azure Portalu -> Quotas). Deployment zustava na ' + $existingCapacity + ', takze dotazy nad dokumenty mohou vracet 429 (limit kapacity).') -ForegroundColor Yellow
+                                Write-Host ('  Nepodarilo se kapacitu navysit (nejcasteji nezbyva kvota predplatneho pro ' + $curSkuName + '/' + $curModelName + ' v regionu ' + $OpenAiLocation + '; o navyseni pozadejte v Microsoft Foundry -> Quota -> Request quota). Deployment zustava na ' + $existingCapacity + ', takze dotazy nad dokumenty mohou vracet 429 (limit kapacity).') -ForegroundColor Yellow
                                 Write-Host $rucniPostup -ForegroundColor Yellow
                             }
                         }
                         else {
-                            Write-Host ('  POZOR: kapacita ' + $existingCapacity + ' je pod pozadovanou ' + $OpenAiSkuCapacity + ', ale model/verzi existujiciho deploymentu se nepodarilo precist - NEDOROVNAVAM, abych nezmenila, co je nasazene.') -ForegroundColor Yellow
+                            Write-Host ('  POZOR: kapacita ' + $existingCapacity + ' je pod pozadovanou ' + $OpenAiSkuCapacity + ', ale ID deploymentu nebo nazev SKU se nepodarilo precist - NEDOROVNAVAM, abych nezmenila, co je nasazene.') -ForegroundColor Yellow
                             Write-Host $rucniPostup -ForegroundColor Yellow
                         }
                     }
@@ -801,6 +856,26 @@ try {
         } catch { $preservedSettings = @{} }
     }
 
+    # Automaticke aktualizace: zadany parametr ma prednost; bez nej plati hodnota z predchoziho
+    # nasazeni (redeploy nesmi tise zapnout, co zakaznik vypnul); u noveho nasazeni on/stable.
+    # Neplatna drivejsi hodnota rezimu = off, protoze presne tak se podle ni funkce chovala.
+    $effectiveAutoUpdate = $AutoUpdate
+    $autoUpdateKept = $false
+    if (-not $PSBoundParameters.ContainsKey('AutoUpdate') -and $preservedSettings.ContainsKey('EP365_AUTO_UPDATE')) {
+        $prevMode = ([string]$preservedSettings['EP365_AUTO_UPDATE']).Trim().ToLower()
+        if ($prevMode -ne '') {
+            if (@('on', 'off', 'probe') -contains $prevMode) { $effectiveAutoUpdate = $prevMode }
+            else { $effectiveAutoUpdate = 'off' }
+            $autoUpdateKept = $true
+        }
+    }
+    $effectiveUpdateChannel = $UpdateChannel
+    if (-not $PSBoundParameters.ContainsKey('UpdateChannel') -and $preservedSettings.ContainsKey('EP365_UPDATE_CHANNEL')) {
+        $prevChannel = ([string]$preservedSettings['EP365_UPDATE_CHANNEL']).Trim().ToLower()
+        if ($prevChannel -eq 'early') { $effectiveUpdateChannel = 'early' }
+        elseif ($prevChannel -ne '') { $effectiveUpdateChannel = 'stable' }
+    }
+
     $deployName = 'ep365-chat-' + (Get-Date -Format 'yyyyMMdd-HHmmss')
     $bicepParams = @(
         ('functionAppName=' + $FunctionAppName),
@@ -823,6 +898,11 @@ try {
     # planSku posilame JEN kdyz se lisi od defaultu: starsi ARM sablona na CDN ten parametr
     # nezna a odmitla by cely deployment. Default Y1 tim zustava zpetne kompatibilni.
     if ($PlanSku -ne 'Y1') { $bicepParams += ('planSku=' + $PlanSku) }
+    # Totez u automatickych aktualizaci: sablone jen hodnota jina nez jeji default (on/stable).
+    # Konecnou hodnotu skript stejne nastavi explicitne pri obnove App Settings nize, takze
+    # plati i pri nasazeni starsi sablony, ktera ty parametry jeste nezna.
+    if ($effectiveAutoUpdate -ne 'on') { $bicepParams += ('autoUpdate=' + $effectiveAutoUpdate) }
+    if ($effectiveUpdateChannel -ne 'stable') { $bicepParams += ('updateChannel=' + $effectiveUpdateChannel) }
 
     if ($AadTenantId -ne '')     { $bicepParams += ('aadTenantId=' + $AadTenantId) }
     if ($AadClientId -ne '')     { $bicepParams += ('aadClientId=' + $AadClientId) }
@@ -977,10 +1057,12 @@ try {
         # Uzka podminka zamerne: samotne slovo planSku se v chybe objevi i tehdy, kdyz je
         # parametr v poradku a selhala treba kvota pro zvolene SKU. Radu "sablona je stara"
         # smime dat jen u chyby, ktera vyslovne rika, ze parametr v sablone NENI.
-        if ($deployText -match 'planSku' -and ($deployText -match 'not present in the original template' -or $deployText -match 'parameters.{0,40}are not valid')) {
+        # Totez plati pro autoUpdate / updateChannel (sablona je zna od 1.9.0).
+        $unknownParams = @(@('planSku', 'autoUpdate', 'updateChannel') | Where-Object { $deployText -match $_ })
+        if ($unknownParams.Count -gt 0 -and ($deployText -match 'not present in the original template' -or $deployText -match 'parameters.{0,40}are not valid')) {
             $diagnosed = $true
-            Write-Host ' PRICINA: pouzita ARM sablona parametr planSku nezna - je starsi nez tento skript.' -ForegroundColor Yellow
-            Write-Host ' RESENI: stahnete si aktualni deploy-azure.ps1 I sablonu z CDN, nebo skript spustte bez -PlanSku.'
+            Write-Host (' PRICINA: pouzita ARM sablona nezna parametr ' + ($unknownParams -join ' / ') + ' - je starsi nez tento skript.') -ForegroundColor Yellow
+            Write-Host ' RESENI: stahnete si aktualni deploy-azure.ps1 I sablonu z CDN, nebo skript spustte bez -PlanSku a s vychozim -AutoUpdate on / -UpdateChannel stable.'
         }
 
         if (-not $diagnosed) {
@@ -994,26 +1076,30 @@ try {
     # N23: obnova zalohovanych App Settings. Parametr ma prednost - AAD_*/SETTINGS_SITE_URL
     # predane parametrem uz sablona nastavila spravne, ty NEobnovujeme; ostatni (enrich readUrl,
     # hub, billing, rate limity, modely + AAD_* bez parametru) vratime z zalohy.
-    if ($preservedSettings.Count -gt 0) {
-        $restoreArgs = @()
-        foreach ($key in $preservedSettings.Keys) {
-            if ($key -eq 'AAD_TENANT_ID'           -and $AadTenantId -ne '')     { continue }
-            if ($key -eq 'AAD_CLIENT_ID'           -and $AadClientId -ne '')     { continue }
-            if ($key -eq 'AAD_CLIENT_SECRET'       -and $AadClientSecret -ne '') { continue }
-            if ($key -eq 'EP365_SETTINGS_SITE_URL' -and $SettingsSiteUrl -ne '') { continue }
-            $v = $preservedSettings[$key]
-            if ([string]::IsNullOrEmpty($v)) { continue }
-            $restoreArgs += ($key + '=' + $v)
-        }
-        if ($restoreArgs.Count -gt 0) {
-            # Vypiseme jen NAZVY klicu - hodnoty (vc. AAD_CLIENT_SECRET) se do konzole netisknou.
-            $restoredKeys = ($restoreArgs | ForEach-Object { ($_ -split '=', 2)[0] } | Sort-Object) -join ', '
-            Write-Host ('Obnovuji zachovane App Settings (hodnoty se netisknou): ' + $restoredKeys)
-            az functionapp config appsettings set --name $FunctionAppName --resource-group $ResourceGroupName --settings $restoreArgs -o none 2>$null | Out-Null
-            if ($LASTEXITCODE -ne 0) {
-                Write-Host ' Upozorneni: obnova nekterych App Settings selhala - overte je rucne v Azure Portalu.' -ForegroundColor Yellow
-            }
-        }
+    $restoreArgs = @()
+    foreach ($key in $preservedSettings.Keys) {
+        if ($key -eq 'AAD_TENANT_ID'           -and $AadTenantId -ne '')     { continue }
+        if ($key -eq 'AAD_CLIENT_ID'           -and $AadClientId -ne '')     { continue }
+        if ($key -eq 'AAD_CLIENT_SECRET'       -and $AadClientSecret -ne '') { continue }
+        if ($key -eq 'EP365_SETTINGS_SITE_URL' -and $SettingsSiteUrl -ne '') { continue }
+        # Automaticke aktualizace se nastavuji nize VZDY explicitne - jejich hodnota uz
+        # zalohu zohlednila (parametr > drivejsi hodnota > vychozi).
+        if ($key -eq 'EP365_AUTO_UPDATE' -or $key -eq 'EP365_UPDATE_CHANNEL') { continue }
+        $v = $preservedSettings[$key]
+        if ([string]::IsNullOrEmpty($v)) { continue }
+        $restoreArgs += ($key + '=' + $v)
+    }
+    # Explicitne i proto, ze starsi sablona (napr. main.json lezici vedle skriptu) tyhle dva
+    # settingy vubec nezna: bez nich by updater bezel jako vypnuty, zatimco souhrn by tvrdil,
+    # ze je zapnuty.
+    $restoreArgs += ('EP365_AUTO_UPDATE=' + $effectiveAutoUpdate)
+    $restoreArgs += ('EP365_UPDATE_CHANNEL=' + $effectiveUpdateChannel)
+    # Vypiseme jen NAZVY klicu - hodnoty (vc. AAD_CLIENT_SECRET) se do konzole netisknou.
+    $restoredKeys = ($restoreArgs | ForEach-Object { ($_ -split '=', 2)[0] } | Sort-Object) -join ', '
+    Write-Host ('Nastavuji App Settings zachovane z predchoziho nasazeni a automaticke aktualizace (hodnoty se netisknou): ' + $restoredKeys)
+    az functionapp config appsettings set --name $FunctionAppName --resource-group $ResourceGroupName --settings $restoreArgs -o none 2>$null | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host ' Upozorneni: nastaveni nekterych App Settings selhalo - overte je rucne v Azure Portalu (vc. EP365_AUTO_UPDATE / EP365_UPDATE_CHANNEL).' -ForegroundColor Yellow
     }
 
     # ----------------------------------------------------------------------
@@ -1197,6 +1283,19 @@ try {
     else {
         Write-Host ' Znalostni priprava    : nenakonfigurovana (volitelna - viz scripts/setup-enrichment.ps1)'
     }
+    # Automaticke aktualizace srozumitelne: od 1.9.0 je to cesta, kterou k zakaznikovi
+    # dorazi kazda dalsi verze funkce - admin musi z jedne radky poznat, jestli bezi.
+    switch ($effectiveAutoUpdate) {
+        'on'    { $autoUpdateInfo = 'ZAPNUTE (kanal ' + $effectiveUpdateChannel + ') - nove verze si funkce stahuje sama, v noci; projevi se po restartu instance' }
+        'probe' { $autoUpdateInfo = 'jen zkouska (probe) - overi zapis a kanal, nic nenasazuje' }
+        default { $autoUpdateInfo = 'VYPNUTE - novou verzi nasadi az dalsi beh tohoto skriptu' }
+    }
+    if ($autoUpdateKept) { $autoUpdateInfo += ' (zachovano z predchoziho nasazeni)' }
+    Write-Host (' Aktualizace kodu      : ' + $autoUpdateInfo)
+    if ($resolvedPackageUrl -eq '' -and $effectiveAutoUpdate -eq 'on') {
+        # Updater prepisuje jen release balicky (znacka vydani); build z repa necha byt.
+        Write-Host '                         POZOR: nasazen build z repa, ne release balicek - ten se automaticky neaktualizuje.' -ForegroundColor Yellow
+    }
     Write-Host '====================================================================='
     Write-Host ''
     Write-Host ' Dalsi kroky:'
@@ -1207,9 +1306,19 @@ try {
         Write-Host '    scripts/setup-enrichment.ps1 (vytvori app registraci, granty i app settings).'
     }
     Write-Host ''
+    $versionOrigin = ($AllowedOrigin -split ',')[0].Trim()
+    Write-Host ' Automaticke aktualizace - stav a posledni kontrolu ukaze:'
+    Write-Host ('   Invoke-RestMethod ' + $apiUrl + '/version -Headers @{ Origin = ''' + $versionOrigin + ''' }')
+    if ($effectiveAutoUpdate -eq 'on') {
+        Write-Host '   Vypnuti: spustte skript znovu s -AutoUpdate off (nebo app setting EP365_AUTO_UPDATE=off v Azure Portalu).'
+    }
+    else {
+        Write-Host '   Zapnuti: spustte skript znovu s -AutoUpdate on.'
+    }
+    Write-Host ''
     Write-Host ' Pozn.: redeploy sablony nove ZACHOVA App Settings (AAD_*, enrich readUrl allowlist,' -ForegroundColor DarkGray
-    Write-Host ' billing, hub, rate limity...) - skript si je pred nasazenim zazalohuje a po nem obnovi.' -ForegroundColor DarkGray
-    Write-Host ' Parametr ma prednost: kdyz predate -AadTenantId/-AadClientId/-AadClientSecret/-SettingsSiteUrl,' -ForegroundColor DarkGray
+    Write-Host ' billing, hub, rate limity, automaticke aktualizace...) - skript si je pred nasazenim zazalohuje a po nem obnovi.' -ForegroundColor DarkGray
+    Write-Host ' Parametr ma prednost: kdyz predate -AadTenantId/-AadClientId/-AadClientSecret/-SettingsSiteUrl/-AutoUpdate/-UpdateChannel,' -ForegroundColor DarkGray
     Write-Host ' pouzije se zadana hodnota.' -ForegroundColor DarkGray
     Write-Host ''
 }

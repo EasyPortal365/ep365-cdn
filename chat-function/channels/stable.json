@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "version": "1.9.0",
+  "zip": "ep365-chat-function-1.9.0.zip",
+  "sha256": "7e4da77a37e763ef9d5730b56787fe59704ef6ca95294eb2242ebfe3784f86a3",
+  "size": 8817568,
+  "published": "2026-09-24T19:04:07.977Z",
+  "rollback": false,
+  "kid": "ep365-16a5328498af0c7b",
+  "sig": "6EcxNQMwKXg3wrMRKIWcIgWu5S/PtGWgETDBg/YW/Pbuv5rUr8PXxwWwSqN0Qs5E7/VGXwlA407jmeGVYvzuBw=="
+}
