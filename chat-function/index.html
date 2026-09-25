@@ -87,7 +87,7 @@ pre{background:#0A1850;color:#E6ECFF;border-radius:var(--r-md);padding:16px 18px
   <h2>Kapacita modelu Azure OpenAI</h2>
   <p>Model deployment AI Asistenta potřebuje kapacitu alespoň <strong>100K TPM</strong> –
     v Microsoft Foundry (dřív Azure AI Foundry) pole <strong>Tokens per Minute Rate Limit</strong> v Deployments.
-    U pay-per-token nasazení (Standard, GlobalStandard) to nic nestojí: platí se za spotřebované
+    U pay-per-token nasazení (DataZoneStandard, GlobalStandard, Standard) to nic nestojí: platí se za spotřebované
     tokeny, ne za tento strop. Skript <code>deploy-azure.ps1</code> nastavuje 100K jako výchozí
     a u deploymentu, který sám spravuje, nižší kapacitu dorovná (nestačí-li kvóta, jen upozorní). S parametrem
     <code>-AzureOpenAiEndpoint</code> (vaše vlastní Azure OpenAI) ji ale nekontroluje a šablona

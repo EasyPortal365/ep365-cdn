@@ -461,6 +461,7 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
         <option value="francecentral">France Central</option>
         <option value="eastus">East US</option>
       </select>
+      <div class="hint">Skript zakládá model deployment typu <strong>Data Zone</strong>: v evropském regionu se dotazy zpracují jen v EU, u East US jen v USA.</div>
     </div>
   </div>
 
@@ -477,7 +478,7 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
     <div class="field">
       <label>Název model deploymentu</label>
       <input type="text" id="in-oaidep" maxlength="64" placeholder="gpt-5-mini" spellcheck="false">
-      <div class="hint">Microsoft Foundry (dřív Azure AI Foundry) → Deployments. Deployment musí mít <strong>Tokens per Minute Rate Limit</strong> alespoň <strong>100K</strong> – jeden dotaz nad dokumenty může mít až kolem 30 000 tokenů. U pay-per-token nasazení (Standard, GlobalStandard) se platí za spotřebované tokeny, ne za tento strop.</div>
+      <div class="hint">Microsoft Foundry (dřív Azure AI Foundry) → Deployments. Deployment musí mít <strong>Tokens per Minute Rate Limit</strong> alespoň <strong>100K</strong> – jeden dotaz nad dokumenty může mít až kolem 30 000 tokenů. U pay-per-token nasazení (DataZoneStandard, GlobalStandard, Standard) se platí za spotřebované tokeny, ne za tento strop.</div>
     </div>
   </div>
 
@@ -841,7 +842,7 @@ function buildPath1(d){
     + (ownAoai ? '' : ' včetně Azure OpenAI a modelu gpt-5-mini s kapacitou 100K TPM')
     + ', provede zkušební dotaz na AI (uvidíte odpověď; kapacitu modelu tím ale neověří) a vypíše <strong>API URL</strong> – tu si zkopírujte pro krok B. Skript je bezpečné spustit opakovaně (aktualizace na novou verzi backendu = totéž spuštění; vaše nastavení Function App si zálohuje a obnoví).</p>'
     + (ownAoai
-      ? '<div class="callout warn" style="margin-bottom:0">' + WARN_IC + '<div><strong>Kapacita modelu:</strong> u vašeho existujícího Azure OpenAI skript kapacitu deploymentu nekontroluje ani nenavyšuje. Ověřte proto ručně v Microsoft Foundry → Deployments → <code>' + esc(dep) + '</code>, že <strong>Tokens per Minute Rate Limit</strong> je alespoň <strong>100K</strong> (jinak Edit → 100K → Save and close). U pay-per-token nasazení (Standard, GlobalStandard) se platí za spotřebované tokeny, ne za tento strop.</div></div>'
+      ? '<div class="callout warn" style="margin-bottom:0">' + WARN_IC + '<div><strong>Kapacita modelu:</strong> u vašeho existujícího Azure OpenAI skript kapacitu deploymentu nekontroluje ani nenavyšuje. Ověřte proto ručně v Microsoft Foundry → Deployments → <code>' + esc(dep) + '</code>, že <strong>Tokens per Minute Rate Limit</strong> je alespoň <strong>100K</strong> (jinak Edit → 100K → Save and close). U pay-per-token nasazení (DataZoneStandard, GlobalStandard, Standard) se platí za spotřebované tokeny, ne za tento strop.</div></div>'
       : '<p>Nestačí-li v regionu kvóta na 100K, skript založí model s nižší kapacitou a vypíše <strong>POZOR</strong> – výstup proto čtěte. Pak požádejte o navýšení kvóty (Microsoft Foundry → Quota → Request quota) a skript spusťte znovu – kapacitu dorovná.</p>')
     + '</div></li>'
     + '</ol></section>';

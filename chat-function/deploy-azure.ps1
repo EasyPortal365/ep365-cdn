@@ -134,12 +134,18 @@
     explicitne, pouzije se presne ta. Fallback pri neuspechu dotazu: 2025-08-07.
 
 .PARAMETER OpenAiSkuName
-    SKU model deploymentu. Default: GlobalStandard.
+    Typ (SKU) model deploymentu. Default: DataZoneStandard - dotazy se zpracuji jen
+    v datove zone regionu uctu; u evropskeho regionu (napr. swedencentral) je to EU
+    Data Boundary (muze zahrnout i Norsko a Svycarsko). Tokeny jsou asi o 10 % drazsi
+    nez u GlobalStandard. GlobalStandard = Microsoft muze dotaz zpracovat v kteremkoli
+    regionu Azure (ulozena data zustavaji v geografii uctu). Plati jen pro NOVY
+    deployment - u existujiciho skript typ nikdy nemeni.
 
 .PARAMETER OpenAiSkuCapacity
     Kapacita deploymentu (v tisicich tokenu za minutu, TPM). Default: 100.
 
-    TPM je RYCHLOSTNI strop, ne rezervace - u SKU GlobalStandard se plati za skutecne
+    TPM je RYCHLOSTNI strop, ne rezervace - u pay-per-token SKU (DataZoneStandard,
+    GlobalStandard) se plati za skutecne
     spotrebovane tokeny, takze vyssi kapacita sama o sobe nic nestoji. Drzet ji nizko
     tedy nesetri nic a jen lame provoz: jeden dotaz nad firemnimi znalostmi ma prompt
     v desetitisicich tokenu (rozpocet zpravy je 32 000 znaku), takze na 10 TPM narazi
@@ -235,7 +241,9 @@ param(
     [string]$OpenAiLocation = 'swedencentral',
     [string]$OpenAiModelName = 'gpt-5-mini',
     [string]$OpenAiModelVersion = '2025-08-07',
-    [string]$OpenAiSkuName = 'GlobalStandard',
+    # Data Zone od 2026-09-25 (rozhodnuti Kamiho): u GlobalStandard neplatila veta
+    # "data zustavaji ve zvolenem regionu" - Microsoft muze dotaz zpracovat kdekoli.
+    [string]$OpenAiSkuName = 'DataZoneStandard',
     # 100 = 100 000 TPM. Nizsi hodnota nesetri nic (plati se za spotrebovane tokeny, ne
     # za kvotu) a rozbiji dotazy nad firemnimi znalostmi - viz .PARAMETER vyse a lekce 26.7.
     # Proc rovnou 100 a ne 50: jeden dotaz nad dokumenty bere kolem 30 000 tokenu, takze na
@@ -564,6 +572,7 @@ try {
     $aoaiKey = ''
     $aoaiAccountInfo = ''
     $aoaiStateInfo = ''
+    $aoaiSkuInfo = ''
 
     if ($AzureOpenAiEndpoint -ne '') {
         Write-Step 'Azure OpenAI - pouzivam existujici ucet (zadano parametry)'
@@ -682,7 +691,7 @@ try {
                     $usages = ConvertFrom-Json (($usageJson -join "`n"))
                     $skuKey   = $OpenAiSkuName.ToLower()
                     $modelKey = $OpenAiModelName.ToLower()
-                    # Kvota se jmenuje napr. "OpenAI.GlobalStandard.gpt-5-mini" - hledame
+                    # Kvota se jmenuje napr. "OpenAI.DataZoneStandard.gpt-5-mini" - hledame
                     # podle SKU i modelu, ne podle presneho tvaru (ten se u modelu lisi).
                     $quota = @($usages | Where-Object {
                         $n = ''
@@ -761,6 +770,11 @@ try {
                     if ($existingCapacity -gt 0) {
                         Write-Host ('  Kapacita existujiciho deploymentu: ' + $existingCapacity + ' (v tisicich TPM).')
                     }
+                    # Typ existujiciho deploymentu skript NEMENI (zmena typu = novy deployment;
+                    # prevod stavajicich zakazniku pujde spolu s vymenou modelu). Jen ho rekneme.
+                    if ($curSkuName -eq 'GlobalStandard' -and $OpenAiSkuName -ne 'GlobalStandard') {
+                        Write-Host ('  Typ deploymentu: GlobalStandard - Microsoft muze dotazy zpracovat v kteremkoli regionu Azure. Nova nasazeni zaklada skript jako ' + $OpenAiSkuName + ' (v evropskem regionu zpracovani jen v EU); tento deployment skript nemeni - prevod pripravime spolu s vymenou modelu.')
+                    }
 
                     $rucniPostup = '  Navyste ji rucne: Microsoft Foundry (Azure OpenAI ' + $OpenAiAccountName + ') -> Deployments -> ' + $AzureOpenAiDeployment + ' -> Edit -> Tokens per Minute Rate Limit = ' + $OpenAiSkuCapacity + 'K -> Save and close. Kdyz posuvnik na tuto hodnotu nedosahne, dosla kvota predplatneho: Quota -> Request quota.'
 
@@ -825,6 +839,10 @@ try {
         $aoaiStateInfo = (az cognitiveservices account deployment show -g $ResourceGroupName -n $OpenAiAccountName --deployment-name $AzureOpenAiDeployment --query 'properties.provisioningState' -o tsv)
         Assert-LastExit 'Nepodarilo se precist stav model deploymentu.'
         $aoaiAccountInfo = $OpenAiAccountName + ' (' + $OpenAiLocation + ')'
+        # Typ deploymentu do souhrnu - rozhoduje, kde se dotazy zpracuji. Selhani cteni
+        # nasazeni nezastavuje, souhrn pak rekne "neovereno".
+        $skuRaw = az cognitiveservices account deployment show -g $ResourceGroupName -n $OpenAiAccountName --deployment-name $AzureOpenAiDeployment --query 'sku.name' -o tsv 2>$null
+        if ($LASTEXITCODE -eq 0 -and $skuRaw) { $aoaiSkuInfo = ("$skuRaw").Trim() }
 
         Write-Host ('Endpoint: ' + $aoaiEndpoint)
     }
@@ -1277,6 +1295,11 @@ try {
     Write-Host (' Azure OpenAI ucet     : ' + $aoaiAccountInfo)
     Write-Host (' Azure OpenAI endpoint : ' + $aoaiEndpoint)
     Write-Host (' Model deployment      : ' + $AzureOpenAiDeployment + ' (stav: ' + $aoaiStateInfo + ')')
+    if ($aoaiSkuInfo -like 'DataZone*') { $processingInfo = $aoaiSkuInfo + ' - dotazy se zpracuji jen v datove zone regionu (evropsky region = EU)' }
+    elseif ($aoaiSkuInfo -like 'Global*') { $processingInfo = $aoaiSkuInfo + ' - Microsoft muze dotazy zpracovat v kteremkoli regionu Azure' }
+    elseif ($aoaiSkuInfo -ne '') { $processingInfo = $aoaiSkuInfo }
+    else { $processingInfo = 'neovereno (ucet mimo spravu skriptu nebo se typ nepodarilo precist)' }
+    Write-Host (' Zpracovani dotazu     : ' + $processingInfo)
     if ($AadTenantId -ne '') {
         Write-Host ' Znalostni priprava    : app settings AAD_* nastaveny ze zadanych parametru'
     }
