@@ -831,7 +831,10 @@ function buildPath1(d){
   return '<section class="card"><h2><span class="sec-badge">A</span>Azure backend – Cloud Shell skript</h2>'
     + '<ol class="steps">'
     + '<li class="step"><span class="step-num">1</span><div class="step-body">Otevřete <a class="ext" href="https://shell.azure.com" target="_blank" rel="noopener">shell.azure.com</a> a zvolte <strong>PowerShell</strong> (jste rovnou přihlášeni; účet musí mít roli Owner/Contributor na subscription).</div></li>'
-    + '<li class="step"><span class="step-num">2</span><div class="step-body"><p>Vložte a spusťte (hodnoty jsou předvyplněné z vaší žádosti'
+    + '<li class="step"><span class="step-num">2</span><div class="step-body"><p>Ověřte, že pracujete ve správném předplatném – Cloud Shell otevře výchozí a skript zakládá prostředky právě do něj:</p>'
+    + '<pre class="code"><code>' + esc('az account show -o table') + '</code></pre>'
+    + '<p>Když nesedí, přepněte se:</p><pre class="code"><code>' + esc('az account list -o table\naz account set --subscription "<název nebo ID>"') + '</code></pre></div></li>'
+    + '<li class="step"><span class="step-num">3</span><div class="step-body"><p>Vložte a spusťte (hodnoty jsou předvyplněné z vaší žádosti'
     + (ownAoai ? '; jen <code>VLOZTE-VAS-KLIC</code> nahraďte klíčem z Keys and Endpoint' : '')
     + '):</p><pre class="code"><code>' + esc(cmd) + '</code></pre>'
     + '<p>Skript založí vše potřebné'
