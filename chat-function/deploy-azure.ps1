@@ -773,7 +773,7 @@ try {
                     # Typ existujiciho deploymentu skript NEMENI (zmena typu = novy deployment;
                     # prevod stavajicich zakazniku pujde spolu s vymenou modelu). Jen ho rekneme.
                     if ($curSkuName -eq 'GlobalStandard' -and $OpenAiSkuName -ne 'GlobalStandard') {
-                        Write-Host ('  Typ deploymentu: GlobalStandard - Microsoft muze dotazy zpracovat v kteremkoli regionu Azure. Nova nasazeni zaklada skript jako ' + $OpenAiSkuName + ' (v evropskem regionu zpracovani jen v EU); tento deployment skript nemeni - prevod pripravime spolu s vymenou modelu.')
+                        Write-Host ('  Typ deploymentu: GlobalStandard - Microsoft muze dotazy zpracovat v kteremkoli regionu Azure. Nova nasazeni zaklada skript jako ' + $OpenAiSkuName + ' (v evropskem regionu jen v ramci EU Data Boundary); tento deployment skript nemeni - prevod pripravime spolu s vymenou modelu.')
                     }
 
                     $rucniPostup = '  Navyste ji rucne: Microsoft Foundry (Azure OpenAI ' + $OpenAiAccountName + ') -> Deployments -> ' + $AzureOpenAiDeployment + ' -> Edit -> Tokens per Minute Rate Limit = ' + $OpenAiSkuCapacity + 'K -> Save and close. Kdyz posuvnik na tuto hodnotu nedosahne, dosla kvota predplatneho: Quota -> Request quota.'
@@ -1295,7 +1295,7 @@ try {
     Write-Host (' Azure OpenAI ucet     : ' + $aoaiAccountInfo)
     Write-Host (' Azure OpenAI endpoint : ' + $aoaiEndpoint)
     Write-Host (' Model deployment      : ' + $AzureOpenAiDeployment + ' (stav: ' + $aoaiStateInfo + ')')
-    if ($aoaiSkuInfo -like 'DataZone*') { $processingInfo = $aoaiSkuInfo + ' - dotazy se zpracuji jen v datove zone regionu (evropsky region = EU)' }
+    if ($aoaiSkuInfo -like 'DataZone*') { $processingInfo = $aoaiSkuInfo + ' - dotazy se zpracuji jen v datove zone regionu (evropsky region = EU Data Boundary)' }
     elseif ($aoaiSkuInfo -like 'Global*') { $processingInfo = $aoaiSkuInfo + ' - Microsoft muze dotazy zpracovat v kteremkoli regionu Azure' }
     elseif ($aoaiSkuInfo -ne '') { $processingInfo = $aoaiSkuInfo }
     else { $processingInfo = 'neovereno (ucet mimo spravu skriptu nebo se typ nepodarilo precist)' }
