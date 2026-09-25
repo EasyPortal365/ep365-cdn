@@ -187,84 +187,93 @@ if (MODE === 'verify-live') {
     say('  ' + (x.ok ? 'OK   ' : 'CHYBA') + ' ' + x.status + ' ' + (x.ok ? 'sha shodne' : 'sha/status nesedi') + ' ' + (x.acao ? 'ACAO=' + x.acao : 'ACAO=(zadne)') + ' ' + x.it.url);
   }
   const nbad = last.filter(x => !x.ok).length;
-  if (nbad) fail(nbad + ' z ' + last.length + ' souboru neni na CDN ve spravnem obsahu (po ' + round + ' kolech)');
-  say('POOL: LIVE OK - ' + last.length + ' souboru verze ' + verRel + ' vraci 200 a obsah (SHA-256) = build');
+  // Konec pres process.exitCode, NE process.exit(): na Windows (Node 24) process.exit() hned po fetch()
+  // obcas spadne v libuv ("Assertion failed: !(handle->flags & UV_HANDLE_CLOSING)", exit 127) a publikace
+  // pak hlasila falesne NEPINOVAT (helpdesk 1.3.0.4; lekce 25.63). Chyby PRED prvnim fetch smi dal koncit pres fail().
+  if (nbad) {
+    say('POOL: CHYBA - ' + nbad + ' z ' + last.length + ' souboru neni na CDN ve spravnem obsahu (po ' + round + ' kolech)');
+    process.exitCode = 1;
+  } else {
+    say('POOL: LIVE OK - ' + last.length + ' souboru verze ' + verRel + ' vraci 200 a obsah (SHA-256) = build');
+    process.exitCode = 0;
+  }
+} else {
+// Publikace je ve vetvi else: verify-live konci pres process.exitCode a na zapis propadnout nesmi.
+
+  // ============================================================== PUBLISH ===
+  // Rozpracovany CIZI stav na cestach, na ktere sahame = nevime, co se deje -> stop.
+  // Netrackovane soubory (??) jsou zbytky po nedokoncene publikaci: na Pages nejsou,
+  // takze je smime nahradit.
+  const status = git(['status', '--porcelain=v1', '-uall', '--', verRel, poolRel]).split('\n').filter(Boolean);
+  const foreign = status.filter(l => l.slice(0, 2) !== '??');
+  if (foreign.length) fail('na ' + verRel + ' / ' + poolRel + ' je rozpracovana zmena, ktera neni z teto publikace:\n  ' + foreign.join('\n  '));
+
+  const head = headTree(APP + '/');
+  const headVerCount = Array.from(head.keys()).filter(p => p.indexOf(verRel + '/') === 0).length;
+  let verState = 'absent';
+  if (headVerCount) verState = headHas('pool', head) ? 'same-pool' : (headHas('standalone', head) ? 'same-standalone' : 'different');
+
+  if (verState === 'same-pool' || verState === 'same-standalone') {
+    say('POOL: verze ' + verRel + ' uz na CDN je a obsah je SHODNY s buildem (' + (verState === 'same-pool' ? 'ULOZISTE' : 'SAMOSTATNA') + ') - nic nezapisuji');
+    process.exit(0);
+  }
+  if (verState === 'different' && !REPLACE_OK) {
+    say('POOL: verze ' + verRel + ' uz na CDN je a ma JINY obsah nez tento build - prepis nepovolen.');
+    process.exit(3);
+  }
+
+  // Smi verze do uloziste?
+  const reasons = [];
+  if (NO_POOL) reasons.push('vynuceno --no-pool');
+  for (const f of js) if (!POOL_NAME_RE.test(f)) reasons.push(f + ': jmeno bez content hashe');
+  {
+    const byHash = new Map();
+    js.forEach(f => { const h = hashOf(f); if (h) byHash.set(h, f); });
+    const marked = reachable(refs.paths, byHash, srcText);
+    for (const f of js) if (!marked.has(f)) reasons.push(f + ': z bundlu knihovny na nej nevede hash - prorez by ho nenasel');
+  }
+  const add = [], reuse = [];
+  for (const f of js) {
+    const inHead = head.get(poolRel + '/' + f);
+    if (!inHead) { add.push(f); continue; }
+    if (inHead === want.poolFile.get(f)) reuse.push(f);
+    else reasons.push(f + ': v ulozisti uz je pod stejnym jmenem JINY obsah (konflikt)');
+  }
+  const layout = reasons.length ? 'standalone' : 'pool';
+  const sizeOf = (f) => fs.statSync(path.join(SRC, f)).size;
+  const mb = (b) => (b / 1048576).toFixed(2);
+
+  if (layout === 'pool') {
+    say('POOL: ' + verRel + ' -> ULOZISTE ' + poolRel + '/ (' + add.length + ' novych, ' + reuse.length + ' znovu pouzitych = usetreno '
+      + mb(reuse.reduce((s, f) => s + sizeOf(f), 0)) + ' MB; verzni slozka = jen manifest.json)');
+  } else {
+    say('POOL: ' + verRel + ' -> SAMOSTATNA VERZE (tvar pred ulozistem). Duvod:');
+    reasons.forEach(r => say('  - ' + r));
+  }
+  if (verState === 'different') say('POOL: verze ' + verRel + ' mela jiny obsah a volajici overil, ze ji nikdo nedrzi - nahrazuji ji.');
+  if (!APPLY) { say('POOL: PLAN (nic nezapsano). Spust s --apply.'); process.exit(0); }
+
+  // ---------------------------------------------------------------- zapis ---
+  // Verzni slozku vzdy stavime nacisto (zbytky po nedokoncenem behu, nahrazovana verze).
+  fs.rmSync(verAbs, { recursive: true, force: true });
+  const copyChecked = (f, destDir, rel, blob) => {
+    fs.mkdirSync(destDir, { recursive: true });
+    const dest = path.join(destDir, f);
+    fs.copyFileSync(path.join(SRC, f), dest);
+    if (blobOfFile(rel, dest) !== blob) fail('po kopii nesedi obsah ' + rel);
+  };
+  if (layout === 'pool') {
+    // Nejdriv uloziste, manifest AZ NAKONEC: verze s manifestem bez svych souboru nikdy nevznikne
+    // (preruseny beh zanecha nanejvys neodkazovane soubory v ulozisti, ty smete prorez).
+    for (const f of add) copyChecked(f, poolAbs, poolRel + '/' + f, want.poolFile.get(f));
+    fs.mkdirSync(verAbs, { recursive: true });
+    fs.writeFileSync(path.join(verAbs, 'manifest.json'), pooledManifestBuf);
+    if (blobOfFile(verRel + '/manifest.json', path.join(verAbs, 'manifest.json')) !== want.verPool.get('manifest.json')) fail('po zapisu nesedi manifest');
+  } else {
+    for (const f of js) copyChecked(f, verAbs, verRel + '/' + f, want.verStandalone.get(f));
+    fs.writeFileSync(path.join(verAbs, 'manifest.json'), srcManifestBuf);
+    if (blobOfFile(verRel + '/manifest.json', path.join(verAbs, 'manifest.json')) !== want.verStandalone.get('manifest.json')) fail('po zapisu nesedi manifest');
+  }
+  say('POOL: zapsano (' + (layout === 'pool' ? add.length + ' soubor(u) do ' + poolRel + '/ + manifest' : (js.length + 1) + ' souboru do ' + verRel + '/') + ')');
   process.exit(0);
 }
-
-// ============================================================== PUBLISH ===
-// Rozpracovany CIZI stav na cestach, na ktere sahame = nevime, co se deje -> stop.
-// Netrackovane soubory (??) jsou zbytky po nedokoncene publikaci: na Pages nejsou,
-// takze je smime nahradit.
-const status = git(['status', '--porcelain=v1', '-uall', '--', verRel, poolRel]).split('\n').filter(Boolean);
-const foreign = status.filter(l => l.slice(0, 2) !== '??');
-if (foreign.length) fail('na ' + verRel + ' / ' + poolRel + ' je rozpracovana zmena, ktera neni z teto publikace:\n  ' + foreign.join('\n  '));
-
-const head = headTree(APP + '/');
-const headVerCount = Array.from(head.keys()).filter(p => p.indexOf(verRel + '/') === 0).length;
-let verState = 'absent';
-if (headVerCount) verState = headHas('pool', head) ? 'same-pool' : (headHas('standalone', head) ? 'same-standalone' : 'different');
-
-if (verState === 'same-pool' || verState === 'same-standalone') {
-  say('POOL: verze ' + verRel + ' uz na CDN je a obsah je SHODNY s buildem (' + (verState === 'same-pool' ? 'ULOZISTE' : 'SAMOSTATNA') + ') - nic nezapisuji');
-  process.exit(0);
-}
-if (verState === 'different' && !REPLACE_OK) {
-  say('POOL: verze ' + verRel + ' uz na CDN je a ma JINY obsah nez tento build - prepis nepovolen.');
-  process.exit(3);
-}
-
-// Smi verze do uloziste?
-const reasons = [];
-if (NO_POOL) reasons.push('vynuceno --no-pool');
-for (const f of js) if (!POOL_NAME_RE.test(f)) reasons.push(f + ': jmeno bez content hashe');
-{
-  const byHash = new Map();
-  js.forEach(f => { const h = hashOf(f); if (h) byHash.set(h, f); });
-  const marked = reachable(refs.paths, byHash, srcText);
-  for (const f of js) if (!marked.has(f)) reasons.push(f + ': z bundlu knihovny na nej nevede hash - prorez by ho nenasel');
-}
-const add = [], reuse = [];
-for (const f of js) {
-  const inHead = head.get(poolRel + '/' + f);
-  if (!inHead) { add.push(f); continue; }
-  if (inHead === want.poolFile.get(f)) reuse.push(f);
-  else reasons.push(f + ': v ulozisti uz je pod stejnym jmenem JINY obsah (konflikt)');
-}
-const layout = reasons.length ? 'standalone' : 'pool';
-const sizeOf = (f) => fs.statSync(path.join(SRC, f)).size;
-const mb = (b) => (b / 1048576).toFixed(2);
-
-if (layout === 'pool') {
-  say('POOL: ' + verRel + ' -> ULOZISTE ' + poolRel + '/ (' + add.length + ' novych, ' + reuse.length + ' znovu pouzitych = usetreno '
-    + mb(reuse.reduce((s, f) => s + sizeOf(f), 0)) + ' MB; verzni slozka = jen manifest.json)');
-} else {
-  say('POOL: ' + verRel + ' -> SAMOSTATNA VERZE (tvar pred ulozistem). Duvod:');
-  reasons.forEach(r => say('  - ' + r));
-}
-if (verState === 'different') say('POOL: verze ' + verRel + ' mela jiny obsah a volajici overil, ze ji nikdo nedrzi - nahrazuji ji.');
-if (!APPLY) { say('POOL: PLAN (nic nezapsano). Spust s --apply.'); process.exit(0); }
-
-// ---------------------------------------------------------------- zapis ---
-// Verzni slozku vzdy stavime nacisto (zbytky po nedokoncenem behu, nahrazovana verze).
-fs.rmSync(verAbs, { recursive: true, force: true });
-const copyChecked = (f, destDir, rel, blob) => {
-  fs.mkdirSync(destDir, { recursive: true });
-  const dest = path.join(destDir, f);
-  fs.copyFileSync(path.join(SRC, f), dest);
-  if (blobOfFile(rel, dest) !== blob) fail('po kopii nesedi obsah ' + rel);
-};
-if (layout === 'pool') {
-  // Nejdriv uloziste, manifest AZ NAKONEC: verze s manifestem bez svych souboru nikdy nevznikne
-  // (preruseny beh zanecha nanejvys neodkazovane soubory v ulozisti, ty smete prorez).
-  for (const f of add) copyChecked(f, poolAbs, poolRel + '/' + f, want.poolFile.get(f));
-  fs.mkdirSync(verAbs, { recursive: true });
-  fs.writeFileSync(path.join(verAbs, 'manifest.json'), pooledManifestBuf);
-  if (blobOfFile(verRel + '/manifest.json', path.join(verAbs, 'manifest.json')) !== want.verPool.get('manifest.json')) fail('po zapisu nesedi manifest');
-} else {
-  for (const f of js) copyChecked(f, verAbs, verRel + '/' + f, want.verStandalone.get(f));
-  fs.writeFileSync(path.join(verAbs, 'manifest.json'), srcManifestBuf);
-  if (blobOfFile(verRel + '/manifest.json', path.join(verAbs, 'manifest.json')) !== want.verStandalone.get('manifest.json')) fail('po zapisu nesedi manifest');
-}
-say('POOL: zapsano (' + (layout === 'pool' ? add.length + ' soubor(u) do ' + poolRel + '/ + manifest' : (js.length + 1) + ' souboru do ' + verRel + '/') + ')');
-process.exit(0);
