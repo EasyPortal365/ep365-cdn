@@ -4,6 +4,72 @@
   "name": "Workplace",
   "entries": [
     {
+      "version": "1.30",
+      "date": "2026-09-26",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Nový vzhled plochy Aurora – světlé pozadí v barvách vaší firmy, skleněné karty a nadpisy zón se zvýrazněným slovem a podtitulkem; řádek hned pod pozdravem může ležet přes jeho spodní okraj. Zapnete ho v Nastavení → Rozvržení → Vzhled plochy; stávající weby zůstávají beze změny.",
+          "en": "A new Aurora surface — a light background in your company colours, glass cards and zone headings with a highlighted word and a subtitle; the row right below the greeting can overlap its bottom edge. Turn it on in Settings → Layout → Page look; existing sites stay unchanged."
+        },
+        {
+          "type": "new",
+          "cs": "Dotazy a náměty: dlaždice zůstává přehledná i při desítkách položek (panely s počty, filtr podle stavu, stránkování), u zveřejněných odpovědí dáte vědět, že vám pomohly, a odpovědi seřadíte od nejnovější nebo od nejužitečnější. Sekce funguje i na týmovém webu pod hubem – dotazy čte a zakládá v seznamech hubu, takže oprávnění i řešitelé zůstávají na jednom místě; týmový web, který už vlastní dotazy má, je čte dál. Dlaždici jde omezit na jednu oblast a nový dotaz otevřete i odkazem (?ep365hp=inquiry:new, případně s oblastí).",
+          "en": "Questions and ideas: the tile stays clear even with dozens of items (panels with counts, a status filter, paging), you can mark published answers as helpful and sort answers by newest or most helpful. The section also works on a team site under a hub — it reads and creates questions in the hub’s lists, so permissions and solvers stay in one place; a team site that already has its own questions keeps reading them. The tile can be limited to one area, and a new question can be opened with a link (?ep365hp=inquiry:new, optionally with an area)."
+        },
+        {
+          "type": "new",
+          "cs": "Aktuality umí vzhled Magazín (velká hlavní zpráva a tři menší vedle ní) a čtení z více webů – k aktualitám webu přidáte vybrané weby, třeba web personálního oddělení, a zprávy se sloučí od nejnovější; každý čtenář vidí jen to, k čemu má přístup. Podklady od AI si při psaní aktuality otevřete rovnou v aplikaci – v náhledu a ve stránkovaném přehledu s typem, webem, autorem a datem změny.",
+          "en": "News can use the Magazine view (one large lead story with three smaller ones beside it) and read from several sites — add selected sites, such as the HR department’s site, to this site’s news and stories merge from the newest; every reader sees only what they have access to. While writing news, you open the AI source documents right in the app — in a preview and in a paged overview with type, site, author and modified date."
+        },
+        {
+          "type": "new",
+          "cs": "Globální konfigurace → AI Asistent: umístění plovoucího asistenta pro všechny weby (vpravo nebo vlevo dole, výška včetně posunu až ke spodnímu okraji), zda se zdroj SharePoint zapíná automaticky – pro všechny weby najednou, srozumitelnější popisky výchozích hodnot (historie konverzace, délka odpovědi, kreativita) a výchozí ceny tokenů podle GPT-5 mini (0,25 / 2 USD za 1M tokenů; uložené ceny se nemění). Zdroj „Firemní znalosti“ se jmenuje „SharePoint“, stejně jako v AI Asistentovi.",
+          "en": "Global configuration → AI Assistant: the floating assistant position for all sites (bottom right or left, height including an offset down to the bottom edge), whether the SharePoint source switches on automatically — for all sites at once, clearer labels for the defaults (conversation history, answer length, creativity) and default token prices for GPT-5 mini (USD 0.25 / 2 per 1M tokens; saved prices do not change). The “Company knowledge” source is now called “SharePoint”, as in the AI Assistant."
+        },
+        {
+          "type": "improved",
+          "cs": "Ve Správě → O aplikaci je místo Roadmapy přehled „Co je nového“: u každé vydané verze ukáže, co přibylo, co se vylepšilo a co se opravilo, a vaši verzi zvýrazní. Roadmapa se načítala z veřejného GitHubu přímo z prohlížeče, takže za firemní proxy nebo po několika otevřeních z jedné sítě přestala odpovídat. Když se přehled nepodaří načíst, aplikace to napíše, místo aby tvrdila, že nic nepřibylo.",
+          "en": "Administration → About now shows “What’s new” instead of the Roadmap: for every released version it shows what was added, improved and fixed, and highlights your version. The Roadmap loaded from public GitHub directly in the browser, so behind a corporate proxy or after a few openings from one network it stopped responding. If the overview cannot be loaded, the app says so instead of claiming nothing was added."
+        },
+        {
+          "type": "improved",
+          "cs": "Nové vzhledy sekcí: Centrum životních situací umí karty v barvách fází života s velkou ikonou a počtem zveřejněných návodů, „Vítáme mezi námi“ mřížku tváří s pozicí, dnem nástupu, tlačítkem Pozdravit a volbou „Zobrazit až ode dne nástupu“ a Rychlé akce karty s ikonou, názvem a popisem. Pozdrav umí oslovit křestním jménem v 5. pádě a obejít se bez Headline – hlavní zprávu pak ukážou Aktuality. Výchozí vzhledy se nemění.",
+          "en": "New section looks: Life Situations Centre can show cards in the colours of life phases with a large icon and the number of published guides, “Welcome aboard” a grid of faces with position, start date, a Say hello button and a “Show only from the start date” option, and Quick actions cards with an icon, title and description. The greeting can address you by first name and do without the Headline — the main story then shows in News. The default looks do not change."
+        },
+        {
+          "type": "fixed",
+          "cs": "AI u Aktualit: podklady odpovídají tomu, z čeho AI opravdu psala (žádné nesouvisející soubory ani značky zdrojů v textu), pravidla „mimo AI“ i omezení zdrojů platí i tady, AI funkce Workplace se AI službě prokazují přihlášeným uživatelem, takže fungují i tam, kde služba přihlášení vyžaduje, historii konverzace nejde nastavit nad 50 zpráv a generování se po vypršení limitu AI služby už neopakuje dokola.",
+          "en": "AI in News: the sources match what the AI actually used (no unrelated files, no source markers in the text), “outside AI” rules and source limits apply here too, Workplace AI features sign in to the AI service as the signed-in user, so they work where the service requires sign-in, conversation history cannot be set above 50 messages and generation no longer retries endlessly after the AI service time limit."
+        },
+        {
+          "type": "fixed",
+          "cs": "Perex, typ, cílení, doba zobrazení a překlady aktuality vidí čtenáři hned po uložení – dřív mohly zůstat jen v rozpracované verzi stránky; když se některou vlastnost nepodaří uložit, aplikace to napíše. U aktualit uložených dřív stačí aktualitu otevřít a znovu uložit. Příprava Workplace už v knihovně Stránky webu nezakládá zdvojené sloupce.",
+          "en": "Readers see a news post’s summary, type, targeting, display period and translations right after saving — they could previously stay only in the draft version of the page; if a property cannot be saved, the app says so. For news saved earlier, just open the post and save it again. Workplace setup no longer creates duplicate columns in the Site Pages library."
+        },
+        {
+          "type": "fixed",
+          "cs": "Datum a čas se řídí vašimi hodinami a časovým pásmem: krátce po půlnoci už AI nebere včerejšek jako dnešek, export potvrzení nese správné datum, oznámení a aktuality se i v pásmech UTC+12 až UTC+14 zobrazí a zmizí ve správný den a opětovné uložení formuláře datum neposune. Přehled využití počítá aktivní oznámení až do konce jeho posledního dne.",
+          "en": "Date and time follow your clock and time zone: shortly after midnight the AI no longer treats yesterday as today, the confirmation export carries the right date, announcements and news appear and disappear on the right day even in UTC+12 to UTC+14, and saving a form again no longer shifts the date. Usage overview counts an active announcement until the end of its last day."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hlasování v Otázce dne a v Pulse anketě znovu ukládá hlas. Hosté (účty z jiných organizací) mohou potvrzovat přečtení oznámení, reagovat na pochvaly a vidí své dotazy a náměty. Dotazy a náměty v režimu jen pro čtení (bez platné licence) zamknou zadávání i správu a řeknou proč; číst se dá dál.",
+          "en": "Voting in Question of the day and in the Pulse survey saves the vote again. Guests (accounts from other organisations) can confirm reading announcements, react to kudos and see their questions and ideas. In read-only mode (without a valid licence), Questions and ideas lock submitting and administration and explain why; reading still works."
+        },
+        {
+          "type": "fixed",
+          "cs": "Další opravy: sekce Dokumenty k seznámení ukazuje totéž co Řízené dokumenty (i dokumenty, kterým vypršelo seznámení), Náhled obsahu otevře i dokument s # nebo % v názvu, klávesa Enter na „Přidat do Outlooku“ otevře Outlook, hledání v Dotazech a námětech řekne, že nic nenašlo, místo aby tvrdilo, že tu nic není, a řádek s vyrovnanou výškou natahuje vždy celou kartu sekce.",
+          "en": "Other fixes: the Documents to acknowledge section shows the same as Controlled Documents (including documents whose acknowledgement expired), Content preview opens a document with # or % in its name, Enter on “Add to Outlook” opens Outlook, a search in Questions and ideas says it found nothing instead of claiming there is nothing here, and a row with equalised height always stretches the whole section card."
+        },
+        {
+          "type": "fixed",
+          "cs": "Obrázek aktuality už nepřepíše obrázek jiné aktuality ani jiný soubor webu se stejným jménem. Totéž platí pro logo a písmo v Globální konfiguraci – nový soubor se v aplikacích ukáže až po uložení.",
+          "en": "A news image no longer overwrites another post’s image or another site file with the same name. The same applies to the logo and font in Global configuration — a new file appears in the apps only after you save."
+        }
+      ]
+    },
+    {
       "version": "1.29",
       "date": "2026-09-10",
       "changes": [
