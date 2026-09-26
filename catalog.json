@@ -1,37 +1,37 @@
 {
   "ep365-ai-chat": {
-    "description": "Firemní AI chat nad vašimi daty v Microsoft 365 — odpovídá z dokumentů, e-mailů a znalostní báze. Data zůstávají u vás.",
+    "description": "Firemní AI chat nad vašimi daty v Microsoft 365 – odpovídá z dokumentů, e-mailů a znalostní báze. Data zůstávají u vás.",
     "webUrl": "https://easyportal365.cz/aplikace/osobni-zabezpecena-ai/"
   },
   "ep365-quick-actions": {
-    "description": "Quick Actions — bezplatné akce v menu SharePointu: PDF, tisk, sloučení do PDF, porovnání verzí, kontrola citlivých údajů, přehled oprávnění a odeslání k řízené publikaci. V celém tenantu, bez instalace na weby.",
+    "description": "Quick Actions – bezplatné akce v menu SharePointu: PDF, tisk, sloučení do PDF, porovnání verzí, kontrola citlivých údajů, přehled oprávnění a odeslání k řízené publikaci. V celém tenantu, bez instalace na weby.",
     "webUrl": "https://easyportal365.cz/aplikace/quick-actions/"
   },
   "ep365-fleet": {
-    "description": "Správa vozového parku — vozidla, rezervace, STK, servisní kniha a přehled vytížení i nákladů.",
+    "description": "Správa vozového parku – vozidla, rezervace, STK, servisní kniha a přehled vytížení i nákladů.",
     "webUrl": "https://easyportal365.cz/aplikace/vozovy-park/"
   },
   "ep365-documents": {
-    "description": "Řízené dokumenty — schvalování, verzování, seznamování a kompletní audit trail.",
+    "description": "Řízené dokumenty – schvalování, verzování, seznamování a kompletní audit trail.",
     "webUrl": "https://easyportal365.cz/aplikace/rizene-dokumenty/"
   },
   "ep365-lifecenter": {
-    "description": "Centrum životních situací — rozcestník životních a pracovních situací krok za krokem.",
+    "description": "Centrum životních situací – rozcestník životních a pracovních situací krok za krokem.",
     "webUrl": "https://easyportal365.cz/aplikace/centrum-zivotnich-situaci/"
   },
   "ep365-homepage": {
-    "description": "Workplace — úvodní stránka intranetu i týmových webů, šablony dokumentových knihoven a klasifikace obsahu.",
+    "description": "Workplace – úvodní stránka intranetu i týmových webů, šablony dokumentových knihoven a klasifikace obsahu.",
     "webUrl": "https://easyportal365.cz/aplikace/workplace/"
   },
   "ep365-hub": {
-    "description": "EP365 Hub — launchpad aplikací, úkoly a globální prompty."
+    "description": "EP365 Hub – launchpad aplikací, úkoly a globální prompty."
   },
   "ep365-identity": {
-    "description": "Správa EntraID skupin a uživatelů — klasifikace, správci, taxonomie a přehled celého adresáře.",
+    "description": "Správa EntraID skupin a uživatelů – klasifikace, správci, taxonomie a přehled celého adresáře.",
     "webUrl": "https://easyportal365.cz/aplikace/identity-manager/"
   },
   "ep365-multimedia": {
-    "description": "Mediální centrum — firemní fotky, videa a brand materiály na jednom místě. Procházení, přehrávání a stahování.",
+    "description": "Mediální centrum – firemní fotky, videa a brand materiály na jednom místě. Procházení, přehrávání a stahování.",
     "webUrl": "https://easyportal365.cz/aplikace/multimedialni-centrum/"
   },
   "ep365-crm": {
@@ -66,7 +66,7 @@
     "webUrl": "https://easyportal365.cz/aplikace/produktovy-katalog/"
   },
   "ep365-absence": {
-    "description": "Dovolené a nepřítomnosti — žádanky, schvalování, týmový kalendář a podklady pro mzdovou účetní. Vše ve vašem Microsoft 365.",
+    "description": "Dovolené a nepřítomnosti – žádanky, schvalování, týmový kalendář a podklady pro mzdovou účetní. Vše ve vašem Microsoft 365.",
     "webUrl": "https://easyportal365.cz/aplikace/absence/"
   },
   "ep365-mydocs": {
@@ -78,6 +78,6 @@
     "webUrl": "https://easyportal365.cz/aplikace/kniha-urazu/"
   },
   "ep365-training": {
-    "description": "Realizace školení — projektový list zakázky, termíny a lektoři, kalendář obsazenosti, příprava k odškrtání, vyhodnocení s klientem a milníky fakturace nad daty CRM."
+    "description": "Realizace školení – projektový list zakázky, termíny a lektoři, kalendář obsazenosti, příprava k odškrtání, vyhodnocení s klientem a milníky fakturace nad daty CRM."
   }
 }
