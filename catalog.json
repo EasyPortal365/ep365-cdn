@@ -79,5 +79,8 @@
   },
   "ep365-training": {
     "description": "Realizace školení – projektový list zakázky, termíny a lektoři, kalendář obsazenosti, příprava k odškrtání, vyhodnocení s klientem a milníky fakturace nad daty CRM."
+  },
+  "ep365-hr-portal": {
+    "description": "HR portál – úvodní stránky Portálu zaměstnance a HR pracoviště: přidělené situace a jejich plnění, co zaměstnance čeká v aplikacích, HR aktuality a přehled pro HR."
   }
 }
