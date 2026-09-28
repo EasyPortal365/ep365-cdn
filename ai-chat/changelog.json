@@ -4,6 +4,87 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.57",
+      "date": "2026-09-28",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Teams má v Nastavení vlastní sekci. Správce v ní zapne nebo vypne Teams jako zdroj konverzace (chaty a kanály, kde je uživatel členem) nezávisle na poště a kalendáři a hned vidí, jestli Microsoft 365 potřebná oprávnění skutečně povoluje. Dokud volbu neuloží, platí dosavadní nastavení.",
+          "en": "Teams has its own Settings section. An administrator can switch Teams as a conversation source (chats and channels the user is a member of) on or off independently of mail and calendar, and immediately see whether Microsoft 365 actually grants the required permissions. Until the choice is saved, the existing setting applies."
+        },
+        {
+          "type": "new",
+          "cs": "Knihovna promptů umí víc. U šablony nastavíte kategorii (Pošta, Kalendář, Teams, SharePoint, Psaní a shrnutí…) a podle ní se zařadí do dlaždic Prompt Studia; rozsah Osobní / Sdílená jde změnit i u už uložené šablony. V Prompt Studiu přibylo vedle „Moje uložené“ tlačítko „Sdílené“ s prompty pro celý web a firmu, rozdělenými podle kategorií. Okno Prompty se navíc lépe přizpůsobí malé obrazovce notebooku – v nízkém okně má menší okraje a kompaktnější dlaždice a u spodní hrany je vidět, že obsah pokračuje.",
+          "en": "The prompt library can do more. You set a category for a template (Mail, Calendar, Teams, SharePoint, Writing & summaries…) and it is placed among the Prompt Studio tiles accordingly; the Personal / Shared scope can now be changed for a saved template too. Next to “My saved”, Prompt Studio has a new “Shared” button with prompts for the whole site and company, grouped by category. The Prompts window also adapts better to small laptop screens — in a low window it has smaller margins and more compact tiles, and the bottom edge shows that there is more content."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozsah a hranice zdrojů na jednom místě. V Nastavení → Hranice zdrojů vyberete rozsah – celý tenant, jen tento web, nebo vlastní výčet webů a knihoven – a přepínačem „Odpovídat výhradně z povolených míst“ určíte, jestli platí jen pro hledání v SharePointu, nebo pro všechno, co asistent ze SharePointu čte. Dřív byly seznamy míst dva a mohly se tiše vylučovat. Stávající nastavení se převede samo.",
+          "en": "Scope and source boundary in one place. In Settings → Source boundary you choose the scope — the whole tenant, this site only, or a custom list of sites and libraries — and the “Answer strictly from allowed locations” switch decides whether it applies only to the SharePoint search or to everything the assistant reads from SharePoint. There used to be two lists of locations that could silently exclude each other. Existing settings carry over automatically."
+        },
+        {
+          "type": "improved",
+          "cs": "„Firemní znalosti“ se teď jmenují „SharePoint“. Zdroj konverzace, sekce Nastavení, dlaždice v Prompt Studiu (nově hned vedle Teams) i nápověda používají srozumitelnější název – asistent v nich hledá ve firemních dokumentech a stránkách jako dosud.",
+          "en": "“Company knowledge” is now called “SharePoint”. The conversation source, the Settings section, the Prompt Studio tile (now right next to Teams) and the help use the clearer name — the assistant searches company documents and pages as before."
+        },
+        {
+          "type": "improved",
+          "cs": "Dotazy nad soubory vybranými v knihovně jsou přehlednější. Máte-li vybrané soubory a zároveň zapnutý zdroj SharePoint, asistent nad polem pro psaní upozorní, že na vlastní otázku odpoví hlavně z vybraných souborů a doplní hledání ve firemním obsahu; tlačítkem „Jen z vybraných“ hledání pro konverzaci vypnete. Zkratky nad vybranými soubory („Shrň tyto dokumenty“, „Porovnej je“, „Vypíchni hlavní body“, „Co z toho plyne za úkoly“) v SharePointu nehledají a odpovídají jen z vybraných souborů. Pod odpovědí je barevně vypsané, které z vybraných souborů v odpovědi nejsou a proč – třeba nad limit pěti souborů, soubor bez čitelného textu nebo příliš velký soubor; dosud to stálo jen drobným textem na konci odpovědi. Použité soubory mají v kartách zdrojů štítek „Vybraný soubor“, takže se nepletou s nálezy hledání.",
+          "en": "Questions about files selected in a library are clearer. If you have files selected and the SharePoint source turned on at the same time, the assistant points out above the input box that it will answer your own question mainly from the selected files and add a search of company content; the “Selected only” button turns the search off for the conversation. The shortcuts over selected files (summary, comparison, key points, tasks) do not search SharePoint and answer from the selected files only. Below the answer, a highlighted list shows which of the selected files are not in the answer and why — for example over the five-file limit, no readable text or a file that is too large; until now this was only a small note at the end of the answer. Files that were used carry a “Selected file” label in the source cards, so they are not mistaken for search results."
+        },
+        {
+          "type": "improved",
+          "cs": "AI Asistent mluví jazykem nastaveným ve Workplace. Když v Nastavení → Obecné → Jazyk aplikace zůstává volba „Automaticky“, převezme jazyk rozhraní nastavený pro všechny aplikace v EP365 Workplace – na portálu, kde ostatní aplikace mluví česky, se už neukáže anglicky. Platí i pro plovoucí widget a pro AI Asistenta v Teams. Kde jazyk nenastavuje ani Workplace, řídí se jazykem uživatele v Microsoftu 365 stejně jako ostatní aplikace EP365: s češtinou nebo slovenštinou česky, s ostatními jazyky anglicky – uživatelé třeba s němčinou nebo polštinou dosud viděli češtinu a plovoucí widget byl v tomto případě vždy česky. Jazyk zvolený přímo v AI Asistentovi má dál přednost. Při dalších otevřeních se rozhraní ukáže rovnou ve správném jazyce, bez krátkého probliknutí v jiném.",
+          "en": "The AI Assistant speaks the language set in Workplace. When Settings → General → App language is left at “Automatic”, it takes the interface language set for all apps in EP365 Workplace — on a portal where the other apps speak Czech, it no longer shows up in English. This also applies to the floating widget and to the AI Assistant in Teams. Where Workplace sets no language either, it follows the user’s Microsoft 365 language like the other EP365 apps: Czech for Czech or Slovak, English for any other language — users with German or Polish, for example, used to get Czech, and the floating widget was always in Czech in that case. A language chosen directly in the AI Assistant still takes precedence. On later visits the interface appears in the right language straight away, without briefly flashing in another one."
+        },
+        {
+          "type": "improved",
+          "cs": "Asistent o sobě v češtině mluví jednotně v ženském rodě – v odpovědích i v textech aplikace – a upozornění pod polem zprávy uvádí EasyPortal 365.",
+          "en": "In Czech the assistant now consistently refers to itself in the feminine form — in its answers and in the app texts — and the note under the message box names EasyPortal 365."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení → Parametry AI srozumitelně popisuje, co která hodnota dělá. U délky odpovědi je vidět, kolik textu to zhruba je (2 000 tokenů ≈ 1 000 slov, asi 3,5 normostrany) a že se u modelů GPT-5 do limitu počítá i přemýšlení; u kreativity, že ji modely GPT-5 nepoužívají; u historie konverzace (dřív „hloubka kontextu“), co přesně AI vidí; u cen tokenů ceny GPT-5 mini podle ceníku Azure (září 2026) a u rozpočtu, že platí pro tento web. Přehled nastavení ukazuje historii konverzace i tehdy, když se dědí z Workplace. Nápověda pro správce radí, co dělat s chybou „AI služba dotaz odmítla kvůli limitu kapacity“ – kde v Azure navýšit kapacitu modelu a jak ji po změně ověřit – a přesně popisuje, kde se dotazy do AI zpracovávají: nasazení, která v evropském regionu nově zakládá náš nasazovací skript, jsou typu Data Zone a zpracují dotazy jen v rámci EU Data Boundary (státy EU, případně Norsko a Švýcarsko); u starších nasazení typu Global je Microsoft může zpracovat v kterémkoli regionu Azure. Opravené jsou i popisy denního limitu a porovnání dokumentů.",
+          "en": "Settings → AI parameters now clearly explains what each value does. Answer length shows roughly how much text it is (2,000 tokens ≈ 1,000 Czech words, about 3.5 standard pages) and that GPT-5 models count their thinking towards the limit; creativity notes that GPT-5 models do not use it; conversation history (formerly “context depth”) says exactly what the AI sees; token prices show GPT-5 mini prices from the Azure price list (September 2026) and the budget states that it applies to this site. The settings overview shows the conversation history even when it is inherited from Workplace. Admin help explains what to do about the “AI služba dotaz odmítla kvůli limitu kapacity” (capacity limit) error — where to raise the model capacity in Azure and how to verify it afterwards — and describes exactly where AI requests are processed: deployments that our deployment script newly creates in a European region use the Data Zone type and process requests only within the EU Data Boundary (EU member states, possibly also Norway and Switzerland); for older Global deployments Microsoft may process them in any Azure region. The descriptions of the daily limit and of document comparison are corrected too."
+        },
+        {
+          "type": "improved",
+          "cs": "Výchozí ceny tokenů odpovídají modelu GPT-5 mini (0,25 / 2 USD za 1M tokenů), dřív to byly ceny GPT-4o. Odhad útraty a měsíční rozpočet u webů, které ceny nezadaly, tak už nejsou nadsazené. Uložené ceny se nemění – Parametry AI radí, jak je upravit.",
+          "en": "The default token prices now match the GPT-5 mini model (USD 0.25 / 2 per 1M tokens) instead of GPT-4o prices. The spend estimate and the monthly budget of sites without their own prices are therefore no longer inflated. Saved prices stay as they are — AI parameters explain how to update them."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přehled čtených zdrojů, kontrola modelu v Nastavení a „Zeptat se AI“ v knihovně se AI službě prokazují přihlášeným uživatelem stejně jako zbytek aplikace, takže fungují i tam, kde služba přihlášení vyžaduje. Když služba přihlášení odmítne, přehled to řekne a poradí, co zkontrolovat, místo hlášky o nedostupném úložišti.",
+          "en": "The overview of read sources, the model check in Settings and “Ask AI” in a library now identify themselves to the AI service with the signed-in user like the rest of the app, so they also work where the service requires sign-in. When the service refuses the sign-in, the overview says so and suggests what to check, instead of reporting unavailable storage."
+        },
+        {
+          "type": "fixed",
+          "cs": "Věta „Přečetla jsem … nejrelevantnějších z celkem … nalezených dokumentů“ a tlačítko „Zobrazit vše, co vyhledávání našlo“ počítají jen nálezy hledání. Dosud do nich započítaly i vybrané soubory nebo stránku, na které jste, takže čísla nesouhlasila.",
+          "en": "The sentence “Read the … most relevant of … documents found” and the “Show everything the search found” button now count search results only. Until now they also counted selected files or the page you were on, so the numbers did not add up."
+        },
+        {
+          "type": "fixed",
+          "cs": "Upozornění na rozpor mezi zdroji (jantarový rámeček s výstrahou) občas zůstalo prázdné a jeho text se ukázal až pod ním jako běžný odstavec. Text teď vždy stojí v rámečku – v odpovědi, při kopírování i v exportu do Wordu, HTML a e-mailu, kam se dosud místo rámečku propsala značka „[!rozpor]“.",
+          "en": "The warning about conflicting sources (the amber box with a warning sign) sometimes stayed empty and its text appeared below it as an ordinary paragraph. The text now always sits inside the box — in the answer, when copying and in exports to Word, HTML and e-mail, where the “[!rozpor]” marker used to appear instead of the box."
+        },
+        {
+          "type": "fixed",
+          "cs": "Citace zdrojů: navazující odpověď na dokument z předchozí odpovědi má klikací odkaz na zdroj – číslo [1] otevře dokument a pod odpovědí je jeho karta – a náhled PDF otevře stránku, na které je citovaná informace, i u dokumentu vybraného v knihovně.",
+          "en": "Source citations: a follow-up answer about a document from an earlier answer links to its source — the [1] opens the document and its card appears under the answer — and the PDF preview opens the page with the cited information, including for a document selected in a library."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkazy z hubu vedou přímo na AI Asistenta. Když asistent běží na podstránce webu (třeba na portálu zaměstnance), spouštěč aplikací a dlaždice ve Workplace dřív otevíraly úvodní stránku webu – teď otevřou přímo stránku asistenta.",
+          "en": "Hub links now go straight to the AI Assistant. When the assistant runs on a subpage of a site (such as an employee portal), the app launcher and Workplace tiles used to open the site’s home page — now they open the assistant’s page directly."
+        },
+        {
+          "type": "fixed",
+          "cs": "Návod na schválení oprávnění v Nastavení → Oprávnění aplikace uvádí správnou roli – oprávnění Microsoft Graphu schvaluje globální správce, ne správce SharePointu – a příkazy pro PnP.PowerShell obsahují registraci vlastní aplikace s parametrem -ClientId, bez kterého se dnes nepřihlásí. Adresa admin centra vyjde správně i z webu na OneDrivu.",
+          "en": "The permission approval guide in Settings → App permissions names the correct role — Microsoft Graph permissions are approved by a Global Administrator, not a SharePoint administrator — and the PnP.PowerShell commands include registering your own app with the -ClientId parameter, without which sign-in no longer works. The admin center address also comes out right from a OneDrive site."
+        }
+      ]
+    },
+    {
       "version": "1.56",
       "date": "2026-09-25",
       "changes": [
