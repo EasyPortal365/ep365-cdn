@@ -4,6 +4,42 @@
   "name": "EP365 Řízené dokumenty",
   "entries": [
     {
+      "version": "1.18",
+      "date": "2026-09-28",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Sady dokumentů nahrazují balíčky. Sada je pojmenovaná šablona – dokumenty, situace použití (Nástup, Změna pozice, Roční BOZP, Vedoucí pracovník, Nový systém) a termín „X dní od přiřazení“, případně jedno pevné datum. Tlačítkem „Přiřadit lidem“ ji dáte jednomu i více lidem najednou a každý dostane vlastní termín – ještě před potvrzením vidíte, do kdy to kdo bude mít. Kdo sadu už má, přeskočí se; e-mail z vašeho účtu je volitelný. Novou sadu můžete začít i z připravené kostry. Dosavadní balíčky fungují dál jako sady s pevným termínem a tlačítkem „Rozeslat znovu po lidech“ z nich uděláte přiřazení po lidech s termínem balíčku.",
+          "en": "Document sets replace bundles. A set is a named template — documents, situations of use (Onboarding, Change of position, Annual health and safety, Team leader, New system) and a deadline of “X days from assignment”, or one fixed date. “Assign to people” gives it to one person or several at once, and everyone gets a deadline of their own — you see who will have it by when before you confirm. Anyone who already has the set is skipped; an e-mail from your account is optional. You can also start a new set from a prepared skeleton. Existing bundles keep working as sets with a fixed deadline, and “Send out again per person” turns them into per-person assignments with the bundle’s deadline."
+        },
+        {
+          "type": "new",
+          "cs": "Přidělené sady v Moje dokumenty a nové verze i pro lidi ze sad. U každé přidělené sady vidíte průběh („3 z 5“), termín a co ještě zbývá; počítají se řízené vydané dokumenty a naplánovaný dokument se započte v den vydání. Nová verze dokumentu dojde i lidem, kteří ho mají jen ze sady, a splněnou sadu znovu neotevře – je to samostatné seznámení s vlastním termínem. Když má člověk dokument z více zdrojů, platí nejbližší termín a přiřazení sady termín nikdy neprodlouží. Když se přiřazení sad nepodaří přečíst, dokument se nerozdá a aplikace to řekne.",
+          "en": "Assigned sets in My documents, and new versions reach people from sets. For each assigned set you see the progress (“3 of 5”), the deadline and what is left; managed published documents count, and a scheduled document counts from its release date. A new version of a document also reaches people who have it only from a set, and it does not reopen a completed set — it is a separate acknowledgement with its own deadline. When a person has a document from several sources, the nearest deadline applies, and assigning a set never extends a deadline. When the set assignments cannot be read, the document is not distributed and the application says so."
+        },
+        {
+          "type": "new",
+          "cs": "Plnění sad a role Přidělovatelé sad. Nový pohled „Plnění sad“ ukazuje, kdo co a do kdy plní – po lidech i po sadách, s filtry podle sady, situace a stavu. Lidem po termínu pošlete připomínku jedním tlačítkem a číslo u položky v menu říká, kolik přiřazení je po termínu. U přiřazení jednoho člověka posunete termín, pošlete připomínku nebo sadu odeberete a případně vrátíte; odebrání zneplatní jen dokumenty, které člověk nemá odjinud. Nová role „Přidělovatelé sad“ (Nastavení → Role uživatelů), typicky pro HR, přiřazuje sady, posouvá termíny a sleduje plnění, ale sady ani dokumenty nemění – potřebná oprávnění dostanou její členové sami.",
+          "en": "Set progress and the Set assigners role. The new “Set progress” view shows who completes what and by when — by people and by sets, with filters by set, situation and status. One button sends a reminder to people who are overdue, and the number next to the menu item tells how many assignments are overdue. For one person’s assignment you can move the deadline, send a reminder, or remove the set and bring it back; removing it invalidates only documents the person does not have from elsewhere. The new “Set assigners” role (Settings → User roles), typically for HR, assigns sets, moves deadlines and follows progress, but does not change sets or documents — its members get the permissions they need automatically."
+        },
+        {
+          "type": "improved",
+          "cs": "Ovládání, jazyk a spuštění. Seznam členů distribuční skupiny a výběr adresátů nového dokumentu se řadí klikem na záhlaví sloupce jako ostatní tabulky. Když jazyk neurčuje Nastavení ani Workplace, řídí se aplikace jazykem Microsoftu 365 uživatele: čeština a slovenština znamenají češtinu, jiný jazyk angličtinu. Při prvním spuštění a po aktualizaci aplikace místo prázdné plochy ukazuje, co právě dělá, a při pozastavené licenci ukáže jen oznámení s tlačítkem pro nové ověření licence.",
+          "en": "Controls, language and start-up. The member list of a distribution group and the recipient picker for a new document are sorted by clicking a column header, like the other tables. When neither Settings nor Workplace set the language, the application follows the user’s Microsoft 365 language: Czech and Slovak mean Czech, any other language means English. On first start and after an update the application shows what it is doing instead of an empty area, and when the licence is suspended it shows only a notice with a button to check the licence again."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se data nepodaří načíst, aplikace to přizná a netvrdí, že nic není. Panel členů skupiny nabídne „Zkusit znovu“, detail dokumentu netvrdí, že dokument neexistuje, a odznaky, počty dokumentů i přehled využití ukážou „?“ místo nuly. Úprava kategorie nebo distribuční skupiny, jejíž záznam se nenačetl, to řekne už v hlavičce a nejde uložit, takže nevznikne druhý záznam.",
+          "en": "When data cannot be loaded, the application says so instead of claiming there is nothing. The group member panel offers “Try again”, the document detail no longer claims the document does not exist, and badges, document counts and the usage overview show “?” instead of zero. Editing a category or distribution group whose record did not load says so right in the header and cannot be saved, so no second record is created."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkazy a drobné opravy. Odkazy v e-mailech, v úkolech a záznamech ve Workplace a ve sdílení vedou vždy na stránku Řízených dokumentů a upozornění ve Workplace na dokumenty ke schválení a po termínu otevřou rovnou pohled Ke schválení, případně Dashboard compliance. Datum v názvu exportu i platnost licence se řídí místním časem, Enter nebo mezerník na „Připomenout“ připomínku opravdu odešle, promazání dat aplikace smaže i soubory s # nebo % v názvu, české texty mají správné uvozovky a přehled datových seznamů správně uvádí, že je knihovna souborů v Obsahu webu skrytá.",
+          "en": "Links and small fixes. Links in e-mails, in Workplace tasks and entries and in share links always lead to the Managed Documents page, and Workplace notices about documents awaiting approval or overdue open the Approval view or the compliance Dashboard directly. The date in export file names and the licence validity follow local time, Enter or Space on “Remind” really sends the reminder, clearing the application data also deletes files with # or % in their name, Czech texts use proper quotation marks, and the data lists overview correctly shows that the file library is hidden in Site contents."
+        }
+      ]
+    },
+    {
       "version": "1.17",
       "date": "2026-09-18",
       "changes": [
