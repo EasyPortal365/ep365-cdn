@@ -53,6 +53,17 @@
 //   (jsou male, radove desitky KB); uklidit je jde az s novym .sppkg, ktery miri jinam.
 //   Vzory prichazeji z politiky (ep365-docs, `protectRootPatterns`), ne odsud.
 //
+// LICENCE (<x>.js.LICENSE.txt)
+//   Licence knihoven tretich stran lezi vedle sveho bundlu a plati, jen kdyz na ni bundle
+//   odkazuje ("For license information please see <x>.js.LICENSE.txt"). Zustava licence
+//   ponechaneho bundlu, ktery na ni odkazuje; smazany <x>.js bere licenci s sebou a sirotek
+//   (bundle neni na disku ani v gitu, nebo na licenci neodkazuje) jde taky. Maze se jen
+//   TRACKOVANA licence: netrackovana na Pages neni a v davce `git rm` by shodila celou davku
+//   (pathspec did not match). Licence bundlu, ktery je v gitu, ale lokalne chybi
+//   (necommitnute smazani), zustava - bundle je porad na Pages.
+//   Tabulka (sloupce app/ponechano cte check-stable-roots.mjs) pocita dal jen .js.
+//   Soubor je schvalne bez importu: check-stable-roots.mjs ho kopiruje do TEMPu SAMOTNY.
+//
 // VRATNOST
 //   Maze jen z pracovniho stromu (git rm). Soubory zustavaji v git historii:
 //     git checkout <commit> -- <cesta>
@@ -96,14 +107,55 @@ const addedBy = new Map();
 const apps = fs.readdirSync(CDN, { withFileTypes: true })
   .filter(d => d.isDirectory() && !NOT_APPS.has(d.name)).map(d => d.name).sort();
 
+// ── licence v koreni appek: co git trackuje (jedno volani; -z = jmena bez uvozovek) ──
+const LIC_SUFFIX = '.LICENSE.txt';
+const LIC_REF = 'For license information please see ';     // totez co LICENSE_REF v pool-lib.mjs
+const isLicense = f => /\.js\.LICENSE\.txt$/.test(f);
+// Odkazuje bundle na licenci? Necitelny bundle = nevime -> licenci nechat.
+const refersTo = (app, bundle, lic) => {
+  try { return fs.readFileSync(path.join(CDN, app, bundle), 'utf8').indexOf(LIC_REF + lic) !== -1; } catch { return true; }
+};
+const trackedFlat = new Set(git(['ls-files', '-z']).split('\0').filter(p => p && p.split('/').length === 2));
+// Kandidati na smazani = licence v koreni appky. Nahradni hodnota MIMO region schvalne
+// (protipriklad v check-chunk-pool.mjs): bez regionu se berou licence z DISKU i netrackovane
+// a `git rm` na nich spadne.
+let licCandidates = app => fs.readdirSync(path.join(CDN, app)).filter(isLicense);
+// #region LICENSE-TRACKED
+licCandidates = app => [...trackedFlat].filter(p => p.indexOf(app + '/') === 0).map(p => p.slice(app.length + 1)).filter(isLicense);
+// #endregion LICENSE-TRACKED
+// Zustava licence ponechaneho bundlu, ktery na ni odkazuje. Nahradni hodnota MIMO region
+// schvalne: bez regionu jde pryc kazda kandidatka - licenci ponechaneho bundlu pak musi chytit
+// nezavisle overeni nize.
+let licKept = () => false;
+// #region LICENSE-KEEP
+licKept = (app, bundle, files, marked, lic) => files.indexOf(bundle) !== -1
+  ? marked.has(bundle) && refersTo(app, bundle, lic)     // bundle na disku: zustava s nim, jen kdyz odkazuje
+  : trackedFlat.has(app + '/' + bundle);                 // bundle v gitu, lokalne smazany: nesahat
+// #endregion LICENSE-KEEP
+
 const sweep = [];
+const licSweep = [];
 const rows = [];
-let freed = 0;
+let freed = 0, licFreed = 0, licOrphans = 0;
+const sweepLicenses = (app, dir, files, marked) => {
+  for (const l of licCandidates(app)) {
+    const b = l.slice(0, -LIC_SUFFIX.length);
+    if (licKept(app, b, files, marked, l)) continue;
+    licSweep.push(`${app}/${l}`);
+    if (files.indexOf(b) === -1 || marked.has(b)) licOrphans++;   // bundle neni, nebo na licenci neodkazuje
+    try { licFreed += fs.statSync(path.join(dir, l)).size; } catch { /* trackovana, lokalne smazana */ }
+  }
+};
 
 for (const app of apps) {
   const dir = path.join(CDN, app);
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.js'));
-  if (!files.length) continue;
+  if (!files.length) {
+    // Bez bundlu je kazda trackovana licence v koreni sirotek (neni-li jeji bundle v gitu).
+    // Do tabulky se appka nepise - check-stable-roots cte jen appky s bundly.
+    if (!PROTECT.has(app)) sweepLicenses(app, dir, files, new Set());
+    continue;
+  }
 
   if (PROTECT.has(app)) {
     rows.push({ app, souboru: files.length, ponechano: files.length, smazat: 0, 'uvolni MB': '— chraneno' });
@@ -162,30 +214,37 @@ for (const app of apps) {
   }
   freed += fb;
   rows.push({ app, souboru: files.length, ponechano: marked.size, smazat: fc, 'uvolni MB': mb(fb) });
+  sweepLicenses(app, dir, files, marked);
 }
 
 console.table(rows);
 console.log(`\nUvolni ${mb(freed)} MB v ${sweep.length} souborech (--keep ${KEEP}` +
   (PROTECT.size ? `, chraneno: ${[...PROTECT].join(', ')}` : '') +
   (PATTERNS.length ? `, vzory drzene vzdy: ${PATTERNS.join(' ')}` : '') + `)`);
+if (licSweep.length) console.log(`+ ${licSweep.length} licenci knihoven (*.js.LICENSE.txt, ${(licFreed / 1024).toFixed(1)} KB): `
+  + `${licSweep.length - licOrphans} s mazanym bundlem, ${licOrphans} sirotku (bundle neni, nebo na licenci neodkazuje)`);
 
-if (!sweep.length) { console.log('Neni co mazat.'); process.exit(0); }
+if (!sweep.length && !licSweep.length) { console.log('Neni co mazat.'); process.exit(0); }
 
 // ── NEZAVISLE OVERENI — jinou metodou nez znackovani (holy indexOf, bez regexu) ──
 // Regex uz se jednou spletl (\b vs '_'), takze plan proveri druhy, nezavisly pruchod.
+// Licence se hleda celym jmenem: ponechany bundle ji jmenuje v hlavicce ("For license
+// information please see <x>.js.LICENSE.txt"), takze licence ponechaneho bundlu = nalez.
 process.stdout.write('Overuji plan nezavisle (indexOf)… ');
+const all = sweep.concat(licSweep);
 const keptOf = new Map();
-for (const app of new Set(sweep.map(s => s.split('/')[0]))) {
-  const del = new Set(sweep.filter(s => s.startsWith(app + '/')).map(s => s.split('/')[1]));
+for (const app of new Set(all.map(s => s.split('/')[0]))) {
+  const del = new Set(all.filter(s => s.startsWith(app + '/')).map(s => s.split('/')[1]));
   keptOf.set(app, fs.readdirSync(path.join(CDN, app)).filter(f => f.endsWith('.js') && !del.has(f)));
 }
 const bad = [];
-for (const rel of sweep) {
+for (const rel of all) {
   const [app, file] = rel.split('/');
   const m = file.match(/_([0-9a-f]{20})\.js$/);
-  if (!m) continue;
+  const needle = m ? m[1] : (isLicense(file) ? file : null);
+  if (!needle) continue;
   for (const k of keptOf.get(app)) {
-    if (fs.readFileSync(path.join(CDN, app, k), 'utf8').includes(m[1])) { bad.push(`${rel} <- ${app}/${k}`); break; }
+    if (fs.readFileSync(path.join(CDN, app, k), 'utf8').includes(needle)) { bad.push(`${rel} <- ${app}/${k}`); break; }
   }
 }
 if (bad.length) {
@@ -197,5 +256,5 @@ console.log('OK — nic z mazaneho neni odkazovano z ponechanych.');
 
 if (!APPLY) { console.log('\nPLAN (nic nesmazano). Spust s --apply.'); process.exit(0); }
 
-for (let i = 0; i < sweep.length; i += 100) git(['rm', '--quiet', '--', ...sweep.slice(i, i + 100)]);
-console.log(`\nHotovo: git rm ${sweep.length} souboru. Commit NEPROVEDEN — zkontroluj git status.`);
+for (let i = 0; i < all.length; i += 100) git(['rm', '--quiet', '--', ...all.slice(i, i + 100)]);
+console.log(`\nHotovo: git rm ${sweep.length} souboru` + (licSweep.length ? ` + ${licSweep.length} licenci` : '') + `. Commit NEPROVEDEN — zkontroluj git status.`);

@@ -30,6 +30,12 @@
  *     (lekce 86). Spolecne uloziste pro vic appek by proto neprojde.
  *   - Slozka se jmenuje `chunks`, ne `_chunks`: Jekyll slozky s podtrzitkem nepublikuje.
  *     Dnes ho vypina `.nojekyll`, ale uloziste nema stat na teto jedine pojistce.
+ *   - Licence knihoven tretich stran `<bundle>.js.LICENSE.txt` (webpack je z bundlu vyjme
+ *     a bundle na ne odkazuje komentarem v hlavicce "For license information please see
+ *     <bundle>.js.LICENSE.txt") lezi VEDLE sveho bundlu a patri mu. Plati jen licence, na
+ *     kterou bundle OPRAVDU odkazuje: zustava, dokud zustava ten bundle; s nim jde pryc.
+ *     Licence bez bundlu nebo bez odkazu je sirotek (heft je vyrabi u webpart bundlu).
+ *     Kod nejsou (webpack runtime je nenacita), takze do pocitani odkazu nevstupuji.
  *
  * Vystupy jsou ASCII (konzole PS 5.1 rozsype diakritiku).
  */
@@ -47,6 +53,16 @@ export const VER_RE = /^\d+(\.\d+){1,3}$/;
 export function poolUrl(app) { return CDN_URL + app + '/' + POOL_DIR + '/'; }
 export function versionUrl(app, ver) { return CDN_URL + app + '/' + ver + '/'; }
 export function hashOf(name) { const m = POOL_NAME_RE.exec(name); return m ? m[1] : null; }
+
+/** Licence knihoven k bundlu: `<bundle>.js` -> `<bundle>.js.LICENSE.txt` (webpack extractComments). */
+export const LICENSE_SUFFIX = '.LICENSE.txt';
+/** Text, kterym bundle na svou licenci odkazuje (hlavicka od webpacku); za nim nasleduje jmeno licence. */
+export const LICENSE_REF = 'For license information please see ';
+export function isLicenseName(name) { return /\.js\.LICENSE\.txt$/.test(name); }
+/** Jmeno bundlu, ke kteremu licence patri (`a_<hash>.js.LICENSE.txt` -> `a_<hash>.js`), jinak null. */
+export function bundleOfLicense(name) { return isLicenseName(name) ? name.slice(0, -LICENSE_SUFFIX.length) : null; }
+/** Odkazuje text bundlu na licenci `lic` (presne jmeno)? */
+export function refersToLicense(bundleText, lic) { return bundleText != null && bundleText.indexOf(LICENSE_REF + lic) !== -1; }
 
 /**
  * Odkazy manifestu SPFx knihovny. Hodi vyjimku, kdyz manifest nema ocekavany tvar -
@@ -104,15 +120,24 @@ export function reachable(roots, byHash, readText) {
  * servíruje HEAD, takze lokalne smazany nebo zmeneny manifest v HEAD porad odkazuje);
  * [] = verze manifest NEMA nikde (prazdna slozka po prorezu - nic nenacte, nic neodkazuje);
  * null = nevime (chyba cteni) -> 'unknown'. Bez `opts` se cte jen disk.
- * Vraci { state, files, marked, sweep, reasons }.
+ *
+ * Licence (`<bundle>.js.LICENSE.txt`): `files` a `marked` jsou dal jen .js (vypisy, pocitani
+ * odkazu); `licenses` = vsechny licence v ulozisti. Zustava jen licence, na kterou ponechany
+ * bundle odkazuje; do `sweep` jde licence smazaneho bundlu i sirotek (bundle v ulozisti neni,
+ * nebo na licenci neodkazuje). Necitelny bundle = 'unknown' jako u .js.
+ * Stav jiny nez 'ok' plati i pro licence: 'unknown'/'dead' = prazdny sweep, 'verify-failed'
+ * volajici nemaze vubec. Nezavisla kontrola (POOL-VERIFY) licenci overi po jmenu: ponechany
+ * bundle na svou licenci odkazuje komentarem v hlavicce.
+ * Vraci { state, files, licenses, marked, sweep, reasons }.
  */
 export function planPoolSweep(appDir, app, keptVersions, opts) {
   const poolDir = path.join(appDir, POOL_DIR);
-  const res = { state: 'none', files: [], marked: new Set(), sweep: [], reasons: [] };
+  const res = { state: 'none', files: [], licenses: [], marked: new Set(), sweep: [], reasons: [] };
   if (!fs.existsSync(poolDir)) return res;
-  const files = fs.readdirSync(poolDir, { withFileTypes: true })
-    .filter(e => e.isFile() && e.name.endsWith('.js')).map(e => e.name).sort();
+  const names = fs.readdirSync(poolDir, { withFileTypes: true }).filter(e => e.isFile()).map(e => e.name);
+  const files = names.filter(n => n.endsWith('.js')).sort();
   res.files = files;
+  res.licenses = names.filter(isLicenseName).sort();
   if (!keptVersions.length) {
     res.state = 'unknown';
     res.reasons.push('uloziste existuje, ale zadna verze nezustava - podezrely stav, nemazu nic');
@@ -162,11 +187,22 @@ export function planPoolSweep(appDir, app, keptVersions, opts) {
   // #endregion POOL-MARK
   res.marked = marked;
   res.sweep = files.filter(f => !marked.has(f));
+  // Licence zustava, jen kdyz na ni ponechany bundle odkazuje. Nahradni hodnota MIMO region
+  // schvalne (protipriklad v check-chunk-pool.mjs): bez pravidla jde pryc KAZDA licence -
+  // vcetne licence ponechaneho bundlu - a to musi chytit nezavisla kontrola nize.
+  let licenseKept = () => false;
+  // #region POOL-LICENSE
+  licenseKept = (l) => { const b = bundleOfLicense(l); return marked.has(b) && refersToLicense(readText(b), l); };
+  // #endregion POOL-LICENSE
+  res.sweep = res.sweep.concat(res.licenses.filter(l => !licenseKept(l)));
 
   let bad = [];
   // #region POOL-VERIFY
   // Druhy, NEZAVISLY pruchod jinou metodou (holy indexOf, zadny regex): mazany soubor
   // nesmi byt odkazovan z niceho, co zustava. Regex se uz jednou spletl (lekce 23.7).
+  // Licence se tu hleda celym jmenem (hash z jejiho jmena hashOf nevytahne): ponechany bundle
+  // ji jmenuje v hlavicce, takze licence ponechaneho bundlu ve sweepu = nalez. Texty licenci
+  // samotne mezi ponechane nepatri - nejsou kod a nic nenacitaji.
   const keptTexts = pooledManifests.slice();
   marked.forEach(f => { const t = readText(f); if (t != null) keptTexts.push(t); });
   bad = [];
