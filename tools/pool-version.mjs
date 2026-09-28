@@ -256,25 +256,30 @@ if (MODE === 'verify-live') {
   if (!layout) fail('HEAD neobsahuje verzi ' + verRel + ' ve tvaru tohoto buildu - neni co overovat');
   const base = CDN_URL;
   const items = [];
-  const push = (rel, buildBuf) => {
+  // Build proti HEAD se porovnava BLOBEM (git hash-object --path, tataz normalizace koncu
+  // radku jako pri commitu), ne syrovym SHA souboru: licence knihoven z webpacku muze mit
+  // smisene CRLF/LF a git ji pri core.autocrlf=true ulozi s LF (atlas 1.13.0.21, 28. 9.:
+  // --verify-head OK, ale --verify-live hlasil NEPINOVAT u shodneho souboru). Zivy obsah se
+  // pak porovnava s blobem v HEAD - to je presne to, co Pages servíruje.
+  const push = (rel, buildBlob) => {
     const blob = head.get(rel);
     const headBuf = execFileSync('git', ['-C', ROOT, 'cat-file', 'blob', blob], { maxBuffer: 256 * 1024 * 1024 });
-    items.push({ rel, url: base + rel, sha: sha256(headBuf), buildSha: sha256(buildBuf), size: headBuf.length });
+    items.push({ rel, url: base + rel, sha: sha256(headBuf), headBlob: blob, buildBlob, size: headBuf.length });
   };
   if (layout === 'pool') {
-    push(verRel + '/manifest.json', pooledManifestBuf);
-    for (const f of js) push(poolRel + '/' + f, fs.readFileSync(path.join(SRC, f)));
+    push(verRel + '/manifest.json', blobOfBuffer(verRel + '/manifest.json', pooledManifestBuf));
+    for (const f of js) push(poolRel + '/' + f, blobOfFile(poolRel + '/' + f, path.join(SRC, f)));
   } else {
-    push(verRel + '/manifest.json', srcManifestBuf);
-    for (const f of js) push(verRel + '/' + f, fs.readFileSync(path.join(SRC, f)));
+    push(verRel + '/manifest.json', blobOfBuffer(verRel + '/manifest.json', srcManifestBuf));
+    for (const f of js) push(verRel + '/' + f, blobOfFile(verRel + '/' + f, path.join(SRC, f)));
   }
   // Licence jen ty, ktere v HEAD k verzi JSOU (starsi verze je nemaji - neni co cekat).
   let nLic = 0;
   for (const l of lic) {
     const rel = licDir(layout) + '/' + l;
-    if (head.has(rel)) { push(rel, fs.readFileSync(path.join(SRC, l))); nLic++; }
+    if (head.has(rel)) { push(rel, blobOfFile(rel, path.join(SRC, l))); nLic++; }
   }
-  const notBuild = items.filter(i => i.sha !== i.buildSha);
+  const notBuild = items.filter(i => i.headBlob !== i.buildBlob);
   if (notBuild.length) fail('obsah v HEAD se lisi od buildu (normalizace koncu radku?): ' + notBuild.map(i => i.rel).join(', '));
   const t = parseInt(val('--timeout-s') || '300', 10);
   const deadline = Date.now() + (isNaN(t) ? 300 : t) * 1000;
