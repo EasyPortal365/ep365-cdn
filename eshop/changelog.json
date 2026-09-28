@@ -4,6 +4,27 @@
   "name": "EP365 E-shop",
   "entries": [
     {
+      "version": "1.2",
+      "date": "2026-09-28",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Odkazy vedou rovnou tam, kam mají. Když E-shop běží na podstránce webu, spouštěč aplikací i karta čekajících objednávek ve Workplace otevřou přímo E-shop. Karta čekajících objednávek otevře správci rovnou Vyřízení objednávek a ostatním Moje objednávky; běžný uživatel s odkazem na Vyřízení objednávek uvidí své objednávky místo hlášky o odepřeném přístupu. V Microsoft Teams E-shop najde svůj web i tam, kde má registr Workplace jiný zobrazovaný název, a přejmenování seznamů v SharePointu ho nerozbije.",
+          "en": "Links lead straight where they should. When the E-shop runs on a subpage of a site, the app launcher and the pending-orders card in Workplace open the E-shop directly. The pending-orders card takes administrators straight to Order fulfilment and everyone else to My orders; a regular user with a link to Order fulfilment sees their own orders instead of an access-denied message. In Microsoft Teams the E-shop finds its site even where the Workplace registry has a different display name, and renaming its lists in SharePoint no longer breaks it."
+        },
+        {
+          "type": "improved",
+          "cs": "Co je nového a spuštění. Obrazovka „Roadmapa“ se změnila na „Co je nového“ se změnami podle vydaných verzí a zvýrazněnou vaší verzí; načítá jen náš vlastní obsah, takže funguje i za firemní proxy, a když se seznam nepodaří načíst, řekne to. Při prvním spuštění a po aktualizaci aplikace ukazuje, co právě dělá, a při pozastavené licenci ukáže jen oznámení s tlačítkem pro nové ověření licence – katalog ani objednávky se nenačítají.",
+          "en": "What’s new and start-up. The Roadmap screen has become “What’s new”, with changes by released version and your version highlighted; it reads only our own content, so it works behind a corporate proxy too, and when the list cannot be loaded it says so. On first start and after an update the app says what it is doing, and when the licence is suspended it shows only a notice with a button to check the licence again — the catalogue and orders are not loaded."
+        },
+        {
+          "type": "improved",
+          "cs": "Tlačítka čitelná a přístupná. Aktivní filtr v katalogu a ve vyřizování objednávek i potvrzovací tlačítko v panelech berou barvu tlačítek z firemního motivu, takže text nesplyne s pozadím. Tlačítka, která právě nejdou použít – třeba odeslání objednávky s prázdným košíkem –, ohlásí čtečka obrazovky jako nedostupná.",
+          "en": "Readable and accessible buttons. The active filter in the catalogue and in order fulfilment and the confirm button in panels take the button colour from the company theme, so the label no longer blends into the background. Buttons that cannot be used at the moment — such as sending an order with an empty cart — are announced as unavailable by screen readers."
+        }
+      ]
+    },
+    {
       "version": "1.1",
       "date": "2026-09-10",
       "changes": [
