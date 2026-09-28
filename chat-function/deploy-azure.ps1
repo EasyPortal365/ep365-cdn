@@ -18,7 +18,8 @@
            EasyPortal365 a zip deploy - Node.js NENI potreba.
       6. Smoke test - zkusebni dotaz na /api/chat (overi endpoint, klic i model;
          spotrebuje par tokenu; preskocit lze prepinacem -SkipSmokeTest).
-      7. Vypis API URL pro property pane webpartu EP365 AI Chat.
+      7. Souhrn a dalsi kroky (u nove instance API URL pro property pane webpartu
+         EP365 AI Chat; u aktualizace se URL nemeni).
 
     Automaticke aktualizace (od 1.9.0): funkce si dalsi verze kodu stahuje SAMA. Kazdou
     noc (01:30 UTC) zkontroluje podepsany manifest kanalu na CDN EasyPortal365, novou verzi
@@ -858,8 +859,12 @@ try {
     # a po nasazeni obnovime (parametr ma prednost). Na PRVNIM nasazeni Function App jeste
     # neexistuje -> list vrati chybu, zaloha je prazdna, nic se neobnovuje.
     $preservedSettings = @{}
+    # Zaroven poznamenat, jestli jde o aktualizaci existujici Function App: souhrn pak admina
+    # neposila znovu vkladat API URL do aplikace - ta se redeployem nemeni.
+    $functionAppExisted = $false
     $existingSettingsJson = az functionapp config appsettings list --name $FunctionAppName --resource-group $ResourceGroupName -o json 2>$null
     if ($LASTEXITCODE -eq 0 -and $existingSettingsJson) {
+        $functionAppExisted = $true
         try {
             foreach ($item in @($existingSettingsJson | ConvertFrom-Json)) {
                 $nm = [string]$item.name
@@ -1300,11 +1305,27 @@ try {
     elseif ($aoaiSkuInfo -ne '') { $processingInfo = $aoaiSkuInfo }
     else { $processingInfo = 'neovereno (ucet mimo spravu skriptu nebo se typ nepodarilo precist)' }
     Write-Host (' Zpracovani dotazu     : ' + $processingInfo)
-    if ($AadTenantId -ne '') {
-        Write-Host ' Znalostni priprava    : app settings AAD_* nastaveny ze zadanych parametru'
+    # Stav Znalostni pripravy z UCINNEHO nastaveni (parametr > hodnota zachovana z predchoziho
+    # nasazeni), ne jen z parametru: pri aktualizaci se AAD_* obnovuji ze zalohy a souhrn
+    # "nenakonfigurovana" by u zakaznika, ktery ji ma, lhal - a dalsi krok by ho posilal
+    # zakladat app registraci podruhe (zivy nalez 2026-09-28). Funkce ji spusti jen se VSEMI
+    # ctyrmi hodnotami (enrich.ts, readConfig), neuplnou sadu proto hlasime zvlast.
+    $enrichValues = [ordered]@{
+        'AAD_TENANT_ID'           = $(if ($AadTenantId -ne '')     { $AadTenantId }     else { [string]$preservedSettings['AAD_TENANT_ID'] })
+        'AAD_CLIENT_ID'           = $(if ($AadClientId -ne '')     { $AadClientId }     else { [string]$preservedSettings['AAD_CLIENT_ID'] })
+        'AAD_CLIENT_SECRET'       = $(if ($AadClientSecret -ne '') { $AadClientSecret } else { [string]$preservedSettings['AAD_CLIENT_SECRET'] })
+        'EP365_SETTINGS_SITE_URL' = $(if ($SettingsSiteUrl -ne '') { $SettingsSiteUrl } else { [string]$preservedSettings['EP365_SETTINGS_SITE_URL'] })
+    }
+    $enrichMissing = @($enrichValues.Keys | Where-Object { [string]::IsNullOrEmpty($enrichValues[$_]) })
+    if ($enrichMissing.Count -eq 0) {
+        if ($AadTenantId -ne '') { Write-Host ' Znalostni priprava    : nastavena (app settings AAD_* ze zadanych parametru)' }
+        else { Write-Host ' Znalostni priprava    : nastavena (zachovano z predchoziho nasazeni)' }
+    }
+    elseif ($enrichMissing.Count -eq $enrichValues.Count) {
+        Write-Host ' Znalostni priprava    : nenakonfigurovana (volitelna - viz dalsi kroky)'
     }
     else {
-        Write-Host ' Znalostni priprava    : nenakonfigurovana (volitelna - viz scripts/setup-enrichment.ps1)'
+        Write-Host (' Znalostni priprava    : NEUPLNA - chybi ' + ($enrichMissing -join ', ') + '; dokud chybi, nespusti se (doplnite ji setup-enrichment.ps1)') -ForegroundColor Yellow
     }
     # Automaticke aktualizace srozumitelne: od 1.9.0 je to cesta, kterou k zakaznikovi
     # dorazi kazda dalsi verze funkce - admin musi z jedne radky poznat, jestli bezi.
@@ -1322,11 +1343,20 @@ try {
     Write-Host '====================================================================='
     Write-Host ''
     Write-Host ' Dalsi kroky:'
-    Write-Host (' 1. API URL "' + $apiUrl + '" vlozte do property pane webpartu')
-    Write-Host '    EP365 AI Chat - pole "URL Azure Function".'
-    if ($AadTenantId -eq '') {
-        Write-Host ' 2. Pro aktivaci Znalostni pripravy (AI souhrny dokumentu) spustte'
-        Write-Host '    scripts/setup-enrichment.ps1 (vytvori app registraci, granty i app settings).'
+    if ($functionAppExisted) {
+        Write-Host ' 1. Aktualizace existujici funkce - API URL zustava stejna, v aplikaci EP365 AI Chat'
+        Write-Host '    neni potreba nic menit. Overeni: v AI Asistentovi polozte jeden dotaz nad firemnimi dokumenty.'
+    }
+    else {
+        Write-Host (' 1. API URL "' + $apiUrl + '" vlozte do property pane webpartu')
+        Write-Host '    EP365 AI Chat - pole "URL Azure Function".'
+    }
+    if ($enrichMissing.Count -gt 0) {
+        # Primarni cesta je Cloud Shell, kde lezi jen stazeny deploy-azure.ps1 - slozka scripts/
+        # tam neni, proto i prikaz ke stazeni.
+        Write-Host ' 2. Pro aktivaci Znalostni pripravy (AI souhrny dokumentu) spustte setup-enrichment.ps1'
+        Write-Host '    (vytvori app registraci, granty i app settings). Mimo repo ho stahnete:'
+        Write-Host '    iwr https://cdn.easyportal365.cz/chat-function/setup-enrichment.ps1 -OutFile setup-enrichment.ps1'
     }
     Write-Host ''
     $versionOrigin = ($AllowedOrigin -split ',')[0].Trim()
