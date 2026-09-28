@@ -90,6 +90,8 @@
     radu tenhle parametr (jina kvotova rodina) nebo zadost o navyseni kvoty - ta ale nemusi
     projit self-service, viz README, cast "Nova Azure subscription".
     B1 = nejlevnejsi vzdy bezici plan (pevna mesicni cena), dal B2 / S1 / P0v3 / EP1.
+    U existujici Function App plati bez tohoto parametru SKU jejiho planu - aktualizace
+    plan nemeni (instanci na B1 staci spustit skript bez -PlanSku).
     POZOR: hodnotu jinou nez Y1 zvladne jen sablona z teto verze - pri behu proti starsi
     ARM sablone na CDN skript skonci chybou o neznamem parametru.
 
@@ -562,6 +564,24 @@ try {
             if ($existingAppLocation -ne ($Location -replace '\s', '').ToLower()) {
                 Write-Host ('Function App uz existuje v regionu ' + $existingAppLocation + ' - pouzivam ho misto vychoziho ' + $Location + '. (Prebiti: -Location <region>.)') -ForegroundColor Yellow
                 $Location = $existingAppLocation
+            }
+        }
+    }
+    # Totez pro PLAN: sablona zaklada plan '<app>-plan' se SKU z parametru, takze aktualizace
+    # instance nasazene na B1 (nahrada pri nulove kvote Y1) bez -PlanSku by chtela plan prevest
+    # na vychozi Y1 - dedikovany plan na Consumption Azure neprevede a nasazeni by spadlo.
+    # Bez zadaneho parametru proto plati SKU existujiciho planu; zadany -PlanSku ma prednost.
+    # Kdyz se SKU precist nepodari, zustava vychozi chovani.
+    if (-not $PSBoundParameters.ContainsKey('PlanSku')) {
+        $existingPlanId = az functionapp show -g $ResourceGroupName -n $FunctionAppName --query 'appServicePlanId' -o tsv 2>$null
+        if ($LASTEXITCODE -eq 0 -and $existingPlanId) {
+            $existingPlanSku = az appservice plan show --ids ([string]$existingPlanId).Trim() --query 'sku.name' -o tsv 2>$null
+            if ($LASTEXITCODE -eq 0 -and $existingPlanSku) {
+                $knownPlanSku = @('Y1', 'B1', 'B2', 'S1', 'P0v3', 'EP1') | Where-Object { $_ -eq ([string]$existingPlanSku).Trim() } | Select-Object -First 1
+                if ($knownPlanSku -and $knownPlanSku -cne $PlanSku) {
+                    Write-Host ('Function App bezi na planu ' + $knownPlanSku + ' - pouzivam ho misto vychoziho ' + $PlanSku + '. (Prebiti: -PlanSku <sku>.)') -ForegroundColor Yellow
+                    $PlanSku = $knownPlanSku
+                }
             }
         }
     }
