@@ -1,0 +1,35 @@
+{
+  "id": "5149e12d-6897-481a-a084-d4cf0cc752a9",
+  "alias": "HrPortalAppLibrary",
+  "componentType": "Library",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "loaderConfig": {
+    "internalModuleBaseUrls": [
+      "https://cdn.easyportal365.cz/hr-portal/chunks/"
+    ],
+    "entryModuleId": "ep-365-hr-portal-app",
+    "scriptResources": {
+      "ep-365-hr-portal-app": {
+        "type": "path",
+        "path": "ep-365-hr-portal-app_cf6c769dd8ed13e0f9a5.js"
+      },
+      "react": {
+        "type": "component",
+        "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+        "version": "17.0.1"
+      },
+      "react-dom": {
+        "type": "component",
+        "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+        "version": "17.0.1"
+      },
+      "@microsoft/sp-http": {
+        "type": "component",
+        "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6",
+        "version": "1.22.2"
+      }
+    }
+  }
+}
