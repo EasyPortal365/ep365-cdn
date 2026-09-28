@@ -1,0 +1,18 @@
+{
+  "schema": 2,
+  "app": "ep365-hr-portal",
+  "name": "EP365 HR portál",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-09-28",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "První vydání HR portálu – jedno místo, kde zaměstnanec vidí, co od něj firma potřebuje, a HR, co má vyřídit. Portál zaměstnance ukazuje pozdrav s osobní větou a kartami s čísly, Vaši cestu s milníky a kroky na dnes a zítra (nástup, odchod, změna role…), Tento týden, Přiděleno vám a Co vás čeká z aplikací: dokumenty k seznámení (přidělená sada dokumentů jako jeden řádek s průběhem „3 z 5 potvrzeno“ a termínem), žádosti v Absenci, dotazy a oznámení k potvrzení. K tomu životní situace, aktuality, akce, noví kolegové a pochvaly – a každé tlačítko vede do aplikace, kde se věc vyřizuje. HR pracoviště soustředí, co dnes čeká na HR (přidělení po termínu, kroky pro HR, dovolené ke schválení, dotazy zaměstnanců), kalendář nástupů, změn, odchodů a rodinných situací na šest týdnů dopředu, tabuli Nástupy a odchody podle fází, běžící hromadná přidělení, odeslané aktuality a oznámení s počtem potvrzení přečtení a rychlé akce. Na pásu „Zeptejte se“ položíte otázku AI Asistentovi, nebo ji pošlete jako soukromý dotaz týmu, který ji vyřídí. Rozhraní je česky i anglicky a oznámení a aktuality se čtenáři ukážou v jeho jazyce, pokud k nim existuje překlad. V Nastavení zvolíte rozvržení Portál zaměstnance nebo HR pracoviště a vzhled Aurora; firemní barvy se převezmou z Workplace a na světlé firemní barvě se pozdrav sám přepne na světlou variantu s tmavým textem. Ukázková data nahrajete tlačítkem a rychlé hledání Ctrl+K skočí na sekci, aplikaci nebo akci.",
+          "en": "The first release of HR portal — one place where employees see what the company needs from them and HR sees what it has to handle. The Employee portal shows a greeting with a personal sentence and number cards, Your journey with milestones and steps for today and tomorrow (start, leaving, role change…), This week, Assigned to you and What is waiting for you from your apps: documents to acknowledge (an assigned document set as one row with the progress “3 of 5 confirmed” and its deadline), Absence requests, questions and announcements to confirm. On top of that come life situations, news, events, new colleagues and kudos — and every button leads to the app where the item is handled. The HR workspace brings together what is waiting for HR today (overdue assignments, steps for HR, leave to approve, employee questions), a calendar of starts, changes, leavers and family situations six weeks ahead, the Starts and leavers board by stage, running group assignments, sent news and announcements with the number of read confirmations, and quick actions. In the “Ask” band you ask the AI Assistant, or send a private question to the team that handles it. The interface is in Czech and English, and announcements and news are shown in the reader’s language when a translation exists. In Settings you choose the Employee portal or HR workspace layout and the Aurora look; company colours are inherited from Workplace, and with a light company colour the greeting switches to its light variant with dark text on its own. Sample data is loaded with a button, and Ctrl+K quick search jumps to a section, app or action."
+        }
+      ]
+    }
+  ]
+}
