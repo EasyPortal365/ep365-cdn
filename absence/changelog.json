@@ -4,6 +4,42 @@
   "name": "EP365 Absence",
   "entries": [
     {
+      "version": "1.3",
+      "date": "2026-09-28",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Absence přes přelom měsíce a roku se počítá správně. Dovolená od 29. 9. do 3. 10. je v týmovém kalendáři i v přehledu „Kdo je pryč“ vidět i v říjnu a podklady pro mzdy, export CSV i čerpání v Přehledu využití ji rozdělí mezi oba měsíce – dosud se celá započítala do měsíce, ve kterém začala. Dovolená přes Nový rok se stejně tak odečte ze zůstatků obou let; Moje absence ji ukazují v obou letech s počtem dní, které na zobrazený rok připadají, a stejně počítají i Nároky a lidé. Jedna žádost může trvat nejvýš rok – delší nepřítomnost zadejte jako několik navazujících žádostí.",
+          "en": "Absences across the turn of a month or year are counted correctly. Leave from 29 Sep to 3 Oct is now visible in October too — in the team calendar and in “Who is away” — and the payroll summary, its CSV export and monthly usage in the Usage overview split it between both months; until now it was counted entirely in the month it started. Vacation over New Year is likewise deducted from the balances of both years; My absences shows it in both years with the number of days that fall into the year shown, and Entitlements and people counts it the same way. A single request can last at most a year — enter a longer absence as several consecutive requests."
+        },
+        {
+          "type": "improved",
+          "cs": "Výchozí typy absencí a citlivé typy. V Nastavení → Typy absencí doplní tlačítko „Doplnit výchozí typy“ osm běžných typů – dovolenou, sick day, nemoc, home office, lékaře, služební cestu, náhradní a neplacené volno. Nemoc, sick day a lékař mají rovnou zapnutou citlivost, takže je kolegové v týmovém kalendáři uvidí jen jako „Nepřítomnost“; doplní se jen chybějící typy, a když existující nemoc, sick day nebo lékař citlivost nemá, aplikace na to upozorní. Citlivost dostane rovnou i nově založený typ s názvem Nemoc, Lékař nebo Sick day. Citlivá hodinová absence, typicky návštěva lékaře, se v týmovém kalendáři ukáže stejně jako celodenní – jen „Nepřítomnost“, bez času a počtu dní; letošní záznamy srovná správce tlačítkem „Přepočítat z žádostí“ v Nastavení → Testovací data.",
+          "en": "Default absence types and sensitive types. In Settings → Absence types, the “Add default types” button adds eight common types — vacation, sick day, sick leave, home office, doctor, business trip, compensatory and unpaid leave. Sick leave, sick day and doctor come with sensitivity switched on, so colleagues see them in the team calendar only as “Absence”; only missing types are added, and if an existing sick leave, sick day or doctor type is not marked sensitive, the app points it out. A newly created type named Nemoc (sick leave), Lékař (doctor) or Sick day also gets sensitivity right away. A sensitive absence counted in hours, typically a doctor’s visit, looks in the team calendar just like a full-day one — only “Absence”, with no times and no number of days; an administrator brings this year’s entries into line with “Recalculate from requests” in Settings → Test data."
+        },
+        {
+          "type": "improved",
+          "cs": "Odkaz rovnou na novou žádost. Z intranetu, e-mailu nebo z kroku v Centru životních situací vede odkaz přímo na formulář nové žádosti – i s předvybraným typem, třeba dovolenou. Když typ z odkazu v aplikaci není, formulář žádný jiný nepředvybere a požádá o výběr, aby nikdo omylem neodeslal jiný druh absence. Vlastní odkaz má i přehled Nároky a lidé. Karty Absence v přehledu „Můj den“ a odkazy z Workplace vedou na stránku, kde Absence běží, rovnou do Moje absence.",
+          "en": "Link straight to a new request. From the intranet, an e-mail or a step in the Life Situations Centre, a link can open the new request form directly — even with the absence type preselected, for example vacation. If the type from the link is not in the app, the form preselects nothing and asks for a choice, so nobody submits a different kind of absence by mistake. The Entitlements and people overview has its own link too. Absence cards in “My day” and links from Workplace lead to the page where Absence runs, straight to My absences."
+        },
+        {
+          "type": "improved",
+          "cs": "Formuláře, přístupnost a spuštění. Formuláře pro typ absence, svátek nebo firemní volno, nárok a zamítnutí žádosti se otevírají v panelu zprava jako ostatní formuláře a nezakrývají horní lištu SharePointu. Nastavení a Přehled využití mají i pro uživatele bez oprávnění plnou hlavičku s cestou zpět na Přehled a čtečka obrazovky ohlásí tlačítko, které zrovna nejde použít, jako nedostupné. Obrazovka „Roadmapa“ se změnila na „Co je nového“ s přehledem vydaných verzí a zvýrazněnou vaší verzí. Při prvním spuštění a po aktualizaci aplikace ukazuje, co právě dělá, a při pozastavené licenci ukáže jen oznámení s tlačítkem pro nové ověření – nic nenačítá ani nezapisuje.",
+          "en": "Forms, accessibility and start-up. The forms for an absence type, a holiday or company day off, an entitlement and rejecting a request open in a panel on the right like the app’s other forms and no longer cover the SharePoint top bar. Settings and Usage overview show the full header with the way back to the Overview even to users without permission, and screen readers announce a button that cannot be used right now as unavailable. The “Roadmap” screen has become “What’s new”, an overview of released versions with your version highlighted. On first start and after an update the app says what it is doing, and when the licence is suspended it shows only a notice with a button to check the licence again — it neither loads nor writes anything."
+        },
+        {
+          "type": "fixed",
+          "cs": "Méně omylů při klikání. Smazání typu absence, svátku nebo firemního volna, odebrání z role a storno žádosti se nejdřív potvrzuje – dřív proběhly hned na první klik. Hláška, že upozornění schvalovateli nešlo odeslat, zůstane po odeslání žádosti ve formuláři, takže druhé kliknutí žádost nepodá podruhé. Enter nebo mezerník na tlačítku „Smazat“ u typu absence typ opravdu smaže a odkaz na obrazovku, kterou aplikace nemá, otevře Přehled.",
+          "en": "Fewer misclicks. Deleting an absence type, a holiday or company day off, removing someone from a role and cancelling a request now ask for confirmation first — before, they happened on the first click. The message saying the approver notification could not be sent stays in the form after a request is submitted, so a second click does not submit the request twice. Enter or Space on the “Delete” button of an absence type really deletes it, and a link to a screen the app does not have opens the Overview."
+        },
+        {
+          "type": "fixed",
+          "cs": "Teams a texty. V Microsoft Teams Absence spolehlivě najde web, na kterém je nasazená – dosud i na správném webu mohla hlásit, že tam není. Texty odpovídají tomu, co aplikace skutečně dělá: žádost dostanou schvalovatelé aplikace, ne nadřízený, nápověda a průvodce neslibují nic, co aplikace neumí, u volby „Vyžaduje schválení“ je napsáno, že se zatím neuplatňuje, a Nároky a lidé vysvětlují, proč v nabídce chybí člověk, který má roli jen přes skupinu Entra ID.",
+          "en": "Teams and wording. In Microsoft Teams, Absence reliably finds the site it is deployed on — until now it could report that it was not there even on the correct site. Texts match what the app actually does: requests go to the app’s approvers, not to your manager, help and the tour no longer promise anything the app cannot do, the “Requires approval” option says it is not applied yet, and Entitlements and people explains why someone who has a role only through an Entra ID group is missing from the list."
+        }
+      ]
+    },
+    {
       "version": "1.2",
       "date": "2026-09-09",
       "changes": [
