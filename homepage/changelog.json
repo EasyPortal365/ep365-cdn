@@ -4,6 +4,42 @@
   "name": "Workplace",
   "entries": [
     {
+      "version": "1.31",
+      "date": "2026-09-28",
+      "changes": [
+        {
+          "type": "improved",
+          "cs": "Firemní barva funguje i ve světlém odstínu. Když je hlavní firemní barva světlá (třeba žlutá), přepne se pás s Pozdravem sám na světlou variantu s tmavým textem, takže pozdrav zůstane čitelný; přepínač „Světlý hero“ v editoru motivu to u světlé barvy řekne a je zapnutý automaticky. U tmavé firemní barvy se nic nemění. Tlačítka a zvolené volby v barvě motivu mají na světlé barvě tmavý text v celém Workplace a firemní barvu nově mají i tlačítka ve Správě aplikace a Globální konfiguraci, avatary v Rolích, přepínač období v Návštěvnosti, volby v Dotazech a námětech a jazykové záložky obsahu.",
+          "en": "The company colour works in light shades too. When the primary company colour is light (yellow, for example), the greeting band switches to its light variant with dark text on its own, so the greeting stays readable; the “Light hero” switch in the theme editor says so for a light colour and is turned on automatically. Nothing changes with a dark company colour. Buttons and selected options in the theme colour have dark text on a light colour throughout Workplace, and the buttons in Application management and Global configuration, the avatars in Roles, the period switch in Visits, the options in Questions & Ideas and the content language tabs now use the company colour too."
+        },
+        {
+          "type": "improved",
+          "cs": "Oznámení a aktuality. Odkaz „Všechny aktuality“ vede na přehled aktualit webu, ne na seznam všech stránek. Oznámení odděluje nadpis od textu pomlčkou podle jazyka obsahu – oznámení bez anglického překladu uvidí angličtí čtenáři česky i s českou pomlčkou. Seznam „Nepřečetli“ a „přečetlo X z Y“ se ukazují jen tam, kde jde publikum webu spočítat (Vlastníci, Členové i Návštěvníci); když je ve skupinách webu celá skupina, třeba „Všichni kromě externích uživatelů“, správa oznámení vysvětlí, proč seznam chybí, místo neúplného výčtu. Panely Potvrdili přečtení a Nepřečetli jsou širší, takže se jména vejdou.",
+          "en": "Announcements and news. The “All news” link opens the site’s news overview instead of a list of all pages. Announcements separate the title from the text with the dash that fits the content language — an announcement without an English translation is shown to English readers in Czech, with the Czech dash. The “Not read” list and “X of Y have read” are shown only where the site audience can be counted (owners, members and visitors); when the site groups contain a whole group, such as “Everyone except external users”, announcement management explains why the list is missing instead of showing an incomplete one. The Confirmed reading and Not read panels are wider, so people’s names fit."
+        },
+        {
+          "type": "improved",
+          "cs": "AI asistent v editoru Aktualit. Když si firemní podklady odporují (autoritativní zdroj tvrdí něco jiného než běžný dokument), článek se drží autoritativního zdroje a upozornění na rozpor dostane redaktor zvlášť v panelu asistenta – do textu článku se nedostane. Asistent také spolehlivěji pozná zadání, ke kterému firemní dokumenty hledat nemá, a zbytečně je neprohledává.",
+          "en": "AI assistant in the News editor. When company sources disagree (an authoritative source says something different from an ordinary document), the article follows the authoritative source and the editor gets the note about the discrepancy separately in the assistant panel — it never ends up in the article text. The assistant also more reliably recognises a brief for which it should not search company documents, and no longer searches them needlessly."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkazy vedou tam, kam mají. E-mail řešitelskému týmu o novém dotazu nebo námětu i e-mail o odpovědi otevřou rovnou dané vlákno v Dotazech a námětech – dřív vedly na úvodní stránku. Odkazy z Dotazů a námětů a z Mapy stránek zkopírované v Microsoft Teams vedou na web, ne na stránku Teams, a odkaz na Workplace v přehledu aplikací vede na stránku, kde Workplace běží, i když není na úvodní stránce webu.",
+          "en": "Links lead where they should. The e-mail to the solver team about a new question or idea and the e-mail about an answer open that thread in Questions & Ideas straight away — they used to lead to the home page. Links from Questions & Ideas and from the Site map copied in Microsoft Teams lead to the site, not to a Teams page, and the link to Workplace in the app overview leads to the page where Workplace runs, even when it is not on the site’s home page."
+        },
+        {
+          "type": "improved",
+          "cs": "Jazyk a nadpisy stránek. Workplace se řídí jazykem rozhraní z Globální konfigurace hubu, když ho tam správce nastavil a Workplace sám jazyk nevynucuje; uživatelé se slovenským prostředím Microsoftu 365 vidí rozhraní česky, ostatní jazyky anglicky. Nadpisy stránek mají zvýrazněnou větu na samostatném řádku v barvě motivu a stránky Mé aktivity, Aplikace, Můj den, Seznam kontaktů, Mé úkoly a Mapa stránek ukazují drobečkovou navigaci. České texty mají správné uvozovky a nápověda správně popisuje, že správu otevřete ozubeným kolem „Správa aplikace“.",
+          "en": "Language and page headings. Workplace follows the interface language from the hub’s Global configuration when the administrator has set one there and Workplace itself does not enforce a language; users with a Slovak Microsoft 365 environment see the interface in Czech, all other languages in English. Page headings show the highlighted sentence on its own line in the theme colour, and the My activities, Apps, My day, Directory, My tasks and Site map pages show a breadcrumb. Czech texts use proper quotation marks, and the help correctly says that you open management with the “Application management” gear."
+        },
+        {
+          "type": "improved",
+          "cs": "Správa aplikace a spuštění. Ukázková data u každého kroku řeknou, proč nic nepřibylo nebo co se nepovedlo, a souhrn nehlásí vytvořená data, když se nic nevytvořilo. Při prvním spuštění a po aktualizaci datových struktur Workplace místo prázdné plochy ukazuje, co právě dělá, a že stránku nemáte zavírat ani obnovovat. Při pozastavené licenci se zobrazí jen oznámení s tlačítkem „Ověřit licenci znovu“ – výpadek ověřování licence pozastavení nezpůsobí. A když dva správci založí výchozí sadu klasifikace obsahu ve stejnou chvíli, zůstane v číselníku jen jedna.",
+          "en": "Application management and start-up. Sample data tells you at each step why nothing was added or what went wrong, and the summary no longer reports created data when nothing was created. On first start and after a data structure update, Workplace shows what it is doing instead of an empty area, and that you should not close or reload the page. When the licence is suspended, only a notice with a “Verify license again” button is shown — an outage of licence verification does not cause a suspension. And when two administrators create the default content classification set at the same moment, only one set remains in the list."
+        }
+      ]
+    },
+    {
       "version": "1.30",
       "date": "2026-09-26",
       "changes": [
