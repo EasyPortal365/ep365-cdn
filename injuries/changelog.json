@@ -9,8 +9,8 @@
       "changes": [
         {
           "type": "new",
-          "cs": "Kniha úrazů podle nařízení vlády č. 322/2025 Sb. Zapíšete každý úraz – i ten bez neschopnosti – a aplikace z něj odvodí druh úrazu, ohlašovací povinnosti a lhůty, u každé povinnosti s paragrafem, ze kterého plyne. Lhůta pro záznam o úrazu se počítá v pracovních dnech od chvíle, kdy jste se o úrazu dozvěděli, a aplikace zná státní svátky. Druh zranění, zraněná část těla, zdroj a příčina se vybírají z číselníku s kódy portálu inspekce práce. Úrazy do 31. 12. 2025 se vedou podle dřívějšího nařízení č. 201/2010 Sb.",
-          "en": "Injury log compliant with Czech Government Decree 322/2025. Record every injury — including those without sick leave — and the app derives the injury category, reporting duties and deadlines, each with the provision it comes from. The deadline for the injury report runs in working days from the moment you learned about the injury, and the app accounts for public holidays. Injury type, body part, source and cause are picked from code lists with the labour inspectorate portal codes. Injuries up to 31 December 2025 follow the previous Decree 201/2010."
+          "cs": "Kniha úrazů podle nařízení vlády č. 322/2025 Sb. Zapíšete každý úraz – i ten bez neschopnosti – a aplikace z něj odvodí druh úrazu, ohlašovací povinnosti a lhůty, u každé povinnosti s paragrafem, ze kterého plyne. Lhůta pro záznam o úrazu se počítá v pracovních dnech od chvíle, kdy jste se o úrazu dozvěděli, a aplikace zná státní svátky. Druh zranění, zraněná část těla, zdroj a příčina se vybírají z číselníků s kódem a názvem. U úrazů do 31. 12. 2025 aplikace odvodí povinnosti a lhůty podle dřívějšího nařízení č. 201/2010 Sb.",
+          "en": "Injury log under Czech Government Decree No. 322/2025. Record every injury — including those without sick leave — and the app derives the injury category, reporting duties and deadlines, each with the provision it comes from. The deadline for the injury report runs in working days from the moment you learned about the injury, and the app accounts for public holidays. Injury type, body part, source and cause are picked from code lists with code and name. For injuries up to 31 December 2025, duties and deadlines follow the previous Decree 201/2010."
         },
         {
           "type": "new",
@@ -19,8 +19,8 @@
         },
         {
           "type": "new",
-          "cs": "Fotky úrazu. Ke hlášení i k případu přiložíte víc fotek zranění a místa – rovnou z fotoaparátu, nebo několik najednou z galerie. Aplikace je před odesláním zmenší, aby prošly i na slabém signálu, a pokud je prohlížeč umí otevřít, odstraní z nich údaje o poloze. Fotky vidí jen technik BOZP a personalistika.",
-          "en": "Injury photos. Attach several photos of the injury and the scene to a report or a case — straight from the camera, or several at once from the gallery. The app shrinks them before sending so they get through on a weak signal and, if the browser can open them, removes location data. Only the health and safety officer and HR can see the photos."
+          "cs": "Fotky úrazu. Ke hlášení i k případu přiložíte víc fotek zranění a místa – rovnou z fotoaparátu, nebo několik najednou z galerie. Aplikace je před odesláním zmenší, aby prošly i na slabém signálu, a pokud je prohlížeč umí otevřít, odstraní z nich údaje o poloze. Fotky vidí jen technik BOZP, personalistika a vlastníci webu; mistr vidí jen fotky, které sám poslal, dokud je technik BOZP nebo personalistika nepřevezme.",
+          "en": "Injury photos. Attach several photos of the injury and the scene to a report or a case — straight from the camera, or several at once from the gallery. The app shrinks them before sending so they get through on a weak signal and, if the browser can open them, removes location data. Only the health and safety officer, HR and site owners can see the photos; a supervisor sees only the photos they sent until the health and safety officer or HR takes them over."
         },
         {
           "type": "new",
@@ -34,13 +34,13 @@
         },
         {
           "type": "new",
-          "cs": "Pojistná událost a nároky zraněného. Událost vzniká z úrazu, ne od nuly. U každého nároku vedete paragraf, doklad a částku a bolestné se počítá z bodů podle hodnoty, kterou si nastavíte – mění se vyhláškou.",
-          "en": "Insurance claim and the injured person’s entitlements. A claim arises from an injury, not from scratch. Each entitlement carries its statutory basis, supporting document and amount, and pain compensation is calculated from points using a value you configure, since it changes by decree."
+          "cs": "Pojistná událost a nároky zraněného. Událost vzniká z úrazu, ne od nuly. U každého nároku vedete paragraf, doklad a částku a bolestné se počítá z bodů podle hodnoty, kterou si nastavíte – mění se každý rok.",
+          "en": "Insurance claim and the injured person’s entitlements. A claim arises from an injury, not from scratch. Each entitlement carries its statutory basis, supporting document and amount, and pain compensation is calculated from points using a value you configure, since it changes every year."
         },
         {
           "type": "new",
           "cs": "Šetření, nápravná opatření a skoro-nehody. Kroky „proč po proč“ vedou ke kořenové příčině, ze které vzniká opatření s řešitelem a termínem. K šetření se zapíše poznatek pro hodnocení rizik a aplikace ukáže podobné úrazy a skoro-nehody za posledních 24 měsíců. Skoro-nehody se vedou vedle úrazů a ukazují poměr ke skutečným úrazům – prevence, která nikoho nestojí zdraví.",
-          "en": "Investigations, corrective actions and near misses. The “five whys” lead to a root cause from which an action with an owner and a due date is created. A lesson for the risk assessment is recorded with the investigation, and the app shows similar injuries and near misses from the last 24 months. Near misses are recorded alongside injuries and show their ratio to actual injuries — prevention that costs no one their health."
+          "en": "Investigations, corrective actions and near misses. Asking “why?” step by step leads to a root cause, from which an action with an owner and a due date is created. A lesson for the risk assessment is recorded with the investigation, and the app shows similar injuries and near misses from the last 24 months. Near misses are recorded alongside injuries and show their ratio to actual injuries — prevention that costs no one their health."
         },
         {
           "type": "new",
@@ -49,18 +49,18 @@
         },
         {
           "type": "new",
-          "cs": "Tisk, PDF a export. Tisknout jde z každého seznamu i detailu a okno se vždy zeptá, co se do sestavy dostane. Protokol o šetření, průvodní dopis pojišťovně, roční zprávu o BOZP i přehled pro pojišťovnu uložíte do PDF; všechno se skládá ve vašem prohlížeči a nic neodchází na cizí server. Export do CSV pro Excel stáhne právě vyfiltrovaná data.",
-          "en": "Printing, PDF and export. You can print from every list and detail view, and a dialog always asks what the report should contain. The investigation report, the cover letter to the insurer, the annual health and safety report and the insurer overview can be saved as PDF; everything is assembled in your browser and nothing leaves for a third-party server. CSV export for Excel downloads exactly the filtered data."
+          "cs": "Tisk, PDF a export. Tisknout jde z každého seznamu i detailu a okno se vždy zeptá, co se do sestavy dostane. Protokol o šetření, průvodní dopis pojišťovně, roční zprávu o BOZP i přehled pro pojišťovnu uložíte do PDF; všechno se skládá ve vašem prohlížeči a nic neodchází na cizí server. Export do CSV pro Excel stáhne z knihy, záznamů, lhůt a pojistných událostí právě vyfiltrovaná data.",
+          "en": "Printing, PDF and export. You can print from every list and detail view, and a dialog always asks what the report should contain. The investigation report, the cover letter to the insurer, the annual health and safety report and the insurer overview can be saved as PDF; everything is assembled in your browser and nothing leaves for a third-party server. CSV export for Excel downloads exactly the filtered data from the log, injury reports, deadlines and insurance claims."
         },
         {
           "type": "new",
-          "cs": "Ochrana údajů. Knihu úrazů a další evidence neotevřou členové ani návštěvníci webu bez role v aplikaci – ani přímým odkazem. Doklady o výdělku a lékařské posudky mají složky s omezeným přístupem a do historie případu se jen přidává. Uzavřený ročník je zamčený a opravit v něm zápis jde jen s důvodem, který se zapíše do historie.",
-          "en": "Data protection. Site members and visitors without an app role cannot open the injury log and the related records — not even through a direct link. Earnings documents and medical reports have folders with restricted access, and the case history can only be added to. A closed year is locked, and an entry in it can be corrected only with a reason that is written to the history."
+          "cs": "Ochrana údajů. Knihu úrazů a další evidence neotevřou členové ani návštěvníci webu bez role v aplikaci – ani přímým odkazem. Doklady o výdělku a lékařské posudky mají složky s omezeným přístupem. Do historie případu mistři a personalistika jen přidávají; upravit ji může jen správce aplikace nebo vlastník webu a SharePoint si i to pamatuje ve verzích. Uzavřený ročník aplikace zamkne: zápis v něm opravíte jen s důvodem, který se zapíše do historie.",
+          "en": "Data protection. Site members and visitors without an app role cannot open the injury log and the related records — not even through a direct link. Earnings documents and medical reports have folders with restricted access. Supervisors and HR can only add to the case history; only app administrators or site owners can edit it, and SharePoint keeps every version. The app locks a closed year: an entry in it can be corrected only with a reason that is written to the history."
         },
         {
           "type": "new",
-          "cs": "Převzetí z dřívější evidence a ukázková data. Knihu úrazů nahrajete z Excelu nebo CSV s náhledem, co se založí a co přeskočí, a číselníky doplníte z oficiálního sešitu SÚIP. Kompletní ukázka celé agendy vznikne jedním tlačítkem v Nastavení a druhé ji bezpečně smaže – skutečných zápisů se nedotkne.",
-          "en": "Import from your previous records and sample data. Upload the injury log from Excel or CSV with a preview of what will be created and what skipped, and fill the code lists from the official SÚIP workbook. A complete sample of the whole agenda is created with one button in Settings and safely removed with another — real entries stay untouched."
+          "cs": "Převzetí z dřívější evidence a ukázková data. Knihu úrazů nahrajete z Excelu nebo CSV s náhledem, co se založí a co přeskočí, a číselníky doplníte z oficiálního sešitu SÚIP. Kompletní ukázka celé agendy vznikne jedním tlačítkem v Nastavení a druhé smaže ukázkové zápisy – skutečných zápisů se nedotkne (ukázková pracoviště, adresáti a číselníky zůstanou).",
+          "en": "Import from your previous records and sample data. Upload the injury log from Excel or CSV with a preview of what will be created and what will be skipped, and fill the code lists from the official SÚIP workbook. A complete sample of the whole agenda is created with one button in Settings, and another removes the sample entries — real entries stay untouched (sample workplaces, recipients and code lists remain)."
         }
       ]
     }
