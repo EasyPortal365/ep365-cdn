@@ -1,0 +1,68 @@
+{
+  "schema": 2,
+  "app": "ep365-injuries",
+  "name": "EP365 Kniha úrazů",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-10-02",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Kniha úrazů podle nařízení vlády č. 322/2025 Sb. Zapíšete každý úraz – i ten bez neschopnosti – a aplikace z něj odvodí druh úrazu, ohlašovací povinnosti a lhůty, u každé povinnosti s paragrafem, ze kterého plyne. Lhůta pro záznam o úrazu se počítá v pracovních dnech od chvíle, kdy jste se o úrazu dozvěděli, a aplikace zná státní svátky. Druh zranění, zraněná část těla, zdroj a příčina se vybírají z číselníku s kódy portálu inspekce práce. Úrazy do 31. 12. 2025 se vedou podle dřívějšího nařízení č. 201/2010 Sb.",
+          "en": "Injury log compliant with Czech Government Decree 322/2025. Record every injury — including those without sick leave — and the app derives the injury category, reporting duties and deadlines, each with the provision it comes from. The deadline for the injury report runs in working days from the moment you learned about the injury, and the app accounts for public holidays. Injury type, body part, source and cause are picked from code lists with the labour inspectorate portal codes. Injuries up to 31 December 2025 follow the previous Decree 201/2010."
+        },
+        {
+          "type": "new",
+          "cs": "Hlášení úrazu v pěti krocích i z telefonu. Zápis do knihy vzniká hned po prvním kroku, takže se neztratí ani hlášení, které někdo začal a nedopsal. Mistr naskenuje QR štítek u pracoviště nebo stroje a vyplní jen čtyři věci – kdo se zranil, kdy, kde a co se stalo; zbytek doplní technik BOZP. Zranilo-li se při jedné události víc lidí, každý dostane vlastní zápis a vlastní lhůty.",
+          "en": "Five-step injury reporting, also from a phone. The log entry is created right after the first step, so a report someone started and did not finish is never lost. A supervisor scans the QR label at a workplace or machine and fills in just four things — who was injured, when, where and what happened; the health and safety officer completes the rest. When one incident injures several people, each gets their own entry and their own deadlines."
+        },
+        {
+          "type": "new",
+          "cs": "Fotky úrazu. Ke hlášení i k případu přiložíte víc fotek zranění a místa – rovnou z fotoaparátu, nebo několik najednou z galerie. Aplikace je před odesláním zmenší, aby prošly i na slabém signálu, a pokud je prohlížeč umí otevřít, odstraní z nich údaje o poloze. Fotky vidí jen technik BOZP a personalistika.",
+          "en": "Injury photos. Attach several photos of the injury and the scene to a report or a case — straight from the camera, or several at once from the gallery. The app shrinks them before sending so they get through on a weak signal and, if the browser can open them, removes location data. Only the health and safety officer and HR can see the photos."
+        },
+        {
+          "type": "new",
+          "cs": "Lhůty, ohlášení a záznam o úrazu pro portál SÚIP. Fronta podání hlídá u každého případu, co se komu posílá a do kdy. Záznam o úrazu má všech 15 částí podle přílohy č. 3 a údaje, které aplikace zná z knihy a z Nastavení, doplní sama. Průvodce podáním provede formulářem portálu SÚIP s hodnotami ke zkopírování jedním klikem, uloží číslo podání i spisovou značku a pohlídá aktualizaci záznamu podle § 9. U vážného nebo smrtelného úrazu je po ruce kontrolní seznam toho, co udělat v první hodině.",
+          "en": "Deadlines, notifications and the injury report for the SÚIP portal. The submission queue tracks for each case what goes to whom and by when. The injury report has all 15 parts under Annex 3, and the app fills in what it already knows from the log and Settings. A submission guide walks you through the SÚIP portal form with values to copy in one click, stores the submission number and the case reference, and watches for report updates under Section 9. For a serious or fatal injury, a checklist of what to do in the first hour is at hand."
+        },
+        {
+          "type": "new",
+          "cs": "Povinnosti e-mailem přímo z případu: kopie záznamu zraněnému, ohlášení odborům a zástupci pro BOZP, podepsaný záznam zdravotní pojišťovně i oznámení škodné události. Text se předvyplní, přílohu vyberete z dokumentů případu, e-mail se uloží do vaší Odeslané pošty a povinnost se označí jako odeslaná s dokladem. Když to zapnete v Nastavení, aplikace upozorní e-mailem techniky BOZP na nové hlášení a nabídne e-mail řešiteli nového opatření.",
+          "en": "Send duties by e-mail right from the case: a copy of the report to the injured person, notification to the trade union and the health and safety representative, the signed report to the health insurer and the notice of loss. The text is prefilled, you pick the attachment from the case documents, the e-mail is saved to your Sent Items and the duty is marked as sent with proof. If you turn it on in Settings, the app e-mails health and safety officers about a new report and offers an e-mail to the owner of a new action."
+        },
+        {
+          "type": "new",
+          "cs": "Pojistná událost a nároky zraněného. Událost vzniká z úrazu, ne od nuly. U každého nároku vedete paragraf, doklad a částku a bolestné se počítá z bodů podle hodnoty, kterou si nastavíte – mění se vyhláškou.",
+          "en": "Insurance claim and the injured person’s entitlements. A claim arises from an injury, not from scratch. Each entitlement carries its statutory basis, supporting document and amount, and pain compensation is calculated from points using a value you configure, since it changes by decree."
+        },
+        {
+          "type": "new",
+          "cs": "Šetření, nápravná opatření a skoro-nehody. Kroky „proč po proč“ vedou ke kořenové příčině, ze které vzniká opatření s řešitelem a termínem. K šetření se zapíše poznatek pro hodnocení rizik a aplikace ukáže podobné úrazy a skoro-nehody za posledních 24 měsíců. Skoro-nehody se vedou vedle úrazů a ukazují poměr ke skutečným úrazům – prevence, která nikoho nestojí zdraví.",
+          "en": "Investigations, corrective actions and near misses. The “five whys” lead to a root cause from which an action with an owner and a due date is created. A lesson for the risk assessment is recorded with the investigation, and the app shows similar injuries and near misses from the last 24 months. Near misses are recorded alongside injuries and show their ratio to actual injuries — prevention that costs no one their health."
+        },
+        {
+          "type": "new",
+          "cs": "Statistika a souhrn pro vedení. Postava s obarvenými oblastmi a mřížka pracoviště × měsíc ukážou, kam a kdy se zraňujete, a ročník se srovná se dvěma předchozími. Vedení vidí jen souhrn bez jmen – knihu úrazů, záznamy ani nároky zraněných mu neotevře ani samotný SharePoint.",
+          "en": "Statistics and a summary for management. A body diagram with coloured areas and a workplace × month grid show where and when people get hurt, and the year is compared with the two before it. Management sees only a summary without names — not even SharePoint itself opens the log, reports or entitlements for them."
+        },
+        {
+          "type": "new",
+          "cs": "Tisk, PDF a export. Tisknout jde z každého seznamu i detailu a okno se vždy zeptá, co se do sestavy dostane. Protokol o šetření, průvodní dopis pojišťovně, roční zprávu o BOZP i přehled pro pojišťovnu uložíte do PDF; všechno se skládá ve vašem prohlížeči a nic neodchází na cizí server. Export do CSV pro Excel stáhne právě vyfiltrovaná data.",
+          "en": "Printing, PDF and export. You can print from every list and detail view, and a dialog always asks what the report should contain. The investigation report, the cover letter to the insurer, the annual health and safety report and the insurer overview can be saved as PDF; everything is assembled in your browser and nothing leaves for a third-party server. CSV export for Excel downloads exactly the filtered data."
+        },
+        {
+          "type": "new",
+          "cs": "Ochrana údajů. Knihu úrazů a další evidence neotevřou členové ani návštěvníci webu bez role v aplikaci – ani přímým odkazem. Doklady o výdělku a lékařské posudky mají složky s omezeným přístupem a do historie případu se jen přidává. Uzavřený ročník je zamčený a opravit v něm zápis jde jen s důvodem, který se zapíše do historie.",
+          "en": "Data protection. Site members and visitors without an app role cannot open the injury log and the related records — not even through a direct link. Earnings documents and medical reports have folders with restricted access, and the case history can only be added to. A closed year is locked, and an entry in it can be corrected only with a reason that is written to the history."
+        },
+        {
+          "type": "new",
+          "cs": "Převzetí z dřívější evidence a ukázková data. Knihu úrazů nahrajete z Excelu nebo CSV s náhledem, co se založí a co přeskočí, a číselníky doplníte z oficiálního sešitu SÚIP. Kompletní ukázka celé agendy vznikne jedním tlačítkem v Nastavení a druhé ji bezpečně smaže – skutečných zápisů se nedotkne.",
+          "en": "Import from your previous records and sample data. Upload the injury log from Excel or CSV with a preview of what will be created and what skipped, and fill the code lists from the official SÚIP workbook. A complete sample of the whole agenda is created with one button in Settings and safely removed with another — real entries stay untouched."
+        }
+      ]
+    }
+  ]
+}
