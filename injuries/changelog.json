@@ -4,6 +4,52 @@
   "name": "EP365 Kniha úrazů",
   "entries": [
     {
+      "version": "1.1",
+      "date": "2026-10-05",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Můj úraz: zraněný zaměstnanec vidí svůj případ – jak se vyřizuje, co dostal a které doklady k náhradám ještě chybí – a může k úrazu napsat vyjádření a poslat doklady i z telefonu. Technik BOZP mu přístup dá jedním tlačítkem na nové záložce Zraněný v detailu případu; zraněnému přijde e-mail s odkazem bez údajů o úrazu a jeho vyjádření i doklady se odtud převezmou do dokumentace. Kromě zraněného jeho případ vidí jen technik BOZP a personalistika – hlídá to SharePoint, ne jen aplikace.",
+          "en": "My injury: the injured employee can see their own case — how it is being handled, what they have received and which documents are still missing for compensation — and can write a statement and send documents, from their phone too. The health and safety officer grants access with one button on the new Injured tab in the case detail; the employee gets an email with a link and no injury details, and their statement and documents are taken over into the case file from there. Apart from the employee, only the safety officer and HR can see the case — enforced by SharePoint, not just by the app."
+        },
+        {
+          "type": "new",
+          "cs": "Pojistná událost umí víc: kontrolní výpočet průměrného výdělku i s výhodnějším předchozím rokem (§ 271m zákoníku práce), zproštění odpovědnosti s důvodem podle § 270 a mírou krácení v zákonných mezích a u každého nároku doklady, které pojišťovna obvykle chce, k odškrtnutí s přehledem „Co ještě chybí“. Hodnota bodu bolestného se bere podle roku ocenění a průměrné mzdy vyhlášené MPSV. Zraněnému vytisknete Informace pro zraněného (PDF) – na co má nárok, podle kterého paragrafu a co doložit. Pojistnou událost jde nově založit i k uznané nemoci z povolání.",
+          "en": "The insurance claim can do more: a check calculation of average earnings including the more favourable previous year (Section 271m of the Labour Code), exemption from liability with a reason under Section 270 and a reduction rate within the legal limits, and for each entitlement the documents insurers usually ask for, to tick off, with a “What is still missing” overview. The pain-and-suffering point value follows the assessment year and the average wage published by the Ministry of Labour. You can print Information for the injured person (PDF) — what they are entitled to, under which section and what to document. A claim can now also be filed for a recognised occupational disease."
+        },
+        {
+          "type": "improved",
+          "cs": "Hlášení úrazu se ptá na lékařské ošetření a kde, na pracovní neschopnost (ano / ne / zatím nevíme), na předpokládané následky a na zdravotní pojišťovnu zraněného. Úraz, u kterého lze předpokládat hospitalizaci delší než pět dnů, je rovnou závažný a aplikace podle toho hned počítá ohlášení a lhůty. Kopie záznamu jde zdravotní pojišťovně zraněného, podání inspektorátu příslušnému podle pracoviště a u agenturního pracovníka nebo dodavatele oznámení jeho zaměstnavateli. Krátké hlášení z telefonu se ptá, jestli zraněný odešel k lékaři.",
+          "en": "The injury report now asks about medical treatment and where it took place, incapacity for work (yes / no / not yet known), expected consequences and the injured person’s health insurer. An injury where a hospital stay longer than five days can be expected is serious straight away, and the app calculates the reports and deadlines accordingly. The copy of the record goes to the injured person’s health insurer, the filing to the inspectorate responsible for the workplace and, for agency or contractor workers, the notice to their employer. The quick report from a phone asks whether the injured person went to a doctor."
+        },
+        {
+          "type": "new",
+          "cs": "Ke každému pracovišti můžete zapsat vedoucího provozu; platí i pro pracoviště a stroje pod ním a podle Nastavení dostane e-mail, když se u něj stane úraz. Mistr může volitelně vidět jen případy svých provozů a vlastní hlášení (Nastavení → Role) – je to zúžení přehledu, ne ochrana dat, a aplikace to tak říká. Mistr do knihy, šetření, opatření, skoro-nehod a dokumentů zapisuje jen položky; nastavení seznamů, sloupce ani stránky webu měnit nemůže.",
+          "en": "You can record a site manager for each workplace; it also applies to the workplaces and machines below it and, depending on Settings, the manager gets an email when an injury happens there. A supervisor can optionally see only the cases of their own operations plus their own reports (Settings → Roles) — this narrows the view, it does not protect the data, and the app says so. Supervisors now write items only in the injury log, investigations, actions, near misses and documents; they cannot change list settings, columns or site pages."
+        },
+        {
+          "type": "new",
+          "cs": "Prevence: u úrazu s neschopností nad tři dny a u závažného nebo smrtelného zakládá aplikace šetření příčin sama a případy, kterým šetření chybí, ukáže v bloku „Čekají na zahájení“. Opatření jde založit i ke skoro-nehodě, k nemoci z povolání nebo z vlastního podnětu; přehled ukazuje původ každého opatření. U skoro-nehod se může zobrazit odkaz na vaše pravidla odměn za hlášení.",
+          "en": "Prevention: for injuries with more than three days of incapacity and for serious or fatal injuries the app opens the investigation itself, and cases still waiting for one appear under “Waiting to start”. Actions can now also be created for a near miss, an occupational disease or on your own initiative; the overview shows where each action came from. Near misses can show a link to your rules for rewarding reports."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehled má kartu „Všimla jsem si“ – upozorní na místo nebo zdroj, kde se úrazy opakují, na opakovaný úraz téhož člověka a na skoro-nehodu, po které přišel úraz; počítá se pevnými pravidly, bez umělé inteligence. Přibyla opatření po termínu a pojistné události bez dokladů. Kniha úrazů má filtry podle pracoviště, období a oblasti těla a tisk „jen vyfiltrované“ je respektuje; graf v roce ukazuje i dny neschopnosti. Detail případu ukazuje jiné úrazy téže osoby a zařazení z Microsoft 365. „Zeptat se knihy“ odpoví i na to, co chybí u konkrétního případu.",
+          "en": "The overview has a “Things I noticed” card — it points out places or sources where injuries keep happening, repeated injuries of the same person and near misses followed by an injury; it uses fixed rules, no artificial intelligence. Overdue actions and claims missing documents now appear too. The injury log can be filtered by workplace, period and body area, and “print filtered only” respects the filters; the yearly chart also shows days of incapacity. The case detail shows other injuries of the same person and their position from Microsoft 365. “Ask the book” now also says what is missing in a specific case."
+        },
+        {
+          "type": "new",
+          "cs": "Pro správce: náhled očima uživatele (Nastavení → Role) ukáže aplikaci tak, jak ji vidí konkrétní člověk nebo role, a u konkrétní osoby ověří i skutečná oprávnění SharePointu. V Nastavení → Ochrana údajů a archivace je návrh ke skartaci – podepsané záznamy po době uchování s exportem; aplikace nic sama nemaže. Nápověda a průvodce aplikací popisují všechny novinky včetně kapitol pro zraněného zaměstnance.",
+          "en": "For administrators: View as user (Settings → Roles) shows the app the way a specific person or role sees it and, for a specific person, also checks their actual SharePoint permissions. Settings → Data protection and archiving proposes records for disposal — signed records past their retention period, with an export; the app never deletes anything on its own. The help and the guided tour cover all the new features, including chapters for the injured employee."
+        },
+        {
+          "type": "fixed",
+          "cs": "Poslední krok hlášení ukazuje všechna ohlášení, která z úrazu plynou – u lehkého úrazu včetně odborů a zástupce pro BOZP, pokud u vás působí. Přehled počítá záznamy o úrazu po případech, takže aktualizace záznamu se už nepočítá jako další případ. Nově přidaný člověk dostane roli do dvou minut a mistr po aktualizaci aplikace nečeká na úvodní obrazovce.",
+          "en": "The last step of the report shows every notification that follows from the injury — for a minor injury including the trade unions and the health and safety representative, where you have them. The overview counts injury records per case, so an updated record no longer counts as another case. A newly added person gets their role within two minutes, and a supervisor no longer waits on the start screen after an app update."
+        }
+      ]
+    },
+    {
       "version": "1.0",
       "date": "2026-10-02",
       "changes": [
