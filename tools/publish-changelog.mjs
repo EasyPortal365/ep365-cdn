@@ -28,7 +28,7 @@ const APPS_ROOT = resolve(CDN_ROOT, '..');
 
 const TYPE_LABEL_CS = { new: 'Nové', improved: 'Vylepšeno', fixed: 'Opraveno' };
 
-// Sdileny seznam zakazanych retezcu — TYZ, ktery pouziva guard v publish-cdn.ps1.
+// Sdileny seznam zakazanych retezcu — TYZ, ktery pouziva guard publikace appky (@ep365/provisioning publish-guards.js).
 // Zije v ep365-docs (PRIVATNI repo) zamerne: seznam jmen zakazniku ve verejnem
 // ep365-cdn by byl sam o sobe unik.
 const FORBIDDEN_LIST = join(APPS_ROOT, 'ep365-docs', 'scripts', 'forbidden-in-public-bundles.json');
@@ -38,7 +38,7 @@ const FORBIDDEN_LIST = join(APPS_ROOT, 'ep365-docs', 'scripts', 'forbidden-in-pu
  * zakaznika. Chybejici nebo prazdny seznam je CHYBA, ne tiche preskoceni —
  * guard, ktery nema podle ceho merit, by hlasil bezpeci, ktere neoveril.
  *
- * Doplneno 2026-08-30: changelog jde na CDN mimo publish-cdn.ps1, takze tudy
+ * Doplneno 2026-08-30: changelog jde na CDN mimo publikaci bundlu (drive publish-cdn.ps1), takze tudy
  * guard nikdy nevedl a jedno jmeno se do publikovane karty dostalo.
  */
 function assertNoForbidden(text, label) {

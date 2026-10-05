@@ -1,7 +1,7 @@
 // EP365 - kontrola CHANGELOG.json napric flotilou (pousti /wrap-up, bod 1)
 //
 // PROC: `publish-changelog.mjs` tytez soubory validuje, ale az PRI OSTREM RELEASU —
-// tedy ve chvili, kdy uz `publish-cdn.ps1` zkopiroval bundly a zbyva jen changelog.
+// tedy ve chvili, kdy uz publikace (`npm run publish:cdn:public`) zkopirovala bundly a zbyva jen changelog.
 // Vada napsana behem tichych verzi tak lezi tydny a projevi se v nejhorsi moment.
 // Tenhle skript pousti STEJNA pravidla (tools/changelog-rules.mjs) hned, na vsechny
 // appky naraz, a nic nezapisuje.

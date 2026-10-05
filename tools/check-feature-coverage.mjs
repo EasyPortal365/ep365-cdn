@@ -54,7 +54,7 @@
 // KDY SE POUSTI
 //   * OSTRE VYDANI - tvrda brana: promote-release.mjs ji pousti PRED slozenim karty a pri
 //     mezere skonci bez zapisu. Vedome obejiti: --skip-coverage "duvod" (duvod se vypise).
-//   * TICHE VYDANI - brana se nevola: publish-cdn.ps1 zije v app repech a tiche buildy
+//   * TICHE VYDANI - brana se nevola: publikace (`npm run publish:cdn` appky) tiche buildy
 //     zamerne nebrzdi. Skript jde ale pustit KDYKOLI rucne jako VAROVANI - po dokonceni
 //     funkce nebo pri /wrap-up - at se mezera nezjisti az pri povyseni rady:
 //        node tools/check-feature-coverage.mjs <app>

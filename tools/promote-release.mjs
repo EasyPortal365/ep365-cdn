@@ -1,13 +1,13 @@
 // EP365 - povyseni tichych verzi na verejne vydani (standard 2026-08-06)
 //
-// KONTEXT: kazdy build se publikuje TISE (`publish-cdn.ps1 -Unlisted`) - jde jen do
+// KONTEXT: kazdy build se publikuje TISE (`npm run publish:cdn` = --unlisted) - jde jen do
 // <app>/<verze>/ na CDN a zapina se pinem v nasem tenantu. Zakaznik takovou verzi
 // nikdy nedostane. Zmeny se mezitim sbiraji do `pending` v CHANGELOG.json.
 //
 // Tenhle skript udela z nasbiranych `pending` JEDNU zakaznickou kartu pod cislem,
 // ktere urci Kami, a `pending` vyprazdni. NIC nepublikuje - publikace je az
-// `publish-cdn.ps1` BEZ prepinace -Unlisted (loader + releases.json + versions.json
-// + changelog naraz).
+// `npm run publish:cdn:public` v repu appky (loader + releases.json + versions.json
+// + changelog naraz; sdileny @ep365/provisioning scripts/build/publish-cdn.js).
 //
 // BRANA POKRYTI (od 2026-09-23): pred slozenim karty se pusti tools/check-feature-coverage.mjs.
 // Nova funkce ma mit od sve tiche verze zmenu v napovede, pruvodci a testovacich datech,
@@ -138,4 +138,4 @@ try { JSON.parse(readFileSync(src, 'utf8')); } catch (e) { fail('zapsany JSON je
 
 console.log('\nZapsano do ' + src);
 if (skipNote) console.log('!! ' + skipNote);
-console.log('Dalsi krok: build + `publish-cdn.ps1` BEZ -Unlisted (= ostry release vc. changelogu).');
+console.log('Dalsi krok: precislovat na <MAJOR.MINOR>.0.0, build:ship, tiche overeni, pak `npm run publish:cdn:public` v repu appky (= ostry release vc. changelogu).');

@@ -40,7 +40,7 @@
  *   "jiny obsah" u shodneho souboru. Rozhoduje proto blob v HEAD (to, co Pages servíruje)
  *   proti `git hash-object --path` souboru z buildu (to, co by se commitnulo).
  *
- * POUZITI (spousti publish-cdn.ps1 appky; --src absolutni cesta)
+ * POUZITI (spousti ji sdilena publikace (`npm run publish:cdn` appky = @ep365/provisioning scripts/build/publish-cdn.js); --src absolutni cesta)
  *   node tools/pool-version.mjs --app <slozka> --version <X.Y.Z.W> --src <dir>            # plan
  *   node tools/pool-version.mjs ... --apply [--replace-allowed] [--no-pool]              # zapis
  *   node tools/pool-version.mjs ... --verify-head [--require-pushed] [--require-licenses] # po commitu

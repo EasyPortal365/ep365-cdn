@@ -2,7 +2,7 @@
 /**
  * check-public-pages — obsah `pages/` je VEŘEJNÝ a neprochází guardem publikace.
  *
- * PROČ EXISTUJE (2026-09-08). `publish-cdn.ps1` prohledává proti seznamu zakázaných
+ * PROČ EXISTUJE (2026-09-08). Publikace appky (dřív `publish-cdn.ps1`, od fáze B #400 sdílený node skript) prohledává proti seznamu zakázaných
  * řetězců jen `<app>/<verze>/` (a u ostrého releasu loader). Složka `pages/` vznikla
  * pro statické stránky do „Vlastních stránek" v CRM a leží MIMO tu cestu — takže
  * cokoli tam někdo commitne, se nikdy proti seznamu neporovná. Guard, který na obsah
@@ -39,7 +39,7 @@ if (!Array.isArray(vzorky) || vzorky.length === 0) {
 // Korpus se NEVAZE na jmeno slozky (#325). Drive se meril jen `pages/`; ta v repu dnes
 // neni, takze strazce hlasil OK a netvrdil nic - a po presunu HTML jinam by oslepl stejne.
 // Bereme proto vsechny textove soubory repa - i to, co na CDN lezi verejne a NEprochazi
-// guardem v publish-cdn.ps1.
+// guardem publikace appky (sdilena publikace (`npm run publish:cdn` appky = @ep365/provisioning scripts/build/publish-cdn.js)).
 const TEXTOVE = ['.html', '.htm', '.md', '.txt', '.json', '.css', '.svg'];
 // Verzovane adresare se prochazi TAKY. Puvodni vyjimka mela regex bez zpetnych lomitek
 // (`/^d+(.d+){1,3}$/`), ktery na zadne cislo verze nesedl - od 2026-09-09 se tedy
