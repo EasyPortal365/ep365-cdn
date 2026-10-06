@@ -83,5 +83,8 @@
   "ep365-hr-portal": {
     "description": "HR portál – úvodní stránky Portálu zaměstnance a HR pracoviště: přidělené situace a jejich plnění, co zaměstnance čeká v aplikacích, HR aktuality a přehled pro HR.",
     "webUrl": "https://easyportal365.cz/aplikace/hr-portal/"
+  },
+  "ep365-academy": {
+    "description": "Akademie – e-learning Microsoft 365 a EasyPortal 365: krátké situace z praxe s animovanými ukázkami a kvízem, přehled aplikací a průběh každého zaměstnance."
   }
 }
