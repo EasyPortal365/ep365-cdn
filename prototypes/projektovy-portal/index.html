@@ -956,7 +956,7 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
       <button class="wp-search" data-pal="1"><span data-ic="search"></span><span class="lbl">Hledat v intranetu…</span><kbd>⌘K</kbd></button>
       <div class="wp-pills" id="wp-pills"></div>
     </div>
-    <div class="wp-row2"><span class="wp-date" id="wp-date">Pátek 9. října 2026</span><span class="wp-svatek">Svátek má <b>Štefan</b></span><span class="spacer"></span><span class="wp-sup" id="wp-sup"></span></div>
+    <div class="wp-row2"><span class="wp-date" id="wp-date">Pátek 9. října 2026</span><span class="wp-svatek">Svátek má <b>Sára</b></span><span class="spacer"></span><span class="wp-sup" id="wp-sup"></span></div>
     <h1 class="wp-greet" id="greet"></h1>
     <p class="wp-sub">Vítejte na firemním intranetu. Níže najdete aktuality, události a vše důležité na jednom místě.</p>
   </div>
@@ -989,7 +989,7 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
     <div><div class="wp-sh"><span data-ic="heart"></span><h2>Pochvaly</h2><span class="wp-k">Díky napříč firmou</span></div><div class="wp-card" id="wp-kudos"></div></div>
     <div><div class="wp-sh"><span data-ic="info"></span><h2>Věděli jste, že…</h2></div><div class="wp-card wp-fact" id="wp-fact"></div></div>
   </div>
-  <p class="wp-foot">Workplace ve firemních barvách IMOS · rozložení i sekce si office upraví sama, bez IT</p>
+  <p class="wp-foot">Workplace ve firemních barvách IMOS · rozložení a sekce upraví správce aplikace bez IT</p>
 </div>
 </section>
 
@@ -1213,7 +1213,7 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
     <div class="ph-row"><div>
       <div class="eyebrow">Provozní dokumentace</div>
       <h1 class="h1">Firemní dokumenty.<span class="hl">Vždy platná verze.</span></h1>
-      <p class="ph-sub">Směrnice, postupy, formuláře a vzory smluv mají vlastníka, platnost a datum revize. Kdo si dokument otevře, vidí vždy platnou verzi; u závazných dokumentů portál eviduje, kdo se s nimi seznámil.</p></div>
+      <p class="ph-sub">Směrnice, postupy, formuláře a vzory smluv procházejí schválením a mají platnost a datum revize. U závazných dokumentů portál eviduje, kdo se s nimi seznámil.</p></div>
       <div class="acts" data-acts></div></div>
   </div></div>
   <div class="kpis" id="kpis-fd"></div>
@@ -1604,7 +1604,7 @@ function renderIntra(){
   $('#wp-sup').innerHTML='<button class="icobtn" title="Aktualizovat" data-toast="Načteno znovu.">'+svg(IC.refresh,15)+'</button><button class="icobtn" title="Kopírovat odkaz" data-toast="Odkaz zkopírován.">'+svg(IC.link,15)+'</button><span class="vline"></span>'+
     '<button class="icobtn" title="Nápověda" data-tour-open>'+svg(IC.help,15)+'</button><button class="icobtn" title="Navrhnout funkci" data-toast="Návrh odchází e-mailem na podporu – z vaší schránky.">'+svg(IC.bulb,15)+'</button>'+
     (ROLE==='VE'||ROLE==='OF'?'<span class="vline"></span><button class="icobtn" title="Správa aplikace" data-toast="Správa Workplace: rozložení, sekce, motiv a firemní identita – spravuje office.">'+svg(IC.gear,15)+'</button>':'');
-  $('#wp-ann').innerHTML='<span class="feed-ic rd" style="width:30px;height:30px">'+svg(IC.shield,15)+'</span><span><b>Od 1. 10. platí nové pravidlo pro sdílení dokumentů s externisty.</b> Prosíme o potvrzení přečtení do 15. 10.</span><span class="spacer"></span><button class="btn ghost sm" data-wpann>Detaily →</button><button class="btn primary sm" data-wpack="3">Potvrdit přečtení</button>';
+  $('#wp-ann').innerHTML='<span class="feed-ic rd" style="width:30px;height:30px">'+svg(IC.shield,15)+'</span><span><b>Od 1. 10. platí nové pravidlo pro sdílení dokumentů s externisty.</b> Prosíme o potvrzení přečtení do 15. 10.</span><span class="spacer"></span><button class="btn ghost sm" data-wpann>Detaily →</button><button class="btn primary sm" data-wpannok>Potvrdit přečtení</button>';
   var h=NEWS[0];
   $('#wp-headline').innerHTML='<div class="tx"><div class="tags"><span class="wp-tag hl">● Headline</span><span class="wp-tag">'+h.k+'</span><span class="wp-tag plain">'+h.rel+'</span></div><h3>'+h.t+'</h3><p>'+h.x+'</p>'+
     '<div class="by">'+av(h.a)+'<span><div class="n">'+os(h.a).n+'</div><div class="d">'+h.d+'</div></span><button class="btn primary">Číst dál →</button></div></div><div class="im">'+art(7,320)+'</div>';
@@ -1614,7 +1614,7 @@ function renderIntra(){
     return '<button class="wp-tile" '+a+'><span class="ti" style="background:'+q[4]+';color:'+q[5]+'">'+svg(IC[q[0]],19)+'</span><span><span class="t">'+q[1]+'</span><span class="s">'+q[2]+'</span></span><span class="ar">›</span></button>';}).join('');
   var ack=FIRDOK.filter(function(d){return d.sz&&d.sz[0]<d.sz[1];}).slice(0,3);
   $('#wp-ack').innerHTML=ack.length?ack.map(function(d){var i=FIRDOK.indexOf(d);
-    return '<div class="wp-ackrow"><span class="di">'+svg(IC.doc,17)+'</span><div><div class="t">'+d.n+'</div><div class="m">'+d.t+' · verze '+d.v+' · platí od '+d.od+' · vlastník '+os(d.o).n+'</div></div><button class="btn ghost sm" data-fdopen="'+i+'">Otevřít</button><button class="btn primary sm" data-wpack="'+i+'">Potvrdit seznámení</button></div>';}).join('')
+    return '<div class="wp-ackrow"><span class="di">'+svg(IC.doc,17)+'</span><div><div class="t">'+d.n+'</div><div class="m">'+d.t+' · verze '+d.v+' · platí od '+d.od+' · vlastník '+os(d.o).n+'</div></div><button class="btn ghost sm" data-fdopen="'+i+'">Otevřít</button><button class="btn primary sm" data-wpack="'+i+'">Otevřít a potvrdit</button></div>';}).join('')
     :'<p class="note" style="margin:0">Se všemi závaznými dokumenty jste seznámen(a).</p>';
   var nw=NEWS.slice(1);
   $('#wp-news').innerHTML='<div class="wp-nmain" data-news="1"><div class="im">'+art(nw[0].art,200)+'</div><div class="b"><span class="wp-tag" style="align-self:flex-start">'+nw[0].k+'</span><h4>'+nw[0].t+'</h4><p>'+nw[0].x+'</p><div class="by">'+av(nw[0].a)+'<b>'+os(nw[0].a).n+'</b><span style="color:#939393">· '+nw[0].d+'</span></div></div></div>'+
@@ -1634,16 +1634,16 @@ function renderFact(i){FACT_I=i;var f=FAKTY[i];
   $('#wp-fact').innerHTML='<span class="k">Firemní fakt</span><div class="t">'+f[0]+'</div><div class="s">'+f[1]+'</div><div class="ft">'+FAKTY.map(function(x,j){return '<i class="'+(j===i?'on':'')+'"></i>';}).join('')+'<button data-wpfact>Další →</button></div>';}
 function renderWelcome(id){var o=os(id);
   $('#wp-welcome').innerHTML='<span class="k">Nový člen týmu · '+o.t+'</span>'+av(id)+'<div class="n">'+o.n+'</div><div class="r">'+o.r+'</div><q>'+(id==='TP'?'Těším se na první vizualizace Ponavy VI.':'Rád se co nejdřív podívám na stavby.')+'</q>'+
-    '<div class="acts2"><button class="btn ghost sm" data-toast="Otevře chat v Teams.">Napsat</button><button class="btn primary sm" data-toast="Pozdrav odeslán do chatu v Teams.">Pozdravit</button></div>'+
+    '<div class="acts2"><button class="btn ghost sm" data-toast="Otevře e-mail.">Napsat</button><button class="btn primary sm" data-toast="Pozdrav odeslán do chatu v Teams.">Pozdravit</button></div>'+
     '<div class="also"><span class="k">Tento měsíc také</span>'+NOVI.filter(function(x){return x!==id;}).map(function(x){return '<span data-wpw="'+x+'">'+av(x)+'</span>';}).join('')+'</div>';}
 document.addEventListener('click',function(e){
   var t;
   if((t=e.target.closest('[data-wpfact]'))){renderFact((FACT_I+1)%FAKTY.length);return;}
   if((t=e.target.closest('[data-wpw]'))){renderWelcome(t.getAttribute('data-wpw'));return;}
   if((t=e.target.closest('[data-kr]'))){var on=t.classList.toggle('on'),n0=+t.getAttribute('data-n');t.textContent=t.textContent.split(' ')[0]+' '+(on?n0+1:n0);return;}
-  if((t=e.target.closest('[data-wpack]'))){var d=FIRDOK[+t.getAttribute('data-wpack')];if(d&&d.sz&&d.sz[0]<d.sz[1])d.sz[0]++;
-    toast('Seznámení s dokumentem <b>'+d.n+'</b> potvrzeno a zapsáno do evidence.');var row=t.closest('.wp-ackrow');if(row)row.remove();else $('#wp-ann').innerHTML='';renderFd();return;}
-  if((t=e.target.closest('[data-wpann]'))){modal('Sdílení dokumentů s externími partnery','<p><b>Platí od 1. 10. 2026.</b> Partner dostává přístup vždy s rolí, rozsahem složek a datem konce. Odkazy pro kohokoli se nepoužívají.</p><p class="note">Oznámení je navázané na dokument v Řízených dokumentech – potvrzení přečtení se zapíše do evidence seznámení.</p>');return;}
+  if((t=e.target.closest('[data-wpannok]'))){$('#wp-ann').innerHTML='';toast('Přečtení oznámení potvrzeno.');return;}
+  if((t=e.target.closest('[data-wpack]'))){var i=+t.getAttribute('data-wpack');go('s7');var row=document.querySelector('[data-fd="'+i+'"]');if(row)row.click();return;}
+  if((t=e.target.closest('[data-wpann]'))){modal('Sdílení dokumentů s externími partnery','<p><b>Platí od 1. 10. 2026.</b> Partner dostává přístup vždy s rolí, rozsahem složek a datem konce. Odkazy pro kohokoli se nepoužívají.</p><p class="note">Potvrzení přečtení oznámení se eviduje ve Workplace. Samotná směrnice se potvrzuje v Řízených dokumentech.</p>');return;}
   if((t=e.target.closest('[data-fdopen]'))){var f=FIRDOK[+t.getAttribute('data-fdopen')];openPreview({n:f.n+'.docx',v:f.v,a:f.o,d:f.od,f:'Firemní dokumenty / '+f.t,p:null});return;}
   if((t=e.target.closest('[data-wpev]'))){if(e.target.closest('.ol'))return;var u=UDALOSTI[+t.getAttribute('data-wpev')];
     modal(u[2],'<div class="wp-ev" style="padding:0 0 12px;border:0;cursor:default"><span class="dt"><b>'+u[0]+'</b><span>'+u[1]+'</span></span><div class="mono">'+u[3]+'</div></div><p class="note">„Přidat do Outlooku“ otevře Outlook na webu s předvyplněnou událostí; „.ics“ je pro desktopový Outlook a jiné kalendáře.</p>',
@@ -1654,7 +1654,7 @@ document.addEventListener('click',function(e){
 });
 document.addEventListener('click',function(e){
   var n=e.target.closest('[data-news]'); if(!n)return; var x=NEWS[+n.getAttribute('data-news')];
-  modal(x.t,'<div style="border-radius:12px;overflow:hidden;height:200px;margin-bottom:14px">'+art(x.art,200)+'</div><p><span class="wp-tag">'+x.k+'</span> <span class="mono">'+os(x.a).n+' · '+x.d+'</span></p><p>'+x.x+'</p><p class="note">Čtečka aktualit uvnitř Workplace. Aktualitu píše autor přímo na intranetu, jde ji zacílit na tým, připnout a poslat i e-mailem.</p>','',true);
+  modal(x.t,'<div style="border-radius:12px;overflow:hidden;height:200px;margin-bottom:14px">'+art(x.art,200)+'</div><p><span class="wp-tag">'+x.k+'</span> <span class="mono">'+os(x.a).n+' · '+x.d+'</span></p><p>'+x.x+'</p><p class="note">Čtečka aktualit uvnitř Workplace. Aktualitu píše autor přímo na intranetu a jde ji zacílit na tým.</p>','',true);
 });
 
 /* ══════════════════════ Dokumenty projektu – procházení jako v MyDocs ══════════════════════
@@ -2010,7 +2010,7 @@ function sabEdit(s){
   $('#se-ok').addEventListener('click',function(){s.t=$('#se-t').value;s.d=$('#se-d').value;s.own=$('#se-o').value;s.pro=$('#se-p').value;closeModal();renderSab();renderTpl();if($('#s12.on'))openSab(s.id);toast('Vlastnosti šablony uloženy.');});
 }
 function sabSnap(s){
-  var ch=s.id==='b'?[['add','Složka','<b>05 / Statika a posudky</b> – nová vedlejší složka'],['chg','Oprávnění','<b>08 Marketing</b> – ostatní zaměstnanci už nevidí rozpracované vizualizace']]:s.rev===0?[['add','Vše','první otisk – '+s.l1+' hlavních a '+s.l2+' vedlejších složek, role, kanály']]:[];
+  var ch=s.id==='b'?[['add','Složka','<b>05 / Statika a posudky</b> – nová vedlejší složka'],['add','Oprávnění','<b>08 Marketing</b> – nová role Externí marketing s právem čtení']]:s.rev===0?[['add','Vše','první otisk – '+s.l1+' hlavních a '+s.l2+' vedlejších složek, role, kanály']]:[];
   modal('Pořídit otisk – '+s.t,(ch.length?'<p>Proti '+(s.rev?'revizi '+s.rev:'prázdné šabloně')+' se ve vzorovém webu změnilo:</p><div class="diff">'+ch.map(function(d){return '<div class="di '+d[0]+'"><span class="s">'+(d[0]==='add'?'+':'~')+'</span><span class="k">'+d[1]+'</span><span>'+d[2]+'</span></div>';}).join('')+'</div>'+
     '<div class="field" style="margin-top:14px"><label>Proč revize vzniká<span class="req">*</span></label><input id="sn-why" placeholder="Jedna věta – za dva roky to bude jediné vodítko"></div>':'<p>Vzorový web se od revize '+s.rev+' nezměnil – není co otisknout.</p>'),
     ch.length?'<button class="btn ghost" data-mx>Zrušit</button><button class="btn primary" id="sn-ok">Pořídit revizi '+(s.rev+1)+'</button>':'');
@@ -2534,7 +2534,7 @@ function renderFd(){
 $('#fd-chips').addEventListener('click',function(e){var b=e.target.closest('[data-ff]');if(!b)return;FD_F=b.getAttribute('data-ff');renderFd();});
 $('#tb-fd').addEventListener('click',function(e){var r=e.target.closest('[data-fd]');if(!r)return;var d=FIRDOK[+r.getAttribute('data-fd')];
   modal(d.n,'<dl class="kv"><dt>Typ</dt><dd>'+d.t+'</dd><dt>Vlastník</dt><dd>'+os(d.o).n+'</dd><dt>Platná verze</dt><dd>'+d.v+' · platí od '+d.od+'</dd><dt>Další revize</dt><dd>'+d.rev+'</dd></dl>'+
-   '<p class="note" style="margin-top:14px">Starší verze zůstávají v archivu a nedají se omylem otevřít jako platné. Změnu připravuje vlastník, schvaluje vedení a po zveřejnění dostanou dotčení lidé výzvu k seznámení.</p>',
+   '<p class="note" style="margin-top:14px">Starší verze zůstávají v historii dokumentu. Změnu připravuje vlastník, schvaluje vedení a po zveřejnění dostanou dotčení lidé výzvu k seznámení.</p>',
    '<button class="btn ghost" data-mx>Zavřít</button>'+(d.sz?'<button class="btn primary" data-mx data-toast="Seznámení potvrzeno a zapsáno do evidence.">Potvrdit seznámení</button>':''));});
 
 /* ══════════════════════ Lidé ══════════════════════ */
@@ -2692,9 +2692,9 @@ var TOUR=[
  {scr:'s0',ti:'Co jsme slyšeli a co ukazujeme',tx:'Na první schůzce zaznělo: <b>organizace dokumentů, přístupová práva, sdílení mezi týmy a přehledná projektová dokumentace</b> – a k tomu intranet. Každé z těch témat má v konceptu svou obrazovku. Všechno stojí na Microsoftu 365, data zůstávají ve vašem tenantu.'},
  {scr:'s1',sel:'#role-sw',ti:'Každý vidí něco jiného',tx:'Nahoře je <b>přepínač role</b>. Vedení, projektový manažer, obchodní tým, office a externí architekt – každý má jiné menu, jiná čísla a hlavně jiné dokumenty. Přepínač je ukázkový nástroj; skutečně o přístupu rozhodují <b>oprávnění SharePointu</b>.'}]},
 {t:'Intranet',s:'Kde začíná den',steps:[
- {scr:'s1',sel:'#wp-headline',ti:'Workplace ve vašich barvách',tx:'Úvodní stránka intranetu je <b>EasyPortal 365 Workplace</b> – pozdrav, hlavní zpráva, rychlé akce a pod nimi aktuality, události a lidé. Barvy převzal z jednoho nastavení motivu; rozložení si office upraví sama.'},
+ {scr:'s1',sel:'#wp-headline',ti:'Workplace ve vašich barvách',tx:'Úvodní stránka intranetu je <b>EasyPortal 365 Workplace</b> – pozdrav, hlavní zpráva, rychlé akce a pod nimi aktuality, události a lidé. Firemní barvu nastavíte jednou a převezmou ji všechny aplikace; rozložení upraví správce aplikace bez IT.'},
  {scr:'s1',sel:'#wp-quick',ti:'Rychlé akce',tx:'Cesty tam, kde se pracuje: moje projekty, uložení dokumentu, firemní dokumenty, přístup pro partnera. Navazující agendy – třeba <b>faktury a smlouvy v TreeINFO</b> – jsou v Aplikacích a odkazech.'},
- {scr:'s1',sel:'#wp-ack',ti:'Co vás čeká',tx:'Závazné dokumenty, se kterými se má člověk seznámit, jsou přímo na úvodní stránce. Potvrzení se zapíše do evidence Řízených dokumentů.'}]},
+ {scr:'s1',sel:'#wp-ack',ti:'Co vás čeká',tx:'Workplace ukáže, s čím se má člověk seznámit, a jedním klikem otevře dokument v Řízených dokumentech – tam se seznámení potvrdí a zapíše do evidence.'}]},
 {t:'Moje práce',s:'Co čeká na projektového manažera',steps:[
  {scr:'s2',before:function(){setRole('PM');},sel:'#kpis',ti:'Přepnuto na projektového manažera',tx:'Čtyři čísla, která rozhodují o dni: moje projekty, co čeká na mě, kolik partnerů do mých projektů vidí a co přibylo. Počítají se ze skutečného stavu, ne z ručně vedené tabulky.'},
  {scr:'s2',sel:'#card-ceka',ti:'Co čeká na mě',tx:'Žádost o přístup, končící přístup dodavatele, změnový list od architekta ke schválení. <b>Nic z toho se neztratí v e-mailu.</b>'}]},
