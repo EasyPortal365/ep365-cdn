@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Uvítání v kanálu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="../hledani/hledani.js"></script>
+<script src="novy.js"></script>
+<script>
+/* Scéna 4 – Publikovat v kanálu › předmět › @zmínka nového kolegy › Publikovat.
+   Podle referencí _ref/pruchod/k2-01 (okno příspěvku), k2-02 (návrhy zmínky), k2-04 (publikovaný příspěvek) – stejné kusy jako scéna 2
+   scénáře „Píšeme nabídku ve třech“, jen bez přílohy a bez oznámení o sdílení souboru. */
+(function () {
+  var A = AK, t = A.t, ic = A.ic, P = A.P, G = '#424242', N = AKN;
+  var NEW = N.NEW;
+  var SUBJ = t('Vítej v týmu, Tomáši!', 'Welcome to the team, Tomáš!');
+  var TXT = t(' vítej v obchodním týmu! Nabídky najdeš v záložce Sdíleno a úkoly zakázek v plánu Zakázky – vybavení penzionu. Kdyby cokoli, ozvi se.',
+    ' welcome to the sales team! You will find quotes in the Shared tab and job tasks in the plan Jobs – guesthouse furniture. Just ask if anything comes up.');
+  function men(n) { return '<span class="ps-men">' + n + '</span>'; }
+  function avw(k, s, pres) { return '<span class="ps-avw">' + A.av(k, s) + (pres ? '<i class="tpres"></i>' : '') + '</span>'; }
+  function post(subj, body) {
+    return '<div class="ps-post mine add" id="pNew"><div class="ps-in"><div class="ps-hd">' + avw('JN', 22, true) + 'Jana Nováková<small>13:20</small></div>' +
+      '<div class="ps-subj">' + subj + '</div><div class="ps-tx">' + body + '</div><div class="ps-react">' + ic(P.react, 13, '#616161', 1.1) + '</div></div>' +
+      '<div class="ps-rep">' + avw('JN', 14) + t('Odpovědět ve vlákně', 'Reply') + '</div></div>';
+  }
+  function build() {
+    var tb = '<div class="ps-tb">' + ic('<path d="M4.5 2.5h4.2a2.6 2.6 0 010 5.2H4.5zM4.5 7.7h5a2.9 2.9 0 010 5.8h-5z"/>', 12, G, 1.6) +
+      ic('<path d="M7 2.5h5M4 13.5h5M10 2.5l-4 11"/>', 12, G, 1.2) + ic('<path d="M4.5 2.5v5a3.5 3.5 0 007 0v-5M3.5 14h9"/>', 12, G, 1.2) +
+      ic('<path d="M2.5 8h11M11 4.5C10.4 3.3 9.4 2.7 8 2.7 6.3 2.7 5 3.6 5 5c0 .9.5 1.6 1.3 2M5 11.3c.6 1.3 1.7 2 3.2 2 1.8 0 3.1-1 3.1-2.5"/>', 12, G, 1.2) + '<span class="s"></span>' +
+      ic(P.bul, 12, G, 1.2) + ic(P.num, 12, G, 1.2) + '<span class="s"></span>' + ic(P.hilite, 12, G, 1.15) + ic(P.fcolor, 12, G, 1.15) + ic(P.fsize, 12, G, 1.15) + '<span class="s"></span>' +
+      ic(P.quote, 12, G, 1.2) + ic(P.link, 12, G, 1.2) + ic(P.code, 12, G, 1.15) + '<span class="s"></span>' + ic(P.announce, 12, G, 1.15) + ic(P.dots, 12, G, 1.4) + '</div>';
+    var cmp = '<div class="ps-cmp" id="cmp"><div class="ps-cmh">' + A.av('JN', 23) + 'Jana Nováková<span class="cx" id="cX">' + ic(P.x, 12, G, 1.3) + '</span></div>' +
+      '<div class="ps-subjf foc" id="subj"><span id="subjT"></span><span class="caret" id="c1"></span><span class="ps-ph" id="subjPh">' + t('Přidat předmět', 'Add a subject') + '</span></div>' + tb +
+      '<div class="ps-body" id="bodyF"><span id="ct"></span><span class="caret" id="c2" style="display:none"></span><span class="ps-ph" id="bodyPh">' + t('Napište zprávu.', 'Type a message') + '</span></div>' +
+      '<div class="ps-cb">' + ic(P.smile, 13, G, 1.15) + ic(P.clip, 13, G, 1.15) + ic(P.loopi, 13, G, 1.15) + ic(P.plus, 13, G, 1.2) + '<span class="ps-pub" id="bPub">' + t('Publikovat', 'Post') + '</span></div>' +
+      '<div class="ps-hint">' + t('Enter vloží nový řádek.', 'Enter adds a new line.') + '</div>' +
+      '<div class="tpop ps-mp" id="mp"><div class="mh">' + t('Návrhy', 'Suggestions') + '</div><div class="ti hot" id="mNew">' + A.teamsShell.pale('TM', 20) + '<span><b>To</b>máš Malý</span></div><div class="tsep"></div>' +
+      '<div class="ti">' + ic(P.contact, 14, G, 1.1) + t('Sdílet něčí kontaktní údaje', 'Share someone’s contact info') + '</div></div></div>';
+    var feed = AKH.channelFeed().replace('<div class="ps-newbtn">', '<div class="ps-newbtn" id="bNewPost">');
+    return N.channel(feed + cmp);
+  }
+  function fitFeed() { var c = A.$('cmp'); A.$('feed').style.paddingBottom = (c.classList.contains('on') ? c.offsetHeight + 34 : 50) + 'px'; }
+  function openCompose() { A.$('bNewPost').classList.add('off'); A.$('cmp').classList.add('on'); fitFeed(); }
+  function trash() { A.$('cX').innerHTML = ic(P.trash, 12, G, 1.2); }
+  function toBody() { A.$('subj').classList.remove('foc'); A.$('c1').style.display = 'none'; A.$('c2').style.display = ''; A.$('bodyPh').style.display = 'none'; A.$('cmp').classList.add('typing'); }
+  function fill() { openCompose(); A.$('subjPh').style.display = 'none'; A.$('subjT').textContent = SUBJ; trash(); toBody(); A.$('ct').innerHTML = men(NEW) + TXT; A.$('c2').style.display = 'none'; fitFeed(); }
+  function publish() {
+    A.$('cmp').classList.remove('on', 'typing'); A.$('bNewPost').classList.remove('off');
+    A.$('feed').insertAdjacentHTML('beforeend', post(SUBJ, men(NEW) + TXT)); fitFeed();
+  }
+  A.Scene({
+    build: build,
+    lead: 1000,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('bNewPost', 0.5, 0.55, 900); await api.click();
+      openCompose();
+      await api.sleep(600);
+      A.$('subjPh').style.display = 'none'; trash();
+      await api.type('subjT', SUBJ, 16);
+      await api.sleep(300);
+      await api.moveTo('bodyF', 0.3, 0.3, 600); await api.click();
+      toBody();
+      await api.sleep(300);
+      var s = document.createElement('span'); A.$('ct').appendChild(s);
+      await api.type(s, '@To', 8);
+      A.$('mp').classList.add('on');
+      await api.sleep(700);
+      await api.moveTo('mNew', 0.45, 0.5, 600); await api.click();
+      s.outerHTML = men(NEW); A.$('mp').classList.remove('on');
+      await api.sleep(300);
+      var s2 = document.createElement('span'); A.$('ct').appendChild(s2);
+      await api.type(s2, TXT, 34);
+      A.$('c2').style.display = 'none'; fitFeed();
+      await api.sleep(800);
+      await api.moveTo('bPub', 0.5, 0.5, 800); A.$('bPub').classList.add('down'); await api.click(); A.$('bPub').classList.remove('down');
+      publish(); api.hideCursor();
+      await api.sleep(1500);
+    },
+    states: {
+      pick: function () { openCompose(); A.$('subjPh').style.display = 'none'; A.$('subjT').textContent = SUBJ; trash(); toBody(); A.$('ct').textContent = '@To'; A.$('mp').classList.add('on'); },
+      compose: fill,
+      end: publish
+    }
+  });
+})();
+</script>
+</body>
+</html>

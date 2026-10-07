@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Kam s tím?</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../m365.css">
+<link rel="stylesheet" href="pruvodce.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="pruvodce.js"></script>
+<script>
+/* Průvodce 1 – soustředné kruhy Já / Náš tým / Celá firma; do nich postupně padají kartičky věcí. Vlastní ilustrace, ne replika UI. */
+(function () {
+  var A = AK, G = AKG, CX = 345, CY = 340;
+  function build() {
+    var ring = function (cls, r, id) { return '<div class="gu-ring ' + cls + '" id="' + id + '" style="left:' + CX + 'px;top:' + CY + 'px;width:' + (2 * r) + 'px;height:' + (2 * r) + 'px"></div>'; };
+    var lab = function (y, html) { return '<div class="gu-rl" style="left:' + CX + 'px;top:' + y + 'px">' + html + '</div>'; };
+    var card = function (id, x, y, app, title, sub) { return '<div class="gu-card" id="' + id + '" style="left:' + x + 'px;top:' + y + 'px">' + G.file(app) + '<span><b>' + title + '</b><small>' + sub + '</small></span></div>'; };
+    var row = function (id, gl, title, text) { return '<div class="gu-row" id="' + id + '"><span class="gs">' + gl + '</span><span><b>' + title + '</b><p>' + text + '</p></span></div>'; };
+    return '<div class="gu">' + ring('r3', 300, 'r3') + ring('r2', 202, 'r2') + ring('r1', 104, 'r1') +
+      lab(CY + 52, G.glyph('od', 26) + 'Já <small>OneDrive</small>') +
+      lab(CY + 140, G.glyph('teams', 26) + G.glyph('sp', 26) + 'Náš tým <small>Teams a SharePoint týmu</small>') +
+      lab(CY + 238, G.glyph('sp', 26) + 'Celá firma <small>SharePoint – intranet</small>') +
+      card('c1', CX, CY - 22, 'word', 'Rozpracovaný návrh', 'zatím jen pro mě') +
+      card('c2', CX, CY - 150, 'word', 'Nabídka – Penzion U Lípy', 'píšeme ji ve třech') +
+      card('c3', CX, CY - 250, 'word', 'Směrnice o dovolené', 'pro celou firmu') +
+      '<div class="gu-leg" style="left:690px;top:70px;width:420px"><span class="gu-k">Komu soubor patří?</span>' +
+      row('l1', G.glyph('od', 34), 'Mně → OneDrive', 'Osobní pracovní soubory. Ve výchozím stavu je nikdo jiný nevidí, snadno je nasdílíte.') +
+      row('l2', G.glyph('teams', 34) + G.glyph('sp', 34), 'Týmu → Teams a SharePoint týmu', 'Soubory kanálu leží na webu týmu – kdo má přístup k webu, má přístup i k nim.') +
+      row('l3', G.glyph('sp', 34), 'Celé firmě → intranet', 'Komunikační web SharePointu publikuje informace širokému publiku.') + '</div></div>';
+  }
+  function all() { ['c1', 'c2', 'c3'].forEach(function (id) { A.$(id).classList.add('in'); }); ['l1', 'l2', 'l3'].forEach(function (id) { A.$(id).classList.add('on'); }); }
+  A.Scene({
+    build: build,
+    lead: 900,
+    tail: 3200,
+    play: async function (api) {
+      api.hideCursor();
+      var seq = [['c1', 'r1', 'l1'], ['c2', 'r2', 'l2'], ['c3', 'r3', 'l3']];
+      for (var i = 0; i < seq.length; i++) {
+        await G.drop(api, seq[i][0], seq[i][1]);
+        A.$(seq[i][2]).classList.add('on');
+        await api.sleep(1500);
+      }
+    },
+    states: { end: all, s1: function () { A.$('c1').classList.add('in'); A.$('l1').classList.add('on'); } }
+  });
+})();
+</script>
+</body>
+</html>

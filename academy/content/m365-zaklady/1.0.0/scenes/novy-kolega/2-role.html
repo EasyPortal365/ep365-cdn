@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Člen, nebo vlastník?</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="../hledani/hledani.js"></script>
+<script src="novy.js"></script>
+<script>
+/* Scéna 2 – „⋯“ u týmu › Spravovat tým › Členové › Členové a hosté › nabídka role Vlastník / Člen.
+   Podle referencí _ref/novy-kolega/n01 (nabídka týmu), n06 (záložky Kanály … Značky, seznam kanálů), n07 (Členové, Vlastníci),
+   n08 (rozbalené Členové a hosté), n09 (nabídka role). Nový kolega je v seznamu jako další řádek ve stejném rozvržení. */
+(function () {
+  var A = AK, N = AKN;
+  A.Scene({
+    build: function () { return N.channel(); },
+    lead: 1000,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo(document.querySelectorAll('.tteam')[1], 0.5, 0.5, 900);
+      N.showDots();
+      await api.sleep(300);
+      await api.moveTo('tDots', 0.5, 0.5, 400);
+      await api.click();
+      N.over(N.teamMenu());
+      await api.sleep(500);
+      await api.moveTo('tm3', 0.4, 0.5, 600);
+      N.over(N.teamMenu(3));
+      await api.sleep(300);
+      await api.click();
+      N.manageView({ tab: 'chan', anim: true });
+      await api.sleep(1500);
+      await api.moveTo('mtM', 0.5, 0.5, 800);
+      await api.click();
+      N.manageView({ tab: 'mem' });
+      await api.sleep(1300);
+      await api.moveTo('grpMem', 0.3, 0.5, 800);
+      await api.click();
+      N.manageView({ tab: 'mem', open: true });
+      await api.sleep(900);
+      await api.moveTo('rowTM', 0.3, 0.5, 800);
+      N.manageView({ tab: 'mem', open: true, hv: 2 });
+      await api.sleep(600);
+      await api.moveTo('roleTM', 0.4, 0.5, 600);
+      await api.click();
+      N.manageView({ tab: 'mem', open: true, hv: 2, menu: true });
+      await api.sleep(700);
+      await api.moveTo('rmOwn', 0.4, 0.5, 600);
+      N.manageView({ tab: 'mem', open: true, hv: 2, menu: true, hot: 0 });
+      await api.sleep(1500);
+      api.hideCursor();
+    },
+    states: {
+      chan: function () { N.manageView({ tab: 'chan' }); },
+      mem: function () { N.manageView({ tab: 'mem' }); },
+      open: function () { N.manageView({ tab: 'mem', open: true }); },
+      end: function () { N.manageView({ tab: 'mem', open: true, hv: 2, menu: true }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

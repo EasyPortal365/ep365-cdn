@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Pište všichni najednou</title>
+<link rel="stylesheet" href="../m365.css">
+<style>
+  /* kurzor spoluautora podle živého snímku Wordu pro web (4. 10.): barevná čára s puntíkem nahoře, bez jmenovky */
+  .cc { animation:ccin .35s ease-out; }
+  @keyframes ccin { from { opacity:0; } to { opacity:1; } }
+</style>
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script>
+(function () {
+  var A = AK, t = A.t;
+  var FN = t('Nabídka – Penzion U Lípy', 'Quote – U Lípy guesthouse');
+  var INTRO0 = t('Děkujeme za poptávku. ', 'Thank you for your enquiry. ');
+  var INTRO = t('Na základě prohlídky 2. října navrhujeme kompletní vybavení recepce z masivního dubu.', 'Following our visit on 2 October, we propose complete reception furniture in solid oak.');
+  var PRICES = [['r1p', '64 900 Kč'], ['r2p', '18 400 Kč'], ['r3p', '12 600 Kč']];
+  var DATES = t('Výroba do 4 týdnů od objednávky, montáž na místě během jednoho dne.', 'Production within 4 weeks of order, on-site assembly in one day.');
+
+  function cc(k, cls) {
+    var p = A.PEOPLE[k];
+    return '<span class="cc' + (cls ? ' ' + cls : '') + '" id="cc' + k + '" style="--c:' + p.c + '" title="' + p.name + '"></span>';
+  }
+  function build() {
+    var page = A.offerPage({ intro: INTRO0 + '<span id="tJ"></span><span class="caret"></span>', prices: false, dates: false });
+    return A.wordShell({ file: FN, page: page, words: 41 });
+  }
+  /* Petrův kurzor v buňce ceny; vrací prvek, do kterého se píše */
+  function cell(id) {
+    var o = A.$('ccPS'); if (o) o.remove();
+    var c = A.$(id); c.innerHTML = '<span class="tv"></span>' + cc('PS', 'r');
+    return c.firstChild;
+  }
+  function datesCursor() { A.$('pDates').innerHTML = '<span id="tL"></span>' + cc('LD', 'b'); }
+  function saved(busy) { A.wordSave(busy ? 'busy' : 'saved'); }
+  function words(n) { A.$('wwords').textContent = t('Slova: ', 'Words: ') + n; }
+
+  /* Souběžné psaní: každá smyčka volá api.sleep, takže po zastavení scény se ukončí všechny. */
+  async function typeInto(api, el, text, cps) {
+    for (var i = 0; i < text.length; i++) {
+      el.textContent += text[i];
+      await api.sleep(1000 / cps * (text[i] === ' ' ? 1.5 : 1) * (0.7 + Math.random() * 0.6));
+    }
+  }
+
+  A.Scene({
+    build: build,
+    lead: 1000,
+    tail: 3400,
+    play: async function (api) {
+      cell('r1p'); datesCursor();
+      await api.sleep(900);
+      var busy = true;
+      var jana = (async function () { await typeInto(api, A.$('tJ'), INTRO, 12.5); })();
+      var petr = (async function () {
+        await api.sleep(400);
+        for (var i = 0; i < PRICES.length; i++) {
+          var el = cell(PRICES[i][0]);
+          await api.sleep(450);
+          await typeInto(api, el, PRICES[i][1], 6.5);
+        }
+      })();
+      var lucie = (async function () { await api.sleep(700); await typeInto(api, A.$('tL'), DATES, 11.5); })();
+      var saver = (async function () {
+        while (busy) { saved(true); await api.sleep(650); saved(false); await api.sleep(750); }
+      })();
+      await Promise.all([Promise.all([jana, petr, lucie]).then(function () { busy = false; }), saver]);
+      saved(false); words(75);
+    },
+    states: {
+      typing: function () {
+        A.$('tJ').textContent = INTRO.slice(0, Math.round(INTRO.length * 0.55));
+        A.$('r1p').textContent = PRICES[0][1];
+        cell('r2p').textContent = PRICES[1][1].slice(0, 4);
+        datesCursor(); A.$('tL').textContent = DATES.slice(0, Math.round(DATES.length * 0.45));
+        saved(true);
+      },
+      end: function () {
+        A.$('tJ').textContent = INTRO;
+        A.$('r1p').textContent = PRICES[0][1]; A.$('r2p').textContent = PRICES[1][1];
+        cell('r3p').textContent = PRICES[2][1];
+        datesCursor(); A.$('tL').textContent = DATES;
+        saved(false); words(75);
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>

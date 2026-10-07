@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Hledání v Teams</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="hledani.js"></script>
+<script>
+/* Scéna 1 – kanál Nabídky › Příspěvky › klik do horního pole hledání › „Penzion“ › našeptávač.
+   Podle reference _ref/hledani/h1-naseptavac.jpg: filtry Zprávy, Soubory, Kanály, Skupinové chaty, Schůzky, Obrázky;
+   „Najít v tomto kanálu (Ctrl+F)“; řádek Lidé; „Odeslat zpětnou vazbu“ s palci. */
+(function () {
+  var A = AK, H = AKH, S = A.teamsShell;
+  function build() { return S({ tab: 0, body: H.channelFeed(), pop: H.suggest() }); }
+  A.Scene({
+    build: build,
+    lead: 1200,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('tsearch', 0.3, 0.5, 1000); await api.click();
+      S.searchSet('', true);
+      await api.sleep(500);
+      api.hideCursor();
+      var v = A.$('tsv'), q = A.t('Penzion', 'guesthouse');
+      A.$('tsx').hidden = false;
+      for (var i = 0; i < q.length; i++) {
+        await api.type(v, q[i], 9);
+        if (i === 1) A.$('sg').classList.add('on');
+      }
+      await api.sleep(1600);
+    },
+    states: {
+      focus: function () { S.searchSet('', true); },
+      end: function () { S.searchSet(A.t('Penzion', 'guesthouse'), true); A.$('sg').classList.add('on'); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

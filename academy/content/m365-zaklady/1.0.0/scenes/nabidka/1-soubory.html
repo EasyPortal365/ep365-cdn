@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Sdíleno v kanálu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script>
+/* Scéna 1 – kanál Nabídky › Sdíleno › Vytvořit nebo nahrát › Wordový dokument.
+   Podle referencí _ref/pruchod/k1-01…03 a _ref/teams-kanal-sdileno.png: Wordový dokument se založí
+   rovnou jako „Dokument.docx" (bez dialogu s názvem), řádek „Před několika sekundami" + autor změny. */
+(function () {
+  var A = AK, t = A.t, ic = A.ic, P = A.P;
+  var NEWFN = t('Dokument.docx', 'Document.docx');
+  function lt(L, bg, s) { return '<span class="tlet" style="width:' + s + 'px;height:' + s + 'px;background:' + bg + ';font-size:' + Math.round(s * 0.6) + 'px">' + L + '</span>'; }
+  function row(id, icon, name, mod, who, cls, mark) {
+    return '<div class="sh-row' + (cls ? ' ' + cls : '') + '" id="' + id + '"><span></span><span>' + icon + '</span>' +
+      '<span class="nm">' + (mark ? '<span class="sh-nm">' + ic(P.newmark, 8, '#616161') + '</span>' : '') + name + '</span>' +
+      '<span class="mod">' + mod + '</span><span><span class="sh-who">' + who + '</span></span><span></span></div>';
+  }
+  function mi(icon, label, id) { return '<div class="ti"' + (id ? ' id="' + id + '"' : '') + '>' + icon + label + '</div>'; }
+  var SEP = '<div class="tsep"></div>', G = '#424242';
+  function build() {
+    var cmd =
+      '<div class="sh-cmd"><span class="sh-crumb">' + t('Dokumenty', 'Documents') + ic(P.chevr, 10, '#616161', 1.4) + '<b>' + t('Nabídky', 'Quotes') + '</b>' + ic(P.chevd, 10, G, 1.5) + '</span>' +
+      '<span class="sh-c">' + ic(P.shareo, 13, G, 1.15) + t('Sdílet', 'Share') + '</span>' +
+      '<span class="sh-c">' + ic(P.link, 13, G, 1.2) + t('Kopírovat odkaz', 'Copy link') + '</span>' +
+      '<span class="sh-c">' + ic(P.shortcut, 12, G, 1.15) + t('Přidat zástupce na OneDrive', 'Add shortcut to OneDrive') + ic(P.chevd, 9, G, 1.5) + '</span>' +
+      '<span class="sh-c">' + ic(P.formsi, 12, G, 1.15) + 'Forms</span>' +
+      '<span class="sh-c">' + ic(P.dots, 13, G, 1.4) + '</span><span class="sh-vsep"></span>' +
+      '<span class="sh-new" id="bNew">' + ic(P.plus, 11, '#fff', 1.8) + t('Vytvořit nebo nahrát', 'Create or upload') + '</span></div>';
+    var views =
+      '<div class="sh-views"><span class="sh-pill on">' + ic(P.lines, 12, G, 1.3) + t('Všechny dokumenty', 'All Documents') + '</span>' +
+      '<span class="sh-pill">' + ic(P.inmsg, 12, G, 1.2) + t('Ve zprávách', 'In messages') + '</span>' +
+      '<span class="sh-pill">' + ic(P.plus, 11, G, 1.4) + t('Přidat zobrazení', 'Add view') + '</span><span class="sh-vsep"></span>' +
+      '<span class="sh-pill ic">' + ic(P.filt, 12, G, 1.3) + '</span>' +
+      '<span class="sh-pill ic">' + A.appIcon('word', 12) + '</span><span class="sh-pill ic">' + A.appIcon('excel', 12) + '</span>' +
+      '<span class="sh-pill ic">' + A.appIcon('ppt', 12) + '</span><span class="sh-pill ic">' + ic(P.file, 12, '#D13438', 1.3) + '</span>' +
+      '<span class="sh-r"><span>' + ic(P.sliders, 13, G, 1.2) + '</span><span>' + ic(P.rpane, 13, G, 1.2) + t('Podrobnosti', 'Details') + '</span></span></div>';
+    var list =
+      '<div class="sh-list"><div class="sh-h"><span></span><span>' + ic(P.file, 12, G, 1.1) + '</span>' +
+      '<span>' + t('Název', 'Name') + ic(P.chevd, 8, '#616161', 1.5) + '</span>' +
+      '<span>' + t('Změněno', 'Modified') + ic(P.info, 9, '#616161', 1.2) + ic(P.chevd, 8, '#616161', 1.5) + '</span>' +
+      '<span>' + t('Autor změny', 'Modified By') + ic(P.chevd, 8, '#616161', 1.5) + '</span>' +
+      '<span>' + ic(P.plus, 10, G, 1.3) + t('Přidat sloupec', 'Add column') + '</span></div>' +
+      '<div id="rows">' +
+      row('f1', A.appIcon('excel', 14), t('Ceník 2026.xlsx', 'Price list 2026.xlsx'), t('1. října', 'October 1'), 'Lucie Dvořáková') +
+      row('f2', A.appIcon('word', 14), t('Nabídka – Hotel Pod Skalou.docx', 'Quote – Pod Skalou hotel.docx'), t('24. září', 'September 24'), 'Jana Nováková') +
+      row('f3', A.appIcon('ppt', 14), t('Prezentace kolekce Dub.pptx', 'Oak collection deck.pptx'), t('19. září', 'September 19'), 'Petr Svoboda') +
+      '</div></div>';
+    var menu =
+      '<div class="tpop" id="menu" style="right:6px;top:34px">' +
+      mi(ic(P.folder, 14, '#E8A33D', 1.2), t('Složka', 'Folder')) + SEP +
+      mi(ic(P.upfile, 14, G, 1.1), t('Nahrání souborů', 'Files upload')) +
+      mi(ic(P.upfold, 14, G, 1.1), t('Nahrání složky', 'Folder upload')) + SEP +
+      mi(A.appIcon('word', 13), t('Wordový dokument', 'Word document'), 'mWord') +
+      mi(A.appIcon('excel', 13), t('Sešit Excelu', 'Excel workbook')) +
+      mi(A.appIcon('ppt', 13), t('PowerPointová prezentace', 'PowerPoint presentation')) +
+      mi(lt('N', '#7719AA', 13), t('Poznámkový blok OneNotu', 'OneNote notebook')) +
+      mi(lt('F', '#077568', 13), t('Průzkum přes Forms', 'Forms survey')) +
+      mi(lt('V', '#3955A3', 13), t('Výkres Visio', 'Visio drawing')) +
+      mi(ic(P.mdfile, 14, G, 1.1), t('Markdown dokument', 'Markdown document')) +
+      mi(ic(P.txfile, 14, G, 1.1), t('Textový dokument', 'Text document')) +
+      mi(ic(P.link, 14, G, 1.2), t('Odkaz', 'Link')) + SEP +
+      mi(ic(P.edit, 13, G, 1.15), t('Upravit nabídku Nové', 'Edit New menu')) +
+      mi(ic(P.plus, 13, G, 1.3), t('Přidat šablonu', 'Add template')) + '</div>';
+    return A.teamsShell({ tab: 1, chats: true, body: cmd + views + list + menu });
+  }
+  function addRow(flash) {
+    A.$('f1').insertAdjacentHTML('afterend', row('fNew', A.appIcon('word', 14), NEWFN, t('Před několika sekundami', 'A few seconds ago'), 'Jana Nováková', 'add' + (flash ? ' flash' : ''), true));
+    if (flash) setTimeout(function () { var r = A.$('fNew'); if (r) r.classList.remove('flash'); }, 1400);
+  }
+  A.Scene({
+    build: build,
+    lead: 1600,
+    tail: 3000,
+    play: async function (api) {
+      await api.moveTo('bNew', 0.55, 0.55, 1100); await api.click();
+      A.$('bNew').classList.add('down'); A.$('menu').classList.add('on');
+      await api.sleep(900);
+      await api.moveTo('mWord', 0.45, 0.5, 800); A.$('mWord').classList.add('hot');
+      await api.sleep(500); await api.click();
+      A.$('menu').classList.remove('on'); A.$('bNew').classList.remove('down');
+      await api.sleep(700);
+      addRow(true);
+      await api.sleep(500);
+      await api.moveTo('fNew', 0.75, 0.6, 900);
+      await api.sleep(1400);
+      api.hideCursor();
+    },
+    states: {
+      menu: function () { A.$('bNew').classList.add('down'); A.$('menu').classList.add('on'); A.$('mWord').classList.add('hot'); },
+      end: function () { addRow(false); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

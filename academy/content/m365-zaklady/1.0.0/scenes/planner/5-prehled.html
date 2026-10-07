@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Hotovo a přehled</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="planner.js"></script>
+<script>
+/* Scéna 5 – kroužek u úkolu › Dokončené úkoly › Mřížka › Grafy.
+   Podle referencí _ref/planner/p24 (tabule), p25 (kroužek s fajfkou při najetí, „⋯“), p26 (Dokončené úkoly 1), p27 (rozbalené, Dokončil(a)),
+   p28 (Mřížka), p29 (Grafy: Stav, Priorita, Kontejner, Členové). Tooltipy tlačítek zobrazení se vynechávají. */
+(function () {
+  var A = AK, S = AKP, T = S.T, C = S.COLN;
+  var PRI = function () { return T.pri({ pri: 'imp', st: 'ip', cl: '1/3', date: '15. 10.', who: 'JN' }); };
+  function cols(zam, done) {
+    return { cols: [{ n: C[0], tasks: [T.pos(), T.dom()].concat(zam ? [zam] : []) }, { n: C[1], tasks: [T.obj(), PRI()] }, { n: C[2], tasks: [] }], done: done };
+  }
+  function draw(o) { A.$('pl').innerHTML = S.board(o); }
+  var DONE = function (open) { return { n: 1, open: open, task: T.zam({ id: 'tZamD', done: true }) }; };
+  A.Scene({
+    build: function () { return S.shell({ tabLabel: S.PLAN_TAB, body: S.board(cols(T.zam())) }); },
+    lead: 1000,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('tZam', 0.6, 0.3, 900);
+      draw(cols(T.zam({ hvr: true })));
+      await api.sleep(500);
+      await api.moveTo(document.querySelector('#tZam .pn-ck'), 0.5, 0.5, 600);
+      draw(cols(T.zam({ hvr: true, hvc: true })));
+      await api.sleep(600);
+      await api.click();
+      draw(cols(null, DONE(false)));
+      await api.sleep(1000);
+      await api.moveTo('doneH', 0.25, 0.5, 900);
+      await api.click();
+      draw(cols(null, DONE(true)));
+      await api.sleep(1600);
+      await api.moveTo('vgrid', 0.5, 0.5, 900);
+      await api.click();
+      A.$('pl').innerHTML = S.grid();
+      await api.sleep(2200);
+      await api.moveTo('vcharts', 0.5, 0.5, 900);
+      await api.click();
+      A.$('pl').innerHTML = S.charts();
+      await api.sleep(1800);
+      api.hideCursor();
+    },
+    states: {
+      hover: function () { draw(cols(T.zam({ hvr: true, hvc: true }))); },
+      done: function () { draw(cols(null, DONE(false))); },
+      open: function () { draw(cols(null, DONE(true))); },
+      grid: function () { A.$('pl').innerHTML = S.grid(); },
+      end: function () { A.$('pl').innerHTML = S.charts(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

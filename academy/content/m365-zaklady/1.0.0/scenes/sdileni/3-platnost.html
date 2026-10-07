@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Do kdy odkaz platí</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="sdileni.js"></script>
+<script>
+/* Scéna 3 – Nastavte datum ukončení platnosti › kalendář › 31. › Konec platnosti › Použít › zpět v dialogu Sdílet s okem.
+   Podle referencí _ref/sdileni/s05 (vybráno Může zobrazit), s06 (kalendář Říjen 2026, týden od neděle, dnešek 5.),
+   s07 (Konec platnosti: sobota 31. říj 2026), s08 (dialog Sdílet, ikona oprávnění je oko). */
+(function () {
+  var A = AK, S = AKS;
+  var base = { sel: 3, perm: 'view' };
+  function link(o) { var x = {}; for (var k in base) x[k] = base[k]; for (var j in o) x[j] = o[j]; S.setDlg(S.linkDlg(x)); }
+  function share(anim) { S.setDlg(S.shareDlg({ perm: 'view', foc: 'to', anim: anim })); }
+  A.Scene({
+    build: function () { return S.page(S.linkDlg({ sel: 3, perm: 'view', permFoc: true })); },
+    lead: 1200,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('dateF', 0.45, 0.5, 1000);
+      await api.click();
+      link({ date: 'cal' });
+      await api.sleep(1100);
+      await api.moveTo('cd31', 0.5, 0.5, 1000);
+      link({ date: 'cal', calHot: 31 });
+      await api.sleep(500);
+      await api.click();
+      link({ date: 'set' });
+      await api.sleep(1600);
+      await api.moveTo('apply', 0.5, 0.5, 900);
+      await api.sleep(300);
+      await api.click();
+      share(true);
+      await api.sleep(900);
+      await api.moveTo('permBtn', 0.5, 0.5, 900);
+      await api.sleep(1200);
+      api.hideCursor();
+    },
+    states: {
+      cal: function () { link({ date: 'cal' }); },
+      set: function () { link({ date: 'set' }); },
+      end: function () { share(false); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

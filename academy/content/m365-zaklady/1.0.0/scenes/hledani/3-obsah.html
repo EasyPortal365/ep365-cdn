@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Hledání podle obsahu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="hledani.js"></script>
+<script>
+/* Scéna 3 – nový dotaz „recepce dub“ (slova jsou jen uvnitř dokumentu, ne v názvu) › filtr Soubory › Typ souboru › Word.
+   Podle referencí _ref/hledani/h3-soubory-obsah.jpg (token is:Soubory, filtry Typ souboru / V / Osoba / Datum, úryvek
+   se zvýrazněním obou slov) a h4-filtr-typ-souboru.jpg (nabídka Excel … Word, přepínač mřížka / seznam). */
+(function () {
+  var A = AK, H = AKH, S = A.teamsShell;
+  function page(full, q) { return S({ rail: 'none', q: q, full: full }); }
+  function filesView() {
+    A.$('app').innerHTML = page(H.resultsFiles(), H.Q_RD + H.TOKEN);
+  }
+  A.Scene({
+    build: function () { return page(H.resultsAll('p'), H.Q_P); },
+    lead: 1200,
+    tail: 2400,
+    play: async function (api) {
+      /* vymazat dotaz křížkem a napsat nový */
+      await api.moveTo('tsx', 0.5, 0.5, 900); await api.click();
+      S.searchSet('', true);
+      await api.sleep(300);
+      await api.moveTo('tsearch', 0.62, 1.6, 500);
+      await api.type('tsv', H.Q_RD, 11);
+      A.$('tsx').hidden = false;
+      await api.sleep(500);
+      /* Enter › výsledky Vše pro nový dotaz */
+      A.$('tfullm').innerHTML = H.resultsAll('rd'); A.$('srcol').classList.add('sr-in');
+      S.searchSet(H.Q_RD, false);
+      await api.sleep(1500);
+      /* filtr Soubory */
+      await api.moveTo('chip2', 0.5, 0.55, 900); await api.click();
+      filesView(); A.$('srcol').classList.add('sr-in');
+      await api.sleep(1800);
+      /* Typ souboru › Word */
+      await api.moveTo('flt0', 0.45, 0.55, 800); await api.click();
+      A.$('dd').classList.add('on');
+      await api.sleep(700);
+      await api.moveTo('dd7', 0.35, 0.5, 700); A.$('dd7').classList.add('hot');
+      await api.sleep(400); await api.click();
+      A.$('dd').classList.remove('on');
+      await api.sleep(600);
+      await api.moveTo('fileCard', 0.6, 0.75, 900);
+      await api.sleep(1200);
+      api.hideCursor();
+    },
+    states: {
+      all: function () { A.$('app').innerHTML = page(H.resultsAll('rd'), H.Q_RD); },
+      files: function () { filesView(); },
+      type: function () { filesView(); A.$('dd').classList.add('on'); A.$('dd7').classList.add('hot'); },
+      end: function () { filesView(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

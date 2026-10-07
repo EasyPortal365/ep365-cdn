@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Detail úkolu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="planner.js"></script>
+<script>
+/* Scéna 4 – detail úkolu: kontrolní seznam, přiřazení, priorita, stav, termín splnění.
+   Podle referencí _ref/planner/p17 (detail), p18 (kontrolní seznam), p19 (Přiřadit uživateli), p20 (Priorita), p21 (Stav),
+   p22 (termín – kalendář s měsíci), p23 (vyplněný detail). Karta na tabuli se mění stejně jako v předlohách. */
+(function () {
+  var A = AK, S = AKP, T = S.T, C = S.COLN;
+  var ITEMS = [A.t('Rozměry pokojů', 'Room measurements'), A.t('Ceník dubového masivu', 'Solid oak price list'), A.t('Termín dodání', 'Delivery date')];
+  var st = {};
+  function card() {
+    var x = {};
+    if (st.cl) x.cl = (st.clDone || 0) + '/' + st.cl;
+    if (st.pri) x.pri = st.pri;
+    if (st.st) x.st = st.st;
+    if (st.who) x.who = st.who;
+    if (st.due) x.date = '15. 10.';
+    return T.pri(x);
+  }
+  function draw(d) {
+    var dd = {}; for (var k in st) dd[k] = st[k]; for (var j in (d || {})) dd[j] = d[j];
+    if (dd.pri === undefined) dd.pri = 'mid';
+    A.$('pl').innerHTML = S.board({ cols: [{ n: C[0], tasks: [T.pos(), T.dom(), card(), T.zam()] }, { n: C[1], tasks: [T.obj()] }, { n: C[2], tasks: [] }], over: S.detail(dd) });
+  }
+  function boardOnly() { return S.board({ cols: [{ n: C[0], tasks: [T.pos(), T.dom(), T.pri(), T.zam()] }, { n: C[1], tasks: [T.obj()] }, { n: C[2], tasks: [] }] }); }
+  async function pick(api, menu, openId, itemId, hot, apply) {
+    await api.moveTo(openId, 0.5, 0.5, 800);
+    await api.click();
+    draw({ menu: menu });
+    await api.sleep(700);
+    await api.moveTo(itemId, 0.35, 0.5, 600);
+    draw({ menu: menu, hot: hot });
+    await api.sleep(300);
+    await api.click();
+    apply();
+    draw();
+    await api.sleep(800);
+  }
+  A.Scene({
+    build: function () { st = {}; return S.shell({ tabLabel: S.PLAN_TAB, body: boardOnly() }); },
+    lead: 1000,
+    tail: 2800,
+    play: async function (api) {
+      st = {};
+      await api.moveTo('tPri', 0.45, 0.5, 900);
+      await api.click();
+      draw({ anim: true });
+      await api.sleep(1200);
+      await api.moveTo('ciAdd', 0.3, 0.5, 900);
+      await api.click();
+      for (var i = 0; i < 3; i++) {
+        draw({ clEdit: true, caret: true });
+        await api.sleep(250);
+        await api.type('ciV', ITEMS[i], 24);
+        await api.sleep(200);
+        st.cl = i + 1;
+      }
+      draw({ clEdit: true, caret: true });
+      await api.sleep(700);
+      await api.moveTo('ci0', 0.04, 0.5, 700);
+      await api.click();
+      st.clDone = 1;
+      draw();
+      await api.sleep(700);
+      await pick(api, 'ppl', 'dWho', 'ppJN', 'JN', function () { st.who = 'JN'; });
+      await pick(api, 'pri', 'dPri', 'po1', 1, function () { st.pri = 'imp'; });
+      await pick(api, 'st', 'dSt', 'so1', 1, function () { st.st = 'ip'; });
+      await api.moveTo('dDue', 0.5, 0.5, 800);
+      await api.click();
+      draw({ menu: 'cal' });
+      await api.sleep(700);
+      await api.moveTo('dd15', 0.5, 0.5, 700);
+      draw({ menu: 'cal', hot: 15 });
+      await api.sleep(300);
+      await api.click();
+      st.due = '15. 10. 2026';
+      draw();
+      await api.sleep(1000);
+      api.hideCursor();
+    },
+    states: {
+      open: function () { st = {}; draw(); },
+      list: function () { st = { cl: 3 }; draw({ clEdit: true, hvrRow: 0 }); },
+      ppl: function () { st = { cl: 3, clDone: 1 }; draw({ menu: 'ppl' }); },
+      pri: function () { st = { cl: 3, clDone: 1, who: 'JN' }; draw({ menu: 'pri' }); },
+      st: function () { st = { cl: 3, clDone: 1, who: 'JN' }; draw({ menu: 'st' }); },
+      cal: function () { st = { cl: 3, clDone: 1, who: 'JN', pri: 'imp', st: 'ip' }; draw({ menu: 'cal' }); },
+      end: function () { st = { cl: 3, clDone: 1, who: 'JN', pri: 'imp', st: 'ip', due: '15. 10. 2026' }; draw(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

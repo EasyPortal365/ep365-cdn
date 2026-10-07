@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Můj účet</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="ucet.js"></script>
+<script>
+/* Scéna 1 – Můj účet › Domů › karta Zobrazit zařízení. Podle referencí _ref/notebook/d01 (Domů) a d02 (Zařízení). */
+(function () {
+  var A = AK, U = AKU;
+  A.Scene({
+    build: function () { return U.page({ view: 'home' }); },
+    lead: 1200,
+    tail: 2400,
+    play: async function (api) {
+      await api.moveTo('cDev', 0.5, 0.75, 1200);
+      U.show({ view: 'home', hv: 'cDev' });
+      await api.sleep(900);
+      await api.click();
+      U.show({ view: 'dev', anim: true });
+      await api.sleep(1600);
+      await api.moveTo('devName', 0.5, 0.5, 900);
+      await api.sleep(800);
+      api.hideCursor();
+    },
+    states: {
+      end: function () { U.show({ view: 'dev' }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Výsledky hledání</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="hledani.js"></script>
+<script>
+/* Scéna 2 – „Penzion“ + Enter › stránka výsledků Vše.
+   Podle reference _ref/hledani/h2-vysledky-vse.jpg: filtry Vše, Zprávy, Soubory, Lidé, Kanály, Skupinové chaty, Schůzky, +2;
+   V / Osoba / Datum; sekce Soubory (karta s úryvkem z obsahu), Další soubory, Zprávy, Další zprávy, Lidé, Skupinové chaty, Kanály. */
+(function () {
+  var A = AK, H = AKH, S = A.teamsShell;
+  function channel() { return S({ tab: 0, q: H.Q_P, body: H.channelFeed(), pop: H.suggest().replace('class="sg"', 'class="sg on"') }); }
+  function results() { return S({ rail: 'none', q: H.Q_P, full: H.resultsAll('p') }); }
+  function showResults(anim) {
+    A.$('app').innerHTML = results();
+    if (anim) A.$('srcol').classList.add('sr-in');
+  }
+  A.Scene({
+    build: channel,
+    lead: 1600,
+    tail: 2800,
+    play: async function (api) {
+      /* Enter v poli hledání */
+      A.$('sg').classList.remove('on');
+      await api.sleep(450);
+      showResults(true);
+      await api.sleep(1200);
+      await api.moveTo('fileCard', 0.42, 0.78, 1000);
+      await api.sleep(1500);
+      await api.moveTo('msgCard', 0.55, 0.42, 900);
+      await api.sleep(1500);
+      api.hideCursor();
+    },
+    states: {
+      end: function () { showResults(false); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

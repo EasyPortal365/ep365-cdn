@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Sdílení ze složky týmu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="sdileni.js"></script>
+<script>
+/* Scéna 1 – knihovna Dokumenty › Nabídky týmového webu, najetí na řádek souboru, ikona sdílení › dialog Sdílet.
+   Podle reference _ref/sdileni/s00-knihovna.jpg (bez panelu Další kroky) a s01-dialog.jpg (prázdný dialog Sdílet). */
+(function () {
+  var A = AK, S = AKS;
+  function hover(on) { A.$('row').classList.toggle('hover', on); }
+  function openDlg(anim) { S.setDlg(S.shareDlg({ foc: 'to', anim: anim })); }
+  A.Scene({
+    build: function () { return S.page(''); },
+    lead: 1200,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('row', 0.13, 0.5, 1100);
+      hover(true);
+      await api.sleep(900);
+      await api.moveTo('rowShare', 0.5, 0.55, 700);
+      await api.sleep(500);
+      await api.click();
+      hover(false);
+      openDlg(true);
+      await api.sleep(900);
+      await api.moveTo('toBox', 0.45, 0.6, 900);
+      await api.sleep(900);
+      await api.moveTo('send', 0.5, 0.5, 900);
+      await api.sleep(700);
+      api.hideCursor();
+    },
+    states: {
+      hover: function () { hover(true); },
+      end: function () { openDlg(false); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

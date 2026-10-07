@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Zakázání zařízení</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="ucet.js"></script>
+<script>
+/* Scéna 3 – Zakázání zařízení › dialog „Zakázat …?“ › kurzor na Zakázat. Podle reference _ref/notebook/d03.
+   Stav po zakázání předloha nemá – scéna končí kurzorem na tlačítku, bez kliknutí. */
+(function () {
+  var A = AK, U = AKU;
+  A.Scene({
+    build: function () { return U.page({ view: 'dev' }); },
+    lead: 1000,
+    tail: 3000,
+    play: async function (api) {
+      await api.moveTo('lnkDisable', 0.5, 0.6, 1100);
+      await api.sleep(300);
+      await api.click();
+      U.show({ view: 'dev', dlg: true, anim: true });
+      await api.sleep(2600);
+      await api.moveTo('bDisable', 0.5, 0.55, 1000);
+    },
+    states: {
+      end: function () { U.show({ view: 'dev', dlg: true }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

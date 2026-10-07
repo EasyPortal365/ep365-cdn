@@ -191,3 +191,25 @@
 # Kontrola commit/PR zprav (atribuce asistenta) - generuje ep365-docs/scripts/install-pr-attribution-workflow.js.
 # Bez teto vyjimky workflow na GitHub nikdy nedojel a kontrola v tomhle repu nebezela (audit 2026-09-23).
 !.github/workflows/no-assistant-attribution.yml
+
+# Obsahové balíčky Akademie (cdn.easyportal365.cz/academy/content/<balíček>/) — vzor
+# governance balíku. Bezpečné a ZÁMĚRNĚ veřejné:
+#   <balíček>/index.json            ukazatel na vydanou verzi obsahu,
+#   <balíček>/<verze>/manifest.json katalog (názvy, popisy, délky) – placený text v něm NENÍ,
+#   <balíček>/<verze>/data/**/*.json      VOLNÉ kurzy (průvodci, karty aplikací),
+#   <balíček>/<verze>/data/**/*.json.enc  placené kurzy, AES-GCM šifrované klíčem balíčku,
+#   <balíček>/<verze>/{scenes,ep365-anim,assets,fonts}/  animace scén (HTML/JS/CSS) a písma,
+#   <balíček>/wrap/<generace>/*.json      klíč balíčku zabalený aktivačním kódem tenanta.
+# ⚠ Klíč balíčku ani aktivační kódy sem NIKDY nepatří — žijí v keyfile mimo repo
+#   (runbook 00-continuity/runbooks/akademie-obsah.md).
+!academy/content/*/index.json
+!academy/content/*/*/manifest.json
+!academy/content/*/*/data/**/*.json
+!academy/content/*/*/data/**/*.json.enc
+!academy/content/*/*/scenes/**/*.html
+!academy/content/*/*/scenes/**/*.css
+!academy/content/*/*/ep365-anim/*.html
+!academy/content/*/*/assets/*.css
+!academy/content/*/*/fonts/*.woff2
+!academy/content/*/*/ep365-anim/fonts/*.woff2
+!academy/content/*/wrap/*/*.json

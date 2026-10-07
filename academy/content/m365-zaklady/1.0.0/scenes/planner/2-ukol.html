@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Úkol, termín a řešitel</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="planner.js"></script>
+<script>
+/* Scéna 2 – Přidat úkol › název › Nastavit termín splnění › Přiřadit › Přidat úkol › karta na tabuli.
+   Podle referencí _ref/planner/p10 (prázdný plán), p11 (formulář nového úkolu), p12 (kalendář, týden od pondělí, dnešek 5.),
+   p13 (Přiřadit – Návrhy), p14 (Přiřazeno), p15 (karta s termínem a řešitelem). */
+(function () {
+  var A = AK, S = AKP;
+  var TITLE = A.t('Zaměřit pokoje v penzionu', 'Measure guesthouse rooms');
+  function boardWith(o) { A.$('pl').innerHTML = S.board(o); }
+  function col(tasks) { return [{ n: S.COLN[0], tasks: tasks || [] }]; }
+  function f(o) { boardWith({ cols: col(), form: o }); }
+  A.Scene({
+    build: function () { return S.shell({ tabLabel: S.PLAN_TAB, body: S.board({ cols: col() }) }); },
+    lead: 1100,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('add0', 0.35, 0.5, 900);
+      await api.click();
+      f({ caret: true, title: '' });
+      await api.sleep(400);
+      await api.type('tfV', TITLE, 18);
+      f({ title: TITLE });
+      await api.sleep(400);
+      await api.moveTo('tfDate', 0.45, 0.5, 700);
+      await api.click();
+      f({ title: TITLE, pop: 'cal' });
+      await api.sleep(800);
+      await api.moveTo('cd8', 0.5, 0.5, 800);
+      f({ title: TITLE, pop: 'cal', hot: 8 });
+      await api.sleep(300);
+      await api.click();
+      f({ title: TITLE, date: '08. 10.' });
+      await api.sleep(700);
+      await api.moveTo('tfWho', 0.3, 0.5, 700);
+      await api.click();
+      f({ title: TITLE, date: '08. 10.', pop: 'ppl' });
+      await api.sleep(900);
+      await api.moveTo('ppPS', 0.4, 0.5, 700);
+      f({ title: TITLE, date: '08. 10.', pop: 'ppl', pplHot: 'PS' });
+      await api.sleep(300);
+      await api.click();
+      f({ title: TITLE, date: '08. 10.', who: 'PS', pop: 'ppl' });
+      await api.sleep(1200);
+      await api.moveTo('tfIn', 0.7, 0.5, 700);
+      await api.click();
+      f({ title: TITLE, date: '08. 10.', who: 'PS' });
+      await api.sleep(400);
+      await api.moveTo('tfAdd', 0.5, 0.5, 700);
+      await api.click();
+      boardWith({ cols: col([S.T.zam({ add: true })]) });
+      await api.sleep(900);
+      await api.moveTo('tZam', 0.85, 0.75, 900);
+      await api.sleep(900);
+      api.hideCursor();
+    },
+    states: {
+      form: function () { f({ title: '' }); },
+      cal: function () { f({ title: TITLE, pop: 'cal' }); },
+      ppl: function () { f({ title: TITLE, date: '08. 10.', pop: 'ppl' }); },
+      who: function () { f({ title: TITLE, date: '08. 10.', who: 'PS', pop: 'ppl' }); },
+      end: function () { boardWith({ cols: col([S.T.zam()]) }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

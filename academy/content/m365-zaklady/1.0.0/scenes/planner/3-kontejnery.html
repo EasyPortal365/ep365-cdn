@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Sloupce podle postupu práce</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="planner.js"></script>
+<script>
+/* Scéna 3 – Přidat nový kontejner › „Probíhá“, „Hotovo“ › přetažení karty do sloupce Probíhá.
+   Podle referencí _ref/planner/p16 (pět úkolů, pole Název kontejneru) a p17/p24 (tabule se sloupci Úkoly / Probíhá / Hotovo,
+   „Objednat vzorky dubu“ v Probíhá). Podobu karty během přetahování předloha nemá – karta se jen posune s kurzorem. */
+(function () {
+  var A = AK, S = AKP, T = S.T, C = S.COLN;
+  function five() { return [T.pos(), T.dom(), T.pri(), T.obj(), T.zam()]; }
+  function draw(o) { A.$('pl').innerHTML = S.board(o); }
+  A.Scene({
+    build: function () { return S.shell({ tabLabel: S.PLAN_TAB, body: S.board({ cols: [{ n: C[0], tasks: five() }] }) }); },
+    lead: 1100,
+    tail: 2600,
+    play: async function (api) {
+      var cols = [{ n: C[0], tasks: five() }];
+      for (var i = 1; i <= 2; i++) {
+        await api.moveTo('newc', 0.5, 0.5, 900);
+        await api.click();
+        draw({ cols: cols, cin: { caret: true } });
+        await api.sleep(500);
+        A.$('cinPh').hidden = true;
+        await api.type('cinV', C[i], 12);
+        await api.sleep(400);
+        cols.push({ n: C[i], tasks: [] });
+        draw({ cols: cols });
+        await api.sleep(700);
+      }
+      /* přetažení „Objednat vzorky dubu“ do Probíhá */
+      await api.moveTo('tObj', 0.4, 0.5, 900);
+      var card = A.$('tObj'), r0 = S.at(card), col = S.at('col1');
+      var offX = r0.w * 0.4, offY = r0.h * 0.5;
+      var dest = { x: col.x + 1.19, y: col.y + 53 * 1.19 };
+      card.classList.add('lift');
+      await api.sleep(250);
+      card.style.transition = 'transform .9s cubic-bezier(.45,.05,.25,1)';
+      card.style.transform = 'translate(' + ((dest.x - r0.x) / 1.19) + 'px,' + ((dest.y - r0.y) / 1.19) + 'px)';
+      await api.moveTo('col1', (dest.x + offX - col.x) / col.w, (dest.y + offY - col.y) / col.h, 900);
+      await api.sleep(150);
+      draw({ cols: [{ n: C[0], tasks: [T.pos(), T.dom(), T.pri(), T.zam()] }, { n: C[1], tasks: [T.obj()] }, { n: C[2], tasks: [] }] });
+      await api.sleep(900);
+      api.hideCursor();
+    },
+    states: {
+      cin: function () { draw({ cols: [{ n: C[0], tasks: five() }], cin: {} }); },
+      end: function () { draw({ cols: [{ n: C[0], tasks: [T.pos(), T.dom(), T.pri(), T.zam()] }, { n: C[1], tasks: [T.obj()] }, { n: C[2], tasks: [] }] }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

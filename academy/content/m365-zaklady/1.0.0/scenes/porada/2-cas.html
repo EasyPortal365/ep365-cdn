@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Kdy mají všichni čas</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="porada.js"></script>
+<script>
+/* Scéna 2 – Navrženo: volné časy pod časem schůzky › Pomocník pro plánování.
+   Podle referencí _ref/porada/m02, m06 (Navrženo: 14:30 – 15:00, 15:00 – 15:30, 15:30 – 16:00) a m11 (Pomocník pro plánování:
+   účastníci K dispozici, časová osa, vybraný čas schůzky). Ve viditelném výseku časové osy nejsou žádné obsazené časy. */
+(function () {
+  var A = AK, M = AKM, T = M.TITLE;
+  var S = { title: T, att: 'chip', chan: 'set' };
+  function show(o) { var x = {}; for (var k in S) x[k] = S[k]; for (var j in (o || {})) x[j] = o[j]; A.$('app').innerHTML = M.page(x); }
+  A.Scene({
+    build: function () { return M.page(S); },
+    lead: 1000,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('sg0', 0.5, 0.6, 1000);
+      await api.sleep(600);
+      await api.moveTo('sg1', 0.5, 0.6, 500);
+      await api.sleep(400);
+      await api.moveTo('sg2', 0.5, 0.6, 500);
+      await api.sleep(700);
+      await api.moveTo('tabSa', 0.5, 0.5, 900);
+      await api.click();
+      show({ tab: 1 });
+      document.querySelector('.mt-sa').classList.add('sr-in');
+      await api.sleep(1300);
+      await api.moveTo('saJN', 0.4, 0.5, 900);
+      await api.sleep(700);
+      await api.moveTo('saPS', 0.4, 0.5, 600);
+      await api.sleep(700);
+      await api.moveTo('slot', 0.5, 0.3, 900);
+      await api.sleep(1200);
+      api.hideCursor();
+    },
+    states: {
+      end: function () { show({ tab: 1 }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

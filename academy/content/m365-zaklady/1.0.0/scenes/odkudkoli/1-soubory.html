@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Soubory v OneDrivu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="odk.js"></script>
+<script>
+/* Scéna 1 – OneDrive v prohlížeči › Moje soubory: složky, sloupec Sdílení (Soukromé / Sdíleno).
+   Podle reference _ref/odkudkoli/o02 (široké okno). Složky a lidé jsou fiktivní. */
+(function () {
+  var A = AK, O = AKO;
+  function show(o) { A.$('app').innerHTML = '<div class="odw-bg"></div>' + O.mine(o); }
+  A.Scene({
+    build: function () { return '<div class="odw-bg"></div>' + O.mine({}); },
+    lead: 1200,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('fr0', 0.12, 0.5, 1000);
+      show({ hv: 0 });
+      await api.sleep(800);
+      await api.moveTo('fr2', 0.12, 0.5, 700);
+      show({ hv: 2 });
+      await api.sleep(900);
+      await api.moveTo('shared1', 0.5, 0.5, 900);
+      show({ hv: 1 });
+      await api.sleep(1500);
+      await api.moveTo('fr3', 0.75, 0.5, 800);
+      show({ hv: 3 });
+      await api.sleep(1200);
+      api.hideCursor();
+    },
+    states: {
+      end: function () { show({}); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

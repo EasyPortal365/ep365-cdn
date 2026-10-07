@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EasyPortal 365 – Workplace</title>
+<style>
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/fraunces-latin-600-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/fraunces-latin-ext-600-italic.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+  :root { --navy:#002163; --teal:#15C6D4; --teal7:#00A8B0; --tealb:#00CED7; --muted:#4A5874; --soft:#7A8499; --line:#E0E6EF; --mint:#E4F7F6; --kick:#1FB8AE; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { background:transparent; }
+  html, body { overflow:hidden; }
+  body { font-family:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif; color:var(--navy); }
+  .stage-box { position:relative; width:100%; overflow:hidden; border-radius:14px; background:#fff; box-shadow:0 24px 60px -24px rgba(0,33,99,.35), 0 0 0 1px rgba(0,33,99,.08); }
+  html.embed .stage-box { box-shadow:none; border-radius:0; }
+  .stage { position:absolute; left:0; top:0; width:1160px; height:660px; transform-origin:0 0; background:#fff; overflow:hidden; transition:opacity .5s; }
+  .stage.fade { opacity:0; }
+  .suite { height:34px; background:#0078D4; display:flex; align-items:center; padding:0 12px; font-family:"Segoe UI",system-ui,sans-serif; color:#fff; position:relative; z-index:3; }
+  .suite .search { position:absolute; left:50%; transform:translateX(-50%); width:330px; height:22px; background:#fff; border-radius:3px; color:#605E5C; font-size:11.5px; display:flex; align-items:center; gap:8px; padding:0 10px; }
+  .suite .r { margin-left:auto; display:flex; gap:16px; align-items:center; }
+  .suite .av { width:22px; height:22px; border-radius:50%; background:#DDE3EC; color:#0B3D91; font-size:9px; font-weight:600; display:grid; place-items:center; }
+  .view { height:626px; overflow:clip; position:relative; background:#fff; }
+  .page { padding:16px 14px 40px; transition:transform 1.5s cubic-bezier(.45,.05,.25,1); will-change:transform; }
+  .page.instant { transition:none; }
+
+  /* Hero */
+  .hero { position:relative; height:300px; border-radius:16px; color:#fff; padding:0 49px;
+    background:radial-gradient(120% 140% at 85% 0%,rgba(0,206,215,.18),transparent 55%),linear-gradient(115deg,#0a2a63 0%,#0b3f7d 55%,#0a4f8f 100%); overflow:hidden; }
+  .hero::before { content:""; position:absolute; inset:0; background:repeating-linear-gradient(120deg,rgba(255,255,255,.035) 0 2px,transparent 2px 34px); pointer-events:none; }
+  .hrow1 { position:absolute; left:49px; right:43px; top:22px; display:flex; align-items:center; justify-content:space-between; }
+  .hsearch { width:265px; height:30px; border-radius:999px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); display:flex; align-items:center; gap:8px; padding:0 12px; font-size:11.5px; color:#fff; }
+  .hsearch kbd { margin-left:auto; font-family:"JetBrains Mono",monospace; font-size:8.5px; background:rgba(255,255,255,.2); border-radius:4px; padding:1px 5px; }
+  .hnav { display:flex; align-items:center; gap:2px; height:34px; padding:0 5px; border-radius:20px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); }
+  .hp { display:flex; align-items:center; gap:6px; height:26px; padding:0 11px; border-radius:999px; font-size:11.5px; font-weight:600; color:rgba(255,255,255,.85); white-space:nowrap; }
+  .hp.on { background:var(--tealb); color:var(--navy); font-weight:700; }
+  .bdg { min-width:20px; height:15px; border-radius:8px; font-size:9.5px; font-weight:700; display:grid; place-items:center; padding:0 5px; color:#fff; }
+  .bdg.red { background:#D14343; } .bdg.teal { background:#5BE2E6; color:#00434a; } .bdg.w { background:rgba(255,255,255,.22); }
+  .hrow2 { position:absolute; left:49px; right:43px; top:82px; display:flex; align-items:center; justify-content:space-between; }
+  .hdate { font-family:"JetBrains Mono",monospace; font-size:9.5px; letter-spacing:.18em; color:#5BE2E6; }
+  .hdate b { color:#fff; font-weight:500; letter-spacing:.06em; margin-left:10px; }
+  .hicons { display:flex; gap:8px; align-items:center; }
+  .hic { width:26px; height:26px; border-radius:50%; border:1px solid rgba(255,255,255,.3); display:grid; place-items:center; background:rgba(255,255,255,.06); }
+  .hsep { width:1px; height:16px; background:rgba(255,255,255,.3); }
+  .hh1 { position:absolute; left:49px; top:116px; font-family:Manrope,"Plus Jakarta Sans",sans-serif; font-weight:800; font-size:44px; letter-spacing:-.03em; line-height:1.1; }
+  .hh1 i { font-family:Fraunces,Georgia,serif; font-style:italic; font-weight:600; color:transparent; -webkit-text-stroke:1.2px #4FE3E8; letter-spacing:-.04em; }
+  .hsub { position:absolute; left:49px; top:179px; font-size:13px; color:#fff; opacity:.95; }
+
+  /* headline card */
+  .hcard { position:relative; display:flex; margin:-92px 39px 0; height:283px; background:#fff; border-radius:14px; border:1px solid var(--line); box-shadow:0 24px 48px -16px rgba(11,30,63,.18), 0 6px 14px -6px rgba(11,30,63,.1); overflow:hidden; }
+  .hcard .tx { flex:1; padding:32px 40px 26px; display:flex; flex-direction:column; }
+  .chips { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .chip1 { font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.14em; color:#008a91; background:#DDF7F8; border:1px solid rgba(0,206,215,.4); border-radius:999px; padding:3px 10px 3px 8px; display:flex; align-items:center; gap:5px; }
+  .chip1::before { content:""; width:5px; height:5px; border-radius:50%; background:#00CED7; }
+  .chip2 { font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.14em; color:#33456B; background:#E6ECF5; border-radius:999px; padding:3px 10px; }
+  .chipd { font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.14em; color:var(--soft); }
+  .hcard h3 { font-family:Manrope,"Plus Jakarta Sans",sans-serif; font-weight:800; font-size:33px; letter-spacing:-.03em; line-height:1.1; margin-bottom:12px; max-width:520px; }
+  .hcard p { font-size:12.5px; line-height:1.55; color:var(--muted); max-width:470px; }
+  .auth { display:flex; align-items:center; gap:10px; }
+  .av { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#0a4f8f,#00B5BD); color:#fff; font-size:10.5px; font-weight:700; display:grid; place-items:center; flex:none; }
+  .auth b { display:block; font-size:12px; } .auth span { font-size:10.5px; color:var(--soft); }
+  .cta { margin-left:auto; height:32px; padding:0 18px; border-radius:999px; background:var(--navy); color:#fff; font-weight:700; font-size:12px; display:flex; align-items:center; gap:7px; }
+  .hcard .im { width:438px; flex:none; position:relative; }
+
+  /* generic sections */
+  .sh { display:flex; align-items:center; gap:9px; margin:0; font-family:Manrope,"Plus Jakarta Sans",sans-serif; font-weight:800; font-size:17px; letter-spacing:-.01em; }
+  .sh small { font-family:"JetBrains Mono",monospace; font-weight:500; font-size:8.5px; letter-spacing:.2em; color:var(--soft); margin-left:2px; }
+  .shrow { display:flex; align-items:center; justify-content:space-between; }
+  .lnk { font-size:11px; color:var(--muted); font-weight:500; display:flex; align-items:center; gap:4px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; }
+  .qa { margin-top:14px; padding:14px; display:grid; grid-template-columns:repeat(5,1fr); gap:11px; }
+  .qt { display:flex; align-items:center; gap:11px; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:#fff; height:63px; }
+  .qi { width:36px; height:36px; border-radius:10px; display:grid; place-items:center; flex:none; }
+  .qt b { display:block; font-size:12.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:118px; }
+  .qt span { display:block; font-size:10.5px; color:var(--soft); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:118px; margin-top:1px; }
+  .qt .ch { margin-left:auto; }
+  .kick { display:flex; align-items:center; gap:14px; margin:26px 0 22px; font-family:"JetBrains Mono",monospace; font-size:9px; letter-spacing:.22em; color:var(--kick); }
+  .kick::after { content:""; flex:1; height:1px; background:linear-gradient(90deg,#CFD8E5,rgba(207,216,229,0)); }
+  .g3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .tag { display:inline-block; font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.1em; color:#33707a; background:#E3F4F6; border-radius:5px; padding:2px 7px; }
+  .meta { font-family:"JetBrains Mono",monospace; font-size:9px; color:var(--soft); }
+  .big { grid-row:span 2; overflow:hidden; display:flex; flex-direction:column; }
+  .big .im { height:176px; position:relative; }
+  .big .bd { padding:16px 18px 16px; display:flex; flex-direction:column; flex:1; }
+  .big h4 { font-family:Manrope,"Plus Jakarta Sans",sans-serif; font-weight:800; font-size:17px; letter-spacing:-.02em; margin:10px 0 8px; }
+  .big p { font-size:11.5px; line-height:1.55; color:var(--muted); }
+  .big .auth { margin-top:auto; padding-top:12px; }
+  .big .av { width:26px; height:26px; font-size:8.5px; }
+  .big .auth b { font-size:11px; display:inline; } .big .auth span { font-size:10.5px; }
+  .sm { display:flex; overflow:hidden; height:170px; }
+  .sm.s2 { height:122px; }
+  .sm .im { width:106px; flex:none; position:relative; }
+  .sm .bd { padding:14px 14px 12px; display:flex; flex-direction:column; min-width:0; }
+  .sm h5 { font-size:13px; font-weight:700; margin-bottom:6px; }
+  .sm p { font-size:10.5px; line-height:1.5; color:var(--muted); display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  .sm .meta { margin-top:auto; }
+  .links { padding:14px; display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
+  .lk { display:flex; align-items:center; gap:9px; background:#F1F6FC; border-radius:10px; padding:0 10px; height:37px; font-size:11px; font-weight:600; white-space:nowrap; overflow:hidden; }
+  .lk i { width:24px; height:24px; border-radius:8px; background:#D6F3F5; display:grid; place-items:center; flex:none; }
+  .evs { margin-top:12px; overflow:hidden; }
+  .ev { display:flex; align-items:center; gap:14px; padding:10px 14px; border-bottom:1px solid #EEF2F7; height:64px; }
+  .ev:last-child { border-bottom:0; }
+  .dbox { width:46px; height:44px; border-radius:10px; background:#EDF4FB; text-align:center; padding-top:4px; flex:none; }
+  .dbox b { display:block; font-family:Manrope,sans-serif; font-weight:800; font-size:17px; line-height:1.15; }
+  .dbox span { font-family:"JetBrains Mono",monospace; font-size:8px; color:var(--teal7); letter-spacing:.08em; }
+  .ev .t b { display:block; font-size:12px; } .ev .t span { display:block; margin-top:3px; font-family:"JetBrains Mono",monospace; font-size:9px; color:var(--soft); }
+  .ev .ci { margin-left:auto; width:26px; height:26px; border:1px solid rgba(0,181,189,.4); border-radius:8px; display:grid; place-items:center; }
+  .eq > div { display:flex; flex-direction:column; } .eq .card { flex:1; height:auto; } .eq .safe, .eq .pc { height:auto; }
+  .lk span { overflow:hidden; text-overflow:ellipsis; min-width:0; }
+  .lead { overflow:hidden; margin-top:14px; }
+  .lead .vid { height:117px; background:linear-gradient(135deg,#0a2a63,#0b6fa8 55%,#00C2CC); display:grid; place-items:center; }
+  .play { width:46px; height:46px; border-radius:50%; background:#fff; display:grid; place-items:center; box-shadow:0 8px 20px -8px rgba(0,0,0,.4); }
+  .lead .bd { padding:18px 20px 18px; }
+  .lead .mk { font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.2em; color:var(--soft); }
+  .lead h4 { font-family:Manrope,sans-serif; font-weight:800; font-size:17px; letter-spacing:-.02em; margin:10px 0 8px; }
+  .lead p { font-size:11.5px; line-height:1.55; color:var(--muted); }
+  .lead .auth { margin-top:14px; } .lead .av { width:30px; height:30px; font-size:9.5px; }
+  .safe { margin-top:14px; text-align:center; padding:26px 22px 22px; position:relative; overflow:hidden; height:340px; }
+  .safe .pill { display:inline-flex; align-items:center; gap:6px; font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.14em; color:#1a8a5a; background:#E7F7EE; border:1px solid rgba(52,179,106,.35); border-radius:999px; padding:3px 11px; }
+  .safe .pill::before { content:""; width:5px; height:5px; border-radius:50%; background:#34B36A; }
+  .safe .num { font-family:Manrope,sans-serif; font-weight:800; font-size:66px; letter-spacing:-.04em; line-height:1; margin-top:14px; }
+  .safe .cap { font-weight:700; font-size:14px; margin-top:6px; } .safe .since { font-size:11px; color:var(--soft); margin-top:5px; }
+  .safe .goal { display:flex; justify-content:space-between; font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.1em; color:var(--soft); margin-top:22px; }
+  .safe .goal b { color:var(--teal7); font-weight:500; }
+  .safe .bar { height:6px; border-radius:3px; background:#E8EEF5; margin-top:6px; overflow:hidden; } .safe .bar i { display:block; height:100%; width:33%; background:linear-gradient(90deg,var(--teal7),#2ED7DE); border-radius:3px; }
+  .safe .rest { text-align:left; font-size:10.5px; color:var(--soft); margin-top:6px; }
+  .safe .sh-bg { position:absolute; right:-6px; top:-10px; opacity:.5; }
+  .kud { padding:14px; margin-top:8px; }
+  .praise { border:1px solid var(--line); border-radius:12px; padding:11px 14px; margin-bottom:8px; background:#fff; }
+  .praise .t { display:flex; align-items:center; gap:9px; font-size:11px; }
+  .praise .t .a { width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,#0a4f8f,#00B5BD); color:#fff; font-size:8px; font-weight:700; display:grid; place-items:center; flex:none; }
+  .praise .t b { font-weight:700; } .praise .t em { font-style:normal; color:var(--soft); margin:0 3px; } .praise .t u { text-decoration:none; color:var(--teal7); font-weight:700; }
+  .praise .t .ed { margin-left:auto; color:var(--teal7); font-weight:600; font-size:10.5px; }
+  .praise q { display:block; quotes:none; font-size:11px; line-height:1.45; margin:5px 0 8px 33px; }
+  .praise .r { display:flex; align-items:center; gap:6px; margin-left:33px; }
+  .praise .r i { width:19px; height:19px; border-radius:50%; border:1px solid var(--line); display:block; }
+  .praise .r span { margin-left:auto; margin-right:-4px; font-size:10.5px; color:var(--soft); }
+  .btnk { display:inline-flex; align-items:center; gap:6px; height:26px; padding:0 14px; border-radius:999px; background:var(--tealb); color:var(--navy); font-weight:700; font-size:11px; }
+  .pc { margin-top:14px; height:296px; padding:20px 22px; text-align:center; position:relative; overflow:hidden; }
+  .pc .k { font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.2em; color:var(--kick); }
+  .pc .ava { width:66px; height:66px; border-radius:50%; background:linear-gradient(135deg,#0a4f8f,#00B5BD); color:#fff; font-family:Manrope,sans-serif; font-weight:800; font-size:20px; display:grid; place-items:center; margin:12px auto 8px; }
+  .pc h4 { font-family:Manrope,sans-serif; font-weight:800; font-size:15px; } .pc .ro { font-size:10.5px; color:var(--muted); margin-top:2px; }
+  .pc q { display:block; quotes:none; font-style:italic; font-size:11px; line-height:1.5; margin-top:12px; }
+  .pc .tm { font-family:"JetBrains Mono",monospace; font-size:8px; letter-spacing:.2em; color:var(--soft); border-top:1px solid #EEF2F7; padding-top:12px; margin-top:16px; }
+  .pc .mini { display:flex; gap:6px; justify-content:center; margin-top:8px; } .pc .mini i { width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg,#0a4f8f,#00B5BD); color:#fff; font-style:normal; font-size:7px; font-weight:700; display:grid; place-items:center; }
+  .pc .rows { border-top:1px solid #EEF2F7; margin-top:14px; padding-top:8px; text-align:left; font-size:10.5px; }
+  .pc .rows div { display:flex; justify-content:space-between; color:var(--soft); padding:2px 0; } .pc .rows b { color:var(--navy); font-weight:600; }
+  .pc.fact { text-align:left; } .pc.fact h4 { font-size:16px; margin-top:12px; } .pc.fact p { font-size:11.5px; line-height:1.55; color:var(--muted); margin-top:8px; }
+  .pc.fact .ft { position:absolute; left:22px; right:22px; bottom:18px; display:flex; align-items:center; gap:8px; font-size:11px; color:var(--teal7); font-weight:700; }
+  .dots { display:flex; gap:5px; } .dots i { width:5px; height:5px; border-radius:50%; background:#BFEFF2; } .dots i.on { width:16px; border-radius:3px; background:var(--tealb); }
+  .nxt { margin-left:auto; border:1px solid rgba(0,181,189,.4); border-radius:999px; padding:4px 14px; color:var(--teal7); font-weight:600; }
+
+  .ovl { position:absolute; inset:0; pointer-events:none; z-index:5; overflow:hidden; }
+  .obk { position:absolute; inset:0; background:rgba(0,18,52,.5); backdrop-filter:blur(2px); opacity:0; transition:opacity .35s; display:flex; justify-content:center; align-items:flex-start; padding-top:22px; }
+  .obk.on { opacity:1; } .obk.evk { padding-top:74px; backdrop-filter:blur(4px); }
+  .mdl { position:relative; background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 24px 48px -16px rgba(11,30,63,.35); transform:translateY(10px) scale(.98); transition:transform .35s; }
+  .obk.on .mdl { transform:none; }
+  .mdl.art { width:660px; height:566px; } .artIn { transition:transform 2.4s cubic-bezier(.4,0,.2,1); }
+  .aim { height:150px; position:relative; } .abd { padding:20px 34px 30px; }
+  .abd h2 { font-family:Manrope,"Plus Jakarta Sans",sans-serif; font-weight:800; font-size:25px; letter-spacing:-.03em; margin:10px 0 12px; }
+  .abd hr, .mdl hr { border:0; border-top:1px solid #E4EAF2; margin:16px 0; }
+  .ah { font-weight:800; font-size:11.5px; letter-spacing:.02em; margin-top:18px; } .ah2 { font-weight:800; font-size:11.5px; margin-bottom:8px; }
+  .ap { font-size:12px; line-height:1.6; color:#33456B; margin-top:10px; }
+  .mx { position:absolute; top:12px; right:12px; width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.96); display:grid; place-items:center; box-shadow:0 2px 8px rgba(0,0,0,.18); }
+  .mdl.evm { width:420px; padding:24px 28px 20px; } .evh { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+  .dbox.big2 { width:58px; height:56px; padding-top:7px; } .dbox.big2 b { font-size:22px; }
+  .evh h3 { font-family:Manrope,"Plus Jakarta Sans",sans-serif; font-weight:800; font-size:20px; letter-spacing:-.02em; margin-right:34px; }
+  .evr { display:flex; align-items:center; gap:9px; font-size:12px; margin:8px 0; } .evb { display:flex; gap:10px; margin:14px 0 10px; }
+  .evp { display:inline-flex; align-items:center; gap:7px; height:32px; padding:0 16px; border-radius:999px; background:#002163; color:#fff; font-weight:700; font-size:12px; }
+  .evg { display:inline-flex; align-items:center; height:32px; padding:0 16px; border-radius:999px; border:1px solid #D5DCE8; font-weight:700; font-size:12px; }
+  .evn { font-size:10.5px; color:#7A8499; line-height:1.5; }
+  .blade { position:absolute; left:0; top:0; right:0; height:626px; overflow:hidden; background:#fff; opacity:0; transform:translateY(14px); transition:opacity .35s, transform .35s; display:flex; flex-direction:column; }
+  .blade.on { opacity:1; transform:none; }
+  .bh { height:58px; display:flex; align-items:center; gap:12px; padding:0 20px; border-bottom:1px solid #E4EAF2; flex:none; }
+  .bi { width:40px; height:40px; border-radius:12px; background:#D9F4F6; display:grid; place-items:center; }
+  .bk1 { font-family:"JetBrains Mono",monospace; font-size:9px; letter-spacing:.2em; color:#1FB8AE; } .bt { font-family:Manrope,"Plus Jakarta Sans",sans-serif; font-weight:800; font-size:16px; }
+  .bx { margin-left:auto; width:30px; height:30px; border-radius:50%; border:1px solid #E0E6EF; display:grid; place-items:center; }
+  .bsc { flex:1; min-height:0; overflow:hidden; position:relative; } .bin { padding:18px 20px 0; transition:transform 1s cubic-bezier(.4,0,.2,1); }
+  .lab { font-size:11.5px; color:#4A5874; font-weight:600; margin-bottom:8px; }
+  .inp { width:440px; height:32px; border:1px solid #E0E6EF; background:#F4F7FB; border-radius:9px; padding:0 12px; display:flex; align-items:center; font-size:11.5px; color:#7A8499; }
+  .hint { font-size:10px; color:#7A8499; margin:8px 0 14px; padding-bottom:14px; border-bottom:1px solid #EEF2F7; }
+  .tabs { display:flex; margin:0 -20px 16px; border-bottom:1px solid #E4EAF2; } .tabs span { flex:1; text-align:center; padding:11px 0; font-size:11.5px; color:#7A8499; font-weight:500; }
+  .tabs .on { color:#002163; border-bottom:2px solid #15C6D4; margin-bottom:-1px; }
+  .lp { font-size:11.5px; color:#4A5874; margin-bottom:12px; }
+  .nbtn { height:36px; border-radius:999px; background:#00CED7; color:#002163; font-weight:700; font-size:12.5px; display:flex; align-items:center; justify-content:center; gap:7px; margin-bottom:12px; }
+  .lrow { display:flex; align-items:center; gap:14px; border:1px solid #E4EAF2; border-radius:10px; padding:8px 14px; margin-bottom:8px; height:47px; }
+  .lrow b { display:block; font-size:12px; } .lrow span { display:block; font-family:"JetBrains Mono",monospace; font-size:9px; color:#7A8499; margin-top:2px; }
+  .lrow u { margin-left:auto; text-decoration:none; color:#00A8B0; font-weight:700; font-size:11.5px; } .lrow i { width:28px; height:28px; border-radius:50%; border:1px solid #F3CACA; display:grid; place-items:center; }
+  .bft { height:46px; background:#F4F7FB; border-top:1px solid #E4EAF2; display:flex; align-items:center; justify-content:flex-end; padding:0 20px; flex:none; }
+  .gh { border:1px solid #D5DCE8; background:#fff; border-radius:999px; height:32px; padding:0 20px; display:inline-flex; align-items:center; font-weight:700; font-size:12px; }
+  .bbar { position:absolute; left:0; right:0; bottom:46px; height:52px; background:#fff; border-top:1px solid #EEF2F7; display:none; align-items:center; justify-content:flex-end; gap:12px; padding:0 20px; box-shadow:0 -8px 20px -14px rgba(0,33,99,.25); } .bbar.on { display:flex; }
+  .pr { height:34px; border-radius:999px; background:#002163; color:#fff; font-weight:700; font-size:12px; display:inline-flex; align-items:center; padding:0 20px; }
+  .edh { display:flex; align-items:center; gap:10px; margin-bottom:12px; } .edh b { font-size:13.5px; font-family:Manrope,"Plus Jakarta Sans",sans-serif; font-weight:800; }
+  .back { border:1px solid #E0E6EF; border-radius:999px; padding:4px 12px; font-size:11px; } .langs { display:flex; gap:8px; margin-bottom:14px; }
+  .lg { display:inline-flex; align-items:center; gap:6px; height:28px; padding:0 13px; border-radius:999px; border:1px solid #D5DCE8; font-size:11.5px; font-weight:600; color:#4A5874; }
+  .lg.on { background:#002163; color:#fff; border-color:#002163; } .lg i { width:6px; height:6px; border-radius:50%; background:#C7D0DC; } .lg i.ok { background:#34B36A; }
+  .ed3 { display:grid; grid-template-columns:300px 1fr 250px; gap:16px; align-items:start; }
+  .aic { border:1px solid #CFEFF1; border-radius:16px; padding:14px; background:#fff; }
+  .aih { display:flex; align-items:center; gap:8px; font-family:"JetBrains Mono",monospace; font-size:9px; letter-spacing:.2em; color:#00A8B0; margin-bottom:10px; }
+  .aii { width:24px; height:24px; border-radius:8px; background:#D9F4F6; display:grid; place-items:center; }
+  .ata { height:76px; border:1px solid #D5DCE8; border-radius:10px; padding:9px 11px; font-size:11.5px; line-height:1.4; color:#002163; overflow:hidden; } .ata .ph { color:#7A8499; }
+  .ata.typing span::after { content:""; display:inline-block; width:1px; height:12px; background:#002163; vertical-align:-2px; animation:cb 1s steps(1) infinite; }
+  .rchips { display:none; flex-wrap:wrap; gap:6px; margin-top:8px; } .rchips.on { display:flex; } .rchips span { border:1px solid #D5DCE8; border-radius:999px; padding:3px 10px; font-size:10.5px; font-weight:600; }
+  .apill { border:1px solid #D5DCE8; border-radius:999px; font-size:10.5px; font-weight:600; padding:5px 11px; margin:10px 0 8px; display:inline-block; }
+  .ck { display:flex; gap:8px; margin-top:8px; } .ck i { width:14px; height:14px; border-radius:3px; background:#00A8B0; color:#fff; font-style:normal; font-size:10px; display:grid; place-items:center; flex:none; margin-top:1px; }
+  .ck b { display:block; font-size:11px; } .ck span { display:block; font-size:9.5px; color:#7A8499; line-height:1.35; margin-top:1px; }
+  .agen { margin-top:12px; height:34px; border-radius:999px; background:#7DE3EA; color:#fff; font-weight:700; font-size:12px; display:flex; align-items:center; justify-content:center; gap:7px; transition:background .25s; }
+  .agen.rdy { background:#00CED7; color:#002163; } .agen.rdy svg { stroke:#002163; } .agen.busy { opacity:.7; }
+  .atr { margin-top:8px; height:32px; border-radius:999px; border:1px solid #D5DCE8; font-weight:700; font-size:11.5px; display:flex; align-items:center; justify-content:center; color:#7A8499; }
+  .anote { display:none; margin-top:10px; border-radius:9px; background:#F1F6FC; padding:8px 10px; font-size:10px; color:#4A5874; line-height:1.4; } .anote.on { display:block; }
+  .fl { font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.16em; color:#7A8499; margin:0 0 6px; }
+  .fi { height:34px; border:1px solid #D5DCE8; border-radius:10px; display:flex; align-items:center; padding:0 12px; font-size:12px; margin-bottom:14px; }
+  .fi.ta2 { height:64px; align-items:flex-start; padding-top:9px; line-height:1.4; font-size:11.5px; } .fi .ph, .rb .ph { color:#9AA3B5; } .fi.sel { color:#4A5874; }
+  .rte { border:1px solid #D5DCE8; border-radius:10px; overflow:hidden; }
+  .tb { height:34px; border-bottom:1px solid #E4EAF2; display:flex; align-items:center; gap:12px; padding:0 12px; font-size:11px; color:#4A5874; background:#FAFCFE; } .tb em { width:1px; height:16px; background:#E0E6EF; }
+  .rb { padding:12px 14px; min-height:230px; font-size:11.5px; line-height:1.55; color:#002163; } .rb p { margin-bottom:9px; }
+  .rgt .fi { margin-bottom:8px; } .rgt .fl { margin-top:6px; } .fill { color:#002163; }
+  .cur { position:absolute; left:0; top:0; z-index:9; pointer-events:none; opacity:0; transform:translate(1090px,610px); transition:transform .9s cubic-bezier(.45,.05,.25,1), opacity .3s; }
+  .cur.on { opacity:1; } .cur svg { display:block; filter:drop-shadow(0 2px 3px rgba(0,0,0,.35)); transition:transform .12s; } .cur.down svg { transform:scale(.85); }
+  .rip { position:absolute; z-index:8; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; border:2px solid #00CED7; pointer-events:none; animation:rp .6s ease-out forwards; }
+  @keyframes rp { from { transform:scale(1); opacity:.9; } to { transform:scale(4); opacity:0; } } @keyframes cb { 50% { opacity:0; } }
+  .gear { position:absolute; right:170px; top:-4px; width:30px; height:30px; border-radius:8px; background:#fff; border:1px solid #E0E6EF; display:grid; place-items:center; opacity:0; transition:opacity .25s; box-shadow:0 4px 12px -6px rgba(0,33,99,.4); } .gear.show { opacity:1; }
+  .flash { animation:fl 1.6s ease-out; } @keyframes fl { 0% { box-shadow:0 0 0 0 rgba(0,206,215,.7); } 100% { box-shadow:0 0 0 14px rgba(0,206,215,0); } }
+</style>
+</head>
+<body>
+<div id="box" class="stage-box">
+  <div id="stage" class="stage">
+    <div class="suite">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="#fff"><g><circle cx="2" cy="2" r="1.3"/><circle cx="7" cy="2" r="1.3"/><circle cx="12" cy="2" r="1.3"/><circle cx="2" cy="7" r="1.3"/><circle cx="7" cy="7" r="1.3"/><circle cx="12" cy="7" r="1.3"/><circle cx="2" cy="12" r="1.3"/><circle cx="7" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/></g></svg>
+      <div class="search"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#0F6CBD" stroke-width="1.4"><circle cx="9.5" cy="6.5" r="4.5"/><path d="M6.3 9.7 2 14"/></svg><span id="sSearch">Search across sites</span></div>
+      <div class="r">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><path d="M2 6l9-4v10L2 9z"/><path d="M4 10l1 4"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r="6"/></svg>
+        <div class="av" style="width:22px;height:22px;background:#DDE3EC;color:#0B3D91">KJ</div>
+      </div>
+    </div>
+    <div class="view" id="view"><div class="page" id="page"></div><div class="ovl" id="ovl"></div></div>
+    <div class="cur" id="cur"><svg width="18" height="22" viewBox="0 0 18 22"><path d="M1.500 1.500v16l4.200-3.800 3 6.600 3-1.400-3-6.400h5.800z" fill="#002163" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+  </div>
+</div>
+<script>
+(function () {
+  var EN = /[?&]lang=en\b/.test(location.search);
+  var EMBED = window.self !== window.top;
+  if (EN) document.documentElement.lang = 'en';
+  if (EMBED) document.documentElement.classList.add('embed');
+  var t = function (cs, en) { return EN ? en : cs; };
+
+  function ic(p, s, c, w) { return '<svg width="' + (s || 14) + '" height="' + (s || 14) + '" viewBox="0 0 16 16" fill="none" stroke="' + (c || '#4A5874') + '" stroke-width="' + (w || 1.4) + '" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>'; }
+  var P = {
+    home: '<path d="M2 7.500L8 2l6 5.500V14H2z"/><path d="M6.500 14V9.500h3V14"/>',
+    star: '<path d="M8 1.800l1.900 3.900 4.300.6-3.100 3 .7 4.300L8 11.600 4.200 13.600l.7-4.300-3.100-3 4.300-.6z"/>',
+    list: '<path d="M2.500 4h11M2.500 8h11M2.500 12h7"/>',
+    pulse: '<path d="M1.500 8h3l1.500-4 3 8 1.500-4h4"/>',
+    bolt: '<path d="M9 1.500L3.500 9H8l-1 5.500L12.500 7H8z"/>',
+    phone: '<path d="M4 2h2.500l1 3-1.500 1a8 8 0 003 3l1-1.500 3 1V13a1.500 1.500 0 01-1.500 1.500A11 11 0 012.500 3.500 1.500 1.500 0 014 2z"/>',
+    refresh: '<path d="M13 3v3.500H9.500M3 13V9.500h3.500"/><path d="M12.500 6.500A5 5 0 004 5M3.500 9.500A5 5 0 0012 11"/>',
+    doc: '<path d="M3.500 1.500h6l3 3v10h-9z"/><path d="M9.500 1.500v3h3M6 8.500h4M6 11h4"/>',
+    help: '<circle cx="8" cy="8" r="6"/><path d="M6.200 6.200a1.900 1.900 0 013.600.7c0 1.300-1.800 1.500-1.800 2.600M8 11.500v.1"/>',
+    bug: '<rect x="5" y="5" width="6" height="8" rx="3"/><path d="M8 5V3M3 8h2M11 8h2M3.500 12L5 11M12.500 12L11 11M4 5l1.500 1.500M12 5l-1.500 1.500"/>',
+    bulb: '<path d="M6 12h4M6.500 14h3M8 2a4 4 0 00-2 7.500V11h4V9.500A4 4 0 008 2z"/>',
+    globe: '<circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c2 2 2 10 0 12M8 2c-2 2-2 10 0 12"/>',
+    chev: '<path d="M6 3.500L10.500 8 6 12.500"/>',
+    link: '<path d="M6.500 9.500l3-3M7 4.500l1-1a2.500 2.500 0 013.500 3.500l-1 1M9 11.500l-1 1a2.500 2.500 0 01-3.500-3.500l1-1"/>',
+    cal: '<rect x="2.500" y="3.500" width="11" height="10" rx="1.500"/><path d="M2.500 7h11M5.500 2v3M10.500 2v3"/>',
+    chat: '<path d="M2 3h12v8H7l-3 2.500V11H2z"/>',
+    shield: '<path d="M8 1.500l5.500 2v4.300c0 3.200-2.300 5.600-5.500 6.700C4.800 13.400 2.500 11 2.500 7.800V3.500z"/>',
+    heart: '<path d="M8 13.500S2 10 2 6a3 3 0 016-1 3 3 0 016 1c0 4-6 7.500-6 7.500z"/>',
+    spark: '<path d="M6 2l1.400 3.600L11 7 7.400 8.400 6 12 4.600 8.400 1 7l3.600-1.400zM12 9l.7 1.800 1.800.7-1.800.7L12 14l-.7-1.800-1.800-.7 1.800-.7z"/>',
+    plus: '<path d="M8 3v10M3 8h10"/>',
+    play: '<path d="M6 4l6 4-6 4z" fill="#0a2a63"/>',
+    arrow: '<path d="M2.500 8h11M9 3.500L13.500 8 9 12.500"/>'
+  };
+
+  function pic(kind) {
+    var s = {
+      team: '<circle cx="90" cy="120" r="34" fill="#d5d5d5"/><circle cx="170" cy="105" r="38" fill="#bcbcbc"/><circle cx="250" cy="125" r="34" fill="#cfcfcf"/><circle cx="330" cy="110" r="36" fill="#b0b0b0"/><rect x="40" y="170" width="110" height="190" rx="50" fill="#9a9a9a"/><rect x="120" y="155" width="120" height="210" rx="55" fill="#7d7d7d"/><rect x="215" y="175" width="110" height="190" rx="50" fill="#8c8c8c"/><rect x="300" y="160" width="120" height="200" rx="55" fill="#6d6d6d"/>',
+      watch: '<circle cx="190" cy="140" r="86" fill="none" stroke="#e6e6e6" stroke-width="10"/><circle cx="190" cy="140" r="70" fill="#d0d0d0"/><path d="M190 140V88M190 140l34 22" stroke="#4a4a4a" stroke-width="7" stroke-linecap="round"/><circle cx="190" cy="140" r="8" fill="#4a4a4a"/><rect x="170" y="36" width="40" height="22" rx="6" fill="#bdbdbd"/>',
+      board: '<rect x="20" y="30" width="60" height="60" fill="#e0e0e0"/><rect x="100" y="20" width="60" height="60" fill="#c8c8c8"/><rect x="30" y="110" width="60" height="60" fill="#cfcfcf"/><rect x="110" y="100" width="60" height="60" fill="#e8e8e8"/><rect x="60" y="190" width="60" height="60" fill="#c0c0c0"/><rect x="140" y="180" width="60" height="60" fill="#d8d8d8"/>',
+      docs: '<rect x="40" y="70" width="200" height="130" rx="6" fill="#d6d6d6" transform="rotate(-8 140 135)"/><rect x="80" y="60" width="200" height="130" rx="6" fill="#ececec" transform="rotate(6 180 125)"/><path d="M110 100h120M110 124h120M110 148h80" stroke="#9a9a9a" stroke-width="6"/>',
+      thumbs: '<circle cx="80" cy="150" r="46" fill="#dcdcdc"/><circle cx="190" cy="120" r="50" fill="#c9c9c9"/><circle cx="300" cy="150" r="46" fill="#d5d5d5"/><rect x="60" y="150" width="40" height="90" rx="20" fill="#8f8f8f"/><rect x="170" y="120" width="40" height="120" rx="20" fill="#7a7a7a"/><rect x="280" y="150" width="40" height="90" rx="20" fill="#8a8a8a"/>'
+    }[kind];
+    return '<svg viewBox="0 0 440 280" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block;position:absolute;inset:0"><defs><linearGradient id="g' + kind + '" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f4f4"/><stop offset="1" stop-color="#9c9c9c"/></linearGradient></defs><rect width="440" height="280" fill="url(#g' + kind + ')"/>' + s + '</svg>';
+  }
+  function avatar(txt) { return '<div class="av">' + txt + '</div>'; }
+
+  var QA = [
+    [t('Mám problém', 'I have a problem'), t('Nahlásit na HelpDesk', 'Report to the HelpDesk'), '#FDE8E8', '#D14343', P.help],
+    [t('Mám nápad', 'I have an idea'), t('Podat zlepšovák', 'Submit a suggestion'), '#FDF1DC', '#B7791F', P.bulb],
+    [t('Jsem tu nový', 'I am new here'), t('Onboarding a první kroky', 'Onboarding and first steps'), '#D9F4F6', '#0e8f98', '<circle cx="6" cy="6" r="2.500"/><circle cx="11" cy="7" r="2"/><path d="M1.500 13c.5-3 2.500-4 4.500-4s4 1 4.500 4M10 9.500c2 0 3.500.8 4 3.500"/>'],
+    [t('Způsobil jsem škodu', 'I caused damage'), t('Hlášení mimořádné události', 'Report an incident'), '#FDE8E8', '#D14343', '<path d="M8 2L1.500 13.500h13z"/><path d="M8 6.500v3.500M8 12v.1"/>'],
+    [t('Řídicí dokumenty', 'Controlled documents'), t('Směrnice a postupy', 'Policies and procedures'), '#E6ECF7', '#3B5A9A', P.doc],
+    [t('Telefonní seznam', 'Phone directory'), t('Důležité kontakty', 'Important contacts'), '#E1F5E9', '#2E9E5B', P.phone]
+  ];
+  var qa = QA.map(function (q) {
+    return '<div class="qt"><div class="qi" style="background:' + q[2] + '">' + ic(q[4], 17, q[3], 1.5) + '</div><div><b>' + q[0] + '</b><span>' + q[1] + '</span></div><span class="ch">' + ic(P.chev, 11, '#B4BDCC') + '</span></div>';
+  }).join('');
+
+  var who = 'Jana Nováková';
+  function small(k, title, txt, d, cls) {
+    return '<div class="card sm ' + (cls || '') + '"><div class="im">' + pic(k) + '</div><div class="bd"><h5>' + title + '</h5><p>' + txt + '</p><div class="meta">' + who + ' · ' + d + '</div></div></div>';
+  }
+  var links = [t('Žádost o dovolenou', 'Leave request'), t('Vyúčtování služební cesty', 'Travel expense claim'), 'IT helpdesk', t('Seznam kontaktů', 'Contact list'), t('Stravování', 'Canteen'), t('Knihovna směrnic', 'Policy library')]
+    .map(function (l) { return '<div class="lk"><i>' + ic(P.link, 13, '#0e8f98') + '</i><span>' + l + '</span></div>'; }).join('');
+  var EV = [
+    ['1', t('Firemní piknik', 'Company picnic'), t('10:00–15:00 · Park Stromovka', '10:00–15:00 · Stromovka Park')],
+    ['3', t('Evakuační cvičení', 'Evacuation drill'), t('9:00 · Centrála Praha', '9:00 · Prague HQ')],
+    ['8', t('Workshop: AI v Outlooku', 'Workshop: AI in Outlook'), t('13:00–15:00 · Učebna 2.12', '13:00–15:00 · Room 2.12')],
+    ['12', t('Školení první pomoci', 'First aid training'), t('9:00–12:00 · Učebna 1.05', '9:00–12:00 · Room 1.05')]
+  ].map(function (e, i) {
+    return '<div class="ev" data-t="ev' + i + '"><div class="dbox"><b>' + e[0] + '</b><span>' + t('ŘÍJ', 'OCT') + '</span></div><div class="t"><b>' + e[1] + '</b><span>' + e[2] + '</span></div><div class="ci">' + ic(P.cal, 13, '#00A8B0') + '</div>' + ic(P.chev, 10, '#C3CBD8') + '</div>';
+  }).join('');
+  var KU = [
+    ['LH', 'Lenka H.', t('děkuje', 'thanks'), t('IT týmu', 'the IT team'), t('„Díky za víkendovou migraci serverů. Pondělí ráno bylo klidné jako na vesnici.“', '“Thanks for the weekend server migration. Monday morning was completely calm.”'), '23. 9.'],
+    ['PČ', 'Pavel Č.', t('děkuje', 'thanks'), t('Marketingovému týmu', 'the Marketing team'), t('„Nový web vypadá fakt skvěle. Klienti to už řeší.“', '“The new website looks great. Clients are already talking about it.”'), '22. 9.'],
+    ['JB', 'Jana B.', t('děkuje', 'thanks'), t('Provozu', 'Operations'), t('„Záskok na recepci v nejhorším týdnu – zachráněno.“', '“Covering reception in the worst week – saved.”'), '21. 9.']
+  ].map(function (k) {
+    return '<div class="praise"><div class="t"><div class="a">' + k[0] + '</div><b>' + k[1] + '</b><em>' + k[2] + '</em><u>' + k[3] + '</u><span class="ed">' + t('Upravit', 'Edit') + '</span></div><q>' + k[4] + '</q><div class="r"><i></i><i></i><i></i><i></i><i></i><span>' + k[5] + '</span></div></div>';
+  }).join('');
+
+  function heading(icon, title, extra, link) {
+    return '<div class="shrow"><div class="sh">' + (icon ? ic(icon, 16, '#0A2A63', 1.5) : '') + title + (extra || '') + '</div>' + (link ? '<div class="lnk">' + link + ' ' + ic(P.chev, 9, '#4A5874') + '</div>' : '') + '</div>';
+  }
+
+  var html =
+    '<section data-stop="0"><div class="hero">' +
+      '<div class="hrow1"><div class="hsearch">' + ic('<circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/>', 12, '#fff', 1.6) + t('Hledat v intranetu…', 'Search the intranet…') + '<kbd>⌘K</kbd></div>' +
+      '<div class="hnav"><span class="hp on">' + ic(P.home, 13, '#002163', 1.6) + t('Domů', 'Home') + '</span><span class="hp">' + ic(P.star, 13, 'rgba(255,255,255,.85)') + t('Můj den', 'My day') + '<i class="bdg red">48</i></span><span class="hp">' + ic(P.list, 13, 'rgba(255,255,255,.85)') + t('Mé úkoly', 'My tasks') + '<i class="bdg red">14</i></span><span class="hp">' + ic(P.pulse, 13, 'rgba(255,255,255,.85)') + t('Mé aktivity', 'My activity') + '</span><span class="hp">' + ic(P.bolt, 13, 'rgba(255,255,255,.85)') + t('Aplikace', 'Apps') + '<i class="bdg teal">26</i></span><span class="hp">' + ic(P.phone, 13, 'rgba(255,255,255,.85)') + t('Seznam kontaktů', 'Contact list') + '</span><span class="hp" style="background:rgba(255,255,255,.14)">' + t('Více', 'More') + '<i class="bdg w">2</i></span></div></div>' +
+      '<div class="hrow2"><div class="hdate">' + t('STŘEDA 30. ZÁŘÍ 2026', 'WEDNESDAY 30 SEPTEMBER 2026') + '<b>' + t('Svátek má Jeroným', 'Name day: Jeroným') + '</b></div><div class="hicons">' +
+        '<span class="hic">' + ic(P.refresh, 13, '#fff') + '</span><span class="hic">' + ic(P.doc, 13, '#fff') + '</span><i class="hsep"></i><span class="hic">' + ic(P.help, 13, '#fff') + '</span><span class="hic">' + ic(P.bug, 13, '#fff') + '</span><span class="hic">' + ic(P.bulb, 13, '#fff') + '</span><i class="hsep"></i><span class="hic">' + ic('<circle cx="8" cy="8" r="2.500"/><path d="M8 1.500v2M8 12.500v2M1.500 8h2M12.500 8h2M3.400 3.400l1.400 1.400M11.200 11.200l1.400 1.400M12.600 3.400l-1.400 1.400M4.800 11.200l-1.400 1.400"/>', 13, '#fff') + '</span><span class="hic">' + ic(P.globe, 13, '#fff') + '</span></div></div>' +
+      '<div class="hh1">' + t('Dobré ráno, ', 'Good morning, ') + '<i>Kamil</i>.</div>' +
+      '<div class="hsub">' + t('Vítejte na firemním intranetu. Níže najdete aktuality, události a vše důležité na jednom místě.', 'Welcome to the company intranet. Below you will find news, events and everything important in one place.') + '</div>' +
+    '</div>' +
+    '<div class="hcard"><div class="tx"><div class="chips"><span class="chip1">HEADLINE</span><span class="chip2">HR</span><span class="chipd">' + t('28. ZÁŘÍ 2026', '28 SEPTEMBER 2026') + '</span></div>' +
+      '<h3>' + t('Nový firemní intranet je spuštěn', 'The new company intranet is live') + '</h3>' +
+      '<p>' + t('Dnes jsme spustili nový intranet. Cílem je, aby se každý rychle zorientoval, našel to podstatné a věděl, co se kde děje.', 'Today we launched the new intranet. The aim is for everyone to find their way quickly, find what matters and know what is happening where.') + '</p>' +
+      '<div class="auth" style="margin-top:auto">' + avatar('JN') + '<div><b>' + who + '</b><span>' + t('28. září 2026', '28 September 2026') + '</span></div><span class="cta">' + t('Číst dál', 'Read more') + ' ' + ic(P.arrow, 12, '#fff', 1.7) + '</span></div></div>' +
+      '<div class="im">' + pic('team') + '</div></div></section>' +
+
+    '<section data-stop="1" style="margin-top:26px">' + heading(P.bolt, t('Rychlé akce', 'Quick actions')) + '<div class="card qa">' + qa + '</div>' +
+    '<div class="kick">' + t('DĚNÍ & RYCHLÝ PŘÍSTUP', 'HAPPENINGS & QUICK ACCESS') + '</div>' +
+    '</section><section data-stop="2" style="margin-top:0"><div class="g3"><div style="grid-column:span 2;position:relative" data-t="newshead">' + heading(null, t('Aktuality', 'News'), '<small>' + t('DALŠÍ AKTUALITY', 'MORE NEWS') + '</small>', t('Všechny aktuality', 'All news')) + '<span class="gear" data-t="gear">' + ic('<circle cx="8" cy="8" r="2.500"/><path d="M8 1.500v2M8 12.500v2M1.500 8h2M12.500 8h2M3.400 3.400l1.400 1.400M11.200 11.200l1.400 1.400M12.600 3.400l-1.400 1.400M4.800 11.200l-1.400 1.400"/>', 15, '#4A5874', 1.5) + '</span></div><div>' + heading(null, t('Rychlé odkazy', 'Quick links'), '', t('Zobrazit vše', 'Show all')) + '</div></div>' +
+
+    '<div class="g3" style="margin-top:14px;grid-template-rows:170px 170px 122px;align-items:stretch">' +
+      '<div class="card big" data-t="bigcard"><div class="im">' + pic('watch') + '</div><div class="bd"><div><span class="tag">IT</span></div><h4>' + t('Nový helpdesk je online', 'The new helpdesk is online') + '</h4><p>' + t('Hlášení problémů teď zvládnete na tři kliknutí. Podívejte se, jak to funguje a kam se obrátit, když se něco pokazí.', 'Reporting a problem now takes three clicks. See how it works and where to turn when something goes wrong.') + '</p><div class="auth">' + avatar('JN') + '<b>' + who + '</b><span>· ' + t('28. září 2026', '28 September 2026') + '</span></div></div></div>' +
+      small('board', t('Benefity na rok 2027', '2027 benefits'), t('Zaměstnanecké benefity se od ledna rozšiřují. Podívejte se, co je nového a jak si vybrat z nabídky…', 'Employee benefits expand from January. See what is new and how to choose from the offer…'), t('27. září 2026', '27 September 2026')) +
+      '<div style="grid-row:span 3;display:flex;flex-direction:column"><div class="card links" style="margin-top:0">' + links + '</div>' +
+      '<div style="margin-top:22px">' + heading(P.cal, t('Nadcházející události', 'Upcoming events'), '', t('Zobrazit vše', 'Show all')) + '</div><div class="card evs">' + EV + '</div></div>' +
+      small('docs', t('Potřebuji pomoc', 'I need help'), t('Rozcestník, kam se obrátit, když něco řešíš. Na této stránce najdeš přehled kontaktů a postupů…', 'A guide to where to turn when you need something. This page lists contacts and procedures…'), t('25. září 2026', '25 September 2026')) +
+      small('docs', t('Nová sekce dokumentů', 'New documents section'), t('Na domovské stránce přibyla nová sekce Klíčové zdroje a důležité informace. Je určená…', 'The home page has a new section, Key resources and important information. It is meant…'), t('24. září 2026', '24 September 2026'), 's2') +
+      small('thumbs', t('Školení bezpečnosti práce', 'Health and safety training'), t('Nové školení je k dispozici online. Vyplňte ho do konce října a získáte certifikát…', 'The new training is available online. Complete it by the end of October to get your certificate…'), t('22. září 2026', '22 September 2026'), 's2') +
+    '</div></section>' +
+
+    '<section data-stop="3"><div class="kick" style="margin-top:22px">' + t('LIDÉ & KULTURA', 'PEOPLE & CULTURE') + '</div>' +
+    '<div class="g3 eq"><div>' + heading(P.chat, t('Slovo vedení', 'Word from leadership'), '', t('Zobrazit vše', 'Show all')) +
+      '<div class="card lead"><div class="vid"><div class="play">' + ic(P.play, 18) + '</div></div><div class="bd"><div class="mk">' + t('SLOVO VEDENÍ', 'WORD FROM LEADERSHIP') + '</div><h4>' + t('Co nás čeká v druhé polovině roku', 'What awaits us in the second half of the year') + '</h4><p>' + t('Investice do nové haly, dvě akvizice na obzoru a nová firemní hodnota – rychlost.', 'Investment in a new hall, two acquisitions on the horizon and a new company value – speed.') + '</p><div class="auth">' + avatar('PD') + '<div><b>Petr Dvořák</b><span>' + t('Generální ředitel', 'CEO') + '</span></div></div></div></div></div>' +
+    '<div>' + heading(P.shield, t('Bezpečnost práce', 'Workplace safety')) + '<div class="card safe"><svg class="sh-bg" width="110" height="128" viewBox="0 0 16 16" fill="none" stroke="#CFF1F3" stroke-width="1"><path d="M8 1.500l5.500 2v4.300c0 3.200-2.300 5.600-5.500 6.700C4.800 13.400 2.500 11 2.500 7.800V3.500z"/></svg><span class="pill">' + t('BEZ INCIDENTU', 'NO INCIDENTS') + '</span><div class="num">121</div><div class="cap">' + t('dní bez úrazu', 'days without an accident') + '</div><div class="since">' + t('Od 1. června 2026', 'Since 1 June 2026') + '</div><div class="goal"><span>' + t('CÍL', 'GOAL') + '</span><b>' + t('365 dní', '365 days') + '</b></div><div class="bar"><i></i></div><div class="rest">' + t('Zbývá 244 dní', '244 days to go') + '</div></div></div>' +
+    '<div>' + heading(P.heart, t('Pochvaly', 'Kudos'), '<small>' + t('DÍKY NAPŘÍČ FIRMOU', 'THANKS ACROSS THE COMPANY') + '</small>') + '<div style="display:flex;align-items:center;gap:12px;margin-top:8px"><div class="lnk">' + t('Zobrazit vše', 'Show all') + ' ' + ic(P.chev, 9, '#4A5874') + '</div><span class="btnk">' + ic(P.plus, 11, '#002163', 1.8) + t('Poslat pochvalu', 'Send kudos') + '</span></div><div class="card kud">' + KU + '</div></div></div></section>' +
+
+    '<section data-stop="4" style="margin-top:20px"><div class="g3 eq"><div>' + heading(P.spark, t('Vítáme mezi námi', 'Welcome aboard'), '', t('Zobrazit vše', 'Show all')) +
+      '<div class="card pc"><div class="k">' + t('NOVÝ ČLEN TÝMU · IT', 'NEW TEAM MEMBER · IT') + '</div><div class="ava">MD</div><h4>Marek Dušek</h4><div class="ro">Junior developer · IT</div><q>' + t('„Bavím se .NET, hraju basketbal a strašně rád griluju.“', '“I enjoy .NET, play basketball and love grilling.”') + '</q><div class="tm">' + t('TENTO MĚSÍC TAKÉ', 'ALSO THIS MONTH') + '</div><div class="mini"><i>PN</i><i>TŘ</i></div></div></div>' +
+    '<div>' + heading(P.star, t('Dnes představujeme…', 'Meet today…'), '', t('Zobrazit vše', 'Show all')) +
+      '<div class="card pc"><div class="k">' + t('SPOTLIGHT · 10 LET VE FIRMĚ', 'SPOTLIGHT · 10 YEARS WITH US') + '</div><div class="ava">HŠ</div><h4>Hana Šimková</h4><div class="ro">' + t('Office manager · Provoz', 'Office manager · Operations') + '</div><q>' + t('„Hana je důvod, proč ráno všechno funguje. Pokud něco potřebujete, jděte za ní.“', '“Hana is the reason everything works in the morning. If you need something, go to her.”') + '</q><div class="rows"><div>' + t('Hudba', 'Music') + '<b>Jazz</b></div><div>' + t('Káva', 'Coffee') + '<b>Cappuccino</b></div><div>' + t('Tajný talent', 'Secret talent') + '<b>Salsa</b></div></div></div></div>' +
+    '<div>' + heading(P.bulb, t('Věděli jste, že…', 'Did you know…'), '', t('Zobrazit vše', 'Show all')) +
+      '<div class="card pc fact"><div class="k">' + t('FIREMNÍ FAKT', 'COMPANY FACT') + '</div><h4>' + t('Expanze v Plzni', 'Expansion in Plzeň') + '</h4><p>' + t('Nová výrobní hala v Plzni zvýší kapacitu o 38 % a vznikne v ní 25 nových pracovních míst.', 'The new production hall in Plzeň will raise capacity by 38% and create 25 new jobs.') + '</p><div class="ft"><span class="dots"><i></i><i></i><i class="on"></i><i></i><i></i></span>' + t('Více o expanzi', 'More about the expansion') + ' ' + ic(P.arrow, 11, '#00A8B0', 1.7) + '<span class="nxt">' + t('Další', 'Next') + ' →</span></div></div></div></div></section>';
+
+  var page = document.getElementById('page');
+  page.innerHTML = html;
+  document.getElementById('sSearch').textContent = t('Search across sites', 'Search across sites');
+
+  var box = document.getElementById('box'), stage = document.getElementById('stage'), W = 1160, H = 660;
+  function fit() { var w = box.clientWidth || W, s = w / W; stage.style.transform = 'scale(' + s + ')'; box.style.height = Math.floor(H * s) + 'px'; }
+  fit(); window.addEventListener('resize', fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(box);
+
+  var view = document.getElementById('view');
+  function stops() {
+    var max = page.offsetHeight - view.clientHeight, list = [];
+    [].forEach.call(page.querySelectorAll('[data-stop]'), function (s) { list.push(Math.min(Math.max(s.offsetTop - 14, 0), max)); });
+    return list;
+  }
+  function goto(y, instant) {
+    if (instant) { page.classList.add('instant'); }
+    page.style.transform = 'translateY(' + (-y) + 'px)';
+    if (instant) { void page.offsetHeight; page.classList.remove('instant'); }
+  }
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  var token = 0, running = false;
+  /* ---------- scény: kurzor, modaly, editor aktuality ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var ovl = $('ovl'), cur = $('cur'), cx = 0, cy = 0;
+
+  var X = ic('<path d="M3 3l10 10M13 3L3 13"/>', 12, '#002163', 1.8);
+  var ART_P = [
+    [t('NOVÝ HELPDESK', 'THE NEW HELPDESK'), t('HLÁŠENÍ PROBLÉMŮ NA TŘI KLIKNUTÍ', 'REPORTING A PROBLEM IN THREE CLICKS'), '#002163'],
+    [t('Od dnešního dne máte k dispozici nový helpdesk přímo v intranetu. Když se něco pokazí, stačí vybrat kategorii, popsat problém a odeslat. Nemusíte hledat správný e-mail ani telefonní číslo.', 'From today you have a new helpdesk right in the intranet. When something goes wrong, just pick a category, describe the problem and send it. There is no need to look for the right email address or phone number.')],
+    [t('CO SE ZMĚNILO', 'WHAT HAS CHANGED'), t('VŠE NA JEDNOM MÍSTĚ', 'EVERYTHING IN ONE PLACE'), '#1FB8AE'],
+    [t('Požadavky se ukládají na jedno místo a vidíte, kdo se jim věnuje i v jakém jsou stavu. Odpověď od technika dostanete e-mailem i v Teams.', 'Requests are collected in one place, and you can see who is working on them and what their status is. You receive the technician’s reply by email and in Teams.')],
+    [t('KDE HO NAJDETE', 'WHERE TO FIND IT'), '', '#1FB8AE'],
+    [t('V rychlých akcích na úvodní stránce pod tlačítkem Mám problém. U každé kategorie je krátký návod, co uvést.', 'Under the I have a problem button in Quick actions on the home page. Each category has a short guide on what to include.')],
+    [t('ZPĚTNÁ VAZBA', 'FEEDBACK'), '', '#1FB8AE'],
+    [t('Máte k novému helpdesku připomínky? Napište je do sekce Dotazy a náměty, rádi je zapracujeme.', 'Do you have comments on the new helpdesk? Post them in the Questions and ideas section and we will be happy to act on them.')]
+  ];
+  var artBody = ART_P.map(function (a) {
+    return a.length === 1 ? '<p class="ap">' + a[0] + '</p>' : '<div class="ah" style="color:' + a[2] + '">' + a[0] + '</div>' + (a[1] ? '<div class="ah2">' + a[1] + '</div>' : '');
+  }).join('');
+
+  var GEN = {
+    prompt: t('Shrň spuštění nového benefitního portálu, přátelský tón, do 3 odstavců.', 'Summarise the launch of the new benefits portal, friendly tone, up to 3 paragraphs.'),
+    title: t('Spouštíme nový benefitní portál', 'We are launching a new benefits portal'),
+    perex: t('Od dnešního dne máte k dispozici nový benefitní portál. Nabízí přehledné informace o všech dostupných benefitech a je navržen tak, aby vám usnadnil jejich správu.', 'From today you have a new benefits portal. It offers clear information about all available benefits and is designed to make managing them easier.'),
+    body: [
+      t('Máme pro vás skvělou novinku – spustili jsme nový benefitní portál! Na jednom místě teď najdete všechny informace o firemních benefitech, od volnočasových aktivit přes zdravotní výhody až po vzdělávací programy. Portál je intuitivní a přehledný, takže se můžete rychle zorientovat.', 'We have great news for you – we have launched a new benefits portal! In one place you will now find all the information about company benefits, from leisure activities and health perks to training programmes. The portal is intuitive and clear, so you can find your way around quickly.'),
+      t('Pomocí portálu si snadno vyberete a spravujete své benefity. Ať už si chcete rezervovat vstupenky, přihlásit se do kurzu nebo zjistit, kolik máte ještě k dispozici kreditů, všechno je otázkou několika kliknutí.', 'The portal makes it easy to choose and manage your benefits. Whether you want to book tickets, sign up for a course or check how many credits you have left, it all takes just a few clicks.'),
+      t('Nový portál najdete na intranetu v sekci „Benefity“. Průvodce používáním je k dispozici na stejné stránce, takže se nemusíte bát, že byste se ztratili.', 'You will find the new portal on the intranet in the “Benefits” section. A user guide is available on the same page, so there is no need to worry about getting lost.')
+    ]
+  };
+
+  var LIST_ROWS = [
+    [t('Nový firemní intranet je spuštěn', 'The new company intranet is live'), t('28. 9. 2026', '28. 9. 2026')],
+    [t('Nový helpdesk je online', 'The new helpdesk is online'), '28. 9. 2026'],
+    [t('Benefity na rok 2027', '2027 benefits'), '27. 9. 2026'],
+    [t('Potřebuji pomoc', 'I need help'), '25. 9. 2026']
+  ].map(function (r) {
+    return '<div class="lrow"><div><b>' + r[0] + '</b><span>' + who + ' · ' + r[1] + '</span></div><u>' + t('Upravit', 'Edit') + ' →</u><i>' + ic('<path d="M3 4h10M4 4l.7 9h6.6L12 4M6.500 4V2h3v2"/>', 13, '#D14343') + '</i></div>';
+  }).join('');
+  var LIST = '<p class="lp">' + t('Aktuality pište přímo tady – jednoduchý editor s formátovaným textem a obrázkem. Ukládají se jako standardní SharePoint novinky, takže se objeví i ve vyhledávání a News web partech.', 'Write news right here – a simple editor with formatted text and an image. They are saved as standard SharePoint news, so they also appear in search and in News web parts.') + '</p><div class="nbtn" id="newBtn">' + ic(P.plus, 13, '#002163', 1.8) + ' ' + t('Nová aktualita', 'New article') + '</div>' + LIST_ROWS;
+
+  var TB = ic('<path d="M4 3h4a2.500 2.500 0 010 5H4zM4 8h4.500a2.500 2.500 0 010 5H4z"/>', 12, '#4A5874', 1.6);
+  var EDIT =
+    '<div class="edh"><span class="back">← ' + t('Zpět', 'Back') + '</span><b>' + t('Nová aktualita', 'New article') + '</b></div>' +
+    '<div class="langs"><span class="lg on">★ ' + t('Čeština', 'Czech') + '</span><span class="lg"><i></i>English</span><span class="lg"><i></i>Deutsch</span><span class="lg"><i></i>Română</span></div>' +
+    '<div class="ed3"><div class="aic"><div class="aih"><span class="aii">' + ic(P.spark, 13, '#00A8B0', 1.5) + '</span>AI ' + t('ASISTENT', 'ASSISTANT') + '</div>' +
+      '<div class="ata" id="aiTa"><span class="ph">' + t('Napište, o čem má aktualita být – např. „Shrň spuštění nového benefitního portálu, přátelský tón, do 3 odstavců.“ AI ji sepíše i přeloží.', 'Write what the article should be about – e.g. “Summarise the launch of the new benefits portal, friendly tone, up to 3 paragraphs.” AI will write and translate it.') + '</span></div>' +
+      '<div class="rchips" id="aiChips"><span>' + t('Rozvést více', 'Expand') + '</span><span>' + t('Zkrátit', 'Shorten') + '</span><span>' + t('Formálnější', 'More formal') + '</span><span>' + t('Přátelštější', 'Friendlier') + '</span></div>' +
+      '<div class="apill">+ ' + t('Přidat podklad (dokument / obrázek)', 'Add source (document / image)') + '</div>' +
+      '<div class="ck"><i>✓</i><div><b>' + t('Navázat na předchozí aktuality', 'Build on previous articles') + '</b><span>' + t('AI zohlední tón a témata dosavadních aktualit a nebude je opakovat.', 'AI takes the tone and topics of earlier articles into account and will not repeat them.') + '</span></div></div>' +
+      '<div class="ck"><i>✓</i><div><b>' + t('Vycházet z obsahu SharePointu', 'Draw on SharePoint content') + '</b><span>' + t('AI prohledá firemní dokumenty (jen ty, na které máte právo). Použité podklady se vypíší pod návrhem; když se nic nenajde, dozvíte se to.', 'AI searches company documents (only those you have access to). The sources used are listed under the draft; if nothing is found, you will be told.') + '</span></div></div>' +
+      '<div class="agen" id="aiGen">' + ic(P.spark, 12, '#fff', 1.5) + ' ' + t('Vygenerovat', 'Generate') + '</div>' +
+      '<div class="atr">' + t('Přeložit do všech jazyků', 'Translate into all languages') + '</div>' +
+      '<div class="anote" id="aiNote">' + t('K tomuto tématu se ve firemních dokumentech nic nenašlo – návrh vychází jen ze zadání.', 'Nothing on this topic was found in company documents – the draft is based on your brief only.') + '</div></div>' +
+    '<div class="mid"><div class="fl">' + t('TITULEK *', 'TITLE *') + '</div><div class="fi" id="tTitle"><span class="ph">' + t('Nadpis aktuality', 'Article headline') + '</span></div>' +
+      '<div class="fl">' + t('PEREX (KRÁTKÝ POPIS)', 'LEAD (SHORT SUMMARY)') + '</div><div class="fi ta2" id="tPerex"><span class="ph">' + t('Shrnutí pro dlaždici – pár vět', 'Summary for the tile – a few sentences') + '</span></div>' +
+      '<div class="fl">' + t('TĚLO ČLÁNKU', 'ARTICLE BODY') + '</div><div class="rte"><div class="tb"><b>B</b><i>I</i><u>U</u><s>S</s><em></em><b>H2</b><b>H3</b><b>¶</b><em></em>' + ic(P.list, 12) + ic('<path d="M3 4h10M3 8h10M3 12h6"/>', 12) + '<b>”</b><em></em><b style="color:#1FB8AE">A</b>' + ic(P.link, 12) + '</div><div class="rb" id="tBody"><span class="ph">' + t('Napište text aktuality…', 'Write the article text…') + '</span></div></div></div>' +
+    '<div class="rgt"><div class="fl">' + t('TYP (RUBRIKA)', 'TYPE (SECTION)') + '</div><div class="fi sel">– ' + t('bez typu', 'no type') + ' –</div>' +
+      '<div class="fl">' + t('NÁHLEDOVÝ OBRÁZEK', 'THUMBNAIL IMAGE') + '</div><div class="fi"><span class="ph">' + t('Vložte URL obrázku nebo nahrajte', 'Paste an image URL or upload') + '</span></div>' +
+      '<div class="fl">' + t('CÍLENÍ DLE PROFILU (VOLITELNÉ)', 'AUDIENCE BY PROFILE (OPTIONAL)') + '</div><div class="fi"><span class="ph">' + t('Oddělení', 'Department') + '</span></div><div class="fi"><span class="ph">' + t('Lokalita', 'Location') + '</span></div><div class="fi"><span class="ph">' + t('Pozice', 'Position') + '</span></div></div></div>';
+
+  ovl.innerHTML =
+    '<div class="obk" id="bkArt"><div class="mdl art"><div class="artIn" id="artIn"><div class="aim">' + pic('watch') + '</div><div class="abd"><span class="tag">IT</span><h2>' + t('Nový helpdesk je online', 'The new helpdesk is online') + '</h2><div class="auth">' + avatar('JN') + '<b style="display:inline">' + who + '</b><span>· ' + t('28. září 2026', '28 September 2026') + '</span></div><hr>' + artBody + '</div></div><span class="mx" id="artX">' + X + '</span></div></div>' +
+    '<div class="obk evk" id="bkEv"><div class="mdl evm"><div class="evh"><div class="dbox big2"><b>1</b><span>' + t('ŘÍJ', 'OCT') + '</span></div><h3>' + t('Firemní piknik', 'Company picnic') + '</h3><span class="mx" id="evX">' + X + '</span></div>' +
+      '<div class="evr">' + ic(P.cal, 14, '#00A8B0', 1.5) + '<span>' + t('Čtvrtek 1. října 2026 · 10:00–15:00', 'Thursday 1 October 2026 · 10:00–15:00') + '</span></div><div class="evr">' + ic('<rect x="3.500" y="2" width="9" height="12" rx="1"/><path d="M6 5h1M9 5h1M6 8h1M9 8h1M7 14v-2.500h2V14"/>', 14, '#00A8B0', 1.4) + '<span>' + t('Park Stromovka', 'Stromovka Park') + '</span></div><hr>' +
+      '<div class="evb"><span class="evp">' + ic(P.cal, 13, '#fff', 1.6) + ' ' + t('Přidat do Outlooku', 'Add to Outlook') + '</span><span class="evg">' + t('Stáhnout .ics', 'Download .ics') + '</span></div>' +
+      '<p class="evn">' + t('„Přidat do Outlooku“ otevře Outlook na webu s předvyplněnou událostí; „.ics“ je pro desktop Outlook / jiné kalendáře.', '“Add to Outlook” opens Outlook on the web with the event pre-filled; “.ics” is for desktop Outlook / other calendars.') + '</p></div></div>' +
+    '<div class="blade" id="blade"><div class="bh"><span class="bi">' + ic('<circle cx="8" cy="8" r="2.500"/><path d="M8 1.500v2M8 12.500v2M1.500 8h2M12.500 8h2M3.400 3.400l1.400 1.400M11.200 11.200l1.400 1.400M12.600 3.400l-1.400 1.400M4.800 11.200l-1.400 1.400"/>', 17, '#00A8B0', 1.4) + '</span><div><div class="bk1">' + t('NASTAVENÍ SEKCE', 'SECTION SETTINGS') + '</div><div class="bt">' + t('Aktuality', 'News') + '</div></div><span class="bx" id="bladeX">' + X + '</span></div>' +
+      '<div class="bsc"><div class="bin" id="bin"><div class="lab">' + t('Název sekce', 'Section name') + '</div><div class="inp">' + t('Aktuality', 'News') + '</div><div class="hint">' + t('Prázdné = výchozí název sekce. (Sekce bez nadpisu, např. Pozdrav, změnu neukáže.) Nezapomeňte uložit.', 'Empty = default section name. (Sections without a heading, e.g. Greeting, will not show the change.) Remember to save.') + '</div>' +
+      '<div class="tabs"><span class="on">' + t('Obsah', 'Content') + '</span><span>' + t('Nastavení', 'Settings') + '</span></div><div id="bview"></div></div></div>' +
+      '<div class="bbar" id="bbar"><span class="gh">' + t('Zrušit', 'Cancel') + '</span><span class="pr" id="pub">' + t('Publikovat aktualitu', 'Publish article') + '</span></div>' +
+      '<div class="bft"><span class="gh" id="bclose">' + t('Zavřít', 'Close') + '</span></div></div>';
+
+  function k() { return (box.clientWidth || W) / W; }
+  function rectOf(el) { var r = el.getBoundingClientRect(), b = stage.getBoundingClientRect(), s = k(); return { x: (r.left - b.left) / s, y: (r.top - b.top) / s, w: r.width / s, h: r.height / s }; }
+  function curTo(x, y, ms) { cx = x; cy = y; cur.style.transitionDuration = ms + 'ms'; cur.style.transform = 'translate(' + x + 'px,' + y + 'px)'; }
+  async function moveTo(el, fx, fy, ms) { var r = rectOf(el), d = ms || 900; cur.classList.add('on'); curTo(r.x + r.w * (fx == null ? 0.5 : fx), r.y + r.h * (fy == null ? 0.5 : fy), d); await sleep(d + 60); }
+  async function click() {
+    var r = document.createElement('i'); r.className = 'rip'; r.style.left = cx + 'px'; r.style.top = cy + 'px'; stage.appendChild(r); setTimeout(function () { r.remove(); }, 650);
+    cur.classList.add('down'); await sleep(140); cur.classList.remove('down'); await sleep(200);
+  }
+  function fld(id, txt) { var e = $(id); e.classList.add('fill'); e.innerHTML = '<span>' + txt + '</span>'; return e.firstChild; }
+
+  function resetScenes() {
+    ['bkArt', 'bkEv', 'blade'].forEach(function (i) { $(i).classList.remove('on'); });
+    $('artIn').style.transform = ''; cur.classList.remove('on', 'down'); curTo(1090, 610, 0);
+    var g = page.querySelector('[data-t=gear]'); if (g) g.classList.remove('show');
+  }
+
+  async function sceneArticle(tk) {
+    await moveTo(page.querySelector('[data-t=bigcard]'), 0.5, 0.75); if (tk !== token) return;
+    await click(); $('bkArt').classList.add('on');
+    await sleep(1300); if (tk !== token) return;
+    $('artIn').style.transform = 'translateY(-150px)';
+    await sleep(2800); if (tk !== token) return;
+    await moveTo($('artX'), 0.5, 0.5, 800); await click();
+    $('bkArt').classList.remove('on'); await sleep(600);
+  }
+  async function sceneEvent(tk) {
+    await moveTo(page.querySelector('[data-t=ev0]'), 0.35, 0.5); if (tk !== token) return;
+    await click(); $('bkEv').classList.add('on');
+    await sleep(2800); if (tk !== token) return;
+    await moveTo($('evX'), 0.5, 0.5, 800); await click();
+    $('bkEv').classList.remove('on'); await sleep(600);
+  }
+  async function typeInto(el, txt, per, tk) {
+    for (var i = 1; i <= txt.length; i++) { el.textContent = txt.slice(0, i); await sleep(per); if (tk !== token) return false; }
+    return true;
+  }
+  async function streamWords(el, txt, per, tk) {
+    var w = txt.split(' '), acc = '';
+    for (var i = 0; i < w.length; i++) { acc += (i ? ' ' : '') + w[i]; el.textContent = acc; await sleep(per); if (tk !== token) return false; }
+    return true;
+  }
+  async function sceneCreate(tk) {
+    var head = page.querySelector('[data-t=newshead]'), gear = page.querySelector('[data-t=gear]');
+    await moveTo(head, 0.6, 0.5); if (tk !== token) return;
+    gear.classList.add('show'); await sleep(450);
+    await moveTo(gear, 0.5, 0.5, 600); await click(); if (tk !== token) return;
+    $('bview').innerHTML = LIST; $('bbar').classList.remove('on'); $('bin').style.transform = '';
+    $('blade').classList.add('on'); gear.classList.remove('show');
+    await sleep(1700); if (tk !== token) return;
+    await moveTo($('newBtn'), 0.5, 0.5, 900); await click();
+    $('bview').innerHTML = EDIT; $('bbar').classList.add('on'); $('bin').style.transform = 'translateY(-176px)';
+    await sleep(1400); if (tk !== token) return;
+    await moveTo($('aiTa'), 0.4, 0.4, 900); await click();
+    var ta = $('aiTa'); ta.innerHTML = '<span></span>'; ta.classList.add('typing');
+    if (!(await typeInto(ta.firstChild, GEN.prompt, 28, tk))) return;
+    ta.classList.remove('typing'); $('aiGen').classList.add('rdy');
+    await sleep(600); if (tk !== token) return;
+    await moveTo($('aiGen'), 0.5, 0.5, 800); await click();
+    $('aiGen').classList.add('busy'); await sleep(1100); if (tk !== token) return;
+    $('aiGen').classList.remove('busy');
+    var e1 = fld('tTitle', ''); if (!(await typeInto(e1, GEN.title, 22, tk))) return;
+    var e2 = fld('tPerex', ''); if (!(await streamWords(e2, GEN.perex, 32, tk))) return;
+    var eb = $('tBody'); eb.classList.add('fill'); eb.innerHTML = '';
+    for (var i = 0; i < GEN.body.length; i++) {
+      var p = document.createElement('p'); eb.appendChild(p);
+      if (!(await streamWords(p, GEN.body[i], 22, tk))) return;
+    }
+    [].forEach.call(document.querySelectorAll('.lg i'), function (d) { d.classList.add('ok'); });
+    $('aiChips').classList.add('on'); $('aiNote').classList.add('on');
+    await sleep(2600); if (tk !== token) return;
+    await moveTo($('pub'), 0.5, 0.5, 900); await click();
+    $('blade').classList.remove('on'); await sleep(700); if (tk !== token) return;
+    var big = page.querySelector('[data-t=bigcard]');
+    big.querySelector('h4').textContent = GEN.title;
+    big.querySelector('p').textContent = GEN.perex;
+    big.querySelector('.im').innerHTML = pic('board');
+    big.querySelector('.tag').textContent = 'HR';
+    big.classList.add('flash');
+    await sleep(2200);
+  }
+
+  function showStatic(name) {
+    var st = stops();
+    if (name === 'art') { goto(st[2], true); $('bkArt').classList.add('on'); $('artIn').style.transform = 'translateY(-150px)'; }
+    else if (name === 'ev') { goto(st[2], true); $('bkEv').classList.add('on'); }
+    else if (name === 'blade') { $('bview').innerHTML = LIST; $('blade').classList.add('on'); }
+    else if (name === 'edit' || name === 'gen') {
+      $('bview').innerHTML = EDIT; $('bbar').classList.add('on'); $('bin').style.transform = 'translateY(-176px)'; $('blade').classList.add('on');
+      if (name === 'gen') {
+        $('aiTa').innerHTML = '<span>' + GEN.prompt + '</span>'; $('aiGen').classList.add('rdy');
+        fld('tTitle', GEN.title); fld('tPerex', GEN.perex); $('tBody').classList.add('fill'); $('tBody').innerHTML = GEN.body.map(function (b) { return '<p>' + b + '</p>'; }).join('');
+        [].forEach.call(document.querySelectorAll('.lg i'), function (d) { d.classList.add('ok'); });
+        $('aiChips').classList.add('on'); $('aiNote').classList.add('on');
+      }
+    }
+  }
+
+  async function play(tk) {
+    var st = stops();
+    page.innerHTML = html; resetScenes(); st = stops();
+    goto(0, true); stage.classList.remove('fade');
+    await sleep(2600); if (tk !== token) return;
+    goto(st[1]); await sleep(3000); if (tk !== token) return;
+    goto(st[2]); await sleep(2000); if (tk !== token) return;
+    await sceneArticle(tk); if (tk !== token) return;
+    await sceneEvent(tk); if (tk !== token) return;
+    await sceneCreate(tk); if (tk !== token) return;
+    cur.classList.remove('on');
+    goto(st[3]); await sleep(1500 + 3000); if (tk !== token) return;
+    goto(st[4]); await sleep(1500 + 2600); if (tk !== token) return;
+    stage.classList.add('fade');
+    await sleep(600); if (tk !== token) return;
+    goto(0, true);
+    await sleep(120);
+    stage.classList.remove('fade');
+    await sleep(300);
+  }
+
+  async function loop() { var tk = ++token; while (tk === token) await play(tk); }
+  function start() { if (!running) { running = true; loop(); } }
+  function stop() { if (running) { running = false; token++; stage.classList.remove('fade'); page.innerHTML = html; resetScenes(); goto(0, true); } }
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var m = /^#(stop(\d)|art|ev|blade|edit|gen)$/.exec(location.hash);
+  if (reduce || m) { var st0 = stops(); if (m && m[2]) goto(st0[+m[2]], true); else if (m) showStatic(m[1]); return; }
+  if (EMBED) {
+    var heard = false;
+    window.addEventListener('message', function (e) {
+      if (!e.data || e.data.ep365anim === undefined) return;
+      heard = true; if (e.data.ep365anim === 'play') start(); else stop();
+    });
+    window.parent.postMessage({ ep365animReady: true }, '*');
+    return;
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) start(); else stop(); }); }, { threshold: 0.35 }).observe(box);
+  } else { start(); }
+})();
+</script>
+</body>
+</html>

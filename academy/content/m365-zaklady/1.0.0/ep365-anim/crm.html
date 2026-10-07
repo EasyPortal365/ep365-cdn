@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EasyPortal 365 – CRM</title>
+<style>
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/fraunces-latin-600-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/fraunces-latin-ext-600-italic.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+  :root { --navy:#002163; --teal:#15C6D4; --teal7:#00A8B0; --tealb:#00CED7; --muted:#4A5874; --soft:#7A8499; --line:#E0E6EF; --mint:#E4F7F6; --red:#D14343; --amber:#E6A23C; --green:#34B36A; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { background:transparent; }
+  html, body { overflow:hidden; }
+  body { font-family:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif; color:var(--navy); }
+  .stage-box { position:relative; width:100%; overflow:hidden; border-radius:14px; background:#fff; box-shadow:0 24px 60px -24px rgba(0,33,99,.35), 0 0 0 1px rgba(0,33,99,.08); }
+  html.embed .stage-box { box-shadow:none; border-radius:0; }
+  .stage { position:absolute; left:0; top:0; width:1160px; height:660px; transform-origin:0 0; background:#fff; overflow:hidden; transition:opacity .5s; }
+  .stage.fade { opacity:0; }
+  .suite { height:34px; background:#0078D4; display:flex; align-items:center; padding:0 12px; font-family:"Segoe UI",system-ui,sans-serif; color:#fff; position:relative; z-index:3; }
+  .suite .search { position:absolute; left:50%; transform:translateX(-50%); width:330px; height:22px; background:#fff; border-radius:3px; color:#605E5C; font-size:11.5px; display:flex; align-items:center; gap:8px; padding:0 10px; }
+  .suite .r { margin-left:auto; display:flex; gap:16px; align-items:center; }
+  .suite .sav { width:22px; height:22px; border-radius:50%; background:#DDE3EC; color:#0B3D91; font-size:9px; font-weight:600; display:grid; place-items:center; }
+  .app { display:flex; height:626px; position:relative; overflow:hidden; }
+  .sb { width:196px; flex:none; background:#FBFCFE; border-right:1px solid var(--line); padding:14px 10px 0; position:relative; }
+  .brand { display:flex; gap:10px; align-items:center; margin:0 4px 14px; }
+  .brand i { width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,#00B5BD,#2ED7DE); display:grid; place-items:center; flex:none; }
+  .brand b { display:block; font-family:Manrope,sans-serif; font-weight:800; font-size:13px; } .brand span { display:block; font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.14em; color:#1FB8AE; line-height:1.4; margin-top:2px; }
+  .ssearch { height:28px; border:1px solid var(--line); border-radius:9px; background:#fff; display:flex; align-items:center; gap:7px; padding:0 9px; font-size:10.5px; color:var(--soft); margin:0 2px 10px; }
+  .ssearch kbd { margin-left:auto; font-family:"JetBrains Mono",monospace; font-size:8px; background:#EAEFF6; color:var(--muted); border-radius:4px; padding:1px 5px; }
+  .sl { font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.16em; color:var(--soft); margin:7px 8px 3px; }
+  .si { display:flex; align-items:center; gap:9px; height:23.5px; padding:0 9px; border-radius:8px; font-size:11.5px; color:var(--muted); font-weight:500; white-space:nowrap; transition:background .25s; }
+  .si.on { background:var(--mint); color:var(--navy); font-weight:700; } .si.on svg { stroke:#00A8B0; }
+  .si em { margin-left:auto; font-style:normal; font-size:8.5px; font-weight:700; min-width:17px; height:15px; border-radius:8px; display:grid; place-items:center; padding:0 5px; }
+  .em1 { background:#D9F4F6; color:#0e8f98; } .em2 { background:#FDE8E8; color:#D14343; } .em3 { background:#FDF1DC; color:#B7791F; }
+  .suser { position:absolute; left:10px; right:10px; bottom:10px; display:flex; align-items:center; gap:9px; padding-top:9px; border-top:1px solid #EEF2F7; }
+  .suser .a { width:26px; height:26px; border-radius:50%; background:#6366F1; color:#fff; font-size:9px; font-weight:700; display:grid; place-items:center; }
+  .suser b { display:block; font-size:10.5px; } .suser span { display:block; font-family:"JetBrains Mono",monospace; font-size:7px; letter-spacing:.12em; color:var(--soft); }
+  .main { flex:1; min-width:0; background:#F3F6FB; overflow:hidden; position:relative; }
+  .pgv { transition:transform 1.3s cubic-bezier(.45,.05,.25,1); }
+  .head { background:#fff; padding:16px 26px 14px; position:relative; border-bottom:1px solid #E7ECF3;
+    background-image:linear-gradient(rgba(0,33,99,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,33,99,.03) 1px,transparent 1px); background-size:26px 26px; }
+  .crumb { font-size:10px; color:var(--soft); } .crumb b { color:var(--navy); font-weight:600; }
+  .kick { font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.2em; color:#1FB8AE; margin:8px 0 4px; }
+  .head h1 { font-family:Manrope,sans-serif; font-weight:800; font-size:26px; letter-spacing:-.03em; line-height:1.1; }
+  .head h2 { font-family:Fraunces,Georgia,serif; font-style:italic; font-weight:600; font-size:21px; color:var(--tealb); letter-spacing:-.02em; line-height:1.2; margin-top:1px; }
+  .head p { font-size:11.5px; color:var(--muted); margin-top:7px; max-width:520px; line-height:1.5; }
+  .hbtn { position:absolute; right:26px; top:36px; display:flex; align-items:center; gap:9px; }
+  .b1 { height:28px; padding:0 14px; border-radius:999px; border:1px solid #D5DCE8; background:#fff; font-size:11px; font-weight:600; display:flex; align-items:center; gap:6px; }
+  .b2 { height:28px; padding:0 15px; border-radius:999px; background:#00CED7; color:#002163; font-size:11px; font-weight:700; display:flex; align-items:center; gap:6px; }
+  .ci { width:28px; height:28px; border-radius:50%; border:1px solid #D5DCE8; display:grid; place-items:center; background:#fff; } .sep { width:1px; height:18px; background:#D5DCE8; }
+  .pad { padding:16px 26px 26px; }
+  .tool { display:flex; align-items:center; gap:10px; padding:14px 26px 6px; }
+  .seg { display:flex; padding:3px; border:1px solid var(--line); border-radius:999px; background:#fff; gap:2px; }
+  .seg span { height:24px; padding:0 13px; border-radius:999px; font-size:10.5px; font-weight:600; color:var(--soft); display:flex; align-items:center; gap:6px; } .seg .on { background:#fff; color:var(--navy); box-shadow:0 1px 4px rgba(0,33,99,.18); font-weight:700; }
+  .cols { font-family:"JetBrains Mono",monospace; font-size:8px; letter-spacing:.14em; color:var(--soft); }
+  .tsp { margin-left:auto; display:flex; gap:10px; }
+  .sel { height:28px; width:104px; border:1px solid #D5DCE8; border-radius:999px; background:#fff; display:flex; align-items:center; justify-content:space-between; padding:0 12px; font-size:10.5px; color:var(--muted); font-weight:500; }
+  .fs { height:28px; width:170px; border:1px solid #D5DCE8; border-radius:999px; background:#fff; display:flex; align-items:center; gap:7px; padding:0 12px; font-size:10.5px; color:var(--soft); }
+  .tip { padding:0 26px 8px; font-size:10px; color:var(--soft); }
+  .board { position:relative; overflow:hidden; padding:0 26px; height:344px; }
+  .bin { display:flex; gap:12px; height:100%; transition:transform 1.3s cubic-bezier(.45,.05,.25,1); }
+  .col { width:226px; flex:none; align-self:flex-start; background:#F7F9FC; border:1px solid var(--line); border-radius:14px; padding:9px; transition:box-shadow .25s, background .25s; }
+  .col.hot { background:#EAF9FA; box-shadow:0 0 0 2px rgba(0,206,215,.55) inset; }
+  .ch { display:flex; align-items:center; gap:7px; margin:1px 2px 9px; }
+  .ch .d { width:7px; height:7px; border-radius:50%; flex:none; } .ch .c { font-size:10.5px; font-weight:700; border-radius:999px; padding:3px 9px; } .ch .n { font-family:"JetBrains Mono",monospace; font-size:9px; color:var(--soft); } .ch .s { margin-left:auto; font-size:11px; font-weight:700; }
+  .card { position:relative; background:#fff; border:1px solid var(--line); border-radius:12px; padding:11px 11px 9px; margin-bottom:9px; box-shadow:0 1px 4px rgba(0,0,0,.07); }
+  .card h4 { font-size:11.5px; font-weight:700; line-height:1.3; } .card .co { font-size:9.5px; color:var(--muted); margin:2px 0 8px; }
+  .card .row { display:flex; align-items:center; justify-content:space-between; } .card .amt { font-family:Manrope,sans-serif; font-weight:800; font-size:14px; letter-spacing:-.01em; }
+  .card .pc { font-size:9.5px; font-weight:600; border:1px solid var(--line); border-radius:999px; padding:2px 9px; color:var(--muted); }
+  .card .wt { font-family:"JetBrains Mono",monospace; font-size:8px; color:var(--soft); margin:3px 0 6px; min-height:11px; }
+  .bar { height:4px; border-radius:2px; background:#E8EEF5; overflow:hidden; } .bar i { display:block; height:100%; border-radius:2px; transition:width .6s, background .6s; }
+  .card .ft { display:flex; align-items:center; gap:7px; margin-top:9px; font-size:9.5px; color:var(--muted); }
+  .card .ft .a { width:20px; height:20px; border-radius:50%; background:#6366F1; color:#fff; font-size:7px; font-weight:700; display:grid; place-items:center; }
+  .card .ft .dt { margin-left:auto; display:flex; align-items:center; gap:4px; font-family:"JetBrains Mono",monospace; font-size:8.5px; }
+  .card.ph { visibility:hidden; }
+  .card.pop { animation:pop .5s ease-out; } @keyframes pop { 0% { transform:scale(.94); box-shadow:0 0 0 0 rgba(0,206,215,.6); } 60% { box-shadow:0 0 0 10px rgba(0,206,215,0); } 100% { transform:none; } }
+  .add { border:1px dashed #C7D0DC; border-radius:10px; text-align:center; font-size:10px; color:var(--soft); padding:7px 0; }
+  .ghost { position:absolute; z-index:20; margin:0; pointer-events:none; transition:transform .9s cubic-bezier(.45,.05,.25,1); box-shadow:0 18px 32px -10px rgba(0,33,99,.45); transform-origin:50% 30%; }
+  .ghost.lift { rotate:2.5deg; }
+  .lbl { font-family:"JetBrains Mono",monospace; font-size:8px; letter-spacing:.14em; color:var(--soft); }
+  .wc { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 18px; margin-bottom:12px; }
+  .wc h5 { font-family:Manrope,sans-serif; font-weight:800; font-size:14px; margin:4px 0; } .wc p { font-size:10.5px; color:var(--muted); }
+  .dlb { display:inline-flex; align-items:center; gap:6px; height:26px; padding:0 13px; border:1px solid #D5DCE8; border-radius:999px; font-size:10.5px; font-weight:700; margin:10px 8px 0 0; }
+  .k6 { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:12px; }
+  .kc { background:#fff; border:1px solid var(--line); border-radius:12px; padding:10px 12px; } .kc .v { font-family:Manrope,sans-serif; font-weight:800; font-size:16px; margin:5px 0 3px; letter-spacing:-.02em; } .kc .s { font-size:9px; color:var(--soft); line-height:1.35; } .kc .up { color:var(--green); font-weight:700; }
+  .kc .pb { height:4px; background:#E8EEF5; border-radius:2px; margin-top:6px; } .kc .pb i { display:block; width:84%; height:100%; background:var(--amber); border-radius:2px; }
+  .g2 { display:grid; grid-template-columns:1.9fr 1fr; gap:12px; margin-bottom:12px; }
+  .sure { display:flex; height:16px; border-radius:8px; overflow:hidden; margin:10px 0 8px; } .sure i { display:block; } .leg { font-size:9.5px; color:var(--muted); display:flex; gap:16px; } .leg b { color:var(--navy); }
+  .cash3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:12px; } .cash3 .v { font-family:Manrope,sans-serif; font-weight:800; font-size:19px; margin:4px 0; }
+  .chart { height:128px; display:flex; align-items:flex-end; gap:8px; margin:14px 0 6px; position:relative; }
+  .chart .m { flex:1; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; height:100%; position:relative; }
+  .chart .m .t { position:absolute; top:-6px; font-family:"JetBrains Mono",monospace; font-size:7.5px; color:#E0788A; } .chart .m .t.g { color:#34B36A; }
+  .chart .b { width:70%; display:flex; flex-direction:column; justify-content:flex-end; } .chart .b i { display:block; } .chart .tg { position:absolute; left:6%; right:6%; border-top:1.5px dashed #E0788A; }
+  .ml { display:flex; gap:8px; font-family:"JetBrains Mono",monospace; font-size:7.5px; color:var(--soft); text-align:center; } .ml span { flex:1; } .ml .cur2 { color:#00A8B0; font-weight:700; }
+  .who3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; } .wh { background:#F7F9FC; border:1px solid var(--line); border-radius:12px; padding:11px 14px; } .wh b { font-size:12px; } .wh .v { font-family:Manrope,sans-serif; font-weight:800; font-size:16px; margin:5px 0; } .wh .v small { font-size:9px; font-weight:500; color:var(--soft); } .wh .tag { float:right; font-family:"JetBrains Mono",monospace; font-size:7px; color:var(--soft); border:1px solid var(--line); border-radius:4px; padding:1px 6px; }
+  .wh .st { display:flex; height:5px; border-radius:3px; overflow:hidden; margin:6px 0; background:#E8EEF5; } .wh .st i { display:block; } .wh span.f { font-family:"JetBrains Mono",monospace; font-size:8px; color:var(--muted); }
+  .seg2 { display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:9px 14px; margin-bottom:12px; font-family:"JetBrains Mono",monospace; font-size:8px; letter-spacing:.14em; color:var(--soft); }
+  .seg2 .p { font-family:"Plus Jakarta Sans",sans-serif; letter-spacing:0; font-size:10.5px; font-weight:600; color:var(--navy); border:1px solid #D5DCE8; border-radius:999px; padding:4px 12px; display:flex; align-items:center; gap:5px; }
+  .chips { display:flex; align-items:center; gap:7px; margin-bottom:9px; flex-wrap:wrap; } .chp { height:26px; padding:0 12px; border-radius:999px; border:1px solid #D5DCE8; background:#fff; font-size:10.5px; font-weight:600; color:var(--muted); display:flex; align-items:center; gap:5px; } .chp.on { background:#002163; color:#fff; border-color:#002163; } .chp em { font-style:normal; font-size:8px; opacity:.7; }
+  .tbl { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .th, .tr { display:grid; grid-template-columns:24px 200px 150px 190px 78px 110px 1fr; align-items:center; padding:0 14px; gap:6px; }
+  .th { height:30px; font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.14em; color:var(--soft); background:#F7F9FC; border-bottom:1px solid #EEF2F7; }
+  .tr { height:50px; border-bottom:1px solid #EEF2F7; transition:background .3s; } .tr:last-child { border:0; } .tr.hl { background:#F2FBFC; }
+  .cb { width:14px; height:14px; border:1.5px solid #C7D0DC; border-radius:3px; }
+  .pp { display:flex; align-items:center; gap:9px; } .pp .a { width:28px; height:28px; border-radius:50%; color:#fff; font-size:9px; font-weight:700; display:grid; place-items:center; flex:none; } .pp b { display:block; font-size:11.5px; } .pp span { display:block; font-size:9.5px; color:var(--soft); }
+  .fm b { display:block; font-size:11px; } .fm span { display:block; font-size:9.5px; color:var(--soft); }
+  .ln span.l { font-size:9px; font-weight:600; border-radius:999px; padding:2px 8px; margin-right:5px; } .ln span.t { font-size:9px; color:var(--muted); }
+  .l1 { background:#D8F6E4; color:#1a8a5a; } .l2 { background:#DDF7F8; color:#0e8f98; } .l3 { background:#E6E1FA; color:#5b45c4; }
+  .phz { font-size:9.5px; font-weight:600; border-radius:999px; padding:2px 9px; } .p1 { background:#D8F6E4; color:#1a8a5a; } .p2 { background:#DCEAFB; color:#2F6FE0; } .p3 { background:#FDF1DC; color:#B7791F; } .p4 { background:#E6E1FA; color:#5b45c4; }
+  .stt { font-size:9.5px; font-weight:600; border-radius:999px; padding:2px 9px; background:#EEF1F6; color:#4A5874; } .stt.g { background:#D8F6E4; color:#1a8a5a; } .stt.b { background:#DCEAFB; color:#2F6FE0; }
+  .scr { font-size:9.5px; font-weight:700; border-radius:999px; padding:2px 9px; border:1px solid #E0E6EF; background:#F3F6FB; color:#4A5874; display:inline-flex; align-items:center; gap:4px; } .scr.h { background:#FDE8E8; color:#B83232; border-color:#F3CACA; } .scr.w { background:#FDF1DC; color:#B7791F; border-color:#F1D9A8; }
+  .k4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:12px; } .k4 .kc .v { font-size:22px; }
+  .g3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:12px; }
+  .se { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px; } .se .hd { display:flex; gap:10px; align-items:center; } .se .ti { width:30px; height:30px; border-radius:9px; display:grid; place-items:center; } .se .hd span { display:block; font-family:"JetBrains Mono",monospace; font-size:7px; letter-spacing:.14em; color:var(--soft); } .se .hd b { font-family:Manrope,sans-serif; font-weight:800; font-size:14px; }
+  .se p { font-size:10.5px; color:var(--muted); margin:8px 0; } .se .fm2 { font-size:9px; color:var(--soft); border-top:1px solid #EEF2F7; padding-top:7px; margin-bottom:8px; }
+  .se .nums { display:flex; justify-content:space-between; } .se .nums b { display:block; font-family:Manrope,sans-serif; font-weight:800; font-size:16px; } .se .nums span { font-family:"JetBrains Mono",monospace; font-size:7px; letter-spacing:.1em; color:var(--soft); }
+  .se .bt { display:flex; justify-content:space-between; font-size:9.5px; color:var(--soft); margin-top:8px; } .se .bt u { color:#0e8f98; text-decoration:none; font-weight:700; }
+  .up2 { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; } .up2 .h { padding:12px 18px 6px; } .up2 .h span { font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.14em; color:#1FB8AE; } .up2 .h b { display:block; font-family:Manrope,sans-serif; font-weight:800; font-size:14px; margin-top:3px; }
+  .ut, .ur { display:grid; grid-template-columns:100px 1fr 150px 170px 90px 150px 20px; align-items:center; padding:0 18px; gap:8px; } .ut { height:28px; background:#F7F9FC; border-top:1px solid #EEF2F7; font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.14em; color:var(--soft); } .ur { height:40px; border-top:1px solid #EEF2F7; font-size:10.5px; } .ur .d { font-family:"JetBrains Mono",monospace; font-size:9.5px; }
+  .op { font-size:9.5px; font-weight:600; background:#D8F6E4; color:#1a8a5a; border-radius:999px; padding:2px 10px; display:inline-block; }
+  .bk { position:absolute; inset:0; background:rgba(0,18,52,.45); backdrop-filter:blur(2px); opacity:0; transition:opacity .35s; z-index:6; } .bk.on { opacity:1; }
+  .blade { position:absolute; top:0; right:0; bottom:0; width:800px; background:#fff; z-index:7; transform:translateX(102%); transition:transform .45s cubic-bezier(.3,.7,.2,1); display:flex; flex-direction:column; }
+  .blade.on { transform:none; box-shadow:-24px 0 48px -20px rgba(0,18,52,.4); }
+  .bh { display:flex; align-items:center; gap:12px; padding:16px 22px 12px; border-bottom:1px solid #E4EAF2; position:relative; }
+  .bh .tl { width:34px; height:34px; border-radius:10px; background:#D9F4F6; display:grid; place-items:center; flex:none; } .bh .k { font-family:"JetBrains Mono",monospace; font-size:8px; letter-spacing:.16em; color:#1FB8AE; } .bh h4 { font-family:Manrope,sans-serif; font-weight:800; font-size:16px; margin:2px 0; } .bh .m { font-size:10px; color:var(--soft); }
+  .bh .ic { position:absolute; right:22px; top:18px; display:flex; gap:8px; } .bh .ic i { width:26px; height:26px; border-radius:50%; border:1px solid #D5DCE8; display:grid; place-items:center; }
+  .bb { flex:1; display:flex; min-height:0; }
+  .bl { width:312px; padding:14px 20px; overflow:hidden; border-right:1px solid #EEF2F7; }
+  .chs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:6px; } .chs span { font-size:9.5px; font-weight:600; border-radius:999px; padding:2px 9px; }
+  .g1 { background:#D8F6E4; color:#1a8a5a; border:1px solid #BFE6CD; } .gw { background:#fff; color:var(--muted); border:1px solid #D5DCE8; }
+  .note { font-family:"JetBrains Mono",monospace; font-size:8px; color:var(--soft); margin-bottom:10px; }
+  .abt { display:flex; gap:8px; margin-bottom:12px; } .abt span { height:28px; padding:0 15px; border-radius:999px; display:flex; align-items:center; gap:6px; font-size:10.5px; font-weight:700; } .a1 { background:var(--tealb); color:#002163; } .a2 { border:1px solid #D5DCE8; }
+  .bl .sec { font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.16em; color:var(--soft); margin:10px 0 5px; }
+  .sc { border:1px solid #E4EAF2; background:#F7F9FC; border-radius:10px; padding:9px 12px; display:flex; align-items:center; gap:8px; }
+  .kv2 { font-size:10.5px; line-height:1.9; } .kv2 div { display:flex; gap:8px; align-items:center; }
+  .g2b { display:grid; grid-template-columns:1fr 1fr; gap:6px 14px; font-size:10.5px; } .g2b span.f { font-family:"JetBrains Mono",monospace; font-size:7px; letter-spacing:.12em; color:var(--soft); display:block; margin-bottom:2px; }
+  .frm { border:1px solid #E4EAF2; background:#F7F9FC; border-radius:10px; padding:9px 12px; display:flex; align-items:center; gap:9px; font-size:11.5px; font-weight:600; margin-top:4px; } .frm u { margin-left:auto; text-decoration:none; font-size:10px; font-weight:700; color:#0e8f98; border:1px solid #BFE9EC; border-radius:999px; padding:4px 12px; background:#fff; }
+  .br { flex:1; padding:14px 18px; min-width:0; }
+  .tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; } .tabs span { font-size:10.5px; font-weight:600; color:var(--muted); padding:5px 10px; border-radius:999px; } .tabs .on { background:#E6F8FA; color:#0e8f98; } .tabs em { font-style:normal; font-size:8px; background:#EEF1F6; border-radius:999px; padding:1px 6px; margin-left:3px; }
+  .fch { display:flex; gap:6px; margin-bottom:12px; } .fch span { font-size:9.5px; font-weight:600; border-radius:999px; padding:3px 10px; border:1px solid; }
+  .tl2 { position:relative; padding-left:24px; } .tl2::before { content:""; position:absolute; left:8px; top:6px; bottom:6px; width:1.5px; background:#E4EAF2; }
+  .ti2 { position:relative; background:#F3F6FB; border:1px solid #E7ECF3; border-radius:9px; padding:8px 12px; margin-bottom:8px; display:flex; justify-content:space-between; gap:10px; } .ti2::before { content:""; position:absolute; left:-21px; top:11px; width:9px; height:9px; border-radius:50%; background:#fff; border:2px solid #A9B7CC; }
+  .ti2 b { display:block; font-size:11px; } .ti2 span { display:block; font-size:9.5px; color:var(--muted); margin-top:1px; } .ti2 .d { font-family:"JetBrains Mono",monospace; font-size:8px; color:var(--soft); white-space:nowrap; }
+  .cur { position:absolute; left:0; top:0; z-index:30; pointer-events:none; opacity:0; transform:translate(1090px,610px); transition:transform .9s cubic-bezier(.45,.05,.25,1), opacity .3s; }
+  .cur.on { opacity:1; } .cur svg { display:block; filter:drop-shadow(0 2px 3px rgba(0,0,0,.35)); transition:transform .12s; } .cur.down svg { transform:scale(.85); }
+  .rip { position:absolute; z-index:25; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; border:2px solid #00CED7; pointer-events:none; animation:rp .6s ease-out forwards; }
+  @keyframes rp { from { transform:scale(1); opacity:.9; } to { transform:scale(4); opacity:0; } }
+</style>
+</head>
+<body>
+<div id="box" class="stage-box">
+  <div id="stage" class="stage">
+    <div class="suite">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="#fff"><g><circle cx="2" cy="2" r="1.3"/><circle cx="7" cy="2" r="1.3"/><circle cx="12" cy="2" r="1.3"/><circle cx="2" cy="7" r="1.3"/><circle cx="7" cy="7" r="1.3"/><circle cx="12" cy="7" r="1.3"/><circle cx="2" cy="12" r="1.3"/><circle cx="7" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/></g></svg>
+      <div class="search"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#0F6CBD" stroke-width="1.4"><circle cx="9.5" cy="6.5" r="4.5"/><path d="M6.3 9.7 2 14"/></svg>Search this site</div>
+      <div class="r">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><path d="M2 6l9-4v10L2 9z"/><path d="M4 10l1 4"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r="6"/></svg>
+        <div class="sav">KN</div>
+      </div>
+    </div>
+    <div class="app" id="app"></div>
+    <div class="cur" id="cur"><svg width="18" height="22" viewBox="0 0 18 22"><path d="M1.5 1.5v16l4.2-3.8 3 6.6 3-1.4-3-6.4h5.8z" fill="#002163" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+  </div>
+</div>
+<script>
+(function () {
+  var EN = /[?&]lang=en\b/.test(location.search);
+  var EMBED = window.self !== window.top;
+  if (EN) document.documentElement.lang = 'en';
+  if (EMBED) document.documentElement.classList.add('embed');
+  var t = function (cs, en) { return EN ? en : cs; };
+  var $ = function (id) { return document.getElementById(id); };
+  function ic(p, s, c, w) { return '<svg width="' + (s || 14) + '" height="' + (s || 14) + '" viewBox="0 0 16 16" fill="none" stroke="' + (c || '#4A5874') + '" stroke-width="' + (w || 1.4) + '" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>'; }
+  var P = {
+    grid: '<rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/>',
+    gauge: '<path d="M2.500 11a6 6 0 1111 0M8 11l2.500-3.500"/>', pulse: '<path d="M1.500 8h3l1.500-4 3 8 1.500-4h4"/>', bars: '<path d="M3 13V8M8 13V3M13 13V6"/>',
+    user: '<circle cx="8" cy="5.500" r="3"/><path d="M2.500 14c.6-3 3-4.500 5.500-4.500s4.900 1.500 5.500 4.500"/>', build: '<rect x="3.500" y="2" width="9" height="12" rx="1"/><path d="M6 5h1M9 5h1M6 8h1M9 8h1M7 14v-2.500h2V14"/>',
+    clock: '<circle cx="8" cy="8" r="6"/><path d="M8 4.500V8l2.500 1.500"/>', doc: '<path d="M3.500 1.500h6l3 3v10h-9z"/><path d="M9.500 1.500v3h3M6 8.500h4M6 11h4"/>', tag: '<path d="M2 8.500V2.500h6l6 6-6 6z"/><circle cx="5" cy="5" r=".8"/>',
+    check: '<path d="M2.500 8.500l3.500 3.500 7.500-8"/>', cal: '<rect x="2.500" y="3.500" width="11" height="10" rx="1.500"/><path d="M2.500 7h11M5.500 2v3M10.500 2v3"/>', mic: '<rect x="6" y="1.500" width="4" height="8" rx="2"/><path d="M3.500 8a4.500 4.500 0 009 0M8 12.500v2"/>',
+    mail: '<rect x="1.500" y="3" width="13" height="10" rx="1.500"/><path d="M2 4l6 5 6-5"/>', send: '<path d="M14.500 1.500L1.500 7l4.300 1.800L14.500 1.500zM6.500 9.500l1.300 4.500 6.700-12.500z"/>',
+    search: '<circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/>', plus: '<path d="M8 3v10M3 8h10"/>', dl: '<path d="M8 2v9M4.500 7.500L8 11l3.500-3.500M2 14h12"/>', full: '<path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/>',
+    refresh: '<path d="M13 3v3.500H9.500M3 13V9.500h3.500"/><path d="M12.500 6.500A5 5 0 004 5M3.500 9.500A5 5 0 0012 11"/>', link: '<path d="M6.500 9.500l3-3M7 4.500l1-1a2.500 2.500 0 013.500 3.500l-1 1M9 11.500l-1 1a2.500 2.500 0 01-3.500-3.500l1-1"/>',
+    help: '<circle cx="8" cy="8" r="6"/><path d="M6.200 6.200a1.900 1.900 0 013.600.7c0 1.300-1.800 1.500-1.800 2.600M8 11.500v.1"/>', bug: '<rect x="5" y="5" width="6" height="8" rx="3"/><path d="M8 5V3M3 8h2M11 8h2M3.500 12L5 11M12.500 12L11 11M4 5l1.500 1.500M12 5l-1.500 1.500"/>',
+    bulb: '<path d="M6 12h4M6.500 14h3M8 2a4 4 0 00-2 7.500V11h4V9.500A4 4 0 008 2z"/>', kb: '<rect x="2" y="2.500" width="3" height="11"/><rect x="6.500" y="2.500" width="3" height="7"/><rect x="11" y="2.500" width="3" height="9"/>',
+    list: '<path d="M2.500 4h11M2.500 8h11M2.500 12h7"/>', chev: '<path d="M4 6l4 4 4-4"/>', x: '<path d="M3 3l10 10M13 3L3 13"/>', edit: '<path d="M2 14l1-4 8-8 3 3-8 8z"/>', phone: '<path d="M4 2h2.500l1 3-1.500 1a8 8 0 003 3l1-1.500 3 1V13a1.500 1.500 0 01-1.500 1.500A11 11 0 012.500 3.500 1.500 1.500 0 014 2z"/>', flame: '<path d="M8 1.500c1 2.500 4 3.500 4 7A4 4 0 014 8.500c0-1.500.8-2.300 1.500-3 .3 1 1 1.500 1.500 1.500C7 5 7 3 8 1.500z"/>', shield: '<path d="M8 1.500l5.500 2v4.300c0 3.200-2.300 5.600-5.500 6.700C4.800 13.400 2.500 11 2.500 7.800V3.500z"/>', chr: '<path d="M6 3.500L10.500 8 6 12.500"/>'
+  };
+  function nav(id, icon, label, badge, cls, on) { return '<div class="si' + (on ? ' on' : '') + '" id="n-' + id + '">' + ic(icon, 14, '#4A5874', 1.4) + label + (badge ? '<em class="' + cls + '">' + badge + '</em>' : '') + '</div>'; }
+  var sidebar =
+    '<aside class="sb" id="sb"><div class="brand"><i>' + ic(P.user, 17, '#fff', 1.6) + '</i><div><b>CRM</b><span>' + t('ŘÍZENÍ VZTAHŮ SE<br>ZÁKAZNÍKY', 'CUSTOMER RELATIONSHIP<br>MANAGEMENT') + '</span></div></div>' +
+    '<div class="ssearch">' + ic(P.search, 12, '#4A5874', 1.6) + t('Hledat…', 'Search…') + '<kbd>⌘K</kbd></div>' +
+    nav('dash', P.grid, 'Dashboard') + nav('lead', P.gauge, t('Vedení', 'Leadership')) + nav('act', P.pulse, t('Aktivita', 'Activity')) + nav('revenue', P.bars, t('Očekávané příjmy', 'Expected revenue')) +
+    '<div class="sl">CRM</div>' + nav('contacts', P.user, t('Kontakty', 'Contacts'), '13', 'em1') + nav('firms', P.build, t('Firmy', 'Companies'), '5', 'em1') + nav('deals', P.clock, t('Nabídky', 'Deals'), '7', 'em1', true) + nav('inv', P.doc, t('Faktury', 'Invoices'), '2', 'em2') + nav('prod', P.tag, t('Produkty', 'Products')) + nav('sub', P.clock, t('Předplatná', 'Subscriptions')) + nav('con', P.doc, t('Smlouvy', 'Contracts'), '1', 'em3') + nav('task', P.check, t('Úkoly', 'Tasks'), '6', 'em2') +
+    '<div class="sl">' + t('AKCE', 'EVENTS') + '</div>' + nav('events', P.cal, t('Konference & akce', 'Conferences & events')) + nav('web', P.mic, t('Webináře', 'Webinars')) +
+    '<div class="sl">' + t('SYSTÉM', 'SYSTEM') + '</div>' + nav('tpl', P.mail, t('Šablony e-mailu', 'E-mail templates')) + nav('camp', P.send, t('Kampaně', 'Campaigns')) +
+    '<div class="suser"><div class="a">KN</div><div><b>Kamil Novák</b><span>' + t('SPRÁVCE', 'ADMIN') + '</span></div></div></aside>';
+
+  function head(crumb, kick, h1, h2, para, btns) {
+    return '<div class="head"><div class="crumb">EP365 CRM / <b>' + crumb + '</b></div><div class="kick">' + kick + '</div><h1>' + h1 + '</h1><h2>' + h2 + '</h2><p>' + para + '</p><div class="hbtn">' + btns + '</div></div>';
+  }
+  var utils = '<span class="ci">' + ic(P.full, 12) + '</span><span class="ci">' + ic(P.refresh, 12) + '</span><span class="ci">' + ic(P.link, 12) + '</span><i class="sep"></i><span class="ci">' + ic(P.help, 12) + '</span><span class="ci">' + ic(P.bug, 12) + '</span><span class="ci">' + ic(P.bulb, 12) + '</span>';
+
+  var STAGES = [
+    { k: 'disc', cs: 'Discovery', en: 'Discovery', bg: '#EEF1F6', fg: '#4A5874', dot: '#6B778C', pct: 20, bar: '#6B778C' },
+    { k: 'qual', cs: 'Kvalifikace', en: 'Qualification', bg: '#E3EEFF', fg: '#2F6FE0', dot: '#3B82F6', pct: 35, bar: '#3B82F6' },
+    { k: 'offer', cs: 'Nabídka', en: 'Proposal', bg: '#FDF1DC', fg: '#B7791F', dot: '#E6A23C', pct: 60, bar: '#E6A23C' },
+    { k: 'neg', cs: 'Vyjednávání', en: 'Negotiation', bg: '#DDF7F8', fg: '#008a91', dot: '#00CED7', pct: 75, bar: '#00CED7' },
+    { k: 'won', cs: 'Vyhráno', en: 'Won', bg: '#E1F5E9', fg: '#1a8a5a', dot: '#34B36A', pct: 100, bar: '#34B36A' },
+    { k: 'lost', cs: 'Prohráno', en: 'Lost', bg: '#FDE8E8', fg: '#D14343', dot: '#D14343', pct: 0, bar: '#D14343' }
+  ];
+  var DEALS = [
+    ['d1', 'disc', t('Workshop governance – Kovoplast', 'Governance workshop – Kovoplast'), 'Kovoplast a.s.', 95000, 20, t('9. 10.', '9 Oct')],
+    ['d2', 'qual', t('Vozový park – Aurex', 'Fleet management – Aurex'), 'Aurex Logistics s.r.o.', 117000, 35, t('24. 10.', '24 Oct')],
+    ['d3', 'offer', t('Pilot žádanek – Brenner', 'Request board pilot – Brenner'), 'Brenner Print a.s.', 248500, 60, t('15. 10.', '15 Oct')],
+    ['d4', 'offer', t('AI asistent Enterprise – Brenner', 'AI assistant Enterprise – Brenner'), 'Brenner Print a.s.', 520000, 65, t('20. 10.', '20 Oct')],
+    ['d5', 'neg', t('Workplace + analytika – Technolab', 'Workplace + analytics – Technolab'), 'Technolab s.r.o.', 232400, 75, t('30. 10.', '30 Oct')],
+    ['d6', 'won', t('Platforma EP365 – Lumeon', 'EP365 platform – Lumeon'), 'Lumeon s.r.o.', 300000, 100, t('5. 9.', '5 Sep')],
+    ['d7', 'won', t('Řízené dokumenty – Lumeon', 'Controlled documents – Lumeon'), 'Lumeon s.r.o.', 150000, 100, t('29. 8.', '29 Aug')]
+  ];
+  function money(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' ' + t('Kč', 'CZK'); }
+  function stageOf(k) { return STAGES.filter(function (s) { return s.k === k; })[0]; }
+  function cardHtml(d) {
+    var s = stageOf(d[1]);
+    return '<div class="card" id="' + d[0] + '" data-amt="' + d[4] + '" data-st="' + d[1] + '"><h4>' + d[2] + '</h4><div class="co">' + d[3] + '</div><div class="row"><span class="amt">' + money(d[4]) + '</span><span class="pc">' + d[5] + '%</span></div>' +
+      '<div class="wt">' + (d[1] === 'won' ? '' : t('vážená ', 'weighted ') + money(d[4] * d[5] / 100)) + '</div><div class="bar"><i style="width:' + d[5] + '%;background:' + s.bar + '"></i></div>' +
+      '<div class="ft"><span class="a">KN</span>Kamil<span class="dt">' + ic(P.cal, 10, '#7A8499', 1.3) + d[6] + '</span></div></div>';
+  }
+  function dealsView() {
+    var board = STAGES.map(function (s) {
+      var ds = DEALS.filter(function (d) { return d[1] === s.k; });
+      return '<div class="col" id="c-' + s.k + '" data-k="' + s.k + '"><div class="ch"><i class="d" style="background:' + s.dot + '"></i><span class="c" style="background:' + s.bg + ';color:' + s.fg + '">' + (EN ? s.en : s.cs) + '</span><span class="n">' + ds.length + '</span><span class="s">' + money(ds.reduce(function (a, d) { return a + d[4]; }, 0)) + '</span></div>' +
+        '<div class="cards">' + ds.map(cardHtml).join('') + '</div><div class="add">+ ' + t('Přidat nabídku', 'Add deal') + '</div></div>';
+    }).join('');
+    return '<div class="pgv" id="pgv">' + head(t('Nabídky', 'Deals'), 'CRM · ' + t('NABÍDKY', 'DEALS'), t('Nabídky.', 'Deals.'), t('Pipeline vašich obchodních příležitostí.', 'The pipeline of your sales opportunities.'), t('Sledujte pokrok nabídek od prvního kontaktu až po uzavření.', 'Follow deals from first contact to close.'),
+      '<span class="b1">' + ic(P.dl, 12, '#002163', 1.5) + 'Export CSV</span><span class="b2">' + ic(P.plus, 12, '#002163', 1.8) + t('Nová nabídka', 'New deal') + '</span>' + utils) +
+      '<div class="tool"><div class="seg"><span class="on">' + ic(P.kb, 12, '#002163', 1.5) + 'Kanban</span><span>' + ic(P.list, 12, '#7A8499') + t('Seznam', 'List') + '</span><span>' + ic(P.bars, 12, '#7A8499') + t('Prognóza', 'Forecast') + '</span></div><span class="cols">' + t('SLOUPCE:', 'COLUMNS:') + '</span><div class="seg"><span class="on">' + t('Dle fáze', 'By stage') + '</span><span>' + t('Dle měsíce uzavření', 'By closing month') + '</span></div>' +
+      '<div class="tsp"><div class="sel">' + t('Fáze: vše', 'Stage: all') + ic(P.chev, 10) + '</div><div class="fs">' + ic(P.search, 11, '#7A8499', 1.5) + t('Hledat nabídku…', 'Search deals…') + '</div></div></div>' +
+      '<div class="tip">' + ic(P.kb, 10, '#7A8499', 1.3) + ' ' + t('Tip: přetáhněte kartu mezi sloupci a změňte fázi nabídky.', 'Tip: drag a card between columns to change the stage of a deal.') + '</div>' +
+      '<div class="board" id="boardv"><div class="bin" id="bin">' + board + '</div></div></div>';
+  }
+
+  function revenueView() {
+    var months = t('led únr bře dub kvě čvn čvc srp zář říj lis pro', 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec').split(' ');
+    var data = [[24, 0, '24k', 0], [24, 0, '24k', 0], [24, 0, '24k', 0], [61, 0, '61k', 0], [61, 0, '61k', 0], [84, 0, '84k', 0], [84, 0, '84k', 0], [84, 526, '610k', 1], [84, 328, '412k', 1], [84, 256, '340k', 1], [76, 0, '76k', 0], [59, 0, '59k', 0]];
+    var chart = data.map(function (d, i) {
+      var h1 = Math.max(4, d[0] / 610 * 104), h2 = d[1] / 610 * 104;
+      return '<div class="m"><span class="t ' + (d[3] ? 'g' : '') + '">' + d[2] + '</span><div class="tg" style="bottom:' + (150 / 610 * 104 + 6) + 'px"></div><div class="b"><i style="height:' + h2 + 'px;background:#E6A23C"></i><i style="height:' + h1 + 'px;background:' + (i < 7 ? '#86E6EC' : '#00CED7') + '"></i></div></div>';
+    }).join('');
+    var who = [['Lumeon s.r.o.', t('ZÁKAZNÍK', 'CUSTOMER'), '810 400', 52, t('opak. 460k · pipeline 350k', 'rec. 460k · pipeline 350k'), t('44 % z celku · vyhráno 350k', '44 % of total · won 350k')], ['Technolab s.r.o.', t('ZÁKAZNÍK', 'CUSTOMER'), '692 300', 30, t('opak. 210k · pipeline 482k', 'rec. 210k · pipeline 482k'), t('37 % z celku', '37 % of total')], ['Brenner Print a.s.', 'LEAD', '346 000', 0, t('opak. 0k · pipeline 346k', 'rec. 0k · pipeline 346k'), t('19 % z celku', '19 % of total')]].map(function (w) {
+      return '<div class="wh"><span class="tag">' + w[1] + '</span><b>' + w[0] + '</b><div class="v">' + w[2] + ' ' + t('Kč', 'CZK') + ' <small>/ ' + t('rok', 'year') + '</small></div><div class="st"><i style="width:' + w[3] + '%;background:#00CED7"></i><i style="width:' + (100 - w[3]) + '%;background:#E6A23C"></i></div><span class="f">' + w[4] + '</span><br><span class="f">' + w[5] + '</span></div>';
+    }).join('');
+    function cash(l, v, s) { return '<div class="wc" style="margin:0"><div class="lbl">' + l + '</div><div class="v">' + v + ' ' + t('Kč', 'CZK') + '</div><div style="font-size:9.5px;color:#7A8499">' + s + '</div></div>'; }
+    function kc(l, v, s, col) { return '<div class="kc"><div class="lbl">' + l + '</div><div class="v"' + (col ? ' style="color:' + col + '"' : '') + '>' + v + '</div><div class="s">' + s + '</div></div>'; }
+    return '<div class="pgv" id="pgv">' + head(t('Očekávané příjmy', 'Expected revenue'), 'CRM · ' + t('OČEKÁVANÉ PŘÍJMY', 'EXPECTED REVENUE'), t('Očekávané příjmy.', 'Expected revenue.'), t('Předpokládaný měsíční výhled.', 'The expected monthly outlook.'), t('Měsíční výhled očekávaných příjmů: opakované ze servisních smluv a předplatných + jednorázové z nabídek vážené pravděpodobností.', 'A monthly outlook of expected revenue: recurring from service contracts and subscriptions + one-off from deals weighted by probability.'), utils) +
+      '<div class="pad"><div class="wc"><div class="lbl">' + t('MANAŽERSKÝ REPORT', 'MANAGER REPORT') + '</div><h5>' + t('Sestavit a stáhnout', 'Build and download') + '</h5><p>' + t('Obchod, plnění plánu, fakturace, ziskovost a důvody proher v jednom dokumentu. Sestaví se přímo v prohlížeči – nikam se nic neposílá.', 'Sales, plan fulfilment, invoicing, profitability and reasons for lost deals in one document. It is built in the browser – nothing is sent anywhere.') + '</p><span class="dlb">' + ic(P.dl, 12, '#002163', 1.5) + t('Měsíční · září 2026', 'Monthly · September 2026') + '</span><span class="dlb">' + ic(P.dl, 12, '#002163', 1.5) + t('Kvartální · 3. čtvrtletí 2026', 'Quarterly · Q3 2026') + '</span></div>' +
+      '<div class="k6">' + kc(t('OPAKOVANÉ MĚSÍČNĚ', 'RECURRING MONTHLY'), '84 200 ' + t('Kč', 'CZK'), t('smlouvy + předplatná (MRR)', 'contracts + subscriptions (MRR)') + ' <span class="up">▲ 118 %</span>', '#34B36A') + kc(t('TENTO MĚSÍC', 'THIS MONTH'), '412 500 ' + t('Kč', 'CZK'), t('vč. nabídek (vážené)', 'incl. deals (weighted)')) + kc(t('PIPELINE ZA ROK 2026', 'PIPELINE FOR 2026'), '1 085 000 ' + t('Kč', 'CZK'), t('jednorázové z nabídek (vážené)', 'one-off from deals (weighted)'), '#E6A23C') + kc(t('POHLEDÁVKY 2026', 'RECEIVABLES 2026'), '31 400 ' + t('Kč', 'CZK'), t('vystaveno, čeká se na úhradu', 'invoiced, awaiting payment'), '#0e6b6b') + kc(t('CELKEM ZA ROK 2026', 'TOTAL FOR 2026'), '1 848 700 ' + t('Kč', 'CZK'), t('opakované + nabídky', 'recurring + deals')) +
+      '<div class="kc"><div class="lbl">' + t('ROČNÍ CÍL 2026', 'ANNUAL GOAL 2026') + '</div><div class="v" style="color:#E6A23C">84 %</div><div class="pb"><i></i></div><div class="s" style="margin-top:4px">' + t('1,85M z 2,20M Kč', '1.85M of 2.20M CZK') + '</div></div></div>' +
+      '<div class="g2"><div class="wc" style="margin:0"><div style="display:flex;justify-content:space-between"><b style="font-size:12px">' + t('Jisté vs. sázka · rok 2026', 'Secured vs. bet · year 2026') + '</b><span style="font-size:10px;font-weight:700;color:#34B36A">58 % ' + t('jisté', 'secured') + '</span></div><div class="sure"><i style="width:58%;background:#34B36A"></i><i style="width:42%;background:#E6A23C"></i></div><div class="leg"><span>■ ' + t('Jisté', 'Secured') + ' <b>1 071 000 ' + t('Kč', 'CZK') + '</b></span><span>■ ' + t('Sázka (pipeline)', 'Bet (pipeline)') + ' <b>777 700 ' + t('Kč', 'CZK') + '</b></span></div></div>' +
+      '<div class="wc" style="margin:0"><div class="lbl">' + t('MEZIROČNĚ · 2026 VS 2025', 'YEAR ON YEAR · 2026 VS 2025') + '</div><div style="font-family:Manrope,sans-serif;font-weight:800;font-size:22px;color:#34B36A;margin:6px 0 2px">▲ 640 %</div><div style="font-size:9.5px;color:#7A8499">1,85M (2026) vs 250k (2025)</div></div></div>' +
+      '<div class="cash3">' + cash(t('CASH DO 30 DNÍ', 'CASH IN 30 DAYS'), '352 000', t('opakované 84k + pipeline 268k', 'recurring 84k + pipeline 268k')) + cash(t('CASH DO 60 DNÍ', 'CASH IN 60 DAYS'), '468 000', t('opakované 168k + pipeline 300k', 'recurring 168k + pipeline 300k')) + cash(t('CASH DO 90 DNÍ', 'CASH IN 90 DAYS'), '560 000', t('opakované 252k + pipeline 308k', 'recurring 252k + pipeline 308k')) + '</div>' +
+      '<div class="wc"><div style="display:flex;justify-content:space-between"><b style="font-family:Manrope,sans-serif;font-size:13px">' + t('Měsíční výhled', 'Monthly outlook') + '</b><span class="lbl">' + t('rok 2026 · sloupce = opakované + nabídky (vážené) · čára = cíl', 'year 2026 · bars = recurring + deals (weighted) · line = goal') + '</span></div><div class="chart">' + chart + '</div><div class="ml">' + months.map(function (m, i) { return '<span class="' + (i === 8 ? 'cur2' : '') + '">' + m + ' 26</span>'; }).join('') + '</div></div>' +
+      '<div class="wc"><b style="font-family:Manrope,sans-serif;font-size:13px">' + t('Kdo tvoří očekávané příjmy', 'Who makes up the expected revenue') + '</b><div class="who3" style="margin-top:10px">' + who + '</div></div></div></div>';
+  }
+
+  var CONTACTS = [
+    ['c1', 'JM', '#8B5CF6', 'Jan Marek', 'jan.marek@example.com', 'Lumeon s.r.o.', 'CEO', ['Care', 'l1', t('probíhá realizace', 'in delivery')], 'deal', 'p1', t('aktivní zákazník', 'active customer'), 'g', 96, 'h', t('Horký lead', 'Hot lead')],
+    ['c2', 'TK', '#10B981', 'Tomáš Krátký', 'tomas.kratky@example.com', 'Kovoplast a.s.', 'CTO', [t('Akvizice', 'Acquisition'), 'l2', t('osloven', 'contacted')], t('Osloven', 'Contacted'), 'p2', t('nezákazník', 'non-customer'), '', 20, '', t('Studený', 'Cold')],
+    ['c3', 'MV', '#3B82F6', 'Martin Vlček', 'martin.vlcek@example.com', 'Technolab s.r.o.', 'IT Manager', ['Restart', 'l1', t('realizováno', 'delivered')], 'deal', 'p1', t('zákazník', 'customer'), 'b', 58, 'w', t('Teplý lead', 'Warm lead')],
+    ['c4', 'JB', '#22C55E', 'Jana Blažková', 'jana.blazkova@example.com', 'Technolab s.r.o.', 'Project Manager', ['Diagnostika', 'l3', t('nabídka', 'proposal')], 'SQO', 'p3', t('nezákazník', 'non-customer'), '', 16, '', t('Studený', 'Cold')],
+    ['c5', 'OK', '#EC4899', 'Ondřej Kubát', 'ondrej.kubat@example.com', 'Aurex Logistics s.r.o.', 'Solution Architect', [t('Test vitality', 'Vitality test'), 'l2', t('vyplnil', 'completed')], 'HQL', 'p4', t('nezákazník', 'non-customer'), '', 13, '', t('Studený', 'Cold')]
+  ];
+  function contactRow(c) {
+    return '<div class="tr" id="' + c[0] + '"><div class="cb"></div><div class="pp"><span class="a" style="background:' + c[2] + '">' + c[1] + '</span><div><b>' + c[3] + '</b><span>' + c[4] + '</span></div></div><div class="fm"><b>' + c[5] + '</b><span>' + c[6] + '</span></div><div class="ln"><span class="l ' + c[7][1] + '">● ' + c[7][0] + '</span><span class="t">' + c[7][2] + '</span></div><div><span class="phz ' + c[9] + '">' + c[8] + '</span></div><div><span class="stt ' + c[11] + '">' + (c[11] === 'g' ? '● ' : '') + c[10] + '</span></div><div><span class="scr ' + c[13] + '">' + c[12] + ' ' + c[14] + '</span></div></div>';
+  }
+  function contactsView() {
+    return '<div class="pgv" id="pgv">' + head(t('Kontakty', 'Contacts'), 'CRM · ' + t('KONTAKTY', 'CONTACTS'), t('Kontakty.', 'Contacts.'), t('Váš adresář kontaktů.', 'Your address book.'), t('Spravujte osobní kontakty, sledujte historii komunikace a obchodní příležitosti.', 'Manage personal contacts, follow the communication history and sales opportunities.'), '<span class="b1">' + ic(P.dl, 12, '#002163', 1.5) + 'Export CSV</span><span class="b2">' + ic(P.plus, 12, '#002163', 1.8) + t('Přidat kontakt', 'Add contact') + '</span>' + utils) +
+      '<div class="pad" style="padding-top:14px"><div class="seg2">' + ic('<path d="M2 3h12l-4.500 5.500V13l-3-1.500V8.500z"/>', 12, '#7A8499', 1.3) + t('SEGMENTY', 'SEGMENTS') + '<span class="p">' + ic(P.user, 11, '#4A5874', 1.4) + ' ' + t('SQL příležitosti', 'SQL opportunities') + '</span><span class="p" style="margin-left:auto">' + ic(P.send, 11, '#4A5874', 1.4) + ' ' + t('Odeslat kampaň', 'Send campaign') + '</span></div>' +
+      '<div class="chips"><span class="chp on">' + t('Vše', 'All') + ' <em>13</em></span><span class="chp">' + t('Kontakt', 'Contact') + '</span><span class="chp">' + t('Osloven', 'Contacted') + ' <em>1</em></span><span class="chp">MQL <em>1</em></span><span class="chp">HQL <em>2</em></span><span class="chp">SQL <em>2</em></span><span class="chp">SQO <em>2</em></span><span class="chp">deal <em>5</em></span></div>' +
+      '<div class="tbl"><div class="th"><span></span><span>' + t('OSOBA', 'PERSON') + '</span><span>' + t('FIRMA · POZICE', 'COMPANY · ROLE') + '</span><span>' + t('OBCHODNÍ LINIE · STAV', 'BUSINESS LINE · STATE') + '</span><span>' + t('FÁZE', 'STAGE') + '</span><span>STATUS</span><span>' + t('SKÓRE', 'SCORE') + '</span></div>' + CONTACTS.map(contactRow).join('') + '</div></div></div>';
+  }
+
+  function eventsView() {
+    function kc(l, v, s) { return '<div class="kc"><div class="lbl">' + l + '</div><div class="v">' + v + '</div><div class="s" style="font-size:10px">' + s + '</div></div>'; }
+    function se(bg, col, kick, name, desc, fm, n1, n2, n3, foot) {
+      return '<div class="se"><div class="hd"><span class="ti" style="background:' + bg + '">' + ic(P.cal, 15, col, 1.4) + '</span><div><span>' + kick + '</span><b>' + name + '</b></div></div><p>' + desc + '</p><div class="fm2">' + fm + '</div><div class="nums"><div><b>' + n1 + '</b><span>' + t('ÚČAST YTD', 'ATTENDED YTD') + '</span></div><div><b>' + n2 + '</b><span>' + t('LEADI', 'LEADS') + '</span></div><div><b style="color:#00A8B0">' + n3 + '</b><span>' + t('KONVERZE', 'CONVERSION') + '</span></div></div><div class="bt"><span>' + foot + '</span><u>' + t('Otevřít', 'Open') + ' ›</u></div></div>';
+    }
+    return '<div class="pgv" id="pgv">' + head(t('Konference & akce', 'Conferences & events'), t('AKCE · KONFERENCE', 'EVENTS · CONFERENCES'), t('Konference & akce.', 'Conferences & events.'), t('Leadi z osobních setkání.', 'Leads from personal meetings.'), t('Konferenční akce a setkání, ze kterých přicházejí kvalifikovaní leadi. Každá série má vlastní cíl, formát a follow-up šablonu.', 'Conferences and meetings that bring qualified leads. Every series has its own goal, format and follow-up template.'), '<span class="b1">+ ' + t('Termín', 'Date') + '</span><span class="b2">' + ic(P.plus, 12, '#002163', 1.8) + t('Nová série', 'New series') + '</span>' + utils) +
+      '<div class="pad"><div class="k4">' + kc(t('AKCÍ 2026', 'EVENTS 2026'), '6', t('z 3 sérií', 'from 3 series')) + kc(t('ÚČASTNÍKŮ YTD', 'ATTENDEES YTD'), '6', t('osobně dorazilo', 'attended in person')) + kc(t('NOVÝCH LEADŮ', 'NEW LEADS'), '13', t('z akcí letos', 'from events this year')) + kc(t('KONVERZE NA LEAD', 'LEAD CONVERSION'), '217 %', t('leadi / dostavení', 'leads / attendance')) + '</div>' +
+      '<div class="g3">' + se('#DDF7F8', '#0e8f98', 'MINI-EVENT', 'EP365 Roadshow', t('Krátké prezentace EP365 přímo u zákazníka.', 'Short EP365 presentations at the customer’s site.'), t('8–10× ročně · 60–90 min · On-site u zákazníka · zdarma', '8–10× a year · 60–90 min · On-site at the customer · free'), '2', '4', '200 %', t('Plánováno 1 · proběhlo 1', 'Planned 1 · held 1')) +
+      se('#EDE6FB', '#5b45c4', 'NETWORKING', 'Partner Meetup', t('Neformální setkání partnerů a klíčových zákazníků.', 'Informal meeting of partners and key customers.'), t('2× ročně · Večerní · Pozvánkou · zdarma', '2× a year · Evening · By invitation · free'), '2', '2', '100 %', t('Plánováno 0 · proběhlo 1', 'Planned 0 · held 1')) +
+      se('#D9F4F6', '#0e8f98', t('KONFERENCE', 'CONFERENCE'), t('Workplace dny', 'Workplace Days'), t('Vlajková konference o moderním workplace a platformě EP365.', 'Flagship conference on the modern workplace and the EP365 platform.'), t('3–4× ročně · Celodenní · Osobně · placený vstup', '3–4× a year · Full-day · In person · paid entry'), '2', '7', '350 %', t('Plánováno 1 · proběhlo 1', 'Planned 1 · held 1')) + '</div>' +
+      '<div class="up2"><div class="h"><span>' + t('NADCHÁZEJÍCÍ', 'UPCOMING') + '</span><b>' + t('Nejbližší termíny', 'Nearest dates') + '</b></div><div class="ut"><span>' + t('DATUM', 'DATE') + '</span><span>' + t('AKCE', 'EVENT') + '</span><span>' + t('SÉRIE', 'SERIES') + '</span><span>' + t('MÍSTO', 'VENUE') + '</span><span>' + t('PŘIHL./KAP.', 'REG./CAP.') + '</span><span>' + t('STAV', 'STATUS') + '</span><span></span></div>' +
+      '<div class="ur"><span class="d">20. 11. 2026</span><b>Workplace Praha 2026</b><span style="color:#4A5874"><span style="color:#00CED7">●</span> ' + t('Workplace dny', 'Workplace Days') + '</span><span style="color:#4A5874">' + t('Kongresové centrum Praha', 'Prague Congress Centre') + '</span><b style="text-align:right">0/150</b><span><span class="op">' + t('Otevřené přihlášky', 'Registration open') + '</span></span><span>' + ic(P.chr, 11, '#7A8499') + '</span></div></div></div></div>';
+  }
+
+  function timeline(items) { return '<div class="tl2">' + items.map(function (i) { return '<div class="ti2"><div><b>' + i[0] + '</b><span>' + i[1] + '</span></div><span class="d">' + i[2] + '</span></div>'; }).join('') + '</div>'; }
+  var CONTACT_BLADE =
+    '<div class="bh"><span class="tl">' + ic(P.user, 17, '#00A8B0', 1.5) + '</span><div><div class="k">' + t('KONTAKT', 'CONTACT') + '</div><h4>Jan Marek</h4><div class="m">CEO · Lumeon s.r.o.</div></div><div class="ic"><i>' + ic(P.edit, 11) + '</i><i>' + ic(P.link, 11) + '</i><i id="bx">' + ic(P.x, 11, '#002163', 1.6) + '</i></div></div>' +
+    '<div class="bb"><div class="bl"><div class="chs"><span class="g1">● Care</span><span class="g1">deal</span><span class="g1">● ' + t('aktivní zákazník', 'active customer') + '</span></div><div class="note">Care: ' + t('probíhá realizace · ve fázi 81 dní', 'in delivery · in stage for 81 days') + '</div>' +
+    '<div class="abt"><span class="a1">' + ic(P.mail, 12, '#002163', 1.5) + t('Napsat', 'Write') + '</span><span class="a2">' + ic(P.phone, 12, '#002163', 1.5) + t('Zavolat', 'Call') + '</span></div><div class="sec">' + t('SKÓRE', 'SCORE') + '</div><div class="sc"><span class="scr h">' + ic(P.flame, 10, '#B83232', 1.5) + ' 96 ' + t('Horký lead', 'Hot lead') + '</span><span style="margin-left:auto">' + ic(P.chev, 11) + '</span></div>' +
+    '<div class="sec">' + t('KONTAKTNÍ ÚDAJE', 'CONTACT DETAILS') + '</div><div class="kv2"><div>' + ic(P.mail, 12, '#7A8499', 1.3) + 'jan.marek@example.com</div><div>' + ic(P.phone, 12, '#7A8499', 1.3) + '+420 602 000 111</div><div>' + ic(P.link, 12, '#0e8f98', 1.3) + '<span style="color:#0e8f98">' + t('LinkedIn profil', 'LinkedIn profile') + '</span></div></div>' +
+    '<div class="g2b" style="margin-top:10px"><div><span class="f">' + t('VLASTNÍK', 'OWNER') + '</span>Kamil Novák</div><div><span class="f">' + t('POSLEDNÍ KONTAKT', 'LAST CONTACT') + '</span>' + t('před 1 měs.', '1 month ago') + '</div></div><div class="sec">' + t('FIRMA', 'COMPANY') + '</div><div class="frm">' + ic(P.build, 15, '#00A8B0', 1.4) + 'Lumeon s.r.o.<u id="openFirm">' + t('Otevřít', 'Open') + ' ›</u></div></div>' +
+    '<div class="br"><div class="tabs"><span class="on">' + t('Časová osa', 'Timeline') + '</span><span>' + t('Aktivita', 'Activity') + '</span><span>' + t('Nabídky', 'Deals') + ' <em>2</em></span><span>' + t('Úkoly', 'Tasks') + ' <em>1</em></span><span>' + t('E-maily', 'E-mails') + '</span><span>' + t('Akce a webináře', 'Events & webinars') + ' <em>1</em></span></div>' +
+    '<div class="fch"><span style="border-color:#BFE9EC;color:#0e8f98;background:#E6F8FA">' + t('Aktivity', 'Activities') + ' 1</span><span style="border-color:#C9D2E4;color:#33456B">' + t('Nabídky', 'Deals') + ' 2</span><span style="border-color:#F1D9A8;color:#B7791F">' + t('Úkoly', 'Tasks') + ' 1</span><span style="border-color:#D9CCF5;color:#5b45c4">' + t('Akce', 'Events') + ' 1</span></div>' +
+    timeline([[t('Zavolat ohledně nabídky', 'Call about the proposal'), t('Termín 2026–10–08', 'Due 2026–10–08'), t('10. 9. 2026', '10 Sep 2026')], [t('Řízené dokumenty – Lumeon', 'Controlled documents – Lumeon'), t('Vyhráno · 150 000 Kč', 'Won · 150,000 CZK'), t('10. 9. 2026', '10 Sep 2026')], [t('Platforma EP365 – Lumeon', 'EP365 platform – Lumeon'), t('Vyhráno · 300 000 Kč', 'Won · 300,000 CZK'), t('10. 9. 2026', '10 Sep 2026')], [t('Schůzka', 'Meeting'), t('Prezentace platformy EP365, zájem o Fleet a Documents.', 'EP365 platform presentation, interest in Fleet and Documents.'), t('9. 9. 2026', '9 Sep 2026')], [t('Konference Praha 2025', 'Prague conference 2025'), t('Akce · Dorazil', 'Event · Attended'), t('11. 6. 2026', '11 Jun 2026')]]) + '</div></div>';
+  var FIRM_BLADE =
+    '<div class="bh"><span class="tl">' + ic(P.build, 17, '#00A8B0', 1.5) + '</span><div><div class="k">' + t('FIRMA', 'COMPANY') + '</div><h4>Lumeon s.r.o.</h4><div class="m">Praha, CZ</div></div><div class="ic"><i>' + ic(P.edit, 11) + '</i><i>' + ic(P.link, 11) + '</i><i id="bx2">' + ic(P.x, 11, '#002163', 1.6) + '</i></div></div>' +
+    '<div class="bb"><div class="bl"><div class="chs"><span class="g1">' + t('Zákazník', 'Customer') + '</span><span class="g1">● ' + t('aktivní zákazník', 'active customer') + '</span><span class="gw">● ' + t('Aktivní', 'Active') + '</span></div><div class="note">' + t('FÁZE (nejdál postoupený kontakt)', 'STAGE (furthest contact)') + '</div><div class="chs"><span class="g1">● deal</span></div><div class="note">' + t('OBCHODNÍ LINIE (z kontaktů)', 'BUSINESS LINE (from contacts)') + '</div><div class="chs"><span class="g1">● Care</span></div>' +
+    '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0"><div class="sc" style="display:block"><span class="note" style="margin:0">' + t('KONTAKTŮ', 'CONTACTS') + '</span><br><b style="font-family:Manrope,sans-serif;font-size:16px">3</b></div><div class="sc" style="display:block"><span class="note" style="margin:0">' + t('NABÍDKY', 'DEALS') + '</span><br><b style="font-family:Manrope,sans-serif;font-size:16px">0</b></div><div class="sc" style="display:block"><span class="note" style="margin:0">MRR</span><br><b style="font-family:Manrope,sans-serif;font-size:14px;color:#34B36A">41 200 ' + t('Kč', 'CZK') + '</b></div></div>' +
+    '<div class="sec">' + t('SKÓRE', 'SCORE') + '</div><div class="sc"><span class="scr h">' + ic(P.flame, 10, '#B83232', 1.5) + ' 97 ' + t('Žhavá', 'Blazing') + '</span><span class="scr" style="color:#1a8a5a;background:#E1F5E9;border-color:#BFE6CD">' + ic(P.shield, 10, '#1a8a5a', 1.5) + ' 0 ' + t('Nízké riziko', 'Low risk') + '</span><span style="margin-left:auto">' + ic(P.chev, 11) + '</span></div>' +
+    '<div class="abt" style="margin-top:10px"><span class="a2">' + ic(P.user, 12, '#002163', 1.5) + t('Kontakty', 'Contacts') + '</span><span class="a2">' + ic(P.clock, 12, '#002163', 1.5) + t('Nabídky', 'Deals') + '</span></div>' +
+    '<div class="g2b"><div><span class="f">' + t('ODVĚTVÍ', 'INDUSTRY') + '</span>' + t('Informační technologie', 'Information technology') + '</div><div><span class="f">' + t('IČO', 'COMPANY ID') + '</span>12345678</div><div><span class="f">' + t('POČET ZAMĚSTNANCŮ', 'EMPLOYEES') + '</span>51–250</div><div><span class="f">' + t('OBRAT', 'TURNOVER') + '</span>95 000 000 ' + t('Kč / rok', 'CZK / year') + '</div><div><span class="f">' + t('PLATEBNÍ MORÁLKA', 'PAYMENT MORALE') + '</span><span class="g1" style="display:inline-block;border-radius:999px;padding:1px 8px;font-size:9.5px;font-weight:600">' + t('Výborná', 'Excellent') + '</span></div><div><span class="f">' + t('SÍDLO', 'ADDRESS') + '</span>' + t('Vzorová 12, 110 00 Praha', 'Vzorová 12, 110 00 Prague') + '</div></div></div>' +
+    '<div class="br"><div class="tabs"><span class="on">' + t('Časová osa', 'Timeline') + '</span><span>' + t('Kontakty', 'Contacts') + ' <em>3</em></span><span>' + t('Nabídky', 'Deals') + ' <em>2</em></span><span>' + t('Smlouvy', 'Contracts') + ' <em>1</em></span><span>' + t('Produkty', 'Products') + ' <em>5</em></span><span>' + t('Účast', 'Attendance') + ' <em>5</em></span></div>' +
+    '<div class="fch"><span style="border-color:#C9D2E4;color:#33456B">' + t('Nabídky', 'Deals') + ' 2</span><span style="border-color:#D9CCF5;color:#5b45c4">' + t('Akce', 'Events') + ' 5</span><span style="border-color:#D5DCE8;color:#4A5874">' + t('Změny', 'Changes') + ' 3</span></div>' +
+    timeline([[t('Zákaznický status', 'Customer status'), t('Aktivní → aktivní zákazník, Aktivní', 'Active → active customer, Active'), t('10. 9. 2026', '10 Sep 2026')], [t('Kategorie', 'Category'), t('– → zákazník', '– → customer'), t('10. 9. 2026', '10 Sep 2026')], [t('Řízené dokumenty – Lumeon', 'Controlled documents – Lumeon'), t('Vyhráno · 150 000 Kč', 'Won · 150,000 CZK'), t('10. 9. 2026', '10 Sep 2026')], [t('Platforma EP365 – Lumeon', 'EP365 platform – Lumeon'), t('Vyhráno · 300 000 Kč', 'Won · 300,000 CZK'), t('10. 9. 2026', '10 Sep 2026')], [t('Jak zavést řízené dokumenty v M365', 'How to introduce controlled documents in M365'), t('Webinář · Přihlášen', 'Webinar · Registered'), t('27. 7. 2026', '27 Jul 2026')]]) + '</div></div>';
+
+  $('app').innerHTML = sidebar + '<section class="main" id="main">' + dealsView() + '</section><div class="bk" id="bk"></div><div class="blade" id="blade"></div>';
+
+  var box = $('box'), stage = $('stage'), cur = $('cur'), W = 1160, H = 660, cx = 0, cy = 0;
+  function k() { return (box.clientWidth || W) / W; }
+  function fit() { var w = box.clientWidth || W, s = w / W; stage.style.transform = 'scale(' + s + ')'; box.style.height = Math.floor(H * s) + 'px'; }
+  fit(); window.addEventListener('resize', fit); if (window.ResizeObserver) new ResizeObserver(fit).observe(box);
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function rectOf(el) { var r = el.getBoundingClientRect(), b = stage.getBoundingClientRect(), s = k(); return { x: (r.left - b.left) / s, y: (r.top - b.top) / s, w: r.width / s, h: r.height / s }; }
+  function curTo(x, y, ms) { cx = x; cy = y; cur.style.transitionDuration = ms + 'ms'; cur.style.transform = 'translate(' + x + 'px,' + y + 'px)'; }
+  async function moveTo(el, fx, fy, ms) { var r = rectOf(el), d = ms || 900; cur.classList.add('on'); curTo(r.x + r.w * (fx == null ? 0.5 : fx), r.y + r.h * (fy == null ? 0.5 : fy), d); await sleep(d + 60); }
+  async function click() {
+    var r = document.createElement('i'); r.className = 'rip'; r.style.left = cx + 'px'; r.style.top = cy + 'px'; stage.appendChild(r); setTimeout(function () { r.remove(); }, 650);
+    cur.classList.add('down'); await sleep(140); cur.classList.remove('down'); await sleep(180);
+  }
+  var VIEWS = { deals: dealsView, revenue: revenueView, contacts: contactsView, events: eventsView };
+  function setView(name) {
+    $('main').innerHTML = VIEWS[name]();
+    [].forEach.call(document.querySelectorAll('.si'), function (e) { e.classList.remove('on'); });
+    $('n-' + name).classList.add('on');
+  }
+  function resetAll() { setView('deals'); ['bk', 'blade'].forEach(function (i) { $(i).classList.remove('on'); }); $('blade').innerHTML = ''; [].forEach.call(document.querySelectorAll('.ghost'), function (g) { g.remove(); }); cur.classList.remove('on', 'down'); curTo(1090, 610, 0); }
+  function recalc() {
+    [].forEach.call(document.querySelectorAll('.col'), function (c) {
+      var cards = c.querySelectorAll('.card'), sum = 0;
+      [].forEach.call(cards, function (x) { sum += +x.getAttribute('data-amt'); });
+      c.querySelector('.n').textContent = cards.length; c.querySelector('.s').textContent = money(sum);
+    });
+  }
+  function restage(card, key) {
+    var s = stageOf(key), amt = +card.getAttribute('data-amt'), p = s.pct;
+    card.setAttribute('data-st', key); card.querySelector('.pc').textContent = p + '%';
+    card.querySelector('.wt').textContent = key === 'won' ? '' : t('vážená ', 'weighted ') + money(amt * p / 100);
+    var bi = card.querySelector('.bar i'); bi.style.width = p + '%'; bi.style.background = s.bar;
+  }
+  async function drag(id, toKey, autoScroll, tk) {
+    var card = $(id), r = rectOf(card);
+    await moveTo(card, 0.5, 0.18, 1000); if (tk !== token) return false;
+    cur.classList.add('down'); await sleep(200);
+    var g = card.cloneNode(true); g.removeAttribute('id'); g.classList.add('ghost');
+    g.style.left = r.x + 'px'; g.style.top = r.y + 'px'; g.style.width = r.w + 'px'; stage.appendChild(g); void g.offsetHeight; g.classList.add('lift');
+    card.classList.add('ph');
+    var gx = cx - r.x, gy = cy - r.y;
+    function follow(ms) { g.style.transitionDuration = ms + 'ms'; g.style.transform = 'translate(' + (cx - gx - r.x) + 'px,' + (cy - gy - r.y) + 'px)'; }
+    var target = $('c-' + toKey);
+    if (autoScroll) { curTo(1030, cy + 10, 800); follow(800); await sleep(900); if (tk !== token) return false; $('bin').style.transform = 'translateX(-' + autoScroll + 'px)'; await sleep(1500); if (tk !== token) return false; }
+    var tr = rectOf(target); target.classList.add('hot');
+    curTo(tr.x + tr.w * 0.5, tr.y + 60, 800); follow(800); await sleep(1000); if (tk !== token) return false;
+    var cards = target.querySelector('.cards'); cards.insertBefore(card, cards.firstChild);
+    card.classList.remove('ph'); restage(card, toKey); g.remove(); target.classList.remove('hot'); card.classList.add('pop'); recalc();
+    cur.classList.remove('down'); await sleep(1500); card.classList.remove('pop');
+    return true;
+  }
+  async function goView(name, tk) { await moveTo($('n-' + name), 0.5, 0.5, 900); if (tk !== token) return false; await click(); setView(name); await sleep(700); return tk === token; }
+  function scrollPg(y) { var p = $('pgv'); if (p) p.style.transform = 'translateY(' + (-y) + 'px)'; }
+  function openBlade(html) { $('blade').innerHTML = html; $('bk').classList.add('on'); $('blade').classList.add('on'); }
+  function closeBlade() { $('blade').classList.remove('on'); $('bk').classList.remove('on'); }
+
+  var token = 0, running = false;
+  async function play(tk) {
+    resetAll(); stage.classList.remove('fade');
+    await sleep(2400); if (tk !== token) return;
+    if (!(await drag('d2', 'offer', 0, tk))) return;
+    await sleep(700); if (tk !== token) return;
+    if (!(await drag('d5', 'won', 470, tk))) return;
+    await sleep(1500); if (tk !== token) return;
+    if (!(await goView('revenue', tk))) return;
+    await sleep(2600); if (tk !== token) return;
+    scrollPg(330); await sleep(3800); if (tk !== token) return;
+    if (!(await goView('contacts', tk))) return;
+    await sleep(1500); if (tk !== token) return;
+    await moveTo($('c1'), 0.35, 0.5, 900); if (tk !== token) return;
+    $('c1').classList.add('hl'); await click(); openBlade(CONTACT_BLADE);
+    await sleep(3200); if (tk !== token) return;
+    await moveTo($('openFirm'), 0.5, 0.5, 900); if (tk !== token) return;
+    await click(); $('blade').style.transition = 'none'; $('blade').innerHTML = FIRM_BLADE; void $('blade').offsetHeight; $('blade').style.transition = '';
+    await sleep(3800); if (tk !== token) return;
+    await moveTo($('bx2'), 0.5, 0.5, 900); await click(); closeBlade();
+    await sleep(900); if (tk !== token) return;
+    if (!(await goView('events', tk))) return;
+    await sleep(4200); if (tk !== token) return;
+    cur.classList.remove('on'); stage.classList.add('fade'); await sleep(650); if (tk !== token) return;
+    resetAll(); await sleep(150); stage.classList.remove('fade'); await sleep(300);
+  }
+  async function loop() { var tk = ++token; while (tk === token) await play(tk); }
+  function start() { if (!running) { running = true; loop(); } }
+  function stop() { if (running) { running = false; token++; stage.classList.remove('fade'); resetAll(); } }
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hm = /^#(revenue|revenue2|contacts|contact|firm|events)$/.exec(location.hash);
+  if (hm) {
+    var h = hm[1];
+    if (h === 'revenue') setView('revenue');
+    if (h === 'revenue2') { setView('revenue'); $('pgv').style.transition = 'none'; scrollPg(330); }
+    if (h === 'contacts') setView('contacts');
+    if (h === 'contact') { setView('contacts'); openBlade(CONTACT_BLADE); }
+    if (h === 'firm') { setView('contacts'); openBlade(FIRM_BLADE); }
+    if (h === 'events') setView('events');
+    return;
+  }
+  if (reduce) return;
+  if (EMBED) {
+    window.addEventListener('message', function (e) {
+      if (!e.data || e.data.ep365anim === undefined) return;
+      if (e.data.ep365anim === 'play') start(); else stop();
+    });
+    window.parent.postMessage({ ep365animReady: true }, '*');
+    return;
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) start(); else stop(); }); }, { threshold: 0.35 }).observe(box);
+  } else { start(); }
+})();
+</script>
+</body>
+</html>

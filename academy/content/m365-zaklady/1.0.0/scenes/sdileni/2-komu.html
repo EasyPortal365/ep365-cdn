@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Komu odkaz funguje</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="sdileni.js"></script>
+<script>
+/* Scéna 2 – ozubené kolečko › Nastavení odkazů › „Lidé, které zvolíte“ › oprávnění „Může zobrazit“.
+   Podle referencí _ref/sdileni/s02 (výchozí Lidé v organizaci), s03 (vybráno Lidé, které zvolíte),
+   s04 (rozbalené oprávnění: Může upravit / Může revidovat / Může zobrazit / Nejde stáhnout), s05 (vybráno Může zobrazit). */
+(function () {
+  var A = AK, S = AKS;
+  function link(o) { S.setDlg(S.linkDlg(o)); }
+  A.Scene({
+    build: function () { return S.page(S.shareDlg({ foc: 'to' })); },
+    lead: 1200,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('gear', 0.5, 0.55, 1000);
+      await api.sleep(300);
+      await api.click();
+      link({ sel: 1, anim: true });
+      await api.sleep(1400);
+      await api.moveTo('o3r', 0.5, 0.5, 900);
+      await api.sleep(250);
+      await api.click();
+      link({ sel: 3 });
+      await api.sleep(1500);
+      await api.moveTo('perm', 0.5, 0.5, 900);
+      await api.click();
+      link({ sel: 3, menu: true });
+      await api.sleep(700);
+      await api.moveTo('mi3', 0.35, 0.5, 800);
+      link({ sel: 3, menu: true, hot: 3 });
+      await api.sleep(1300);
+      await api.moveTo('mi2', 0.35, 0.5, 600);
+      link({ sel: 3, menu: true, hot: 2 });
+      await api.sleep(700);
+      await api.click();
+      link({ sel: 3, perm: 'view', permFoc: true });
+      await api.sleep(900);
+      await api.moveTo('perm', 0.8, 2.6, 900);
+      await api.sleep(600);
+      api.hideCursor();
+    },
+    states: {
+      def: function () { link({ sel: 1 }); },
+      chosen: function () { link({ sel: 3 }); },
+      menu: function () { link({ sel: 3, menu: true }); },
+      end: function () { link({ sel: 3, perm: 'view', permFoc: true }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

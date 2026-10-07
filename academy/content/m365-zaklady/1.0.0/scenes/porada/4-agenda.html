@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Agenda, poznámky a úkoly</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="porada.js"></script>
+<script>
+/* Scéna 4 – Přidat agendu › komponenta Loop (Agenda, Poznámky ze schůzky, Následné úkoly) › dva body agendy › kurzor na Poslat.
+   Podle referencí _ref/porada/m07 (Probíhá příprava...), m08 (prázdná agenda), m09/m10 (dva body agendy). Formulář se posune dolů,
+   aby byla vidět celá komponenta. Stav po odeslání předloha nemá, proto se neukazuje. */
+(function () {
+  var A = AK, M = AKM, T = M.TITLE;
+  var I1 = A.t('Rozměry pokojů a termín dodání', 'Room sizes and delivery date');
+  var I2 = A.t('Výběr dřeva a vzorky', 'Wood choice and samples');
+  var S = { title: T, att: 'chip', chan: 'set', rec: 'on' };
+  function show(o) { var x = {}; for (var k in S) x[k] = S[k]; for (var j in (o || {})) x[j] = o[j]; A.$('app').innerHTML = M.page(x); }
+  A.Scene({
+    build: function () { return M.page(S); },
+    lead: 1000,
+    tail: 3000,
+    play: async function (api) {
+      await api.moveTo('agF', 0.3, 0.5, 1000);
+      await api.click();
+      show({ agenda: 'load' });
+      await api.sleep(1100);
+      show({ agenda: 'loop', loopIn: true });
+      await api.sleep(1000);
+      await api.moveTo('ag0', 0.25, 0.5, 800);
+      await api.click();
+      show({ agenda: 'loop', itemCaret: true });
+      await api.type('itV', I1, 20);
+      show({ agenda: 'loop', items: [I1, ''], itemCaret: true });
+      await api.sleep(250);
+      await api.type('itV', I2, 20);
+      show({ agenda: 'loop', items: [I1, I2] });
+      await api.sleep(600);
+      A.$('rows').style.transform = 'translateY(-150px)';
+      await api.sleep(1400);
+      await api.moveTo('send', 0.5, 0.5, 1000);
+    },
+    states: {
+      load: function () { show({ agenda: 'load' }); },
+      loop: function () { show({ agenda: 'loop' }); },
+      end: function () { show({ agenda: 'loop', items: [I1, I2], scroll: 150 }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

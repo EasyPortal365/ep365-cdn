@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – OneDrive v Teams</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="hledani.js"></script>
+<script>
+/* Scéna 4 – lišta vlevo › OneDrive › Domů: karty „Pro vás“ a seznam „Poslední“, filtr Word.
+   Podle reference _ref/hledani/h6-onedrive-domu.jpg (levá navigace OneDrive, Vytvořit nebo nahrát, Domů … Koš,
+   Procházet soubory podle, Rychlý přístup; Pro vás; Poslední s pilulkami Vše/Word/Excel/PowerPoint/PDF/Další). */
+(function () {
+  var A = AK, H = AKH, S = A.teamsShell;
+  function od() { A.$('app').innerHTML = S({ rail: 'od', full: H.oneDrive() }); }
+  A.Scene({
+    build: function () { return S({ rail: 'none', q: H.Q_RD + H.TOKEN, full: H.resultsFiles() }); },
+    lead: 1200,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('rl4', 0.5, 0.5, 1000); await api.click();
+      od(); A.$('tfullm').firstChild.classList.add('sr-in');
+      await api.sleep(1600);
+      await api.moveTo(document.querySelector('.od-card'), 0.4, 0.45, 900);
+      await api.sleep(1300);
+      await api.moveTo('pWord', 0.5, 0.55, 900); await api.click();
+      H.odFilter('word');
+      await api.sleep(900);
+      await api.moveTo('or0', 0.3, 0.5, 900);
+      await api.sleep(1200);
+      api.hideCursor();
+    },
+    states: {
+      home: function () { od(); },
+      end: function () { od(); H.odFilter('word'); document.querySelectorAll('.od-rows .add').forEach(function (r) { r.classList.remove('add'); }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EasyPortal 365 – Atlas</title>
+<style>
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Plus Jakarta Sans";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/plus-jakarta-sans-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-800-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:800;font-display:swap;src:url(fonts/manrope-latin-ext-800-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/fraunces-latin-600-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:600;font-display:swap;src:url(fonts/fraunces-latin-ext-600-italic.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+  :root { --navy:#002163; --teal:#15C6D4; --teal7:#00A8B0; --tealb:#00CED7; --muted:#4A5874; --soft:#7A8499; --line:#E0E6EF; --mint:#E4F7F6; --red:#D14343; --green:#34B36A; --amber:#E6A23C; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { background:transparent; }
+  html, body { overflow:hidden; }
+  body { font-family:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif; color:var(--navy); }
+  .stage-box { position:relative; width:100%; overflow:hidden; border-radius:14px; background:#fff; box-shadow:0 24px 60px -24px rgba(0,33,99,.35), 0 0 0 1px rgba(0,33,99,.08); }
+  html.embed .stage-box { box-shadow:none; border-radius:0; }
+  .stage { position:absolute; left:0; top:0; width:1160px; height:660px; transform-origin:0 0; background:#fff; overflow:hidden; transition:opacity .5s; }
+  .stage.fade { opacity:0; }
+  .suite { height:34px; background:#0078D4; display:flex; align-items:center; padding:0 12px; font-family:"Segoe UI",system-ui,sans-serif; color:#fff; position:relative; z-index:3; }
+  .suite .search { position:absolute; left:50%; transform:translateX(-50%); width:330px; height:22px; background:#fff; border-radius:3px; color:#605E5C; font-size:11.5px; display:flex; align-items:center; gap:8px; padding:0 10px; }
+  .suite .r { margin-left:auto; display:flex; gap:16px; align-items:center; }
+  .suite .sav { width:22px; height:22px; border-radius:50%; background:#DDE3EC; color:#0B3D91; font-size:9px; font-weight:600; display:grid; place-items:center; }
+  .app { display:flex; height:626px; position:relative; overflow:hidden; }
+  .sb { width:208px; flex:none; background:#FBFCFE; border-right:1px solid var(--line); padding:14px 10px 0; overflow:hidden; }
+  .brand { display:flex; gap:10px; align-items:center; margin:0 4px 12px; }
+  .brand i { width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,#00B5BD,#2ED7DE); display:grid; place-items:center; flex:none; }
+  .brand b { display:block; font-family:Manrope,sans-serif; font-weight:800; font-size:13px; } .brand span { display:block; font-family:"JetBrains Mono",monospace; font-size:6.5px; letter-spacing:.1em; color:var(--soft); margin-top:2px; line-height:1.4; }
+  .scan { height:32px; border-radius:9px; background:#002163; color:#fff; font-weight:700; font-size:11px; display:flex; align-items:center; justify-content:center; gap:7px; margin-bottom:10px; }
+  .ssearch { height:28px; border:1px solid var(--line); border-radius:9px; background:#fff; display:flex; align-items:center; gap:7px; padding:0 9px; font-size:10.5px; color:var(--soft); margin-bottom:8px; }
+  .ssearch kbd { margin-left:auto; font-family:"JetBrains Mono",monospace; font-size:8px; background:#EAEFF6; color:var(--muted); border-radius:4px; padding:1px 5px; }
+  .sh { font-family:"JetBrains Mono",monospace; font-size:7px; letter-spacing:.16em; color:var(--soft); margin:11px 8px 4px; }
+  .si { display:flex; align-items:center; gap:10px; height:27px; padding:0 10px; border-radius:8px; font-size:11px; color:var(--muted); font-weight:500; white-space:nowrap; margin-bottom:1px; }
+  .si.on { background:var(--mint); color:var(--navy); font-weight:700; } .si.on svg { stroke:#00A8B0; }
+  .si .bd { margin-left:auto; font-size:8.5px; font-weight:700; border-radius:999px; padding:1px 7px; background:#FBE3E3; color:var(--red); }
+  .main { flex:1; min-width:0; background:#F3F6FB; overflow:hidden; position:relative; }
+  .pg { transition:transform 1.2s cubic-bezier(.45,.05,.25,1); display:none; } .pg.on { display:block; }
+  .head { background:#fff; position:relative; padding:16px 26px 0; border-bottom:1px solid #E7ECF3; height:150px;
+    background-image:linear-gradient(rgba(0,33,99,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,33,99,.03) 1px,transparent 1px); background-size:26px 26px; }
+  .crumb { font-family:"JetBrains Mono",monospace; font-size:8px; letter-spacing:.1em; color:var(--soft); } .crumb b { color:var(--navy); font-weight:500; }
+  .kick { font-family:"JetBrains Mono",monospace; font-size:8.5px; letter-spacing:.2em; color:#1FB8AE; margin:8px 0 4px; }
+  .head h1 { font-family:Manrope,sans-serif; font-weight:800; font-size:26px; letter-spacing:-.03em; line-height:1.1; }
+  .head h2 { font-family:Fraunces,Georgia,serif; font-style:italic; font-weight:600; font-size:21px; color:var(--tealb); letter-spacing:-.02em; line-height:1.2; }
+  .head p { font-size:11px; color:var(--muted); margin-top:8px; max-width:440px; line-height:1.45; }
+  .hic { position:absolute; right:26px; bottom:12px; display:flex; gap:8px; align-items:center; } .hic i { width:28px; height:28px; border-radius:50%; border:1px solid #D5DCE8; display:grid; place-items:center; background:#fff; }
+  .chips { display:flex; gap:8px; align-items:center; margin-top:10px; } .chips em { font-family:"JetBrains Mono",monospace; font-style:normal; font-size:8px; letter-spacing:.16em; color:var(--soft); }
+  .chip { height:24px; padding:0 12px; border:1px solid #D5DCE8; border-radius:999px; background:#fff; font-size:10px; font-weight:600; display:flex; align-items:center; white-space:nowrap; }
+  .fl { position:absolute; width:212px; height:46px; background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 8px 20px -12px rgba(0,33,99,.25); display:flex; align-items:center; gap:10px; padding:0 11px; }
+  .fl i { width:28px; height:28px; border-radius:8px; display:grid; place-items:center; flex:none; }
+  .fl b { display:block; font-family:Manrope,sans-serif; font-weight:800; font-size:11.5px; } .fl span { display:block; font-family:"JetBrains Mono",monospace; font-size:7.5px; color:var(--soft); }
+  .alert { margin:16px 22px 0; background:#FBE9E9; border:1px solid #F1C4C4; border-radius:12px; padding:11px 16px; display:flex; gap:12px; align-items:center; font-size:10px; color:#7A1F1F; line-height:1.45; } .alert b { font-weight:700; } .alert .bt { margin-left:auto; flex:none; height:30px; padding:0 16px; border-radius:999px; background:#002163; color:#fff; font-weight:700; font-size:10.5px; display:flex; align-items:center; gap:6px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:14px; margin:14px 22px 0; overflow:hidden; }
+  .chd { display:flex; align-items:center; gap:10px; padding:12px 16px; font-family:Manrope,sans-serif; font-weight:800; font-size:13px; } .chd .tile { width:26px; height:26px; border-radius:8px; background:#FBE3E3; display:grid; place-items:center; } .chd .tg { margin-left:auto; font-family:"JetBrains Mono",monospace; font-size:8px; letter-spacing:.08em; font-weight:700; border-radius:999px; padding:3px 9px; background:#FBE3E3; color:var(--red); } .chd .tg.g { background:#DDF7F8; color:#0e8f98; } .chd a { font-family:"JetBrains Mono",monospace; font-size:8px; letter-spacing:.08em; color:#0e8f98; font-weight:700; margin-left:10px; }
+  .wr { display:flex; align-items:center; gap:12px; padding:9px 16px; border-top:1px solid #EEF2F7; } .wr .ico { width:28px; height:28px; border-radius:50%; background:#FBE3E3; display:grid; place-items:center; flex:none; } .wr b { font-size:11px; display:block; } .wr b u { text-decoration:none; font-family:"JetBrains Mono",monospace; font-size:7px; font-weight:700; background:#FBE3E3; color:var(--red); border-radius:4px; padding:1px 5px; margin-left:6px; } .wr span { font-size:9.5px; color:var(--muted); } .wr .ago { margin-left:auto; font-size:9px; color:var(--soft); flex:none; } .wr .aud { flex:none; height:26px; padding:0 13px; border:1px solid #D5DCE8; border-radius:999px; font-size:10px; font-weight:700; display:flex; align-items:center; }
+  .health { display:grid; grid-template-columns:110px 1fr; gap:20px; padding:10px 18px 18px; align-items:center; } .gauge { position:relative; width:104px; height:104px; } .gauge svg { transform:rotate(-90deg); } .gauge circle { fill:none; stroke-width:9; } .gauge .bg { stroke:#E7ECF3; } .gauge .fg { stroke:#D14343; stroke-linecap:round; stroke-dasharray:0 300; transition:stroke-dasharray 1.6s cubic-bezier(.3,.6,.3,1); } .gauge .nm { position:absolute; inset:0; display:grid; place-items:center; text-align:center; } .gauge .nm b { font-family:Manrope,sans-serif; font-weight:800; font-size:27px; display:block; line-height:1; } .gauge .nm small { font-family:"JetBrains Mono",monospace; font-size:7px; color:var(--soft); }
+  .pil { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; } .pil .pn { font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.1em; color:var(--soft); display:flex; justify-content:space-between; } .pil .pn b { font-family:Manrope,sans-serif; font-size:15px; letter-spacing:0; } .pil .pb { height:5px; border-radius:3px; background:#E0E7F1; overflow:hidden; margin:6px 0 5px; } .pil .pb i { display:block; height:100%; width:0; border-radius:3px; transition:width 1.4s cubic-bezier(.3,.6,.3,1); } .pil .pd { font-size:8.5px; color:var(--muted); line-height:1.35; }
+  /* nálezy */
+  .kp { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:16px 22px 0; } .kc { background:#fff; border:1px solid var(--line); border-radius:14px; padding:11px 14px; } .kc .lbl { font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.14em; color:var(--soft); } .kc b { display:block; font-family:Manrope,sans-serif; font-weight:800; font-size:23px; margin-top:4px; } .kc .sub { font-size:9.5px; color:var(--muted); margin-top:2px; }
+  .sum { margin:12px 22px 0; background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 16px; } .sum .lbl { font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.14em; color:#1FB8AE; } .sum p { font-size:10.5px; color:var(--muted); margin-top:5px; } .sum p b { color:var(--navy); } .sum .ka { display:flex; gap:8px; align-items:center; margin-top:8px; font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.12em; color:var(--soft); } .sum .ka span.c { font-family:"Plus Jakarta Sans",sans-serif; letter-spacing:0; font-size:10px; font-weight:600; color:var(--navy); border:1px solid #D5DCE8; border-radius:999px; height:24px; padding:0 12px; display:flex; align-items:center; }
+  .tabs { display:flex; gap:7px; align-items:center; margin:12px 22px 0; } .pill { height:26px; padding:0 12px; border:1px solid #D5DCE8; border-radius:999px; font-size:10.5px; font-weight:600; display:flex; align-items:center; gap:5px; background:#fff; color:var(--muted); } .pill small { font-family:"JetBrains Mono",monospace; font-size:8px; opacity:.75; } .pill.on { background:#002163; border-color:#002163; color:#fff; }
+  .fr { display:flex; align-items:center; gap:8px; margin:9px 22px 0; font-size:10px; } .fr em { font-family:"JetBrains Mono",monospace; font-style:normal; font-size:7.5px; letter-spacing:.1em; color:var(--soft); } .fr .sel { height:26px; min-width:120px; border:1px solid #D5DCE8; border-radius:9px; background:#fff; display:flex; align-items:center; justify-content:space-between; gap:10px; padding:0 10px; font-weight:600; } .fr .sr { height:26px; width:150px; border:1px solid #D5DCE8; border-radius:9px; background:#fff; display:flex; align-items:center; gap:6px; padding:0 9px; color:#9AA3B5; }
+  .tbl { margin:12px 22px 24px; background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .tr { display:grid; grid-template-columns:86px 1fr 70px 96px 110px; gap:12px; align-items:center; padding:11px 16px; border-top:1px solid #EEF2F7; transition:opacity .4s; } .tr.h { border-top:0; font-family:"JetBrains Mono",monospace; font-size:7.5px; letter-spacing:.12em; color:var(--soft); padding:9px 16px; }
+  .sev { font-family:"JetBrains Mono",monospace; font-size:7.5px; font-weight:700; letter-spacing:.06em; border-radius:999px; padding:3px 9px; display:inline-flex; align-items:center; gap:5px; background:#FBE3E3; color:var(--red); } .sev i { width:5px; height:5px; border-radius:50%; background:var(--red); } .sev.ok { background:#E1F5E9; color:#1a8a5a; } .sev.ok i { background:#34B36A; } .sev.hi { background:#FFF1D6; color:#9A6A08; } .sev.hi i { background:#E6A23C; }
+  .tr b { font-size:11px; display:block; line-height:1.3; } .tr .m { font-family:"JetBrains Mono",monospace; font-size:8px; color:var(--soft); margin-top:2px; line-height:1.4; } .tr .ob { font-size:10.5px; } .tr .gv { font-family:"JetBrains Mono",monospace; font-size:8px; font-weight:700; background:#DDF7F8; color:#0e8f98; border-radius:5px; padding:2px 7px; justify-self:start; } .tr .rz { font-family:"JetBrains Mono",monospace; font-size:9px; color:var(--muted); }
+  .tr.done b { text-decoration:line-through; color:#7A8499; }
+  /* blade */
+  .dim { position:absolute; inset:0; background:rgba(14,24,58,.45); opacity:0; pointer-events:none; transition:opacity .4s; z-index:14; } .dim.on { opacity:1; }
+  .blade { position:absolute; top:0; bottom:0; right:0; width:760px; background:#fff; z-index:15; transform:translateX(102%); transition:transform .6s cubic-bezier(.3,.7,.2,1); box-shadow:-20px 0 40px -20px rgba(0,20,60,.4); display:flex; flex-direction:column; } .blade.on { transform:none; }
+  .bh { display:flex; align-items:flex-start; padding:16px 22px 12px; } .bh b { display:block; font-family:Manrope,sans-serif; font-weight:800; font-size:16px; } .bh small { font-family:"JetBrains Mono",monospace; font-size:8px; color:var(--soft); margin-top:3px; display:block; } .bh .rt { margin-left:auto; display:flex; gap:7px; align-items:center; } .bh .x { width:28px; height:28px; border-radius:50%; border:1px solid #D5DCE8; display:grid; place-items:center; }
+  .bb { flex:1; display:grid; grid-template-columns:1fr 1fr; gap:26px; padding:6px 22px 0; overflow:hidden; }
+  .sec h4 { display:flex; align-items:center; gap:8px; font-family:Manrope,sans-serif; font-weight:800; font-size:12px; margin:12px 0 7px; } .sec h4 i { width:22px; height:22px; border-radius:7px; background:#DDF7F8; display:grid; place-items:center; } .sec p { font-size:10px; color:var(--muted); line-height:1.5; } .sec ol { font-size:10px; color:var(--muted); line-height:1.5; margin-left:16px; } .sec ol li { margin-bottom:5px; }
+  .code { background:#EEF3FA; border-radius:8px; padding:8px 10px; font-family:"JetBrains Mono",monospace; font-size:8.5px; color:var(--navy); line-height:1.5; margin-top:7px; position:relative; }
+  .code .cp { margin-top:7px; width:max-content; height:22px; padding:0 10px; border:1px solid #D5DCE8; border-radius:999px; background:#fff; font-family:"Plus Jakarta Sans",sans-serif; font-size:9px; font-weight:700; display:flex; align-items:center; gap:5px; }
+  .kv { display:grid; grid-template-columns:1fr 1fr; gap:6px 18px; font-size:9.5px; } .kv div { display:flex; justify-content:space-between; border-bottom:1px solid #F0F3F8; padding-bottom:4px; } .kv span { color:var(--muted); } .kv b { font-weight:700; }
+  .hist { font-size:9.5px; margin-top:4px; } .hist div { padding-left:14px; position:relative; margin-bottom:6px; } .hist div::before { content:""; position:absolute; left:0; top:4px; width:6px; height:6px; border-radius:50%; background:#00B5BD; } .hist small { display:block; color:var(--soft); font-size:8.5px; }
+  .bf { display:flex; align-items:center; gap:9px; padding:12px 22px; border-top:1px solid #E7ECF3; } .bf .b2 { height:32px; padding:0 15px; border-radius:999px; border:1px solid #D5DCE8; font-size:10.5px; font-weight:700; display:flex; align-items:center; gap:6px; background:#fff; transition:transform .15s; } .bf .b2.tl { background:#00C7D0; border-color:#00C7D0; color:#002163; } .bf .b2.press { transform:scale(.94); } .bf .sp { flex:1; }
+  .cur { position:absolute; left:0; top:0; z-index:30; pointer-events:none; opacity:0; transform:translate(1090px,610px); transition:transform .9s cubic-bezier(.45,.05,.25,1), opacity .3s; }
+  .cur.on { opacity:1; } .cur svg { display:block; filter:drop-shadow(0 2px 3px rgba(0,0,0,.35)); transition:transform .12s; } .cur.down svg { transform:scale(.85); }
+  .rip { position:absolute; z-index:25; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; border:2px solid #00CED7; pointer-events:none; animation:rp .6s ease-out forwards; }
+  @keyframes rp { from { transform:scale(1); opacity:.9; } to { transform:scale(4); opacity:0; } }
+</style>
+</head>
+<body>
+<div id="box" class="stage-box">
+  <div id="stage" class="stage">
+    <div class="suite">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="#fff"><g><circle cx="2" cy="2" r="1.3"/><circle cx="7" cy="2" r="1.3"/><circle cx="12" cy="2" r="1.3"/><circle cx="2" cy="7" r="1.3"/><circle cx="7" cy="7" r="1.3"/><circle cx="12" cy="7" r="1.3"/><circle cx="2" cy="12" r="1.3"/><circle cx="7" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/></g></svg>
+      <div class="search"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#0F6CBD" stroke-width="1.4"><circle cx="9.5" cy="6.5" r="4.5"/><path d="M6.3 9.7 2 14"/></svg>Search this site</div>
+      <div class="r">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><path d="M2 6l9-4v10L2 9z"/><path d="M4 10l1 4"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 4v4l3 2"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.3"><circle cx="8" cy="8" r="2.5"/><circle cx="8" cy="8" r="6"/></svg>
+        <div class="sav">JN</div>
+      </div>
+    </div>
+    <div class="app" id="app"></div>
+    <div class="cur" id="cur"><svg width="18" height="22" viewBox="0 0 18 22"><path d="M1.5 1.5v16l4.2-3.8 3 6.6 3-1.4-3-6.4h5.8z" fill="#002163" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+  </div>
+</div>
+<script>
+(function () {
+  var EN = /[?&]lang=en\b/.test(location.search);
+  var EMBED = window.self !== window.top;
+  if (EN) document.documentElement.lang = 'en';
+  if (EMBED) document.documentElement.classList.add('embed');
+  var t = function (cs, en) { return EN ? en : cs; };
+  var $ = function (id) { return document.getElementById(id); };
+  function ic(p, s, c, w) { return '<svg width="' + (s || 14) + '" height="' + (s || 14) + '" viewBox="0 0 16 16" fill="none" stroke="' + (c || '#4A5874') + '" stroke-width="' + (w || 1.4) + '" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>'; }
+  var P = {
+    globe: '<circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c2 2 2 10 0 12M8 2c-2 2-2 10 0 12"/>', grid: '<rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/>', warn: '<path d="M8 2l6.500 11.500h-13zM8 6.500v3M8 11.500v.1"/>', people: '<circle cx="6" cy="6" r="2.500"/><path d="M1.500 13.500c0-2.500 2-4 4.500-4s4.500 1.500 4.500 4"/>', share: '<circle cx="4" cy="8" r="1.800"/><circle cx="12" cy="4" r="1.800"/><circle cx="12" cy="12" r="1.800"/><path d="M5.600 7l4.800-2M5.600 9l4.800 2"/>', db: '<ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v8c0 1.100 2.200 2 5 2s5-.9 5-2V4M3 8c0 1.100 2.200 2 5 2s5-.9 5-2"/>', shield: '<path d="M8 2l5 2v4c0 3-2.500 5-5 6-2.500-1-5-3-5-6V4z"/>', key: '<circle cx="5" cy="10" r="2.500"/><path d="M7 8.500L13 3M11 5l2 2"/>', spark: '<path d="M8 2l1.500 4.500L14 8l-4.500 1.500L8 14l-1.500-4.500L2 8l4.500-1.500z"/>', idx: '<path d="M2 13l3-4 3 2 3-6 3 3"/>', log: '<circle cx="8" cy="8" r="6"/><path d="M8 4.500V8l2.500 1.500"/>', target: '<circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="3"/>', bolt: '<path d="M9 2L3 9h4l-1 5 6-7H8z"/>', hist: '<path d="M2.500 8a5.500 5.500 0 105.500-5.500M2.500 3v3h3M8 5v3l2 1.500"/>',
+    search: '<circle cx="7" cy="7" r="5"/><path d="M11 11l4 4"/>', play: '<path d="M5 3l8 5-8 5z"/>', full: '<path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/>', refresh: '<path d="M13 3v3.500H9.500M3 13V9.500h3.500"/><path d="M12.500 6.500A5 5 0 004 5M3.500 9.500A5 5 0 0012 11"/>', link: '<path d="M6.500 9.500l3-3M7 4.500l1-1a2.500 2.500 0 013.500 3.500l-1 1M9 11.500l-1 1a2.500 2.500 0 01-3.500-3.500l1-1"/>', help: '<circle cx="8" cy="8" r="6"/><path d="M6.200 6.200a1.900 1.900 0 013.600.7c0 1.300-1.800 1.500-1.800 2.600M8 11.500v.1"/>', bug: '<rect x="5" y="5" width="6" height="8" rx="3"/><path d="M8 5V3M3 8h2M11 8h2M3.500 12L5 11M12.500 12L11 11M4 5l1.500 1.500M12 5l-1.500 1.500"/>', bulb: '<path d="M6 12h4M6.500 14h3M8 2a4 4 0 00-2 7.500V11h4V9.500A4 4 0 008 2z"/>',
+    chev: '<path d="M4 6l4 4 4-4"/>', chk: '<path d="M3 8.500l3.500 3.500 6.500-8"/>', x: '<path d="M4 4l8 8M12 4l-8 8"/>', copy: '<rect x="5" y="5" width="9" height="9" rx="1"/><path d="M11 5V2H2v9h3"/>', swap: '<path d="M3 5h10M10 2l3 3-3 3M13 11H3M6 8l-3 3 3 3"/>', user: '<circle cx="8" cy="6" r="2.500"/><path d="M3 13.500c0-2.500 2.200-4 5-4s5 1.500 5 4"/>'
+  };
+  function si(icon, label, id, badge) { return '<div class="si" id="' + id + '">' + ic(icon, 14, '#4A5874', 1.4) + label + (badge ? '<span class="bd" id="' + id + 'B">' + badge + '</span>' : '') + '</div>'; }
+  var sidebar = '<aside class="sb"><div class="brand"><i>' + ic(P.globe, 18, '#fff', 1.5) + '</i><div><b>EP365 Atlas</b><span>' + t('SHAREPOINT ONLINE<br>MONITORING, GOVERNANCE', 'SHAREPOINT ONLINE<br>MONITORING, GOVERNANCE') + '</span></div></div><div class="scan">' + ic(P.play, 11, '#fff', 1.6) + t('Spustit sken', 'Run a scan') + '</div><div class="ssearch">' + ic(P.search, 12, '#4A5874', 1.6) + t('Hledat…', 'Search…') + '<kbd>⌘K</kbd></div>' +
+    si(P.grid, t('Přehled', 'Overview'), 'n-dash') + si(P.warn, t('Nálezy', 'Findings'), 'n-find', '78') +
+    '<div class="sh">' + t('STAV TENANTU', 'TENANT STATE') + '</div>' + si(P.globe, t('Weby', 'Sites'), 'n-x1') + si(P.people, 'Teams', 'n-x2') + si(P.share, t('Sdílení a hosté', 'Sharing and guests'), 'n-x3') + si(P.db, t('Úložiště', 'Storage'), 'n-x4') + si(P.shield, t('Konfigurace SharePointu', 'SharePoint configuration'), 'n-x5') + si(P.key, t('Aplikace a přístupy', 'Apps and access'), 'n-x6') + si(P.spark, t('AI připravenost', 'AI readiness'), 'n-x7') + si(P.idx, t('Zdraví indexu', 'Index health'), 'n-x8') +
+    '<div class="sh">' + t('VYŠETŘOVÁNÍ', 'INVESTIGATION') + '</div>' + si(P.log, t('Auditní log', 'Audit log'), 'n-x9') + si(P.target, t('Cílený audit', 'Targeted audit'), 'n-x10') + '</aside>';
+  var qa = '<div class="hic"><i>' + ic(P.full, 12) + '</i><i>' + ic(P.refresh, 12) + '</i><i>' + ic(P.link, 12) + '</i><i>' + ic(P.help, 12) + '</i><i>' + ic(P.bug, 12) + '</i><i>' + ic(P.bulb, 12) + '</i></div>';
+  function pil(name, v, col, desc) { return '<div><div class="pn">' + name + '<b style="color:' + col + '">' + v + '</b></div><div class="pb"><i data-w="' + v + '%" style="background:' + col + '"></i></div><div class="pd">' + desc + '</div></div>'; }
+  function watch(title, who, ago) { return '<div class="wr"><span class="ico">' + ic(P.user, 13, '#D14343', 1.4) + '</span><div><b>' + title + '<u>' + t('NOVÝ', 'NEW') + '</u></b><span>' + who + '</span></div><span class="ago">' + ago + '</span><span class="aud">' + t('V auditu', 'In audit') + '</span></div>'; }
+
+  /* ── Přehled ── */
+  var dash = '<div class="pg" id="v-dash"><div class="head" style="height:196px"><div class="crumb">' + t('EP365 ATLAS / <b>PŘEHLED</b>', 'EP365 ATLAS / <b>OVERVIEW</b>') + '</div><div class="kick">' + t('MONITORING SHAREPOINTU ONLINE · FIRMA.SHAREPOINT.COM', 'SHAREPOINT ONLINE MONITORING · FIRMA.SHAREPOINT.COM') + '</div><h1>' + t('Dobré dopoledne, Jana.', 'Good morning, Jana.') + '</h1><h2>' + t('Váš tenant má dnes skóre 41 ze 100.', 'Your tenant scores 41 out of 100 today.') + '</h2>' +
+    '<p>' + t('Atlas průběžně hlídá nastavení, strukturu, oprávnění i sdílení celého tenantu. Od posledního skenu přibyly 4 nové nálezy a 3 se podařilo vyřešit.', 'Atlas continuously watches settings, structure, permissions and sharing of the whole tenant. Since the last scan 4 new findings appeared and 3 were resolved.') + '</p>' +
+    '<div class="chips"><em>' + t('ČASTÉ:', 'QUICK:') + '</em><span class="chip">' + t('kritické nálezy', 'critical findings') + '</span><span class="chip">' + t('AI připravenost', 'AI readiness') + '</span><span class="chip">' + t('externí sdílení', 'external sharing') + '</span><span class="chip">' + t('co se změnilo', 'what changed') + '</span></div>' +
+    '<div class="fl" style="left:600px;top:14px"><i style="background:#FBE3E3">' + ic(P.warn, 14, '#D14343', 1.5) + '</i><div><b>' + t('Aktivní nálezy', 'Active findings') + '</b><span>78 · 5 ' + t('kritické', 'critical') + '</span></div></div>' +
+    '<div class="fl" style="left:646px;top:66px"><i style="background:#E3EAF8">' + ic(P.globe, 14, '#2A5BD0', 1.5) + '</i><div><b>' + t('Weby v tenantu', 'Sites in the tenant') + '</b><span>13 ' + t('kolekcí', 'collections') + '</span></div></div>' +
+    '<div class="fl" style="left:600px;top:118px"><i style="background:#DDF7F8">' + ic(P.refresh, 14, '#00A8B0', 1.5) + '</i><div><b>' + t('Spustit nový sken', 'Run a new scan') + '</b><span>' + t('rychlý ~2 min', 'quick ~2 min') + '</span></div></div>' + qa + '</div>' +
+    '<div class="alert">' + ic(P.warn, 18, '#D14343', 1.4) + '<div><b>' + t('Od posledního skenu se změnilo 6 nastavení tenantu (3 směrem k vyššímu riziku).', 'Since the last scan 6 tenant settings changed (3 towards higher risk).') + '</b> ' + t('Změna proběhla mimo Atlas – v admin centru, PowerShellem, nebo jiným správcem. Zároveň přibyli 2 noví hosté.', 'The change happened outside Atlas – in the admin centre, via PowerShell or by another admin. 2 new guests also appeared.') + '</div><span class="bt">' + ic(P.swap, 12, '#fff', 1.6) + t('Zobrazit změny', 'Show changes') + '</span></div>' +
+    '<div class="card"><div class="chd"><span class="tile">' + ic(P.shield, 14, '#D14343', 1.4) + '</span>' + t('Hlídky', 'Watchlist') + '<span class="tg">95 ' + t('NOVÝCH', 'NEW') + '</span><a>' + t('VŠE V AUDITU →', 'ALL IN AUDIT →') + '</a></div>' +
+    watch(t('Přidán správce / změna skupiny', 'Admin added / group changed'), 'admin@firma.cz — ' + t('přidání správce kolekce nebo změna členství ve skupině · marketa.k@firma.cz', 'site collection admin added or group membership changed · marketa.k@firma.cz'), t('před 2 dny', '2 days ago')) +
+    watch(t('Přidán správce / změna skupiny', 'Admin added / group changed'), 'admin@firma.cz — ' + t('změna členství ve skupině · Everyone except external users', 'group membership changed · Everyone except external users'), t('před 4 dny', '4 days ago')) + '</div>' +
+    '<div class="card" style="margin-bottom:24px"><div class="chd"><span class="tile" style="background:#DDF7F8">' + ic(P.shield, 14, '#00A8B0', 1.4) + '</span>' + t('Zdraví tenantu', 'Tenant health') + '<span class="tg g">' + t('PŘEPOČTENO PŘED TÝDNEM', 'RECALCULATED A WEEK AGO') + '</span></div>' +
+    '<div class="health"><div class="gauge"><svg width="104" height="104" viewBox="0 0 104 104"><circle class="bg" cx="52" cy="52" r="44"/><circle class="fg" id="gFg" cx="52" cy="52" r="44"/></svg><div class="nm"><div><b>41</b><small>' + t('ZE 100 · D', 'OF 100 · D') + '</small></div></div></div>' +
+    '<div class="pil">' + pil(t('ZABEZPEČENÍ', 'SECURITY'), 4, '#D14343', t('Sdílení a přístupová nastavení tenantu', 'Sharing and access settings of the tenant')) + pil('GOVERNANCE', 8, '#E6A23C', t('Vlastníci, klasifikace a životní cyklus webů', 'Owners, classification and site lifecycle')) + pil(t('ÚLOŽIŠTĚ', 'STORAGE'), 80, '#00B5BD', t('20 % kvóty tenantu', '20 % of the tenant quota')) + pil(t('ADOPCE', 'ADOPTION'), 94, '#34B36A', t('10 aktivních webů za 30 dní', '10 active sites in 30 days')) + pil(t('AI PŘIPRAVENOST', 'AI READINESS'), 70, '#00B5BD', t('Připravenost obsahu na nasazení AI', 'Content readiness for AI deployment')) + '</div></div></div></div>';
+
+  /* ── Nálezy ── */
+  function trow(id, sev, title, meta, ob, gov, rz, cls) { return '<div class="tr" id="' + id + '"><span><span class="sev ' + (cls || '') + '" id="' + id + 'S"><i></i><span>' + sev + '</span></span></span><div><b>' + title + '</b><div class="m">' + meta + '</div></div><span class="ob">' + ob + '</span>' + (gov ? '<span class="gv">' + gov + '</span>' : '<span></span>') + '<span class="rz">' + rz + '</span></div>'; }
+  var find = '<div class="pg" id="v-find"><div class="head" style="height:140px"><div class="crumb">' + t('EP365 Atlas / <b>Nálezy</b>', 'EP365 Atlas / <b>Findings</b>') + '</div><div class="kick">' + t('KONTROLNÍ CENTRUM', 'CONTROL CENTRE') + '</div><h1>' + t('Nálezy.', 'Findings.') + '</h1><h2>' + t('Vše, co si žádá vaši pozornost.', 'Everything that needs your attention.') + '</h2>' + qa + '</div>' +
+    '<div class="kp"><div class="kc"><div class="lbl">' + t('KRITICKÉ', 'CRITICAL') + '</div><b id="kCrit">5</b><div class="sub">' + t('řešte co nejdřív', 'handle first') + '</div></div><div class="kc"><div class="lbl">' + t('VYSOKÉ', 'HIGH') + '</div><b style="color:#9A4A08">20</b><div class="sub">1 ' + t('regrese', 'regression') + '</div></div><div class="kc"><div class="lbl">' + t('STŘEDNÍ A NÍZKÉ', 'MEDIUM AND LOW') + '</div><b>53</b><div class="sub">33 ' + t('středních · 20 nízkých', 'medium · 20 low') + '</div></div><div class="kc"><div class="lbl">' + t('VYŘEŠENÉ ZA 30 DNÍ', 'RESOLVED IN 30 DAYS') + '</div><b style="color:#1a8a5a" id="kRes">4</b><div class="sub">' + t('dobré tempo', 'good pace') + '</div></div></div>' +
+    '<div class="sum"><div class="lbl">' + t('MANAŽERSKÉ SHRNUTÍ · NÁLEZY', 'EXECUTIVE SUMMARY · FINDINGS') + '</div><p>' + t('Aktivních nálezů je <b id="kAct">78</b>, z toho <b id="kCr2">5 kritické</b>. Za posledních 30 dní se vyřešilo <b>4</b>. Pozor na <b>1 regresi</b> – dříve vyřešený nález se vrátil.', 'There are <b id="kAct">78</b> active findings, <b id="kCr2">5 critical</b>. In the last 30 days <b>4</b> were resolved. Watch <b>1 regression</b> – a previously resolved finding came back.') + '</p><div class="ka">' + t('KLÍČOVÉ AKCE:', 'KEY ACTIONS:') + '<span class="c">› ' + t('Konfigurace SharePointu', 'SharePoint configuration') + '</span><span class="c">› ' + t('Co se změnilo', 'What changed') + '</span></div></div>' +
+    '<div class="tabs"><span class="pill on">' + t('Vše', 'All') + ' <small id="pAll">78</small></span><span class="pill">' + t('Kritické', 'Critical') + ' <small id="pCr">5</small></span><span class="pill">' + t('Vysoké', 'High') + ' <small>20</small></span><span class="pill">' + t('Střední', 'Medium') + ' <small>33</small></span><span class="pill">' + t('Nízké', 'Low') + ' <small>20</small></span><span style="flex:1"></span><span class="pill">' + t('Hromadné akce', 'Bulk actions') + '</span><span class="pill">' + t('Simulace skóre', 'Score simulation') + '</span></div>' +
+    '<div class="fr"><em>' + t('VERZE', 'VERSION') + '</em><span class="sel" style="min-width:150px">' + t('Aktuální stav', 'Current state') + ic(P.chev, 10) + '</span><span class="sr">' + ic(P.search, 11, '#9AA3B5', 1.5) + t('Hledat v nálezech…', 'Search findings…') + '</span><em>' + t('OBLAST', 'AREA') + '</em><span class="sel">' + t('Všechny', 'All') + ic(P.chev, 10) + '</span><em>' + t('PILÍŘ', 'PILLAR') + '</em><span class="sel">' + t('Všechny', 'All') + ic(P.chev, 10) + '</span></div>' +
+    '<div class="tbl"><div class="tr h"><span>' + t('ZÁVAŽNOST', 'SEVERITY') + '</span><span>' + t('NÁLEZ', 'FINDING') + '</span><span>' + t('OBLAST', 'AREA') + '</span><span>' + t('PORUŠUJE KAPITOLU', 'BREACHES CHAPTER') + '</span><span>' + t('ROZSAH', 'SCOPE') + '</span></div>' +
+    trow('f1', t('KRITICKÝ', 'CRITICAL'), t('Anonymní odkazy nemají nastavenou expiraci', 'Anonymous links have no expiration set'), t('SH-04 · Aktuálně: bez expirace · Doporučeno: 30 dní · RequireAnonymousLinksExpireInDays', 'SH-04 · Currently: no expiration · Recommended: 30 days · RequireAnonymousLinksExpireInDays'), t('Sdílení', 'Sharing'), 'GOV-10', 'tenant') +
+    trow('f2', t('KRITICKÝ', 'CRITICAL'), t('3 soubory dostupných přes anonymní odkazy', '3 files available via anonymous links'), t('SH-15 · Kdokoli s odkazem otevře bez přihlášení · např. cenik-2024.xlsx, prezentace-produkt.pptx', 'SH-15 · Anyone with the link opens without signing in · e.g. price-list-2024.xlsx, product-deck.pptx'), t('Sdílení', 'Sharing'), 'GOV-10', 'overshare-anon') +
+    trow('f3', t('KRITICKÝ', 'CRITICAL'), t('2 citlivých souborů viditelných mimo organizaci', '2 sensitive files visible outside the organisation'), t('SC-03 · Soubory s hesly / přihlašovací údaje (1); Exporty dat (1)', 'SC-03 · Files with passwords / credentials (1); Data exports (1)'), t('Sdílení', 'Sharing'), '', 'sensitive-external') +
+    trow('f4', t('VYSOKÝ', 'HIGH'), t('1 aplikace má plnou kontrolu nad všemi weby', '1 app has full control over all sites'), t('AP-02 · Oprávnění Sites.FullControl.All', 'AP-02 · Sites.FullControl.All permission'), t('Aplikace', 'Apps'), '', 'tenant', 'hi') + '</div></div>';
+
+  /* ── Blade ── */
+  var blade = '<div class="dim" id="dim"></div><div class="blade" id="blade"><div class="bh"><div><b>' + t('Anonymní odkazy nemají nastavenou expiraci', 'Anonymous links have no expiration set') + '</b><small>SH-04 · ' + t('Sdílení · tenant · zjištěno před týdnem', 'Sharing · tenant · found a week ago') + '</small></div><div class="rt"><span class="sev" id="bSev"><span>' + t('KRITICKÝ', 'CRITICAL') + '</span></span><span class="sev hi" id="bNew" style="background:#FBE3E3;color:#D14343">' + t('NOVÝ', 'NEW') + '</span><span class="x">' + ic(P.x, 12) + '</span></div></div>' +
+    '<div class="bb"><div class="sec"><h4><i>' + ic(P.warn, 12, '#00A8B0', 1.5) + '</i>' + t('Co se našlo', 'What was found') + '</h4><p>' + t('Odkazy „Kdokoli s odkazem“ by měly automaticky vypršet (doporučeno do 30 dní). Bez expirace zůstávají platné neomezeně.', '“Anyone with the link” links should expire automatically (30 days recommended). Without expiration they stay valid indefinitely.') + '</p><div class="code">' + t('Aktuálně: bez expirace · Doporučeno: 30 dní · RequireAnonymousLinksExpireInDays', 'Currently: no expiration · Recommended: 30 days · RequireAnonymousLinksExpireInDays') + '</div>' +
+    '<h4><i>' + ic(P.spark, 12, '#00A8B0', 1.5) + '</i>' + t('Technické detaily', 'Technical details') + '</h4><div class="kv"><div><span>' + t('Pravidlo', 'Rule') + '</span><b>SH-04</b></div><div><span>' + t('Oblast', 'Area') + '</span><b>' + t('Sdílení', 'Sharing') + '</b></div><div><span>' + t('Pilíř zdraví', 'Health pillar') + '</span><b>' + t('Zabezpečení', 'Security') + '</b></div><div><span>' + t('Závažnost', 'Severity') + '</span><b>' + t('Kritický', 'Critical') + '</b></div></div>' +
+    '<h4><i>' + ic(P.log, 12, '#00A8B0', 1.5) + '</i>' + t('Proč to vadí', 'Why it matters') + '</h4><p>' + t('Jednou vytvořený anonymní odkaz funguje navždy – i roky po skončení spolupráce, u kohokoli, komu byl přeposlán.', 'An anonymous link, once created, works forever – even years after the collaboration ends, for anyone it was forwarded to.') + '</p>' +
+    '<h4><i>' + ic(P.hist, 12, '#00A8B0', 1.5) + '</i>' + t('Historie nálezu', 'Finding history') + '</h4><div class="hist"><div>' + t('Poprvé zjištěno', 'First detected') + '<small>22. 9. 2026</small></div><div>' + t('Naposledy potvrzeno skenem', 'Last confirmed by scan') + '<small>29. 9. 2026</small></div></div></div>' +
+    '<div class="sec"><h4><i>' + ic(P.chk, 12, '#00A8B0', 1.6) + '</i>' + t('Jak to vyřešit', 'How to fix it') + '</h4><ol><li>' + t('PowerShell: Set-SPOTenant -RequireAnonymousLinksExpireInDays 30 (hotový příkaz níže).', 'PowerShell: Set-SPOTenant -RequireAnonymousLinksExpireInDays 30 (ready command below).') + '</li><li>' + t('Alternativně ručně: SharePoint admin centrum → Zásady → Sdílení → „These links must expire within this many days“ = 30.', 'Alternatively by hand: SharePoint admin centre → Policies → Sharing → “These links must expire within this many days” = 30.') + '</li><li>' + t('Stávajících odkazů se změna nedotkne zpětně – projděte Auditní log a rizikové odkazy zneplatněte.', 'Existing links are not affected retroactively – review the audit log and revoke the risky links.') + '</li></ol>' +
+    '<h4><i>' + ic(P.refresh, 12, '#00A8B0', 1.5) + '</i>' + t('Změnit přes PowerShell', 'Change via PowerShell') + '</h4><p>' + t('Tohle nastavení z aplikace změnit nejde – Microsoft ho nenabízí v Graphu. Proto je tu hotový příkaz.', 'This setting cannot be changed from the app – Microsoft does not offer it in Graph. That is why a ready command is here.') + '</p><div class="code">Connect-SPOService -Url https://firma-admin.sharepoint.com<br>Set-SPOTenant -RequireAnonymousLinksExpireInDays 30<span class="cp">' + ic(P.copy, 10, '#002163', 1.5) + t('Kopírovat', 'Copy') + '</span></div></div></div>' +
+    '<div class="bf"><span class="b2">' + ic(P.refresh, 12, '#002163', 1.5) + t('Ověřit teď', 'Verify now') + '</span><span class="b2">' + ic(P.chk, 12, '#002163', 1.5) + t('Vytvořit úkol', 'Create task') + '</span><span class="b2 tl" id="bRes">' + ic(P.chk, 12, '#002163', 2) + t('Označit vyřešené', 'Mark resolved') + '</span><span class="b2">' + t('Označit výjimku…', 'Mark as exception…') + '</span><span class="sp"></span><span class="b2">' + t('Zavřít', 'Close') + '</span></div></div>';
+
+  $('app').innerHTML = sidebar + '<section class="main">' + dash + find + '</section>' + blade;
+
+  var box = $('box'), stage = $('stage'), cur = $('cur'), W = 1160, HH = 660, cx = 0, cy = 0;
+  function k() { return (box.clientWidth || W) / W; }
+  function fit() { var w = box.clientWidth || W, s = w / W; stage.style.transform = 'scale(' + s + ')'; box.style.height = Math.floor(HH * s) + 'px'; }
+  fit(); window.addEventListener('resize', fit); if (window.ResizeObserver) new ResizeObserver(fit).observe(box);
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function rectOf(el) { var r = el.getBoundingClientRect(), b = stage.getBoundingClientRect(), s = k(); return { x: (r.left - b.left) / s, y: (r.top - b.top) / s, w: r.width / s, h: r.height / s }; }
+  function curTo(x, y, ms) { cx = x; cy = y; cur.style.transitionDuration = ms + 'ms'; cur.style.transform = 'translate(' + x + 'px,' + y + 'px)'; }
+  async function moveTo(el, fx, fy, ms) { var r = rectOf(el), d = ms || 900; cur.classList.add('on'); curTo(r.x + r.w * (fx == null ? 0.5 : fx), r.y + r.h * (fy == null ? 0.5 : fy), d); await sleep(d + 60); }
+  async function click() {
+    var r = document.createElement('i'); r.className = 'rip'; r.style.left = cx + 'px'; r.style.top = cy + 'px'; stage.appendChild(r); setTimeout(function () { r.remove(); }, 650);
+    cur.classList.add('down'); await sleep(140); cur.classList.remove('down'); await sleep(180);
+  }
+  var SNAP = $('app').innerHTML;
+  var VIEWS = { dash: 'n-dash', find: 'n-find' };
+  function setView(name) {
+    Object.keys(VIEWS).forEach(function (v) { var pg = $('v-' + v); pg.classList.toggle('on', v === name); pg.style.transition = 'none'; pg.style.transform = 'translateY(0)'; void pg.offsetWidth; pg.style.transition = ''; $(VIEWS[v]).classList.toggle('on', v === name); });
+  }
+  function resetAll() { $('app').innerHTML = SNAP; cur.classList.remove('on', 'down'); curTo(1090, 610, 0); setView('dash'); }
+  function scrollTo(v, y) { $('v-' + v).style.transform = 'translateY(' + y + 'px)'; }
+  function fill(instant) {
+    Array.prototype.forEach.call(document.querySelectorAll('#v-dash i[data-w]'), function (b) { if (instant) b.style.transition = 'none'; b.style.width = b.getAttribute('data-w'); });
+    var g = $('gFg'); if (instant) g.style.transition = 'none'; g.style.strokeDasharray = (276.5 * 0.41) + ' 300';
+  }
+  function openBlade() { $('dim').classList.add('on'); $('blade').classList.add('on'); }
+  function closeBlade() { $('dim').classList.remove('on'); $('blade').classList.remove('on'); }
+  function resolve() {
+    var s = $('f1S'); s.className = 'sev ok'; s.lastChild.textContent = t('VYŘEŠENO', 'RESOLVED'); $('f1').classList.add('done');
+    $('n-findB').textContent = '77'; $('pAll').textContent = '77'; $('pCr').textContent = '4'; $('kCrit').textContent = '4'; $('kRes').textContent = '5'; $('kAct').textContent = '77'; $('kCr2').textContent = t('4 kritické', '4 critical');
+  }
+
+  var token = 0, running = false;
+  async function play(tk) {
+    resetAll(); stage.classList.remove('fade');
+    await sleep(800); fill(); await sleep(2400); if (tk !== token) return;
+    scrollTo('dash', -300); await sleep(3200); if (tk !== token) return;
+    scrollTo('dash', 0); await sleep(1300); if (tk !== token) return;
+    await moveTo($('n-find'), 0.4, 0.5, 900); await click(); setView('find');
+    await sleep(2400); if (tk !== token) return;
+    await moveTo($('f1'), 0.3, 0.5, 1000); await click(); openBlade();
+    await sleep(3000); if (tk !== token) return;
+    await moveTo($('bRes'), 0.5, 0.5, 900); $('bRes').classList.add('press'); await click(); $('bRes').classList.remove('press');
+    closeBlade(); await sleep(500); resolve();
+    await sleep(3400); if (tk !== token) return;
+    cur.classList.remove('on'); stage.classList.add('fade'); await sleep(650); if (tk !== token) return;
+    resetAll(); await sleep(150); stage.classList.remove('fade'); await sleep(300);
+  }
+  async function loop() { var tk = ++token; while (tk === token) await play(tk); }
+  function start() { if (!running) { running = true; loop(); } }
+  function stop() { if (running) { running = false; token++; stage.classList.remove('fade'); resetAll(); } }
+
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  setView('dash');
+  var hash = location.hash;
+  function noTr(el) { el.style.transition = 'none'; void el.offsetWidth; }
+  if (hash === '#dash') { fill(true); return; }
+  if (hash === '#health') { fill(true); noTr($('v-dash')); scrollTo('dash', -300); return; }
+  if (hash === '#find') { setView('find'); return; }
+  if (hash === '#blade') { setView('find'); noTr($('blade')); noTr($('dim')); openBlade(); return; }
+  if (hash === '#done') { setView('find'); resolve(); return; }
+  if (reduce) { fill(true); return; }
+  if (EMBED) {
+    window.addEventListener('message', function (e) {
+      if (!e.data || e.data.ep365anim === undefined) return;
+      if (e.data.ep365anim === 'play') start(); else stop();
+    });
+    window.parent.postMessage({ ep365animReady: true }, '*');
+    return;
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) start(); else stop(); }); }, { threshold: 0.35 }).observe(box);
+  } else { start(); }
+})();
+</script>
+</body>
+</html>

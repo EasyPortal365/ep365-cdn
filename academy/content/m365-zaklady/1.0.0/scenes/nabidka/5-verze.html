@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Historie verzí</title>
+<link rel="stylesheet" href="../m365.css">
+<style>
+  /* Předlohy: _ref/pruchod/k5-01 … k5-06 (historie verzí ve Wordu pro web, světlý režim) + word-soubor-menu.jpg, word-historie-*.jpg (jen struktura). Rozměry × 0,823. */
+  #pDates.gone { display:none; }
+  .mico { position:absolute; right:52px; width:13px; height:12px; }
+  /* nabídka Soubor (k5-01) */
+  #fmenu { left:7px; top:61px; width:199px; padding:0 0 4px; border-radius:8px; overflow:hidden; z-index:30; }
+  #fmenu .fh { height:27px; display:flex; align-items:center; gap:5px; padding:0 9px; background:#EDF7F1; font-size:8.9px; font-weight:600; color:#242424; white-space:nowrap; margin-bottom:4px; }
+  #fmenu .fh u { color:#185ABD; font-weight:600; }
+  #fmenu .mi { height:24.5px; gap:9px; padding:0 9px 0 11px; font-size:10.6px; color:#242424; }
+  #fmenu .mi .ch { margin-left:auto; }
+  #fmenu .sep { margin:4px 0; background:#E6E6E6; }
+  /* samostatné zobrazení Historie verzí (k5-02 … k5-05) */
+  .hv { position:absolute; left:0; right:0; top:36px; bottom:0; background:#F5F5F5; z-index:20; display:none; font-size:10.6px; color:#242424; }
+  .hv.on { display:block; }
+  .hsub { position:absolute; left:0; top:0; width:899px; height:38px; display:flex; align-items:center; }
+  .hback { position:absolute; left:10px; top:9px; height:20px; display:flex; align-items:center; gap:7px; color:#424242; font-size:10.6px; }
+  .hpick { position:absolute; left:385px; top:6px; height:25px; display:none; align-items:center; gap:12px; }
+  .hv.old .hpick { display:flex; }
+  .hpick b { font-weight:600; font-size:10.6px; margin-right:1px; }
+  .hpick .hb { height:25px; padding:0 15px; display:flex; align-items:center; background:#fff; border:1px solid #D1D1D1; border-radius:2px; color:#185ABD; font-weight:600; font-size:10.6px; }
+  .hpick .hb + .hb { margin-left:-5px; }
+  .hpick .hb.hot { border-color:#424242; }
+  .hmid { position:absolute; left:0; top:38px; width:899px; bottom:0; background:#E4E4E4; overflow:hidden; }
+  .hmsg { position:absolute; left:0; right:0; top:140px; text-align:center; font-size:12.8px; color:#424242; }
+  .hv.old .hmsg { display:none; }
+  .hpage { position:absolute; left:129px; top:7px; width:626px; padding-left:76px; padding-top:100px; display:none; transition:none; }
+  .hv.old .hpage { display:block; }
+  .hpage #oDates { color:#C0284F; text-decoration:underline; text-underline-offset:2px; }
+  .hpage .cbar { position:absolute; left:38px; width:1.5px; background:#8A8A8A; }
+  .hscroll { position:absolute; right:5px; top:4px; width:5px; height:390px; border-radius:3px; background:#8A8A8A; display:none; }
+  .hv.old .hscroll { display:block; }
+  .hpane { position:absolute; left:899px; right:0; top:0; bottom:0; background:#F5F5F5; border-left:1px solid #E6E6E6; }
+  .hpane h4 { position:absolute; left:10px; top:11px; font-size:11.1px; font-weight:400; color:#424242; }
+  .htog { position:absolute; left:10px; top:38px; display:flex; align-items:center; gap:4px; font-size:9.6px; font-weight:600; }
+  .htog i { width:25px; height:12px; border-radius:6px; background:#C8C8C8; position:relative; transition:background .25s; }
+  .htog i:after { content:""; position:absolute; right:2px; top:2px; width:8px; height:8px; border-radius:50%; background:#F0F0F0; }
+  .hv.old .htog i { background:#2B63C6; } .hv.old .htog i:after { background:#fff; }
+  .hlist { position:absolute; left:0; right:0; top:72px; }
+  .hg { position:relative; padding:9px 0 9px 28px; }
+  .hg .hc { position:absolute; left:10px; top:11px; transition:transform .2s; }
+  .hg.open .hc { transform:rotate(90deg); }
+  .hg .ht { font-size:12px; line-height:15px; }
+  .hg small, .hs small { display:block; font-size:9px; line-height:12px; color:#242424; margin-top:3px; }
+  .hau { display:flex; align-items:center; gap:4px; font-size:9.3px; margin-top:4px; white-space:nowrap; }
+  .hau i { width:6.5px; height:6.5px; flex-shrink:0; }
+  .hau b { font-weight:600; }
+  .hg.sel { background:#EBEBEB; box-shadow:inset 0 0 0 1px #8A8A8A; }
+  .hsubs { display:none; } .hsubs.on { display:block; }
+  .hs { position:relative; height:47px; padding:11px 0 0 28px; }
+  .hs small { margin:0; font-size:8.6px; }
+  .hs .hdots { display:none; position:absolute; right:12px; top:12px; }
+  .hs.pick { background:#EBEBEB; box-shadow:inset 3px 0 0 #2B5FB5; }
+  .hs.pick small { font-weight:600; } .hs.pick .hdots { display:block; }
+  .hs.hot, .hg.hot { background:#EBEBEB; }
+  /* dialog „Probíhá obnovení…" (k5-05) */
+  .rdlg { position:absolute; left:469px; top:278px; width:221px; height:134px; background:#fff; border-radius:3px; box-shadow:0 10px 36px rgba(0,0,0,.22), 0 0 2px rgba(0,0,0,.15); z-index:40; display:none; }
+  .rdlg.on { display:block; }
+  .rdlg b { position:absolute; left:19px; top:14px; font-size:14.4px; font-weight:600; color:#242424; }
+  .rdlg i { position:absolute; left:100px; top:49px; width:21px; height:21px; border-radius:50%; border:1.5px solid #E1E1E1; border-bottom-color:#185ABD; animation:spin .9s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script>
+(function () {
+  var A = AK, t = A.t, ic = A.ic, wi = A.wi, PE = A.PEOPLE;
+  var FN = t('Nabídka – Penzion U Lípy', 'Quote – U Lípy guesthouse');
+  var DATES = t('Výroba do 4 týdnů od objednávky, montáž na místě během jednoho dne.', 'Production within 4 weeks of order, on-site assembly in one day.');
+  var I = {
+    nnew: '<circle cx="8" cy="8" r="6"/><path d="M8 5v6M5 8h6"/>',
+    open: '<path d="M1.5 4a1 1 0 011-1h3.3l1.5 1.6h5.2a1 1 0 011 1V7"/><path d="M1.5 4v8.5h10.7l2.3-5.5H4l-2.5 5.5"/>',
+    share: '<path d="M9.5 2.5h4v4M13.5 2.5L8 8"/><path d="M11.5 9.5v3a1 1 0 01-1 1h-7a1 1 0 01-1-1v-7a1 1 0 011-1h3"/>',
+    copy: '<rect x="5" y="2" width="8" height="10" rx="1.2"/><path d="M3 5v8.5a1 1 0 001 1h6"/>',
+    exp: '<path d="M2 3v10M5 8h9M11 5l3 3-3 3"/>',
+    print: '<path d="M4.5 5.5V2h7v3.5"/><rect x="1.8" y="5.5" width="12.4" height="5.5" rx="1"/><path d="M4.5 9.5h7V14h-7z"/>',
+    star: '<path d="M8 1.8l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.6l-3.8 2 .7-4.3-3.1-3 4.3-.6z"/>',
+    ren: '<rect x="2" y="4" width="12" height="8" rx="1"/><path d="M8 2v12M6.5 2h3M6.5 14h3"/>',
+    move: '<path d="M1.5 4a1 1 0 011-1h3.3l1.5 1.6h5.2a1 1 0 011 1v1.5M1.5 4v8.5h6"/><circle cx="12" cy="11.5" r="3.2" fill="#2266C6" stroke="#fff" stroke-width=".8"/><path d="M10.6 11.5h2.6M12.2 10.3l1.1 1.2-1.1 1.2" stroke="#fff" stroke-width="1"/>',
+    hist: '<path d="M2.5 8a5.5 5.5 0 101.6-3.9M2.5 2.5v2.5H5"/><path d="M8 5v3l2 1.5"/>',
+    del: '<path d="M2.5 4h11M6 4V2.5h4V4M4 4l.7 9.5h6.6L12 4M6.8 6.5v5M9.2 6.5v5"/>',
+    info: '<circle cx="8" cy="8" r="6"/><path d="M8 7.2v4M8 5h.01"/>',
+    back: '<path d="M14 8H2.5M7 3.5L2.5 8 7 12.5"/>',
+    chev: '<path d="M6 3.5L10.5 8 6 12.5"/>',
+    mDone: '<path d="M1.5 2h10v7.5H6L3 12V9.5H1.5z" fill="#EAF6EC" stroke="#6E6E6E"/><path d="M4.2 5.8l1.6 1.5 2.9-3" stroke="#3C9A50" stroke-width="1.2"/>'
+  };
+  var i16 = function (k, c) { return ic(I[k], 14, c || '#424242', 1.15); };
+
+  function fmenu() {
+    var mi = function (id, k, c, label, ch) { return '<div class="mi"' + (id ? ' id="' + id + '"' : '') + '>' + i16(k, c) + label + (ch ? '<span class="ch">' + ic(I.chev, 12, '#424242', 1.2) + '</span>' : '') + '</div>'; };
+    return '<div class="pop" id="fmenu"><div class="fh">' + wi('cloudOk', 14, '#424242', 1.2) + t('Automaticky uloženo online do ', 'AutoSaved online to ') + '<u>Nabí…</u></div>' +
+      mi('', 'nnew', '#13A10E', t('Nový', 'New'), 1) + mi('', 'open', '#D89614', t('Otevřít', 'Open'), 1) + '<div class="sep"></div>' +
+      mi('', 'share', '#2266C6', t('Sdílet', 'Share'), 1) + mi('', 'copy', '#424242', t('Vytvořit kopii', 'Create a Copy'), 1) + mi('', 'exp', '#424242', t('Exportovat', 'Export'), 1) + mi('', 'print', '#2266C6', t('Tisk', 'Print')) + '<div class="sep"></div>' +
+      mi('', 'star', '#D89614', t('Přidat do oblíbených', 'Add to Favorites')) + mi('', 'ren', '#2266C6', t('Přejmenovat', 'Rename')) + mi('', 'move', '#424242', t('Přesunout soubor', 'Move File')) +
+      mi('mHist', 'hist', '#424242', t('Historie verzí', 'Version History')) + mi('', 'del', '#D13438', t('Odstranit', 'Delete')) + mi('', 'info', '#424242', t('Informace', 'Info'), 1) + '</div>';
+  }
+  function au(k, suffix) { return '<div class="hau"><i style="background:' + PE[k].c + '"></i><b>' + PE[k].name + '</b>' + (suffix ? ' ' + suffix : '') + '</div>'; }
+  function hs(id, time, k) { return '<div class="hs" id="' + id + '"><small>' + time + '</small>' + au(k, t('změněno', 'edited')) + '<span class="hdots">' + wi('dots', 13, '#424242', 1.3) + '</span></div>'; }
+  function oldPage() {
+    /* starší verze = celý dokument včetně odstavce Termíny, ten je s „Zobrazit úpravy" vyznačený jako změna (k5-04) */
+    return A.offerPage({ prices: true, montaz: true }).replace(/ id="/g, ' id="o_').replace('<p id="o_pDates">', '<p style="min-height:17.8px"></p><p id="oDates">');
+  }
+  function hview() {
+    return '<div class="hv" id="hv">' +
+      '<div class="hsub"><span class="hback">' + ic(I.back, 15, '#424242', 1.1) + t('Zpět do dokumentu', 'Back to document') + '</span>' +
+      '<span class="hpick"><b>' + t('před 11 minutami', '11 minutes ago') + '</b><span class="hb">' + t('Uložit kopii', 'Save a copy') + '</span><span class="hb" id="bRestore">' + t('Obnovit', 'Restore') + '</span></span></div>' +
+      '<div class="hmid"><div class="hmsg">' + t('Vyberte verzi z podokna Historie verzí.', 'Select a version from the Version History pane.') + '</div>' +
+      '<div class="wpage hpage" id="hpage">' + oldPage() + '<span class="cbar" id="cbar"></span></div><span class="hscroll"></span></div>' +
+      '<div class="hpane"><h4>' + t('Historie verzí', 'Version history') + '</h4><div class="htog">' + t('Zobrazit úpravy', 'Show changes') + '<i></i></div>' +
+      '<div class="hlist"><div class="hg" id="g1"><span class="hc" id="g1c">' + ic(I.chev, 12, '#424242', 1.2) + '</span><div class="ht">' + t('před 3 minutami', '3 minutes ago') + '</div><small>' + t('Aktuální verze', 'Current version') + '</small><div id="g1a">' + au('JN') + '</div></div>' +
+      '<div class="hsubs" id="g1s">' + hs('s1', t('před 4 minutami', '4 minutes ago'), 'JN') + hs('s2', t('před 10 minutami', '10 minutes ago'), 'JN') + hs('s3', t('před 11 minutami', '11 minutes ago'), 'PS') +
+      hs('s4', t('před 1 hodinou', '1 hour ago'), 'LD') + hs('s5', t('před 2 hodinami', '2 hours ago'), 'LD') + '</div>' +
+      '<div class="hg" id="g2"><span class="hc">' + ic(I.chev, 12, '#424242', 1.2) + '</span><div class="ht">' + t('před 2 hodinami', '2 hours ago') + '</div>' + au('LD') + '</div></div></div>' +
+      '<div class="rdlg" id="rdlg"><b>' + t('Probíhá obnovení…', 'Restoring…') + '</b><i></i></div></div>';
+  }
+  function build() {
+    var page = A.offerPage({ prices: true, montaz: true, dates: false }).replace('<p id="pDates">', '<p id="pDates" class="gone">') + '<span class="mico" id="mIco">' + ic(I.mDone, 13, 'currentColor', 1) + '</span>';
+    return A.wordShell({ file: FN, page: page, words: 66, side: fmenu() + hview() });
+  }
+
+  var api0;
+  function placeIco() { var r = api0.rectOf(A.$('r4')), pg = api0.rectOf(A.$('wpage')); A.$('mIco').style.top = Math.round(r.y - pg.y + (r.h - 12) / 2) + 'px'; }
+  function placeBar() {
+    var d = A.$('oDates'), pg = A.$('hpage'), e = d.previousElementSibling;
+    A.$('cbar').style.top = (e.offsetTop - 2) + 'px'; A.$('cbar').style.height = (d.offsetTop + d.offsetHeight - e.offsetTop + 2) + 'px';
+  }
+  function openMenu() { A.$('wt0').classList.add('hot'); A.$('fmenu').classList.add('on'); }
+  function closeMenu() { A.$('wt0').classList.remove('hot'); A.$('fmenu').classList.remove('on'); }
+  function openHist() { closeMenu(); A.$('hv').classList.add('on'); A.$('wsearch').style.opacity = '.55'; }
+  function expand() { A.$('g1').classList.add('open', 'sel'); A.$('g1a').style.display = 'none'; A.$('g1s').classList.add('on'); }
+  function pickOld() { A.$('g1').classList.remove('sel'); A.$('s3').classList.add('pick'); A.$('hv').classList.add('old'); placeBar(); }
+  function restored() {
+    A.$('rdlg').classList.remove('on'); A.$('hv').classList.remove('on', 'old'); A.$('wsearch').style.opacity = '';
+    var p = A.$('pDates'); p.classList.remove('gone'); p.textContent = DATES;
+    A.$('wrib').innerHTML = A.wordRibbon('home', { font: 'Aptos Display …', size: 20, style: t('Nadpis 1', 'Heading 1') });
+    A.$('wwords').textContent = t('Slova: 78', 'Words: 78');
+    placeIco();
+  }
+
+  A.Scene({
+    build: build,
+    lead: 1100,
+    tail: 2600,
+    play: async function (api) {
+      api0 = api; placeIco();
+      await api.moveTo('wt0', 0.5, 0.55, 950); await api.click();
+      openMenu();
+      await api.sleep(700);
+      await api.moveTo('mHist', 0.3, 0.5, 750); A.$('mHist').classList.add('hot'); await api.sleep(250); await api.click();
+      A.$('mHist').classList.remove('hot'); openHist();
+      await api.sleep(1300);
+      await api.moveTo('g1c', 0.5, 0.5, 900); await api.click();
+      expand();
+      await api.sleep(1000);
+      await api.moveTo('s3', 0.3, 0.45, 800); A.$('s3').classList.add('hot'); await api.click();
+      A.$('s3').classList.remove('hot'); pickOld();
+      await api.sleep(2400);
+      await api.moveTo('bRestore', 0.5, 0.5, 900); A.$('bRestore').classList.add('hot'); await api.click();
+      A.$('rdlg').classList.add('on');
+      await api.sleep(1500);
+      A.$('bRestore').classList.remove('hot'); restored();
+      await api.sleep(500); api.hideCursor();
+    },
+    states: {
+      menu: function (api) { api0 = api; placeIco(); openMenu(); A.$('mHist').classList.add('hot'); },
+      hist: function (api) { api0 = api; placeIco(); openHist(); },
+      exp: function (api) { api0 = api; placeIco(); openHist(); expand(); },
+      old: function (api) { api0 = api; placeIco(); openHist(); expand(); pickOld(); },
+      wait: function (api) { api0 = api; placeIco(); openHist(); expand(); pickOld(); A.$('rdlg').classList.add('on'); },
+      end: function (api) { api0 = api; openHist(); expand(); pickOld(); restored(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

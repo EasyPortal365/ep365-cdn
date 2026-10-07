@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Kdo má přístup</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="sdileni.js"></script>
+<script>
+/* Scéna 5 – Spravovat přístup: záložky Lidé / Skupiny / Odkazy › osoba › Shrnutí přístupu › Přímý přístup › „Žádný přímý přístup“.
+   Podle referencí _ref/sdileni/s14 (Lidé), s16 (Skupiny), s15 (Odkazy), s17 (Shrnutí přístupu), s18 (volby přímého přístupu).
+   Scéna začíná v otevřeném okně Spravovat přístup (cestu do něj předloha neukazuje). Volba se jen vybere – Použít ani výsledek
+   předloha nemá, proto se neukazují. */
+(function () {
+  var A = AK, S = AKS;
+  function manage(tab, anim, hot) { S.setDlg(S.manageDlg({ tab: tab, anim: anim, hotP: hot })); }
+  function summary(o) { S.setDlg(S.summaryDlg(o)); }
+  A.Scene({
+    build: function () { return S.page(S.manageDlg({ tab: 0, anim: false })); },
+    lead: 1400,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('mt1', 0.5, 0.5, 1000);
+      await api.click();
+      manage(1);
+      await api.sleep(1700);
+      await api.moveTo('mt2', 0.5, 0.5, 700);
+      await api.click();
+      manage(2);
+      await api.sleep(1700);
+      await api.moveTo('mt0', 0.5, 0.5, 700);
+      await api.click();
+      manage(0);
+      await api.sleep(700);
+      await api.moveTo('pLD', 0.35, 0.5, 800);
+      manage(0, false, true);
+      await api.sleep(400);
+      await api.click();
+      summary({ anim: true });
+      await api.sleep(1400);
+      await api.moveTo('acc', 0.3, 0.5, 900);
+      await api.click();
+      summary({ open: true });
+      await api.sleep(1500);
+      await api.moveTo('rr4r', 0.5, 0.5, 900);
+      await api.sleep(300);
+      await api.click();
+      summary({ open: true, sel: 4 });
+      await api.sleep(1200);
+    },
+    states: {
+      groups: function () { manage(1, false); },
+      links: function () { manage(2, false); },
+      sum: function () { summary({}); },
+      open: function () { summary({ open: true }); },
+      end: function () { summary({ open: true, sel: 4 }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

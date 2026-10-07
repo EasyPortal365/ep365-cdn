@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Komentář se zmínkou</title>
+<link rel="stylesheet" href="../m365.css">
+<style>
+  /* Předlohy: _ref/pruchod/k4-01 … k4-10 (komentář ve Wordu pro web, světlý režim). Rozměry × 0,823. */
+  /* výběr buňky tahem myši (k4-01) */
+  #r4c { background:linear-gradient(#D6E3F4,#D6E3F4) no-repeat 0 0 / 0 100%; }
+  #r4c.sel { background-size:100% 100%; transition:background-size .55s linear; color:#4E6487; }
+  /* plovoucí mini lišta nad výběrem (k4-01) */
+  .mini { position:absolute; left:122px; height:27px; display:flex; align-items:center; padding:0 6px; background:#fff; border-radius:7px; box-shadow:0 2px 8px rgba(0,0,0,.16), 0 0 1px rgba(0,0,0,.2); font-family:"Segoe UI",sans-serif; font-size:10.3px; color:#424242; white-space:nowrap; opacity:0; transform:translateY(4px); transition:opacity .2s, transform .2s; z-index:5; line-height:1; }
+  .mini.on { opacity:1; transform:none; }
+  .mini .mf { display:flex; align-items:center; gap:10px; padding:0 6px; height:21px; border-right:1px solid #E6E6E6; }
+  .mini .ri { min-width:20px; height:22px; }
+  .mini .rc { width:10px; margin-right:4px; }
+  .mini .rsep { height:18px; margin:0 5px; }
+  /* ikona komentáře na okraji stránky (k4-01 zelená +, k4-06 plná modrá, k4-10 vyřešená) */
+  .mico { position:absolute; right:37px; width:13px; height:12px; opacity:0; transition:opacity .2s; }
+  .mico.on { opacity:1; }
+  .mico.posted, .mico.done { right:53px; }
+  .word .wpage { transition:transform .45s cubic-bezier(.3,.1,.2,1); }
+  .word.kon .wpage { transform:translateX(-145px); }
+  /* karta komentáře (k4-02 … k4-09) */
+  .kc { position:absolute; left:756px; width:267px; background:#fff; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.13), 0 0 1px rgba(0,0,0,.18); font-size:10.6px; color:#242424; opacity:0; transform:translateX(10px); transition:opacity .3s, transform .3s; z-index:6; }
+  .kc.on { opacity:1; transform:none; }
+  .kc .kb0 { padding:10px 10px 9px; }
+  .kh { display:flex; align-items:center; gap:7px; height:25px; position:relative; }
+  .kh .av, .krp .av { width:25px; height:25px; font-size:9.5px; }
+  .kn b { display:block; font-weight:600; font-size:10.8px; line-height:13px; }
+  .kn small { display:none; color:#616161; font-size:9.4px; line-height:12px; }
+  .kact { margin-left:auto; display:none; gap:6px; align-items:center; }
+  .kact .kb { width:22px; height:22px; border-radius:4px; display:grid; place-items:center; }
+  .kact .kb.hot { background:#EBEBEB; }
+  .kin { margin-top:12px; min-height:29px; border:1.6px solid #2B63B5; border-radius:7px; padding:6px 8px; line-height:15.5px; font-size:10.8px; position:relative; }
+  .kin .ph { color:#707070; position:absolute; left:9px; top:6px; }
+  .kin.has .ph { display:none; }
+  .kin b { font-weight:600; }
+  .kin .caret { height:12px; }
+  .khint { display:none; color:#707070; font-size:8.8px; margin-top:6px; }
+  .kc.typed .khint { display:block; }
+  .krow { display:flex; align-items:center; margin-top:9px; min-height:25px; }
+  .kas { display:none; align-items:center; gap:7px; }
+  .kc.assign .kas { display:flex; }
+  .kas i { width:17px; height:17px; border:1px solid #8A8A8A; border-radius:3px; background:#fff; }
+  .kas small { display:block; font-size:7.9px; color:#707070; line-height:10px; }
+  .kas span { font-size:9.4px; line-height:12px; }
+  .kbtns { margin-left:auto; display:flex; align-items:center; gap:14px; }
+  .klink { color:#185ABD; font-weight:600; font-size:10.4px; }
+  .kbtn { height:25px; padding:0 10px; border-radius:7px; display:flex; align-items:center; font-weight:600; font-size:10.4px; background:#F0F0F0; color:#BDBDBD; transition:background .2s, color .2s; }
+  .kc.typed .kbtn { background:#185ABD; color:#fff; }
+  .kbtn.hot { background:#124A9E !important; }
+  .kfoot { display:none; background:#F0F0F0; border-radius:0 0 12px 12px; padding:8px 10px 9px; font-size:8.8px; line-height:12px; color:#242424; }
+  .kc.assign .kfoot { display:block; }
+  .kfoot b { font-weight:600; }
+  /* odeslaný komentář (k4-06, k4-08) */
+  .ktx { display:none; margin-top:12px; font-weight:600; font-size:10.9px; line-height:15.5px; }
+  .krps { display:none; }
+  .krp { margin-top:13px; font-size:10.9px; } .krp .kh { margin-bottom:12px; } .krp .kn small { display:block; }
+  .kreply { display:none; margin-top:12px; height:30px; border:1px solid #C8C8C8; border-radius:7px; padding:0 9px; align-items:center; color:#707070; font-size:10.4px; }
+  .kc.posted .kin, .kc.posted .khint, .kc.posted .krow, .kc.posted .kfoot { display:none; }
+  .kc.posted .ktx, .kc.posted .krps { display:block; }
+  .kc.posted .kreply, .kc.posted .kact { display:flex; }
+  .kc.posted .kn small { display:block; }
+  .krp.add { animation:addin .4s ease-out; }
+  @keyframes addin { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+  /* návrhy zmínky (k4-03) */
+  .ksug { left:16px; width:192px; padding:0; border-radius:4px; overflow:hidden; }
+  .ksug .mi { height:33px; padding:0 8px; gap:7px; }
+  .ksug .mi .av { width:24px; height:24px; font-size:9px; }
+  .ksug .mi b { display:block; font-weight:400; font-size:10.3px; line-height:12px; }
+  .ksug .mi small { display:block; font-size:8.6px; color:#616161; line-height:11px; }
+  .ksug .nr { height:30px; display:flex; align-items:center; justify-content:center; font-size:10.3px; color:#242424; }
+  .ksug .mi.hot { background:#E1DFDD !important; }
+  /* nabídka vlákna (k4-09) */
+  .kmenu { left:90px; top:33px; width:130px; padding:2px 0; }
+  .kmenu .mi { height:26px; gap:8px; padding:0 9px; font-size:10.3px; color:#424242; }
+</style>
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script>
+(function () {
+  var A = AK, t = A.t, ic = A.ic, wi = A.wi;
+  var FN = t('Nabídka – Penzion U Lípy', 'Quote – U Lípy guesthouse');
+  var PETR = 'Petr Svoboda';
+  var TXT = t(' prosím doplň cenu montáže, klient ji chce vidět zvlášť.', ' please add the assembly price, the client wants to see it separately.');
+  var REPLY = t('Doplněno – 8 500 Kč.', 'Done – 8 500 Kč.');
+  /* datum ve kartě je i v české verzi Wordu anglicky (k4-06, k4-08) */
+  var D1 = 'October 4, 2026 at 9:47 PM', D2 = 'October 4, 2026 at 9:54 PM';
+  var I = {
+    tins: '<rect x="2" y="7" width="12" height="7" rx="1"/><path d="M2 10.5h12M6 7v7M10 7v7"/><circle cx="4.5" cy="4" r="3" fill="#13A10E" stroke="#fff" stroke-width=".8"/><path d="M4.5 2.6v2.8M3.1 4h2.8" stroke="#fff" stroke-width="1.1"/>',
+    tdel: '<rect x="2" y="2" width="10" height="10" rx="1"/><path d="M2 5.5h10M2 9h10M5.5 2v10M9 2v10"/><circle cx="12" cy="12" r="3.2" fill="#D13438" stroke="#fff" stroke-width=".8"/><path d="M10.9 10.9l2.2 2.2M13.1 10.9l-2.2 2.2" stroke="#fff" stroke-width="1.1"/>',
+    thumb: '<path d="M5 7.5l2.6-5c1.2 0 1.9.8 1.6 2L8.8 6.5H13a1.3 1.3 0 011.2 1.6l-1.2 5a1.3 1.3 0 01-1.3 1H5z"/><path d="M5 7.5H2.5v6.6H5"/>',
+    link: '<path d="M6.5 5H4.5a3 3 0 000 6h2M9.5 5h2a3 3 0 010 6h-2M5.5 8h5"/>',
+    pen: '<path d="M10.5 2.5l3 3-8 8h-3v-3z"/>',
+    chk: '<path d="M3 8.5l3.5 3.5 6.5-8"/>',
+    trash: '<path d="M2.5 4h11M6 4V2.5h4V4M4 4l.7 9.5h6.6L12 4M6.8 6.5v5M9.2 6.5v5"/>',
+    mAdd: '<path d="M1.5 3h8.5v6.5H5.5L2.8 12V9.5H1.5z" fill="#fff" stroke="#3C7A52"/><circle cx="10.5" cy="3.6" r="3" fill="#13A10E" stroke="#fff" stroke-width=".8"/><path d="M10.5 2.3v2.6M9.2 3.6h2.6" stroke="#fff" stroke-width="1"/>',
+    mPost: '<path d="M1.5 2h10v7.5H6L3 12V9.5H1.5z" fill="#1260C9" stroke="#1260C9"/>',
+    mDone: '<path d="M1.5 2h10v7.5H6L3 12V9.5H1.5z" fill="#EAF6EC" stroke="#6E6E6E"/><path d="M4.2 5.8l1.6 1.5 2.9-3" stroke="#3C9A50" stroke-width="1.2"/>'
+  };
+  var mico = function (k) { return ic(I[k], 13, 'currentColor', 1); };
+  var api0;
+
+  function mini() {
+    return '<div class="mini" id="mini"><span class="mf">Aptos (…' + wi('cv', 10, '#424242', 1.3) + '</span><span class="mf">12' + wi('cv', 10, '#424242', 1.3) + '</span>' +
+      '<span class="ri rt"><b>B</b></span><span class="ri rt"><i>I</i></span><span class="ri rt"><u>U</u></span>' +
+      '<span class="ri">' + wi('fcolor', 14) + '</span><span class="rc">' + wi('cv', 10, '#424242', 1.3) + '</span>' +
+      '<span class="ri">' + wi('hilite', 14) + '</span><span class="rc">' + wi('cv', 10, '#424242', 1.3) + '</span><span class="rsep"></span>' +
+      '<span class="ri">' + wi('shade', 14) + '</span><span class="rc">' + wi('cv', 10, '#424242', 1.3) + '</span><span class="rsep"></span>' +
+      '<span class="ri">' + ic(I.tins, 15, '#424242', 1.1) + '</span><span class="rc">' + wi('cv', 10, '#424242', 1.3) + '</span>' +
+      '<span class="ri">' + ic(I.tdel, 15, '#424242', 1.1) + '</span><span class="rc">' + wi('cv', 10, '#424242', 1.3) + '</span><span class="rsep"></span>' +
+      '<span class="ri">' + wi('cmtAdd', 15) + '</span></div>';
+  }
+  function card() {
+    var head = function (k, date) { return '<div class="kh">' + A.av(k, 25) + '<div class="kn"><b>' + A.PEOPLE[k].name + '</b><small>' + (date || '') + '</small></div>'; };
+    var mi = function (id, k, label) { return '<div class="mi"' + (id ? ' id="' + id + '"' : '') + '>' + ic(I[k], 14, '#424242', 1.1) + label + '</div>'; };
+    return '<div class="kc" id="card"><div class="kb0">' +
+      head('JN', D1) + '<span class="kact"><span class="kb" id="kDots">' + wi('dots', 14, '#424242', 1.3) + '</span><span class="kb">' + ic(I.thumb, 15, '#424242', 1.1) + '</span></span>' +
+      '<div class="pop kmenu" id="kMenu">' + mi('', 'link', t('Odkaz na komentář', 'Link to comment')) + mi('', 'pen', t('Upravit komentář', 'Edit comment')) +
+      mi('kRes', 'chk', t('Vyřešit vlákno', 'Resolve thread')) + mi('', 'trash', t('Odstranit vlákno', 'Delete thread')) + '</div></div>' +
+      '<div class="ktx" id="kTx"></div>' +
+      '<div class="kin" id="kIn"><span class="ph">' + t('@zmínka nebo komentář', '@mention or comment') + '</span><span id="kTyped"></span><span class="caret"></span>' +
+      '<div class="pop ksug" id="kSug" style="top:100%;margin-top:2px"><div class="mi" id="kPetr">' + A.av('PS', 24) + '<div><b>' + PETR + '</b><small>petr.svoboda@javornabytek.cz</small></div></div>' +
+      '<div class="nr">' + t('Nenašly se žádné další výsledky.', 'No more results found.') + '</div></div></div>' +
+      '<div class="khint">' + t('Klávesami Ctrl + Enter publikujete', 'Press Ctrl + Enter to post') + '</div>' +
+      '<div class="krow"><span class="kas"><i></i><span><small>' + t('Přiřadit uživateli', 'Assign to') + '</small>' + PETR + '</span></span>' +
+      '<span class="kbtns"><span class="klink">' + t('Zrušit', 'Cancel') + '</span><span class="kbtn" id="kSend">' + t('Komentář', 'Comment') + '</span></span></div>' +
+      '<div class="krps" id="kReps"></div>' +
+      '<div class="kreply">' + t('@zmínit nebo odpovědět', '@mention or reply') + '</div></div>' +
+      '<div class="kfoot"><b>' + PETR + '</b> ' + t('lidem přijde e-mailové upozornění na váš komentář.', 'will be notified by e-mail about your comment.') + '</div></div>';
+  }
+  function build() {
+    var page = A.offerPage({ prices: true, montaz: false }) + mini() + '<span class="mico" id="mIco"></span>';
+    return A.wordShell({ file: FN, page: page, words: 75, side: card() });
+  }
+
+  var word = function () { return document.querySelector('.word'); };
+  function words(txt) { A.$('wwords').textContent = txt; }
+  /* svislé ukotvení karty, mini lišty a ikony na okraji k řádku „Doprava a montáž" */
+  function anchor() {
+    var r = api0.rectOf(A.$('r4')), pg = api0.rectOf(A.$('wpage'));
+    A.$('card').style.top = Math.round(r.y - 3) + 'px';
+    A.$('mini').style.top = Math.round(r.y - pg.y - 35) + 'px';
+    A.$('mIco').style.top = Math.round(r.y - pg.y + (r.h - 12) / 2) + 'px';
+  }
+  function setIco(k, on) { var m = A.$('mIco'); m.innerHTML = mico(k); m.className = 'mico' + (k === 'mPost' ? ' posted' : k === 'mDone' ? ' done' : '') + (on ? ' on' : ''); }
+  function selected() {
+    A.$('r4c').classList.add('sel'); A.$('wtT').hidden = false;
+    words(t('Vybraná slova: 3 z 75', 'Words selected: 3 of 75'));
+  }
+  function showMini() { A.$('mini').classList.add('on'); setIco('mAdd', true); }
+  function review() {
+    A.$('wt1').classList.remove('on'); A.$('wt5').classList.add('on'); A.$('wrib').innerHTML = A.wordRibbon('review');
+  }
+  function openCard() {
+    A.$('mini').classList.remove('on'); setIco('mAdd', false); A.$('wtT').hidden = true;
+    word().classList.add('kon'); A.$('card').classList.add('on');
+  }
+  function typed(html) {
+    var k = A.$('kTyped'); if (html != null) k.innerHTML = html;
+    A.$('kIn').classList.toggle('has', k.textContent.length > 0);
+    A.$('card').classList.toggle('typed', k.textContent.length > 0);
+  }
+  function pickPetr() { A.$('kTyped').innerHTML = '<b>@' + PETR + '</b>'; A.$('kSug').classList.remove('on'); A.$('card').classList.add('assign'); typed(); }
+  function post() {
+    var c = A.$('card'); c.classList.remove('typed', 'assign'); c.classList.add('posted');
+    A.$('kTx').innerHTML = '@' + PETR + TXT;
+    A.$('r4c').classList.remove('sel'); setIco('mPost', true); words(t('Slova: 75', 'Words: 75'));
+    ['rDel', 'rPrev', 'rNext', 'rFilt'].forEach(function (id) { var e = A.$(id); if (e) e.classList.remove('off'); });
+  }
+  function reply() {
+    A.$('kReps').innerHTML = '<div class="krp add"><div class="kh">' + A.av('PS', 25) + '<div class="kn"><b>' + PETR + '</b><small>' + D2 + '</small></div></div>' + REPLY + '</div>';
+    A.$('r4p').textContent = '8 500 Kč'; A.$('wtT').hidden = false; words(t('Slova: 78', 'Words: 78'));
+  }
+  function resolve() {
+    A.$('kMenu').classList.remove('on'); A.$('card').classList.remove('on'); word().classList.remove('kon');
+    setIco('mDone', true); var d = A.$('rDel'); if (d) d.classList.add('off');
+  }
+
+  A.Scene({
+    build: build,
+    lead: 900,
+    tail: 2400,
+    play: async function (api) {
+      api0 = api; anchor();
+      /* výběr textu tahem */
+      await api.moveTo('r4t', 0.02, 0.6, 900);
+      api.cursor.classList.add('down'); selected();
+      await api.moveTo('r4t', 0.99, 0.6, 550);
+      api.cursor.classList.remove('down'); showMini();
+      await api.sleep(700);
+      await api.moveTo('wt5', 0.5, 0.55, 800); await api.click();
+      review(); await api.sleep(450);
+      await api.moveTo('rNew', 0.5, 0.5, 700); A.$('rNew').classList.add('hot'); await api.click();
+      A.$('rNew').classList.remove('hot'); openCard();
+      await api.sleep(900);
+      var k = A.$('kTyped');
+      for (var i = 0; i < 4; i++) { k.textContent += '@Pet'[i]; typed(); await api.sleep(130); }
+      A.$('kSug').classList.add('on');
+      await api.sleep(500);
+      await api.moveTo('kPetr', 0.35, 0.5, 650); A.$('kPetr').classList.add('hot'); await api.click();
+      pickPetr();
+      await api.sleep(300);
+      var s = document.createElement('span'); k.appendChild(s);
+      await api.type(s, TXT, 30);
+      await api.sleep(600);
+      await api.moveTo('kSend', 0.5, 0.5, 750); A.$('kSend').classList.add('hot'); await api.click();
+      A.$('kSend').classList.remove('hot'); post(); A.wordSave('busy');
+      await api.moveTo('card', 0.6, 1.25, 700);
+      await api.sleep(500); A.wordSave('saved');
+      await api.sleep(1300);
+      reply();
+      await api.sleep(2000);
+      await api.moveTo('kDots', 0.5, 0.5, 800); A.$('kDots').classList.add('hot'); await api.click();
+      A.$('kMenu').classList.add('on'); A.wordSave('');
+      await api.sleep(600);
+      await api.moveTo('kRes', 0.3, 0.5, 600); A.$('kRes').classList.add('hot'); await api.sleep(200); await api.click();
+      resolve(); A.wordSave('busy');
+      await api.sleep(700); A.wordSave('saved');
+      await api.sleep(400); api.hideCursor();
+    },
+    states: {
+      sel: function (api) { api0 = api; anchor(); review(); selected(); showMini(); },
+      pick: function (api) { api0 = api; anchor(); review(); A.$('r4c').classList.add('sel'); words(t('Vybraná slova: 3 z 75', 'Words selected: 3 of 75')); openCard(); typed('@Pet'); A.$('kSug').classList.add('on'); A.$('kPetr').classList.add('hot'); },
+      comment: function (api) { api0 = api; anchor(); review(); A.$('r4c').classList.add('sel'); words(t('Vybraná slova: 3 z 75', 'Words selected: 3 of 75')); openCard(); pickPetr(); A.$('kTyped').insertAdjacentText('beforeend', TXT); },
+      posted: function (api) { api0 = api; anchor(); review(); openCard(); post(); reply(); A.wordSave('saved'); },
+      menu: function (api) { api0 = api; anchor(); review(); openCard(); post(); reply(); A.$('kMenu').classList.add('on'); A.$('kDots').classList.add('hot'); },
+      end: function (api) { api0 = api; anchor(); review(); openCard(); post(); reply(); resolve(); A.wordSave('saved'); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

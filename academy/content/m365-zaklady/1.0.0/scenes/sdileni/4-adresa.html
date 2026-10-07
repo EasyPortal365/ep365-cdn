@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Adresa klienta a zpráva</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="sdileni.js"></script>
+<script>
+/* Scéna 4 – adresa klienta do pole příjemce › Vyhledávání... › návrh adresy › čip a upozornění „… je mimo vaši organizaci.“ › zpráva.
+   Podle referencí _ref/sdileni/s09 (Vyhledávání..., Prohledat adresář), s10 (návrh adresy), s11 + s12 (čip, Přidat další,
+   upozornění mimo organizaci, napsaná zpráva). Kurzor skončí na tlačítku Poslat – stav po odeslání předlohu nemá, proto se neukazuje. */
+(function () {
+  var A = AK, S = AKS;
+  var MSG = A.t('Dobrý den, posíláme nabídku k nahlédnutí.', 'Hello, we are sending you our quote to review.');
+  function share(o) { o.perm = 'view'; S.setDlg(S.shareDlg(o)); }
+  A.Scene({
+    build: function () { return S.page(S.shareDlg({ perm: 'view', foc: 'to' })); },
+    lead: 1200,
+    tail: 3000,
+    play: async function (api) {
+      await api.moveTo('toBox', 0.4, 0.55, 1000);
+      await api.click();
+      share({ foc: 'to', to: { typed: '' }, caret: true });
+      await api.sleep(300);
+      await api.type('toV', S.MAIL, 16);
+      share({ foc: 'to', to: { typed: S.MAIL }, caret: true, dd: 'search' });
+      await api.sleep(1100);
+      share({ foc: 'to', to: { typed: S.MAIL }, dd: 'suggest' });
+      await api.sleep(600);
+      await api.moveTo('sugg', 0.4, 0.5, 700);
+      await api.sleep(300);
+      await api.click();
+      share({ to: { chip: true }, chipIn: true });
+      await api.sleep(1800);
+      await api.moveTo('msgBox', 0.5, 0.45, 800);
+      await api.click();
+      share({ to: { chip: true }, foc: 'msg', msgCaret: true });
+      await api.sleep(300);
+      await api.type('msgV', MSG, 20);
+      await api.sleep(700);
+      await api.moveTo('send', 0.55, 0.55, 900);
+    },
+    states: {
+      search: function () { share({ foc: 'to', to: { typed: S.MAIL }, caret: true, dd: 'search' }); },
+      sugg: function () { share({ foc: 'to', to: { typed: S.MAIL }, dd: 'suggest' }); },
+      chip: function () { share({ to: { chip: true } }); },
+      end: function () { share({ to: { chip: true }, foc: 'msg', msg: MSG }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

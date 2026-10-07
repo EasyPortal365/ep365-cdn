@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Kde mít úkoly a poznámky</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../m365.css">
+<link rel="stylesheet" href="pruvodce.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="pruvodce.js"></script>
+<script>
+/* Průvodce 3 – osobní vs týmové úkoly a poznámky (To Do, Planner, OneNote, komponenta Loop); nakonec pruh „aplikace Planner v Teams“.
+   Vlastní ilustrace, ne replika UI. */
+(function () {
+  var A = AK, G = AKG;
+  function build() {
+    var cell = function (id, x, y, gl, title, sub) { return '<div class="gu-cell" id="' + id + '" style="left:' + x + 'px;top:' + y + 'px"><div class="gu-ch">' + gl + '<b>' + title + '</b><small>' + sub + '</small></div></div>'; };
+    var item = function (id, x, y, html) { return '<div class="gu-item" id="' + id + '" style="left:' + (x + 18) + 'px;right:auto;width:404px;top:' + y + 'px">' + html + '</div>'; };
+    var X1 = 110, X2 = 620, Y1 = 74, Y2 = 296;
+    return '<div class="gu">' +
+      '<div class="gu-colh" style="left:' + (X1 + 220) + 'px">Moje</div><div class="gu-colh" style="left:' + (X2 + 220) + 'px">Týmové</div>' +
+      '<div class="gu-rowh" style="top:' + (Y1 + 60) + 'px">Úkoly</div><div class="gu-rowh" style="top:' + (Y2 + 50) + 'px">Poznámky</div>' +
+      cell('cA', X1, Y1, G.glyph('todo', 32), 'To Do', 'osobní seznamy a Můj den') +
+      cell('cB', X2, Y1, G.glyph('planner', 32), 'Planner', 'plán, přiřazení, termín, stav') +
+      cell('cC', X1, Y2, G.glyph('onenote', 32), 'OneNote', 'poznámkové bloky') +
+      cell('cD', X2, Y2, G.glyph('loop', 32), 'Komponenta Loop', 'v chatu, e-mailu i na schůzce') +
+      item('i1', X1, Y1 + 68, '<span class="gu-ck"></span>Zavolat do penzionu kvůli parkování<span class="r">dnes</span>') +
+      item('i2', X1, Y1 + 126, '<span class="gu-ck"></span>Připravit podklady na poradu<span class="r">zítra</span>') +
+      item('i3', X2, Y1 + 68, '<span class="gu-ck"></span>Zaměřit pokoje v penzionu<span class="r">08. 10. ' + G.av('PS') + '</span>') +
+      item('i4', X2, Y1 + 126, '<span class="gu-ck"></span>Připravit nabídku nábytku<span class="r">15. 10. ' + G.av('JN') + '</span>') +
+      item('i5', X1, Y2 + 68, A.ic(A.P.edit, 16, '#7719AA', 1.4) + 'Zápisky – nápady na kolekci Dub') +
+      item('i6', X2, Y2 + 68, A.ic(A.P.lines, 16, '#7B4FD6', 1.4) + 'Poznámky ze schůzky – zahájení zakázky<span class="r">' + G.av('JN') + G.av('PS') + G.av('LD') + '</span>') +
+      '<div class="gu-bar" id="bar">' + G.glyph('planner', 32) + '<b>Aplikace Planner v Teams</b><span class="t">Můj den</span><span class="t">Moje úkoly</span><span class="t">Moje plány</span><span style="margin-left:auto;font-size:13px;opacity:.8">osobní i týmové úkoly pohromadě</span></div>' +
+      '</div>';
+  }
+  var ALL = [['i1', 'cA'], ['i2', 'cA'], ['i3', 'cB'], ['i4', 'cB'], ['i5', 'cC'], ['i6', 'cD']];
+  A.Scene({
+    build: build,
+    lead: 900,
+    tail: 3200,
+    play: async function (api) {
+      api.hideCursor();
+      for (var i = 0; i < ALL.length; i++) { await G.drop(api, ALL[i][0], ALL[i][1]); await api.sleep(i % 2 ? 1200 : 700); }
+      A.$('bar').classList.add('on');
+      await api.sleep(1500);
+    },
+    states: { end: function () { ALL.forEach(function (x) { A.$(x[0]).classList.add('in'); }); A.$('bar').classList.add('on'); } }
+  });
+})();
+</script>
+</body>
+</html>

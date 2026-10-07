@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Nevyžádaná pošta</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="email.js"></script>
+<script>
+/* Scéna 3 – složka Nevyžádaná pošta › poctivá zpráva zařazená omylem › pruhy a blokovaný obsah › Nahlásit ▾ › Není nevyžádaná pošta.
+   Podle referencí _ref/email/e02 (složka s informací o 30 dnech), e03 (zpráva s pruhy, tlačítky a blokovaným obrázkem),
+   e04 (nabídka Nahlásit v Nevyžádané poště). Stav po kliknutí předloha nemá – scéna končí kliknutím. */
+(function () {
+  var A = AK, E = AKE;
+  A.Scene({
+    build: function () { return E.page({ folder: 'inbox' }); },
+    lead: 1000,
+    tail: 2000,
+    play: async function (api) {
+      await api.moveTo('fJunk', 0.4, 0.5, 1000);
+      await api.click();
+      E.show({ folder: 'junk' });
+      await api.sleep(1300);
+      await api.moveTo('rPila', 0.5, 0.5, 800);
+      await api.click();
+      E.show({ folder: 'junk', sel: true });
+      await api.sleep(1500);
+      await api.moveTo('bShow', 0.5, 2.2, 900);
+      E.show({ folder: 'junk', sel: true, hvShow: true });
+      await api.sleep(1300);
+      E.show({ folder: 'junk', sel: true });
+      await api.moveTo('repCv', 0.5, 0.5, 900);
+      await api.click();
+      E.show({ folder: 'junk', sel: true, menu: true });
+      await api.sleep(800);
+      await api.moveTo('rm1', 0.4, 0.5, 600);
+      E.show({ folder: 'junk', sel: true, menu: true, hot: 1 });
+      await api.sleep(900);
+      await api.click();
+    },
+    states: {
+      folder: function () { E.show({ folder: 'junk' }); },
+      open: function () { E.show({ folder: 'junk', sel: true }); },
+      end: function () { E.show({ folder: 'junk', sel: true, menu: true, hot: 1 }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

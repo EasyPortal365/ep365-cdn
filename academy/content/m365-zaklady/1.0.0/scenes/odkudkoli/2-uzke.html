@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Užší okno</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="odk.js"></script>
+<script>
+/* Scéna 2 – okno prohlížeče se zúží a OneDrive přizpůsobí rozvržení: zůstane Název a Změněno, pod názvem kdo upravil a počet položek,
+   u sdílené složky ikona. Podle referencí _ref/odkudkoli/o02 (široké okno) a o03 (úzké okno). Okolí okna je neutrální plocha. */
+(function () {
+  var A = AK, O = AKO;
+  A.Scene({
+    build: function () { return '<div class="odw-bg"></div>' + O.mine({}); },
+    lead: 1400,
+    tail: 2800,
+    play: async function (api) {
+      var w = A.$('odw');
+      w.style.width = '598px';
+      await api.sleep(450);
+      O.narrowFix(true);
+      await api.sleep(1300);
+      await api.moveTo('fr1', 0.4, 0.62, 1000);
+      await api.sleep(1500);
+      api.hideCursor();
+    },
+    states: {
+      end: function () { A.$('app').innerHTML = '<div class="odw-bg"></div>' + O.mine({ narrow: true }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

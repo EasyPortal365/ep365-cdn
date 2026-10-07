@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Všechno najde v týmu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="../hledani/hledani.js"></script>
+<script src="../planner/planner.js"></script>
+<script src="novy.js"></script>
+<script>
+/* Scéna 3 – krátká prohlídka kanálu Nabídky: Příspěvky › Sdíleno › plán Planneru.
+   Bez nových prvků rozhraní – složené jen z hotových scén (Příspěvky: _ref/pruchod/k2-*, Sdíleno: _ref/pruchod/k1-*,
+   plán: _ref/planner/p24). */
+(function () {
+  var A = AK, N = AKN, PL = AKP, T = PL.T, C = PL.COLN;
+  function shared() { A.$('app').innerHTML = PL.shell({ shared: true, tabLabel: N.PLAN_TAB }); }
+  function plan() {
+    A.$('app').innerHTML = PL.shell({ tabLabel: N.PLAN_TAB, body: PL.board({ cols: [{ n: C[0], tasks: [T.pos(), T.dom(), T.zam()] },
+      { n: C[1], tasks: [T.obj(), T.pri({ pri: 'imp', st: 'ip', cl: '1/3', date: '15. 10.', who: 'JN' })] }, { n: C[2], tasks: [] }] }) });
+  }
+  A.Scene({
+    build: function () { return N.channel(); },
+    lead: 1000,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo(document.querySelector('.ps-post.mine'), 0.4, 0.3, 1000);
+      await api.sleep(1200);
+      await api.moveTo('tab1', 0.5, 0.5, 900);
+      await api.click();
+      shared();
+      A.$('tbody').firstChild.classList.add('sr-in');
+      await api.sleep(1100);
+      await api.moveTo(document.querySelectorAll('.sh-row')[1], 0.3, 0.5, 900);
+      await api.sleep(1500);
+      await api.moveTo('tab4', 0.5, 0.5, 900);
+      await api.click();
+      plan();
+      await api.sleep(1100);
+      await api.moveTo('tPri', 0.5, 0.4, 900);
+      await api.sleep(1400);
+      api.hideCursor();
+    },
+    states: {
+      shared: shared,
+      end: plan
+    }
+  });
+})();
+</script>
+</body>
+</html>

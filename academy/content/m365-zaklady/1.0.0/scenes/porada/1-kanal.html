@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Schůzka v kanálu týmu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="porada.js"></script>
+<script>
+/* Scéna 1 – kalendář › Nová › název › povinný účastník › Přidat kanál › Javor nábytek – Obchod › Nabídky.
+   Podle referencí _ref/porada/m00 (týdenní kalendář – vlastní události nahrazené jednou fiktivní), m01 (Nová schůzka), m02 (účastník, Navrženo),
+   m03 (seznam týmů – jen fiktivní týmy), m04 (hledání kanálu), m06 (vybraný kanál, Poslat osobní pozvánky). Návrhy při psaní jména
+   účastníka předloha nemá – jméno se dopíše a rovnou se z něj stane čip. Oznámení „Možnosti schůzky se aktualizovaly…“ se vynechává. */
+(function () {
+  var A = AK, M = AKM, T = M.TITLE;
+  function show(o) { A.$('app').innerHTML = M.page(o); }
+  A.Scene({
+    build: function () { return M.page({ view: 'cal' }); },
+    lead: 1000,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('bNew', 0.35, 0.5, 1000);
+      await api.click();
+      show({ title: '', titleCaret: true });
+      await api.sleep(500);
+      await api.type('tV', T, 20);
+      show({ title: T });
+      await api.sleep(400);
+      await api.moveTo('attF', 0.3, 0.5, 700);
+      await api.click();
+      show({ title: T, att: { typed: '' } });
+      await api.type('attV', 'Petr Svoboda', 16);
+      await api.sleep(300);
+      show({ title: T, att: 'chip', chipIn: true, attFoc: true });
+      await api.sleep(1200);
+      await api.moveTo('chanF', 0.3, 0.5, 800);
+      await api.click();
+      show({ title: T, att: 'chip', chan: 'list' });
+      await api.sleep(1000);
+      show({ title: T, att: 'chip', chan: { q: '' } });
+      await api.type('chV', 'Nab', 8);
+      show({ title: T, att: 'chip', chan: { q: 'Nab' } });
+      await api.sleep(500);
+      await api.moveTo('chNab', 0.4, 0.5, 700);
+      show({ title: T, att: 'chip', chan: { q: 'Nab' }, chanHot: true });
+      await api.sleep(300);
+      await api.click();
+      show({ title: T, att: 'chip', chan: 'set' });
+      await api.sleep(1200);
+      await api.moveTo('chanF', 0.75, 0.5, 900);
+      await api.sleep(800);
+      api.hideCursor();
+    },
+    states: {
+      cal: function () { show({ view: 'cal' }); },
+      form: function () { show({ title: T }); },
+      chip: function () { show({ title: T, att: 'chip' }); },
+      list: function () { show({ title: T, att: 'chip', chan: 'list' }); },
+      search: function () { show({ title: T, att: 'chip', chan: { q: 'Nab' } }); },
+      end: function () { show({ title: T, att: 'chip', chan: 'set' }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

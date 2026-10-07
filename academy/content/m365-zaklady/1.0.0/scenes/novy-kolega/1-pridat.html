@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Přidejte kolegu do týmu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="../hledani/hledani.js"></script>
+<script src="novy.js"></script>
+<script>
+/* Scéna 1 – „⋯“ u týmu › Přidat člena › jméno › návrh › role Člen › Přidat.
+   Podle referencí _ref/novy-kolega/n01 (nabídka týmu), n02 (prázdný dialog Přidat členy do týmu), n03 (našeptávač), n04 (vybraná osoba, role Člen).
+   Stav po kliknutí na Přidat předloha nemá – dialog jen zmizí. */
+(function () {
+  var A = AK, N = AKN;
+  A.Scene({
+    build: function () { return N.channel(); },
+    lead: 1000,
+    tail: 2400,
+    play: async function (api) {
+      await api.moveTo(document.querySelectorAll('.tteam')[1], 0.5, 0.5, 1000);
+      N.showDots();
+      await api.sleep(500);
+      await api.moveTo('tDots', 0.5, 0.5, 500);
+      await api.click();
+      N.over(N.teamMenu());
+      await api.sleep(700);
+      await api.moveTo('tm1', 0.4, 0.5, 600);
+      N.over(N.teamMenu(1));
+      await api.sleep(350);
+      await api.click();
+      N.over(N.addDlg({ caret: true, anim: true }));
+      await api.sleep(1600);
+      N.over(N.addDlg({ caret: true, q: '' }));
+      await api.type('dV', 'Tom', 8);
+      N.over(N.addDlg({ q: 'Tom', sug: true }));
+      await api.sleep(700);
+      await api.moveTo('sgTM', 0.35, 0.5, 700);
+      await api.sleep(300);
+      await api.click();
+      N.over(N.addDlg({ sel: true, selIn: true }));
+      await api.sleep(1500);
+      await api.moveTo('dAdd', 0.5, 0.5, 800);
+      await api.sleep(300);
+      await api.click();
+      N.over('');
+      await api.sleep(800);
+      api.hideCursor();
+    },
+    states: {
+      menu: function () { N.over(N.teamMenu(1)); },
+      dlg: function () { N.over(N.addDlg({})); },
+      sug: function () { N.over(N.addDlg({ q: 'Tom', sug: true })); },
+      end: function () { N.over(N.addDlg({ sel: true })); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

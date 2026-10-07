@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Kdo píše doopravdy</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="email.js"></script>
+<script>
+/* Scéna 1 – Doručená pošta › otevření podezřelé zprávy › kurzor na adresu odesílatele v hlavičce.
+   Podle referencí _ref/email/e01 (Doručená pošta, nic nevybráno), e05 (otevřená zpráva v Doručené poště).
+   Hlavička externího odesílatele (modré „Jméno<adresa>“, kroužek u Komu, pruh o blokovaném obsahu) podle e08. */
+(function () {
+  var A = AK, E = AKE;
+  A.Scene({
+    build: function () { return E.page({ folder: 'inbox' }); },
+    lead: 1000,
+    tail: 2800,
+    play: async function (api) {
+      await api.moveTo('rScam', 0.5, 0.5, 1000);
+      await api.click();
+      E.show({ folder: 'inbox', sel: true });
+      await api.sleep(1400);
+      await api.moveTo('fromName', 0.5, 0.6, 900);
+      await api.sleep(700);
+      await api.moveTo('fromAddr', 0.5, 0.6, 800);
+      E.show({ folder: 'inbox', sel: true, hvAddr: true });
+      await api.sleep(1800);
+    },
+    states: {
+      open: function () { E.show({ folder: 'inbox', sel: true }); },
+      end: function () { E.show({ folder: 'inbox', sel: true, hvAddr: true }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

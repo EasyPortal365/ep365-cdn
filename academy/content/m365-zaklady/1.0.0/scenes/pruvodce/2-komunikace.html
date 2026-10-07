@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Chat, kanál, nebo e-mail?</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<link rel="stylesheet" href="../m365.css">
+<link rel="stylesheet" href="pruvodce.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="pruvodce.js"></script>
+<script>
+/* Průvodce 2 – tři cesty komunikace (chat, kanál, e-mail); do nich postupně padají zprávy. Vlastní ilustrace, ne replika UI. */
+(function () {
+  var A = AK, G = AKG;
+  function build() {
+    var lane = function (id, x, gl, title, sub, foot) {
+      return '<div class="gu-lane" id="' + id + '" style="left:' + x + 'px"><div class="gu-lh">' + gl + '<span><b>' + title + '</b><small>' + sub + '</small></span></div>' +
+        '<div class="gu-lf">' + A.ic(A.P.eye, 15, '#4A5874', 1.4) + '<span>Kdo to vidí: <b>' + foot + '</b></span></div></div>';
+    };
+    var msg = function (id, x, y, cls, html) { return '<div class="gu-msg' + (cls ? ' ' + cls : '') + '" id="' + id + '" style="left:' + (x + 18) + 'px;right:auto;width:' + (cls === 'me' ? 250 : 294) + 'px;top:' + y + 'px">' + html + '</div>'; };
+    var who = function (k, name) { return '<div class="who">' + G.av(k) + name + '</div>'; };
+    return '<div class="gu">' +
+      lane('ln1', 40, G.glyph('teams', 38), 'Chat', '1:1 nebo malá skupina', 'účastníci chatu') +
+      lane('ln2', 415, G.glyph('teams', 38), 'Příspěvek v kanálu', 'téma nebo projekt týmu', 'členové týmu') +
+      lane('ln3', 790, G.glyph('outlook', 38), 'E-mail', 'doporučujeme pro lidi mimo váš Teams', 'adresáti zprávy') +
+      msg('m1', 40, 140, '', who('JN', 'Jana Nováková') + 'Petře, máš chvilku? Mrkni prosím na ceny lavic.') +
+      msg('m2', 40, 260, 'me', who('PS', 'Petr Svoboda') + 'Jasně, za pět minut ti zavolám.') +
+      msg('m3', 415, 140, '', who('JN', 'Jana Nováková') + '<div class="sb">Nabídka pro Penzion U Lípy</div><span class="men">@Lucie Dvořáková</span> potvrď prosím termín montáže.') +
+      msg('m4', 415, 296, 'me', who('LD', 'Lucie Dvořáková') + 'Potvrzeno – montáž ve čtvrtek.') +
+      msg('m5', 790, 140, '', '<div class="who">' + G.glyph('outlook', 22) + 'Pro: dodavatel dřeva</div><div class="sb">Objednávka – dubové fošny</div>Dobrý den, posíláme závaznou objednávku na zakázku Penzion U Lípy.') +
+      '</div>';
+  }
+  var ALL = [['m1', 'ln1'], ['m2', 'ln1'], ['m3', 'ln2'], ['m4', 'ln2'], ['m5', 'ln3']];
+  A.Scene({
+    build: build,
+    lead: 900,
+    tail: 3200,
+    play: async function (api) {
+      api.hideCursor();
+      for (var i = 0; i < ALL.length; i++) { await G.drop(api, ALL[i][0], ALL[i][1]); await api.sleep(i % 2 ? 1500 : 900); }
+    },
+    states: { end: function () { ALL.forEach(function (x) { A.$(x[0]).classList.add('in'); }); } }
+  });
+})();
+</script>
+</body>
+</html>

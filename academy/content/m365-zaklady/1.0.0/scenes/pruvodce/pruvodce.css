@@ -1,0 +1,67 @@
+/* Akademie – ilustrace úvodních průvodců. Vlastní grafika v EP365 Design Systemu (tokeny z assets/akademie.css), ne replika UI Microsoftu.
+   Ikony aplikací = stejné zjednodušené glyphy jako jinde v Akademii (písmeno nebo piktogram v barvě aplikace, žádná loga). */
+.gu { position:absolute; inset:0; font-family:"Plus Jakarta Sans",system-ui,sans-serif; color:#002163;
+  background:radial-gradient(700px 420px at 0% 0%, rgba(0,206,215,.12), transparent 60%), radial-gradient(700px 500px at 100% 100%, rgba(0,33,99,.06), transparent 60%), #F6FAFC; overflow:hidden; }
+.gu svg { display:block; flex-shrink:0; }
+.gu-k { font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#7A8499; }
+.gu-g { display:inline-grid; place-items:center; color:#fff; font-family:"Segoe UI",sans-serif; font-weight:700; border-radius:9px; flex-shrink:0; box-shadow:0 6px 14px -8px rgba(0,33,99,.5); }
+/* padající kartička */
+.gu-card { position:absolute; width:250px; padding:11px 14px 11px 12px; background:#fff; border:1px solid #E0E6EF; border-radius:14px; box-shadow:0 14px 30px -16px rgba(0,33,99,.45);
+  display:flex; align-items:center; gap:11px; opacity:0; transform:translate(-50%,-50%) translateY(-260px) rotate(-4deg);
+  transition:transform .9s cubic-bezier(.3,1.35,.5,1), opacity .35s; z-index:5; }
+.gu-card.in { opacity:1; transform:translate(-50%,-50%); }
+.gu-card b { display:block; font-family:"Manrope",system-ui,sans-serif; font-weight:800; font-size:14px; line-height:1.25; }
+.gu-card small { display:block; font-size:12px; color:#4A5874; margin-top:2px; }
+.gu-fi { width:30px; height:36px; border-radius:5px; background:#F4F7FB; border:1px solid #E0E6EF; position:relative; flex-shrink:0; }
+.gu-fi i { position:absolute; left:5px; right:5px; height:2px; border-radius:1px; background:#C7D0DC; }
+.gu-fi span { position:absolute; left:-6px; bottom:-4px; }
+/* legenda vpravo */
+.gu-leg { position:absolute; display:flex; flex-direction:column; gap:14px; }
+.gu-row { display:flex; gap:14px; align-items:flex-start; padding:14px 16px; background:rgba(255,255,255,.88); border:1px solid #E0E6EF; border-radius:14px;
+  box-shadow:0 10px 26px -18px rgba(0,33,99,.35); opacity:.28; transition:opacity .5s, transform .5s, border-color .5s; }
+.gu-row.on { opacity:1; border-color:#9FE7EA; }
+.gu-row .gs { display:flex; gap:4px; flex-shrink:0; }
+.gu-row b { display:block; font-family:"Manrope",system-ui,sans-serif; font-weight:800; font-size:16px; }
+.gu-row p { margin:3px 0 0; font-size:13px; line-height:1.45; color:#4A5874; }
+/* 1 – soustředné kruhy */
+.gu-ring { position:absolute; border-radius:50%; transform:translate(-50%,-50%); }
+.gu-ring.r3 { background:linear-gradient(160deg,#EEF2FA,#E4ECF7); border:1.5px solid #C7D0DC; }
+.gu-ring.r2 { background:linear-gradient(160deg,#E4F7F6,#D6F2F2); border:1.5px solid #9FD9DB; }
+.gu-ring.r1 { background:#fff; border:2px solid #00CED7; box-shadow:0 10px 26px -14px rgba(0,168,176,.6); }
+.gu-ring.hit { animation:guhit .6s ease-out; }
+@keyframes guhit { 0% { box-shadow:0 0 0 0 rgba(0,206,215,.55); } 100% { box-shadow:0 0 0 22px rgba(0,206,215,0); } }
+.gu-rl { position:absolute; transform:translateX(-50%); display:flex; align-items:center; gap:8px; white-space:nowrap; font-family:"Manrope",system-ui,sans-serif; font-weight:800; font-size:15px; }
+.gu-rl small { font-family:"Plus Jakarta Sans",system-ui,sans-serif; font-weight:600; font-size:12px; color:#4A5874; }
+/* 2 – tři cesty komunikace */
+.gu-lane { position:absolute; top:44px; bottom:40px; width:330px; background:rgba(255,255,255,.75); border:1px solid #E0E6EF; border-radius:18px; box-shadow:0 14px 34px -24px rgba(0,33,99,.4); transition:border-color .4s; }
+.gu-lane.hit { border-color:#00CED7; }
+.gu-lh { display:flex; align-items:center; gap:12px; padding:18px 18px 14px; border-bottom:1px solid #E0E6EF; }
+.gu-lh b { display:block; font-family:"Manrope",system-ui,sans-serif; font-weight:800; font-size:17px; }
+.gu-lh small { display:block; font-size:12.5px; color:#4A5874; margin-top:2px; }
+.gu-lf { position:absolute; left:18px; right:18px; bottom:16px; padding-top:12px; border-top:1px dashed #C7D0DC; font-size:13px; color:#4A5874; display:flex; gap:8px; align-items:center; }
+.gu-lf b { color:#002163; }
+.gu-msg { position:absolute; left:18px; right:18px; padding:12px 14px; background:#fff; border:1px solid #E0E6EF; border-radius:14px; box-shadow:0 12px 26px -18px rgba(0,33,99,.45);
+  font-size:13.5px; line-height:1.45; opacity:0; transform:translateY(-200px) rotate(-3deg); transition:transform .85s cubic-bezier(.3,1.35,.5,1), opacity .3s; }
+.gu-msg.in { opacity:1; transform:none; }
+.gu-msg.me { margin-left:44px; background:#E0FAFB; border-color:#9FE7EA; }
+.gu-msg .who { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:#4A5874; margin-bottom:5px; }
+.gu-msg .men { color:#5B5FC7; font-weight:700; }
+.gu-msg .sb { font-family:"Manrope",system-ui,sans-serif; font-weight:800; font-size:14px; margin-bottom:3px; }
+.gu-av { width:22px; height:22px; border-radius:50%; display:inline-grid; place-items:center; color:#fff; font-size:9px; font-weight:700; flex-shrink:0; }
+/* 3 – mřížka moje / týmové */
+.gu-colh { position:absolute; top:34px; font-family:"Manrope",system-ui,sans-serif; font-weight:800; font-size:18px; transform:translateX(-50%); }
+.gu-rowh { position:absolute; left:34px; font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:#7A8499; writing-mode:vertical-rl; transform:rotate(180deg); }
+.gu-cell { position:absolute; width:440px; height:200px; background:rgba(255,255,255,.78); border:1px solid #E0E6EF; border-radius:18px; box-shadow:0 14px 34px -24px rgba(0,33,99,.4); transition:border-color .4s; }
+.gu-cell.hit { border-color:#00CED7; }
+.gu-ch { display:flex; align-items:center; gap:10px; padding:14px 16px 0; }
+.gu-ch b { font-family:"Manrope",system-ui,sans-serif; font-weight:800; font-size:16px; } .gu-ch small { font-size:12.5px; color:#4A5874; margin-left:auto; }
+.gu-item { position:absolute; left:18px; right:18px; padding:11px 14px; background:#fff; border:1px solid #E0E6EF; border-radius:12px; box-shadow:0 12px 26px -18px rgba(0,33,99,.45);
+  display:flex; align-items:center; gap:10px; font-size:13.5px; opacity:0; transform:translateY(-220px) rotate(-3deg); transition:transform .85s cubic-bezier(.3,1.35,.5,1), opacity .3s; }
+.gu-item.in { opacity:1; transform:none; }
+.gu-item .r { margin-left:auto; display:flex; align-items:center; gap:8px; font-size:12px; color:#4A5874; }
+.gu-ck { width:16px; height:16px; border-radius:50%; border:1.6px solid #7A8499; flex-shrink:0; }
+.gu-bar { position:absolute; left:80px; right:80px; bottom:26px; height:58px; border-radius:16px; background:#002163; color:#fff; display:flex; align-items:center; gap:14px; padding:0 20px;
+  opacity:0; transform:translateY(20px); transition:opacity .5s, transform .5s; }
+.gu-bar.on { opacity:1; transform:none; }
+.gu-bar b { font-family:"Manrope",system-ui,sans-serif; font-weight:800; font-size:16px; }
+.gu-bar span.t { padding:5px 11px; border-radius:999px; background:rgba(255,255,255,.14); font-size:13px; font-weight:600; }

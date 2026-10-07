@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Záznam a přepis</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="porada.js"></script>
+<script>
+/* Scéna 3 – Možnosti › Automatické nahrávání a přepis › Nahrát a přepsat › objeví se Jazyk, kterým se mluví na této schůzce.
+   Podle referencí _ref/porada/m05 (Nahrát a přepsat / Pouze přepis / Vypnuto) a m07 (pole jazyka schůzky; hodnota ve scéně Čeština (Česko)). */
+(function () {
+  var A = AK, M = AKM, T = M.TITLE;
+  var S = { title: T, att: 'chip', chan: 'set' };
+  function show(o) { var x = {}; for (var k in S) x[k] = S[k]; for (var j in (o || {})) x[j] = o[j]; A.$('app').innerHTML = M.page(x); }
+  A.Scene({
+    build: function () { return M.page(S); },
+    lead: 1000,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('osRec', 0.5, 0.5, 1100);
+      await api.click();
+      show({ rec: 'menu' });
+      await api.sleep(900);
+      await api.moveTo('ro0', 0.4, 0.5, 700);
+      show({ rec: 'menu', recHot: 0 });
+      await api.sleep(400);
+      await api.click();
+      show({ rec: 'on', langIn: true });
+      await api.sleep(1300);
+      await api.moveTo('osLang', 0.5, 0.5, 800);
+      await api.sleep(1300);
+      api.hideCursor();
+    },
+    states: {
+      menu: function () { show({ rec: 'menu' }); },
+      end: function () { show({ rec: 'on' }); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

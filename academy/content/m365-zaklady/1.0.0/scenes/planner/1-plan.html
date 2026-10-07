@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akademie – Plán přímo v kanálu týmu</title>
+<link rel="stylesheet" href="../m365.css">
+</head>
+<body>
+<div id="box" class="stage-box"><div id="stage" class="stage"><div id="app"></div></div></div>
+<script src="../scene.js"></script>
+<script src="planner.js"></script>
+<script>
+/* Scéna 1 – „+“ u záložek kanálu › Aplikace › hledání „Planner“ › Uložit › Vytvořit nový plán › Základní plán › název › prázdný plán.
+   Podle referencí _ref/planner/p01 (nabídka +), p02 (Aplikace – načítání), p03 (hledání Planner), p05 (úvod Planneru), p06 (prázdná záložka),
+   p07 (Vytvořit plán), p08–p09 (název plánu, Sdílet se skupinou), p10 (prázdný plán). Upozornění webové verze (p04) se vynechává.
+   Výsledky hledání cizích aplikací (p03) jsou nahrazené šedými zástupnými kartami – nesou jména skutečných vývojářů. */
+(function () {
+  var A = AK, S = AKP;
+  var NAME = A.t('Zakázky – vybavení penzionu', 'Jobs – guesthouse furniture');
+  function over(html) { A.$('plo').innerHTML = html; }
+  function dimmed(html) { over('<div class="plo-dim on"></div>' + html); }
+  function emptyTab() { A.$('app').innerHTML = S.shell({ tabLabel: 'Planner', body: S.emptyTab() }); }
+  function create(o) { A.$('app').innerHTML = S.shell({ tabLabel: 'Planner', body: S.emptyTab() + S.createDlg(o) }); }
+  function plan() { A.$('app').innerHTML = S.shell({ tabLabel: S.PLAN_TAB, body: S.board({ cols: [{ n: S.COLN[0], tasks: [] }] }) }); }
+  A.Scene({
+    build: function () { return S.shell({ shared: true }); },
+    lead: 1000,
+    tail: 2600,
+    play: async function (api) {
+      await api.moveTo('tabPlus', 0.5, 0.5, 900);
+      await api.click();
+      A.$('app').innerHTML = S.shell({ shared: true, plusOn: true }); over(S.plusMenu());
+      await api.sleep(600);
+      await api.moveTo('pm4', 0.4, 0.5, 600);
+      over(S.plusMenu(4));
+      await api.sleep(250);
+      await api.click();
+      A.$('app').innerHTML = S.shell({ shared: true });
+      dimmed(S.appsDlg({ caret: true, anim: true }));
+      await api.sleep(700);
+      A.$('apPh').hidden = true;
+      await api.type('apQ', 'Planner', 14);
+      dimmed(S.appsDlg({ found: true, q: 'Planner' }));
+      await api.sleep(900);
+      await api.moveTo('apPl', 0.5, 0.5, 800);
+      await api.click();
+      dimmed(S.introDlg(true));
+      await api.sleep(1300);
+      await api.moveTo('save', 0.5, 0.5, 800);
+      await api.click();
+      emptyTab();
+      await api.sleep(1000);
+      await api.moveTo('newPlan', 0.5, 0.5, 800);
+      await api.click();
+      create({ anim: true });
+      await api.sleep(1300);
+      await api.moveTo('cpGo', 0.5, 0.5, 800);
+      await api.click();
+      create({ step2: true });
+      await api.sleep(500);
+      await api.moveTo('nameBox', 0.4, 0.5, 700);
+      await api.click();
+      create({ step2: true, name: '', caret: true });
+      A.$('namePh').hidden = true;
+      await api.type('nameV', NAME, 20);
+      create({ step2: true, name: NAME, ready: true });
+      await api.sleep(500);
+      await api.moveTo('cpGo', 0.5, 0.5, 700);
+      await api.click();
+      plan();
+      await api.sleep(1300);
+      await api.moveTo('newc', 0.5, 2.5, 900);
+      await api.sleep(500);
+      api.hideCursor();
+    },
+    states: {
+      menu: function () { A.$('app').innerHTML = S.shell({ shared: true, plusOn: true }); over(S.plusMenu(4)); },
+      apps: function () { dimmed(S.appsDlg({})); },
+      found: function () { dimmed(S.appsDlg({ found: true, q: 'Planner' })); },
+      intro: function () { dimmed(S.introDlg(false)); },
+      empty: emptyTab,
+      create: function () { create({}); },
+      name: function () { create({ step2: true }); },
+      named: function () { create({ step2: true, name: NAME, ready: true }); },
+      end: plan
+    }
+  });
+})();
+</script>
+</body>
+</html>
