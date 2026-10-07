@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projektový portál</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,500&display=swap" rel="stylesheet">
+<style>
+/* ============ EP365 DS v2 tokeny ============ */
+:root{
+  --ep-navy:#002163; --ep-navy-700:#003599; --ep-navy-600:#1F4DB5;
+  --ep-accent:#00CED7; --ep-accent-strong:#00A8B0; --ep-accent-soft:#E0FAFB; --ep-mint:#E4F7F6;
+  --ep-bg:#FFFFFF; --ep-bg-2:#F4F7FB; --ep-bg-3:#EAEFF6; --ep-side:#FBFCFE;
+  --ep-line:#E0E6EF; --ep-line-2:#C7D0DC;
+  --ep-text:#002163; --ep-text-muted:#4A5874; --ep-text-soft:#7A8499;
+  --ep-green:#34B36A; --ep-amber:#E6A23C; --ep-red:#D14343;
+  --ep-r-sm:8px; --ep-r-md:14px; --ep-r-pill:999px;
+  --ep-sh-sm:0 1px 2px rgba(11,30,63,.06),0 1px 3px rgba(11,30,63,.08);
+  --ep-sh-md:0 4px 14px -4px rgba(11,30,63,.12);
+  --ep-sh-lg:0 18px 44px -12px rgba(11,30,63,.24);
+  --ep-cta:linear-gradient(120deg,#00CED7 0%,#5FE3DC 100%);
+  --fd:'Manrope',system-ui,sans-serif; --fb:'Plus Jakarta Sans',system-ui,sans-serif;
+  --fm:'JetBrains Mono',ui-monospace,Consolas,monospace; --fi:'Fraunces',Georgia,serif;
+  --bar-h:44px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--ep-bg-2);color:var(--ep-text);font-family:var(--fb);font-size:14px;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:var(--fb)}
+button{cursor:pointer}
+::selection{background:rgba(0,206,215,.25)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ============ Horní lišta konceptu ============ */
+.cbar{position:fixed;top:0;left:0;right:0;height:var(--bar-h);z-index:9000;background:#0B1E3F;display:flex;align-items:center;gap:12px;padding:0 16px;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.cbar-t{font-family:var(--fm);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#5FE3DC;white-space:nowrap;flex-shrink:0}
+.cbar-hint{font-size:11.5px;color:#8FA3C4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cbar-hint b{color:#B9C6DE;font-weight:600}
+.cbar-r{margin-left:auto;display:flex;gap:8px;align-items:center;flex-shrink:0}
+.cbar button{background:transparent;border:1px solid rgba(255,255,255,.18);color:#B9C6DE;font-family:var(--fm);font-size:10.5px;letter-spacing:.04em;padding:6px 12px;border-radius:999px;white-space:nowrap;transition:all .15s}
+.cbar button:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.cbar button.on{background:var(--ep-cta);border-color:transparent;color:#00333B;font-weight:700}
+@media(max-width:900px){.cbar-hint{display:none}}
+
+/* ============ Shell ============ */
+.screen{display:none}
+.screen.on{display:block}
+.wrap{padding-top:var(--bar-h)}
+.shell{display:grid;grid-template-columns:252px 1fr;min-height:calc(100vh - var(--bar-h))}
+@media(max-width:1000px){.shell{grid-template-columns:1fr}.side{display:none}}
+.side{background:var(--ep-side);border-right:1px solid var(--ep-line);display:flex;flex-direction:column;padding:16px 0 22px}
+.side-brand{padding:0 16px 14px;border-bottom:1px solid var(--ep-line);margin-bottom:10px;display:flex;gap:11px;align-items:center}
+.side-brand>span:last-child{min-width:0}
+.side-mark{width:34px;height:34px;border-radius:10px;background:var(--ep-navy);color:var(--ep-accent);display:grid;place-items:center;flex-shrink:0}
+.side-t{display:block;font-family:var(--fd);font-weight:800;font-size:15px;letter-spacing:-.02em;line-height:1.2;text-wrap:balance}
+.side-s{display:block;font-size:11px;color:var(--ep-text-soft);margin-top:2px;line-height:1.3}
+.nav{list-style:none;margin:0;padding:0 10px;display:flex;flex-direction:column;gap:2px}
+.nav button{display:flex;align-items:center;gap:11px;width:100%;padding:8px 12px;border:none;border-radius:8px;background:transparent;color:var(--ep-text-muted);font-size:13.5px;font-weight:500;text-align:left;transition:background .15s,color .15s}
+.nav button svg{color:var(--ep-text-soft);flex-shrink:0}
+.nav button:hover{background:var(--ep-bg-2)}
+.nav button.on{background:var(--ep-accent-soft);color:var(--ep-text);font-weight:700}
+.nav button.on svg{color:var(--ep-accent-strong)}
+.nav .lbl{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav .n{font-family:var(--fm);font-size:10.5px;background:var(--ep-bg-3);color:var(--ep-text-muted);padding:1px 7px;border-radius:999px;flex-shrink:0}
+.nav button.on .n{background:var(--ep-bg);color:var(--ep-accent-strong)}
+.nav .n.hot{background:#FDEBEB;color:#B23A3A;font-weight:700}
+.side-srch{margin:0 10px 12px;width:calc(100% - 20px);display:flex;align-items:center;gap:9px;padding:8px 13px;
+  border:1px solid var(--ep-line-2);border-radius:999px;background:var(--ep-bg);color:var(--ep-text-soft);font-size:13px}
+.side-srch:hover{border-color:var(--ep-accent-strong);color:var(--ep-text)}
+.side-srch svg{flex-shrink:0}
+.side-srch .lbl{flex:1;text-align:left}
+.side-srch kbd{font-family:var(--fm);font-size:9px;letter-spacing:.06em;background:var(--ep-bg-3);color:var(--ep-text-soft);
+  padding:2px 6px;border-radius:5px;border:1px solid var(--ep-line);flex-shrink:0}
+.nav-h{font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ep-text-soft);padding:16px 12px 5px}
+.side-f{margin:auto 10px 0;padding:14px 8px 0;border-top:1px solid var(--ep-line)}
+.side-u{display:flex;gap:10px;align-items:center}
+.side-u .nm{font-size:12.5px;font-weight:600}
+.side-u .rl{font-size:11px;color:var(--ep-text-soft)}
+.main{padding:24px;min-width:0}
+.canvas{width:100%}
+
+/* ============ Hlavička stránky ============ */
+.ph{position:relative;background:var(--ep-bg);border-bottom:1px solid var(--ep-line);overflow:hidden;margin:-24px -24px 24px;padding:20px 24px 18px}
+.ph-grid{position:absolute;inset:0;opacity:.35;pointer-events:none;background-image:linear-gradient(var(--ep-line) 1px,transparent 1px),linear-gradient(90deg,var(--ep-line) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 80%);mask-image:radial-gradient(ellipse at 50% 0%,#000 30%,transparent 80%)}
+.ph-in{position:relative}
+.crumbs{font-family:var(--fm);font-size:11px;letter-spacing:.05em;color:var(--ep-text-soft);margin-bottom:12px;text-transform:uppercase}
+.crumbs b{color:var(--ep-text);font-weight:500}
+.crumbs .sep{opacity:.55;margin:0 7px}
+.crumbs [data-go]:hover{color:var(--ep-accent-strong);text-decoration:underline;text-underline-offset:3px}
+.ph-row{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.eyebrow{font-family:var(--fm);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ep-accent-strong)}
+.h1{font-family:var(--fd);font-weight:800;font-size:24px;letter-spacing:-.02em;line-height:1.2;margin:8px 0 0}
+.h1 .hl{font-family:var(--fi);font-style:italic;font-weight:500;color:var(--ep-accent-strong);margin-left:9px}
+.ph-sub{margin:9px 0 0;color:var(--ep-text-muted);font-size:13px;line-height:1.55;max-width:72ch}
+.acts{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.icobtn{width:36px;height:36px;display:grid;place-items:center;background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:50%;color:var(--ep-text-muted);flex-shrink:0}
+.icobtn:hover{color:var(--ep-text);border-color:var(--ep-line-2)}
+.vline{width:1px;height:20px;background:var(--ep-line);margin:0 3px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:0 17px;height:38px;border-radius:999px;font-size:13px;font-weight:700;border:1px solid transparent;white-space:nowrap}
+.btn.sm{height:31px;padding:0 13px;font-size:12.5px}
+.btn.primary{background:var(--ep-navy);color:#fff}
+.btn.accent{background:var(--ep-cta);color:#00333B;box-shadow:0 8px 22px -8px rgba(0,206,215,.45)}
+.btn.ghost{background:var(--ep-bg);border-color:var(--ep-line-2);color:var(--ep-text)}
+.btn.danger{background:var(--ep-red);color:#fff}
+.btn:hover{filter:brightness(.98)}
+.btn:disabled{opacity:.4;cursor:default}
+
+/* ============ KPI · karty · feed ============ */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(186px,1fr));gap:14px;margin-bottom:22px}
+.kpi{background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-sm);padding:15px 17px}
+.kpi-l{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-text-soft)}
+.kpi-v{font-family:var(--fd);font-weight:800;font-size:29px;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+.kpi-v small{font-size:15px;font-weight:700;color:var(--ep-text-soft)}
+.kpi-v.red{color:var(--ep-red)} .kpi-v.green{color:var(--ep-green)} .kpi-v.amber{color:var(--ep-amber)}
+.kpi-s{font-size:11.5px;color:var(--ep-text-soft);margin-top:3px}
+.card{background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-sm);margin-bottom:18px}
+.card-h{display:flex;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid var(--ep-line);flex-wrap:wrap}
+.card-t{font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:-.01em;flex:1}
+.card-a{font-family:var(--fm);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ep-accent-strong);background:none;border:none;padding:0}
+.card-b{padding:16px 18px}
+.card-b.flush{padding:0}
+.icbox{width:28px;height:28px;border-radius:8px;background:var(--ep-accent-soft);color:var(--ep-accent-strong);display:grid;place-items:center;flex-shrink:0}
+.two-col{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;align-items:start}
+.two-eq{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+@media(max-width:1100px){.two-col,.two-eq{grid-template-columns:1fr}}
+.feed{display:flex;flex-direction:column}
+.feed-i{display:flex;gap:12px;padding:11px 18px;border-bottom:1px solid var(--ep-line)}
+.feed-i:last-child{border-bottom:none}
+.feed-ic{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;background:var(--ep-bg-3);color:var(--ep-text-muted)}
+.feed-ic.ac{background:var(--ep-accent-soft);color:var(--ep-accent-strong)}
+.feed-ic.am{background:#FEF6E7;color:#8A5A00}
+.feed-ic.gr{background:#E7F6ED;color:#1F7A3C}
+.feed-ic.rd{background:#FDEBEB;color:#B23A3A}
+.feed-t{font-size:12.5px;line-height:1.45}
+.feed-m{font-family:var(--fm);font-size:10px;color:var(--ep-text-soft);margin-top:2px}
+[data-go]{cursor:pointer}
+.feed-i[data-go]:hover,.kpi[data-go]:hover{background:#F8FBFD}
+.footnote{margin-top:14px;padding:10px 14px;border-radius:8px;background:var(--ep-bg-3);color:var(--ep-text-soft);font-size:12px;line-height:1.55}
+.footnote b{color:var(--ep-text-muted)}
+.footnote,.banner{max-width:1100px}
+.card-b>.tl,.card-b>.prev-list{max-width:96ch}
+.note{font-size:12px;color:var(--ep-text-soft);line-height:1.5}
+
+/* ============ Pilulky ============ */
+.pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.pill .d{width:6px;height:6px;border-radius:50%;background:currentColor}
+.p-new{background:#EAF1FF;color:#2547A8}
+.p-open{background:#FEF6E7;color:#8A5A00}
+.p-sent{background:var(--ep-accent-soft);color:#0A7A80}
+.p-closed{background:#E7F6ED;color:#1F7A3C}
+.p-arch{background:var(--ep-bg-3);color:#5A6A85}
+.p-late{background:#FDEBEB;color:#B23A3A}
+.p-cat{background:var(--ep-bg);color:var(--ep-navy);border:1px solid var(--ep-line-2)}
+.p-book{background:var(--ep-bg-3);color:var(--ep-text-muted)}
+
+/* ============ Toolbar + tabulka ============ */
+.toolbar{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-bottom:18px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;border:1px solid var(--ep-line-2);background:var(--ep-bg);color:var(--ep-text);font-weight:600;font-size:13px}
+.chip .n{font-family:var(--fm);font-size:11px;opacity:.6}
+.chip.on{background:var(--ep-navy);border-color:transparent;color:#fff;font-weight:700}
+.chip.on .n{opacity:.65}
+.spacer{flex:1}
+.tsearch{position:relative;min-width:212px}
+.tsearch svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ep-text-soft)}
+.tsearch input{width:100%;padding:9px 14px 9px 36px;border-radius:999px;border:1px solid var(--ep-line-2);background:var(--ep-bg);font-size:13px;color:var(--ep-text);outline:none}
+.tsearch input:focus{border-color:var(--ep-accent-strong)}
+.seg{display:inline-flex;background:var(--ep-bg-3);border-radius:999px;padding:3px;border:1px solid var(--ep-line)}
+.seg button{display:inline-flex;align-items:center;gap:6px;padding:0 13px;height:29px;border:0;border-radius:999px;background:transparent;color:var(--ep-text-soft);font-size:12px;font-weight:600}
+.seg button.on{background:var(--ep-bg);color:var(--ep-text);box-shadow:0 1px 2px rgba(11,30,63,.08);font-weight:700}
+.tbl-wrap{background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-sm);overflow-x:auto}
+table.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ep-text-soft);text-align:left;padding:11px 14px;border-bottom:1px solid var(--ep-line);white-space:nowrap;background:var(--ep-bg)}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--ep-line);vertical-align:middle}
+.tbl tbody tr.clic{cursor:pointer;transition:background .12s}
+.tbl tbody tr.clic:hover{background:#F8FBFD}
+.tbl tbody tr:last-child td{border-bottom:none}
+.tbl td.ta-r{text-align:right;white-space:nowrap}
+.t-pri{font-weight:700;font-size:13px}
+.t-sub{font-size:11.5px;color:var(--ep-text-soft);margin-top:2px}
+.t-id{font-family:var(--fm);font-size:11px;color:var(--ep-accent-strong);font-weight:600}
+.mono{font-family:var(--fm);font-size:11.5px;color:var(--ep-text-soft)}
+.avatar{width:26px;height:26px;border-radius:50%;background:var(--ep-navy);color:#fff;display:inline-grid;place-items:center;font-family:var(--fd);font-weight:700;font-size:10px;flex-shrink:0}
+.avatar.teal{background:var(--ep-accent-strong)}
+.avatar.amb{background:var(--ep-amber)}
+.who{display:flex;align-items:center;gap:8px}
+.who .n{font-weight:600;font-size:12.5px}
+.empty{padding:34px 18px;text-align:center;color:var(--ep-text-soft);font-size:13px}
+.bar{height:5px;border-radius:3px;background:var(--ep-bg-3);overflow:hidden;min-width:78px}
+.bar i{display:block;height:100%;background:var(--ep-accent-strong)}
+.bar.am i{background:var(--ep-amber)} .bar.gr i{background:var(--ep-green)}
+.pager{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+.pager .info{font-size:12.5px;color:var(--ep-text-muted);font-family:var(--fm);letter-spacing:.03em}
+.pbtn{min-width:31px;height:31px;display:inline-grid;place-items:center;border-radius:8px;border:1px solid var(--ep-line-2);background:var(--ep-bg);color:var(--ep-text);font-weight:700;font-size:13px}
+.pbtn.on{background:var(--ep-navy);border-color:transparent;color:#fff}
+.pbtn.dis{opacity:.5;cursor:default;color:var(--ep-text-soft)}
+
+/* ============ Úvodní dokument ============ */
+.intro{max-width:1010px;margin:0 auto;padding:40px 24px 90px}
+.intro-eyebrow{font-family:var(--fm);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ep-accent-strong)}
+.intro-h1{font-family:var(--fd);font-weight:800;font-size:39px;letter-spacing:-.03em;line-height:1.13;margin:14px 0 0;text-wrap:balance}
+.intro-h1 .hl{display:block;font-family:var(--fi);font-style:italic;font-weight:500;color:var(--ep-accent-strong)}
+.intro-lead{font-size:15.5px;color:var(--ep-text-muted);line-height:1.62;margin:20px 0 0;max-width:74ch}
+.intro-lead b{color:var(--ep-text)}
+.banner{display:flex;gap:12px;align-items:flex-start;border-radius:var(--ep-r-md);padding:16px 18px;line-height:1.6;font-size:13.5px}
+.banner.accent{background:linear-gradient(120deg,#F2FCFD,#fff);border:1px solid rgba(0,168,176,.35);color:var(--ep-text-muted)}
+.banner.plain{background:var(--ep-bg-3);color:var(--ep-text-muted)}
+.banner svg{flex-shrink:0;margin-top:2px;color:var(--ep-accent-strong)}
+.banner b{color:var(--ep-text)}
+.tour-card{display:flex;gap:16px;align-items:center;background:linear-gradient(120deg,#F2FCFD,#fff);border:1px solid rgba(0,168,176,.35);border-radius:var(--ep-r-md);padding:18px 22px;margin-top:24px;box-shadow:var(--ep-sh-sm)}
+.tour-card .ic{width:44px;height:44px;border-radius:13px;background:var(--ep-accent);color:#00333B;display:grid;place-items:center;flex-shrink:0}
+.tour-card .t{display:block;font-family:var(--fd);font-weight:800;font-size:16px}
+.tour-card .d{display:block;font-size:13px;color:var(--ep-text-muted);margin-top:4px;line-height:1.55}
+@media(max-width:760px){.tour-card{flex-wrap:wrap}}
+.intro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:30px}
+.intro-card{background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);padding:20px 22px;box-shadow:var(--ep-sh-sm)}
+.intro-ic{width:38px;height:38px;border-radius:11px;background:var(--ep-accent-soft);color:var(--ep-accent-strong);display:grid;place-items:center;margin-bottom:13px}
+.intro-card h3{font-family:var(--fd);font-weight:800;font-size:15px;margin:0 0 7px;letter-spacing:-.01em}
+.intro-card p{margin:0;font-size:13px;color:var(--ep-text-muted);line-height:1.6}
+.intro-sec{margin-top:50px}
+.intro-sec h2{font-family:var(--fd);font-weight:800;font-size:23px;letter-spacing:-.02em;margin:0 0 8px;text-wrap:balance}
+.intro-sec .sub{font-size:14px;color:var(--ep-text-muted);line-height:1.62;margin:0 0 18px;max-width:78ch}
+.law-wrap{overflow-x:auto;border-radius:var(--ep-r-md);border:1px solid var(--ep-line);box-shadow:var(--ep-sh-sm);background:var(--ep-bg)}
+table.law{width:100%;border-collapse:collapse;font-size:13px}
+.law th{font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ep-text-soft);text-align:left;padding:11px 14px;border-bottom:1px solid var(--ep-line);vertical-align:bottom}
+.law td{padding:11px 14px;border-bottom:1px solid var(--ep-line);vertical-align:top;line-height:1.55;color:var(--ep-text-muted)}
+.law tr:last-child td{border-bottom:none}
+.law td b{color:var(--ep-text)}
+.law td.mono{font-family:var(--fm);font-size:11.5px;color:var(--ep-text);white-space:nowrap}
+.tag{display:inline-block;font-family:var(--fm);font-size:9.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;border:1px solid;white-space:nowrap}
+.tg-ok{color:#1F7A3C;background:#E7F6ED;border-color:#A9D9BC}
+.tg-part{color:#8A5A00;background:#FEF6E7;border-color:#E6C384}
+.tg-no{color:#B23A3A;background:#FDEBEB;border-color:#E5AAA5}
+.tg-nb{color:#2547A8;background:#EAF1FF;border-color:#C3D0EC}
+.q-list{margin:0;padding:0;list-style:none;display:grid;gap:11px}
+.q-list li{display:flex;gap:13px;align-items:flex-start;background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);padding:14px 17px;box-shadow:var(--ep-sh-sm)}
+.q-list .qn{font-family:var(--fm);font-size:11px;font-weight:700;color:var(--ep-accent-strong);flex-shrink:0;margin-top:2px;width:30px}
+.q-list .qt{font-weight:700;font-size:13.5px;display:block;margin-bottom:4px}
+.q-list .qd{font-size:12.5px;color:var(--ep-text-muted);line-height:1.62}
+
+/* ============ Karta stavby ============ */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--ep-line);margin-bottom:20px;flex-wrap:wrap}
+.tabs button{border:0;background:transparent;padding:10px 15px;font-size:13.5px;font-weight:600;color:var(--ep-text-muted);border-bottom:2px solid transparent;margin-bottom:-1px;display:inline-flex;align-items:center;gap:7px}
+.tabs button .n{font-family:var(--fm);font-size:10px;background:var(--ep-bg-3);padding:1px 6px;border-radius:999px}
+.tabs button.on{color:var(--ep-text);border-bottom-color:var(--ep-accent);font-weight:700}
+.tabs button.on .n{background:var(--ep-accent-soft);color:var(--ep-accent-strong)}
+.pane{display:none}.pane.on{display:block}
+.kv{display:grid;grid-template-columns:180px 1fr;gap:0;font-size:13px}
+.kv dt{color:var(--ep-text-soft);font-size:12px;padding:8px 0;border-top:1px solid var(--ep-line)}
+.kv dd{margin:0;font-weight:500;padding:8px 0;border-top:1px solid var(--ep-line)}
+.kv dt:first-of-type,.kv dd:first-of-type{border-top:none}
+@media(max-width:620px){.kv{grid-template-columns:1fr}.kv dd{padding-top:0;border-top:none}}
+.tree{font-size:13px}
+.trow{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:8px}
+.trow:hover{background:var(--ep-bg-2)}
+.trow .tw{width:14px;color:var(--ep-text-soft);font-family:var(--fm);font-size:10px;cursor:pointer;flex-shrink:0;user-select:none;text-align:center}
+.trow .fo{flex-shrink:0;color:var(--ep-accent-strong);display:grid;place-items:center}
+.trow .cd{font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft);flex-shrink:0;min-width:52px}
+.trow .nx{cursor:pointer}
+.trow .nx:hover{text-decoration:underline;text-underline-offset:3px}
+.trow .meta{margin-left:auto;font-size:11px;color:var(--ep-text-soft);display:flex;gap:9px;align-items:center;flex-shrink:0}
+.tr1>.trow{font-weight:600}
+.kids{margin-left:26px;display:none}.kids.on{display:block}
+.people{display:grid;gap:7px}
+.pr{display:flex;align-items:center;gap:11px;padding:9px 13px;border:1px solid var(--ep-line);border-radius:10px}
+.pr .n{font-weight:600;font-size:13px}
+.pr .r{font-size:11.5px;color:var(--ep-text-soft)}
+.pr .x{margin-left:auto;font-family:var(--fm);font-size:10.5px;color:var(--ep-text-muted);text-align:right}
+.tl{display:grid;gap:0}
+.tl-i{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:10px 0;border-top:1px solid var(--ep-line);font-size:13px;line-height:1.5}
+.tl-i:first-child{border-top:none}
+.tl-i time{font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft)}
+@media(max-width:620px){.tl-i{grid-template-columns:1fr;gap:3px}}
+
+/* ============ Průvodce ============ */
+.steps{display:flex;gap:0;margin-bottom:22px;flex-wrap:wrap}
+.st{display:flex;align-items:center;gap:9px;padding:0 18px 0 0}
+.st .n{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--ep-line-2);display:grid;place-items:center;font-family:var(--fd);font-weight:700;font-size:11.5px;color:var(--ep-text-soft);flex-shrink:0}
+.st.on .n{background:var(--ep-navy);border-color:var(--ep-navy);color:#fff}
+.st.done .n{background:#E7F6ED;border-color:#A9D9BC;color:#1F7A3C}
+.st .l{font-size:12.5px;color:var(--ep-text-soft);font-weight:600}
+.st.on .l{color:var(--ep-text)}
+.tpl{display:grid;gap:11px}
+.tplc{border:1.5px solid var(--ep-line);border-radius:var(--ep-r-md);padding:15px 17px;cursor:pointer;display:flex;gap:14px;align-items:flex-start}
+.tplc:hover{border-color:var(--ep-accent-strong)}
+.tplc.on{border-color:var(--ep-accent-strong);background:var(--ep-accent-soft)}
+.tplc .rb{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ep-line-2);flex-shrink:0;margin-top:3px;background:#fff}
+.tplc.on .rb{border-color:var(--ep-accent-strong);border-width:5px}
+.tplc .t{font-family:var(--fd);font-weight:700;font-size:14px}
+.tplc .d{font-size:12.5px;color:var(--ep-text-muted);margin-top:4px;line-height:1.55}
+.tplc .m{font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft);margin-top:7px}
+.field{margin-bottom:15px}
+.field label{display:block;font-family:var(--fm);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ep-text-soft);margin-bottom:6px}
+.field label .req{color:var(--ep-red);margin-left:3px}
+.field label .law{color:var(--ep-accent-strong);margin-left:7px;letter-spacing:.04em;text-transform:none;font-weight:600}
+.field input,.field select,.field textarea{width:100%;padding:9px 12px;border:1px solid var(--ep-line-2);border-radius:var(--ep-r-sm);background:var(--ep-bg);font-size:13.5px;color:var(--ep-text);outline:none}
+.field input:focus,.field select:focus{border-color:var(--ep-accent-strong)}
+.field .hint{font-size:11.5px;color:var(--ep-text-soft);margin-top:5px;line-height:1.5}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+@media(max-width:700px){.f2{grid-template-columns:1fr}}
+.wizfoot{display:flex;align-items:center;gap:10px;padding:14px 18px;border-top:1px solid var(--ep-line);background:var(--ep-side);flex-wrap:wrap;border-radius:0 0 var(--ep-r-md) var(--ep-r-md)}
+.prev-list{margin:10px 0 0;padding-left:20px;line-height:1.85;font-size:13px;color:var(--ep-text-muted)}
+.prev-list b{color:var(--ep-text)}
+.okbox{background:#E7F6ED;border:1px solid #A9D9BC;border-radius:var(--ep-r-md);padding:18px 20px;font-size:13.5px;color:#1F5C36;line-height:1.6}
+.okbox b{font-family:var(--fd);color:#14472A}
+
+/* ============ Rozdíl otisků ============ */
+.diff{font-size:13px}
+.di{display:grid;grid-template-columns:24px 108px 1fr;gap:11px;padding:9px 0;border-top:1px solid var(--ep-line);align-items:baseline;line-height:1.55}
+.di:first-child{border-top:none}
+.di .s{font-family:var(--fm);font-weight:700;font-size:14px}
+.di.add .s{color:var(--ep-green)} .di.chg .s{color:var(--ep-amber)} .di.del .s{color:var(--ep-red)}
+.di .k{font-family:var(--fm);font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ep-text-soft)}
+.di b{color:var(--ep-text)}
+
+/* ============ Modál · paleta · toast ============ */
+.mask{position:fixed;inset:0;background:rgba(11,30,63,.45);z-index:9200;display:none;align-items:center;justify-content:center;padding:20px}
+.mask.on{display:flex}
+.modal{width:min(640px,96vw);max-height:88vh;background:var(--ep-bg);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-lg);overflow:hidden;display:flex;flex-direction:column}
+.modal.wide{width:min(900px,96vw)}
+.modal-h{padding:17px 21px;border-bottom:1px solid var(--ep-line);display:flex;align-items:center;gap:12px}
+.modal-t{font-family:var(--fd);font-weight:800;font-size:16.5px;letter-spacing:-.02em;flex:1}
+.modal-x{border:0;background:transparent;font-size:20px;color:var(--ep-text-soft);line-height:1;padding:0 4px}
+.modal-b{padding:19px 21px;overflow-y:auto;font-size:13.5px;line-height:1.6;color:var(--ep-text-muted)}
+.modal-b b{color:var(--ep-text)}
+.modal-f{padding:13px 21px;border-top:1px solid var(--ep-line);background:var(--ep-side);display:flex;gap:9px;justify-content:flex-end;flex-wrap:wrap}
+.pal{position:fixed;inset:0;background:rgba(11,30,63,.45);z-index:9500;display:none;align-items:flex-start;justify-content:center;padding-top:12vh}
+.pal.on{display:flex}
+.pal-in{width:min(640px,94vw);background:var(--ep-bg);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-lg);overflow:hidden}
+.pal-i{width:100%;border:0;border-bottom:1px solid var(--ep-line);padding:16px 19px;font-size:15px;outline:none;color:var(--ep-text)}
+.pal-l{max-height:52vh;overflow-y:auto;padding:6px}
+.pal-r{display:flex;align-items:center;gap:11px;padding:9px 13px;border-radius:8px;cursor:pointer;font-size:13.5px}
+.pal-r.on{background:var(--ep-accent-soft)}
+.pal-r .g{margin-left:auto;font-family:var(--fm);font-size:10px;color:var(--ep-text-soft)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:26px;background:var(--ep-navy);color:#fff;padding:11px 15px 11px 20px;border-radius:999px;font-size:13px;box-shadow:var(--ep-sh-md);opacity:0;pointer-events:none;transition:opacity .18s;z-index:9800;display:flex;align-items:center;gap:15px}
+.toast.on{opacity:1;pointer-events:auto}
+.toast button{background:transparent;border:0;color:var(--ep-accent);font-weight:700;font-size:12.5px}
+
+/* ============ Prohlídka ============ */
+.tour-mask{position:fixed;inset:0;z-index:9600;display:none;pointer-events:none}
+.tour-mask.on{display:block}
+.tour-mask i{position:absolute;background:rgba(11,30,63,.55);pointer-events:auto}
+.tour-ring{position:absolute;border:2px solid var(--ep-accent);border-radius:10px;box-shadow:0 0 0 4px rgba(0,206,215,.25);pointer-events:none;transition:all .22s ease}
+.tour-bub{position:fixed;z-index:9700;width:min(390px,92vw);background:var(--ep-bg);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-lg);display:none;overflow:hidden}
+.tour-bub.on{display:block}
+.tour-bub.center{left:50%!important;top:50%!important;transform:translate(-50%,-50%);width:min(580px,92vw)}
+.tour-hd{padding:16px 20px 0;position:relative}
+.tour-ch{font-family:var(--fm);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-accent-strong)}
+.tour-ti{font-family:var(--fd);font-weight:800;font-size:17px;letter-spacing:-.01em;margin:7px 0 0;line-height:1.25;padding-right:52px}
+.tour-bub.center .tour-ti{font-size:23px;padding-right:0}
+.tour-tx{padding:10px 20px 16px;font-size:13.5px;line-height:1.62;color:var(--ep-text-muted)}
+.tour-tx b{color:var(--ep-text)}
+.tour-tx .hl{font-family:var(--fi);font-style:italic;color:var(--ep-accent-strong);font-weight:500}
+.tour-ft{display:flex;align-items:center;gap:8px;padding:12px 20px;border-top:1px solid var(--ep-line);background:var(--ep-side)}
+.tour-ft .prog{font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft);margin-right:auto}
+.tour-b{border:1px solid var(--ep-line-2);background:var(--ep-bg);color:var(--ep-text);border-radius:999px;height:32px;padding:0 15px;font-size:12.5px;font-weight:700}
+.tour-b.main{background:var(--ep-navy);border-color:transparent;color:#fff}
+.tour-b.ghost{border:none;background:transparent;color:var(--ep-text-soft);padding:0 8px}
+.tour-b:disabled{opacity:.35;cursor:default}
+.tour-dots{position:absolute;top:17px;right:18px;display:flex;gap:4px}
+.tour-dots i{width:5px;height:5px;border-radius:50%;background:var(--ep-line-2);display:block}
+.tour-dots i.on{background:var(--ep-accent-strong)}
+.tour-bub.center .tour-dots{display:none}
+.tour-hub{position:fixed;inset:0;z-index:9650;background:rgba(11,30,63,.45);display:none;align-items:center;justify-content:center;padding:20px}
+.tour-hub.on{display:flex}
+.tour-hub-in{width:min(900px,96vw);max-height:86vh;background:var(--ep-bg);border-radius:var(--ep-r-md);box-shadow:var(--ep-sh-lg);overflow:hidden;display:grid;grid-template-columns:310px 1fr}
+@media(max-width:760px){.tour-hub-in{grid-template-columns:1fr}.tour-hub-r{display:none}}
+.tour-hub-l{background:var(--ep-side);border-right:1px solid var(--ep-line);overflow-y:auto;padding:14px}
+.tour-hub-r{padding:24px 26px;overflow-y:auto}
+.tour-hub-h{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ep-text-soft);padding:8px 10px 6px}
+.tour-chp{display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;border:none;background:transparent;border-radius:10px;padding:10px 12px}
+.tour-chp:hover{background:var(--ep-bg-2)}
+.tour-chp .n{font-family:var(--fm);font-size:10px;color:var(--ep-text-soft);width:14px;flex-shrink:0;margin-top:3px}
+.tour-chp .t{display:block;font-size:13.5px;font-weight:700;line-height:1.3}
+.tour-chp .s{display:block;font-family:var(--fm);font-size:10px;color:var(--ep-text-soft);margin-top:3px}
+.tour-hub-t{font-family:var(--fd);font-weight:800;font-size:21px;letter-spacing:-.02em}
+.tour-hub-s{font-size:13.5px;color:var(--ep-text-muted);line-height:1.6;margin:10px 0 18px}
+.tour-out{margin:0 0 20px;padding:0;list-style:none}
+.tour-out li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--ep-text-muted);padding:5px 0;line-height:1.5}
+.tour-out li:before{content:'';width:5px;height:5px;border-radius:50%;background:var(--ep-accent);margin-top:7px;flex-shrink:0}
+
+/* Průvodce uložením – rail + kroky (SDW) */
+.sdw{display:grid;grid-template-columns:206px 1fr;gap:24px;align-items:start}
+.sdw-rail{border-right:1px solid var(--ep-line);padding-right:20px}
+.sdw-st{display:flex;align-items:center;gap:10px;padding:7px 0;color:var(--ep-text-soft)}
+.sdw-st .n{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--ep-line-2);display:grid;place-items:center;font-family:var(--fd);font-weight:700;font-size:11px;flex-shrink:0}
+.sdw-st .l{font-size:12.5px;font-weight:600}
+.sdw-st.on{color:var(--ep-text)}
+.sdw-st.on .n{border-color:var(--ep-accent);background:var(--ep-accent);color:#fff}
+.sdw-st.done .n{border-color:var(--ep-accent);color:var(--ep-accent)}
+.sdw-sum{margin-top:16px;padding-top:14px;border-top:1px solid var(--ep-line);font-size:11.5px;line-height:1.7;color:var(--ep-text-soft)}
+.sdw-sum .t{display:block;color:var(--ep-text);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.sdw-sum .r{display:block}
+.sdw-chk{display:grid;gap:9px;margin:4px 0 2px}
+.sdw-ck{display:grid;grid-template-columns:14px 1fr;gap:11px;align-items:start;padding:11px 13px;border:1px solid var(--ep-line);border-radius:10px;font-size:12.5px;line-height:1.55;color:var(--ep-text-muted)}
+.sdw-ck .dot{width:10px;height:10px;border-radius:50%;margin-top:5px}
+.sdw-ck.ok .dot{background:#2FA06B}
+.sdw-ck.warn .dot{background:#E0A32E}
+.sdw-ck.unk .dot{background:#8FA3C4}
+.sdw-ck .h{display:block;color:var(--ep-text);font-weight:700;margin-bottom:2px}
+.sdw-rel{font-family:var(--fm);font-size:11px;color:#8FA3C4;margin-left:7px}
+.sdw-note{width:100%;margin-left:37px;margin-top:5px;font-size:11.5px;color:var(--ep-text-muted);line-height:1.5}
+.sdw-fix{display:flex;gap:5px;flex-wrap:wrap}
+.sdw-fix button{font-family:inherit;font-size:11px;padding:3px 9px;border-radius:999px;border:1px solid var(--ep-line-2);background:var(--ep-bg);color:var(--ep-text-soft);cursor:pointer}
+.sdw-fix button.on{border-color:var(--ep-accent);background:var(--ep-accent);color:#fff}
+.bigcard[disabled]{opacity:.5;cursor:not-allowed}
+@media(max-width:820px){.sdw{grid-template-columns:1fr}.sdw-rail{border-right:0;border-bottom:1px solid var(--ep-line);padding:0 0 14px}}
+
+/* ============ Firemní barvy IMOS (imos-development.cz, 7. 10. 2026) ============
+   Workplace přebírá motiv z jednoho nastavení (DS 10.16 / 10.45): primární červená
+   #C80225, béžové pozadí #F5EEE8, terakota #E38965, teplá téměř černá. */
+:root{
+  --ep-navy:#24201E; --ep-navy-700:#3A332F; --ep-navy-600:#5A4F48;
+  --ep-accent:#C80225; --ep-accent-strong:#A8011E; --ep-accent-soft:#FBEBEC; --ep-mint:#F5EEE8;
+  --ep-bg-2:#F8F4F0; --ep-bg-3:#EFE8E1; --ep-side:#FCFAF8;
+  --ep-line:#E9E1D9; --ep-line-2:#D6CBC0;
+  --ep-text:#24201E; --ep-text-muted:#5A4F48; --ep-text-soft:#8A7F77;
+  --ep-cta:linear-gradient(120deg,#C80225 0%,#E0465A 100%);
+}
+::selection{background:rgba(200,2,37,.18)}
+.cbar{background:#1A1614}
+.cbar-t{color:#F3A08A}
+.cbar-hint{color:#B5A69B}.cbar-hint b{color:#E9DDD3}
+.cbar button{color:#E9DDD3}
+.cbar button.on{color:#fff}
+.btn.accent{color:#fff;box-shadow:0 8px 22px -8px rgba(200,2,37,.45)}
+.tour-card{background:linear-gradient(120deg,#FDF5F2,#fff);border-color:rgba(200,2,37,.25)}
+.tour-card .ic{color:#fff}
+.banner.accent{background:linear-gradient(120deg,#FDF5F2,#fff);border-color:rgba(200,2,37,.25)}
+.tour-ring{box-shadow:0 0 0 4px rgba(200,2,37,.22)}
+.side-mark{color:#fff;background:var(--ep-accent)}
+.p-sent{color:#8E0119}
+.tbl tbody tr.clic:hover,.feed-i[data-go]:hover,.kpi[data-go]:hover,.news-list .ni:hover{background:#FBF7F4}
+[data-side]{display:flex}
+[data-side]>.side{flex:1}
+@media(max-width:1000px){[data-side]{display:none}}
+
+/* ============ Doplňky pro koncept IMOS ============ */
+[data-ic]{display:inline-grid;place-items:center}
+.btn [data-ic] svg{margin-left:-2px}
+
+/* Intranet – hlavní aktualita */
+.hero-news{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:16px;margin-bottom:20px}
+@media(max-width:1100px){.hero-news{grid-template-columns:1fr}}
+.hn{position:relative;border-radius:var(--ep-r-md);overflow:hidden;min-height:190px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:18px 20px;cursor:pointer;box-shadow:var(--ep-sh-sm)}
+.hn:first-child{min-height:260px}
+.hn .ph-art{position:absolute;inset:0}
+.hn .ph-art svg{width:100%;height:100%;display:block}
+.hn:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,20,60,0) 30%,rgba(0,20,60,.82) 100%)}
+.hn>*:not(.ph-art){position:relative;z-index:1}
+.hn .k{font-family:var(--fm);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#9FF3F5}
+.hn .t{font-family:var(--fd);font-weight:800;font-size:17px;line-height:1.25;margin-top:6px;letter-spacing:-.01em}
+.hn:first-child .t{font-size:22px}
+.hn .m{font-size:12px;color:#C9D6EA;margin-top:6px}
+.news-list .ni{display:grid;grid-template-columns:92px 1fr;gap:14px;padding:13px 18px;border-bottom:1px solid var(--ep-line);cursor:pointer}
+.news-list .ni:last-child{border-bottom:none}
+.news-list .ni:hover{background:#F8FBFD}
+.ni .thumb{height:62px;border-radius:9px;overflow:hidden}
+.ni .thumb svg{width:100%;height:100%;display:block}
+.ni .t{font-weight:700;font-size:13.5px;line-height:1.35}
+.ni .x{font-size:12px;color:var(--ep-text-muted);margin-top:3px;line-height:1.45}
+.ni .m{font-family:var(--fm);font-size:10px;color:var(--ep-text-soft);margin-top:5px}
+.qlinks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.ql{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--ep-line);border-radius:10px;background:var(--ep-bg);font-size:12.5px;font-weight:600;color:var(--ep-text);text-align:left}
+.ql:hover{border-color:var(--ep-accent-strong);background:#F8FBFD}
+.ql .qi{width:30px;height:30px;border-radius:9px;background:var(--ep-accent-soft);color:var(--ep-accent-strong);display:grid;place-items:center;flex-shrink:0}
+.ql small{display:block;font-weight:500;color:var(--ep-text-soft);font-size:11px;margin-top:1px}
+
+/* Fáze projektu */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.phz{background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);padding:14px 15px;box-shadow:var(--ep-sh-sm);position:relative}
+.phz .n{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--ep-accent-strong)}
+.phz .t{font-family:var(--fd);font-weight:800;font-size:14px;margin-top:5px}
+.phz .d{font-size:12px;color:var(--ep-text-muted);margin-top:6px;line-height:1.5}
+.phz .w{font-family:var(--fm);font-size:9.5px;color:var(--ep-text-soft);margin-top:9px;line-height:1.6;text-transform:uppercase;letter-spacing:.05em}
+.phase-bar{display:flex;gap:4px;margin:-6px 0 20px;flex-wrap:wrap}
+.pb{flex:1;min-width:92px;padding:8px 10px 7px;border-radius:8px;background:var(--ep-bg-3);font-size:11.5px;font-weight:600;color:var(--ep-text-soft);border-top:3px solid var(--ep-line-2)}
+.pb.done{background:#EEF8F2;color:#1F7A3C;border-top-color:var(--ep-green)}
+.pb.on{background:var(--ep-accent-soft);color:var(--ep-text);border-top-color:var(--ep-accent-strong);font-weight:800}
+.pb small{display:block;font-family:var(--fm);font-size:9.5px;font-weight:500;margin-top:2px;opacity:.8}
+
+/* Strom – štítky oprávnění */
+.lock{display:inline-flex;align-items:center;gap:4px;font-family:var(--fm);font-size:9.5px;letter-spacing:.04em;padding:1px 7px;border-radius:999px;background:#FEF6E7;color:#8A5A00;border:1px solid #E6C384}
+.lock.ext{background:#EAF1FF;color:#2547A8;border-color:#C3D0EC}
+.trow.sel{background:var(--ep-accent-soft)}
+.acc-list{display:grid;gap:6px;margin-top:6px}
+.acc-row{display:flex;align-items:center;gap:10px;font-size:12.5px;padding:7px 10px;border:1px solid var(--ep-line);border-radius:9px}
+.acc-row .lv{margin-left:auto;font-family:var(--fm);font-size:10.5px;color:var(--ep-text-muted)}
+.acc-row.no{opacity:.55}
+.acc-row.no .lv{color:var(--ep-red)}
+.fd-files{margin-top:14px;border-top:1px solid var(--ep-line);padding-top:10px}
+.fd-file{display:flex;gap:9px;align-items:center;font-size:12.5px;padding:5px 0}
+.fd-file .mono{margin-left:auto}
+.sublbl{font-family:var(--fm);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-text-soft);margin:14px 0 4px}
+.sublbl:first-child{margin-top:0}
+
+/* Externí – lhůta */
+.exp-soon{color:var(--ep-amber);font-weight:700}
+.exp-none{color:var(--ep-red);font-weight:700}
+
+/* Lidé */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.pc{background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);padding:15px 16px;box-shadow:var(--ep-sh-sm);display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.pc:hover{border-color:var(--ep-accent-strong)}
+.pc .avatar{width:40px;height:40px;font-size:13px}
+.pc .n{font-weight:700;font-size:13.5px}
+.pc .r{font-size:12px;color:var(--ep-text-muted);margin-top:2px}
+.pc .t{font-family:var(--fm);font-size:10px;color:var(--ep-text-soft);margin-top:6px;text-transform:uppercase;letter-spacing:.06em}
+.pc.ext{background:#FBFCFE;border-style:dashed}
+
+/* Matice */
+.tbl.mat th,.tbl.mat td{text-align:center;padding:9px 8px}
+.tbl.mat th:first-child,.tbl.mat td:first-child{text-align:left;padding-left:14px;min-width:190px}
+.tbl.mat th{white-space:normal;line-height:1.35;min-width:84px;vertical-align:bottom}
+.lv{display:inline-block;min-width:26px;font-family:var(--fm);font-size:10px;font-weight:700;padding:3px 7px;border-radius:6px}
+.lv.F{background:var(--ep-navy);color:#fff}
+.lv.E{background:var(--ep-accent-strong);color:#fff}
+.lv.R{background:var(--ep-accent-soft);color:#0A7A80}
+.lv.N{color:var(--ep-line-2)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--ep-text-muted);align-items:center}
+.legend span{display:inline-flex;gap:7px;align-items:center}
+tr.ext-row td:first-child{color:#2547A8}
+
+/* Šablony */
+.tpl-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:18px}
+.tc{background:var(--ep-bg);border:1px solid var(--ep-line);border-radius:var(--ep-r-md);padding:18px 19px;box-shadow:var(--ep-sh-sm)}
+.tc .t{font-family:var(--fd);font-weight:800;font-size:15px}
+.tc .d{font-size:12.5px;color:var(--ep-text-muted);line-height:1.55;margin-top:6px}
+.tc .m{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.tc .src{font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft);margin-top:10px}
+
+/* Průběh založení */
+.run{display:grid;gap:7px}
+.run-i{display:flex;gap:11px;align-items:center;font-size:13px;padding:9px 12px;border:1px solid var(--ep-line);border-radius:9px;color:var(--ep-text-soft);transition:all .2s}
+.run-i .d{width:10px;height:10px;border-radius:50%;background:var(--ep-line-2);flex-shrink:0}
+.run-i.ok{color:var(--ep-text)}
+.run-i.ok .d{background:var(--ep-green)}
+.run-i .s{margin-left:auto;font-family:var(--fm);font-size:10.5px}
+
+/* Intro */
+.intro-card[data-go]{cursor:pointer}
+.intro-card[data-go]:hover{border-color:var(--ep-accent-strong)}
+.law td a,.law td [data-go]{color:var(--ep-accent-strong);font-weight:700;text-decoration:none}
+.law td [data-go]:hover{text-decoration:underline;text-underline-offset:3px}
+
+</style>
+</head>
+<body>
+<div class="cbar">
+  <span class="cbar-t">Návrh k posouzení</span>
+  <span class="cbar-hint">Projektový portál a intranet pro <b>IMOS development</b> · obrazovky jsou nákresy, ne hotový program · data jsou smyšlená</span>
+  <span class="cbar-r">
+    <button id="b-intro">Úvod k návrhu</button>
+    <button class="on" id="b-tour">Provede vás prohlídka</button>
+  </span>
+</div>
+
+<div class="wrap">
+
+<!-- ══════════════════════ s0 · ÚVOD ══════════════════════ -->
+<section class="screen on" id="s0">
+<div class="intro">
+  <div class="intro-eyebrow">Návrh k posouzení · IMOS development · říjen 2026</div>
+  <h1 class="intro-h1">Projekty, dokumenty a lidé na jednom místě.<span class="hl">A každý vidí jen to, co má.</span></h1>
+  <p class="intro-lead">Na prvním setkání jsme se shodli, že první krok je <b>uspořádat dokumenty</b>, <b>nastavit přístupová práva</b>, <b>usnadnit sdílení mezi týmy</b> a <b>zpřehlednit práci s projektovou dokumentací</b>. K tomu přibyl dotaz na <b>firemní intranet</b>. Tento koncept ukazuje, jak by to celé mohlo vypadat v Microsoftu 365 – na obrazovkách, které si můžete proklikat.</p>
+
+  <div class="tour-card">
+    <span class="ic" id="ic-tour"></span>
+    <span style="flex:1"><span class="t">Nejrychleji to pochopíte s průvodcem</span>
+      <span class="d">Prohlídka po kapitolách ukáže každou obrazovku a jednou větou řekne, k čemu je. Trvá zhruba patnáct minut a dá se kdykoli přerušit.</span></span>
+    <button class="btn accent" data-tour-open>Spustit prohlídku</button>
+  </div>
+
+  <div class="intro-grid" id="intro-grid"></div>
+
+  <div class="intro-sec">
+    <h2>Co ukazujeme a kde to v konceptu najdete</h2>
+    <p class="sub">Každé téma z naší první schůzky má v konceptu svou obrazovku. Kliknutím na název se na ni přesunete.</p>
+    <div class="law-wrap"><table class="law"><thead><tr><th>Téma</th><th>Obrazovka</th><th>Na čem to stojí</th></tr></thead><tbody id="tb-map-intro"></tbody></table></div>
+  </div>
+
+  <div class="intro-sec">
+    <h2>Cesta jednoho projektu</h2>
+    <p class="sub">Developerský projekt prochází fázemi, ve kterých se střídají lidé, partneři i citlivost dokumentů. Struktura i přístupy s tím musí počítat od prvního dne – ne až ve chvíli, kdy se do projektu přidá generální dodavatel nebo realitní kancelář.</p>
+    <div class="phases" id="intro-phases"></div>
+  </div>
+
+  <div class="intro-sec">
+    <h2>Čtyři principy, na kterých návrh stojí</h2>
+    <ul class="q-list" id="intro-princ"></ul>
+  </div>
+
+  <div class="intro-sec">
+    <h2>Na čem to stojí</h2>
+    <p class="sub">Základem je to, co už v Microsoftu 365 máte nebo můžete mít: <b>SharePoint</b> pro dokumenty, <b>Teams</b> pro týmovou spolupráci a <b>Entra ID</b> pro účty a skupiny. Data zůstávají ve vašem tenantu. Nad tím stojí aplikace EasyPortal 365, které z obecné platformy dělají nástroj pro konkrétní práci – a které jsou nasazené u našich zákazníků.</p>
+    <div class="law-wrap"><table class="law"><thead><tr><th>Vrstva</th><th>Co dělá</th><th>V konceptu</th></tr></thead><tbody id="tb-stack"></tbody></table></div>
+  </div>
+
+  <div class="intro-sec">
+    <h2>Na co se chceme zeptat</h2>
+    <p class="sub">Koncept je postavený na tom, co jsme slyšeli na první schůzce, a na obvyklém průběhu developerského projektu. Než z něj vznikne návrh řešení, potřebujeme vědět víc.</p>
+    <ul class="q-list" id="intro-q"></ul>
+  </div>
+
+  <div class="intro-sec">
+    <h2>Jak by to pokračovalo</h2>
+    <ul class="q-list" id="intro-next"></ul>
+  </div>
+
+  <div class="banner plain" style="margin-top:34px"><span id="ic-info"></span><span>Koncept připravili <b>ARICOMA</b> a <b>EasyPortal 365</b> pro jednání s IMOS development. Všechna jména, projekty a čísla jsou smyšlená a slouží jen k ilustraci.</span></div>
+</div>
+</section>
+
+<!-- ══════════════════════ s1 · INTRANET ══════════════════════ -->
+<section class="screen" id="s1">
+<div class="shell"><div data-side="s1"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span>Intranet</span><span class="sep">›</span><b>Úvodní stránka</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow" id="s1-eye"></div>
+      <h1 class="h1" id="greet"></h1>
+      <p class="ph-sub" id="s1-sub"></p></div>
+      <div class="acts" data-acts></div></div>
+  </div></div>
+
+  <div class="hero-news" id="hero-news"></div>
+
+  <div class="two-col">
+    <div>
+      <div class="card" id="card-news"><div class="card-h"><span class="icbox" data-ic="news"></span><span class="card-t">Aktuality</span><button class="card-a" data-toast="Archiv aktualit – v konceptu nenakreslen.">Všechny aktuality</button></div>
+        <div class="card-b flush"><div class="news-list" id="news-list"></div></div></div>
+      <div class="card" id="card-links"><div class="card-h"><span class="icbox" data-ic="grid"></span><span class="card-t">Rychlé odkazy</span></div>
+        <div class="card-b"><div class="qlinks" id="qlinks"></div></div></div>
+    </div>
+    <div>
+      <div class="card" id="card-my"><div class="card-h"><span class="icbox" data-ic="fold"></span><span class="card-t">Moje projekty</span><button class="card-a" data-go="s3">Katalog</button></div>
+        <div class="card-b flush"><table class="tbl"><tbody id="tb-my-intra"></tbody></table></div></div>
+      <div class="card" id="card-events"><div class="card-h"><span class="icbox" data-ic="cal"></span><span class="card-t">Kalendář firmy</span></div>
+        <div class="card-b flush"><div class="feed" id="feed-events"></div></div></div>
+      <div class="card" id="card-people"><div class="card-h"><span class="icbox" data-ic="users"></span><span class="card-t">Noví kolegové</span><button class="card-a" data-go="s8">Kdo je kdo</button></div>
+        <div class="card-b flush"><div class="feed" id="feed-people"></div></div></div>
+    </div>
+  </div>
+  <div class="footnote"><b>Proč intranet.</b> Je to vstupní brána: místo, kde člověk ráno začne a odkud se dostane ke všemu ostatnímu – k projektům, firemním dokumentům i lidem. Aktuality píše office nebo vedení, ne IT; firemní barvy a logo převezme intranet z jednoho nastavení.</div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s2 · MOJE PRÁCE ══════════════════════ -->
+<section class="screen" id="s2">
+<div class="shell"><div data-side="s2"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span data-go="s1">Intranet</span><span class="sep">›</span><b>Moje práce</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow" id="s2-eye"></div>
+      <h1 class="h1" id="s2-h1"></h1>
+      <p class="ph-sub" id="s2-sub"></p></div>
+      <div class="acts" data-acts><button class="btn ghost" data-go="s5"><span data-ic="search"></span>Najít dokument</button></div></div>
+  </div></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="two-col">
+    <div>
+      <div class="card" id="card-moje"><div class="card-h"><span class="icbox" data-ic="fold"></span><span class="card-t">Moje projekty</span><button class="card-a" data-go="s3">Celý katalog</button></div>
+        <div class="card-b flush"><table class="tbl"><tbody id="tb-moje"></tbody></table></div></div>
+      <div class="card" id="card-term"><div class="card-h"><span class="icbox" data-ic="clock"></span><span class="card-t">Blíží se termín</span><span class="note">z harmonogramů projektů</span></div>
+        <div class="card-b flush"><table class="tbl"><tbody id="tb-term"></tbody></table></div></div>
+    </div>
+    <div>
+      <div class="card" id="card-ceka"><div class="card-h"><span class="icbox" data-ic="check"></span><span class="card-t">Co čeká na mě</span></div>
+        <div class="card-b flush"><div class="feed" id="feed-ceka"></div></div></div>
+      <div class="card" id="card-dok"><div class="card-h"><span class="icbox" data-ic="doc"></span><span class="card-t">Poslední dokumenty</span><button class="card-a" data-go="s5">Vše</button></div>
+        <div class="card-b flush"><div class="feed" id="feed-dok"></div></div></div>
+    </div>
+  </div>
+  <div class="footnote" id="s2-foot"><b>Proč „Moje práce“.</b> Projektový manažer nemá hledat, na kterém webu co leží. Na jedné stránce vidí své projekty, termíny, co čeká na jeho rozhodnutí a co kdo na jeho projektech uložil.</div>
+  <div class="footnote" id="s2-foot2" hidden></div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s3 · KATALOG PROJEKTŮ ══════════════════════ -->
+<section class="screen" id="s3">
+<div class="shell"><div data-side="s3"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span data-go="s1">Intranet</span><span class="sep">›</span><b>Projekty</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow">Všechny projekty firmy</div>
+      <h1 class="h1">Katalog projektů.<span class="hl">Kdo, kde a v jaké fázi.</span></h1>
+      <p class="ph-sub">Každý projekt má vlastní prostor: web pro dokumenty a tým v Teams. Katalog je seznam těchto prostorů s fází, vlastníkem a tím, kolik lidí zvenku do projektu vidí.</p></div>
+      <div class="acts" data-acts><button class="btn accent" data-go="s6"><span data-ic="plus"></span>Založit projekt</button></div></div>
+  </div></div>
+  <div class="toolbar">
+    <div class="seg" id="kat-chips"></div>
+    <span class="spacer"></span>
+    <div class="tsearch"><span data-ic="search"></span><input id="f-q" placeholder="Hledat projekt, lokalitu, manažera…"></div>
+  </div>
+  <div class="tbl-wrap"><table class="tbl" id="tbl-kat"><thead><tr><th>Projekt</th><th>Typ</th><th>Fáze</th><th>Projektový manažer</th><th>Externí</th><th>Poslední změna</th></tr></thead><tbody id="tb-kat"></tbody></table></div>
+  <div class="pager"><span class="info" id="kat-info"></span></div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s4 · KARTA PROJEKTU ══════════════════════ -->
+<section class="screen" id="s4">
+<div class="shell"><div data-side="s3"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span data-go="s1">Intranet</span><span class="sep">›</span><span data-go="s3">Projekty</span><span class="sep">›</span><b id="pv-crumb">–</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow" id="pv-eye">–</div>
+      <h1 class="h1" id="pv-naz">–</h1>
+      <p class="ph-sub" id="pv-sub"></p></div>
+      <div class="acts" data-acts>
+        <button class="btn ghost" data-toast="Otevře se tým projektu v Microsoft Teams."><span data-ic="teams"></span>Otevřít v Teams</button>
+        <button class="btn accent" id="b-save-pv"><span data-ic="up"></span>Uložit dokument</button></div></div>
+  </div></div>
+  <div class="phase-bar" id="pv-phase"></div>
+  <div class="tabs" id="pv-tabs">
+    <button class="on" data-p="p-str">Struktura dokumentů</button>
+    <button data-p="p-tym">Tým a přístupy <span class="n" id="pv-n-tym"></span></button>
+    <button data-p="p-mil">Fáze a milníky</button>
+    <button data-p="p-tea">Teams</button>
+    <button data-p="p-his">Historie</button>
+  </div>
+  <div class="pane on" id="p-str">
+    <div class="two-col">
+      <div class="card" id="card-tree"><div class="card-h"><span class="icbox" data-ic="fold"></span><span class="card-t">Dokumenty projektu</span><span class="note">struktura ze šablony „<span id="pv-tpl"></span>“</span></div>
+        <div class="card-b"><div class="tree" id="tree"></div></div></div>
+      <div class="card" id="card-folder"><div class="card-h"><span class="icbox" data-ic="lock"></span><span class="card-t" id="fd-t">Vyberte složku</span></div>
+        <div class="card-b" id="fd-b"><p class="note">Klikněte na složku vlevo. Uvidíte, co v ní je a kdo do ní smí.</p></div></div>
+    </div>
+  </div>
+  <div class="pane" id="p-tym">
+    <div class="two-eq">
+      <div class="card"><div class="card-h"><span class="icbox" data-ic="users"></span><span class="card-t">Interní tým</span><button class="card-a" data-toast="Přidání člena týmu – výběr osoby a role. Oprávnění se nastaví podle role, ne ručně.">Přidat člena</button></div>
+        <div class="card-b"><div class="people" id="pv-tym"></div></div></div>
+      <div class="card" id="card-ext"><div class="card-h"><span class="icbox" data-ic="globe"></span><span class="card-t">Externí partneři</span><button class="card-a" id="b-add-ext">Pozvat partnera</button></div>
+        <div class="card-b"><div class="people" id="pv-ext"></div>
+          <p class="note" style="margin-top:12px">Každý externí přístup má <b>roli, rozsah složek a datum konce</b>. Před koncem přijde vlastníkovi projektu připomínka – přístup se prodlouží jedním klikem, nebo sám skončí.</p></div></div>
+    </div>
+  </div>
+  <div class="pane" id="p-mil">
+    <div class="card"><div class="card-h"><span class="icbox" data-ic="flag"></span><span class="card-t">Milníky projektu</span><span class="note">z harmonogramu projektu</span></div>
+      <div class="card-b"><div class="tl" id="pv-mil"></div></div></div>
+  </div>
+  <div class="pane" id="p-tea">
+    <div class="card" id="card-teams"><div class="card-h"><span class="icbox" data-ic="teams"></span><span class="card-t">Kanály týmu v Teams</span></div>
+      <div class="card-b flush"><table class="tbl"><thead><tr><th>Kanál</th><th>Kdo v něm je</th><th>Dokumenty</th><th>Poslední zpráva</th></tr></thead><tbody id="tb-teams"></tbody></table></div></div>
+    <div class="banner accent"><span data-ic="info"></span><span><b>Dokumenty se neukládají dvakrát.</b> Soubory, se kterými tým pracuje v Teams, leží v knihovně projektu. Kanál pro externí partnery je <b>sdílený kanál</b> – partner do něj vidí, do zbytku týmu ne.</span></div>
+  </div>
+  <div class="pane" id="p-his">
+    <div class="card"><div class="card-h"><span class="icbox" data-ic="list"></span><span class="card-t">Historie projektu</span><span class="note">kdo, co a kdy – včetně změn přístupů</span></div>
+      <div class="card-b"><div class="tl" id="pv-his"></div></div></div>
+  </div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s5 · DOKUMENTY ══════════════════════ -->
+<section class="screen" id="s5">
+<div class="shell"><div data-side="s5"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span data-go="s1">Intranet</span><span class="sep">›</span><b>Dokumenty</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow">Napříč projekty</div>
+      <h1 class="h1">Dokumenty.<span class="hl">Bez hledání po složkách.</span></h1>
+      <p class="ph-sub">Dokumenty všech projektů, ke kterým máte přístup, na jednom místě – s projektem, složkou, autorem a verzí. Co vám oprávnění nedovolí otevřít, tady ani neuvidíte.</p></div>
+      <div class="acts" data-acts><button class="btn accent" id="b-savedoc"><span data-ic="up"></span>Uložit dokument</button></div></div>
+  </div></div>
+  <div class="toolbar">
+    <div class="seg" id="dok-chips"></div>
+    <span class="spacer"></span>
+    <div class="tsearch"><span data-ic="search"></span><input id="d-q" placeholder="Hledat v názvu i obsahu…"></div>
+  </div>
+  <div class="tbl-wrap"><table class="tbl" id="tbl-dok"><thead><tr><th>Dokument</th><th>Projekt</th><th>Složka</th><th>Verze</th><th>Upravil</th><th>Kdy</th></tr></thead><tbody id="tb-dok"></tbody></table></div>
+  <div class="footnote"><b>Nejsnazší cesta musí být ta správná.</b> Při uložení se člověk neptá „do které složky“, ale odpoví na dvě otázky: co to je a ke kterému projektu to patří. Správnou složku, metadata i přístupy určí portál sám.</div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s6 · NOVÝ PROJEKT ══════════════════════ -->
+<section class="screen" id="s6">
+<div class="shell"><div data-side="s6"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span data-go="s3">Projekty</span><span class="sep">›</span><b>Nový projekt</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow">Projekt za minutu, ne za týden</div>
+      <h1 class="h1">Nový projekt.<span class="hl">Ze šablony, s hotovými přístupy.</span></h1>
+      <p class="ph-sub">Projektový manažer vyplní pár údajů a vybere lidi do rolí. Web, knihovny, složky, tým v Teams a oprávnění vzniknou podle šablony – pokaždé stejně.</p></div>
+      <div class="acts" data-acts></div></div>
+  </div></div>
+  <div class="steps" id="w-steps"></div>
+  <div class="card" id="w-card">
+    <div class="card-b" id="w1">
+      <div class="tpl" id="card-tpl"></div>
+    </div>
+    <div class="card-b" id="w2" hidden>
+      <div class="f2">
+        <div class="field"><label>Název projektu<span class="req">*</span></label><input id="w-naz" value="Rezidence Nová Líšeň"></div>
+        <div class="field"><label>Kód projektu<span class="req">*</span></label><input id="w-kod" value="P-2026-07"><div class="hint">Podle pravidla P-rok-pořadí. Adresa webu: <span class="mono" id="w-url"></span></div></div>
+        <div class="field"><label>Lokalita</label><input value="Brno-Líšeň"></div>
+        <div class="field"><label>Fáze na začátku</label><select id="w-faze"></select></div>
+        <div class="field"><label>Projektový manažer<span class="req">*</span></label><select id="w-pm"></select></div>
+        <div class="field"><label>Klasifikace</label><select><option>Interní – běžné dokumenty projektu</option><option>Důvěrné – před oznámením projektu</option></select><div class="hint">Důvěrný projekt neuvidí v katalogu nikdo mimo tým, dokud ho vlastník neodtajní.</div></div>
+      </div>
+    </div>
+    <div class="card-b" id="w3" hidden>
+      <p class="note" style="margin:0 0 12px">Šablona nese <b>role</b>, ne konkrétní lidi. Tady se do rolí doplní osoby – oprávnění ke složkám se nastaví samo podle matice.</p>
+      <div class="tbl-wrap" id="card-roles"><table class="tbl"><thead><tr><th>Role</th><th>Osoba nebo skupina</th><th>Přístup</th></tr></thead><tbody id="tb-roles"></tbody></table></div>
+    </div>
+    <div class="card-b" id="w4" hidden><div id="w-run"></div></div>
+    <div class="wizfoot"><button class="btn ghost" id="w-prev">Zpět</button><span class="spacer"></span><span class="note" id="w-hint"></span><button class="btn primary" id="w-next">Další</button></div>
+  </div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s7 · FIREMNÍ DOKUMENTY ══════════════════════ -->
+<section class="screen" id="s7">
+<div class="shell"><div data-side="s7"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span data-go="s1">Intranet</span><span class="sep">›</span><b>Firemní dokumenty</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow">Provozní dokumentace</div>
+      <h1 class="h1">Firemní dokumenty.<span class="hl">Vždy platná verze.</span></h1>
+      <p class="ph-sub">Směrnice, postupy, formuláře a vzory smluv mají vlastníka, platnost a datum revize. Kdo si dokument otevře, vidí vždy platnou verzi; u závazných dokumentů portál eviduje, kdo se s nimi seznámil.</p></div>
+      <div class="acts" data-acts></div></div>
+  </div></div>
+  <div class="kpis" id="kpis-fd"></div>
+  <div class="toolbar"><div class="seg" id="fd-chips"></div></div>
+  <div class="tbl-wrap" id="card-fd"><table class="tbl"><thead><tr><th>Dokument</th><th>Typ</th><th>Vlastník</th><th>Verze</th><th>Platí od</th><th>Revize</th><th>Seznámení</th></tr></thead><tbody id="tb-fd"></tbody></table></div>
+  <div class="footnote"><b>Projektová a provozní dokumentace se liší.</b> Projektová vzniká a končí s projektem a pracuje na ní tým. Provozní platí pro celou firmu, mění se řízeně a starší verze se nesmí plést s platnou. Proto má každá své místo a svá pravidla.</div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s8 · LIDÉ ══════════════════════ -->
+<section class="screen" id="s8">
+<div class="shell"><div data-side="s8"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span data-go="s1">Intranet</span><span class="sep">›</span><b>Lidé a týmy</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow">Kdo je kdo</div>
+      <h1 class="h1">Lidé a týmy.<span class="hl">Na koho se obrátit.</span></h1>
+      <p class="ph-sub">Adresář se plní z firemních účtů – jméno, funkce, telefon a tým se udržují na jednom místě. K tomu partneři, se kterými firma na projektech pracuje.</p></div>
+      <div class="acts" data-acts></div></div>
+  </div></div>
+  <div class="toolbar"><div class="seg" id="ppl-chips"></div><span class="spacer"></span><div class="tsearch"><span data-ic="search"></span><input id="p-q" placeholder="Hledat jméno nebo funkci…"></div></div>
+  <div class="pgrid" id="pgrid"></div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s9 · PŘÍSTUPY ══════════════════════ -->
+<section class="screen" id="s9">
+<div class="shell"><div data-side="s9"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span>Správa</span><span class="sep">›</span><b>Přístupy a oprávnění</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow">Kdo kam smí</div>
+      <h1 class="h1">Přístupy a oprávnění.<span class="hl">Přes role, ne přes jednotlivce.</span></h1>
+      <p class="ph-sub">Oprávnění se nenastavují člověku po člověku a složce po složce. Každá role má v šabloně projektu daný rozsah; člověk dostane přístup tím, že dostane roli. Tahle obrazovka ukazuje pravidla i to, co se od nich v praxi odchýlilo.</p></div>
+      <div class="acts" data-acts></div></div>
+  </div></div>
+  <div class="kpis" id="kpis-acc"></div>
+  <div class="tabs" id="acc-tabs">
+    <button class="on" data-p="a-mat">Matice rolí</button>
+    <button data-p="a-ext">Externí přístupy <span class="n" id="acc-n-ext"></span></button>
+    <button data-p="a-nal">Nálezy <span class="n" id="acc-n-nal"></span></button>
+  </div>
+  <div class="pane on" id="a-mat">
+    <div class="tbl-wrap" id="card-mat"><table class="tbl mat"><thead id="th-mat"></thead><tbody id="tb-mat"></tbody></table></div>
+    <div class="legend" id="mat-legend"></div>
+  </div>
+  <div class="pane" id="a-ext">
+    <div class="tbl-wrap" id="card-extall"><table class="tbl"><thead><tr><th>Partner</th><th>Projekt</th><th>Role a rozsah</th><th>Pozval</th><th>Platí do</th><th></th></tr></thead><tbody id="tb-extall"></tbody></table></div>
+  </div>
+  <div class="pane" id="a-nal">
+    <div class="tbl-wrap" id="card-nal"><table class="tbl"><thead><tr><th>Nález</th><th>Kde</th><th>Závažnost</th><th>Doporučení</th><th></th></tr></thead><tbody id="tb-nal"></tbody></table></div>
+  </div>
+  <div class="footnote"><b>Skrytá položka menu nic nechrání.</b> O tom, co kdo otevře, rozhodují oprávnění SharePointu. Portál je nastavuje podle matice a pravidelně měří, kde se od ní realita odchýlila – sdílení odkazem pro kohokoli, host bez data konce, složka s ručně změněnými právy.</div>
+</div></main></div>
+</section>
+
+<!-- ══════════════════════ s10 · ŠABLONY ══════════════════════ -->
+<section class="screen" id="s10">
+<div class="shell"><div data-side="s10"></div>
+<main class="main"><div class="canvas">
+  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
+    <div class="crumbs"><span>Správa</span><span class="sep">›</span><b>Šablony projektů</b></div>
+    <div class="ph-row"><div>
+      <div class="eyebrow">Váš standard, ne náš</div>
+      <h1 class="h1">Šablony projektů.<span class="hl">Živý vzor, který si upravíte sami.</span></h1>
+      <p class="ph-sub">Šablonou je skutečný vzorový projekt – web se složkami, vzorovými dokumenty a rolemi. Kdo chce standard změnit, upraví vzor myší. Portál změnu pozná a nabídne ji doplnit i do projektů, které už běží.</p></div>
+      <div class="acts" data-acts></div></div>
+  </div></div>
+  <div class="tpl-cards" id="card-sab"></div>
+  <div class="card" id="card-diff"><div class="card-h"><span class="icbox" data-ic="diff"></span><span class="card-t">Vzor se změnil – co je nového</span><span class="note">Bytový projekt · revize 3 → 4</span></div>
+    <div class="card-b"><div class="diff" id="diff"></div>
+      <div style="display:flex;gap:9px;margin-top:14px;flex-wrap:wrap"><button class="btn primary sm" id="b-bulk">Doplnit do běžících projektů (3)</button><button class="btn ghost sm" data-toast="Náhled změn otevřen – v konceptu nenakreslen.">Náhled</button></div>
+      <p class="note" style="margin-top:10px">Doplnění vždy jen <b>přidává</b> – nikdy nemaže, nepřejmenovává a k uloženým dokumentům nesahá.</p></div></div>
+</div></main></div>
+</section>
+
+</div><!-- /wrap -->
+
+<div class="mask" id="mask"><div class="modal" id="modal">
+  <div class="modal-h"><div class="modal-t" id="m-t"></div><button class="modal-x" id="m-x">×</button></div>
+  <div class="modal-b" id="m-b"></div><div class="modal-f" id="m-f"></div></div></div>
+
+<div class="pal" id="pal"><div class="pal-in">
+  <input class="pal-i" id="pal-i" placeholder="Kam chcete jít nebo co hledáte…" autocomplete="off">
+  <div class="pal-l" id="pal-l"></div></div></div>
+
+<div class="tour-mask" id="tmask"><i></i><i></i><i></i><i></i><div class="tour-ring" id="tring"></div></div>
+<div class="tour-bub" id="tbub">
+  <div class="tour-hd"><div class="tour-ch" id="tb-ch"></div><div class="tour-ti" id="tb-ti"></div><div class="tour-dots" id="tb-dots"></div></div>
+  <div class="tour-tx" id="tb-tx"></div>
+  <div class="tour-ft"><span class="prog" id="tb-pr"></span>
+    <button class="tour-b ghost" id="tb-hub">Kapitoly</button>
+    <button class="tour-b ghost" id="tb-end">Ukončit</button>
+    <button class="tour-b" id="tb-prev">Zpět</button>
+    <button class="tour-b main" id="tb-next">Další</button></div></div>
+
+<div class="tour-hub" id="thub"><div class="tour-hub-in">
+  <div class="tour-hub-l"><div class="tour-hub-h">Kapitoly prohlídky</div><div id="thub-l"></div></div>
+  <div class="tour-hub-r">
+    <div class="tour-ch">Průvodce návrhem</div>
+    <div class="tour-hub-t" style="margin-top:7px" id="thub-t"></div>
+    <p class="tour-hub-s">Každý krok ztlumí stránku, obtáhne konkrétní prvek a jednou větou řekne, k čemu je. Kapitoly jdou spustit samostatně a v libovolném pořadí; klávesa Esc prohlídku kdykoli ukončí.</p>
+    <ul class="tour-out">
+      <li>Intranet jako vstupní brána – aktuality, lidé, odkazy, moje projekty</li>
+      <li>Jeden projekt = jeden prostor: dokumenty, tým v Teams a přístupy</li>
+      <li>Externí partneři jen do svých složek a jen na dobu, kdy je potřeba</li>
+      <li>Šablona jako váš standard – i pro projekty, které už běží</li>
+    </ul>
+    <button class="btn accent" id="thub-start">Spustit od začátku</button>
+  </div>
+</div></div>
+
+<div class="toast" id="toast"><span id="toast-t"></span><button id="toast-u" hidden>Vrátit</button></div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════════════════
+   UKÁZKOVÁ DATA – jediný zdroj pravdy. Počty v menu, dlaždicích a tabulkách
+   se počítají odsud, aby si obrazovky nemohly odporovat.
+   Názvy projektů a jejich veřejně uváděné fáze jsou z imos-development.cz
+   (ověřeno 7. 10. 2026). Lidé, dokumenty, čísla a vnitřní data jsou smyšlené.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+var FAZE = [
+ {k:'pri',t:'Příprava',d:'Pozemek, záměr, studie proveditelnosti, business plán.',w:'vedení · projektový manažer'},
+ {k:'pov',t:'Povolení',d:'Dokumentace pro povolení záměru, vyjádření úřadů a správců sítí.',w:'+ architekt · inženýring'},
+ {k:'pro',t:'Projekce',d:'Dokumentace pro provedení, výběr dodavatele, smlouva o dílo.',w:'+ projektanti · ekonomika'},
+ {k:'rea',t:'Realizace',d:'Výstavba, kontrolní dny, technický dozor, změny během stavby.',w:'+ dodavatel stavby · TDI'},
+ {k:'pre',t:'Předání',d:'Kolaudace, předávací protokoly, předání bytů klientům.',w:'+ obchodní tým · klienti'},
+ {k:'zar',t:'Záruky',d:'Reklamace, záruční servis, předání do správy.',w:'+ správa nemovitostí'}
+];
+var FAZE_IX = {}; FAZE.forEach(function(f,i){FAZE_IX[f.k]=i;});
+
+var LIDE = [
+ {id:'PH',n:'Petra Horáková',r:'Vedení společnosti',t:'Vedení',a:''},
+ {id:'OM',n:'Ondřej Malý',r:'Projektový manažer',t:'Produkční tým',a:'teal'},
+ {id:'JK',n:'Jan Kučera',r:'Projektový manažer',t:'Produkční tým',a:'teal'},
+ {id:'MV',n:'Martina Veselá',r:'Projektová manažerka',t:'Produkční tým',a:'teal'},
+ {id:'RS',n:'Radek Šimek',r:'Technik přípravy',t:'Produkční tým',a:''},
+ {id:'ZD',n:'Zuzana Dvořáková',r:'Inženýring a povolení',t:'Produkční tým',a:''},
+ {id:'LS',n:'Lenka Svobodová',r:'Obchodní manažerka',t:'Obchodní tým',a:'amb'},
+ {id:'PB',n:'Pavel Beneš',r:'Obchodník',t:'Obchodní tým',a:'amb'},
+ {id:'EM',n:'Eva Marková',r:'Klientské změny',t:'Obchodní tým',a:'amb'},
+ {id:'TP',n:'Tereza Pokorná',r:'Marketing',t:'Obchodní tým',a:'amb'},
+ {id:'MH',n:'Michal Holub',r:'Finanční manažer',t:'Ekonomika',a:''},
+ {id:'IR',n:'Ivana Řezníčková',r:'Účetní',t:'Ekonomika',a:''},
+ {id:'VK',n:'Vladimír Krejčí',r:'Správce nemovitostí',t:'Správa nemovitostí',a:''},
+ {id:'SN',n:'Simona Nováková',r:'Technik správy',t:'Správa nemovitostí',a:''},
+ {id:'KN',n:'Klára Němcová',r:'Office manažerka',t:'Office a IT',a:'teal'},
+ {id:'DP',n:'David Procházka',r:'Správce IT',t:'Office a IT',a:''}
+];
+var NOVI = ['TP','RS'];
+var PARTNERI = [
+ {id:'TB',n:'Ing. arch. Tomáš Brázda',r:'Architekt · Ateliér Brázda',t:'Architekti',a:'amb'},
+ {id:'AT',n:'Ateliér Linie',r:'Architekt · projekce DPS',t:'Architekti',a:'amb'},
+ {id:'GD',n:'Stavby Morava a.s.',r:'Dodavatel stavby',t:'Dodavatelé',a:'amb'},
+ {id:'TD',n:'Ing. Karel Vrba',r:'Technický dozor investora',t:'Dozor a inženýring',a:'amb'},
+ {id:'HB',n:'Hypo poradci s.r.o.',r:'Hypoteční partner',t:'Prodejní partneři',a:'amb'}
+];
+
+/* Projekty – veřejné názvy, smyšlená vnitřní data. */
+var PROJEKTY = [
+ {kod:'P-2021-02',naz:'Ponava City – etapa V',lok:'Brno-Královo Pole',typ:'Bytový projekt',faz:'rea',pm:'OM',prod:86,ext:4,upd:'dnes 08:12',moje:1,dok:1460,byt:94,dokon:'2026'},
+ {kod:'P-2024-05',naz:'Ponava City – etapa VI',lok:'Brno-Královo Pole',typ:'Bytový projekt',faz:'pro',pm:'OM',prod:38,ext:2,upd:'včera 16:40',moje:1,dok:520,byt:88,dokon:'2028'},
+ {kod:'P-2022-04',naz:'Bytový dům Hvězdová',lok:'Brno-Zábrdovice',typ:'Bytový projekt',faz:'pre',pm:'JK',prod:97,ext:3,upd:'dnes 07:30',dok:980,byt:62,dokon:'2026'},
+ {kod:'P-2023-01',naz:'Sabinova 1',lok:'Brno-Žabovřesky',typ:'Bytový projekt',faz:'rea',pm:'MV',prod:61,ext:3,upd:'včera 11:05',moje:1,dok:410,byt:23,dokon:'2027'},
+ {kod:'P-2023-03',naz:'Rezidence Leitnerova',lok:'Brno-střed',typ:'Bytový projekt',faz:'pro',pm:'MV',prod:24,ext:2,upd:'6. 10.',dok:350,byt:71,dokon:'2028'},
+ {kod:'P-2020-06',naz:'Rezidence Svratka',lok:'Brno-Horní Heršpice',typ:'Bytový projekt',faz:'rea',pm:'JK',prod:79,ext:4,upd:'5. 10.',dok:1720,byt:180,dokon:'2027'},
+ {kod:'P-2021-07',naz:'Kuřim Záhoří – etapy 3 a 4',lok:'Kuřim',typ:'Bytový projekt',faz:'rea',pm:'JK',prod:68,ext:3,upd:'2. 10.',dok:890,byt:157,dokon:'2027'},
+ {kod:'P-2022-02',naz:'Rezidence u řeky',lok:'Chrudim',typ:'Bytový projekt',faz:'rea',pm:'OM',prod:55,ext:3,upd:'1. 10.',dok:640,byt:96,dokon:'2028'},
+ {kod:'P-2026-03',naz:'Areál Vídeňská',lok:'Brno-Štýřice',typ:'Bytový projekt',faz:'pri',pm:'MV',prod:0,ext:1,upd:'30. 9.',dok:84,duv:1,dokon:'–'},
+ {kod:'P-2025-04',naz:'Troubsko',lok:'Troubsko',typ:'Rodinné domy',faz:'pov',pm:'OM',prod:0,ext:2,upd:'29. 9.',dok:146,dokon:'–'},
+ {kod:'P-2019-01',naz:'Apartmány Dolní Morava',lok:'Dolní Morava',typ:'Bytový projekt',faz:'zar',pm:'JK',prod:100,ext:1,upd:'14. 9.',dok:2210,byt:60,dokon:'2024'},
+ {kod:'N-PD-01',naz:'Parkovací dům Rozmarýn',lok:'Brno',typ:'Nemovitost v nájmu',faz:'naj',pm:'VK',ext:2,upd:'3. 10.',dok:930},
+ {kod:'N-AK-02',naz:'Administrativní komplex Nová Osada',lok:'Brno',typ:'Nemovitost v nájmu',faz:'naj',pm:'VK',ext:3,upd:'včera 09:15',dok:1310}
+];
+
+/* Struktura bytového projektu – návrh k diskusi. o = omezený přístup (vlastní oprávnění). */
+var STRUKTURA = [
+ ['01','Pozemek a záměr',['Kupní smlouvy a listy vlastnictví','Studie a záměr','Business plán'],'o'],
+ ['02','Povolení',['Žádosti a podání','Vyjádření úřadů a správců sítí','Rozhodnutí']],
+ ['03','Projektová dokumentace',['Architektonická studie','Dokumentace pro povolení','Dokumentace pro provedení','Připomínky a revize']],
+ ['04','Výběr dodavatele a smlouvy',['Poptávky a nabídky','Smlouvy o dílo a dodatky'],'o'],
+ ['05','Realizace',['Kontrolní dny','Technický dozor','Změny během výstavby','Fotodokumentace']],
+ ['06','Rozpočet a financování',['Rozpočet projektu','Úvěr a banka','Fakturace dodavatelů'],'o'],
+ ['07','Prodej a klienti',['Ceník a dostupnost','Rezervační a budoucí smlouvy','Klientské změny'],'o'],
+ ['08','Marketing',['Vizualizace','Web a prodejní materiály']],
+ ['09','Kolaudace a předání',['Kolaudace','Předávací protokoly','Reklamace']],
+ ['10','Korespondence',[]]
+];
+
+/* Matice rolí × hlavní složky. F úplné řízení, E upravovat, R číst, N bez přístupu. */
+var MAT_COLS = STRUKTURA.map(function(s){return s[0];});
+var MATICE = [
+ {r:'Vedení společnosti',g:'Vedení',v:'FFFFFFFFFF'},
+ {r:'Projektový manažer',g:'{kód} Vlastníci',v:'FFFFFRFRFF'},
+ {r:'Produkční tým',g:'{kód} Členové',v:'NEERENNREE'},
+ {r:'Obchodní tým',g:'Obchodní tým',v:'NNRNRNEERR'},
+ {r:'Ekonomika',g:'Ekonomika',v:'RNRERENNRR'},
+ {r:'Správa nemovitostí',g:'Správa nemovitostí',v:'NNRNRNNNER'},
+ {r:'Ostatní zaměstnanci',g:'Všichni zaměstnanci',v:'NNNNNNNRNN'},
+ {r:'Architekt',g:'{kód} Hosté – architekt',v:'NREN.NNNNN',ext:1,pozn:'05: jen Změny během výstavby'},
+ {r:'Dodavatel stavby',g:'{kód} Hosté – dodavatel',v:'NNRNENNNEN',ext:1},
+ {r:'Technický dozor',g:'{kód} Hosté – dozor',v:'NNRRENNNRN',ext:1,pozn:'05: upravovat jen Technický dozor'}
+];
+var LV = {F:['F','Úplné řízení'],E:['E','Upravovat'],R:['R','Číst'],N:['N','Bez přístupu'],'.':['R','Číst (jen část)']};
+
+var EXTERNI = [
+ {p:'TB',kod:'P-2021-02',role:'Architekt',roz:'03 Projektová dokumentace · 05 Změny',kdo:'OM',do:'31. 12. 2026',st:''},
+ {p:'GD',kod:'P-2021-02',role:'Dodavatel stavby',roz:'05 Realizace · 09 Kolaudace',kdo:'OM',do:'31. 3. 2027',st:''},
+ {p:'TD',kod:'P-2021-02',role:'Technický dozor',roz:'05 Technický dozor · čtení 03, 04',kdo:'OM',do:'31. 3. 2027',st:''},
+ {p:'HB',kod:'P-2021-02',role:'Hypoteční partner',roz:'07 Ceník a dostupnost – čtení',kdo:'LS',do:'31. 10. 2026',st:'soon'},
+ {p:'AT',kod:'P-2024-05',role:'Architekt',roz:'03 Projektová dokumentace',kdo:'OM',do:'30. 6. 2027',st:''},
+ {p:'TB',kod:'P-2023-03',role:'Architekt',roz:'03 Projektová dokumentace',kdo:'MV',do:'31. 12. 2026',st:''},
+ {p:'GD',kod:'P-2022-04',role:'Dodavatel stavby',roz:'05 Realizace · 09 Kolaudace',kdo:'JK',do:'20. 10. 2026',st:'soon'},
+ {p:'TD',kod:'P-2022-04',role:'Technický dozor',roz:'05 Technický dozor',kdo:'JK',do:'–',st:'none'}
+];
+
+var NALEZY = [
+ {t:'Sdílení odkazem „kdokoli s odkazem“',kde:'P-2022-04 · 08 Marketing / Vizualizace',z:'Střední',zc:'p-open',dop:'Nahradit odkazem pro konkrétní osoby, nebo nastavit platnost odkazu.'},
+ {t:'Host bez data konce přístupu',kde:'P-2022-04 · Ing. Karel Vrba (dozor)',z:'Vysoká',zc:'p-late',dop:'Doplnit datum konce – nejpozději s předáním stavby.'},
+ {t:'Složka s ručně změněnými právy',kde:'P-2020-06 · 05 Realizace / Fotodokumentace',z:'Nízká',zc:'p-new',dop:'Vrátit na dědění podle matice, nebo výjimku zapsat do šablony.'},
+ {t:'Projekt bez druhého vlastníka',kde:'P-2025-04 Troubsko',z:'Nízká',zc:'p-new',dop:'Doplnit zástupce projektového manažera pro dobu nepřítomnosti.'}
+];
+
+var DOKUMENTY = [
+ {n:'Zápis z kontrolního dne č. 41.docx',p:'P-2021-02',f:'05 Realizace / Kontrolní dny',v:'1.0',a:'OM',d:'dnes 08:12',g:'rea'},
+ {n:'Změnový list ZL-17 – úprava zábradlí lodžií.pdf',p:'P-2021-02',f:'05 Realizace / Změny během výstavby',v:'2.1',a:'TB',d:'dnes 07:55',g:'rea'},
+ {n:'Předávací protokol – byt B.4.12.pdf',p:'P-2022-04',f:'09 Kolaudace a předání / Předávací protokoly',v:'1.0',a:'EM',d:'dnes 07:30',g:'pre'},
+ {n:'Ceník a dostupnost – říjen 2026.xlsx',p:'P-2024-05',f:'07 Prodej a klienti / Ceník a dostupnost',v:'4.0',a:'LS',d:'včera 16:40',g:'prod'},
+ {n:'DPS – D.1.1 Architektonicko-stavební řešení, revize C.pdf',p:'P-2024-05',f:'03 Projektová dokumentace / Dokumentace pro provedení',v:'3.0',a:'AT',d:'včera 15:10',g:'pd'},
+ {n:'Zpráva technického dozoru – září 2026.pdf',p:'P-2023-01',f:'05 Realizace / Technický dozor',v:'1.0',a:'TD',d:'včera 11:05',g:'rea'},
+ {n:'Klientská změna – byt A.2.04 (kuchyň).pdf',p:'P-2023-01',f:'07 Prodej a klienti / Klientské změny',v:'1.2',a:'EM',d:'včera 10:20',g:'prod'},
+ {n:'Fotodokumentace – 40. týden.zip',p:'P-2021-02',f:'05 Realizace / Fotodokumentace',v:'1.0',a:'GD',d:'včera 09:00',g:'rea'},
+ {n:'Vyjádření správce sítí – plyn.pdf',p:'P-2025-04',f:'02 Povolení / Vyjádření úřadů a správců sítí',v:'1.0',a:'ZD',d:'6. 10.',g:'pd'},
+ {n:'Rozpočet projektu – aktualizace Q3.xlsx',p:'P-2023-03',f:'06 Rozpočet a financování / Rozpočet projektu',v:'5.0',a:'MH',d:'6. 10.',g:'eko'},
+ {n:'Vizualizace – nádvoří, varianta 2.jpg',p:'P-2023-03',f:'08 Marketing / Vizualizace',v:'1.0',a:'TP',d:'5. 10.',g:'prod'},
+ {n:'Kolaudační souhlas – podání.pdf',p:'P-2022-04',f:'09 Kolaudace a předání / Kolaudace',v:'1.0',a:'ZD',d:'3. 10.',g:'pre'},
+ {n:'Smlouva o dílo – dodatek 3.pdf',p:'P-2020-06',f:'04 Výběr dodavatele a smlouvy / Smlouvy o dílo a dodatky',v:'1.0',a:'JK',d:'2. 10.',g:'eko'},
+ {n:'Studie proveditelnosti – varianta B.pdf',p:'P-2026-03',f:'01 Pozemek a záměr / Studie a záměr',v:'2.0',a:'MV',d:'30. 9.',g:'pd'},
+ {n:'Revize výtahů – protokol 2026.pdf',p:'N-AK-02',f:'Provoz / Revize a kontroly',v:'1.0',a:'SN',d:'29. 9.',g:'spr'},
+ {n:'Nájemní smlouva – dodatek, nájemce 3. NP.pdf',p:'N-AK-02',f:'Nájemci / Smlouvy',v:'1.0',a:'VK',d:'26. 9.',g:'spr'}
+];
+var DOK_TYPY = [
+ ['Zápis z kontrolního dne','05 Realizace / Kontrolní dny'],
+ ['Změnový list','05 Realizace / Změny během výstavby'],
+ ['Projektová dokumentace','03 Projektová dokumentace / podle stupně'],
+ ['Vyjádření úřadu nebo správce sítí','02 Povolení / Vyjádření úřadů a správců sítí'],
+ ['Smlouva o dílo nebo dodatek','04 Výběr dodavatele a smlouvy / Smlouvy o dílo a dodatky'],
+ ['Klientská změna','07 Prodej a klienti / Klientské změny'],
+ ['Předávací protokol','09 Kolaudace a předání / Předávací protokoly'],
+ ['Fotodokumentace','05 Realizace / Fotodokumentace']
+];
+
+var FIRDOK = [
+ {n:'Podpisový řád',t:'Směrnice',o:'PH',v:'3.0',od:'1. 1. 2026',rev:'12/2026',sz:[41,42],g:'sm'},
+ {n:'Oběh účetních dokladů',t:'Směrnice',o:'MH',v:'2.1',od:'1. 4. 2026',rev:'3/2027',sz:[12,12],g:'sm'},
+ {n:'Ochrana osobních údajů klientů',t:'Směrnice',o:'KN',v:'1.4',od:'1. 9. 2026',rev:'8/2027',sz:[33,42],g:'sm',novy:1},
+ {n:'Sdílení dokumentů s externími partnery',t:'Pravidlo',o:'DP',v:'1.0',od:'1. 10. 2026',rev:'9/2027',sz:[19,42],g:'sm',novy:1},
+ {n:'Předání bytu klientovi',t:'Postup',o:'LS',v:'2.0',od:'15. 5. 2026',rev:'5/2027',sz:[14,15],g:'po'},
+ {n:'Reklamační řád',t:'Postup',o:'EM',v:'1.3',od:'1. 2. 2026',rev:'1/2027',sz:[15,15],g:'po'},
+ {n:'Návštěva staveniště – bezpečnost',t:'Postup',o:'RS',v:'1.1',od:'1. 3. 2026',rev:'2/2027',sz:[38,42],g:'po'},
+ {n:'Provozní řád parkovacího domu',t:'Řád',o:'VK',v:'2.0',od:'1. 7. 2025',rev:'6/2026',sz:null,g:'po',po:1},
+ {n:'Rezervační smlouva',t:'Vzor',o:'LS',v:'5.0',od:'1. 6. 2026',rev:'–',sz:null,g:'vz'},
+ {n:'Smlouva o smlouvě budoucí kupní',t:'Vzor',o:'LS',v:'4.2',od:'1. 6. 2026',rev:'–',sz:null,g:'vz'},
+ {n:'Žádost o přístup pro externího partnera',t:'Formulář',o:'DP',v:'1.0',od:'1. 10. 2026',rev:'–',sz:null,g:'vz'},
+ {n:'Cestovní náhrady',t:'Směrnice',o:'MH',v:'1.2',od:'1. 1. 2026',rev:'12/2026',sz:[40,42],g:'sm'}
+];
+
+var NEWS = [
+ {k:'Projekty',t:'Bytový dům Hvězdová: kolaudace podána, předávání bytů začíná v listopadu',m:'Jan Kučera · dnes',art:0},
+ {k:'Firma',t:'Nový intranet: co v něm najdete a kde začít',m:'Klára Němcová · včera',art:1},
+ {k:'Prodej',t:'Ponava City VI: první měsíc prodeje nad plán',m:'Lenka Svobodová · 2. 10.',art:2},
+ {k:'Lidé',t:'Vítáme Terezu a Radka',x:'Tereza posílí marketing, Radek přípravu staveb. Najdete je v Kdo je kdo.',m:'Klára Němcová · 1. 10.',art:3},
+ {k:'Směrnice',t:'Nové pravidlo pro sdílení dokumentů s externisty',x:'Platí od 1. 10. Potvrďte prosím seznámení – trvá dvě minuty.',m:'David Procházka · 30. 9.',art:4},
+ {k:'Akce',t:'Firemní setkání 14. listopadu – přihlášky do konce října',x:'Program, místo a doprava v události v kalendáři.',m:'Klára Němcová · 29. 9.',art:5}
+];
+var UDALOSTI = [
+ ['9. 10.','Kontrolní den – Ponava City V','staveniště · 9:00'],
+ ['14. 10.','Porada vedení','zasedačka 3. NP · 8:30'],
+ ['21. 10.','Školení: práce s novým portálem','Teams · 13:00'],
+ ['14. 11.','Firemní setkání','Dolní Morava']
+];
+
+var TERMINY = [
+ ['P-2021-02','Kontrolní den č. 42','v pátek','p-cat'],
+ ['P-2022-04','Konec přístupu dodavatele stavby','za 13 dnů','p-open'],
+ ['P-2024-05','Výběr dodavatele – podání nabídek','za 18 dnů','p-cat'],
+ ['P-2021-02','Kolaudace – podání žádosti','za 6 týdnů','p-cat']
+];
+
+var KANALY = [
+ ['Obecné','celý interní tým','kořen knihovny','dnes 08:12'],
+ ['Projekce','tým + architekt (sdílený kanál)','03 Projektová dokumentace','dnes 07:55'],
+ ['Realizace','tým + dodavatel a dozor (sdílený kanál)','05 Realizace','včera 17:20'],
+ ['Prodej','obchodní tým (soukromý kanál)','07 Prodej a klienti','včera 16:40'],
+ ['Vedení projektu','PM + vedení (soukromý kanál)','01, 04, 06','6. 10.']
+];
+
+var MILNIKY = [
+ ['3/2023','Povolení záměru nabylo právní moci','done'],
+ ['6/2023','Smlouva o dílo s dodavatelem stavby','done'],
+ ['9/2023','Zahájení výstavby','done'],
+ ['5/2025','Hrubá stavba dokončena','done'],
+ ['11/2026','Podání žádosti o kolaudaci',''],
+ ['12/2026','Předávání bytů klientům','']
+];
+
+var HISTORIE = [
+ ['dnes 08:12','<b>Ondřej Malý</b> uložil Zápis z kontrolního dne č. 41 do 05 Realizace'],
+ ['dnes 07:55','<b>Ing. arch. Tomáš Brázda</b> (host) nahrál Změnový list ZL-17, verze 2.1'],
+ ['6. 10. 14:20','<b>Lenka Svobodová</b> prodloužila přístup Hypo poradci s.r.o. do 31. 10. 2026'],
+ ['2. 10. 09:03','<b>Portál</b> upozornil vlastníka, že přístup Hypo poradci s.r.o. končí za 30 dnů'],
+ ['15. 9. 10:44','<b>Ondřej Malý</b> pozval Stavby Morava a.s. jako dodavatele stavby · 05 Realizace, 09 Kolaudace'],
+ ['1. 9. 08:00','<b>Portál</b> doplnil projekt na revizi 4 šablony · přibyla složka 09 / Reklamace'],
+ ['14. 3. 2023 11:20','<b>Portál</b> založil projekt ze šablony Bytový projekt · web, 10 složek, tým v Teams, 4 skupiny · 52 s']
+];
+
+var SABLONY = [
+ {id:'b',t:'Bytový projekt',rev:4,dt:'1. 9. 2026',l1:10,l2:27,kan:5,use:10,d:'Bytové domy a etapové projekty. Deset hlavních složek od pozemku po předání, oddělený prodej a financování, kanály pro architekta a dodavatele stavby.'},
+ {id:'r',t:'Rodinné domy',rev:2,dt:'12. 6. 2026',l1:10,l2:24,kan:4,use:1,d:'Jako bytový projekt, ale s klientskými složkami po domech a jednodušší kolaudací po etapách.'},
+ {id:'n',t:'Nemovitost v nájmu',rev:3,dt:'20. 8. 2026',l1:7,l2:18,kan:3,use:2,d:'Provoz a správa: nájemci a smlouvy, revize a kontroly, servis, energie, pojištění. Bez prodeje a výstavby.'}
+];
+var DIFF = [
+ ['add','Složka','<b>09 / Reklamace</b> – nová vedlejší složka pro reklamace po předání'],
+ ['chg','Oprávnění','<b>07 Prodej a klienti</b> – role Hypoteční partner smí číst Ceník a dostupnost'],
+ ['add','Vzorový dokument','<b>Předávací protokol – vzor.docx</b> ve složce 09 / Předávací protokoly'],
+ ['add','Kanál Teams','<b>Vedení projektu</b> – soukromý kanál pro PM a vedení']
+];
+
+var ROLE_SABLONY = [
+ {r:'Projektový manažer',o:'OM',p:'Úplné řízení – celý projekt',pov:1},
+ {r:'Zástupce PM',o:'JK',p:'Úplné řízení – celý projekt',pov:1},
+ {r:'Produkční tým',o:'skupina Produkční tým',p:'Upravovat – 02, 03, 05, 09, 10'},
+ {r:'Obchodní tým',o:'skupina Obchodní tým',p:'Upravovat – 07, 08 · číst 03, 05, 09'},
+ {r:'Ekonomika',o:'skupina Ekonomika',p:'Upravovat – 04, 06'},
+ {r:'Architekt (host)',o:'pozvat později',p:'03 Projektová dokumentace'}
+];
+
+var CEKA = [
+ ['am','check','Žádost o přístup','Hypo poradci s.r.o. chtějí vidět ceník Ponava City VI','P-2024-05 · Lenka Svobodová · dnes 07:10','s9'],
+ ['rd','clock','Končí přístup partnera','Stavby Morava a.s. – Bytový dům Hvězdová','P-2022-04 · za 13 dnů · prodloužit nebo ukončit','s9'],
+ ['ac','doc','Ke schválení','Změnový list ZL-17 – úprava zábradlí lodžií','P-2021-02 · Ing. arch. Tomáš Brázda · dnes 07:55','s5'],
+ ['ac','grid','Šablona se změnila','Bytový projekt · revize 3 → 4','3 běžící projekty lze doplnit','s10']
+];
+
+/* ══════════════════════ Ikony ══════════════════════ */
+var IC = {
+ home:'<path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1Z"/>',
+ list:'<path d="M4 6h16M4 12h16M4 18h16"/>',
+ doc:'<path d="M4 19.5V5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2Z"/><path d="M8 7h7M8 11h7"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ check:'<path d="M12 3a9 9 0 1 0 9 9"/><path d="m9 12 2 2 4-5"/>',
+ grid:'<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
+ shield:'<path d="M12 3 4 6v6c0 4.5 3.2 8.3 8 9 4.8-.7 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/>',
+ fold:'<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>',
+ search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>',
+ cal:'<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+ news:'<path d="M4 5h13v14H6a2 2 0 0 1-2-2Z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M7.5 9h6M7.5 12.5h6M7.5 16h4"/>',
+ lock:'<rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.7 5.7 3.7 9s-1.2 6.3-3.7 9c-2.5-2.7-3.7-5.7-3.7-9S9.5 5.7 12 3Z"/>',
+ flag:'<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>',
+ teams:'<rect x="3" y="6" width="11" height="12" rx="2"/><path d="M6 10h5M8.5 10v5"/><circle cx="18" cy="7.5" r="2"/><path d="M15.5 11h5v4a2.5 2.5 0 0 1-5 0"/>',
+ up:'<path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/>',
+ info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>',
+ diff:'<path d="M6 3v12M18 9v12M3 6h6M15 18h6"/>',
+ key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M15 8l2 2"/>',
+ link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+ building:'<path d="M4 21V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v16M15 10h4a1 1 0 0 1 1 1v10M2 21h20"/><path d="M8 8h3M8 12h3M8 16h3"/>',
+ help:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.9.7c0 1.7-2.4 2.1-2.4 3.8M12 17v.3"/>',
+ refresh:'<path d="M20 11a8 8 0 0 0-14.5-4.5L4 8M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.5 4.5L20 16M20 20v-4h-4"/>',
+ share:'<circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"/>',
+ coins:'<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>'
+};
+function svg(p,sz){return '<svg width="'+(sz||16)+'" height="'+(sz||16)+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>';}
+
+/* ══════════════════════ Pomocné ══════════════════════ */
+function $(s){return document.querySelector(s);}
+function $$(s){return [].slice.call(document.querySelectorAll(s));}
+var OSOBY={}; LIDE.concat(PARTNERI).forEach(function(o){OSOBY[o.id]=o;});
+function os(id){return OSOBY[id]||{n:id,r:'',a:'',id:id};}
+function ini(n){return n.replace(/Ing\.|arch\.|a\.s\.|s\.r\.o\./g,'').replace(/[().]/g,'').split(' ').filter(function(w){return w[0]&&w[0]===w[0].toUpperCase();}).map(function(w){return w[0];}).slice(0,2).join('');}
+function av(id){var o=os(id);return '<span class="avatar '+(o.a||'')+'">'+ini(o.n)+'</span>';}
+function proj(kod){return PROJEKTY.filter(function(p){return p.kod===kod;})[0];}
+function fazeT(k){return k==='naj'?'V nájmu':FAZE[FAZE_IX[k]].t;}
+var FAZE_PILL={pri:'p-arch',pov:'p-new',pro:'p-new',rea:'p-sent',pre:'p-open',zar:'p-closed',naj:'p-book'};
+function fazePill(k){return '<span class="pill '+FAZE_PILL[k]+'"><span class="d"></span>'+fazeT(k)+'</span>';}
+function hydrateIcons(root){[].slice.call((root||document).querySelectorAll('[data-ic]')).forEach(function(e){if(!e.firstChild)e.innerHTML=svg(IC[e.getAttribute('data-ic')]||IC.info,e.classList.contains('icbox')?15:16);});}
+
+/* Ilustrace – abstraktní siluety domů, žádné cizí obrázky */
+function art(seed,h){
+  var bgs=[['#7A0115','#C80225'],['#2B2522','#5C4C44'],['#B0491F','#E38965'],['#3B3330','#8C7466'],['#8E0119','#E0465A'],['#4A3F3A','#A8968A']];
+  var c=bgs[seed%bgs.length], s='<svg viewBox="0 0 400 '+(h||200)+'" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g'+seed+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="400" height="'+(h||200)+'" fill="url(#g'+seed+')"/>';
+  var x=10, r=seed*7+3, H=h||200;
+  while(x<400){
+    r=(r*9301+49297)%233280; var w=40+(r%50); r=(r*9301+49297)%233280; var bh=50+(r%110);
+    s+='<rect x="'+x+'" y="'+(H-bh)+'" width="'+w+'" height="'+bh+'" fill="rgba(255,255,255,.10)"/>';
+    for(var wy=H-bh+12;wy<H-10;wy+=16){for(var wx=x+8;wx<x+w-10;wx+=13){r=(r*9301+49297)%233280;
+      s+='<rect x="'+wx+'" y="'+wy+'" width="6" height="8" fill="rgba(255,255,255,'+(r%5===0?'.55':'.16')+')"/>';}}
+    x+=w+6;
+  }
+  return s+'</svg>';
+}
+
+var undoFn=null,toastT=null;
+function toast(t,u){
+  $('#toast-t').innerHTML=t; var b=$('#toast-u'); undoFn=u||null; b.hidden=!u;
+  $('#toast').classList.add('on'); clearTimeout(toastT);
+  toastT=setTimeout(function(){$('#toast').classList.remove('on');},u?7000:3800);
+}
+$('#toast-u').addEventListener('click',function(){if(undoFn){undoFn();$('#toast').classList.remove('on');}});
+document.addEventListener('click',function(e){var t=e.target.closest('[data-toast]');if(t)toast(t.getAttribute('data-toast'));});
+
+function modal(title,body,footer,wide){
+  $('#m-t').textContent=title; $('#m-b').innerHTML=body;
+  $('#m-f').innerHTML=footer||'<button class="btn ghost" data-mx>Zavřít</button>';
+  $('#modal').classList.toggle('wide',!!wide); $('#mask').classList.add('on'); hydrateIcons($('#modal'));
+}
+function closeModal(){$('#mask').classList.remove('on');}
+$('#m-x').addEventListener('click',closeModal);
+$('#mask').addEventListener('click',function(e){if(e.target===$('#mask')||e.target.closest('[data-mx]'))closeModal();});
+
+/* ══════════════════════ Role ══════════════════════
+   Přepínač role je ukázkový nástroj, ne bezpečnostní model. O tom, co kdo
+   skutečně uvidí, rozhodují oprávnění SharePointu – ne skryté položky menu. */
+var ROLE='VE';
+var ROLES={
+ VE:{id:'PH',lbl:'Vedení společnosti',nav:null,greet:'Dobré ráno, Petro.',hl:'Co je u nás nového.',
+   mine:function(p){return p.faz!=='naj';},
+   s2h:'Přehled firmy.',s2hl:'Projekty, přístupy, rozhodnutí.',
+   s2sub:'Vedení vidí všechny projekty včetně důvěrných, kolik externích partnerů do nich má přístup a co čeká na rozhodnutí.'},
+ PM:{id:'OM',lbl:'Projektový manažer',nav:['s1','s2','s3','s5','s6','s7','s8'],greet:'Dobré ráno, Ondřeji.',hl:'Kontrolní den je v pátek.',
+   mine:function(p){return p.pm==='OM';},
+   s2h:'Moje práce.',s2hl:'Tři projekty, jeden změnový list.',
+   s2sub:'Projektový manažer vidí své projekty, termíny, co čeká na jeho rozhodnutí a co na jeho projektech kdo uložil – včetně partnerů zvenku.'},
+ OB:{id:'LS',lbl:'Obchodní tým',nav:['s1','s2','s3','s5','s7','s8'],greet:'Dobré ráno, Lenko.',hl:'Ceník Ponava VI je venku.',
+   mine:function(p){return p.faz!=='naj'&&p.faz!=='pri'&&p.faz!=='pov'&&p.prod<100;},
+   s2h:'Moje práce.',s2hl:'Prodej, klientské změny, předání.',
+   s2sub:'Obchodní tým vidí projekty v prodeji a složky prodeje, marketingu a předání. Rozpočty, smlouvy s dodavateli a pozemky vidět nepotřebuje – a nevidí je.'},
+ OF:{id:'KN',lbl:'Office',nav:['s1','s2','s5','s7','s8'],greet:'Dobré ráno, Kláro.',hl:'Dvě aktuality čekají na zveřejnění.',
+   mine:function(p){return false;},
+   s2h:'Moje práce.',s2hl:'Intranet, směrnice, lidé.',
+   s2sub:'Office se stará o intranet: aktuality, kalendář, adresář a firemní dokumenty. Do projektových dokumentů nevidí – nepotřebuje to.'},
+ EX:{id:'TB',lbl:'Externí architekt',nav:['s2','s5'],greet:'Dobrý den, pane Brázdo.',hl:'Dva projekty, jedna složka v každém.',
+   mine:function(p){return p.kod==='P-2021-02'||p.kod==='P-2023-03';},
+   s2h:'Dobrý den, pane Brázdo.',s2hl:'Vaše projekty u IMOS.',
+   s2sub:'Externí partner vidí jen projekty a složky, ke kterým ho projektový manažer pozval – a jen do data konce přístupu. Intranet, lidé ani ostatní projekty pro něj neexistují.'}
+};
+function R(){return ROLES[ROLE];}
+function canSee(p){
+  if(ROLE==='EX')return R().mine(p);
+  if(ROLE==='OF')return p.faz==='naj';
+  if(p.duv)return ROLE==='VE'||(ROLE==='PM'&&p.pm===R().id);
+  if(ROLE==='OB')return p.faz!=='naj';
+  return true;
+}
+
+/* ══════════════════════ Levé menu ══════════════════════ */
+var NAV=[
+ {g:'Každý den'},
+ {s:'s1',i:IC.home,l:'Intranet'},
+ {s:'s2',i:IC.check,l:'Moje práce',c:'ceka',hot:1},
+ {s:'s5',i:IC.doc,l:'Dokumenty'},
+ {g:'Projekty'},
+ {s:'s3',i:IC.building,l:'Katalog projektů',c:'kat'},
+ {s:'s6',i:IC.plus,l:'Nový projekt'},
+ {g:'Firma'},
+ {s:'s7',i:IC.shield,l:'Firemní dokumenty'},
+ {s:'s8',i:IC.users,l:'Lidé a týmy'},
+ {g:'Správa'},
+ {s:'s9',i:IC.key,l:'Přístupy',c:'nal'},
+ {s:'s10',i:IC.grid,l:'Šablony projektů'}
+];
+function counts(){return {kat:PROJEKTY.filter(canSee).length,ceka:cekaList().length,nal:NALEZY.length};}
+function renderSide(){
+  var c=counts(), r=R(), me=os(r.id), allow=r.nav;
+  var vis=NAV.filter(function(it){return it.g||!allow||allow.indexOf(it.s)>-1;});
+  vis=vis.filter(function(it,i){return !it.g||(vis[i+1]&&!vis[i+1].g);});
+  $$('[data-side]').forEach(function(host){
+    var act=host.getAttribute('data-side');
+    var h='<aside class="side"><div class="side-brand"><span class="side-mark">'+svg(IC.building,18)+'</span>'+
+      '<span><span class="side-t">IMOS development</span><span class="side-s">'+(ROLE==='EX'?'Portál pro partnery':'Intranet a projekty')+'</span></span></div>'+
+      '<button class="side-srch" data-pal="1">'+svg(IC.search,15)+'<span class="lbl">Hledat projekt nebo akci…</span><kbd>Ctrl K</kbd></button><nav class="nav">';
+    vis.forEach(function(it){
+      if(it.g){h+='<div class="nav-h">'+it.g+'</div>';return;}
+      var n=it.c?('<span class="n'+(it.hot&&c[it.c]?' hot':'')+'">'+c[it.c]+'</span>'):'';
+      h+='<button data-go="'+it.s+'" data-nav="'+it.s+'" class="'+(it.s===act?'on':'')+'">'+svg(it.i,17)+'<span class="lbl">'+it.l+'</span>'+n+'</button>';
+    });
+    h+='</nav><div class="side-f"><div class="side-u">'+av(me.id)+'<span><span class="nm">'+me.n+'</span><div class="rl">'+r.lbl+'</div></span></div></div></aside>';
+    var d=document.createElement('div'); d.setAttribute('data-side',act); d.innerHTML=h;
+    host.parentNode.replaceChild(d,host);
+  });
+}
+
+/* ══════════════════════ Navigace ══════════════════════ */
+var CUR_SCR='s0';
+function go(s){
+  if(!$('#'+s))s='s0';
+  var allow=R().nav;
+  if(allow&&s!=='s0'&&s!=='s4'&&allow.indexOf(s)<0){toast('Role <b>'+R().lbl+'</b> tuto obrazovku v menu nemá. Přepněte roli v liště nahoře.');s=allow[0];}
+  CUR_SCR=s;
+  $$('.screen').forEach(function(x){x.classList.toggle('on',x.id===s);});
+  $$('.side .nav button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-nav')===(s==='s4'?'s3':s));});
+  if(location.hash!=='#'+s)history.replaceState(null,'','#'+s);
+  window.scrollTo(0,0);
+}
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-go]'); if(!b)return;
+  go(b.getAttribute('data-go'));
+});
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-kod]'); if(!t)return;
+  openProj(t.getAttribute('data-kod'));
+});
+/* Pětice ikon v hlavičce každé obrazovky (DS 10.3) */
+function renderActs(){
+  $$('[data-acts]').forEach(function(a){
+    if(a.getAttribute('data-done'))return; a.setAttribute('data-done','1');
+    var h='<button class="icobtn" title="Obnovit" data-toast="Načteno znovu.">'+svg(IC.refresh,15)+'</button>'+
+      '<button class="icobtn" title="Sdílet odkaz" data-toast="Odkaz na tuto obrazovku zkopírován. Otevře ho jen ten, kdo má přístup.">'+svg(IC.share,15)+'</button>'+
+      '<span class="vline"></span><button class="icobtn" title="Nápověda" data-tour-open>'+svg(IC.help,15)+'</button>';
+    a.insertAdjacentHTML('afterbegin',h+(a.children.length>0?'<span class="vline"></span>':''));
+  });
+}
+
+/* ══════════════════════ Úvod ══════════════════════ */
+function renderIntro(){
+  $('#ic-tour').innerHTML=svg(IC.flag,20); $('#ic-info').innerHTML=svg(IC.info,16);
+  var cards=[
+   ['fold','Organizace dokumentace','Každý projekt má stejnou strukturu od pozemku po předání. Firemní směrnice a postupy mají vlastní místo s jedinou platnou verzí.','s4'],
+   ['building','Projektové týmy a prostory','Jeden projekt = jeden web pro dokumenty a jeden tým v Teams. Založené ze šablony za minutu, pokaždé stejně.','s3'],
+   ['key','Přístupová práva','Přístup dostává role, ne člověk. Architekt nebo dodavatel stavby vidí jen své složky – a jen do data konce.','s9'],
+   ['teams','Spolupráce týmů','Produkční a obchodní tým, architekt i dozor pracují nad týmiž dokumenty. Žádné přílohy v e-mailu, žádné kopie.','s2'],
+   ['news','Firemní intranet','Aktuality, lidé, kalendář, firemní dokumenty a rozcestník na jednom místě – ve vašich barvách.','s1']];
+  $('#intro-grid').innerHTML=cards.map(function(c){
+    return '<div class="intro-card" '+(c[3]==='s4'?'data-kod="P-2021-02"':'data-go="'+c[3]+'"')+'><div class="intro-ic">'+svg(IC[c[0]],19)+'</div><h3>'+c[1]+'</h3><p>'+c[2]+'</p></div>';}).join('');
+  var map=[
+   ['Organizace projektové dokumentace','<span data-kod="P-2021-02">Karta projektu → Struktura</span>','SharePoint – knihovna projektu, verze, metadata'],
+   ['Organizace provozní dokumentace','<span data-go="s7">Firemní dokumenty</span>','SharePoint + EasyPortal 365 Řízené dokumenty'],
+   ['Struktura projektových týmů a prostorů','<span data-go="s3">Katalog projektů</span> · <span data-go="s6">Nový projekt</span>','SharePoint weby a Teams + EasyPortal 365 Řízené weby'],
+   ['Správa a řízení přístupových práv','<span data-go="s9">Přístupy a oprávnění</span>','Skupiny Entra ID, oprávnění SharePointu + EasyPortal 365 Identity Manager a Atlas'],
+   ['Spolupráce týmů nad dokumenty','<span data-go="s2">Moje práce</span> · <span data-kod="P-2021-02">Karta projektu → Teams</span>','Teams – sdílené a soukromé kanály, společné úpravy'],
+   ['Firemní intranet','<span data-go="s1">Intranet</span> · <span data-go="s8">Lidé a týmy</span>','SharePoint komunikační web + EasyPortal 365 Workplace']];
+  $('#tb-map-intro').innerHTML=map.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+  $('#intro-phases').innerHTML=FAZE.map(function(f,i){
+    return '<div class="phz"><div class="n">'+String(i+1).padStart(2,'0')+'</div><div class="t">'+f.t+'</div><div class="d">'+f.d+'</div><div class="w">'+f.w+'</div></div>';}).join('')+
+    '<div class="phz" style="background:var(--ep-bg-3)"><div class="n">Souběžně</div><div class="t">Prodej</div><div class="d">Od projekce po předání: ceník, rezervace, klientské změny.</div><div class="w">obchodní tým · hypoteční partneři</div></div>';
+  var pr=[
+   ['Jeden projekt, jeden prostor','Web s knihovnou dokumentů a tým v Teams. Nic podstatného neleží v e-mailu, na síťovém disku ani v počítači jednoho člověka – a když projekt přebírá kolega, najde všechno na jednom místě.'],
+   ['Standard ze šablony, kterou spravujete vy','Šablonou je živý vzorový projekt. Když se standard změní, portál to pozná a nabídne doplnit změnu i do projektů, které už běží. Strukturu tak nedrží v hlavě jeden člověk.'],
+   ['Přístup dostává role, ne člověk','Lidé se do projektu přidávají do rolí a oprávnění se nastaví podle matice. Externí partner má vždy rozsah a datum konce. Čím méně ručních výjimek, tím méně chyb – a ty, které vzniknou, portál najde.'],
+   ['Intranet jako vstupní brána','Den začíná na intranetu: co je nového, kdo je kdo, kde je platná směrnice a odkaz na mé projekty. Intranet spravuje office, ne IT.']];
+  $('#intro-princ').innerHTML=pr.map(function(p,i){return '<li><span class="qn">0'+(i+1)+'</span><span><span class="qt">'+p[0]+'</span><span class="qd">'+p[1]+'</span></span></li>';}).join('');
+  var st=[
+   ['<b>Microsoft 365</b> – SharePoint, Teams, Entra ID','Dokumenty, verze, vyhledávání, týmová komunikace, účty a skupiny, oprávnění','všude'],
+   ['<b>EasyPortal 365 Workplace</b>','Intranet: aktuality, kalendář, adresář, rozcestník, firemní barvy','<span data-go="s1">Intranet</span>'],
+   ['<b>EasyPortal 365 Řízené dokumenty</b>','Platná verze, vlastník, revize, potvrzení seznámení','<span data-go="s7">Firemní dokumenty</span>'],
+   ['<b>EasyPortal 365 Řízené weby</b>','Zakládání projektů ze šablony, životní cyklus a archivace webů','<span data-go="s6">Nový projekt</span> · <span data-go="s10">Šablony</span>'],
+   ['<b>EasyPortal 365 Identity Manager a Atlas</b>','Skupiny a role, přehled přístupů, externí partneři, nálezy ve sdílení','<span data-go="s9">Přístupy</span>'],
+   ['<b>Projektový portál</b> – předmět návrhu','Nadstavba podle vašich procesů: Moje práce, katalog a karta projektu','<span data-go="s2">Moje práce</span> · <span data-go="s3">Katalog</span>'],
+   ['<b>Agendy dokladů</b> – navazující oblast','Faktury, smlouvy, objednávky a další doklady s účetní a právní vahou (ARICOMA TreeINFO)','odkaz z intranetu']];
+  $('#tb-stack').innerHTML=st.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+  var q=[
+   ['Kdo bude s portálem pracovat','Kolik lidí, v jakých týmech a kdo z nich patří k IMOS development, IMOS facility nebo dalším firmám skupiny? Sdílíte jeden tenant Microsoft 365?'],
+   ['Kde jsou dokumenty dnes','Síťový disk, e-mail, OneDrive, jiný systém? Co z Microsoftu 365 už používáte – Teams, SharePoint, OneDrive?'],
+   ['Projekty a partneři','Kolik projektů běží současně a s kolika externími partnery na nich pracujete – architekti, dodavatelé, dozor, makléři?'],
+   ['Kdo bude standard vlastnit','Kdo rozhodne o struktuře projektu a rolích – produkční tým, vedení, IT? Kdo bude zakládat nové projekty?'],
+   ['Intranet','Co přesně kolegyně od intranetu čeká – aktuality, adresář, směrnice, žádanky, rezervace? Kdo bude obsah psát?'],
+   ['Citlivé oblasti','Které dokumenty mají být vidět jen vedení – pozemky, financování, smlouvy s dodavateli? Jsou projekty, o kterých se nesmí vědět dřív, než je oznámíte?']];
+  $('#intro-q').innerHTML=q.map(function(p,i){return '<li><span class="qn">Q'+(i+1)+'</span><span><span class="qt">'+p[0]+'</span><span class="qd">'+p[1]+'</span></span></li>';}).join('');
+  var nx=[
+   ['Workshop','Půldenní workshop nad jedním vaším skutečným projektem: struktura, role, přístupy partnerů a co patří na intranet. Výstupem je odsouhlasený standard.'],
+   ['Pilot','Jeden běžící projekt a intranet v základní podobě na vašem tenantu. Lidé v něm pracují naostro, my sbíráme připomínky.'],
+   ['Rozšíření','Šablona podle zkušeností z pilotu, převod dalších projektů a stávajících dokumentů, zaškolení týmů.']];
+  $('#intro-next').innerHTML=nx.map(function(p,i){return '<li><span class="qn">'+(i+1)+'.</span><span><span class="qt">'+p[0]+'</span><span class="qd">'+p[1]+'</span></span></li>';}).join('');
+}
+
+/* ══════════════════════ Intranet ══════════════════════ */
+function renderIntra(){
+  var r=R();
+  $('#greet').innerHTML=r.greet+'<span class="hl">'+r.hl+'</span>';
+  $('#s1-eye').textContent='Pátek 9. října 2026 · '+r.lbl.toLowerCase();
+  $('#s1-sub').textContent='Úvodní stránka pro všechny zaměstnance. Aktuality, kalendář, lidé a odkazy na místa, kde se pracuje – projekty, firemní dokumenty a aplikace.';
+  $('#hero-news').innerHTML=NEWS.slice(0,3).map(function(n,i){
+    return '<div class="hn" data-news="'+i+'"><div class="ph-art">'+art(n.art,i===0?260:200)+'</div><div class="k">'+n.k+'</div><div class="t">'+n.t+'</div><div class="m">'+n.m+'</div></div>';}).join('');
+  $('#news-list').innerHTML=NEWS.slice(3).map(function(n,i){
+    return '<div class="ni" data-news="'+(i+3)+'"><div class="thumb">'+art(n.art,120)+'</div><div><div class="t">'+n.t+'</div><div class="x">'+(n.x||'')+'</div><div class="m">'+n.k+' · '+n.m+'</div></div></div>';}).join('');
+  var ql=[['building','Projekty','katalog','s3'],['shield','Firemní dokumenty','směrnice a vzory','s7'],['users','Kdo je kdo','lidé a týmy','s8'],
+          ['key','Žádost o přístup','pro partnera','t:Formulář žádosti o přístup pro externího partnera – schvaluje vlastník projektu.'],
+          ['coins','Faktury a smlouvy','TreeINFO','t:Odkaz do agendy dokladů (TreeINFO) – navazující oblast, kterou zajišťuje ARICOMA.'],
+          ['help','IT podpora','helpdesk','t:Hlášení pro IT – formulář nebo e-mail na podporu.'],
+          ['cal','Zasedačky','rezervace','t:Rezervace zasedaček přes kalendář Outlooku.'],
+          ['link','Web IMOS','imos-development.cz','t:Odkaz na veřejný web společnosti.']];
+  $('#qlinks').innerHTML=ql.map(function(q){
+    var a=q[3].indexOf('t:')===0?'data-toast="'+q[3].substring(2)+'"':'data-go="'+q[3]+'"';
+    return '<button class="ql" '+a+'><span class="qi">'+svg(IC[q[0]],15)+'</span><span>'+q[1]+'<small>'+q[2]+'</small></span></button>';}).join('');
+  var my=PROJEKTY.filter(function(p){return canSee(p)&&r.mine(p);}).slice(0,4);
+  $('#tb-my-intra').innerHTML=my.length?my.map(projRow).join(''):'<tr><td class="empty">Nejste členem žádného projektu. Projekty najdete v katalogu.</td></tr>';
+  $('#feed-events').innerHTML=UDALOSTI.map(function(u){
+    return '<div class="feed-i"><span class="feed-ic ac" style="font-family:var(--fm);font-size:10px;font-weight:700;width:44px">'+u[0]+'</span><div><div class="feed-t"><b>'+u[1]+'</b></div><div class="feed-m">'+u[2]+'</div></div></div>';}).join('');
+  $('#feed-people').innerHTML=NOVI.map(function(id){var o=os(id);
+    return '<div class="feed-i" data-go="s8">'+av(id)+'<div><div class="feed-t"><b>'+o.n+'</b></div><div class="feed-m">'+o.r+' · '+o.t+'</div></div></div>';}).join('');
+}
+document.addEventListener('click',function(e){
+  var n=e.target.closest('[data-news]'); if(!n)return; var x=NEWS[+n.getAttribute('data-news')];
+  modal(x.t,'<div style="border-radius:12px;overflow:hidden;height:180px;margin-bottom:14px">'+art(x.art,180)+'</div><p><b>'+x.k+'</b> · '+x.m+'</p><p>'+(x.x||'Text aktuality píše autor přímo na intranetu – bez IT, se schválením vedoucího, je-li potřeba.')+'</p><p class="note">Aktualitu lze zacílit na tým nebo projekt, připnout nahoru a poslat i e-mailem. Kdo ji četl, je vidět v přehledu.</p>');
+});
+function projRow(p){
+  return '<tr class="clic" data-kod="'+p.kod+'"><td><div class="t-pri">'+p.naz+'</div><div class="t-sub"><span class="t-id">'+p.kod+'</span> · '+p.lok+'</div></td>'+
+    '<td class="ta-r">'+fazePill(p.faz)+'<div class="t-sub">'+p.upd+'</div></td></tr>';
+}
+
+/* ══════════════════════ Moje práce ══════════════════════ */
+function cekaList(){
+  if(ROLE==='VE')return CEKA;
+  if(ROLE==='PM')return CEKA.slice(0,3);
+  if(ROLE==='OB')return [CEKA[0],['ac','doc','Klientská změna','Byt A.2.04 – kuchyň, čeká na nacenění','P-2023-01 · Eva Marková · včera','s5']];
+  if(ROLE==='OF')return [['am','news','Aktualita ke schválení','Firemní setkání – program a doprava','Klára Němcová · koncept','s1'],['ac','shield','Směrnice k revizi','Provozní řád parkovacího domu – revize prošla','vlastník Vladimír Krejčí · 6/2026','s7']];
+  return [['ac','doc','Připomínky k dokumentaci','Ponava City V – změnový list ZL-17 čeká na schválení PM','P-2021-02 · verze 2.1 · dnes','s5']];
+}
+function roleKpis(){
+  var mine=PROJEKTY.filter(function(p){return canSee(p)&&R().mine(p);});
+  var soon=EXTERNI.filter(function(x){return x.st;}).length;
+  if(ROLE==='VE')return [['Aktivní projekty',PROJEKTY.filter(function(p){return p.faz!=='naj'&&p.faz!=='zar';}).length,'','1 důvěrný · 2 nemovitosti v nájmu','s3'],
+    ['Externí přístupy',EXTERNI.length,'','partneři napříč projekty','s9'],
+    ['Končí nebo bez konce',soon,'amber','přístupy k rozhodnutí','s9'],
+    ['Nálezy v přístupech',NALEZY.length,'','1 vysoké závažnosti','s9'],
+    ['Čeká na mě',cekaList().length,'','rozhodnutí a schválení','s2']];
+  if(ROLE==='PM')return [['Moje projekty',mine.length,'',mine.filter(function(p){return p.faz==='rea';}).length+' v realizaci','s3'],
+    ['Čeká na mě',cekaList().length,'amber','schválení a přístupy','s2'],
+    ['Partneři v mých projektech',EXTERNI.filter(function(x){return proj(x.kod).pm==='OM';}).length,'','s datem konce přístupu','s3'],
+    ['Nové dokumenty',37,'','za posledních 7 dnů','s5']];
+  if(ROLE==='OB')return [['Projekty v prodeji',mine.length,'','',  's3'],
+    ['Klientské změny',6,'amber','k nacenění nebo schválení','s5'],
+    ['Předání v listopadu',23,'','Bytový dům Hvězdová','s3'],
+    ['Nový ceník',1,'green','Ponava City VI · říjen','s5']];
+  if(ROLE==='OF')return [['Aktuality tento měsíc',6,'','2 čekají na zveřejnění','s1'],
+    ['Potvrzení seznámení',FIRDOK.filter(function(d){return d.sz&&d.sz[0]<d.sz[1];}).length,'amber','směrnice, které ještě nečetli všichni','s7'],
+    ['Noví kolegové',NOVI.length,'','v adresáři od 1. 10.','s8'],
+    ['Nemovitosti v nájmu',2,'','provozní dokumentace','s5']];
+  return [['Projekty s přístupem',mine.length,'','Ponava City V · Rezidence Leitnerova','s2'],
+    ['Složky s přístupem',3,'','03 Projektová dokumentace, 05 Změny','s5'],
+    ['Nové dokumenty',4,'','za posledních 7 dnů','s5'],
+    ['Přístup platí do','31. 12.','','2026 · prodlužuje projektový manažer','s5']];
+}
+function renderMoje(){
+  var r=R();
+  $('#s2-eye').textContent='Pátek 9. října 2026 · '+r.lbl.toLowerCase();
+  $('#s2-h1').innerHTML=r.s2h+'<span class="hl">'+r.s2hl+'</span>';
+  $('#s2-sub').textContent=r.s2sub;
+  $('#kpis').innerHTML=roleKpis().map(function(x){
+    return '<div class="kpi" data-go="'+x[4]+'"><div class="kpi-l">'+x[0]+'</div><div class="kpi-v '+x[2]+'">'+x[1]+'</div><div class="kpi-s">'+x[3]+'</div></div>';}).join('');
+  var rows=PROJEKTY.filter(function(p){return canSee(p)&&(ROLE==='VE'?p.faz!=='naj'&&p.faz!=='zar':r.mine(p));});
+  $('#card-moje .card-t').textContent=ROLE==='VE'?'Projekty firmy':ROLE==='OF'?'Nemovitosti v nájmu':'Moje projekty';
+  if(ROLE==='OF')rows=PROJEKTY.filter(function(p){return p.faz==='naj';});
+  $('#tb-moje').innerHTML=rows.length?rows.slice(0,6).map(projRow).join(''):'<tr><td class="empty">Žádné projekty.</td></tr>';
+  var term=TERMINY.filter(function(t){var p=proj(t[0]);return canSee(p)&&(ROLE==='VE'||r.mine(p));});
+  $('#tb-term').innerHTML=term.length?term.map(function(t){
+    return '<tr class="clic" data-kod="'+t[0]+'"><td><div class="t-pri">'+t[1]+'</div><div class="t-sub"><span class="t-id">'+t[0]+'</span> · '+proj(t[0]).naz+'</div></td><td class="ta-r"><span class="pill '+t[3]+'"><span class="d"></span>'+t[2]+'</span></td></tr>';}).join('')
+    :'<tr><td class="empty">Žádné termíny v nejbližších týdnech.</td></tr>';
+  $('#feed-ceka').innerHTML=cekaList().map(function(c){
+    return '<div class="feed-i" data-go="'+c[5]+'"><span class="feed-ic '+c[0]+'">'+svg(IC[c[1]],15)+'</span><div><div class="feed-t"><b>'+c[2]+'</b><br>'+c[3]+'</div><div class="feed-m">'+c[4]+'</div></div></div>';}).join('');
+  $('#feed-dok').innerHTML=dokVisible().slice(0,5).map(function(d){
+    return '<div class="feed-i" data-go="s5"><span class="feed-ic ac">'+svg(IC.doc,14)+'</span><div><div class="feed-t">'+d.n+'</div><div class="feed-m">'+d.p+' · '+os(d.a).n+' · '+d.d+'</div></div></div>';}).join('');
+  var f=$('#s2-foot2');
+  if(r.nav){f.hidden=false;f.innerHTML='<b>Menu se zúžilo, ale to samo o sobě nic nechrání.</b> Role '+r.lbl+' má v menu '+r.nav.length+' položek. O tom, co tato osoba skutečně otevře, rozhodují oprávnění SharePointu – skrytá položka menu není bezpečnostní opatření. Přepínač role v liště je ukázkový nástroj, ne součást portálu.';}
+  else f.hidden=true;
+}
+
+/* ══════════════════════ Katalog ══════════════════════ */
+var KAT_F='vse';
+var KAT_CH=[['vse','Vše'],['moje','Moje'],['pri','Příprava a povolení'],['pro','Projekce'],['rea','Realizace'],['pre','Předání a záruky'],['naj','V nájmu']];
+function katMatch(p,f){
+  if(f==='vse')return true; if(f==='moje')return R().mine(p);
+  if(f==='pri')return p.faz==='pri'||p.faz==='pov'; if(f==='pre')return p.faz==='pre'||p.faz==='zar';
+  return p.faz===f;
+}
+function renderKat(){
+  var base=PROJEKTY.filter(canSee), q=($('#f-q').value||'').toLowerCase().trim();
+  $('#kat-chips').innerHTML=KAT_CH.map(function(c){
+    var n=base.filter(function(p){return katMatch(p,c[0]);}).length;
+    return '<button class="'+(c[0]===KAT_F?'on':'')+'" data-kf="'+c[0]+'">'+c[1]+' <span class="mono" style="font-size:10px">'+n+'</span></button>';}).join('');
+  var rows=base.filter(function(p){return katMatch(p,KAT_F)&&(!q||(p.naz+' '+p.lok+' '+p.kod+' '+os(p.pm).n).toLowerCase().indexOf(q)>-1);});
+  $('#tb-kat').innerHTML=rows.length?rows.map(function(p){
+    return '<tr class="clic" data-kod="'+p.kod+'"><td><div class="t-pri">'+p.naz+(p.duv?' <span class="lock">'+svg(IC.lock,10)+' důvěrný</span>':'')+'</div><div class="t-sub"><span class="t-id">'+p.kod+'</span> · '+p.lok+'</div></td>'+
+      '<td><span class="t-sub" style="margin:0">'+p.typ+'</span></td><td>'+fazePill(p.faz)+(p.prod!=null&&p.faz!=='pri'&&p.faz!=='pov'?'<div class="t-sub">prodáno '+p.prod+' %</div>':'')+'</td>'+
+      '<td><span class="who">'+av(p.pm)+'<span class="n">'+os(p.pm).n+'</span></span></td>'+
+      '<td class="mono">'+p.ext+'</td><td class="mono">'+p.upd+'</td></tr>';}).join('')
+    :'<tr><td colspan="6" class="empty">Filtru neodpovídá žádný projekt.</td></tr>';
+  $('#kat-info').textContent='Zobrazeno '+rows.length+' z '+base.length+' projektů'+(base.length<PROJEKTY.length?' · ostatní vám oprávnění nezobrazí':'');
+}
+$('#kat-chips').addEventListener('click',function(e){var b=e.target.closest('[data-kf]');if(!b)return;KAT_F=b.getAttribute('data-kf');renderKat();});
+$('#f-q').addEventListener('input',renderKat);
+
+/* ══════════════════════ Karta projektu ══════════════════════ */
+var CUR=PROJEKTY[0];
+var STRUKTURA_N=[['01','Nájemci a smlouvy',['Smlouvy','Předávací protokoly','Korespondence s nájemci']],['02','Revize a kontroly',['Výtahy','Elektro','Požární ochrana']],['03','Servis a údržba',['Objednávky','Servisní smlouvy']],['04','Energie',[]],['05','Pojištění',[]],['06','Technická dokumentace',['Výkresy skutečného provedení','Pasport']],['07','Ekonomika',['Rozpočet provozu','Fakturace'],'o']];
+function struct(p){return p.typ==='Nemovitost v nájmu'?STRUKTURA_N:STRUKTURA;}
+function openProj(kod){
+  var p=proj(kod); if(!p)return;
+  if(!canSee(p)){toast('Projekt <b>'+p.naz+'</b> role '+R().lbl+' neuvidí – nemá k němu přístup.');return;}
+  CUR=p; go('s4');
+  $('#pv-crumb').textContent=p.naz;
+  $('#pv-eye').textContent=p.kod+' · '+p.typ+' · '+p.lok;
+  $('#pv-naz').innerHTML=p.naz+'.<span class="hl">'+(p.faz==='naj'?'Provoz a správa.':'Fáze '+fazeT(p.faz).toLowerCase()+'.')+'</span>';
+  $('#pv-sub').textContent=p.faz==='naj'?'Nemovitost v nájmu má vlastní šablonu: nájemci, revize, servis a energie. Spravuje ji správa nemovitostí.'
+    :'Projektový manažer '+os(p.pm).n+(p.byt?' · '+p.byt+' bytů':'')+(p.dokon&&p.dokon!=='–'?' · dokončení '+p.dokon:'')+' · '+p.dok+' dokumentů · '+p.ext+' externí partneři';
+  $('#pv-tpl').textContent=p.typ;
+  if(p.faz==='naj'){$('#pv-phase').innerHTML='';}
+  else{var ix=FAZE_IX[p.faz];
+    $('#pv-phase').innerHTML=FAZE.map(function(f,i){return '<div class="pb '+(i<ix?'done':i===ix?'on':'')+'">'+f.t+'<small>'+(i<ix?'hotovo':i===ix?'probíhá':'')+'</small></div>';}).join('')+
+      (p.prod!=null&&ix>=2?'<div class="pb" style="flex:.8;border-top-color:var(--ep-amber);background:#FEF6E7;color:#8A5A00">Prodej<small>prodáno '+p.prod+' %</small></div>':'');}
+  renderTree(); selFolder(null);
+  var tym=[[p.pm,'Projektový manažer','Úplné řízení · celý projekt'],['PH','Vedení společnosti','Úplné řízení · celý projekt'],['RS','Technik přípravy','Upravovat · 02, 03, 05, 09'],['ZD','Inženýring a povolení','Upravovat · 02 Povolení'],['LS','Obchodní tým','Upravovat · 07, 08'],['MH','Ekonomika','Upravovat · 04, 06']];
+  if(p.faz==='naj')tym=[['VK','Správce nemovitosti','Úplné řízení'],['SN','Technik správy','Upravovat · 01–06'],['MH','Ekonomika','Upravovat · 07']];
+  $('#pv-tym').innerHTML=tym.map(function(t){return '<div class="pr">'+av(t[0])+'<div><div class="n">'+os(t[0]).n+'</div><div class="r">'+t[1]+'</div></div><div class="x">'+t[2]+'</div></div>';}).join('');
+  var ext=EXTERNI.filter(function(x){return x.kod===p.kod;});
+  if(ROLE==='EX')ext=ext.filter(function(x){return x.p==='TB';});
+  $('#pv-n-tym').textContent=tym.length+ext.length;
+  $('#pv-ext').innerHTML=ext.length?ext.map(extPerson).join(''):'<p class="note">V projektu nejsou žádní externí partneři.</p>';
+  $('#pv-mil').innerHTML=(p.kod==='P-2021-02'?MILNIKY:MILNIKY.slice(0,3)).map(function(m){
+    return '<div class="tl-i"><time>'+m[0]+'</time><div>'+(m[2]?'<span class="pill p-closed" style="margin-right:8px"><span class="d"></span>hotovo</span>':'<span class="pill p-cat" style="margin-right:8px"><span class="d"></span>plán</span>')+m[1]+'</div></div>';}).join('');
+  $('#tb-teams').innerHTML=KANALY.map(function(k){return '<tr><td class="t-pri">'+k[0]+'</td><td>'+k[1]+'</td><td class="mono">'+k[2]+'</td><td class="mono">'+k[3]+'</td></tr>';}).join('');
+  $('#pv-his').innerHTML=HISTORIE.map(function(h){return '<div class="tl-i"><time>'+h[0]+'</time><div>'+h[1]+'</div></div>';}).join('');
+  pvTab('p-str');
+}
+function extPerson(x){
+  var o=os(x.p), cls=x.st==='soon'?'exp-soon':x.st==='none'?'exp-none':'';
+  return '<div class="pr">'+av(x.p)+'<div><div class="n">'+o.n+'</div><div class="r">'+x.role+' · '+x.roz+'</div></div><div class="x">platí do<br><span class="'+cls+'">'+(x.do==='–'?'bez data konce':x.do)+'</span></div></div>';
+}
+function renderTree(){
+  var S=struct(CUR), ext=EXTERNI.filter(function(x){return x.kod===CUR.kod;});
+  $('#tree').innerHTML=S.map(function(s,i){
+    if(CUR.faz!=='naj'&&ROLE!=='VE'&&ROLE!=='PM'&&levelFor(i,ROLE)==='N')return '';
+    var hasExt=CUR.faz!=='naj'&&MATICE.some(function(m){return m.ext&&m.v[i]!=='N'&&ext.some(function(x){return x.role.indexOf(m.r.split(' ')[0])===0;});});
+    var kids=s[2].map(function(k,j){return '<div class="trow"><span class="tw"></span><span class="fo">'+svg(IC.fold,14)+'</span><span class="cd">'+s[0]+'.'+(j+1)+'</span><span class="nx" data-fold="'+i+'">'+k+'</span></div>';}).join('');
+    return '<div class="tr1"><div class="trow" data-row="'+i+'"><span class="tw" data-tw="'+i+'">'+(s[2].length?'▸':'')+'</span><span class="fo">'+svg(IC.fold,15)+'</span><span class="cd">'+s[0]+'</span><span class="nx" data-fold="'+i+'">'+s[1]+'</span>'+
+      '<span class="meta">'+(s[3]==='o'?'<span class="lock">'+svg(IC.lock,10)+' omezený</span>':'')+(hasExt?'<span class="lock ext">'+svg(IC.globe,10)+' partner</span>':'')+'</span></div><div class="kids" id="k'+i+'">'+kids+'</div></div>';
+  }).join('');
+}
+var ROLE_MAT={VE:0,PM:1,OB:3,OF:6,EX:7};
+function levelFor(i,role){var m=MATICE[ROLE_MAT[role]];return m?m.v[i]:'N';}
+$('#tree').addEventListener('click',function(e){
+  var tw=e.target.closest('[data-tw]'); if(tw){var k=$('#k'+tw.getAttribute('data-tw'));k.classList.toggle('on');tw.textContent=k.classList.contains('on')?'▾':'▸';return;}
+  var f=e.target.closest('[data-fold]'); if(f)selFolder(+f.getAttribute('data-fold'));
+});
+function selFolder(i){
+  $$('#tree .trow').forEach(function(r){r.classList.toggle('sel',r.getAttribute('data-row')==String(i));});
+  if(i==null){$('#fd-t').textContent='Vyberte složku';$('#fd-b').innerHTML='<p class="note">Klikněte na složku vlevo. Uvidíte, co v ní je a kdo do ní smí.</p>';return;}
+  var S=struct(CUR), s=S[i];
+  $('#fd-t').textContent=s[0]+' '+s[1];
+  var h='';
+  if(ROLE==='EX'){var l0=levelFor(i,'EX');h+='<div class="sublbl">Váš přístup</div><div class="acc-row">'+svg(IC.globe,13)+'<span>Architekt · platí do 31. 12. 2026</span><span class="lv">'+LV[l0][1]+'</span></div><p class="note" style="margin-top:10px">Kdo další má do složky přístup, partner nevidí.</p>';}
+  else if(CUR.faz!=='naj'){
+    h+='<div class="sublbl">Kdo do složky smí</div><div class="acc-list">'+MATICE.map(function(m){
+      var l=m.v[i]; if(m.ext&&l==='N')return '';
+      return '<div class="acc-row '+(l==='N'?'no':'')+'">'+(m.ext?svg(IC.globe,13):svg(IC.users,13))+'<span>'+m.r+'</span><span class="lv">'+LV[l][1]+'</span></div>';}).join('')+'</div>';
+    h+='<p class="note" style="margin-top:10px">'+(s[3]==='o'?'<b>Omezená složka.</b> Má vlastní oprávnění podle matice – ostatní zaměstnanci ji v knihovně vůbec nevidí.':'Složka dědí oprávnění projektu. Výjimky se nedělají ručně – mění se matice v šabloně.')+'</p>';
+  } else h+='<p class="note">Složka dědí oprávnění nemovitosti: správa nemovitostí upravuje, vedení a ekonomika čtou.</p>';
+  var files=DOKUMENTY.filter(function(d){return d.p===CUR.kod&&d.f.indexOf(s[0]+' ')===0;});
+  h+='<div class="fd-files"><div class="sublbl">Poslední dokumenty</div>'+(files.length?files.map(function(d){return '<div class="fd-file">'+svg(IC.doc,14)+'<span>'+d.n+'</span><span class="mono">v'+d.v+'</span></div>';}).join(''):'<p class="note">Zatím bez nových dokumentů v posledních dnech.</p>')+'</div>';
+  $('#fd-b').innerHTML=h;
+}
+function pvTab(id){
+  $$('#pv-tabs button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-p')===id);});
+  ['p-str','p-tym','p-mil','p-tea','p-his'].forEach(function(p){$('#'+p).classList.toggle('on',p===id);});
+}
+$('#pv-tabs').addEventListener('click',function(e){var b=e.target.closest('[data-p]');if(b)pvTab(b.getAttribute('data-p'));});
+$('#b-add-ext').addEventListener('click',inviteModal);
+function inviteModal(){
+  modal('Pozvat externího partnera',
+   '<div class="field"><label>E-mail partnera<span class="req">*</span></label><input value="projekce@atelier-linie.cz"></div>'+
+   '<div class="f2"><div class="field"><label>Role<span class="req">*</span></label><select><option>Architekt</option><option>Dodavatel stavby</option><option>Technický dozor</option><option>Hypoteční partner</option></select></div>'+
+   '<div class="field"><label>Přístup platí do<span class="req">*</span></label><input value="30. 6. 2027"><div class="hint">Bez data konce pozvánku nejde odeslat.</div></div></div>'+
+   '<div class="sdw-ck ok"><span class="dot"></span><span><span class="h">Rozsah podle role</span>03 Projektová dokumentace – upravovat · 05 Realizace / Změny během výstavby – číst. Ostatní složky partner neuvidí.</span></div>'+
+   '<div class="sdw-ck warn" style="margin-top:9px"><span class="dot"></span><span><span class="h">Kanál v Teams</span>Partner bude přidán do sdíleného kanálu <b>Projekce</b>. Do ostatních kanálů týmu nevidí.</span></div>',
+   '<button class="btn ghost" data-mx>Zrušit</button><button class="btn primary" id="b-inv-ok">Odeslat pozvánku</button>');
+  $('#b-inv-ok').addEventListener('click',function(){closeModal();toast('Pozvánka odeslána. Partner se přihlásí svým e-mailem, přístup skončí 30. 6. 2027.');});
+}
+$('#b-save-pv').addEventListener('click',function(){saveDocModal(CUR.kod);});
+
+/* ══════════════════════ Dokumenty ══════════════════════ */
+var DOK_F='vse';
+var DOK_CH=[['vse','Vše'],['pd','Projekce a povolení'],['rea','Realizace'],['prod','Prodej a marketing'],['eko','Smlouvy a ekonomika'],['pre','Předání'],['spr','Nemovitosti v nájmu']];
+function dokVisible(){
+  return DOKUMENTY.filter(function(d){
+    var p=proj(d.p); if(!canSee(p))return false;
+    if(ROLE==='EX')return d.a==='TB'||(d.p==='P-2023-03'||d.p==='P-2021-02')&&d.f.indexOf('03 ')===0;
+    if(ROLE==='OB')return d.g==='prod'||d.g==='pre'||d.g==='rea';
+    if(ROLE==='OF')return d.g==='spr';
+    if(ROLE==='PM')return d.g!=='spr';
+    return true;
+  });
+}
+function renderDok(){
+  var base=dokVisible(), q=($('#d-q').value||'').toLowerCase().trim();
+  $('#dok-chips').innerHTML=DOK_CH.filter(function(c){return c[0]==='vse'||base.some(function(d){return d.g===c[0];});}).map(function(c){
+    return '<button class="'+(c[0]===DOK_F?'on':'')+'" data-df="'+c[0]+'">'+c[1]+'</button>';}).join('');
+  var rows=base.filter(function(d){return (DOK_F==='vse'||d.g===DOK_F)&&(!q||(d.n+' '+proj(d.p).naz).toLowerCase().indexOf(q)>-1);});
+  $('#tb-dok').innerHTML=rows.length?rows.map(function(d){var p=proj(d.p);
+    return '<tr class="clic" data-doc="'+DOKUMENTY.indexOf(d)+'"><td><div class="t-pri">'+d.n+'</div></td><td><div class="t-sub" style="margin:0;color:var(--ep-text)">'+p.naz+'</div><div class="t-sub"><span class="t-id">'+p.kod+'</span></div></td>'+
+      '<td><div class="t-sub" style="margin:0">'+d.f+'</div></td><td class="mono">'+d.v+'</td><td><span class="who">'+av(d.a)+'<span class="n">'+os(d.a).n+'</span></span></td><td class="mono">'+d.d+'</td></tr>';}).join('')
+    :'<tr><td colspan="6" class="empty">Nic nenalezeno. Dokumenty, ke kterým nemáte přístup, se nezobrazují ani ve vyhledávání.</td></tr>';
+}
+$('#dok-chips').addEventListener('click',function(e){var b=e.target.closest('[data-df]');if(!b)return;DOK_F=b.getAttribute('data-df');renderDok();});
+$('#d-q').addEventListener('input',renderDok);
+$('#tb-dok').addEventListener('click',function(e){var r=e.target.closest('[data-doc]');if(!r)return;var d=DOKUMENTY[+r.getAttribute('data-doc')],p=proj(d.p);
+  modal(d.n,'<dl class="kv"><dt>Projekt</dt><dd>'+p.naz+' · '+p.kod+'</dd><dt>Složka</dt><dd>'+d.f+'</dd><dt>Verze</dt><dd>'+d.v+' · starší verze zůstávají v historii</dd><dt>Upravil</dt><dd>'+os(d.a).n+' · '+d.d+'</dd></dl>'+
+   '<p class="note" style="margin-top:14px">Dokument se otevře přímo ve Wordu, Excelu nebo prohlížeči PDF – na webu i v aplikaci. Více lidí může upravovat současně; nikdo neposílá přílohy e-mailem.</p>',
+   '<button class="btn ghost" data-mx>Zavřít</button><button class="btn primary" data-mx data-toast="Dokument by se otevřel v prohlížeči.">Otevřít</button>');});
+$('#b-savedoc').addEventListener('click',function(){saveDocModal();});
+function saveDocModal(kod){
+  var ps=PROJEKTY.filter(function(p){return canSee(p)&&p.faz!=='naj';});
+  modal('Uložit dokument',
+   '<div class="field"><label>Soubor</label><input value="Zapis_KD_42_Ponava_V.docx"></div>'+
+   '<div class="f2"><div class="field"><label>Co to je<span class="req">*</span></label><select id="sd-typ">'+DOK_TYPY.map(function(t,i){return '<option value="'+i+'">'+t[0]+'</option>';}).join('')+'</select></div>'+
+   '<div class="field"><label>Ke kterému projektu<span class="req">*</span></label><select id="sd-p">'+ps.map(function(p){return '<option'+(p.kod===(kod||'P-2021-02')?' selected':'')+'>'+p.naz+'</option>';}).join('')+'</select></div></div>'+
+   '<div class="sdw-ck ok"><span class="dot"></span><span><span class="h">Uloží se do složky</span><span id="sd-f"></span></span></div>'+
+   '<div class="sdw-ck unk" style="margin-top:9px"><span class="dot"></span><span><span class="h">Kdo ho uvidí</span><span id="sd-w"></span></span></div>',
+   '<button class="btn ghost" data-mx>Zrušit</button><button class="btn primary" id="sd-ok">Uložit</button>');
+  function upd(){var i=+$('#sd-typ').value, t=DOK_TYPY[i], c=t[1].substring(0,2), ix=MAT_COLS.indexOf(c);
+    $('#sd-f').textContent=t[1];
+    $('#sd-w').textContent=MATICE.filter(function(m){return m.v[ix]!=='N';}).map(function(m){return m.r;}).join(', ')+'.';}
+  $('#sd-typ').addEventListener('change',upd); upd();
+  $('#sd-ok').addEventListener('click',function(){closeModal();toast('Uloženo do <b>'+$('#sd-f').textContent+'</b>. Člověk nevybíral složku – vybral, co to je.');});
+}
+
+/* ══════════════════════ Nový projekt ══════════════════════ */
+var WSTEP=1, WTPL='b';
+var WSTEPS=['Šablona','Údaje','Lidé v rolích','Založení'];
+function wstep(n){
+  WSTEP=n;
+  $('#w-steps').innerHTML=WSTEPS.map(function(s,i){return '<div class="st '+(i+1<n?'done':i+1===n?'on':'')+'"><span class="n">'+(i+1<n?'✓':i+1)+'</span><span class="l">'+s+'</span></div>';}).join('');
+  [1,2,3,4].forEach(function(i){$('#w'+i).hidden=i!==n;});
+  $('#w-prev').disabled=n===1||n===4; $('#w-next').hidden=n===4;
+  $('#w-next').textContent=n===3?'Odeslat a založit':'Další';
+  $('#w-hint').textContent=n===3?'Založení schvaluje vedení – v konceptu proběhne hned.':'';
+  if(n===4)runCreate();
+}
+function renderTpl(){
+  $('#card-tpl').innerHTML=SABLONY.map(function(s){
+    return '<div class="tplc '+(s.id===WTPL?'on':'')+'" data-tpl="'+s.id+'"><span class="rb"></span><span><span class="t">'+s.t+'</span><div class="d">'+s.d+'</div><div class="m">'+s.l1+' hlavních a '+s.l2+' vedlejších složek · '+s.kan+' kanály Teams · revize '+s.rev+' · použito '+s.use+'×</div></span></div>';}).join('');
+  $('#w-faze').innerHTML=FAZE.map(function(f){return '<option>'+f.t+'</option>';}).join('');
+  $('#w-pm').innerHTML=LIDE.filter(function(l){return l.r.indexOf('Projektov')===0;}).map(function(l){return '<option>'+l.n+'</option>';}).join('');
+  $('#tb-roles').innerHTML=ROLE_SABLONY.map(function(r){
+    return '<tr><td class="t-pri">'+r.r+(r.pov?' <span style="color:var(--ep-red)">*</span>':'')+'</td><td>'+(OSOBY[r.o]?'<span class="who">'+av(r.o)+'<span class="n">'+os(r.o).n+'</span></span>':'<span class="t-sub" style="margin:0">'+r.o+'</span>')+'</td><td class="mono">'+r.p+'</td></tr>';}).join('');
+  syncUrl();
+}
+function syncUrl(){$('#w-url').textContent='/sites/'+($('#w-kod').value||'').toLowerCase();}
+$('#w-kod').addEventListener('input',syncUrl);
+$('#card-tpl').addEventListener('click',function(e){var t=e.target.closest('[data-tpl]');if(!t)return;WTPL=t.getAttribute('data-tpl');renderTpl();});
+$('#w-next').addEventListener('click',function(){wstep(WSTEP+1);});
+$('#w-prev').addEventListener('click',function(){wstep(Math.max(1,WSTEP-1));});
+function runCreate(){
+  var steps=[['Web projektu '+$('#w-url').textContent,'2 s'],['Knihovna dokumentů, 10 hlavních a 27 vedlejších složek','11 s'],['Skupiny rolí: Vlastníci, Členové, Hosté','4 s'],['Oprávnění na 4 omezených složkách podle matice','6 s'],['Tým v Teams a 5 kanálů napojených na složky','18 s'],['Zápis do katalogu projektů, e-mail týmu','1 s']];
+  $('#w-run').innerHTML='<div class="run">'+steps.map(function(s,i){return '<div class="run-i" id="ri'+i+'"><span class="d"></span><span>'+s[0]+'</span><span class="s"></span></div>';}).join('')+'</div><div id="w-done"></div>';
+  steps.forEach(function(s,i){setTimeout(function(){var r=$('#ri'+i);if(!r)return;r.classList.add('ok');r.querySelector('.s').textContent=s[1];
+    if(i===steps.length-1)$('#w-done').innerHTML='<div class="okbox" style="margin-top:14px"><b>'+$('#w-naz').value+' je založený.</b> Za 42 sekund. Tým dostal e-mail s odkazem, projekt je v katalogu a architekta pozve projektový manažer, až bude potřeba. <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost sm" id="w-again">Založit další</button><button class="btn primary sm" data-kod="P-2021-02">Ukázat hotový projekt</button></div></div>';},350*(i+1));});
+}
+document.addEventListener('click',function(e){if(e.target.closest('#w-again'))wstep(1);});
+
+/* ══════════════════════ Firemní dokumenty ══════════════════════ */
+var FD_F='vse';
+function renderFd(){
+  var nesez=FIRDOK.filter(function(d){return d.sz&&d.sz[0]<d.sz[1];});
+  $('#kpis-fd').innerHTML=[['Platných dokumentů',FIRDOK.length,'','směrnice, postupy, řády, vzory'],['Čeká na seznámení',nesez.length,'amber','závazné dokumenty, které nečetli všichni'],['Po termínu revize',FIRDOK.filter(function(d){return d.po;}).length,'red','vlastník dostal připomínku'],['Nové za měsíc',FIRDOK.filter(function(d){return d.novy;}).length,'green','oznámeno na intranetu']].map(function(x){
+    return '<div class="kpi"><div class="kpi-l">'+x[0]+'</div><div class="kpi-v '+x[2]+'">'+x[1]+'</div><div class="kpi-s">'+x[3]+'</div></div>';}).join('');
+  var ch=[['vse','Vše'],['sm','Směrnice a pravidla'],['po','Postupy a řády'],['vz','Vzory a formuláře']];
+  $('#fd-chips').innerHTML=ch.map(function(c){return '<button class="'+(c[0]===FD_F?'on':'')+'" data-ff="'+c[0]+'">'+c[1]+'</button>';}).join('');
+  $('#tb-fd').innerHTML=FIRDOK.filter(function(d){return FD_F==='vse'||d.g===FD_F;}).map(function(d){
+    var sz=d.sz?'<div class="bar '+(d.sz[0]===d.sz[1]?'gr':'am')+'" style="width:90px"><i style="width:'+Math.round(100*d.sz[0]/d.sz[1])+'%"></i></div><div class="t-sub">'+d.sz[0]+' z '+d.sz[1]+'</div>':'<span class="mono">–</span>';
+    return '<tr class="clic" data-fd="'+FIRDOK.indexOf(d)+'"><td><div class="t-pri">'+d.n+(d.novy?' <span class="pill p-new">nový</span>':'')+'</div></td><td><span class="pill p-cat">'+d.t+'</span></td><td><span class="who">'+av(d.o)+'<span class="n">'+os(d.o).n+'</span></span></td>'+
+      '<td class="mono">'+d.v+'</td><td class="mono">'+d.od+'</td><td class="mono" style="'+(d.po?'color:var(--ep-red);font-weight:700':'')+'">'+d.rev+'</td><td>'+sz+'</td></tr>';}).join('');
+}
+$('#fd-chips').addEventListener('click',function(e){var b=e.target.closest('[data-ff]');if(!b)return;FD_F=b.getAttribute('data-ff');renderFd();});
+$('#tb-fd').addEventListener('click',function(e){var r=e.target.closest('[data-fd]');if(!r)return;var d=FIRDOK[+r.getAttribute('data-fd')];
+  modal(d.n,'<dl class="kv"><dt>Typ</dt><dd>'+d.t+'</dd><dt>Vlastník</dt><dd>'+os(d.o).n+'</dd><dt>Platná verze</dt><dd>'+d.v+' · platí od '+d.od+'</dd><dt>Další revize</dt><dd>'+d.rev+'</dd></dl>'+
+   '<p class="note" style="margin-top:14px">Starší verze zůstávají v archivu a nedají se omylem otevřít jako platné. Změnu připravuje vlastník, schvaluje vedení a po zveřejnění dostanou dotčení lidé výzvu k seznámení.</p>',
+   '<button class="btn ghost" data-mx>Zavřít</button>'+(d.sz?'<button class="btn primary" data-mx data-toast="Seznámení potvrzeno a zapsáno do evidence.">Potvrdit seznámení</button>':''));});
+
+/* ══════════════════════ Lidé ══════════════════════ */
+var PPL_F='vse';
+function renderPpl(){
+  var teams=['Vedení','Produkční tým','Obchodní tým','Ekonomika','Správa nemovitostí','Office a IT'];
+  $('#ppl-chips').innerHTML=[['vse','Všichni']].concat(teams.map(function(t){return [t,t];})).concat([['ext','Partneři']]).map(function(c){return '<button class="'+(c[0]===PPL_F?'on':'')+'" data-pf="'+c[0]+'">'+c[1]+'</button>';}).join('');
+  var q=($('#p-q').value||'').toLowerCase();
+  var list=(PPL_F==='ext'?PARTNERI:LIDE.filter(function(l){return PPL_F==='vse'||l.t===PPL_F;})).filter(function(l){return !q||(l.n+' '+l.r).toLowerCase().indexOf(q)>-1;});
+  $('#pgrid').innerHTML=list.map(function(l){var ext=PPL_F==='ext';
+    return '<div class="pc'+(ext?' ext':'')+'" data-toast="'+(ext?'Partner – kontakt a projekty, na kterých s námi pracuje. Účet hosta spravuje IT.':'Profil z firemního účtu: telefon, e-mail, zástup, chat v Teams.')+'">'+av(l.id)+'<div><div class="n">'+l.n+'</div><div class="r">'+l.r+'</div><div class="t">'+l.t+'</div></div></div>';}).join('');
+}
+$('#ppl-chips').addEventListener('click',function(e){var b=e.target.closest('[data-pf]');if(!b)return;PPL_F=b.getAttribute('data-pf');renderPpl();});
+$('#p-q').addEventListener('input',renderPpl);
+
+/* ══════════════════════ Přístupy ══════════════════════ */
+function renderAcc(){
+  var soon=EXTERNI.filter(function(x){return x.st;}).length;
+  $('#kpis-acc').innerHTML=[['Role v matici',MATICE.length,'','7 interních · 3 pro partnery','a-mat'],['Externí přístupy',EXTERNI.length,'','všechny s rolí a rozsahem','a-ext'],['Končí nebo bez konce',soon,'amber','k rozhodnutí vlastníka','a-ext'],['Nálezy',NALEZY.length,'','1 vysoké závažnosti','a-nal']].map(function(x){
+    return '<div class="kpi" data-at="'+x[4]+'"><div class="kpi-l">'+x[0]+'</div><div class="kpi-v '+x[2]+'">'+x[1]+'</div><div class="kpi-s">'+x[3]+'</div></div>';}).join('');
+  $('#acc-n-ext').textContent=EXTERNI.length; $('#acc-n-nal').textContent=NALEZY.length;
+  $('#th-mat').innerHTML='<tr><th>Role · skupina</th>'+STRUKTURA.map(function(s){return '<th>'+s[0]+'<br><span style="text-transform:none;letter-spacing:0;font-family:var(--fb);font-size:10.5px">'+s[1]+'</span></th>';}).join('')+'</tr>';
+  $('#tb-mat').innerHTML=MATICE.map(function(m){
+    return '<tr class="'+(m.ext?'ext-row':'')+'"><td><div class="t-pri">'+m.r+'</div><div class="t-sub">'+m.g+(m.pozn?' · '+m.pozn:'')+'</div></td>'+m.v.split('').map(function(l){return '<td><span class="lv '+LV[l][0]+'" title="'+LV[l][1]+'">'+(l==='N'?'–':l==='.'?'R*':l)+'</span></td>';}).join('')+'</tr>';}).join('');
+  $('#mat-legend').innerHTML='<span><span class="lv F">F</span>Úplné řízení</span><span><span class="lv E">E</span>Upravovat</span><span><span class="lv R">R</span>Číst</span><span><span class="lv N">–</span>Bez přístupu (složku nevidí)</span><span style="color:#2547A8">Modře role pro externí partnery</span>';
+  $('#tb-extall').innerHTML=EXTERNI.map(function(x,i){var o=os(x.p),p=proj(x.kod),cls=x.st==='soon'?'exp-soon':x.st==='none'?'exp-none':'';
+    return '<tr><td><span class="who">'+av(x.p)+'<span class="n">'+o.n+'</span></span></td><td><div class="t-sub" style="margin:0;color:var(--ep-text)">'+p.naz+'</div><div class="t-sub"><span class="t-id">'+p.kod+'</span></div></td>'+
+      '<td><div class="t-sub" style="margin:0;color:var(--ep-text)">'+x.role+'</div><div class="t-sub">'+x.roz+'</div></td><td><span class="who">'+av(x.kdo)+'<span class="n">'+os(x.kdo).n+'</span></span></td>'+
+      '<td class="mono"><span class="'+cls+'">'+(x.do==='–'?'bez data konce':x.do)+'</span></td><td class="ta-r">'+(x.st?'<button class="btn ghost sm" data-toast="Přístup prodloužen o 3 měsíce. Zapsáno do historie projektu.">Prodloužit</button> <button class="btn ghost sm" data-toast="Přístup ukončen. Partner ztratil přístup k dokumentům i do kanálu Teams.">Ukončit</button>':'')+'</td></tr>';}).join('');
+  $('#tb-nal').innerHTML=NALEZY.map(function(n){
+    return '<tr><td class="t-pri">'+n.t+'</td><td><div class="t-sub" style="margin:0">'+n.kde+'</div></td><td><span class="pill '+n.zc+'"><span class="d"></span>'+n.z+'</span></td><td><div class="t-sub" style="margin:0;max-width:44ch">'+n.dop+'</div></td><td class="ta-r"><button class="btn ghost sm" data-toast="Opraveno podle doporučení. Nález se uzavře při příštím měření.">Opravit</button></td></tr>';}).join('');
+}
+function accTab(id){
+  $$('#acc-tabs button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-p')===id);});
+  ['a-mat','a-ext','a-nal'].forEach(function(p){$('#'+p).classList.toggle('on',p===id);});
+}
+$('#acc-tabs').addEventListener('click',function(e){var b=e.target.closest('[data-p]');if(b)accTab(b.getAttribute('data-p'));});
+$('#kpis-acc').addEventListener('click',function(e){var k=e.target.closest('[data-at]');if(k)accTab(k.getAttribute('data-at'));});
+
+/* ══════════════════════ Šablony ══════════════════════ */
+function renderSab(){
+  $('#card-sab').innerHTML=SABLONY.map(function(s){
+    return '<div class="tc"><div class="t">'+s.t+'</div><div class="d">'+s.d+'</div><div class="m"><span class="pill p-cat">revize '+s.rev+'</span><span class="pill p-book">'+s.l1+' + '+s.l2+' složek</span><span class="pill p-book">'+s.kan+' kanály</span><span class="pill p-sent">'+s.use+' projektů</span></div><div class="src">vzor: /sites/vzor-'+s.id+' · upraveno '+s.dt+'</div></div>';}).join('');
+  $('#diff').innerHTML=DIFF.map(function(d){return '<div class="di '+d[0]+'"><span class="s">'+(d[0]==='add'?'+':'~')+'</span><span class="k">'+d[1]+'</span><span>'+d[2]+'</span></div>';}).join('');
+}
+$('#b-bulk').addEventListener('click',function(){
+  modal('Doplnit změny do běžících projektů',
+   '<p>Změny revize 4 se doplní do projektů, které vznikly podle starší revize:</p><ul class="prev-list"><li><b>Rezidence Svratka</b> · revize 3</li><li><b>Kuřim Záhoří – etapy 3 a 4</b> · revize 3</li><li><b>Rezidence u řeky</b> · revize 3</li></ul>'+
+   '<p style="margin-top:12px">Přidá se složka, vzorový dokument, kanál a jedno oprávnění. <b>Nic se nemaže ani nepřejmenovává</b> a k uloženým dokumentům se nesahá.</p>',
+   '<button class="btn ghost" data-mx>Zrušit</button><button class="btn primary" data-mx data-toast="Hotovo: 3 projekty doplněny na revizi 4. Zapsáno do historie každého projektu.">Doplnit</button>');
+});
+
+/* ══════════════════════ Paleta ⌘K ══════════════════════ */
+function palItems(){
+  var nav=R().nav, a=[{t:'Úvod k návrhu',g:'Dokument',a:function(){go('s0');}}];
+  NAV.forEach(function(n){if(n.s&&(!nav||nav.indexOf(n.s)>-1))a.push({t:n.l,g:'Obrazovka',a:function(){go(n.s);}});});
+  if(!nav||nav.indexOf('s5')>-1)a.push({t:'Uložit dokument',g:'Akce',a:function(){go('s5');saveDocModal();}});
+  if(!nav||nav.indexOf('s6')>-1)a.push({t:'Založit projekt',g:'Akce',a:function(){go('s6');wstep(1);}});
+  if(ROLE==='VE'||ROLE==='PM')a.push({t:'Pozvat externího partnera',g:'Akce',a:function(){openProj('P-2021-02');pvTab('p-tym');inviteModal();}});
+  a.push({t:'Spustit prohlídku',g:'Nápověda',a:function(){openHub();}});
+  PROJEKTY.filter(canSee).forEach(function(p){a.push({t:p.kod+' – '+p.naz,g:p.typ,a:function(){openProj(p.kod);}});});
+  return a;
+}
+var palI=0,palR=[];
+function openPal(){$('#pal').classList.add('on');$('#pal-i').value='';renderPal();$('#pal-i').focus();}
+function closePal(){$('#pal').classList.remove('on');}
+function renderPal(){
+  var q=$('#pal-i').value.toLowerCase().trim();
+  palR=palItems().filter(function(p){return !q||p.t.toLowerCase().indexOf(q)>-1;}).slice(0,10); palI=0;
+  $('#pal-l').innerHTML=palR.length?palR.map(function(p,i){return '<div class="pal-r '+(i===0?'on':'')+'" data-i="'+i+'"><span>'+p.t+'</span><span class="g">'+p.g+'</span></div>';}).join('')
+   :'<div class="empty" style="padding:22px">Nic nenalezeno.</div>';
+}
+$('#pal-i').addEventListener('input',renderPal);
+$('#pal-l').addEventListener('click',function(e){var r=e.target.closest('[data-i]');if(r){closePal();palR[+r.getAttribute('data-i')].a();}});
+document.addEventListener('click',function(e){if(e.target.closest('[data-pal]'))openPal();});
+$('#pal').addEventListener('click',function(e){if(e.target===$('#pal'))closePal();});
+
+/* ══════════════════════ Vedená prohlídka ══════════════════════ */
+var TOUR=[
+{t:'O čem koncept je',s:'Čtyři témata a intranet',steps:[
+ {scr:'s0',ti:'Co jsme slyšeli a co ukazujeme',tx:'Na první schůzce zaznělo: <b>organizace dokumentů, přístupová práva, sdílení mezi týmy a přehledná projektová dokumentace</b> – a k tomu intranet. Každé z těch témat má v konceptu svou obrazovku. Všechno stojí na Microsoftu 365, data zůstávají ve vašem tenantu.'},
+ {scr:'s1',sel:'#role-sw',ti:'Každý vidí něco jiného',tx:'Nahoře je <b>přepínač role</b>. Vedení, projektový manažer, obchodní tým, office a externí architekt – každý má jiné menu, jiná čísla a hlavně jiné dokumenty. Přepínač je ukázkový nástroj; skutečně o přístupu rozhodují <b>oprávnění SharePointu</b>.'}]},
+{t:'Intranet',s:'Kde začíná den',steps:[
+ {scr:'s1',sel:'#hero-news',ti:'Aktuality',tx:'Co je ve firmě nového – projekty, lidé, směrnice, akce. Píše je office nebo vedení, ne IT. Aktualitu jde zacílit na tým, připnout a poslat i e-mailem.'},
+ {scr:'s1',sel:'#card-links',ti:'Rozcestník',tx:'Odkazy tam, kde se pracuje: projekty, firemní dokumenty, lidé, žádost o přístup pro partnera – a navazující agendy, třeba <b>faktury a smlouvy v TreeINFO</b>.'},
+ {scr:'s1',sel:'#card-my',ti:'Moje projekty hned na úvodní stránce',tx:'Intranet ví, ve kterých projektech člověk je. Na svůj projekt se dostane jedním klikem, aniž by věděl, kde leží.'}]},
+{t:'Moje práce',s:'Co čeká na projektového manažera',steps:[
+ {scr:'s2',before:function(){setRole('PM');},sel:'#kpis',ti:'Přepnuto na projektového manažera',tx:'Čtyři čísla, která rozhodují o dni: moje projekty, co čeká na mě, kolik partnerů do mých projektů vidí a co přibylo. Počítají se ze skutečného stavu, ne z ručně vedené tabulky.'},
+ {scr:'s2',sel:'#card-ceka',ti:'Co čeká na mě',tx:'Žádost o přístup, končící přístup dodavatele, změnový list od architekta ke schválení. <b>Nic z toho se neztratí v e-mailu.</b>'}]},
+{t:'Projekt',s:'Jeden projekt, jeden prostor',steps:[
+ {scr:'s3',sel:'#tbl-kat',ti:'Katalog projektů',tx:'Všechny projekty s fází, typem, projektovým manažerem a počtem externích partnerů. Důvěrný projekt v přípravě vidí jen vedení a jeho tým.'},
+ {scr:'s4',before:function(){openProj('P-2021-02');},sel:'#pv-phase',ti:'Fáze projektu',tx:'Od přípravy po záruky – a souběžně prodej. Podle fáze se mění, kdo v projektu pracuje a kdo zvenku do něj vidí.'},
+ {scr:'s4',before:function(){pvTab('p-str');var k=$('#k2');if(k)k.classList.add('on');selFolder(2);},sel:'#card-tree',ti:'Struktura dokumentů',tx:'Deset hlavních složek od pozemku po předání. Je to <b>návrh k diskusi</b> – na workshopu ho upravíme podle vás. Zkuste kliknout na složku <b>06 Rozpočet a financování</b>.'},
+ {scr:'s4',sel:'#card-folder',ti:'Kdo do složky smí',tx:'U každé složky je vidět, která role ji upravuje, která jen čte a která ji vůbec nevidí. Omezené složky – pozemky, smlouvy, financování, prodej – mají vlastní oprávnění podle matice.'},
+ {scr:'s4',before:function(){pvTab('p-tym');},sel:'#card-ext',ti:'Externí partneři',tx:'Architekt, dodavatel stavby, technický dozor. Každý má <b>roli, rozsah složek a datum konce</b>. Bez data konce pozvánku nejde odeslat – a před koncem přijde vlastníkovi připomínka.'},
+ {scr:'s4',before:function(){pvTab('p-tea');},sel:'#card-teams',ti:'Spolupráce v Teams',tx:'Tým projektu v Teams má kanály napojené na složky. Architekt je ve <b>sdíleném kanálu Projekce</b> a do zbytku týmu nevidí. Prodej a vedení projektu mají soukromé kanály.'}]},
+{t:'Očima architekta',s:'Co vidí partner zvenku',steps:[
+ {scr:'s2',before:function(){setRole('EX');},sel:'#kpis',ti:'Přepnuto na externího architekta',tx:'Dva projekty, v každém jen projektová dokumentace a změny. Menu má dvě položky. <b>Intranet, lidé ani ostatní projekty pro něj neexistují.</b>'},
+ {scr:'s5',sel:'#tbl-dok',ti:'Jen jeho dokumenty',tx:'Ve vyhledávání i v seznamech vidí jen to, k čemu má oprávnění. Rozpočet, smlouvy ani prodej mu nic nenabídne – ani název souboru.'}]},
+{t:'Nový projekt',s:'Ze šablony za minutu',steps:[
+ {scr:'s6',before:function(){setRole('PM');wstep(1);},sel:'#card-tpl',ti:'Tři šablony',tx:'Bytový projekt, rodinné domy, nemovitost v nájmu. Šablonou je <b>živý vzorový projekt</b>, který si upravíte sami – žádný skript ani konfigurační soubor.'},
+ {scr:'s6',before:function(){wstep(3);},sel:'#card-roles',ti:'Šablona nese role, ne lidi',tx:'Projektový manažer jen doplní lidi do rolí. Oprávnění ke složkám se nastaví samo. Kdyby se kopírovala doslova ze vzoru, měl by každý nový projekt v přístupech lidi z jiného projektu.'},
+ {scr:'s6',before:function(){wstep(4);},sel:'#w-run',ti:'Založení',tx:'Web, složky, skupiny, oprávnění, tým v Teams a zápis do katalogu – za necelou minutu a pokaždé stejně.'}]},
+{t:'Firemní dokumenty',s:'Provozní dokumentace',steps:[
+ {scr:'s7',before:function(){setRole('VE');},sel:'#card-fd',ti:'Vždy platná verze',tx:'Směrnice, postupy, řády a vzory smluv s vlastníkem, platností a revizí. U závazných dokumentů je vidět, kdo se s nimi seznámil. Starší verze se nedají omylem otevřít jako platné.'}]},
+{t:'Přístupy',s:'Pravidla a jejich kontrola',steps:[
+ {scr:'s9',before:function(){accTab('a-mat');},sel:'#card-mat',ti:'Matice rolí',tx:'Jedna tabulka říká, kdo kam smí. Mění se tady – ne člověk po člověku a složka po složce. Modře role pro partnery zvenku.'},
+ {scr:'s9',before:function(){accTab('a-nal');},sel:'#card-nal',ti:'Kde se realita odchýlila',tx:'Sdílení odkazem pro kohokoli, host bez data konce, složka s ručně změněnými právy. Portál odchylky měří pravidelně a nabídne opravu.'},
+ {scr:'s10',sel:'#card-diff',ti:'Standard platí i pro běžící projekty',tx:'Když se vzorový projekt změní, portál to pozná a nabídne doplnit změnu do projektů, které už běží – jen přidává, nic nemaže. Tím prohlídka končí; děkujeme za čas.'}]}
+];
+var tCh=0,tIx=0;
+function chLabel(n){return n+' '+(n===1?'krok':n<5?'kroky':'kroků');}
+function allSteps(){var n=0;TOUR.forEach(function(c){n+=c.steps.length;});return n;}
+function openHub(){
+  $('#thub-t').textContent=TOUR.length+' kapitol, '+allSteps()+' kroků, zhruba patnáct minut';
+  $('#thub-l').innerHTML=TOUR.map(function(c,i){return '<button class="tour-chp" data-ch="'+i+'"><span class="n">'+(i+1)+'</span><span><span class="t">'+c.t+'</span><span class="s">'+c.s+' · '+chLabel(c.steps.length)+'</span></span></button>';}).join('');
+  $('#thub').classList.add('on');
+}
+$('#b-tour').addEventListener('click',openHub);
+document.addEventListener('click',function(e){if(e.target.closest('[data-tour-open]'))openHub();});
+$('#thub-start').addEventListener('click',function(){$('#thub').classList.remove('on');tCh=0;tIx=0;showStep();});
+$('#thub').addEventListener('click',function(e){
+  if(e.target===$('#thub')){$('#thub').classList.remove('on');return;}
+  var b=e.target.closest('[data-ch]'); if(!b)return;
+  $('#thub').classList.remove('on'); tCh=+b.getAttribute('data-ch'); tIx=0; showStep();
+});
+function stepNo(){var n=0;for(var i=0;i<tCh;i++)n+=TOUR[i].steps.length;return n+tIx+1;}
+function showStep(){
+  var ch=TOUR[tCh], st=ch.steps[tIx], bub=$('#tbub'), mask=$('#tmask');
+  if(st.before)st.before();
+  if(st.scr)go(st.scr);
+  $('#tb-ch').textContent=(tCh+1)+'. '+ch.t;
+  $('#tb-ti').innerHTML=st.ti; $('#tb-tx').innerHTML=st.tx;
+  $('#tb-pr').textContent='Krok '+stepNo()+' z '+allSteps();
+  $('#tb-dots').innerHTML=ch.steps.map(function(x,i){return '<i class="'+(i===tIx?'on':'')+'"></i>';}).join('');
+  $('#tb-prev').disabled=(tCh===0&&tIx===0);
+  $('#tb-next').textContent=(tCh===TOUR.length-1&&tIx===ch.steps.length-1)?'Dokončit':'Další';
+  bub.classList.add('on'); mask.classList.add('on');
+  var el=st.sel?$(st.sel):null;
+  if(!el){
+    bub.style.cssText=''; bub.classList.add('center'); $('#tring').style.opacity=0;
+    var m0=mask.querySelectorAll('i'); m0[0].style.cssText='inset:0'; m0[1].style.cssText=m0[2].style.cssText=m0[3].style.cssText='display:none';
+    return;
+  }
+  bub.classList.remove('center');
+  if(el.scrollIntoView)el.scrollIntoView({block:'center'});
+  setTimeout(function(){
+    var r=el.getBoundingClientRect(), p=8, x=r.left-p,y=r.top-p,w=r.width+2*p,h=r.height+2*p;
+    $('#tring').style.cssText='left:'+x+'px;top:'+y+'px;width:'+w+'px;height:'+h+'px;opacity:1';
+    var m=mask.querySelectorAll('i');
+    m[0].style.cssText='left:0;top:0;right:0;height:'+Math.max(y,0)+'px';
+    m[1].style.cssText='left:'+(x+w)+'px;top:'+y+'px;right:0;height:'+h+'px';
+    m[2].style.cssText='left:0;top:'+(y+h)+'px;right:0;bottom:0';
+    m[3].style.cssText='left:0;top:'+y+'px;width:'+Math.max(x,0)+'px;height:'+h+'px';
+    var bw=Math.min(390,innerWidth*0.92), bh=bub.offsetHeight||240;
+    var bx=Math.min(Math.max(12,x),innerWidth-bw-12);
+    var by=(y+h+14+bh<innerHeight)?y+h+14:Math.max(12,y-bh-14);
+    bub.style.cssText='left:'+bx+'px;top:'+Math.max(12,by)+'px';
+  },80);
+}
+function endTour(){$('#tmask').classList.remove('on');$('#tbub').classList.remove('on','center');}
+$('#tb-end').addEventListener('click',endTour);
+$('#tb-hub').addEventListener('click',function(){endTour();openHub();});
+$('#tb-next').addEventListener('click',function(){
+  var ch=TOUR[tCh];
+  if(tIx<ch.steps.length-1){tIx++;showStep();}
+  else if(tCh<TOUR.length-1){tCh++;tIx=0;showStep();}
+  else{endTour();toast('Prohlídka dokončena. Spustit ji znovu můžete tlačítkem nahoře vpravo.');}
+});
+$('#tb-prev').addEventListener('click',function(){
+  if(tIx>0){tIx--;showStep();}
+  else if(tCh>0){tCh--;tIx=TOUR[tCh].steps.length-1;showStep();}
+});
+var rsT=null;
+window.addEventListener('resize',function(){if(!$('#tmask').classList.contains('on'))return;clearTimeout(rsT);rsT=setTimeout(showStep,120);});
+
+/* ══════════════════════ Klávesy ══════════════════════ */
+document.addEventListener('keydown',function(e){
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openPal();return;}
+  if(e.key==='Escape'){closePal();closeModal();$('#thub').classList.remove('on');if($('#tmask').classList.contains('on'))endTour();return;}
+  if($('#pal').classList.contains('on')){
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();palI=Math.max(0,Math.min(palR.length-1,palI+(e.key==='ArrowDown'?1:-1)));$$('.pal-r').forEach(function(r,i){r.classList.toggle('on',i===palI);});return;}
+    if(e.key==='Enter'&&palR[palI]){closePal();palR[palI].a();}
+    return;
+  }
+  if($('#tmask').classList.contains('on')){if(e.key==='ArrowRight')$('#tb-next').click();if(e.key==='ArrowLeft'&&!$('#tb-prev').disabled)$('#tb-prev').click();}
+});
+$('#b-intro').addEventListener('click',function(){go('s0');});
+
+/* ══════════════════════ Přepínač role ══════════════════════ */
+function redraw(){renderSide();renderActs();hydrateIcons();renderIntra();renderMoje();renderKat();renderDok();}
+function setRole(k,silent){
+  ROLE=k; $('#role-sw').value=k; redraw();
+  if(!silent&&k!=='VE')toast('Zobrazeno očima role <b>'+R().lbl+'</b>. Menu, čísla i dokumenty se změnily.');
+}
+(function(){
+  var sel=document.createElement('select'); sel.id='role-sw';
+  sel.style.cssText='background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);color:#E9DDD3;font-family:var(--fm);font-size:10.5px;padding:6px 10px;border-radius:999px;outline:none';
+  sel.innerHTML=Object.keys(ROLES).map(function(k){return '<option value="'+k+'" style="color:#1F1A17">Zobrazit jako: '+ROLES[k].lbl+'</option>';}).join('');
+  sel.addEventListener('change',function(){setRole(sel.value);var n=R().nav;go(n?n[0]:'s1');});
+  $('.cbar-r').insertBefore(sel,$('#b-intro'));
+})();
+
+/* ══════════════════════ Start ══════════════════════ */
+var START=(location.hash||'#s0').substring(1);
+renderIntro(); renderTpl(); wstep(1); renderFd(); renderPpl(); renderAcc(); renderSab();
+redraw(); openProj('P-2021-02');
+go(START);
+/* Kotva #sN odpovídá id obrazovky a prohlížeč by po načtení odscrolloval pod lištu. */
+window.addEventListener('load',function(){window.scrollTo(0,0);});
+window.addEventListener('hashchange',function(){var h=(location.hash||'#s0').substring(1);if(h!==CUR_SCR)go(h);});
+
+</script>
+</body>
+</html>
