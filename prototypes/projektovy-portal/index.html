@@ -746,7 +746,7 @@ tr.ext-row td:first-child{color:#2547A8}
   <div class="pane" id="p-tea">
     <div class="card" id="card-teams"><div class="card-h"><span class="icbox" data-ic="teams"></span><span class="card-t">Kanály týmu v Teams</span></div>
       <div class="card-b flush"><table class="tbl"><thead><tr><th>Kanál</th><th>Kdo v něm je</th><th>Dokumenty</th><th>Poslední zpráva</th></tr></thead><tbody id="tb-teams"></tbody></table></div></div>
-    <div class="banner accent"><span data-ic="info"></span><span><b>Dokumenty se neukládají dvakrát.</b> Soubory, se kterými tým pracuje v Teams, leží v knihovně projektu. Partner s vlastním Microsoftem 365 pracuje ve <b>sdíleném kanálu</b> a do zbytku týmu nevidí – obě firmy si propojení jednou povolí. Partner bez Microsoftu 365 se přihlásí jako host svým e-mailem a pracuje přímo v knihovně projektu, jen ve svých složkách.</span></div>
+    <div class="banner accent"><span data-ic="info"></span><span><b>Dokumenty se neukládají dvakrát.</b> Standardní kanály jsou napojené na složky projektu – soubor leží jednou, v knihovně projektu. Soukromé a sdílené kanály mají vlastní knihovnu, do které vidí jen jejich členové; patří tam, co má vidět jen užší okruh. Partner s vlastním Microsoftem 365 pracuje ve <b>sdíleném kanálu</b> a do zbytku týmu nevidí – obě firmy si propojení jednou povolí. Partner bez Microsoftu 365 se přihlásí jako host svým e-mailem a pracuje přímo v knihovně projektu, jen ve svých složkách.</span></div>
   </div>
   <div class="pane" id="p-his">
     <div class="card"><div class="card-h"><span class="icbox" data-ic="list"></span><span class="card-t">Historie projektu</span><span class="note">kdo, co a kdy – včetně změn přístupů</span></div>
@@ -1118,11 +1118,11 @@ var TERMINY = [
 ];
 
 var KANALY = [
- ['Obecné','celý interní tým','kořen knihovny','dnes 08:12'],
- ['Projekce','tým + architekt (sdílený kanál, partner s vlastním M365)','03 Projektová dokumentace','dnes 07:55'],
- ['Realizace','tým + dodavatel a dozor (sdílený kanál, partneři s vlastním M365)','05 Realizace','včera 17:20'],
- ['Prodej','obchodní tým (soukromý kanál)','07 Prodej a klienti','včera 16:40'],
- ['Vedení projektu','PM + vedení (soukromý kanál)','01, 04, 06','6. 10.']
+ ['Obecné','celý interní tým (standardní kanál)','kořen knihovny projektu','dnes 08:12'],
+ ['Realizace','celý interní tým (standardní kanál)','05 Realizace','včera 17:20'],
+ ['Projekce s architektem','tým + architekt (sdílený kanál, partner s vlastním M365)','vlastní knihovna kanálu','dnes 07:55'],
+ ['Prodej','obchodní tým (soukromý kanál)','vlastní knihovna kanálu','včera 16:40'],
+ ['Vedení projektu','PM + vedení (soukromý kanál)','vlastní knihovna kanálu','6. 10.']
 ];
 
 var MILNIKY = [
@@ -1603,7 +1603,7 @@ function inviteModal(){
    '<div class="f2"><div class="field"><label>Role<span class="req">*</span></label><select><option>Architekt</option><option>Dodavatel stavby</option><option>Technický dozor</option><option>Hypoteční partner</option></select></div>'+
    '<div class="field"><label>Přístup platí do<span class="req">*</span></label><input value="30. 6. 2027"><div class="hint">Bez data konce pozvánku nejde odeslat.</div></div></div>'+
    '<div class="sdw-ck ok"><span class="dot"></span><span><span class="h">Rozsah podle role</span>03 Projektová dokumentace – upravovat · 05 Realizace / Změny během výstavby – číst. Ostatní složky partner neuvidí.</span></div>'+
-   '<div class="sdw-ck warn" style="margin-top:9px"><span class="dot"></span><span><span class="h">Kanál v Teams</span>Ateliér má vlastní Microsoft 365, partner proto bude přidán do sdíleného kanálu <b>Projekce</b> a do ostatních kanálů týmu nevidí. Partner bez Microsoftu 365 by pracoval jako host jen v knihovně projektu.</span></div>',
+   '<div class="sdw-ck warn" style="margin-top:9px"><span class="dot"></span><span><span class="h">Kanál v Teams</span>Ateliér má vlastní Microsoft 365, partner proto bude přidán do sdíleného kanálu <b>Projekce s architektem</b> a do ostatních kanálů týmu nevidí. Partner bez Microsoftu 365 by pracoval jako host jen v knihovně projektu.</span></div>',
    '<button class="btn ghost" data-mx>Zrušit</button><button class="btn primary" id="b-inv-ok">Odeslat pozvánku</button>');
   $('#b-inv-ok').addEventListener('click',function(){closeModal();toast('Pozvánka odeslána. Partner se přihlásí svým e-mailem, přístup skončí 30. 6. 2027.');});
 }
@@ -1801,7 +1801,7 @@ var TOUR=[
  {scr:'s4',before:function(){pvTab('p-str');var k=$('#k2');if(k)k.classList.add('on');selFolder(2);},sel:'#card-tree',ti:'Struktura dokumentů',tx:'Deset hlavních složek od pozemku po předání. Je to <b>návrh k diskusi</b> – na workshopu ho upravíme podle vás. Zkuste kliknout na složku <b>06 Rozpočet a financování</b>.'},
  {scr:'s4',sel:'#card-folder',ti:'Kdo do složky smí',tx:'U každé složky je vidět, která role ji upravuje, která jen čte a která ji vůbec nevidí. Omezené složky – pozemky, smlouvy, financování, prodej – mají vlastní oprávnění podle matice.'},
  {scr:'s4',before:function(){pvTab('p-tym');},sel:'#card-ext',ti:'Externí partneři',tx:'Architekt, dodavatel stavby, technický dozor. Každý má <b>roli, rozsah složek a datum konce</b>. Bez data konce pozvánku nejde odeslat – a před koncem přijde vlastníkovi připomínka.'},
- {scr:'s4',before:function(){pvTab('p-tea');},sel:'#card-teams',ti:'Spolupráce v Teams',tx:'Tým projektu v Teams má kanály napojené na složky. Architekt s vlastním Microsoftem 365 je ve <b>sdíleném kanálu Projekce</b> a do zbytku týmu nevidí; partner bez něj pracuje jako host přímo v knihovně, jen ve svých složkách. Prodej a vedení projektu mají soukromé kanály.'}]},
+ {scr:'s4',before:function(){pvTab('p-tea');},sel:'#card-teams',ti:'Spolupráce v Teams',tx:'Standardní kanály týmu jsou napojené na složky projektu. Architekt s vlastním Microsoftem 365 je ve <b>sdíleném kanálu</b> s vlastní knihovnou a do zbytku týmu nevidí; partner bez něj pracuje jako host přímo v knihovně, jen ve svých složkách. Prodej a vedení projektu mají soukromé kanály.'}]},
 {t:'Očima architekta',s:'Co vidí partner zvenku',steps:[
  {scr:'s2',before:function(){setRole('EX');},sel:'#kpis',ti:'Přepnuto na externího architekta',tx:'Dva projekty, v každém jen projektová dokumentace a změny. Menu má dvě položky. <b>Intranet, lidé ani ostatní projekty pro něj neexistují.</b>'},
  {scr:'s5',sel:'#tbl-dok',ti:'Jen jeho dokumenty',tx:'Ve vyhledávání i v seznamech vidí jen to, k čemu má oprávnění. Rozpočet, smlouvy ani prodej mu nic nenabídne – ani název souboru.'}]},
