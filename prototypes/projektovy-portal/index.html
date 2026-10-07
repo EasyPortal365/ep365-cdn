@@ -916,6 +916,24 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
 .lib-foot .lib-acc{padding:4px 11px}
 @media(max-width:1250px){.libcard .lab{flex-wrap:wrap}}
 
+/* Přehled projektu */
+#p-pre .kpis{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.pd-t{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--ep-line);font-size:13px}
+.pd-t:last-child{border-bottom:0}
+.pd-t .pill{min-width:74px;justify-content:center}
+.pd-p{display:flex;gap:10px;align-items:center;padding:6px 0}
+.pd-p b{display:block;font-size:13px}
+.pd-p span{display:block;font-size:11.5px;color:var(--ep-text-soft)}
+.pd-p.ext b{color:#2547A8}
+.pd-d{display:flex;gap:12px;align-items:center;padding:10px 18px;border-bottom:1px solid var(--ep-line);cursor:pointer}
+.pd-d:last-child{border-bottom:0}
+.pd-d:hover{background:#FBF9F7}
+.pd-d b{display:block;font-size:13px}
+.pd-d .mono{font-size:10.5px}
+.pd-foto{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pd-foto div{height:78px;border-radius:8px;overflow:hidden}
+.pd-foto svg{width:100%;height:100%;display:block}
+
 /* ============ Řízené dokumenty – podle Ep365Documents.module.scss (pilulky :880-910, karty :1486, :1636, odpočty :1715) ============ */
 .rdapp{display:grid;align-items:stretch;grid-template-columns:268px minmax(0,1fr);min-height:calc(100vh - var(--bar-h))}
 @media(max-width:1000px){.rdapp{grid-template-columns:1fr}.rd-side{display:none}}
@@ -1247,13 +1265,15 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
   </div></div>
   <div class="phase-bar" id="pv-phase"></div>
   <div class="tabs" id="pv-tabs">
-    <button class="on" data-p="p-str">Struktura dokumentů</button>
+    <button class="on" data-p="p-pre">Přehled</button>
+    <button data-p="p-str">Dokumenty</button>
     <button data-p="p-tym">Tým a přístupy <span class="n" id="pv-n-tym"></span></button>
     <button data-p="p-mil">Fáze a milníky</button>
     <button data-p="p-tea">Teams</button>
     <button data-p="p-his">Historie</button>
   </div>
-  <div class="pane on" id="p-str">
+  <div class="pane on" id="p-pre"></div>
+  <div class="pane" id="p-str">
     <div class="docs-l">
       <div class="card" id="card-tree"><div class="card-h"><span class="icbox" data-ic="fold"></span><span class="card-t">Složky</span><span class="note">šablona „<span id="pv-tpl"></span>“</span></div>
         <div class="card-b"><div class="tree" id="tree"></div></div></div>
@@ -1916,7 +1936,7 @@ function renderLib(){
     S.forEach(function(s,i){if(CUR.faz!=='naj'&&ROLE!=='VE'&&ROLE!=='PM'&&levelFor(i,ROLE)==='N')return;folders.push({fi:i,si:null,n:s[0]+' '+s[1],c:s[2].length?s[2].length+' složky':(FILEMAP['#'+s[0]]||[]).length+' položky',o:s[3]==='o'});});
     if(LIB.mode==='vse')S.forEach(function(s,i){if(CUR.faz!=='naj'&&ROLE!=='VE'&&ROLE!=='PM'&&levelFor(i,ROLE)==='N')return;s[2].forEach(function(x,j){rows=rows.concat(libFiles(p,i,j));});});
   } else if(si==null){
-    S[fi][2].forEach(function(x,j){folders.push({fi:fi,si:j,n:x,c:libFiles(p,fi,j).length+' položky'});});
+    S[fi][2].forEach(function(x,j){if(ROLE==='EX'&&CUR.faz!=='naj'&&levelFor(fi,'EX')==='.'&&j!==2)return;folders.push({fi:fi,si:j,n:x,c:libFiles(p,fi,j).length+' položky'});});
     rows=libFiles(p,fi,null);
     if(LIB.mode==='vse')S[fi][2].forEach(function(x,j){rows=rows.concat(libFiles(p,fi,j));});
   } else rows=libFiles(p,fi,si);
@@ -2396,6 +2416,74 @@ document.addEventListener('click',function(e){var t;
   if(e.target.closest('[data-rdconf]')){var m=RD_META[RDC],d=FIRDOK[RDC];m.my='ok';m.ok='9. 10. 2026 '+new Date().toTimeString().slice(0,5);if(d.sz&&d.sz[0]<d.sz[1])d.sz[0]++;RDTAB='pot';rdConfirmRender();renderRd();renderIntra();toast('Seznámení potvrzeno a zapsáno do evidence s časovým razítkem.');return;}
 });
 
+/* ══════════════════════ Přehled projektu – úvodní stránka (dashboard) karty projektu ══════════════════════
+   Co se na projektu děje, co čeká na rozhodnutí, nejbližší termíny, čísla a lidé. Obsah se řídí rolí:
+   obchod vidí prodej, externí partner jen svou část, rozpočet jen vedení, PM a ekonomika. */
+function pdNum(p,k,a,b){return a+hsh(p.kod+k)%(b-a+1);}
+function renderProjDash(p){
+  var el=$('#p-pre'); if(!el)return;
+  var naj=p.faz==='naj', ex=ROLE==='EX', ob=ROLE==='OB', seeBud=ROLE==='VE'||ROLE==='PM';
+  var stav=p.kod==='P-2021-02'?68:{pri:3,pov:8,pro:15,rea:pdNum(p,'s',35,80),pre:96,zar:100}[p.faz]||0;
+  var bud=p.kod==='P-2021-02'?72:pdNum(p,'b',20,85), zl=EXTERNI.filter(function(x){return x.kod===p.kod;});
+  var sold=p.byt?Math.round(p.byt*p.prod/100):0;
+  var k=[];
+  if(naj)k=[['Nájemníci','14','','obsazenost 92 %'],['Revize do 60 dnů','3','amber','výtahy, elektro, PO'],['Servisní požadavky','5','','2 čekají na dodavatele'],['Smlouvy k prodloužení','2','','do konce roku']];
+  else{
+    k.push(['Stavba',stav+'<small>%</small>','',p.faz==='rea'?'podle harmonogramu · dokončení '+p.dokon:fazeT(p.faz)]);
+    if(!ex&&p.prod!=null&&FAZE_IX[p.faz]>=2)k.push(['Prodáno',p.prod+'<small>%</small>',p.prod>=80?'green':'',sold+' z '+p.byt+' bytů · 3 rezervace tento týden']);
+    if(seeBud)k.push(['Rozpočet čerpán',bud+'<small>%</small>','','v plánu · rezerva 4,2 %']);
+    if(!ob)k.push(['Změnové listy','3','amber','1 čeká na schválení']);
+    if(!ex)k.push(['Externí partneři',zl.length,'',zl.filter(function(x){return x.st;}).length?zl.filter(function(x){return x.st;}).length+' přístup končí do 30 dnů':'všichni s datem konce']);
+  }
+  var kpi='<div class="kpis">'+k.map(function(x){return '<div class="kpi"><div class="kpi-l">'+x[0]+'</div><div class="kpi-v '+x[2]+'">'+x[1]+'</div><div class="kpi-s">'+x[3]+'</div></div>';}).join('')+'</div>';
+  /* co čeká na mě */
+  var ceka=naj?[['am','clock','Revize výtahů','termín 31. 10. 2026 · objednat technika','t:Objednávka revize u servisní firmy.']]
+   :ex?[['ac','doc','Změnový list ZL-17','připomínky PM k detailu kotvení · dnes','p-str']]
+   :ob?[['am','doc','Klientská změna byt A.2.04','nacenění od dodavatele dorazilo · schválit klientovi','p-str'],['ac','users','Předávky bytů','harmonogram na listopad čeká na potvrzení','t:Harmonogram předávek – sdílený kalendář projektu.']]
+   :[['am','doc','Změnový list ZL-17 – zábradlí lodžií','autorský dozor a TDI souhlasí · čeká na vaše schválení','zl'],['rd','key','Hypo poradci s.r.o.','přístup končí 31. 10. · prodloužit, nebo ukončit','p-tym'],['ac','check','Zápis z kontrolního dne č. 41','k připomínkám do 9. 10.','kd']];
+  var cekaH=ceka.map(function(c){var a=c[4].indexOf('t:')===0?'data-toast="'+c[4].substring(2)+'"':'data-pdgo="'+c[4]+'"';
+    return '<div class="feed-i" '+a+' style="cursor:pointer"><span class="feed-ic '+c[0]+'">'+svg(IC[c[1]],15)+'</span><div><div class="feed-t"><b>'+c[2]+'</b></div><div class="feed-m">'+c[3]+'</div></div></div>';}).join('');
+  /* dění */
+  var hist=HISTORIE.slice(0,5).filter(function(h){return !ex||h[1].indexOf('Brázda')>-1||h[1].indexOf('Zápis')>-1;});
+  var dení=hist.map(function(h){return '<div class="tl-i"><time>'+h[0]+'</time><div>'+h[1]+'</div></div>';}).join('');
+  /* termíny */
+  var ter=(naj?[['31. 10.','Revize výtahů','p-open'],['15. 11.','Kontrola PO','p-cat'],['31. 12.','Konec smlouvy – nájemce 3. NP','p-cat']]:[['v pátek','Kontrolní den č. 42','p-cat'],['31. 10.','Konec přístupu – Hypo poradci','p-open'],['11/2026','Podání žádosti o kolaudaci','p-cat'],['12/2026','Předávání bytů klientům','p-cat']]).map(function(t){return '<div class="pd-t"><span class="pill '+t[2]+'">'+t[0]+'</span><span>'+t[1]+'</span></div>';}).join('');
+  /* tým */
+  var tym=(naj?['VK','SN','MH']:[p.pm,'PH','RS','LS']).map(function(id){return '<div class="pd-p">'+av(id)+'<div><b>'+os(id).n+'</b><span>'+os(id).r+'</span></div></div>';}).join('')+
+    (ex||naj?'':zl.slice(0,3).map(function(x){return '<div class="pd-p ext">'+av(x.p)+'<div><b>'+os(x.p).n+'</b><span>'+x.role+' · do '+x.do+'</span></div></div>';}).join(''));
+  /* odkazy */
+  var ln=(naj?[['fold','Dokumenty nemovitosti','p-str'],['teams','Tým v Teams','t:Otevře tým nemovitosti v Teams.'],['cal','Plán revizí','t:Kalendář revizí a kontrol.']]
+    :[['fold','Dokumenty projektu','p-str'],['teams','Kanál Realizace','t:Otevře kanál Realizace v Teams.'],['cal','Harmonogram','t:Harmonogram výstavby – Excel v knihovně projektu.'],['list','Kontrolní dny','kd']].concat(ex?[]:[['coins','Ceník a dostupnost','cen']])).map(function(l){
+      var a=l[2].indexOf('t:')===0?'data-toast="'+l[2].substring(2)+'"':'data-pdgo="'+l[2]+'"';return '<button class="wp-link" '+a+'><span class="li">'+svg(IC[l[0]],14)+'</span>'+l[1]+'</button>';}).join('');
+  /* poslední dokumenty */
+  var docs=(function(){var cur=DOKUMENTY.filter(function(d){if(d.p!==p.kod)return false;if(ROLE==='EX')return d.f.indexOf('03 ')===0||d.f.indexOf('05 Realizace / Změny')===0;if(ROLE==='OB')return d.g==='prod'||d.g==='pre'||d.g==='rea';return true;}).map(dokRow);var out=[];struct(p).forEach(function(s,i){if(!naj&&!(ROLE==='VE'||ROLE==='PM')&&levelFor(i,ROLE)==='N')return;(s[2].length?s[2].map(function(x,j){return j;}):[null]).forEach(function(j){if(ROLE==='EX'&&levelFor(i,'EX')==='.'&&j!==2)return;out=out.concat(libFiles(p,i,j));});});
+    out.sort(function(a,b){return dokDays(a.d)-dokDays(b.d);});out=cur.concat(out.filter(function(o){return !cur.some(function(c){return c.n===o.n;});}));return out.slice(0,5);})();
+  PDDOCS=docs;
+  var docH=docs.map(function(d,i){return '<div class="pd-d" data-pdprev="'+i+'">'+extBadge(d.ext)+'<div><b>'+d.n.replace(/\.[a-z]+$/,'')+'</b><span class="mono">'+d.f+' · '+os(d.a).n+' · '+d.d+'</span></div></div>';}).join('');
+  var foto=naj?'':'<div class="card"><div class="card-h"><span class="icbox" data-ic="building"></span><span class="card-t">Ze stavby</span><button class="card-a" data-pdgo="foto">Fotodokumentace</button></div><div class="card-b"><div class="pd-foto">'+[0,2,5].map(function(s){return '<div>'+art(s+hsh(p.kod)%3,130)+'</div>';}).join('')+'</div><p class="note" style="margin:8px 0 0">40. týden · nahrál dodavatel stavby · 48 fotografií</p></div></div>';
+  el.innerHTML=kpi+'<div class="two-col"><div>'+
+    '<div class="card"><div class="card-h"><span class="icbox" data-ic="check"></span><span class="card-t">Čeká na rozhodnutí</span><span class="note">'+ceka.length+'</span></div><div class="card-b flush"><div class="feed">'+cekaH+'</div></div></div>'+
+    '<div class="card"><div class="card-h"><span class="icbox" data-ic="doc"></span><span class="card-t">Poslední dokumenty</span><button class="card-a" data-pdgo="p-str">Všechny dokumenty</button></div><div class="card-b flush">'+docH+'</div></div>'+
+    '<div class="card"><div class="card-h"><span class="icbox" data-ic="list"></span><span class="card-t">Co se na projektu děje</span><button class="card-a" data-pdgo="p-his">Historie</button></div><div class="card-b"><div class="tl">'+dení+'</div></div></div>'+
+    '</div><div>'+
+    '<div class="card"><div class="card-h"><span class="icbox" data-ic="flag"></span><span class="card-t">Nejbližší termíny</span><button class="card-a" data-pdgo="p-mil">Milníky</button></div><div class="card-b">'+ter+'</div></div>'+
+    '<div class="card"><div class="card-h"><span class="icbox" data-ic="link"></span><span class="card-t">Rychlé odkazy</span></div><div class="card-b"><div class="wp-links">'+ln+'</div></div></div>'+
+    foto+
+    '<div class="card"><div class="card-h"><span class="icbox" data-ic="users"></span><span class="card-t">Lidé na projektu</span><button class="card-a" data-pdgo="p-tym">Tým a přístupy</button></div><div class="card-b">'+tym+'</div></div>'+
+    '</div></div>';
+  hydrateIcons(el);
+}
+var PDDOCS=[];
+document.addEventListener('click',function(e){var t;
+  if((t=e.target.closest('[data-pdprev]'))){openPreview(PDDOCS[+t.getAttribute('data-pdprev')]);return;}
+  if((t=e.target.closest('[data-pdgo]'))){var g=t.getAttribute('data-pdgo');
+    if(g==='zl'){pvTab('p-str');selFolder(4,2);openPreview(libFiles(CUR,4,2).filter(function(f){return f.n.indexOf('ZL-17')>-1;})[0]);return;}
+    if(g==='kd'){pvTab('p-str');selFolder(4,0);return;}
+    if(g==='foto'){pvTab('p-str');selFolder(4,3);return;}
+    if(g==='cen'){pvTab('p-str');selFolder(6,0);return;}
+    pvTab(g);}
+});
+
 /* ══════════════════════ Ikony ══════════════════════ */
 var IC = {
  home:'<path d="M4 10.5 12 4l8 6.5V19a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1Z"/>',
@@ -2446,9 +2534,10 @@ function fazePill(k){return '<span class="pill '+FAZE_PILL[k]+'"><span class="d"
 function hydrateIcons(root){[].slice.call((root||document).querySelectorAll('[data-ic]')).forEach(function(e){if(!e.firstChild)e.innerHTML=svg(IC[e.getAttribute('data-ic')]||IC.info,e.classList.contains('icbox')?15:16);});}
 
 /* Ilustrace – abstraktní siluety domů, žádné cizí obrázky */
+var ART_N=0;
 function art(seed,h){
   var bgs=[['#96011C','#C80225'],['#000000','#4D4D4D'],['#C80225','#E38965'],['#000000','#96011C'],['#96011C','#E38965'],['#4D4D4D','#939393']];
-  var c=bgs[seed%bgs.length], s='<svg viewBox="0 0 400 '+(h||200)+'" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g'+seed+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="400" height="'+(h||200)+'" fill="url(#g'+seed+')"/>';
+  var c=bgs[seed%bgs.length], gid='g'+seed+'_'+(++ART_N), s='<svg viewBox="0 0 400 '+(h||200)+'" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="400" height="'+(h||200)+'" fill="url(#'+gid+')"/>';
   var x=10, r=seed*7+3, H=h||200;
   while(x<400){
     r=(r*9301+49297)%233280; var w=40+(r%50); r=(r*9301+49297)%233280; var bh=50+(r%110);
@@ -2759,7 +2848,7 @@ function openProj(kod){
     return '<div class="tl-i"><time>'+m[0]+'</time><div>'+(m[2]?'<span class="pill p-closed" style="margin-right:8px"><span class="d"></span>hotovo</span>':'<span class="pill p-cat" style="margin-right:8px"><span class="d"></span>plán</span>')+m[1]+'</div></div>';}).join('');
   $('#tb-teams').innerHTML=KANALY.map(function(k){return '<tr><td class="t-pri">'+k[0]+'</td><td>'+k[1]+'</td><td class="mono">'+k[2]+'</td><td class="mono">'+k[3]+'</td></tr>';}).join('');
   $('#pv-his').innerHTML=HISTORIE.map(function(h){return '<div class="tl-i"><time>'+h[0]+'</time><div>'+h[1]+'</div></div>';}).join('');
-  pvTab('p-str');
+  renderProjDash(p); pvTab('p-pre');
 }
 function extPerson(x){
   var o=os(x.p), cls=x.st==='soon'?'exp-soon':x.st==='none'?'exp-none':'';
@@ -2770,7 +2859,7 @@ function renderTree(){
   $('#tree').innerHTML=S.map(function(s,i){
     if(CUR.faz!=='naj'&&ROLE!=='VE'&&ROLE!=='PM'&&levelFor(i,ROLE)==='N')return '';
     var hasExt=CUR.faz!=='naj'&&MATICE.some(function(m){return m.ext&&m.v[i]!=='N'&&ext.some(function(x){return x.role.indexOf(m.r.split(' ')[0])===0;});});
-    var kids=s[2].map(function(k,j){return '<div class="trow" data-row="'+i+'" data-sub="'+j+'"><span class="tw"></span><span class="fo">'+svg(IC.fold,14)+'</span><span class="cd">'+s[0]+'.'+(j+1)+'</span><span class="nx" data-fold="'+i+'" data-sub="'+j+'">'+k+'</span></div>';}).join('');
+    var kids=s[2].map(function(k,j){if(ROLE==='EX'&&CUR.faz!=='naj'&&levelFor(i,'EX')==='.'&&j!==2)return '';return '<div class="trow" data-row="'+i+'" data-sub="'+j+'"><span class="tw"></span><span class="fo">'+svg(IC.fold,14)+'</span><span class="cd">'+s[0]+'.'+(j+1)+'</span><span class="nx" data-fold="'+i+'" data-sub="'+j+'">'+k+'</span></div>';}).join('');
     return '<div class="tr1"><div class="trow" data-row="'+i+'"><span class="tw" data-tw="'+i+'">'+(s[2].length?'▸':'')+'</span><span class="fo">'+svg(IC.fold,15)+'</span><span class="cd">'+s[0]+'</span><span class="nx" data-fold="'+i+'">'+s[1]+'</span>'+
       '<span class="meta">'+(s[3]==='o'?'<span class="tico" title="Omezená složka – vlastní oprávnění">'+svg(IC.lock,12)+'</span>':'')+(hasExt?'<span class="tico ext" title="Má přístup externí partner">'+svg(IC.globe,12)+'</span>':'')+'</span></div><div class="kids" id="k'+i+'">'+kids+'</div></div>';
   }).join('');
@@ -2783,7 +2872,7 @@ $('#tree').addEventListener('click',function(e){
 });
 function pvTab(id){
   $$('#pv-tabs button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-p')===id);});
-  ['p-str','p-tym','p-mil','p-tea','p-his'].forEach(function(p){$('#'+p).classList.toggle('on',p===id);});
+  ['p-pre','p-str','p-tym','p-mil','p-tea','p-his'].forEach(function(p){$('#'+p).classList.toggle('on',p===id);});
 }
 $('#pv-tabs').addEventListener('click',function(e){var b=e.target.closest('[data-p]');if(b)pvTab(b.getAttribute('data-p'));});
 $('#b-add-ext').addEventListener('click',inviteModal);
@@ -3049,6 +3138,7 @@ var TOUR=[
 {t:'Projekt',s:'Jeden projekt, jeden prostor',steps:[
  {scr:'s3',sel:'#tbl-kat',ti:'Katalog projektů',tx:'Všechny projekty s fází, typem, projektovým manažerem a počtem externích partnerů. Důvěrný projekt v přípravě vidí jen vedení a jeho tým.'},
  {scr:'s4',before:function(){openProj('P-2021-02');},sel:'#pv-phase',ti:'Fáze projektu',tx:'Od přípravy po záruky – a souběžně prodej. Podle fáze se mění, kdo v projektu pracuje a kdo zvenku do něj vidí.'},
+ {scr:'s4',before:function(){pvTab('p-pre');},sel:'#p-pre',ti:'Přehled projektu',tx:'Úvodní stránka projektu: kolik je postaveno a prodáno, co čeká na rozhodnutí, nejbližší termíny, poslední dokumenty a lidé na projektu – včetně partnerů zvenku. Každá role vidí svou verzi: obchod prodej, rozpočet jen vedení a projektový manažer.'},
  {scr:'s4',before:function(){pvTab('p-str');var k=$('#k2');if(k)k.classList.add('on');selFolder(2);},sel:'#card-tree',ti:'Struktura dokumentů',tx:'Deset hlavních složek od pozemku po předání. Je to <b>návrh k diskusi</b> – na workshopu ho upravíme podle vás. Zkuste kliknout na složku <b>06 Rozpočet a financování</b>.'},
  {scr:'s4',before:function(){selFolder(4,0);},sel:'#card-lib',ti:'Dokumenty jako v MyDocs',tx:'Výpis složky s menu u každého dokumentu – otevřít, náhled, verze, rezervace, kdo má přístup. Zkuste kliknout na <b>Zápis z kontrolního dne č. 41</b>: otevře se náhled. Tlačítko <b>Uložit sem</b> spustí průvodce uložením.'},
  {scr:'s4',before:function(){pvTab('p-tym');},sel:'#card-ext',ti:'Externí partneři',tx:'Architekt, dodavatel stavby, technický dozor. Každý má <b>roli, rozsah složek a datum konce</b>. Bez data konce pozvánku nejde odeslat – a před koncem přijde vlastníkovi připomínka.'},
