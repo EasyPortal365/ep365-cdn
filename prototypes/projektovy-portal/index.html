@@ -1781,7 +1781,7 @@ function renderIntra(){
   $('#wp-headline').innerHTML='<div class="tx"><div class="tags"><span class="wp-tag hl">● Headline</span><span class="wp-tag">'+h.k+'</span><span class="wp-tag plain">'+h.rel+'</span></div><h3>'+h.t+'</h3><p>'+h.x+'</p>'+
     '<div class="by">'+av(h.a)+'<span><div class="n">'+os(h.a).n+'</div><div class="d">'+h.d+'</div></span><button class="btn primary">Číst dál →</button></div></div><div class="im">'+art(7,320)+'</div>';
   $('#wp-headline').setAttribute('data-news','0');
-  var qa=[['building','Moje projekty','projekty, termíny, schválení','s2','#FAE6E9','#C80225'],['up','Uložit dokument','na správné místo','wiz','#F5EEE8','#000000'],['shield','Firemní dokumenty','směrnice a postupy','s7','#FAE6E9','#96011C'],['key','Přístup pro partnera','pozvat architekta, dodavatele','t:Žádost o přístup pro externího partnera – schvaluje vlastník projektu.','#F5EEE8','#E38965'],['help','Mám problém','nahlásit IT podpoře','t:Hlášení odchází e-mailem na podporu IT.','#EDE3DA','#4D4D4D']];
+  var qa=[['building','Moje projekty','projekty, termíny, schválení','s2','#FAE6E9','#C80225'],['up','Uložit dokument','na správné místo','wiz','#F5EEE8','#000000'],['shield','Řízené dokumenty','směrnice a postupy','s7','#FAE6E9','#96011C'],['key','Přístup pro partnera','pozvat architekta, dodavatele','t:Žádost o přístup pro externího partnera – schvaluje vlastník projektu.','#F5EEE8','#E38965'],['help','Mám problém','nahlásit IT podpoře','t:Hlášení odchází e-mailem na podporu IT.','#EDE3DA','#4D4D4D']];
   $('#wp-quick').innerHTML=qa.map(function(q){var a=q[3].indexOf('t:')===0?'data-toast="'+q[3].substring(2)+'"':q[3]==='wiz'?'data-wiz="1"':'data-go="'+q[3]+'"';
     return '<button class="wp-tile" '+a+'><span class="ti" style="background:'+q[4]+';color:'+q[5]+'">'+svg(IC[q[0]],19)+'</span><span><span class="t">'+q[1]+'</span><span class="s">'+q[2]+'</span></span><span class="ar">›</span></button>';}).join('');
   var ack=FIRDOK.filter(function(d,i){return RD_META[i].r&&RD_META[i].my!=='ok';}).slice(0,3);
@@ -1995,7 +1995,7 @@ function libRefresh(){if($('#s5.on'))renderDok();else renderLib();}
 function detailModal(r){
   var p=r.p?proj(r.p):null;
   modal('Podrobnosti dokumentu','<div class="det-card">'+extBadge(r.ext)+'<div><b>'+r.n+'</b><div class="mono">'+r.sz+' · verze '+r.v+'</div></div></div><dl class="kv">'+
-    [['Název',r.n],['Projekt',p?p.naz+' · '+p.kod:'Firemní dokumenty'],['Složka',r.f],['Změněno',r.d],['Změnil',os(r.a).n],['Velikost',r.sz],['Verze',r.v],['Cesta','/sites/'+(p?p.kod.toLowerCase():'intranet')+'/Dokumenty/'+r.f]].map(function(x){return '<dt>'+x[0]+'</dt><dd>'+x[1]+'</dd>';}).join('')+'</dl>',
+    [['Název',r.n],['Projekt',p?p.naz+' · '+p.kod:'Řízené dokumenty'],['Složka',r.f],['Změněno',r.d],['Změnil',os(r.a).n],['Velikost',r.sz],['Verze',r.v],['Cesta','/sites/'+(p?p.kod.toLowerCase():'intranet')+'/Dokumenty/'+r.f]].map(function(x){return '<dt>'+x[0]+'</dt><dd>'+x[1]+'</dd>';}).join('')+'</dl>',
     '<button class="btn ghost" data-mx data-toast="Odkaz zkopírován.">Kopírovat odkaz</button><button class="btn primary" id="det-open">Otevřít dokument</button>');
   $('#det-open').addEventListener('click',function(){closeModal();openPreview(r);});
 }
@@ -2005,7 +2005,7 @@ function openPreview(r){
   if(!r)return; var ext=(r.ext||r.n.split('.').pop()).toLowerCase(), p=r.p?proj(r.p):null;
   var body=previewBody(r,ext,p);
   var o=document.createElement('div'); o.className='pv-mask'; o.id='pv';
-  o.innerHTML='<div class="pv"><div class="pv-h"><span class="pv-x">'+ext.toUpperCase()+'</span><div class="pv-t"><b>'+r.n+'</b><div class="mono">'+ext.toUpperCase()+' · '+(p?p.naz:'Firemní dokumenty')+' · '+os(r.a).n+'</div></div><span class="spacer"></span>'+
+  o.innerHTML='<div class="pv"><div class="pv-h"><span class="pv-x">'+ext.toUpperCase()+'</span><div class="pv-t"><b>'+r.n+'</b><div class="mono">'+ext.toUpperCase()+' · '+(p?p.naz:'Řízené dokumenty')+' · '+os(r.a).n+'</div></div><span class="spacer"></span>'+
     '<button class="btn ghost sm" data-toast="Otevře dokument online v Office pro web.">Otevřít online ↗</button><button class="pv-c" data-pvclose>×</button></div><div class="pv-b">'+body+'</div>'+
     '<div class="pv-f">Náhled poskytuje SharePoint / Office Online a respektuje vaše oprávnění – co nesmíte otevřít, neuvidíte ani v náhledu.</div></div>';
   document.body.appendChild(o);
@@ -2349,7 +2349,7 @@ function rdConfirmRender(){var x=rdDocs()[RDC],d=x.d,m=x.m,okd=m.my==='ok';
   var tabs='<div class="bl-tabs"><button class="'+(RDTAB==='nah'?'on':'')+'" data-rdtab="nah">Náhled</button>'+(m.r?'<button class="'+(RDTAB==='pot'?'on':'')+'" data-rdtab="pot">'+(okd?'Potvrzeno':'Potvrzení')+'</button>':'')+'</div>';
   var body;
   if(RDTAB==='nah')body='<div class="bl-file">'+svg(IC.doc,15)+'<span class="mono">'+d.n.toLowerCase().replace(/ /g,'_')+'.'+x.ext+'</span><span class="spacer"></span>'+(m.r&&!okd?'<button class="btn accent sm rd-pulse" data-rdtab="pot">'+svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>',14)+'Potvrdit</button>':'')+'<button class="btn ghost sm" data-toast="Otevře dokument v novém okně.">Otevřít →</button></div>'+
-    '<div class="bl-prev">'+previewBody({n:d.n+'.'+x.ext,v:d.v,a:d.o,f:'Firemní dokumenty / '+m.cat},x.ext,null)+'</div>';
+    '<div class="bl-prev">'+previewBody({n:d.n+'.'+x.ext,v:d.v,a:d.o,f:'Řízené dokumenty / '+m.cat},x.ext,null)+'</div>';
   else if(okd)body='<div class="rd-done">'+svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>',26)+'<div><b>Potvrzeno přečtení</b><span class="mono">'+os(R().id).n+' · '+m.ok+'</span></div></div>';
   else body='<div class="rd-info'+(m.my==='po'?' late':'')+'"><b>'+(m.rec?'Pravidelná obnova seznámení':m.my==='po'?'Termín pro potvrzení uplynul':'Řízené seznámení')+'</b><p>'+(m.my==='po'?'Dokument můžete potvrdit i teď – zpoždění se zaznamená do auditu.':'Dokument vyžaduje průkazné potvrzení. Po prostudování stiskněte tlačítko níže – potvrzení se zaznamená s časovým razítkem (NIS2).')+'</p></div>'+
     '<button class="rd-note" data-rdnote>+ Přidat poznámku k potvrzení (volitelné)</button><textarea id="rd-nt" maxlength="500" hidden placeholder="Poznámka k potvrzení…"></textarea>'+
@@ -2523,7 +2523,7 @@ var NAV=[
  {s:'s3',i:IC.building,l:'Katalog projektů',c:'kat'},
  {s:'s6',i:IC.plus,l:'Nový projekt'},
  {g:'Firma'},
- {s:'s7',i:IC.shield,l:'Firemní dokumenty'},
+ {s:'s7',i:IC.shield,l:'Řízené dokumenty'},
  {s:'s8',i:IC.users,l:'Lidé a týmy'},
  {g:'Správa'},
  {s:'s9',i:IC.key,l:'Přístupy',c:'nal'},
@@ -2595,7 +2595,7 @@ function renderIntro(){
     return '<div class="intro-card" '+(c[3]==='s4'?'data-kod="P-2021-02"':'data-go="'+c[3]+'"')+'><div class="intro-ic">'+svg(IC[c[0]],19)+'</div><h3>'+c[1]+'</h3><p>'+c[2]+'</p></div>';}).join('');
   var map=[
    ['Organizace projektové dokumentace','<span data-kod="P-2021-02">Karta projektu → Struktura</span>','SharePoint – knihovna projektu, verze, metadata'],
-   ['Organizace provozní dokumentace','<span data-go="s7">Firemní dokumenty</span>','SharePoint + EasyPortal 365 Řízené dokumenty'],
+   ['Organizace provozní dokumentace','<span data-go="s7">Řízené dokumenty</span>','SharePoint + EasyPortal 365 Řízené dokumenty'],
    ['Struktura projektových týmů a prostorů','<span data-go="s3">Katalog projektů</span> · <span data-go="s6">Nový projekt</span>','SharePoint weby a Teams + EasyPortal 365 Řízené weby'],
    ['Správa a řízení přístupových práv','<span data-go="s9">Přístupy a oprávnění</span>','Skupiny Entra ID, oprávnění SharePointu + EasyPortal 365 Identity Manager a Atlas'],
    ['Spolupráce týmů nad dokumenty','<span data-go="s2">Moje práce</span> · <span data-kod="P-2021-02">Karta projektu → Teams</span>','Teams – sdílené a soukromé kanály, společné úpravy'],
@@ -2613,7 +2613,7 @@ function renderIntro(){
   var st=[
    ['<b>Microsoft 365</b> – SharePoint, Teams, Entra ID','Dokumenty, verze, vyhledávání, týmová komunikace, účty a skupiny, oprávnění','všude'],
    ['<b>EasyPortal 365 Workplace</b>','Intranet: aktuality, kalendář, adresář, rozcestník, firemní barvy','<span data-go="s1">Intranet</span>'],
-   ['<b>EasyPortal 365 Řízené dokumenty</b>','Platná verze, vlastník, revize, potvrzení seznámení','<span data-go="s7">Firemní dokumenty</span>'],
+   ['<b>EasyPortal 365 Řízené dokumenty</b>','Schválení, platnost, revize, potvrzení seznámení','<span data-go="s7">Řízené dokumenty</span>'],
    ['<b>EasyPortal 365 Řízené weby</b>','Zakládání projektů ze šablony, životní cyklus a archivace webů','<span data-go="s6">Nový projekt</span> · <span data-go="s10">Šablony</span>'],
    ['<b>EasyPortal 365 Identity Manager a Atlas</b>','Skupiny a role, přehled přístupů, externí partneři, nálezy ve sdílení','<span data-go="s9">Přístupy</span>'],
    ['<b>Projektový portál</b> – předmět návrhu','Nadstavba podle vašich procesů: Moje práce, katalog a karta projektu','<span data-go="s2">Moje práce</span> · <span data-go="s3">Katalog</span>'],
@@ -3060,7 +3060,7 @@ var TOUR=[
  {scr:'s6',before:function(){setRole('PM');wstep(1);},sel:'#card-tpl',ti:'Tři šablony',tx:'Bytový projekt, rodinné domy, nemovitost v nájmu. Šablonou je <b>živý vzorový projekt</b>, který si upravíte sami – žádný skript ani konfigurační soubor.'},
  {scr:'s6',before:function(){wstep(3);},sel:'#card-roles',ti:'Šablona nese role, ne lidi',tx:'Projektový manažer jen doplní lidi do rolí. Oprávnění ke složkám se nastaví samo. Kdyby se kopírovala doslova ze vzoru, měl by každý nový projekt v přístupech lidi z jiného projektu.'},
  {scr:'s6',before:function(){wstep(4);},sel:'#w-run',ti:'Založení',tx:'Web, složky, skupiny, oprávnění, tým v Teams a zápis do katalogu – za necelou minutu a pokaždé stejně.'}]},
-{t:'Firemní dokumenty',s:'Provozní dokumentace',steps:[
+{t:'Řízené dokumenty',s:'Provozní dokumentace',steps:[
  {scr:'s7',before:function(){setRole('VE');},sel:'#rd-act',ti:'Řízené dokumenty',tx:'Firemní směrnice a postupy spravuje aplikace <b>EasyPortal 365 Řízené dokumenty</b>. Každý vidí, co má potvrdit a do kdy; potvrzení se zapíše s časovým razítkem. Klikněte na dokument – otevře se náhled a záložka Potvrzení.'}]},
 {t:'Přístupy',s:'Pravidla a jejich kontrola',steps:[
  {scr:'s9',before:function(){accTab('a-mat');},sel:'#card-mat',ti:'Matice rolí',tx:'Jedna tabulka říká, kdo kam smí. Mění se tady – ne člověk po člověku a složka po složce. Modře role pro partnery zvenku.'},
