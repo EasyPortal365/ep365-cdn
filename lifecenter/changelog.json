@@ -4,6 +4,62 @@
   "name": "EP365 LifeCenter",
   "entries": [
     {
+      "version": "1.20",
+      "date": "2026-10-07",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Povinná školení. Situaci jde nastavit jako opakované školení – třeba BOZP každých 12 měsíců – s publikem (všichni, skupina nebo oddělení) a lhůtou pro nové lidi. Nový přehled Povinná školení ukazuje u každého člověka, jestli má školení platné, kdy mu vyprší, jestli propadlo, nebo ho nikdy neměl, s exportem a tiskem pro audit. Z detailu školení jedním krokem obnovíte nové kolo lidem, kterým platnost končí, a těm, kdo ho ještě nemají. Školení přidělíte i jen vybraným lidem nebo jednomu člověku tlačítkem Přidělit v jeho řádku. Platnost se počítá od posledního splnění a poslední doklad o školení se nikdy nemaže.",
+          "en": "Mandatory training. A situation can be set up as recurring training — for example health and safety every 12 months — with an audience (everyone, a group or a department) and a deadline for new people. The new Mandatory training overview shows for each person whether their training is valid, when it expires, whether it has lapsed or they never had it, with export and print for audits. From the training detail you renew a new round in one step for people whose validity is ending and for those who do not have it yet. You can also assign the training only to selected people, or to one person with Assign in their row. Validity counts from the last completion, and the last training record is never deleted."
+        },
+        {
+          "type": "new",
+          "cs": "Vlastník situace. U situace určíte vlastníka – člověka nebo skupinu, třeba technika BOZP. Vlastník vidí plnění své situace, posílá připomínky a na prezenční listině jedním potvrzením zapíše účast všech přítomných. Listinu se jmény k podpisu si vytiskne. Obsah situace dál upravuje jen správce.",
+          "en": "Situation owner. You can name an owner for a situation — a person or a group, such as the health and safety officer. The owner sees the progress of their situation, sends reminders and records the attendance of everyone present on an attendance sheet with a single confirmation. A sheet with names for signatures can be printed. Only the administrator still edits the situation content."
+        },
+        {
+          "type": "new",
+          "cs": "Dokumenty k pozici. V Nastavení přiřadíte pracovním pozicím sady dokumentů z Řízených dokumentů. Krok předpisu se sadou podle pozice v plánu nástupu pak každému nováčkovi přiřadí sadu podle jeho pozice v adresáři; při přidělení jednomu člověku přidělovatel návrh vidí předem a u budoucího zaměstnance pozici vybere sám.",
+          "en": "Documents for the position. In Settings you assign document sets from Controlled documents to job positions. A policy step with a set by position in an onboarding plan then gives each newcomer the set for their position in the directory; when assigning to one person the proposal is shown beforehand, and for a future employee the person assigning chooses the position themselves."
+        },
+        {
+          "type": "new",
+          "cs": "Fronta připomínek a pozvánka do kalendáře. Fronta připomínek ukazuje, komu se blíží nebo prošel termín kroku, a připomínky odešlete jedním klikem – nic se neposílá samo a kdo byl připomenut v posledních dnech, není předem vybraný. Při přidělení můžete poslat i pozvánku do kalendáře s termínem, takže zaměstnanci termín připomene Outlook.",
+          "en": "Reminder queue and calendar invitation. The reminder queue shows whose step deadline is close or has passed, and you send the reminders with one click — nothing is sent automatically, and people reminded in the last few days are not preselected. When assigning you can also send a calendar invitation with the deadline, so Outlook reminds the employee."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda a průvodce k povinným školením. Nápověda má nové téma Povinná školení a připomínky (devět odpovědí – platnost, vlastník situace, Obnovit, prezenční listina, fronta připomínek, pozvánka do kalendáře a dokumenty k pozici) a průvodce aplikací novou kapitolu pro ty, kdo přidělují nebo vlastní situaci. Paleta příkazů najde Povinná školení i podle slov jako „BOZP“ nebo „prezenční“. HR startovní obsah nastaví u školení BOZP a požární ochrany opakování.",
+          "en": "Help and tour for mandatory training. Help has a new topic, Mandatory training and reminders (nine answers — validity, situation owner, Renew, attendance sheet, reminder queue, calendar invitation and documents for the position), and the app tour a new chapter for those who assign or own a situation. The command palette finds Mandatory training by words such as “BOZP” or “prezenční” (attendance) too. The HR starter content sets recurrence for health and safety and fire safety training."
+        },
+        {
+          "type": "improved",
+          "cs": "Správa obsahu jako jedna pracovní plocha. Místo tří oddělených seznamů (situace, návody, garanti) vidíte vlevo situace seskupené podle fází životního cyklu – skupiny jdou sbalit a povinná školení mají vlastní skupinu – a vpravo vybranou situaci i s jejími návody, garanty, plánem přidělení a opakováním školení. Návod z knihovny připojíte nebo garanta přidáte přímo u situace, nový návod i garant mají situaci předvyplněnou. Filtr „K doplnění“ ukáže situace bez garanta nebo bez návodu (povinné školení návod mít nemusí), Přehled obsahu navíc návody, které nejsou v žádné situaci, a návody čekající na schválení. Hledání najde situaci, návod i garanta najednou a knihovna ukazuje u každého návodu a garanta, ve kterých situacích je.",
+          "en": "Content management as one workspace. Instead of three separate lists (situations, guides, guarantors), the left side shows situations grouped by life-cycle phase — groups can be collapsed and mandatory trainings have a group of their own — and the right side shows the selected situation with its guides, guarantors, assignment plan and training recurrence. You link a guide from the library or add a guarantor right at the situation, and a new guide or guarantor comes with the situation pre-filled. The “To fill in” filter points out situations without a guarantor or a guide (a mandatory training does not need a guide); the Content overview also lists guides that are in no situation and guides awaiting approval. Search finds situations, guides and guarantors at once, and the library shows which situations each guide and guarantor belongs to."
+        },
+        {
+          "type": "new",
+          "cs": "Ukázková data se vším, co Centrum umí. V Nastavení → Testovací data založíte ukázkovou firmu po čtyřech sadách – Obsah (22 situací, 10 z nich s plánem přidělení, kolem 60 návodů všech typů a stavů včetně schvalování, naplánovaného a vzorníku bloků, 6 garantů), Přidělování (nástup ještě před příchodem i ve druhém týdnu, změna pozice, odchod, mateřská, návrat s posunutým termínem, zrušené přidělení a dvě hromadná přidělení), Povinná školení (lidé mají různé stavy platnosti – platné, brzy vyprší, propadlé i nikdy) a Využití (návštěvnost, hledání bez výsledku, uložené a rozpracované návody). Do přidělení a školení vyberete libovolný počet skutečných kolegů. Data jsou rozprostřená do minulých týdnů, nic se při tom neodesílá a každou sadu jde zase smazat – smaže se jen ukázka – skutečný obsah i situace, návody a garanti, které jste ručně upravili, zůstanou (úprava samotného plánu ani ukázková přidělení se nepočítají).",
+          "en": "Sample data with everything the Centre can do. In Settings → Test data you create a sample company in four sets – Content (22 situations, 10 of them with an assignment plan, around 60 guides of every type and state including approvals, a scheduled guide and a block showcase, 6 guarantors), Assigning (onboarding before joining and in the second week, role change, leaving, parental leave, a postponed return, a cancelled assignment and two group assignments), Mandatory training (people get different validity states – valid, expiring soon, expired and never) and Usage (views, search misses, saved and in-progress guides). You choose any number of real colleagues for assignments and trainings. The data are spread over past weeks, nothing is sent, and each set can be deleted again – only the samples go – real content and situations, guides and guarantors you edited by hand stay (editing just a plan, and sample assignments, do not count)."
+        },
+        {
+          "type": "improved",
+          "cs": "Schvalovatelé článků a přidělovatelé situací mají na stránkách webu jen čtení – pokud nejsou zároveň členy webu, stránku s Centrem už nemohou omylem upravit ani smazat. Správci Centra a vlastníci webu je spravují dál. Projeví se, jakmile Centrum po aktualizaci otevře správce.",
+          "en": "Article approvers and situation assigners can only read the site pages – unless they are also site members, they can no longer edit or delete the page with the Centre by mistake. Centre administrators and site owners keep managing them. It takes effect once an administrator opens the Centre after the update."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější obrazovky. Detail článku a situace má nižší hlavičku, takže obsah začíná výš na obrazovce. Ve Správě obsahu je přepínání mezi Maticí, Seznamem článků, Situacemi a Ke schválení pod hlavičkou stránky, stejně jako v ostatních aplikacích, a obrazovky správy i stavy načítání nebo nenalezeného článku či situace mají drobečkovou navigaci zpět na rozcestník a stejné ikony jako ostatní obrazovky.",
+          "en": "Clearer screens. Article and situation pages have a shorter header, so the content starts higher on the screen. In Content management, the switch between Matrix, Article list, Situations and Approvals sits below the page header, as in the other apps, and the management screens as well as the loading and not-found states of articles and situations have breadcrumb navigation back to the home page and the same icons as every other screen."
+        },
+        {
+          "type": "fixed",
+          "cs": "E-maily a pozvánky do kalendáře z přidělených situací už nejdou na přihlašovací adresu hosta, na kterou se doručit nedají. Host dostane zprávu na svou skutečnou adresu z adresáře; když ji adresář neověří, výsledek ho jmenuje mezi těmi, komu zpráva neodešla.",
+          "en": "Assignment e-mails and calendar invitations no longer go to a guest's sign-in address, which cannot receive mail. Guests get the message at their real address from the directory; when the directory cannot confirm it, the result lists them among the people the message did not reach."
+        }
+      ]
+    },
+    {
       "version": "1.19",
       "date": "2026-09-28",
       "changes": [
