@@ -417,7 +417,7 @@ table.law{width:100%;border-collapse:collapse;font-size:13px}
 :root{
   --ep-navy:#000000; --ep-navy-700:#1A1A1A; --ep-navy-600:#333333;
   --ep-accent:#C80225; --ep-accent-strong:#96011C; --ep-accent-soft:#FAE6E9 /*odv.*/; --ep-mint:#F5EEE8;
-  --ep-bg-2:#F5EEE8; --ep-bg-3:#EDE3DA /*odv.*/; --ep-side:#FFFFFF;
+  --ep-bg-2:#FBF9F7 /*odv. – plátno, zesvětlená béžová*/; --ep-bg-3:#F3EDE7 /*odv.*/; --ep-side:#FFFFFF;
   --ep-line:#E8DED4 /*odv.*/; --ep-line-2:#D3C6BA /*odv.*/;
   --ep-text:#000000; --ep-text-muted:#4D4D4D /*odv.*/; --ep-text-soft:#939393;
   --ep-cta:#C80225;
@@ -879,6 +879,190 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
 .tc-h{display:flex;align-items:center;gap:9px}
 .tc-h .pc-m{margin:-4px -6px 0 0}
 
+/* Dokumenty napříč projekty – toolbar a místo uložení jako MyDocs */
+.dok-tb{gap:10px}
+.dsel{height:38px;border:1px solid var(--ep-line-2);border-radius:999px;background:#fff;padding:0 12px;font-size:13px;color:var(--ep-text)}
+.dchk{display:inline-flex;gap:7px;align-items:center;font-size:13px;color:var(--ep-text-muted)}
+.src-b{font-family:var(--fm);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1F7A3C;background:#E7F6ED;border-radius:999px;padding:3px 9px}
+.loc{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12.5px}
+.loc-l{display:inline-flex;gap:4px;align-items:center;border:0;background:transparent;padding:0;font-size:12px;color:var(--ep-accent-strong);cursor:pointer}
+.loc-l:hover{text-decoration:underline;text-underline-offset:3px}
+.loc+.pth{display:inline-block;margin-top:4px}
+
+/* Oprava 7. 10.: výpis v jedné kartě (lišta nahoře, tabulka, patička), kompaktní strom */
+.docs-l{grid-template-columns:260px minmax(0,1fr);gap:16px}
+.docs-l #card-tree{margin:0}
+.docs-l #card-tree .card-h{padding:12px 14px}
+.docs-l #card-tree .card-h .note{display:none}
+.docs-l #card-tree .card-b{padding:8px 8px 10px}
+.docs-l .trow{gap:7px;padding:6px 8px}
+.docs-l .trow .tw{width:12px}
+.docs-l .trow .cd{min-width:20px;font-size:10px}
+.docs-l .trow .nx{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}
+.docs-l .trow .meta{margin-left:4px;gap:3px}
+.docs-l .kids{margin-left:18px}
+.tico{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;background:#FEF6E7;color:#8A5A00}
+.tico.ext{background:#EAF1FF;color:#2547A8}
+.libcard{background:#fff;border:1px solid var(--ep-line);border-radius:14px;overflow:hidden;box-shadow:var(--ep-sh-sm)}
+.libcard .lab{position:static;margin:0;border:0;border-bottom:1px solid var(--ep-line);border-radius:0;background:#FBF9F7;padding:8px 12px;flex-wrap:nowrap}
+.libcard .lab-c{flex:1;min-width:0;flex-wrap:nowrap;overflow:hidden;white-space:nowrap}
+.libcard .lab-s{display:none}
+.libcard .tbl-wrap{border:0;border-radius:0;box-shadow:none}
+.libcard .lib-tbl td{padding:9px 12px}
+.libcard .lib-tbl tr.frow td{padding:8px 12px}
+.libcard .lib-tbl .ds{margin-top:1px}
+.lib-foot{display:flex;align-items:center;gap:14px;padding:9px 14px;border-top:1px solid var(--ep-line);font-size:12px;color:var(--ep-text-muted)}
+.lib-foot .mono{font-size:10.5px}
+.lib-foot .lib-acc{padding:4px 11px}
+@media(max-width:1250px){.libcard .lab{flex-wrap:wrap}}
+
+/* ============ Řízené dokumenty – podle Ep365Documents.module.scss (pilulky :880-910, karty :1486, :1636, odpočty :1715) ============ */
+.rdapp{display:grid;align-items:stretch;grid-template-columns:268px minmax(0,1fr);min-height:calc(100vh - var(--bar-h))}
+@media(max-width:1000px){.rdapp{grid-template-columns:1fr}.rd-side{display:none}}
+.rd-side{background:var(--ep-side);border-right:1px solid var(--ep-line);padding:18px 14px 20px;display:flex;flex-direction:column}
+.rd-brand{display:flex;gap:11px;align-items:center;margin-bottom:16px}
+.rd-logo{width:38px;height:38px;border-radius:50%;background:var(--ep-accent-soft);color:var(--ep-accent);display:grid;place-items:center;flex-shrink:0}
+.rd-brand b{display:block;font-family:var(--fd);font-weight:800;font-size:16px}
+.rd-brand small{display:block;font-size:11.5px;color:var(--ep-text-soft)}
+.rd-add{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:40px;border:0;border-radius:10px;background:var(--ep-accent);color:#fff;font-weight:700;font-size:13.5px;margin-bottom:12px}
+.rd-side .nav button .n.rdb-r{background:var(--ep-red);color:#fff}
+.rd-side .nav button .n.rdb-l{background:var(--ep-accent-soft);color:var(--ep-accent-strong)}
+.rd-side .nav button .n.rdb-a{background:rgba(230,162,60,.18);color:#9A6A14}
+.rd-hub{margin-top:14px;padding-top:6px;border-top:1px solid var(--ep-line);display:grid;gap:2px}
+.rd-hub button{display:flex;align-items:center;gap:9px;border:0;background:transparent;padding:6px 12px;border-radius:8px;font-size:12.5px;color:var(--ep-text-muted);text-align:left}
+.rd-hub button:hover{background:var(--ep-bg-2)}
+.rd-main{min-width:0}
+.rd-hero{position:relative;background:#fff;border-bottom:1px solid var(--ep-line);padding:26px 32px 22px;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:20px;overflow:hidden;background-image:linear-gradient(var(--ep-line) 1px,transparent 1px),linear-gradient(90deg,var(--ep-line) 1px,transparent 1px);background-size:80px 80px;background-color:#fff}
+.rd-hero:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 0%,rgba(255,255,255,.4),#fff 75%);pointer-events:none}
+.rd-hero>*{position:relative}
+@media(max-width:1100px){.rd-hero{grid-template-columns:1fr}.rd-deco{display:none}}
+.rd-hero .crumbs{margin-bottom:10px}
+.rd-h1{font-family:var(--fd);font-weight:800;font-size:34px;letter-spacing:-.03em;line-height:1.12;margin:8px 0 0}
+.rd-h1 .hl{display:block;font-family:var(--fi);font-style:italic;font-weight:500;color:var(--ep-accent)}
+.rd-quick{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.rd-quick .k{font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ep-text-soft)}
+.rd-quick button{border:1px solid var(--ep-line-2);background:#fff;border-radius:999px;padding:5px 13px;font-size:12.5px;font-weight:600}
+.rd-deco{position:relative;height:270px}
+.rd-dc{position:absolute;width:248px;display:flex;gap:12px;align-items:center;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border:1px solid var(--ep-line);border-radius:12px;padding:14px 16px;box-shadow:var(--ep-sh-md)}
+.rd-dc .ic{width:36px;height:36px;border-radius:10px;background:var(--ep-mint);color:var(--ep-accent);display:grid;place-items:center;flex-shrink:0}
+.rd-dc .ic.red{color:var(--ep-red)}
+.rd-dc b{font-family:var(--fd);font-size:14px}
+.rd-dc small{display:block;font-family:var(--fm);font-size:10px;color:var(--ep-text-soft)}
+.rd-ico{grid-column:1/-1;display:flex;gap:7px;justify-content:flex-end;margin-top:-6px}
+.rd-body{padding:22px 32px 50px}
+.rd-sec{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:26px 0 12px;flex-wrap:wrap}
+.asec-t{font-family:var(--fm);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-text)}
+.asec-m{font-family:var(--fm);font-size:10.5px;color:var(--ep-text-soft)}
+.rd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.rd-big{grid-column:span 2;grid-row:span 2;display:grid;grid-template-columns:1fr 130px;border:2px solid var(--ep-red);border-radius:14px;background:linear-gradient(160deg,#FEEAEA,#fff 55%);cursor:pointer}
+@media(max-width:900px){.rd-big{grid-column:auto;grid-template-columns:1fr}}
+.rd-big-l{padding:20px 24px}
+.rd-alarm{display:flex;gap:8px;align-items:center;font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9C2C2C}
+.rd-alarm i{width:8px;height:8px;border-radius:50%;background:var(--ep-red);animation:rdp 1.6s infinite}
+@keyframes rdp{0%,100%{box-shadow:0 0 0 0 rgba(209,67,67,.5)}50%{box-shadow:0 0 0 6px rgba(209,67,67,0)}}
+.rd-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.rd-big h3{font-family:var(--fd);font-weight:800;font-size:22px;letter-spacing:-.02em;margin:12px 0 4px}
+.rd-big p{font-size:13.5px;color:var(--ep-text-muted);margin:0 0 14px}
+.rd-big-r{border-left:1px solid rgba(209,67,67,.2);padding:20px 14px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.rd-big-r .k{font-family:var(--fm);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ep-text-soft)}
+.rd-big-r b{font-family:var(--fd);font-weight:800;font-size:30px}
+.rd-big-r small{font-family:var(--fm);font-size:9.5px;color:var(--ep-text-soft);word-break:break-all}
+.rd-kv{display:grid;grid-template-columns:130px 1fr;gap:5px 10px;margin:0 0 16px;font-size:13px}
+.rd-kv dt{font-family:var(--fm);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ep-text-soft);padding-top:2px}
+.rd-kv dd{margin:0}
+.rd-kv .red,.red{color:#9C2C2C}
+.rd-kv .green,.green{color:#1F7A3C}
+.rd-kv.sm{grid-template-columns:62px 1fr;gap:3px 8px;margin:0;font-size:12px}
+.rd-kv.v{grid-template-columns:1fr;gap:2px;margin-bottom:12px}
+.rd-kv.v dd{margin-bottom:6px}
+.rd-tile{background:#fff;border:1px solid var(--ep-line);border-radius:14px;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:10px}
+.rd-tile:hover{border-color:var(--ep-line-2);box-shadow:var(--ep-sh-md)}
+.rd-tt{display:flex;gap:6px;align-items:center}
+.rd-tn{display:flex;gap:8px;align-items:flex-start}
+.rd-tn h4{font-family:var(--fd);font-weight:800;font-size:15px;line-height:1.3;margin:0;flex:1}
+.rd-tf{display:flex;gap:10px;align-items:flex-end;margin-top:auto}
+.rd-tf .rd-kv{flex:1}
+.rd-cd{width:52px;height:50px;border-radius:10px;border:1.5px solid;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.rd-cd b{font-family:var(--fd);font-weight:800;font-size:19px;line-height:1}
+.rd-cd small{font-family:var(--fm);font-size:8.5px;text-transform:uppercase;margin-top:2px}
+.rd-cd.r{color:#9C2C2C;border-color:rgba(209,67,67,.4);background:#FEF3F3}
+.rd-cd.a{color:#946610;border-color:rgba(230,162,60,.45);background:#FFF8EC}
+.rd-cd.g{color:#1F7A3C;border-color:rgba(52,179,106,.4);background:#F0FAF4}
+.rd-cd.po{color:#fff;background:var(--ep-red);border-color:var(--ep-red)}
+.pill.rd-ok{background:#E6F7EE;color:#1F7A3C}
+.pill.rd-ce{background:#FCF1DD;color:#946610}
+.pill.rd-po{background:#FEEAEA;color:#9C2C2C}
+.pill.rd-rev{background:#E8EDFB;color:#26408F}
+.pill.rd-riz{background:rgba(209,67,67,.08);color:#9C2C2C;border:1px solid rgba(209,67,67,.2)}
+.pill.rd-bez{background:var(--ep-accent-soft);color:var(--ep-accent-strong)}
+.pill.rd-cat{background:rgba(0,0,0,.05);color:var(--ep-text);border:1px solid rgba(0,0,0,.1)}
+.pill.rd-fmt{background:var(--ep-bg-2);color:var(--ep-text-muted);border:1px solid var(--ep-line)}
+.rd-ph{margin:0}
+.rd-strip{display:flex;gap:22px;flex-wrap:wrap;background:#fff;border:1px solid var(--ep-line);border-radius:14px;padding:12px 18px;margin-bottom:16px;font-size:12.5px;color:var(--ep-text-muted)}
+.rd-strip b{font-family:var(--fd);font-size:18px;color:var(--ep-text);margin-right:5px}
+.rd-strip .red b{color:#9C2C2C}
+.rd-chips{display:flex;gap:6px;flex-wrap:wrap}
+.rd-chips button{border:1px solid var(--ep-line-2);background:#fff;border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:600;color:var(--ep-text)}
+.rd-chips button span{font-family:var(--fm);font-size:10.5px;opacity:.6;margin-left:3px}
+.rd-chips button.on{background:var(--ep-navy);border-color:var(--ep-navy);color:#fff}
+.rd-tbl td{vertical-align:top}
+.rd-tbl tr.rd-late td:first-child{box-shadow:inset 3px 0 0 var(--ep-red)}
+.rd-dl{font-family:var(--fm);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ep-text-soft)}
+.bar.rd i{background:var(--ep-red)}
+/* blade */
+.bl-mask{position:fixed;inset:var(--bar-h) 0 0 0;z-index:9100;background:rgba(0,0,0,.42);display:flex;justify-content:flex-end}
+.blade{height:100%;background:#fff;box-shadow:var(--ep-sh-lg);display:flex;flex-direction:column;animation:blin .2s ease}
+@keyframes blin{from{transform:translateX(40px)}to{transform:none}}
+.bl-h{display:flex;gap:14px;align-items:flex-start;padding:18px 22px;border-bottom:1px solid var(--ep-line)}
+.bl-h h2{font-family:var(--fd);font-weight:800;font-size:20px;letter-spacing:-.02em;margin:4px 0 2px}
+.bl-h .icobtn{width:32px;height:32px}
+.bl-ic{width:42px;height:42px;border-radius:12px;background:var(--ep-accent-soft);color:var(--ep-accent);display:grid;place-items:center;flex-shrink:0}
+.bl-ic.red{background:#FEEAEA;color:#9C2C2C}
+.bl-split{flex:1;display:grid;grid-template-columns:300px minmax(0,1fr);min-height:0}
+.bl-as{border-right:1px solid var(--ep-line);padding:18px 20px;overflow:auto;background:var(--ep-side)}
+.bl-k{font-family:var(--fm);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ep-accent);margin:14px 0 8px;padding-top:12px;border-top:1px solid var(--ep-line)}
+.bl-as .bl-k:first-child{margin-top:0;padding-top:0;border-top:0}
+.bl-main{display:flex;flex-direction:column;min-width:0;min-height:0}
+.bl-tabs{display:flex;gap:2px;border-bottom:1px solid var(--ep-line);padding:0 20px}
+.bl-tabs button{border:0;background:transparent;padding:12px 14px;font-size:13.5px;font-weight:600;color:var(--ep-text-muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.bl-tabs button.on{color:var(--ep-text);border-bottom-color:var(--ep-accent)}
+.bl-tabs .n{font-family:var(--fm);font-size:10px;background:var(--ep-bg-3);border-radius:999px;padding:1px 6px}
+.bl-mb{padding:18px 20px;overflow:auto;flex:1}
+.bl-file{display:flex;gap:10px;align-items:center;border:1px solid var(--ep-line);border-radius:12px;padding:10px 14px;margin-bottom:12px}
+.bl-prev{background:var(--ep-bg-2);border-radius:12px;padding:20px;max-height:520px;overflow:auto}
+.bl-prev .pv-page{min-height:0;padding:36px 40px;font-size:12.5px}
+.rd-pulse{animation:rdpulse 1.8s infinite}
+@keyframes rdpulse{0%,100%{box-shadow:0 0 0 0 rgba(200,2,37,.45)}50%{box-shadow:0 0 0 8px rgba(200,2,37,0)}}
+.rd-info{border:1px solid #C3D0EC;background:#EEF3FD;border-radius:12px;padding:12px 16px;margin-bottom:14px}
+.rd-info b{font-size:14px;color:#26408F}
+.rd-info p{margin:4px 0 0;font-size:13px;color:var(--ep-text-muted)}
+.rd-info.late{border-color:rgba(209,67,67,.3);background:#FEF3F3}
+.rd-info.late b{color:#9C2C2C}
+.rd-note{border:0;background:transparent;color:var(--ep-accent-strong);font-size:12.5px;font-weight:600;padding:0;margin-bottom:10px}
+#rd-nt{width:100%;min-height:70px;border:1px solid var(--ep-line-2);border-radius:10px;padding:8px 10px;font-family:var(--fb);margin-bottom:10px}
+.rd-conf{width:100%;justify-content:center;height:46px;font-size:14px}
+.rd-done{display:flex;gap:14px;align-items:center;border:1px solid #A9D9BC;background:#E7F6ED;border-radius:12px;padding:16px 18px;color:#1F7A3C}
+.rd-done b{display:block;font-size:15px}
+.rd-done .mono{color:#1F7A3C}
+.bl-f{display:flex;gap:9px;align-items:center;padding:12px 22px;border-top:1px solid var(--ep-line);background:var(--ep-side);flex-wrap:wrap}
+.rd-pl{margin:14px 0 4px;display:grid;gap:5px}
+.rd-pl b{font-family:var(--fd);font-weight:800;font-size:34px;line-height:1}
+.rd-pl b.g{color:#1F7A3C}.rd-pl b.a{color:#946610}.rd-pl b.r{color:#9C2C2C}
+.rd-dots{display:flex;gap:12px;font-size:11.5px;color:var(--ep-text-muted)}
+.rd-dots i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px}
+.rd-dots i.g{background:var(--ep-green)}.rd-dots i.a{background:var(--ep-amber)}
+.rd-adr{display:flex;gap:11px;align-items:center;padding:9px 0;border-bottom:1px solid var(--ep-line)}
+.rd-adr b{font-size:13px}
+.rd-adr .mono{font-size:10.5px}
+.rd-flow{border-top:1px solid var(--ep-line);padding:14px 22px;background:var(--ep-side)}
+.rd-steps{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ep-text-soft);margin-bottom:12px}
+.rd-steps i{flex:1;height:1.5px;background:var(--ep-line-2)}
+.rd-steps .done{color:#1F7A3C;font-weight:700}
+.rd-steps .on{color:var(--ep-text);font-weight:800}
+.rd-flow-b{display:grid;grid-template-columns:1fr 2fr;gap:10px}
+.rd-rej{border:1.5px solid var(--ep-red);color:var(--ep-red);background:#fff;justify-content:center}
+.rd-apr{background:var(--ep-green);color:#fff;justify-content:center}
+
 </style>
 </head>
 <body>
@@ -1113,12 +1297,16 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
       <p class="ph-sub">Dokumenty všech projektů, ke kterým máte přístup, na jednom místě – s projektem, složkou, autorem a verzí. Co vám oprávnění nedovolí otevřít, tady ani neuvidíte.</p></div>
       <div class="acts" data-acts><button class="btn accent" id="b-savedoc"><span data-ic="up"></span>Uložit dokument</button></div></div>
   </div></div>
-  <div class="toolbar">
-    <div class="seg" id="dok-chips"></div>
-    <span class="spacer"></span>
-    <div class="tsearch"><span data-ic="search"></span><input id="d-q" placeholder="Hledat v názvu i obsahu…"></div>
+  <div class="toolbar dok-tb">
+    <div class="tsearch" style="flex:1;max-width:420px"><span data-ic="search"></span><input id="d-q" placeholder="Hledat v názvech i obsahu dokumentů…"></div>
+    <select class="dsel" id="d-typ"><option value="">Typ: vše</option><option value="docx">Word</option><option value="xlsx">Excel</option><option value="pptx">PowerPoint</option><option value="pdf">PDF</option></select>
+    <select class="dsel" id="d-obd"><option value="">Kdykoli</option><option value="dnes">Dnes</option><option value="7">Posledních 7 dní</option><option value="30">Posledních 30 dní</option></select>
+    <label class="dchk"><input type="checkbox" id="d-moje"> Jen moje</label>
+    <span class="spacer"></span><span class="src-b">Živě</span>
   </div>
-  <div class="tbl-wrap"><table class="tbl" id="tbl-dok"><thead><tr><th>Dokument</th><th>Projekt</th><th>Složka</th><th>Verze</th><th>Upravil</th><th>Kdy</th></tr></thead><tbody id="tb-dok"></tbody></table></div>
+  <div class="toolbar" style="margin-top:-6px"><div class="seg" id="dok-chips"></div></div>
+  <div class="tbl-wrap"><table class="tbl lib-tbl" id="tbl-dok"><thead><tr><th style="width:34px"><span class="cb"></span></th><th style="width:60px">Typ</th><th>Dokument</th><th style="width:40px"></th><th>Místo uložení</th><th>Změněno</th><th>Změnil</th><th class="ta-r">Velikost</th><th class="ta-r">Verze</th></tr></thead><tbody id="tb-dok"></tbody></table></div>
+  <div class="pager"><span class="info" id="dok-info"></span></div>
   <div class="footnote"><b>Nejsnazší cesta musí být ta správná.</b> Při uložení se člověk neptá „do které složky“, ale odpoví na dvě otázky: co to je a ke kterému projektu to patří. Správnou složku, metadata i přístupy určí portál sám.</div>
 </div></main></div>
 </section>
@@ -1204,24 +1392,8 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
 </div></main></div>
 </section>
 
-<!-- ══════════════════════ s7 · FIREMNÍ DOKUMENTY ══════════════════════ -->
-<section class="screen" id="s7">
-<div class="shell"><div data-side="s7"></div>
-<main class="main"><div class="canvas">
-  <div class="ph"><div class="ph-grid"></div><div class="ph-in">
-    <div class="crumbs"><span data-go="s1">Intranet</span><span class="sep">›</span><b>Firemní dokumenty</b></div>
-    <div class="ph-row"><div>
-      <div class="eyebrow">Provozní dokumentace</div>
-      <h1 class="h1">Firemní dokumenty.<span class="hl">Vždy platná verze.</span></h1>
-      <p class="ph-sub">Směrnice, postupy, formuláře a vzory smluv procházejí schválením a mají platnost a datum revize. U závazných dokumentů portál eviduje, kdo se s nimi seznámil.</p></div>
-      <div class="acts" data-acts></div></div>
-  </div></div>
-  <div class="kpis" id="kpis-fd"></div>
-  <div class="toolbar"><div class="seg" id="fd-chips"></div></div>
-  <div class="tbl-wrap" id="card-fd"><table class="tbl"><thead><tr><th>Dokument</th><th>Typ</th><th>Vlastník</th><th>Verze</th><th>Platí od</th><th>Revize</th><th>Seznámení</th></tr></thead><tbody id="tb-fd"></tbody></table></div>
-  <div class="footnote"><b>Projektová a provozní dokumentace se liší.</b> Projektová vzniká a končí s projektem a pracuje na ní tým. Provozní platí pro celou firmu, mění se řízeně a starší verze se nesmí plést s platnou. Proto má každá své místo a svá pravidla.</div>
-</div></main></div>
-</section>
+<!-- ══════════════════════ s7 · ŘÍZENÉ DOKUMENTY (aplikace) ══════════════════════ -->
+<section class="screen" id="s7"><div class="rdapp"><aside class="rd-side" id="rd-side"></aside><main class="rd-main" id="rd-main"></main></div></section>
 
 <!-- ══════════════════════ s8 · LIDÉ ══════════════════════ -->
 <section class="screen" id="s8">
@@ -1612,7 +1784,7 @@ function renderIntra(){
   var qa=[['building','Moje projekty','projekty, termíny, schválení','s2','#FAE6E9','#C80225'],['up','Uložit dokument','na správné místo','wiz','#F5EEE8','#000000'],['shield','Firemní dokumenty','směrnice a postupy','s7','#FAE6E9','#96011C'],['key','Přístup pro partnera','pozvat architekta, dodavatele','t:Žádost o přístup pro externího partnera – schvaluje vlastník projektu.','#F5EEE8','#E38965'],['help','Mám problém','nahlásit IT podpoře','t:Hlášení odchází e-mailem na podporu IT.','#EDE3DA','#4D4D4D']];
   $('#wp-quick').innerHTML=qa.map(function(q){var a=q[3].indexOf('t:')===0?'data-toast="'+q[3].substring(2)+'"':q[3]==='wiz'?'data-wiz="1"':'data-go="'+q[3]+'"';
     return '<button class="wp-tile" '+a+'><span class="ti" style="background:'+q[4]+';color:'+q[5]+'">'+svg(IC[q[0]],19)+'</span><span><span class="t">'+q[1]+'</span><span class="s">'+q[2]+'</span></span><span class="ar">›</span></button>';}).join('');
-  var ack=FIRDOK.filter(function(d){return d.sz&&d.sz[0]<d.sz[1];}).slice(0,3);
+  var ack=FIRDOK.filter(function(d,i){return RD_META[i].r&&RD_META[i].my!=='ok';}).slice(0,3);
   $('#wp-ack').innerHTML=ack.length?ack.map(function(d){var i=FIRDOK.indexOf(d);
     return '<div class="wp-ackrow"><span class="di">'+svg(IC.doc,17)+'</span><div><div class="t">'+d.n+'</div><div class="m">'+d.t+' · verze '+d.v+' · platí od '+d.od+' · vlastník '+os(d.o).n+'</div></div><button class="btn ghost sm" data-fdopen="'+i+'">Otevřít</button><button class="btn primary sm" data-wpack="'+i+'">Otevřít a potvrdit</button></div>';}).join('')
     :'<p class="note" style="margin:0">Se všemi závaznými dokumenty jste seznámen(a).</p>';
@@ -1642,9 +1814,9 @@ document.addEventListener('click',function(e){
   if((t=e.target.closest('[data-wpw]'))){renderWelcome(t.getAttribute('data-wpw'));return;}
   if((t=e.target.closest('[data-kr]'))){var on=t.classList.toggle('on'),n0=+t.getAttribute('data-n');t.textContent=t.textContent.split(' ')[0]+' '+(on?n0+1:n0);return;}
   if((t=e.target.closest('[data-wpannok]'))){$('#wp-ann').innerHTML='';toast('Přečtení oznámení potvrzeno.');return;}
-  if((t=e.target.closest('[data-wpack]'))){var i=+t.getAttribute('data-wpack');go('s7');var row=document.querySelector('[data-fd="'+i+'"]');if(row)row.click();return;}
+  if((t=e.target.closest('[data-wpack]'))){var i=+t.getAttribute('data-wpack');go('s7');openConfirm(i);return;}
   if((t=e.target.closest('[data-wpann]'))){modal('Sdílení dokumentů s externími partnery','<p><b>Platí od 1. 10. 2026.</b> Partner dostává přístup vždy s rolí, rozsahem složek a datem konce. Odkazy pro kohokoli se nepoužívají.</p><p class="note">Potvrzení přečtení oznámení se eviduje ve Workplace. Samotná směrnice se potvrzuje v Řízených dokumentech.</p>');return;}
-  if((t=e.target.closest('[data-fdopen]'))){var f=FIRDOK[+t.getAttribute('data-fdopen')];openPreview({n:f.n+'.docx',v:f.v,a:f.o,d:f.od,f:'Firemní dokumenty / '+f.t,p:null});return;}
+  if((t=e.target.closest('[data-fdopen]'))){go('s7');openConfirm(+t.getAttribute('data-fdopen'));return;}
   if((t=e.target.closest('[data-wpev]'))){if(e.target.closest('.ol'))return;var u=UDALOSTI[+t.getAttribute('data-wpev')];
     modal(u[2],'<div class="wp-ev" style="padding:0 0 12px;border:0;cursor:default"><span class="dt"><b>'+u[0]+'</b><span>'+u[1]+'</span></span><div class="mono">'+u[3]+'</div></div><p class="note">„Přidat do Outlooku“ otevře Outlook na webu s předvyplněnou událostí; „.ics“ je pro desktopový Outlook a jiné kalendáře.</p>',
       '<button class="btn ghost" data-mx data-toast="Soubor .ics stažen.">Stáhnout .ics</button><button class="btn primary" data-mx data-toast="Otevře Outlook s předvyplněnou událostí.">Přidat do Outlooku</button>');return;}
@@ -1692,6 +1864,8 @@ var FILEMAP={
  '#10':[['Dopis správci komunikace','pdf'],['Odpověď stavebního úřadu','pdf']]
 };
 var FAUTH=['OM','RS','ZD','JK','MV','LS','MH','TB','TD','GD','EM','TP'];
+/* Kdo do které hlavní složky typicky ukládá – ať autoři dávají smysl. */
+var AUTH_BY={'01':['MV','PH'],'02':['ZD','RS'],'03':['TB','AT','RS'],'04':['JK','MH'],'05':['OM','RS','TD','GD'],'06':['MH','IR'],'07':['LS','EM','PB'],'08':['TP','LS'],'09':['ZD','EM','OM'],'10':['OM','ZD']};
 var FDATES=['dnes 08:12','dnes 07:30','včera 16:40','včera 11:05','6. 10. 2026','5. 10. 2026','2. 10. 2026','30. 9. 2026','24. 9. 2026','15. 9. 2026','2. 9. 2026','18. 8. 2026'];
 var USER_FILES=[];
 function hsh(s){var h=7;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%9973;return h;}
@@ -1700,10 +1874,13 @@ function fsize(ext,h){var b={pdf:1800,docx:260,xlsx:140,pptx:4200,jpg:3600,zip:4
 function libFiles(p,fi,si){
   var S=struct(p), s=S[fi], key=si==null?'#'+s[0]:s[2][si], tpl=FILEMAP[key]||(si==null?[]:[['Přehled – '+key.toLowerCase(),'xlsx'],[key+' – smlouva','pdf']]);
   var path=s[0]+' '+s[1]+(si==null?'':' / '+s[2][si]);
+  var au=(p.faz==='naj'?['VK','SN']:AUTH_BY[s[0]])||FAUTH, off=hsh(p.kod)%3;
   var out=tpl.map(function(t,i){var h=hsh(p.kod+key+t[0]);
-    return {n:t[0]+'.'+t[1],ext:t[1],a:FAUTH[h%FAUTH.length],d:FDATES[(h+i)%FDATES.length],v:(1+h%4)+'.'+(h%3),sz:fsize(t[1],h),f:path,p:p.kod,fi:fi,si:si,lock:(key==='Kontrolní dny'&&i===1)?'RS':null};});
-  DOKUMENTY.forEach(function(d){if(d.p===p.kod&&d.f.replace(' / ',' / ')===path&&!out.some(function(o){return o.n.indexOf(d.n.replace(/\.[a-z]+$/,''))===0;})){var ext=d.n.split('.').pop();out.unshift({n:d.n,ext:ext,a:d.a,d:d.d,v:d.v,sz:fsize(ext,hsh(d.n)),f:path,p:p.kod,fi:fi,si:si});}});
-  USER_FILES.forEach(function(u){if(u.p===p.kod&&u.fi===fi&&u.si===si)out.unshift(u);});
+    return {n:t[0]+'.'+t[1],ext:t[1],a:au[(h+i)%au.length],d:FDATES[Math.min(off+i*2+(h%2),FDATES.length-1)],v:(1+h%4)+'.'+(h%3),sz:fsize(t[1],h),f:path,p:p.kod,fi:fi,si:si,lock:(key==='Kontrolní dny'&&i===1)?'RS':null};});
+  DOKUMENTY.forEach(function(d){if(d.p!==p.kod||d.f!==path)return;var base=d.n.replace(/\.[a-z]+$/,''), ex=out.filter(function(o){return o.n.indexOf(base)===0;})[0];
+    if(ex){ex.a=d.a;ex.d=d.d;ex.v=d.v;}else{var ext=d.n.split('.').pop();out.push({n:d.n,ext:ext,a:d.a,d:d.d,v:d.v,sz:fsize(ext,hsh(d.n)),f:path,p:p.kod,fi:fi,si:si});}});
+  USER_FILES.forEach(function(u){if(u.p===p.kod&&u.fi===fi&&u.si===si)out.push(u);});
+  out.sort(function(a,b){return dokDays(a.d)-dokDays(b.d);});
   return out;
 }
 var EXTC={docx:['#E7EEFF','#26408F'],xlsx:['#E2F6EA','#1E7E47'],pptx:['#FCEFD6','#8A5A00'],pdf:['#FBE3E3','#B12F2F']};
@@ -1754,10 +1931,10 @@ function renderLib(){
         '<td class="mono">'+r.d+'</td><td><span class="who">'+av(r.a)+'<span class="n">'+os(r.a).n+'</span></span></td><td class="ta-r mono">'+r.sz+'</td><td class="ta-r mono">'+r.v+'</td></tr>';}).join('');
   LIBROWS.length=rows.length;
   var empty=(!folders.length&&!rows.length)?'<div class="empty"><b>Tahle složka je prázdná</b><br>Uložte do ní první dokument tlačítkem „Uložit sem“, nebo se vraťte o úroveň výš.</div>':'';
-  var acc=fi!=null&&CUR.faz!=='naj'?'<button class="lib-acc" data-libacc="'+fi+'">'+svg(IC.key,13)+' Kdo má do složky přístup'+(S[fi][3]==='o'?' · <b>omezená složka</b>':'')+'</button>':'';
-  $('#lib').innerHTML='<div class="lib-h"><div><div class="eyebrow">Knihovna dokumentů</div><div class="lib-t">Dokumenty projektu <span class="hl">'+p.naz+'</span></div><div class="lib-p mono">/sites/'+p.kod.toLowerCase()+'/Dokumenty'+(fi!=null?'/'+S[fi][0]+(si!=null?'/'+(si+1):''):'')+'</div></div>'+acc+'</div>'+bar+
+  var acc=fi!=null&&CUR.faz!=='naj'?'<button class="lib-acc" data-libacc="'+fi+'">'+svg(IC.key,13)+' Kdo má přístup'+(S[fi][3]==='o'?' · <b>omezená</b>':'')+'</button>':'';
+  $('#lib').innerHTML='<div class="libcard">'+bar+
     '<div class="tbl-wrap lib-t-wrap"><table class="tbl lib-tbl">'+head+'<tbody>'+body+'</tbody></table>'+empty+'</div>'+
-    '<div class="pager"><span class="info">'+(folders.length?folders.length+' složek · ':'')+rows.length+' dokumentů</span></div>';
+    '<div class="lib-foot"><span class="info">'+(folders.length?folders.length+' složek · ':'')+rows.length+' dokumentů</span><span class="mono">/sites/'+p.kod.toLowerCase()+'/Dokumenty'+(fi!=null?'/'+S[fi][0]+(si!=null?'/'+(si+1):''):'')+'</span><span class="spacer"></span>'+acc+'</div></div>';
 }
 var LIBROWS=[];
 document.addEventListener('click',function(e){
@@ -1773,10 +1950,10 @@ document.addEventListener('click',function(e){
   if((t=e.target.closest('[data-dma]'))){var act=t.getAttribute('data-dma'),r=DM_CUR;closeDm();if(!r||t.classList.contains('dis'))return;docAction(act,r);return;}
   if(!e.target.closest('#dm-menu'))closeDm();
 });
-function accessModal(fi){
-  var S=struct(CUR), s=S[fi];
+function accessModal(fi,pp){
+  var P=pp||CUR, S=struct(P), s=S[fi];
   modal('Kdo má přístup – '+s[0]+' '+s[1],'<div class="acc-list">'+MATICE.map(function(m){var l=m.v[fi];if(m.ext&&l==='N')return '';
-    return '<div class="acc-row '+(l==='N'?'no':'')+'">'+(m.ext?svg(IC.globe,13):svg(IC.users,13))+'<span>'+m.r+'<span class="mono" style="margin-left:8px">'+m.g.replace('{kód}',CUR.kod)+'</span></span><span class="lv">'+LV[l][1]+'</span></div>';}).join('')+'</div>'+
+    return '<div class="acc-row '+(l==='N'?'no':'')+'">'+(m.ext?svg(IC.globe,13):svg(IC.users,13))+'<span>'+m.r+'<span class="mono" style="margin-left:8px">'+m.g.replace('{kód}',P.kod)+'</span></span><span class="lv">'+LV[l][1]+'</span></div>';}).join('')+'</div>'+
     '<p class="note" style="margin-top:12px">'+(s[3]==='o'?'<b>Omezená složka</b> má vlastní oprávnění podle matice – ostatní zaměstnanci ji v knihovně vůbec nevidí.':'Složka dědí oprávnění projektu. Výjimky se nedělají ručně – mění se matice v šabloně.')+'</p>');
 }
 /* Menu ⋯ (podle rowMenu MyDocs) */
@@ -1802,18 +1979,19 @@ function docAction(a,r){
   if(a==='pdf')toast('PDF uloženo vedle originálu.');
   if(a==='dl')toast('Stahuje se '+r.n+'.');
   if(a==='mail')toast('E-mail s odkazem (ne přílohou) – příjemce otevře dokument, jen pokud má přístup.');
-  if(a==='lock'){r.lock=R().id;renderLib();toast('Dokument rezervován. Ostatní ho do vrácení jen čtou.',function(){r.lock=null;renderLib();});}
-  if(a==='unlock'){r.lock=null;renderLib();toast('Dokument vrácen, nová verze uložena.');}
+  if(a==='lock'){r.lock=R().id;libRefresh();toast('Dokument rezervován. Ostatní ho do vrácení jen čtou.',function(){r.lock=null;libRefresh();});}
+  if(a==='unlock'){r.lock=null;libRefresh();toast('Dokument vrácen, nová verze uložena.');}
   if(a==='lockinfo')toast(os(r.lock).n+' má dokument rezervovaný – upravuje ho. Vy ho zatím jen čtete.');
   if(a==='ver')modal('Verze – '+r.n,'<table class="tbl"><thead><tr><th>Verze</th><th>Kdo</th><th>Kdy</th><th>Poznámka</th></tr></thead><tbody>'+
     [[r.v,r.a,r.d,'aktuální'],[(parseInt(r.v)||1)+'.0',FAUTH[(hsh(r.n)+1)%FAUTH.length],'30. 9. 2026','připomínky zapracovány'],['1.0',FAUTH[(hsh(r.n)+2)%FAUTH.length],'12. 9. 2026','první verze']].map(function(v){return '<tr><td class="mono">'+v[0]+'</td><td><span class="who">'+av(v[1])+'<span class="n">'+os(v[1]).n+'</span></span></td><td class="mono">'+v[2]+'</td><td>'+v[3]+'</td></tr>';}).join('')+'</tbody></table>',
     '<button class="btn ghost" data-mx>Zavřít</button><button class="btn primary" data-mx data-toast="Porovnání verzí – změny vyznačené v dokumentu.">Porovnat vybrané</button>');
-  if(a==='acc'&&r.fi!=null)accessModal(r.fi);
+  if(a==='acc'){if(r.fi!=null)accessModal(r.fi,r.p?proj(r.p):null);else toast('Dokument dědí oprávnění nemovitosti – správa nemovitostí upravuje, vedení a ekonomika čtou.');}
   if(a==='link')toast('Odkaz zkopírován. Otevře ho jen ten, kdo má přístup.');
   if(a==='det')detailModal(r);
   if(a==='move')toast('Přesunutí do jiné složky – oprávnění se převezmou podle cílové složky.');
   if(a==='del')toast('Dokument přesunut do koše webu – 93 dní jde obnovit.');
 }
+function libRefresh(){if($('#s5.on'))renderDok();else renderLib();}
 function detailModal(r){
   var p=r.p?proj(r.p):null;
   modal('Podrobnosti dokumentu','<div class="det-card">'+extBadge(r.ext)+'<div><b>'+r.n+'</b><div class="mono">'+r.sz+' · verze '+r.v+'</div></div></div><dl class="kv">'+
@@ -2051,6 +2229,171 @@ document.addEventListener('click',function(e){
   if(e.target.closest('[data-sbnew]')){sabNew(null);return;}
   if(e.target.closest('[data-sbsnap]')){sabSnap(sabById(SAB_CUR));return;}
   if(e.target.closest('[data-sbvzor]')){toast('Otevře vzorový web /sites/vzor-'+SAB_CUR+' v SharePointu.');return;}
+});
+
+/* ══════════════════════ Řízené dokumenty – věrná replika ep365-documents ══════════════════════
+   MyDocumentsView (hero, KPI, karty k potvrzení), AllDocumentsView (registr), ConfirmDocumentPanel
+   (blade 980: Náhled | Potvrzení), AdminDetailPanel + AcknowledgmentsPanel, ApprovalPanel.
+   Data navazují na FIRDOK (data.js); stav „můj“ se mění potvrzením. */
+var RD_META=[
+ {cat:'Vedení',r:1,vyd:'1. 1. 2026',ter:'31. 1. 2026',my:'ok',ok:'28. 1. 2026 09:12',cil:'Všichni zaměstnanci',p:'Kdo a do jaké výše podepisuje za společnost.'},
+ {cat:'Ekonomika',r:1,vyd:'1. 4. 2026',ter:'30. 4. 2026',my:'ok',ok:'14. 4. 2026 10:05',cil:'Ekonomika + Vedení',p:'Jak putuje faktura od příjmu po proplacení.'},
+ {cat:'GDPR',r:1,vyd:'1. 9. 2026',ter:'30. 9. 2026',my:'po',dd:9,cil:'Všichni zaměstnanci',p:'Jak zacházet s osobními údaji klientů a zájemců o byty.'},
+ {cat:'IT',r:1,vyd:'1. 10. 2026',ter:'15. 10. 2026',my:'ceka',dd:-6,cil:'Všichni zaměstnanci',p:'Partner dostává přístup s rolí, rozsahem složek a datem konce.'},
+ {cat:'Prodej',r:1,vyd:'15. 5. 2026',ter:'15. 6. 2026',my:'ok',ok:'2. 6. 2026 08:40',cil:'Obchodní tým',p:'Kroky předání bytu, předávací protokol a vady.'},
+ {cat:'Prodej',r:1,vyd:'1. 2. 2026',ter:'1. 3. 2026',my:'ok',ok:'20. 2. 2026 13:22',cil:'Obchodní tým',p:'Lhůty a postup při reklamaci po předání.'},
+ {cat:'BOZP',r:1,vyd:'1. 3. 2026',ter:'23. 10. 2026',my:'ceka',dd:-14,cil:'Všichni zaměstnanci',p:'Pravidla pro vstup na staveniště – každoroční obnova seznámení.',rec:1},
+ {cat:'Provoz',r:0,vyd:'1. 7. 2025',cil:'Správa nemovitostí',p:'Provozní řád parkovacího domu pro nájemce a obsluhu.'},
+ {cat:'Prodej',r:0,vyd:'1. 6. 2026',cil:'Obchodní tým',p:'Platný vzor rezervační smlouvy.'},
+ {cat:'Prodej',r:0,vyd:'1. 6. 2026',cil:'Obchodní tým',p:'Platný vzor smlouvy o smlouvě budoucí kupní.'},
+ {cat:'IT',r:0,vyd:'1. 10. 2026',cil:'Všichni zaměstnanci',p:'Formulář pro přístup externího partnera do projektu.'},
+ {cat:'Ekonomika',r:1,vyd:'1. 1. 2026',ter:'31. 1. 2026',my:'ok',ok:'30. 1. 2026 15:01',cil:'Všichni zaměstnanci',p:'Sazby a postup vyúčtování služebních cest.'}
+];
+var RD_APPROVE={n:'Převzetí stavby od dodavatele',cat:'Stavba',v:'1.0',vyd:'JK',d:'8. 10. 2026',p:'Postup převzetí dokončené stavby, kontrolní seznam a předávací protokol.'};
+var RD_V='my', RD_CAT='vse';
+function rdAdmin(){return ROLE==='VE'||ROLE==='OF';}
+function rdDocs(){return FIRDOK.map(function(d,i){var m=RD_META[i];return {i:i,d:d,m:m,ext:d.t==='Vzor'||d.t==='Formulář'?'docx':'pdf'};});}
+function rdState(x){if(!x.m.r)return ['p-book','Ke čtení'];return x.m.my==='ok'?['rd-ok','Potvrzeno']:x.m.my==='po'?['rd-po','Po termínu']:['rd-ce','Čeká na mě'];}
+function rdPill(c,t,dot){return '<span class="pill '+c+'">'+(dot!==false?'<span class="d"></span>':'')+t+'</span>';}
+function rdCount(s){return rdDocs().filter(function(x){return x.m.r&&x.m.my===s;}).length;}
+function rdNav(){
+  var adm=rdAdmin(), po=rdCount('po'), ce=rdCount('ceka');
+  var it=[['my','home','Moje dokumenty',po+ce,'r'],['all','grid','Všechny dokumenty']];
+  if(adm)it=it.concat([['-','Workflow'],['approve','check','Ke schválení',1,'r'],['queue','list','Fronta publikace',2,'l'],['-','Správa'],['admin','doc','Správa dokumentů'],['arch','grid','Archiv'],['cats','shield','Kategorie'],['groups','users','Distribuční skupiny'],['sets','fold','Sady dokumentů'],['-','Reporting'],['comp','check','Dashboard compliance'],['mgr','users','Manažerský pohled',3,'a']]);
+  else it=it.concat([['-','Správa'],['arch','grid','Archiv']]);
+  var me=os(R().id);
+  $('#rd-side').innerHTML='<div class="rd-brand"><span class="rd-logo">'+svg(IC.shield,18)+'</span><span><b>Řízené dokumenty</b><small>Distribuce, potvrzení, audit.</small></span></div>'+
+    (adm?'<button class="rd-add" data-toast="Přidat dokument – nahrát soubor, kategorie, adresáti, termín potvrzení; dokument jde ke schválení.">'+svg(IC.plus,15)+'Přidat dokument</button>':'')+
+    '<button class="side-srch" data-pal="1" style="margin:0 0 12px;width:100%">'+svg(IC.search,15)+'<span class="lbl">Hledat dokumenty…</span><kbd>⌘K</kbd></button><nav class="nav" style="padding:0">'+
+    it.map(function(x){if(x[0]==='-')return '<div class="nav-h">'+x[1]+'</div>';
+      return '<button data-rdv="'+x[0]+'" class="'+(RD_V===x[0]?'on':'')+'">'+svg(IC[x[1]],17)+'<span class="lbl">'+x[2]+'</span>'+(x[3]?'<span class="n rdb-'+x[4]+'">'+x[3]+'</span>':'')+'</button>';}).join('')+'</nav>'+
+    '<div class="rd-hub"><div class="nav-h">Aplikace</div><button data-go="s1">'+svg(IC.home,14)+'Intranet</button><button data-go="s2">'+svg(IC.building,14)+'Projektový portál</button></div>'+
+    '<div class="side-f" style="margin:auto 0 0"><div class="side-u">'+av(me.id)+'<span><span class="nm">'+me.n+'</span><div class="rl">'+(adm?'Správce dokumentace':'Zaměstnanec')+'</div></span></div></div>';
+}
+function renderRd(){ if(!$('#rd-side'))return; rdNav();
+  var v=RD_V, h='';
+  if(v==='my')h=rdMy(); else if(v==='all')h=rdAll(false); else if(v==='admin')h=rdAll(true); else if(v==='approve')h=rdApproveList();
+  else h=rdStub(v);
+  $('#rd-main').innerHTML=h; hydrateIcons($('#rd-main'));
+}
+function renderFd(){renderRd();}
+function rdIcons(){return '<div class="rd-ico"><button class="icobtn" data-toast="Načteno znovu.">'+svg(IC.refresh,15)+'</button><button class="icobtn" data-toast="Odkaz zkopírován.">'+svg(IC.link,15)+'</button><span class="vline"></span><button class="icobtn" data-tour-open>'+svg(IC.help,15)+'</button><button class="icobtn" data-toast="Hlášení chyby odchází e-mailem na podporu.">'+svg(IC.info,15)+'</button><button class="icobtn" data-toast="Návrh odchází e-mailem na podporu.">'+svg(IC.bulb,15)+'</button></div>';}
+function rdMy(){
+  var D=rdDocs(), po=D.filter(function(x){return x.m.r&&x.m.my==='po';}), ce=D.filter(function(x){return x.m.r&&x.m.my==='ceka';}), ok=D.filter(function(x){return x.m.r&&x.m.my==='ok';}), rd=D.filter(function(x){return !x.m.r;});
+  var r=D.filter(function(x){return x.m.r;}).length, pct=Math.round(100*ok.length/r);
+  var hl=po.length?po.length+' '+(po.length===1?'dokument je':'dokumenty jsou')+' po termínu.':ce.length?ce.length+' '+(ce.length===1?'dokument čeká':'dokumenty čekají')+' na vaše potvrzení.':'Vše potvrzené, nic nečeká.';
+  var h='<div class="rd-hero"><div class="rd-hero-l"><div class="crumbs"><span>Řízené dokumenty</span><span class="sep">/</span><b>Moje dokumenty</b></div>'+
+    '<div class="eyebrow">Řízené dokumenty · '+ce.length+' čeká · '+po.length+' po termínu</div><h1 class="rd-h1">Dobré ráno, '+firstName(R().id)+'.<span class="hl">'+hl+'</span></h1>'+
+    '<p class="ph-sub">Řízené dokumenty vyžadují průkazné potvrzení s časovým razítkem. Termíny hlídá systém – po prošvihnutí termínu se objevíte v reportu pro manažera i v NIS2 audit reportu.</p>'+
+    '<div class="rd-quick"><span class="k">Časté:</span><button>vyžaduje akci</button><button>k dispozici</button><button>potvrzené</button><button data-rdv="all">všechny dokumenty</button></div></div>'+
+    '<div class="rd-deco"><div class="rd-dc" style="top:0;left:0"><span class="ic red">'+svg(IC.clock,16)+'</span><span><b>'+po.length+' po termínu</b><small>vyžaduje pozornost</small></span></div>'+
+    '<div class="rd-dc" style="top:100px;left:80px"><span class="ic">'+svg(IC.check,16)+'</span><span><b>'+ce.length+' ke schválení</b><small>čeká na potvrzení</small></span></div>'+
+    '<div class="rd-dc" style="top:200px;left:0"><span class="ic">'+svg(IC.doc,16)+'</span><span><b>'+ok.length+' letos</b><small>potvrzeno</small></span></div></div>'+rdIcons()+'</div>';
+  h+='<div class="rd-body"><div class="kpis" id="rd-kpi">'+
+    '<div class="kpi"><div class="kpi-l">Po termínu</div><div class="kpi-v red">'+po.length+'</div><div class="kpi-s">'+(po[0]?po[0].d.n+' · '+po[0].m.dd+' dní po':'nic po termínu')+'</div></div>'+
+    '<div class="kpi"><div class="kpi-l">Čeká na potvrzení</div><div class="kpi-v">'+ce.length+'</div><div class="kpi-s">'+(ce.length?'nejbližší termín za 6 dní':'nic nečeká')+'</div></div>'+
+    '<div class="kpi"><div class="kpi-l">Moje compliance</div><div class="kpi-v">'+pct+'<small>%</small></div><div class="kpi-s">'+ok.length+' z '+r+' přiřazených</div></div>'+
+    '<div class="kpi"><div class="kpi-l">Potvrzeno letos</div><div class="kpi-v">'+ok.length+'</div><div class="kpi-s">celkem '+ok.length+' potvrzení</div></div></div>';
+  h+='<div class="rd-sec" id="rd-act"><div class="asec-t">Vaše dokumenty · vyžadují akci</div><div class="asec-m">'+po.length+' po termínu · '+ce.length+' čekají · řazeno dle urgence</div></div>';
+  var act=po.concat(ce);
+  h+=act.length?'<div class="rd-grid">'+act.map(function(x,k){return k===0&&x.m.my==='po'?rdBig(x):rdTile(x);}).join('')+'</div>':'<div class="empty">Nic nečeká na vaše potvrzení.</div>';
+  h+='<div class="rd-sec"><div class="asec-t">Běžné dokumenty k dispozici</div><div class="asec-m">bez termínu · k volnému prostudování</div></div><div class="rd-grid">'+rd.slice(0,4).map(rdTile).join('')+'</div>';
+  h+='<div class="rd-sec"><div class="asec-t">Nedávno potvrzené</div><div class="asec-m">poslední 90 dní · audit trail</div></div><div class="rd-grid">'+ok.slice(0,4).map(rdTile).join('')+'</div></div>';
+  return h;
+}
+function rdBig(x){var d=x.d,m=x.m;
+  return '<div class="rd-big" data-rdc="'+x.i+'"><div class="rd-big-l"><div class="rd-alarm"><i></i>Po termínu · vyžaduje okamžitou pozornost</div><div class="rd-tags">'+rdPill('rd-fmt',x.ext.toUpperCase(),false)+rdPill('rd-cat',m.cat,false)+rdPill('rd-po','Po termínu '+m.dd+' dní')+'</div>'+
+    '<h3>'+d.n+'</h3><p>'+m.p+'</p><dl class="rd-kv"><dt>Vydal/a</dt><dd>'+os(d.o).n+'</dd><dt>Datum vydání</dt><dd>'+m.vyd+'</dd><dt>Termín potvrzení</dt><dd class="red">'+m.ter+' – '+m.dd+' dní po</dd><dt>Adresátů</dt><dd>'+d.sz[1]+' ('+d.sz[0]+' potvrdilo)</dd></dl>'+
+    '<button class="btn danger">'+svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>',15)+'Otevřít a potvrdit</button></div><div class="rd-big-r"><span class="k">Verze</span><b>v'+d.v+'</b><small>'+d.n.toLowerCase().replace(/ /g,'_')+'.'+x.ext+'</small></div></div>';}
+function rdTile(x){var d=x.d,m=x.m,st=rdState(x),cd='';
+  if(m.r&&m.my!=='ok'){var n=m.my==='po'?m.dd:-m.dd;cd='<span class="rd-cd '+(m.my==='po'?'po':n<=7?'r':n<=14?'a':'g')+'"><b>'+n+'</b><small>'+(m.my==='po'?'dní po':'dní')+'</small></span>';}
+  return '<div class="rd-tile" data-rdc="'+x.i+'"><div class="rd-tt">'+rdPill('rd-fmt',x.ext.toUpperCase(),false)+rdPill('rd-cat',m.cat,false)+'<span class="spacer"></span>'+rdPill(st[0],st[1])+'</div><div class="rd-tn"><h4>'+d.n+'</h4><span class="mono">v'+d.v+'</span></div>'+
+    '<div class="rd-tf"><dl class="rd-kv sm"><dt>Vydal/a</dt><dd>'+os(d.o).n+'</dd><dt>Vydáno</dt><dd>'+m.vyd+'</dd>'+(m.my==='ok'?'<dt>Potvrzeno</dt><dd class="green">'+m.ok+'</dd>':m.r?'<dt>Termín</dt><dd>'+m.ter+'</dd>':'')+'</dl>'+cd+'</div></div>';}
+function rdAll(adm){
+  var D=rdDocs(), cats=['vse'].concat(D.map(function(x){return x.m.cat;}).filter(function(c,i,a){return a.indexOf(c)===i;}));
+  var rows=D.filter(function(x){return RD_CAT==='vse'||x.m.cat===RD_CAT;});
+  var h='<div class="ph rd-ph"><div class="ph-grid"></div><div class="ph-in"><div class="crumbs"><span>Řízené dokumenty</span><span class="sep">/</span><b>'+(adm?'Správa dokumentů':'Všechny dokumenty')+'</b></div><div class="ph-row"><div>'+
+    '<div class="eyebrow">'+(adm?'Správa · ':'Knihovna · ')+D.length+' dokumentů</div><h1 class="h1">'+(adm?'Správa dokumentů.<span class="hl">Stav, plnění, adresáti.</span>':'Zveřejněné dokumenty<span class="hl">napříč organizací.</span>')+'</h1>'+
+    '<p class="ph-sub">'+(adm?'Řízené dokumenty se stavem schválení, plněním seznámení a adresáty. Odsud se připomíná, re-distribuuje a stahuje evidence pro audit.':'Vše, co je aktuálně v platnosti – řízené dokumenty (vyžadují potvrzení) i běžné publikace k volnému prostudování.')+'</p></div>'+
+    '<div class="acts"><button class="icobtn" data-toast="Načteno znovu.">'+svg(IC.refresh,15)+'</button><button class="btn ghost sm" data-toast="Export CSV – seznam dokumentů s plněním.">Export CSV</button></div></div></div></div><div class="rd-body">';
+  if(adm){var ri=D.filter(function(x){return x.m.r;}),avg=Math.round(ri.reduce(function(a,x){return a+100*x.d.sz[0]/x.d.sz[1];},0)/ri.length);
+    h+='<div class="rd-strip"><span><b>'+D.length+'</b> Celkem dokumentů</span><span><b>'+ri.length+'</b> Řízených</span><span><b>2</b> Termín do 14 dní</span><span class="red"><b>1</b> Po termínu</span><span><b>'+avg+' %</b> Průměr. compliance</span></div>';}
+  h+='<div class="toolbar"><div class="rd-chips">'+cats.map(function(c){var n=c==='vse'?D.length:D.filter(function(x){return x.m.cat===c;}).length;return '<button class="'+(RD_CAT===c?'on':'')+'" data-rdcat="'+c+'">'+(c==='vse'?'Vše':c)+' <span>'+n+'</span></button>';}).join('')+'</div><span class="spacer"></span><div class="tsearch">'+svg(IC.search,14)+'<input placeholder="Hledat název, kategorii, popis…"></div></div>';
+  h+='<div class="tbl-wrap" id="rd-reg"><table class="tbl rd-tbl"><thead><tr><th>Dokument ▾</th><th>Datum</th><th>Cílení</th><th>Plnění</th><th>Stav</th><th></th></tr></thead><tbody>'+rows.map(function(x){var d=x.d,m=x.m,st=adm?(m.my==='po'?['rd-po','Po termínu']:m.r?['rd-ok','Aktivní']:['p-book','Aktivní']):rdState(x);
+    var pl=m.r&&d.sz?'<div class="bar '+(d.sz[0]/d.sz[1]>=.9?'gr':d.sz[0]/d.sz[1]>=.5?'am':'rd')+'" style="width:110px"><i style="width:'+Math.round(100*d.sz[0]/d.sz[1])+'%"></i></div><div class="t-sub">'+d.sz[0]+'/'+d.sz[1]+'</div>':'<span class="t-sub">bez sledování</span>';
+    return '<tr class="clic'+(m.my==='po'&&m.r?' rd-late':'')+'" data-rd'+(adm?'a':'c')+'="'+x.i+'"><td><div class="t-pri">'+d.n+'</div><div class="t-sub">v'+d.v+' · '+m.p+'</div><div style="display:flex;gap:5px;margin-top:5px">'+rdPill('rd-cat',m.cat,false)+(m.r?rdPill('rd-riz','Řízené',false):rdPill('rd-bez','Běžné',false))+'</div></td>'+
+      '<td><div class="rd-dl">'+(m.r?'Termín':'Vydáno')+'</div><div class="mono'+(m.my==='po'&&m.r?' red':'')+'">'+(m.r?m.ter:m.vyd)+'</div><div class="t-sub">'+(m.my==='po'&&m.r?m.dd+' dní po':m.my==='ceka'?'za '+(-m.dd)+' dní':'')+'</div></td>'+
+      '<td class="t-sub" style="margin:0">'+m.cil+'</td><td>'+pl+'</td><td>'+rdPill(st[0],st[1])+'</td><td class="ta-r t-sub">›</td></tr>';}).join('')+'</tbody></table></div><div class="pager"><span class="info">Zobrazeno '+rows.length+' z '+D.length+' · 10 na stránku</span></div></div>';
+  return h;
+}
+function rdApproveList(){
+  return '<div class="ph rd-ph"><div class="ph-grid"></div><div class="ph-in"><div class="crumbs"><span>Řízené dokumenty</span><span class="sep">/</span><b>Ke schválení</b></div><div class="eyebrow">Workflow · 1 čeká</div><h1 class="h1">Ke schválení.<span class="hl">Než se dokument dostane k lidem.</span></h1><p class="ph-sub">Nový dokument nebo nová verze jde nejdřív ke schvalovateli. Teprve po schválení se zveřejní a rozešle adresátům k seznámení.</p></div></div>'+
+    '<div class="rd-body"><div class="tbl-wrap"><table class="tbl"><thead><tr><th>Dokument</th><th>Předložil/a</th><th>Kdy</th><th>Stav</th></tr></thead><tbody><tr class="clic" data-rdappr="1"><td><div class="t-pri">'+RD_APPROVE.n+'</div><div class="t-sub">v'+RD_APPROVE.v+' · '+RD_APPROVE.p+'</div></td><td><span class="who">'+av(RD_APPROVE.vyd)+'<span class="n">'+os(RD_APPROVE.vyd).n+'</span></span></td><td class="mono">'+RD_APPROVE.d+'</td><td>'+rdPill('rd-rev','Ke schválení')+'</td></tr></tbody></table></div></div>';
+}
+function rdStub(v){var t={queue:'Fronta publikace',arch:'Archiv',cats:'Kategorie',groups:'Distribuční skupiny',sets:'Sady dokumentů',comp:'Dashboard compliance',mgr:'Manažerský pohled'}[v]||'';
+  return '<div class="ph rd-ph"><div class="ph-grid"></div><div class="ph-in"><div class="crumbs"><span>Řízené dokumenty</span><span class="sep">/</span><b>'+t+'</b></div><h1 class="h1">'+t+'.</h1><p class="ph-sub">Tato obrazovka aplikace Řízené dokumenty v konceptu není nakreslená – ukážeme ji živě v aplikaci.</p></div></div>';}
+
+/* ── panely (blade) ── */
+function blade(html,w){closeBlade();var m=document.createElement('div');m.className='bl-mask';m.id='bl';m.innerHTML='<div class="blade" style="width:min('+(w||980)+'px,100%)">'+html+'</div>';document.body.appendChild(m);
+  m.addEventListener('click',function(e){if(e.target===m||e.target.closest('[data-blclose]'))closeBlade();});hydrateIcons(m);}
+function closeBlade(){var b=$('#bl');if(b)b.remove();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeBlade();});
+var RDC=null, RDTAB='nah';
+function openConfirm(i){RDC=i;RDTAB='nah';rdConfirmRender();}
+function rdConfirmRender(){var x=rdDocs()[RDC],d=x.d,m=x.m,okd=m.my==='ok';
+  var kick=!m.r?'Běžný dokument · k prostudování':okd?'Řízený dokument · potvrzeno':m.my==='po'?'Řízený dokument · po termínu':'Řízený dokument · vyžaduje potvrzení';
+  var sub=m.cat+' · '+(m.r?'Řízené · Termín '+m.ter+' – '+(m.my==='po'?m.dd+' dní po':okd?'potvrzeno':'za '+(-m.dd)+' dní'):'Běžné');
+  var aside='<div class="bl-as"><div class="bl-k">Dokument</div><dl class="rd-kv v"><dt>Kategorie</dt><dd>'+rdPill('rd-cat',m.cat,false)+'</dd><dt>Typ</dt><dd>'+(m.r?rdPill('rd-riz','Řízené seznámení',false):rdPill('rd-bez','Běžná publikace',false))+'</dd><dt>Popis</dt><dd>'+m.p+'</dd></dl>'+
+    (m.r?'<div class="bl-k">Termíny &amp; platnost</div><dl class="rd-kv v"><dt>Termín potvrzení</dt><dd'+(m.my==='po'?' class="red"':'')+'>'+m.ter+'</dd><dt>Platnost od</dt><dd>'+d.od+'</dd><dt>Platnost do</dt><dd>'+(d.rev!=='–'?'do revize '+d.rev:'bez omezení')+'</dd>'+(m.rec?'<dt>Recertifikace</dt><dd>každých 12 měsíců</dd>':'')+'</dl>':'')+
+    '<div class="bl-k">Distribuce</div><dl class="rd-kv v"><dt>Cílení</dt><dd>'+m.cil+'</dd></dl><div class="bl-k">Původ</div><dl class="rd-kv v"><dt>Vydal/a</dt><dd>'+os(d.o).n+' · '+m.vyd+' · v'+d.v+'</dd><dt>Schválil/a</dt><dd>'+os('PH').n+'</dd></dl></div>';
+  var tabs='<div class="bl-tabs"><button class="'+(RDTAB==='nah'?'on':'')+'" data-rdtab="nah">Náhled</button>'+(m.r?'<button class="'+(RDTAB==='pot'?'on':'')+'" data-rdtab="pot">'+(okd?'Potvrzeno':'Potvrzení')+'</button>':'')+'</div>';
+  var body;
+  if(RDTAB==='nah')body='<div class="bl-file">'+svg(IC.doc,15)+'<span class="mono">'+d.n.toLowerCase().replace(/ /g,'_')+'.'+x.ext+'</span><span class="spacer"></span>'+(m.r&&!okd?'<button class="btn accent sm rd-pulse" data-rdtab="pot">'+svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>',14)+'Potvrdit</button>':'')+'<button class="btn ghost sm" data-toast="Otevře dokument v novém okně.">Otevřít →</button></div>'+
+    '<div class="bl-prev">'+previewBody({n:d.n+'.'+x.ext,v:d.v,a:d.o,f:'Firemní dokumenty / '+m.cat},x.ext,null)+'</div>';
+  else if(okd)body='<div class="rd-done">'+svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>',26)+'<div><b>Potvrzeno přečtení</b><span class="mono">'+os(R().id).n+' · '+m.ok+'</span></div></div>';
+  else body='<div class="rd-info'+(m.my==='po'?' late':'')+'"><b>'+(m.rec?'Pravidelná obnova seznámení':m.my==='po'?'Termín pro potvrzení uplynul':'Řízené seznámení')+'</b><p>'+(m.my==='po'?'Dokument můžete potvrdit i teď – zpoždění se zaznamená do auditu.':'Dokument vyžaduje průkazné potvrzení. Po prostudování stiskněte tlačítko níže – potvrzení se zaznamená s časovým razítkem (NIS2).')+'</p></div>'+
+    '<button class="rd-note" data-rdnote>+ Přidat poznámku k potvrzení (volitelné)</button><textarea id="rd-nt" maxlength="500" hidden placeholder="Poznámka k potvrzení…"></textarea>'+
+    '<button class="btn primary rd-conf" data-rdconf>'+svg('<path d="m5 12.5 4.5 4.5L19 7.5"/>',16)+'Potvrzuji, že jsem se s dokumentem seznámil/a</button><p class="note">Kliknutím potvrzujete seznámení. Akce je nevratná, zaznamenává se čas a jméno.</p>'+
+    '<button class="btn ghost sm" data-toast="Termín přidán do kalendáře Outlooku.">'+svg(IC.cal,14)+'Přidat termín do kalendáře</button>';
+  blade('<div class="bl-h"><span class="bl-ic'+(m.my==='po'&&m.r?' red':'')+'">'+svg(IC.doc,18)+'</span><div><div class="eyebrow">'+kick+'</div><h2>'+d.n+'</h2><div class="t-sub">'+sub+'</div></div><span class="spacer"></span><button class="icobtn" data-toast="Odkaz zkopírován.">'+svg(IC.link,14)+'</button><button class="icobtn" data-tour-open>'+svg(IC.help,14)+'</button><button class="icobtn" data-blclose>×</button></div>'+
+    '<div class="bl-split">'+aside+'<div class="bl-main">'+tabs+'<div class="bl-mb">'+body+'</div></div></div><div class="bl-f"><span class="spacer"></span><button class="btn ghost" data-blclose>Zavřít</button></div>',980);
+}
+function openAdmin(i){var x=rdDocs()[i],d=x.d,m=x.m,p=d.sz?Math.round(100*d.sz[0]/d.sz[1]):null,tab='file';
+  function draw(){
+    var aside='<div class="bl-as"><div style="display:flex;gap:5px;flex-wrap:wrap">'+rdPill('rd-cat',m.cat,false)+(m.r?rdPill('rd-riz','Řízené',false):rdPill('rd-bez','Běžné',false))+rdPill('rd-ok','Aktivní')+'</div>'+
+      (p!=null?'<div class="rd-pl"><b class="'+(p>=90?'g':p>=50?'a':'r')+'">'+p+' %</b><span class="mono">'+d.sz[0]+' / '+d.sz[1]+' potvrdilo</span><div class="bar '+(p>=90?'gr':p>=50?'am':'rd')+'"><i style="width:'+p+'%"></i></div><div class="rd-dots"><span><i class="g"></i>potvrdilo '+d.sz[0]+'</span><span><i class="a"></i>čeká '+(d.sz[1]-d.sz[0])+'</span></div></div>':'')+
+      '<div class="bl-k">Dokument</div><dl class="rd-kv v"><dt>Verze</dt><dd>v'+d.v+'</dd><dt>Popis</dt><dd>'+m.p+'</dd></dl><div class="bl-k">Termíny &amp; platnost</div><dl class="rd-kv v"><dt>Termín</dt><dd>'+(m.ter||'–')+'</dd><dt>Revize</dt><dd>'+d.rev+'</dd>'+(m.rec?'<dt>Recertifikace</dt><dd>každých 12 měsíců</dd>':'')+'</dl><div class="bl-k">Distribuce</div><dl class="rd-kv v"><dt>Cílení</dt><dd>'+m.cil+'</dd></dl></div>';
+    var ad=LIDE.slice(0,d.sz?Math.min(LIDE.length,12):0).map(function(l,k){return {l:l,ok:d.sz&&k<Math.round(12*d.sz[0]/d.sz[1])};});
+    var body=tab==='file'?'<div class="bl-file">'+svg(IC.doc,15)+'<span class="mono">'+d.n.toLowerCase().replace(/ /g,'_')+'.'+x.ext+'</span><span class="spacer"></span><button class="btn ghost sm" data-toast="Nová verze půjde ke schválení a po zveřejnění se rozešle znovu.">Nahrát novou verzi</button></div><p class="note" style="margin:6px 0 10px">Současná: v'+d.v+'</p><div class="bl-prev">'+previewBody({n:d.n+'.'+x.ext,v:d.v,a:d.o,f:m.cat},x.ext,null)+'</div>'
+      :'<div class="toolbar"><div class="rd-chips"><button class="on">Vše</button><button>Potvrdili</button><button>Nepotvrdili</button></div><span class="spacer"></span><button class="btn ghost sm" data-rdevid>Detail seznámení</button></div>'+
+        ad.map(function(a){return '<div class="rd-adr">'+av(a.l.id)+'<div><b>'+a.l.n+'</b><div class="mono">'+a.l.n.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ /g,'.')+'@imos-example.cz</div></div><span class="spacer"></span>'+(a.ok?rdPill('rd-ok','Potvrzeno'):rdPill(m.my==='po'?'rd-po':'rd-ce',m.my==='po'?'Po termínu':'Čeká'))+'</div>';}).join('');
+    blade('<div class="bl-h"><span class="bl-ic">'+svg(IC.doc,18)+'</span><div><div class="eyebrow">Správa dokumentu</div><h2>'+d.n+'</h2><div class="t-sub">'+m.cat+' · '+(m.r?'Řízené · '+d.sz[0]+' / '+d.sz[1]+' potvrzení ('+p+' %)':'Běžné')+'</div></div><span class="spacer"></span><button class="icobtn" data-toast="Úprava dokumentu – metadata, adresáti, termín.">'+svg('<path d="M4 20h4L19 9l-4-4L4 16Z"/>',14)+'</button><button class="icobtn" data-blclose>×</button></div>'+
+      '<div class="bl-split">'+aside+'<div class="bl-main"><div class="bl-tabs"><button class="'+(tab==='file'?'on':'')+'" data-adt="file">Soubor</button>'+(m.r?'<button class="'+(tab==='adr'?'on':'')+'" data-adt="adr">Adresáti <span class="n">'+d.sz[1]+'</span></button>':'')+'</div><div class="bl-mb">'+body+'</div></div></div>'+
+      '<div class="bl-f"><button class="btn ghost" data-blclose>Zavřít</button><span class="spacer"></span><button class="btn ghost" data-toast="Dokument přesunut do archivu – evidence seznámení zůstává.">Archivovat</button>'+(m.r?'<button class="btn ghost" data-toast="Připomínka odeslána '+(d.sz[1]-d.sz[0])+' lidem, kteří ještě nepotvrdili.">Připomenout ('+(d.sz[1]-d.sz[0])+')</button><button class="btn ghost" data-toast="Úprava adresátů – osoby, skupiny, distribuční skupiny.">Upravit adresáty</button><button class="btn primary" data-toast="Dokument znovu rozeslán.">Re-distribuovat</button>':'')+'</div>',980);
+    $('#bl').addEventListener('click',function(e){var b=e.target.closest('[data-adt]');if(b){tab=b.getAttribute('data-adt');draw();}if(e.target.closest('[data-rdevid]'))rdEvidence(x);});
+  }
+  draw();
+}
+function rdEvidence(x){var d=x.d;
+  modal('Seznámení s dokumentem – '+d.n,'<p class="mono" style="margin:0 0 6px">'+d.sz[0]+' / '+d.sz[1]+' potvrdilo verzi v'+d.v+' ('+Math.round(100*d.sz[0]/d.sz[1])+' %)</p><div class="bar gr" style="margin-bottom:12px"><i style="width:'+Math.round(100*d.sz[0]/d.sz[1])+'%"></i></div>'+
+    LIDE.slice(0,6).map(function(l,k){return '<div class="rd-adr">'+av(l.id)+'<div><b>'+l.n+'</b><div class="mono green">'+(k<4?(k+2)+'. 10. 2026 · 0'+(8+k)+':1'+k:'')+'</div></div><span class="spacer"></span>'+(k===2?rdPill('p-cat','z papíru',false):'')+(k<4?rdPill('rd-ok','Potvrzeno'):rdPill('rd-ce','Čeká'))+'</div>';}).join('')+
+    '<p class="note" style="margin-top:10px">Po rozbalení řádku: verze, způsob, IP adresa, zařízení, komentář a „Zapsal (ověřeno serverem)“.</p>',
+    '<button class="btn ghost" data-mx>Zavřít</button><button class="btn ghost" data-toast="Potvrzení z papíru – zapíše se s naskenovaným podpisem.">Potvrdit z papíru</button><button class="btn ghost" data-toast="CSV staženo.">CSV</button><button class="btn primary" data-toast="Evidenční balíček (PDF) pro audit stažen.">Evidenční balíček (PDF)</button>',true);}
+function openApproval(){var a=RD_APPROVE;
+  blade('<div class="bl-h"><span class="bl-ic">'+svg(IC.check,18)+'</span><div><div class="eyebrow">Schvalovací řízení</div><h2>'+a.n+'</h2><div class="t-sub">'+a.cat+' · v'+a.v+' · předložil/a '+os(a.vyd).n+' · '+a.d+'</div></div><span class="spacer"></span><button class="icobtn" data-blclose>×</button></div>'+
+    '<div class="bl-mb" style="flex:1;overflow:auto">'+previewBody({n:a.n+'.docx',v:a.v,a:a.vyd,f:'Ke schválení'},'docx',null)+'</div>'+
+    '<div class="rd-flow"><div class="rd-steps"><span class="done">✓ Odesláno</span><i></i><span class="on">Ke schválení</span><i></i><span>Zveřejnit</span><i></i><span>Distribuce</span></div>'+
+    '<div class="rd-flow-b"><button class="btn rd-rej" data-toast="Zamítnutí vyžaduje důvod – dokument se vrátí autorovi jako koncept.">✕ Zamítnout</button><button class="btn rd-apr" data-blclose data-toast="Schváleno a zveřejněno. Dokument se rozeslal adresátům k seznámení.">✓ Schválit a zveřejnit</button></div></div>',940);
+}
+document.addEventListener('click',function(e){var t;
+  if((t=e.target.closest('[data-rdv]'))){RD_V=t.getAttribute('data-rdv');renderRd();scrollTo(0,0);return;}
+  if((t=e.target.closest('[data-rdcat]'))){RD_CAT=t.getAttribute('data-rdcat');renderRd();return;}
+  if((t=e.target.closest('[data-rdc]'))){openConfirm(+t.getAttribute('data-rdc'));return;}
+  if((t=e.target.closest('[data-rda]'))){openAdmin(+t.getAttribute('data-rda'));return;}
+  if(e.target.closest('[data-rdappr]')){openApproval();return;}
+  if((t=e.target.closest('[data-rdtab]'))){RDTAB=t.getAttribute('data-rdtab');rdConfirmRender();return;}
+  if(e.target.closest('[data-rdnote]')){var n=$('#rd-nt');if(n)n.hidden=false;return;}
+  if(e.target.closest('[data-rdconf]')){var m=RD_META[RDC],d=FIRDOK[RDC];m.my='ok';m.ok='9. 10. 2026 '+new Date().toTimeString().slice(0,5);if(d.sz&&d.sz[0]<d.sz[1])d.sz[0]++;RDTAB='pot';rdConfirmRender();renderRd();renderIntra();toast('Seznámení potvrzeno a zapsáno do evidence s časovým razítkem.');return;}
 });
 
 /* ══════════════════════ Ikony ══════════════════════ */
@@ -2429,7 +2772,7 @@ function renderTree(){
     var hasExt=CUR.faz!=='naj'&&MATICE.some(function(m){return m.ext&&m.v[i]!=='N'&&ext.some(function(x){return x.role.indexOf(m.r.split(' ')[0])===0;});});
     var kids=s[2].map(function(k,j){return '<div class="trow" data-row="'+i+'" data-sub="'+j+'"><span class="tw"></span><span class="fo">'+svg(IC.fold,14)+'</span><span class="cd">'+s[0]+'.'+(j+1)+'</span><span class="nx" data-fold="'+i+'" data-sub="'+j+'">'+k+'</span></div>';}).join('');
     return '<div class="tr1"><div class="trow" data-row="'+i+'"><span class="tw" data-tw="'+i+'">'+(s[2].length?'▸':'')+'</span><span class="fo">'+svg(IC.fold,15)+'</span><span class="cd">'+s[0]+'</span><span class="nx" data-fold="'+i+'">'+s[1]+'</span>'+
-      '<span class="meta">'+(s[3]==='o'?'<span class="lock">'+svg(IC.lock,10)+' omezený</span>':'')+(hasExt?'<span class="lock ext">'+svg(IC.globe,10)+' partner</span>':'')+'</span></div><div class="kids" id="k'+i+'">'+kids+'</div></div>';
+      '<span class="meta">'+(s[3]==='o'?'<span class="tico" title="Omezená složka – vlastní oprávnění">'+svg(IC.lock,12)+'</span>':'')+(hasExt?'<span class="tico ext" title="Má přístup externí partner">'+svg(IC.globe,12)+'</span>':'')+'</span></div><div class="kids" id="k'+i+'">'+kids+'</div></div>';
   }).join('');
 }
 var ROLE_MAT={VE:0,PM:1,OB:3,OF:6,EX:7};
@@ -2469,19 +2812,43 @@ function dokVisible(){
     return true;
   });
 }
+/* Výpis jako MyDocs (DocTableRow): typ, název + soubor, menu ⋯, místo uložení, změněno, změnil, velikost, verze. */
+function dokRow(d){
+  if(d._r)return d._r;
+  var ext=d.n.split('.').pop(), code=d.f.substring(0,2), fi=MAT_COLS.indexOf(code), si=null;
+  if(fi>-1){var sub=d.f.split(' / ')[1];si=sub?STRUKTURA[fi][2].indexOf(sub):null;if(si<0)si=null;}else fi=null;
+  d._r={n:d.n,ext:ext,a:d.a,d:d.d,v:d.v,sz:fsize(ext,hsh(d.n)),f:d.f,p:d.p,fi:fi,si:si,g:d.g};
+  return d._r;
+}
+function dokDays(s){if(s.indexOf('dnes')===0||s.indexOf('právě')===0)return 0;if(s.indexOf('včera')===0)return 1;var m=s.match(/^(\d+)\. (\d+)\./);if(!m)return 99;return (10-(+m[2]))*30+(9-(+m[1]));}
+var DOKROWS=[];
 function renderDok(){
-  var base=dokVisible(), q=($('#d-q').value||'').toLowerCase().trim();
+  var base=dokVisible().map(dokRow).concat(USER_FILES.filter(function(u){return canSee(proj(u.p));}));
+  var q=($('#d-q').value||'').toLowerCase().trim(), typ=$('#d-typ').value, obd=$('#d-obd').value, mine=$('#d-moje').checked;
   $('#dok-chips').innerHTML=DOK_CH.filter(function(c){return c[0]==='vse'||base.some(function(d){return d.g===c[0];});}).map(function(c){
     return '<button class="'+(c[0]===DOK_F?'on':'')+'" data-df="'+c[0]+'">'+c[1]+'</button>';}).join('');
-  var rows=base.filter(function(d){return (DOK_F==='vse'||d.g===DOK_F)&&(!q||(d.n+' '+proj(d.p).naz).toLowerCase().indexOf(q)>-1);});
-  $('#tb-dok').innerHTML=rows.length?rows.map(function(d){var p=proj(d.p);
-    return '<tr class="clic" data-doc="'+DOKUMENTY.indexOf(d)+'"><td><div class="t-pri">'+d.n+'</div></td><td><div class="t-sub" style="margin:0;color:var(--ep-text)">'+p.naz+'</div><div class="t-sub"><span class="t-id">'+p.kod+'</span></div></td>'+
-      '<td><div class="t-sub" style="margin:0">'+d.f+'</div></td><td class="mono">'+d.v+'</td><td><span class="who">'+av(d.a)+'<span class="n">'+os(d.a).n+'</span></span></td><td class="mono">'+d.d+'</td></tr>';}).join('')
-    :'<tr><td colspan="6" class="empty">Nic nenalezeno. Dokumenty, ke kterým nemáte přístup, se nezobrazují ani ve vyhledávání.</td></tr>';
+  var rows=base.filter(function(d){
+    if(DOK_F!=='vse'&&d.g!==DOK_F)return false;
+    if(typ&&d.ext!==typ)return false;
+    if(obd){var k=dokDays(d.d);if(obd==='dnes'&&k>0)return false;if(obd==='7'&&k>7)return false;if(obd==='30'&&k>30)return false;}
+    if(mine&&d.a!==R().id)return false;
+    return !q||(d.n+' '+proj(d.p).naz+' '+d.f).toLowerCase().indexOf(q)>-1;});
+  DOKROWS=rows;
+  $('#tb-dok').innerHTML=rows.length?rows.map(function(r,i){var p=proj(r.p);
+    return '<tr class="drow"><td><span class="cb"></span></td><td><span class="xbw">'+extBadge(r.ext)+(r.lock?'<i class="lk">'+svg(IC.lock,9)+'</i>':'')+'</span></td>'+
+      '<td><button class="dn dl" data-dokprev="'+i+'">'+r.n.replace(/\.[a-z]+$/,'')+'</button><div class="ds">'+r.n+'</div></td>'+
+      '<td><button class="dm" data-dokmenu="'+i+'" title="Akce">⋯</button></td>'+
+      '<td><div class="loc"><b>'+p.naz+'</b><button class="loc-l" data-kod="'+p.kod+'">'+svg(IC.fold,12)+'Dokumenty projektu</button></div><span class="pth">'+r.f+'</span></td>'+
+      '<td class="mono">'+r.d+'</td><td><span class="who">'+av(r.a)+'<span class="n">'+os(r.a).n+'</span></span></td><td class="ta-r mono">'+r.sz+'</td><td class="ta-r mono">'+r.v+'</td></tr>';}).join('')
+    :'<tr><td colspan="9" class="empty"><b>Nic nenalezeno</b><br>Dokumenty, ke kterým nemáte přístup, se nezobrazují ani ve vyhledávání.</td></tr>';
+  $('#dok-info').textContent=rows.length+' dokumentů'+(rows.length<base.length?' z '+base.length:'');
 }
 $('#dok-chips').addEventListener('click',function(e){var b=e.target.closest('[data-df]');if(!b)return;DOK_F=b.getAttribute('data-df');renderDok();});
-$('#d-q').addEventListener('input',renderDok);
-$('#tb-dok').addEventListener('click',function(e){var r=e.target.closest('[data-doc]');if(!r)return;openPreview(DOKUMENTY[+r.getAttribute('data-doc')]);});
+['#d-q','#d-typ','#d-obd','#d-moje'].forEach(function(s){$(s).addEventListener(s==='#d-q'?'input':'change',renderDok);});
+$('#tb-dok').addEventListener('click',function(e){
+  var t=e.target.closest('[data-dokmenu]'); if(t){e.stopPropagation();docMenu(t,DOKROWS[+t.getAttribute('data-dokmenu')]);return;}
+  t=e.target.closest('[data-dokprev]'); if(t){openPreview(DOKROWS[+t.getAttribute('data-dokprev')]);}
+});
 $('#b-savedoc').addEventListener('click',function(){openWizard();});
 
 /* ══════════════════════ Nový projekt ══════════════════════ */
@@ -2517,25 +2884,6 @@ function runCreate(){
     if(i===steps.length-1)$('#w-done').innerHTML='<div class="okbox" style="margin-top:14px"><b>'+$('#w-naz').value+' je založený.</b> Za 42 sekund. Tým dostal e-mail s odkazem, projekt je v katalogu a architekta pozve projektový manažer, až bude potřeba. <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost sm" id="w-again">Založit další</button><button class="btn primary sm" data-kod="P-2021-02">Ukázat hotový projekt</button></div></div>';},350*(i+1));});
 }
 document.addEventListener('click',function(e){if(e.target.closest('#w-again'))wstep(1);});
-
-/* ══════════════════════ Firemní dokumenty ══════════════════════ */
-var FD_F='vse';
-function renderFd(){
-  var nesez=FIRDOK.filter(function(d){return d.sz&&d.sz[0]<d.sz[1];});
-  $('#kpis-fd').innerHTML=[['Platných dokumentů',FIRDOK.length,'','směrnice, postupy, řády, vzory'],['Čeká na seznámení',nesez.length,'amber','závazné dokumenty, které nečetli všichni'],['Po termínu revize',FIRDOK.filter(function(d){return d.po;}).length,'red','vlastník dostal připomínku'],['Nové za měsíc',FIRDOK.filter(function(d){return d.novy;}).length,'green','oznámeno na intranetu']].map(function(x){
-    return '<div class="kpi"><div class="kpi-l">'+x[0]+'</div><div class="kpi-v '+x[2]+'">'+x[1]+'</div><div class="kpi-s">'+x[3]+'</div></div>';}).join('');
-  var ch=[['vse','Vše'],['sm','Směrnice a pravidla'],['po','Postupy a řády'],['vz','Vzory a formuláře']];
-  $('#fd-chips').innerHTML=ch.map(function(c){return '<button class="'+(c[0]===FD_F?'on':'')+'" data-ff="'+c[0]+'">'+c[1]+'</button>';}).join('');
-  $('#tb-fd').innerHTML=FIRDOK.filter(function(d){return FD_F==='vse'||d.g===FD_F;}).map(function(d){
-    var sz=d.sz?'<div class="bar '+(d.sz[0]===d.sz[1]?'gr':'am')+'" style="width:90px"><i style="width:'+Math.round(100*d.sz[0]/d.sz[1])+'%"></i></div><div class="t-sub">'+d.sz[0]+' z '+d.sz[1]+'</div>':'<span class="mono">–</span>';
-    return '<tr class="clic" data-fd="'+FIRDOK.indexOf(d)+'"><td><div class="t-pri">'+d.n+(d.novy?' <span class="pill p-new">nový</span>':'')+'</div></td><td><span class="pill p-cat">'+d.t+'</span></td><td><span class="who">'+av(d.o)+'<span class="n">'+os(d.o).n+'</span></span></td>'+
-      '<td class="mono">'+d.v+'</td><td class="mono">'+d.od+'</td><td class="mono" style="'+(d.po?'color:var(--ep-red);font-weight:700':'')+'">'+d.rev+'</td><td>'+sz+'</td></tr>';}).join('');
-}
-$('#fd-chips').addEventListener('click',function(e){var b=e.target.closest('[data-ff]');if(!b)return;FD_F=b.getAttribute('data-ff');renderFd();});
-$('#tb-fd').addEventListener('click',function(e){var r=e.target.closest('[data-fd]');if(!r)return;var d=FIRDOK[+r.getAttribute('data-fd')];
-  modal(d.n,'<dl class="kv"><dt>Typ</dt><dd>'+d.t+'</dd><dt>Vlastník</dt><dd>'+os(d.o).n+'</dd><dt>Platná verze</dt><dd>'+d.v+' · platí od '+d.od+'</dd><dt>Další revize</dt><dd>'+d.rev+'</dd></dl>'+
-   '<p class="note" style="margin-top:14px">Starší verze zůstávají v historii dokumentu. Změnu připravuje vlastník, schvaluje vedení a po zveřejnění dostanou dotčení lidé výzvu k seznámení.</p>',
-   '<button class="btn ghost" data-mx>Zavřít</button>'+(d.sz?'<button class="btn primary" data-mx data-toast="Seznámení potvrzeno a zapsáno do evidence.">Potvrdit seznámení</button>':''));});
 
 /* ══════════════════════ Lidé ══════════════════════ */
 var PPL_F='vse';
@@ -2713,7 +3061,7 @@ var TOUR=[
  {scr:'s6',before:function(){wstep(3);},sel:'#card-roles',ti:'Šablona nese role, ne lidi',tx:'Projektový manažer jen doplní lidi do rolí. Oprávnění ke složkám se nastaví samo. Kdyby se kopírovala doslova ze vzoru, měl by každý nový projekt v přístupech lidi z jiného projektu.'},
  {scr:'s6',before:function(){wstep(4);},sel:'#w-run',ti:'Založení',tx:'Web, složky, skupiny, oprávnění, tým v Teams a zápis do katalogu – za necelou minutu a pokaždé stejně.'}]},
 {t:'Firemní dokumenty',s:'Provozní dokumentace',steps:[
- {scr:'s7',before:function(){setRole('VE');},sel:'#card-fd',ti:'Vždy platná verze',tx:'Směrnice, postupy, řády a vzory smluv s vlastníkem, platností a revizí. U závazných dokumentů je vidět, kdo se s nimi seznámil. Starší verze se nedají omylem otevřít jako platné.'}]},
+ {scr:'s7',before:function(){setRole('VE');},sel:'#rd-act',ti:'Řízené dokumenty',tx:'Firemní směrnice a postupy spravuje aplikace <b>EasyPortal 365 Řízené dokumenty</b>. Každý vidí, co má potvrdit a do kdy; potvrzení se zapíše s časovým razítkem. Klikněte na dokument – otevře se náhled a záložka Potvrzení.'}]},
 {t:'Přístupy',s:'Pravidla a jejich kontrola',steps:[
  {scr:'s9',before:function(){accTab('a-mat');},sel:'#card-mat',ti:'Matice rolí',tx:'Jedna tabulka říká, kdo kam smí. Mění se tady – ne člověk po člověku a složka po složce. Modře role pro partnery zvenku.'},
  {scr:'s9',before:function(){accTab('a-nal');},sel:'#card-nal',ti:'Kde se realita odchýlila',tx:'Sdílení odkazem pro kohokoli, host bez data konce, složka s ručně změněnými právy. Portál odchylky měří pravidelně a nabídne opravu.'},
@@ -2799,7 +3147,7 @@ document.addEventListener('keydown',function(e){
 $('#b-intro').addEventListener('click',function(){go('s0');});
 
 /* ══════════════════════ Přepínač role ══════════════════════ */
-function redraw(){renderSide();renderActs();hydrateIcons();renderIntra();renderMoje();renderKat();renderDok();renderPpl();renderSab();if(CUR&&$('#s4.on'))renderLib();}
+function redraw(){renderSide();renderActs();hydrateIcons();renderIntra();renderMoje();renderKat();renderDok();renderPpl();renderSab();renderRd();if(CUR&&$('#s4.on'))renderLib();}
 function setRole(k,silent){
   ROLE=k; $('#role-sw').value=k; redraw();
   if(!silent&&k!=='VE')toast('Zobrazeno očima role <b>'+R().lbl+'</b>. Menu, čísla i dokumenty se změnily.');
