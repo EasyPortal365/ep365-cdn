@@ -1081,82 +1081,32 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
 .rd-rej{border:1.5px solid var(--ep-red);color:var(--ep-red);background:#fff;justify-content:center}
 .rd-apr{background:var(--ep-green);color:#fff;justify-content:center}
 
-/* ============ Barevné motivy (přepínač v liště konceptu) ============
-   c = červený (původní): červená na všech akcentech.
-   a = střídmý: jako web IMOS – černá, bílá, béžová plocha; červená #C80225 jen na hlavní tlačítka,
-       aktivní volbu a upozornění; drobné popisky a ikony v terakotě (#E38965 je na textu málo
-       kontrastní, proto ztmavená #A6532F = odv.).
-   b = tmavý hero: jako a, ale pozdrav Workplace na černé ploše (primární barva motivu černá). */
-html[data-motiv="a"],html[data-motiv="b"]{
-  --ep-accent-strong:#A6532F /*odv. z #E38965*/;
-  --ep-accent-soft:#F5EEE8;
-  --ep-mint:#F5EEE8;
-}
-html[data-motiv="a"] .eyebrow,html[data-motiv="b"] .eyebrow,
-html[data-motiv="a"] .wp-date,
-html[data-motiv="a"] .wp-zone,html[data-motiv="b"] .wp-zone,
-html[data-motiv="a"] .wp-sh [data-ic],html[data-motiv="b"] .wp-sh [data-ic],
-html[data-motiv="a"] .wp-fact .k,html[data-motiv="b"] .wp-fact .k,
-html[data-motiv="a"] .wp-welcome .k,html[data-motiv="b"] .wp-welcome .k,
-html[data-motiv="a"] .bl-k,html[data-motiv="b"] .bl-k,
-html[data-motiv="a"] .wp-ev .dt span,html[data-motiv="b"] .wp-ev .dt span{color:#A6532F}
-html[data-motiv="a"] .wp-zone:after,html[data-motiv="b"] .wp-zone:after{background:linear-gradient(90deg,rgba(166,83,47,.35),transparent)}
-html[data-motiv="a"] .wp-link .li,html[data-motiv="b"] .wp-link .li,
-html[data-motiv="a"] .wp-ev .ol,html[data-motiv="b"] .wp-ev .ol{color:#000}
-html[data-motiv="a"] .wp-tile .ti,html[data-motiv="b"] .wp-tile .ti{background:#F5EEE8;color:#000}
-html[data-motiv="a"] .wp-tile:first-child .ti,html[data-motiv="b"] .wp-tile:first-child .ti{background:#C80225;color:#fff}
-html[data-motiv="a"] .wp-tile:hover,html[data-motiv="b"] .wp-tile:hover{border-color:#000}
-html[data-motiv="a"] .wp-tag.hl,html[data-motiv="b"] .wp-tag.hl{background:#fff;color:#C80225;border-color:rgba(200,2,37,.35)}
-html[data-motiv="a"] .wp-welcome,html[data-motiv="b"] .wp-welcome{background:linear-gradient(180deg,#F5EEE8,#fff 70%)}
-html[data-motiv="a"] .icbox,html[data-motiv="b"] .icbox,
-html[data-motiv="a"] .intro-ic,html[data-motiv="b"] .intro-ic,
-html[data-motiv="a"] .bl-ic,html[data-motiv="b"] .bl-ic,
-html[data-motiv="a"] .rd-logo,html[data-motiv="b"] .rd-logo,
-html[data-motiv="a"] .team-i,html[data-motiv="b"] .team-i{background:#F5EEE8;color:#000}
-html[data-motiv="a"] .side-mark,html[data-motiv="b"] .side-mark{background:#000;color:#fff}
-html[data-motiv="a"] .nav button.on,html[data-motiv="b"] .nav button.on{background:#F5EEE8}
-html[data-motiv="a"] .nav button.on svg,html[data-motiv="b"] .nav button.on svg{color:#C80225}
-html[data-motiv="a"] .tabs button.on,html[data-motiv="b"] .tabs button.on,
-html[data-motiv="a"] .bl-tabs button.on,html[data-motiv="b"] .bl-tabs button.on{border-bottom-color:#000}
-html[data-motiv="a"] .p-sent,html[data-motiv="b"] .p-sent{background:#F5EEE8;color:#000}
-html[data-motiv="a"] .pill.rd-bez,html[data-motiv="b"] .pill.rd-bez{background:#F5EEE8;color:#000}
-html[data-motiv="a"] .avatar.teal,html[data-motiv="b"] .avatar.teal{background:#A6532F}
-html[data-motiv="a"] .avatar.amb,html[data-motiv="b"] .avatar.amb{background:#939393}
-html[data-motiv="a"] .h1 .hl,html[data-motiv="b"] .h1 .hl,
-html[data-motiv="a"] .rd-h1 .hl,html[data-motiv="b"] .rd-h1 .hl,
-html[data-motiv="a"] .intro-h1 .hl,html[data-motiv="b"] .intro-h1 .hl,
-html[data-motiv="a"] .lib-t .hl,html[data-motiv="b"] .lib-t .hl{color:#C80225}
-html[data-motiv="a"] .pn.on .dot,html[data-motiv="b"] .pn.on .dot{background:#000;box-shadow:0 0 0 5px rgba(0,0,0,.08)}
-html[data-motiv="a"] .pn .here,html[data-motiv="b"] .pn .here{background:#F5EEE8;color:#000}
-html[data-motiv="a"] .tour-card,html[data-motiv="b"] .tour-card,
-html[data-motiv="a"] .banner.accent,html[data-motiv="b"] .banner.accent{background:linear-gradient(120deg,#F5EEE8,#fff);border-color:#E8DED4}
-html[data-motiv="a"] .tour-card .ic,html[data-motiv="b"] .tour-card .ic{background:#000}
-html[data-motiv="a"] .wp-ann,html[data-motiv="b"] .wp-ann{border-left-color:#C80225}
-
-/* a – střídmý hero: čistá béžová bez růžové záře */
-html[data-motiv="a"] .wp-hero{background:repeating-linear-gradient(115deg,rgba(0,0,0,.025) 0 1px,transparent 1px 22px),#F5EEE8}
-html[data-motiv="a"] .wp-util{background:rgba(0,0,0,.04)}
-html[data-motiv="a"] .wp-pill.on{background:#000;color:#fff}
-html[data-motiv="a"] .wp-pill .b{background:#C80225}
-html[data-motiv="a"] .wp-pill .b.t{background:#4D4D4D}
-
-/* b – tmavý hero (primární barva motivu černá, akcent červená) */
-html[data-motiv="b"] .wp-hero{background:radial-gradient(ellipse 55% 90% at 90% 0%,rgba(200,2,37,.28),transparent 60%),radial-gradient(ellipse 45% 70% at 0% 100%,rgba(227,137,101,.18),transparent 60%),repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 1px,transparent 1px 22px),#0D0D0D}
-html[data-motiv="b"] .wp-util{background:rgba(255,255,255,.06)}
-html[data-motiv="b"] .wp-search{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:#D9D9D9}
-html[data-motiv="b"] .wp-search kbd{background:rgba(255,255,255,.12);border-color:transparent;color:#D9D9D9}
-html[data-motiv="b"] .wp-pills{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.1)}
-html[data-motiv="b"] .wp-pill{color:#F2F2F2}
-html[data-motiv="b"] .wp-pill.on{background:#C80225;color:#fff}
-html[data-motiv="b"] .wp-pill .b.t{background:#fff;color:#000}
-html[data-motiv="b"] .wp-date{color:#E38965}
-html[data-motiv="b"] .wp-svatek{color:#B3B3B3}
-html[data-motiv="b"] .wp-svatek b{color:#fff}
-html[data-motiv="b"] .wp-greet{color:#fff}
-html[data-motiv="b"] .wp-greet .nm{-webkit-text-stroke-color:#E0465A}
-html[data-motiv="b"] .wp-sub{color:#CFCFCF}
-html[data-motiv="b"] .wp-sup .icobtn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#E6E6E6}
-html[data-motiv="b"] .wp-sup .vline{background:rgba(255,255,255,.2)}
+/* ============ Úvodní stránka intranetu – klidnější paleta (jen #s1) ============
+   Jako web IMOS: černá, bílá, béžová plocha #F5EEE8. Červená #C80225 jen tam, kde má něco říct
+   (upozornění, odznaky, štítek Headline, první rychlá akce, zvýrazněné jméno). Drobné nadpisy a
+   ikony v terakotě – #E38965 je na bílé málo čitelná, proto ztmavená #A6532F (odv.). */
+#s1 .wp-hero{background:repeating-linear-gradient(115deg,rgba(0,0,0,.025) 0 1px,transparent 1px 22px),#F5EEE8}
+#s1 .wp-util{background:rgba(0,0,0,.04)}
+#s1 .wp-pill.on{background:#000;color:#fff}
+#s1 .wp-pill .b{background:#C80225}
+#s1 .wp-pill .b.t{background:#4D4D4D}
+#s1 .wp-date,#s1 .wp-zone,#s1 .wp-sh [data-ic],#s1 .wp-fact .k,#s1 .wp-welcome .k,#s1 .wp-ev .dt span{color:#A6532F}
+#s1 .wp-zone:after{background:linear-gradient(90deg,rgba(166,83,47,.35),transparent)}
+#s1 .wp-link .li,#s1 .wp-ev .ol{color:#000}
+#s1 .wp-tile .ti{background:#F5EEE8;color:#000}
+#s1 .wp-tile:first-child .ti{background:#C80225;color:#fff}
+#s1 .wp-tile:hover{border-color:#000}
+#s1 .wp-tag.hl{background:#fff;color:#C80225;border-color:rgba(200,2,37,.35)}
+#s1 .wp-welcome{background:linear-gradient(180deg,#F5EEE8,#fff 70%)}
+#s1 .wp-ackrow .di{background:#F5EEE8;color:#000}
+#s1 .avatar{background:#000}
+#s1 .avatar.teal{background:#A6532F}
+#s1 .avatar.amb{background:#939393}
+#s1 .wp-fact .ft i.on{background:#000}
+#s1 .wp-fact .ft button{color:#000}
+#s1 .wp-kudo .re button.on{border-color:#000;color:#000;background:#F5EEE8}
+#s1 .wp-logo{display:inline-flex;align-items:center;background:#fff;border-radius:8px;padding:6px 10px;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+#s1 .wp-logo img{height:26px;display:block}
 
 </style>
 </head>
@@ -1235,7 +1185,7 @@ html[data-motiv="b"] .wp-sup .vline{background:rgba(255,255,255,.2)}
       <button class="wp-search" data-pal="1"><span data-ic="search"></span><span class="lbl">Hledat v intranetu…</span><kbd>⌘K</kbd></button>
       <div class="wp-pills" id="wp-pills"></div>
     </div>
-    <div class="wp-row2"><span class="wp-date" id="wp-date">Pátek 9. října 2026</span><span class="wp-svatek">Svátek má <b>Sára</b></span><span class="spacer"></span><span class="wp-sup" id="wp-sup"></span></div>
+    <div class="wp-row2"><span class="wp-logo" id="wp-logo"></span><span class="wp-date" id="wp-date">Pátek 9. října 2026</span><span class="wp-svatek">Svátek má <b>Sára</b></span><span class="spacer"></span><span class="wp-sup" id="wp-sup"></span></div>
     <h1 class="wp-greet" id="greet"></h1>
     <p class="wp-sub">Vítejte na firemním intranetu. Níže najdete aktuality, události a vše důležité na jednom místě.</p>
   </div>
@@ -1858,6 +1808,9 @@ var CEKA = [
  ['ac','grid','Šablona se změnila','Bytový projekt · revize 3 → 4','3 běžící projekty lze doplnit','s10']
 ];
 
+/* Logo IMOS development z imos-development.cz (PNG 252×51), pro lockup v hlavičce Workplace. */
+var IMOS_LOGO='data:image/png;base64,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';
+
 /* ══════════════════════ Intranet = Workplace ══════════════════════
    Věrná replika úvodní stránky EasyPortal 365 Workplace (ep365-homepage + workplace-core):
    utility pás (hledání ⌘K + pilulky), pozdrav, karta Headline přes hero, Rychlé akce,
@@ -1867,6 +1820,7 @@ var WP_APPS=[['building','Projektový portál','projekty, dokumenty, partneři',
 function firstName(id){return os(id).n.split(' ')[0];}
 function renderIntra(){
   var r=R();
+  $('#wp-logo').innerHTML='<img src="'+IMOS_LOGO+'" alt="IMOS development">';
   $('#wp-pills').innerHTML=WP_PILLS.map(function(p,i){
     return '<button class="wp-pill'+(i===0?' on':'')+'" data-wpp="'+i+'">'+svg(IC[p[0]],14)+p[1]+(p[3]?'<span class="b'+(p[4]?' t':'')+'">'+p[3]+'</span>':'')+'</button>';}).join('');
   $('#greet').innerHTML='Dobré ráno, <span class="nm">'+firstName(r.id)+'</span>.';
@@ -1876,18 +1830,18 @@ function renderIntra(){
   $('#wp-ann').innerHTML='<span class="feed-ic rd" style="width:30px;height:30px">'+svg(IC.shield,15)+'</span><span><b>Od 1. 10. platí nové pravidlo pro sdílení dokumentů s externisty.</b> Prosíme o potvrzení přečtení do 15. 10.</span><span class="spacer"></span><button class="btn ghost sm" data-wpann>Detaily →</button><button class="btn primary sm" data-wpannok>Potvrdit přečtení</button>';
   var h=NEWS[0];
   $('#wp-headline').innerHTML='<div class="tx"><div class="tags"><span class="wp-tag hl">● Headline</span><span class="wp-tag">'+h.k+'</span><span class="wp-tag plain">'+h.rel+'</span></div><h3>'+h.t+'</h3><p>'+h.x+'</p>'+
-    '<div class="by">'+av(h.a)+'<span><div class="n">'+os(h.a).n+'</div><div class="d">'+h.d+'</div></span><button class="btn primary">Číst dál →</button></div></div><div class="im">'+art(MOTIV==='c'?7:0,320)+'</div>';
+    '<div class="by">'+av(h.a)+'<span><div class="n">'+os(h.a).n+'</div><div class="d">'+h.d+'</div></span><button class="btn primary">Číst dál →</button></div></div><div class="im">'+artA(0,320)+'</div>';
   $('#wp-headline').setAttribute('data-news','0');
   var qa=[['building','Moje projekty','projekty, termíny, schválení','s2','#FAE6E9','#C80225'],['up','Uložit dokument','na správné místo','wiz','#F5EEE8','#000000'],['shield','Řízené dokumenty','směrnice a postupy','s7','#FAE6E9','#96011C'],['key','Přístup pro partnera','pozvat architekta, dodavatele','t:Žádost o přístup pro externího partnera – schvaluje vlastník projektu.','#F5EEE8','#E38965'],['help','Mám problém','nahlásit IT podpoře','t:Hlášení odchází e-mailem na podporu IT.','#EDE3DA','#4D4D4D']];
   $('#wp-quick').innerHTML=qa.map(function(q){var a=q[3].indexOf('t:')===0?'data-toast="'+q[3].substring(2)+'"':q[3]==='wiz'?'data-wiz="1"':'data-go="'+q[3]+'"';
-    return '<button class="wp-tile" '+a+'><span class="ti" style="'+(MOTIV==='c'?'background:'+q[4]+';color:'+q[5]:'')+'">'+svg(IC[q[0]],19)+'</span><span><span class="t">'+q[1]+'</span><span class="s">'+q[2]+'</span></span><span class="ar">›</span></button>';}).join('');
+    return '<button class="wp-tile" '+a+'><span class="ti" style="">'+svg(IC[q[0]],19)+'</span><span><span class="t">'+q[1]+'</span><span class="s">'+q[2]+'</span></span><span class="ar">›</span></button>';}).join('');
   var ack=FIRDOK.filter(function(d,i){return RD_META[i].r&&RD_META[i].my!=='ok';}).slice(0,3);
   $('#wp-ack').innerHTML=ack.length?ack.map(function(d){var i=FIRDOK.indexOf(d);
     return '<div class="wp-ackrow"><span class="di">'+svg(IC.doc,17)+'</span><div><div class="t">'+d.n+'</div><div class="m">'+d.t+' · verze '+d.v+' · platí od '+d.od+' · vlastník '+os(d.o).n+'</div></div><button class="btn ghost sm" data-fdopen="'+i+'">Otevřít</button><button class="btn primary sm" data-wpack="'+i+'">Otevřít a potvrdit</button></div>';}).join('')
     :'<p class="note" style="margin:0">Se všemi závaznými dokumenty jste seznámen(a).</p>';
   var nw=NEWS.slice(1);
-  $('#wp-news').innerHTML='<div class="wp-nmain" data-news="1"><div class="im">'+art(nw[0].art,200)+'</div><div class="b"><span class="wp-tag" style="align-self:flex-start">'+nw[0].k+'</span><h4>'+nw[0].t+'</h4><p>'+nw[0].x+'</p><div class="by">'+av(nw[0].a)+'<b>'+os(nw[0].a).n+'</b><span style="color:#939393">· '+nw[0].d+'</span></div></div></div>'+
-    nw.slice(1,5).map(function(n,i){return '<div class="wp-nsm" data-news="'+(i+2)+'"><div class="im">'+art(n.art,150)+'</div><div class="b"><h4>'+n.t+'</h4><p>'+n.x+'</p><div class="m">'+os(n.a).n+' · '+n.d+'</div></div></div>';}).join('');
+  $('#wp-news').innerHTML='<div class="wp-nmain" data-news="1"><div class="im">'+artA(nw[0].art,200)+'</div><div class="b"><span class="wp-tag" style="align-self:flex-start">'+nw[0].k+'</span><h4>'+nw[0].t+'</h4><p>'+nw[0].x+'</p><div class="by">'+av(nw[0].a)+'<b>'+os(nw[0].a).n+'</b><span style="color:#939393">· '+nw[0].d+'</span></div></div></div>'+
+    nw.slice(1,5).map(function(n,i){return '<div class="wp-nsm" data-news="'+(i+2)+'"><div class="im">'+artA(n.art,150)+'</div><div class="b"><h4>'+n.t+'</h4><p>'+n.x+'</p><div class="m">'+os(n.a).n+' · '+n.d+'</div></div></div>';}).join('');
   var ln=[['Žádost o dovolenou','t:Žádost o dovolenou – formulář v aplikaci Absence.'],['Projektový portál','s2'],['IT podpora','t:Hlášení pro IT – formulář nebo e-mail.'],['Kdo je kdo','s8'],['Faktury a smlouvy','t:Agenda dokladů TreeINFO (ARICOMA).'],['Web IMOS','t:Veřejný web imos-development.cz.']];
   $('#wp-links').innerHTML=ln.map(function(l){var a=l[1].indexOf('t:')===0?'data-toast="'+l[1].substring(2)+'"':'data-go="'+l[1]+'"';
     return '<button class="wp-link" '+a+'><span class="li">'+svg(IC.link,14)+'</span>'+l[0]+'</button>';}).join('');
@@ -1923,7 +1877,7 @@ document.addEventListener('click',function(e){
 });
 document.addEventListener('click',function(e){
   var n=e.target.closest('[data-news]'); if(!n)return; var x=NEWS[+n.getAttribute('data-news')];
-  modal(x.t,'<div style="border-radius:12px;overflow:hidden;height:200px;margin-bottom:14px">'+art(x.art,200)+'</div><p><span class="wp-tag">'+x.k+'</span> <span class="mono">'+os(x.a).n+' · '+x.d+'</span></p><p>'+x.x+'</p><p class="note">Čtečka aktualit uvnitř Workplace. Aktualitu píše autor přímo na intranetu a jde ji zacílit na tým.</p>','',true);
+  modal(x.t,'<div style="border-radius:12px;overflow:hidden;height:200px;margin-bottom:14px">'+artA(x.art,200)+'</div><p><span class="wp-tag">'+x.k+'</span> <span class="mono">'+os(x.a).n+' · '+x.d+'</span></p><p>'+x.x+'</p><p class="note">Čtečka aktualit uvnitř Workplace. Aktualitu píše autor přímo na intranetu a jde ji zacílit na tým.</p>','',true);
 });
 
 /* ══════════════════════ Dokumenty projektu – procházení jako v MyDocs ══════════════════════
@@ -2614,8 +2568,9 @@ function hydrateIcons(root){[].slice.call((root||document).querySelectorAll('[da
 var ART_N=0;
 /* Ilustrace podle zvoleného barevného motivu – jen firemní barvy IMOS (#000, #4D4D4D, #939393, #F5EEE8, #E38965, #C80225, #96011C). */
 var ART_PAL={a:[['#000000','#4D4D4D'],['#C9A48F','#F5EEE8'],['#2B2B2B','#E38965'],['#4D4D4D','#939393'],['#96011C','#E38965'],['#000000','#2B2B2B']],b:[['#000000','#4D4D4D'],['#C9A48F','#F5EEE8'],['#2B2B2B','#E38965'],['#4D4D4D','#939393'],['#96011C','#E38965'],['#000000','#2B2B2B']],c:[['#96011C','#C80225'],['#000000','#4D4D4D'],['#C80225','#E38965'],['#000000','#96011C'],['#96011C','#E38965'],['#4D4D4D','#939393']]};
-var MOTIV='a';try{MOTIV=localStorage.getItem('imos-motiv')||'a';}catch(e){}
-document.documentElement.setAttribute('data-motiv',MOTIV);
+var MOTIV='c';
+/* Úvodní stránka intranetu má klidnější paletu ilustrací (černá, šedá, béžová, jeden červený akcent). */
+function artA(seed,h){var m=MOTIV;MOTIV='a';var r=art(seed,h);MOTIV=m;return r;}
 function art(seed,h){
   var bgs=ART_PAL[MOTIV]||ART_PAL.a;
   var c=bgs[seed%bgs.length], gid='g'+seed+'_'+(++ART_N), s='<svg viewBox="0 0 400 '+(h||200)+'" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="'+gid+'" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset="1" stop-color="'+c[1]+'"/></linearGradient></defs><rect width="400" height="'+(h||200)+'" fill="url(#'+gid+')"/>';
@@ -3329,10 +3284,6 @@ function setRole(k,silent){
   sel.innerHTML=Object.keys(ROLES).map(function(k){return '<option value="'+k+'" style="color:#000000">Zobrazit jako: '+ROLES[k].lbl+'</option>';}).join('');
   sel.addEventListener('change',function(){setRole(sel.value);var n=R().nav;go(n?n[0]:'s1');});
   $('.cbar-r').insertBefore(sel,$('#b-intro'));
-  var mt=document.createElement('select'); mt.id='motiv-sw'; mt.style.cssText=sel.style.cssText;
-  mt.innerHTML=[['a','Barvy: střídmé'],['b','Barvy: tmavý hero'],['c','Barvy: červené']].map(function(x){return '<option value="'+x[0]+'"'+(x[0]===MOTIV?' selected':'')+' style="color:#000">'+x[1]+'</option>';}).join('');
-  mt.addEventListener('change',function(){MOTIV=mt.value;document.documentElement.setAttribute('data-motiv',MOTIV);try{localStorage.setItem('imos-motiv',MOTIV);}catch(e){}var pv=CUR_SCR;redraw();if(CUR)openProj(CUR.kod);go(pv);});
-  $('.cbar-r').insertBefore(mt,sel);
 })();
 
 /* ══════════════════════ Start ══════════════════════ */
