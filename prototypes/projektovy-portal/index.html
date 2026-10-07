@@ -934,6 +934,21 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
 .pd-foto div{height:78px;border-radius:8px;overflow:hidden}
 .pd-foto svg{width:100%;height:100%;display:block}
 
+/* Úvod – srovnání „za půl roku“ */
+.cmp{border:1px solid var(--ep-line);border-radius:var(--ep-r-md);overflow:hidden;background:#fff;box-shadow:var(--ep-sh-sm)}
+.cmp-h,.cmp-r{display:grid;grid-template-columns:150px 1fr 1fr}
+.cmp-h span{font-family:var(--fm);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:12px 16px}
+.cmp-h .cmp-a{background:#F2F2F2;color:#4D4D4D}
+.cmp-h .cmp-b{background:var(--ep-accent);color:#fff}
+.cmp-r{border-top:1px solid var(--ep-line)}
+.cmp-r span{padding:13px 16px;font-size:13.5px;line-height:1.5}
+.cmp-k{font-family:var(--fd);font-weight:800;font-size:14px!important;color:var(--ep-text)}
+.cmp-r .cmp-a{color:#4D4D4D;background:#FAFAFA;position:relative;padding-left:36px}
+.cmp-r .cmp-a:before{content:'✕';position:absolute;left:14px;top:13px;color:#939393;font-weight:700}
+.cmp-r .cmp-b{color:var(--ep-text);position:relative;padding-left:36px}
+.cmp-r .cmp-b:before{content:'✓';position:absolute;left:14px;top:13px;color:var(--ep-green);font-weight:800}
+@media(max-width:760px){.cmp-h{display:none}.cmp-r{grid-template-columns:1fr}.cmp-k{padding-bottom:0!important}}
+
 /* ============ Řízené dokumenty – podle Ep365Documents.module.scss (pilulky :880-910, karty :1486, :1636, odpočty :1715) ============ */
 .rdapp{display:grid;align-items:stretch;grid-template-columns:268px minmax(0,1fr);min-height:calc(100vh - var(--bar-h))}
 @media(max-width:1000px){.rdapp{grid-template-columns:1fr}.rd-side{display:none}}
@@ -1148,6 +1163,19 @@ button.dn:hover{color:var(--ep-accent);text-decoration:underline;text-underline-
     <h2>Cesta jednoho projektu</h2>
     <p class="sub">Developerský projekt prochází fázemi, ve kterých se střídají lidé, partneři i citlivost dokumentů. Struktura i přístupy s tím musí počítat od prvního dne – ne až ve chvíli, kdy se do projektu přidá generální dodavatel nebo realitní kancelář.</p>
     <div class="phases" id="intro-phases"></div>
+  </div>
+
+  <div class="intro-sec">
+    <h2>Za půl roku: jen Teams a SharePoint, nebo s pravidly</h2>
+    <p class="sub">Microsoft 365 sám o sobě nic neuspořádá – dá každému možnost založit tým, sdílet odkazem a uložit kamkoli. Bez pravidel se to během pár měsíců rozjede. Portál ta pravidla drží za vás, aby lidé nemuseli.</p>
+    <div class="cmp">
+      <div class="cmp-h"><span></span><span class="cmp-a">Jen standardní Teams a SharePoint</span><span class="cmp-b">S projektovým portálem</span></div>
+      <div class="cmp-r"><span class="cmp-k">Projekty</span><span class="cmp-a">Desítky týmů a webů, každý s jinou strukturou. Který je platný a kdo ho spravuje, ví jen ten, kdo ho založil.</span><span class="cmp-b">Každý projekt ze stejné šablony, v katalogu s vlastníkem a fází.</span></div>
+      <div class="cmp-r"><span class="cmp-k">Sdílení</span><span class="cmp-a">Odkazy „kdokoli s odkazem“ a přílohy v e-mailech. Kdo k čemu má přístup, se dohledává pracně.</span><span class="cmp-b">Přístup přes role; odchylky jako odkaz pro kohokoli portál sám najde.</span></div>
+      <div class="cmp-r"><span class="cmp-k">Partneři zvenku</span><span class="cmp-a">Architekt má přístup ještě rok po předání stavby – nikdo ho neodebral.</span><span class="cmp-b">Každý partner má rozsah složek a datum konce; vlastník dostane připomínku.</span></div>
+      <div class="cmp-r"><span class="cmp-k">Verze</span><span class="cmp-a">Pět verzí ceníku v různých kanálech, směrnice v e-mailu „poslední verze“.</span><span class="cmp-b">Dokument leží jednou, verze v historii; směrnice s platností a potvrzením.</span></div>
+      <div class="cmp-r"><span class="cmp-k">Lidé</span><span class="cmp-a">Nový kolega čeká na přístupy, odcházející je má dál. Každá změna je ruční práce.</span><span class="cmp-b">Tým je zároveň přístup – změnou týmu se přístupy přepnou.</span></div>
+    </div>
   </div>
 
   <div class="intro-sec">
