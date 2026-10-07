@@ -46,6 +46,11 @@ const TEXTOVE = ['.html', '.htm', '.md', '.txt', '.json', '.css', '.svg'];
 // manifesty verzi meri stejne (a je to v poradku: jsou male a merit dvakrat nevadi).
 // Mrtva vyjimka zmizela, aby komentar netvrdil neco, co kod nedela (2026-09-24).
 
+// VYJIMKA `prototypes/` (rozhodnuti Kamiho 2026-10-07): presales koncepty pro konkretniho
+// klienta jmeno klienta (i partnera) nest smi - nejsou v nich tajna data, nic, co by nemohlo
+// byt verejne. Vyjimka plati jen pro korenovou slozku `prototypes/`; vse ostatni se meri dal.
+const VYJIMKY_KOREN = ['prototypes'];
+
 function souboryPod(dir) {
   const out = [];
   fs.readdirSync(dir, { withFileTypes: true }).forEach((d) => {
@@ -62,6 +67,7 @@ function korpusMimoVerze(dir, hloubka) {
   try { polozky = fs.readdirSync(dir, { withFileTypes: true }); } catch (e) { return out; }
   polozky.forEach((d) => {
     if (d.name.charAt(0) === '.' || d.name === 'node_modules' || d.name === 'tools') return;
+    if (hloubka === 0 && d.isDirectory() && VYJIMKY_KOREN.indexOf(d.name) !== -1) { vynechano.push(d.name + '/'); return; }
     const p = path.join(dir, d.name);
     if (d.isDirectory()) {
       out.push.apply(out, korpusMimoVerze(p, hloubka + 1));
@@ -72,6 +78,7 @@ function korpusMimoVerze(dir, hloubka) {
   return out;
 }
 
+const vynechano = [];
 const soubory = korpusMimoVerze(CDN, 0);
 let nalezu = 0;
 soubory.forEach((f) => {
@@ -103,4 +110,5 @@ if (nalezu) {
   process.exit(1);
 }
 console.log('check-public-pages: OK (' + soubory.length + ' verejnych textovych souboru, ' + vzorky.length + ' vzorku, 0 nalezu)');
+if (vynechano.length) console.log('  Vedome vynechano (jmena klientu v konceptech povolena): ' + vynechano.join(', '));
 console.log('  Pozor: guard meri OBSAH, ne CESTU. Nazvy slozek a souboru jsou taky verejne.');
