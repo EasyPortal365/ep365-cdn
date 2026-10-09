@@ -4,6 +4,47 @@
   "name": "EP365 Quick Actions",
   "entries": [
     {
+      "version": "1.2",
+      "date": "2026-10-09",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Uložit jako PDF a Sloučit do jednoho PDF: po dokončení převodu se ukáže karta s tlačítkem „Uložit PDF“ a soubor se stáhne po jeho stisknutí. Dosud se stahování spouštělo samo až po převodu, který trvá i několik sekund – prohlížeč ani Teams ho pak nemusely brát jako vaši akci a mohly ho tiše zablokovat.",
+          "en": "Save as PDF and Merge into one PDF: once the conversion finishes, a card with a “Save PDF” button appears and the file downloads when you press it. Until now the download started on its own only after the conversion, which can take several seconds — so the browser or Teams might no longer treat it as your action and could silently block it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odeslat e-mailem jako odkaz v prohlížeči otevře nový e-mail jen v Outlooku na webu – dosud se k němu otevřel ještě druhý ve výchozím poštovním programu. „Vytisknout souhrn“ v Porovnat verze dokumentu, Oprávnění a přístup a Kontrole citlivých údajů souhrn opět vytiskne – dosud zůstalo jen prázdné okno. Když prohlížeč okno pro tisk zablokuje, dialog to řekne.",
+          "en": "Send by e-mail as a link in the browser now opens the new e-mail only in Outlook on the web — until now a second one also opened in the default mail program. “Print summary” in Compare document versions, Permissions and access and the Sensitive data check prints the summary again — until now only an empty window was left. When the browser blocks the print window, the dialog says so."
+        },
+        {
+          "type": "fixed",
+          "cs": "Soubory a složky s # nebo % v názvu (třeba „Faktura #12.pdf“ nebo složka „Sleva 20%“) zvládnou akce Odeslat do Řízených dokumentů včetně nahrání nové verze, Porovnat verze dokumentu, Přehled dokumentu, Oprávnění a přístup i Kontrola citlivých údajů – dřív u takového souboru selhaly.",
+          "en": "Files and folders with # or % in their name (such as “Invoice #12.pdf” or a folder “Discount 20%”) now work with Send to Managed Documents including uploading a new version, Compare document versions, Document overview, Permissions and access and the Sensitive data check — until now these actions failed for such a file."
+        },
+        {
+          "type": "improved",
+          "cs": "Nabídka a okna Quick Actions se uživatelům se slovenským jazykem Microsoft 365 zobrazí česky – dosud se zobrazovaly anglicky.",
+          "en": "The Quick Actions menu and dialogs now appear in Czech for users whose Microsoft 365 language is Slovak — until now they appeared in English."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odeslat do Řízených dokumentů se nabídne i na webu bez Workplace, když jsou Řízené dokumenty nasazené na tomtéž webu – dosud je akce hledala jen v přehledu aplikací Workplace a na takovém webu se vůbec neukázala. Tlačítko pro dokončení publikace po odeslání vede přímo na stránku s aplikací, ne na úvodní stránku webu.",
+          "en": "Send to Managed Documents is now offered on a site without Workplace when Managed Documents are installed on the same site — until now the action looked for them only in the Workplace app list and did not appear at all on such a site. After sending, the button for finishing the publication leads straight to the page with the app, not to the site home page."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odeslat do Řízených dokumentů a tlačítko pro dokončení publikace vedou vždy na stránku s celou aplikací Řízené dokumenty – dosud mohly skončit na stránce, kde je jen malý rámeček „K seznámení“.",
+          "en": "Send to Managed Documents and the button for finishing the publication now always lead to the page with the full Managed Documents app — until now they could end up on a page that shows only the small “To acknowledge” box."
+        },
+        {
+          "type": "improved",
+          "cs": "Nabídka EP365 Quick Actions v seznamech a knihovnách se načítá vždy v aktuální verzi. Nové verze se tak projeví hned – dosud mohla v seznamech i několik dní běžet starší verze, kterou si prohlížeč uložil.",
+          "en": "The EP365 Quick Actions menu in lists and libraries now always loads in its current version. New versions therefore take effect right away — until now an older version saved by the browser could keep running in lists for several days."
+        }
+      ]
+    },
+    {
       "version": "1.1",
       "date": "2026-09-09",
       "changes": [
