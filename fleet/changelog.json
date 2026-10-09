@@ -4,6 +4,92 @@
   "name": "EP365 Vozový park",
   "entries": [
     {
+      "version": "1.11",
+      "date": "2026-10-09",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Přidělená vozidla a měsíční výkazy. Správce vozového parku přidělí auto natrvalo jednomu zaměstnanci a určí jeho vedoucího (z adresáře organizace, kde to jde); přidělené auto se pak nenabízí v rezervacích ani v kalendáři. Řidič místo zápisu každé jízdy odevzdá jednou za měsíc výkaz: stav tachometru s fotkou, volitelně soukromé kilometry a tankování firemní kartou i z vlastních peněz s účtenkou. Souhrn ukáže ujeté kilometry, spotřebu a částku k proplacení. Dokud řidič výkaz za skončený měsíc neodevzdá, svítí mu jako úkol v aplikaci i v telefonu, kde jde tankování zapsat i zpětně a rovnou vyfotit účtenku.",
+          "en": "Assigned vehicles and monthly reports. The fleet administrator assigns a car permanently to one employee and sets their manager (from the organisation directory where possible); an assigned car is then no longer offered in reservations or the calendar. Instead of logging every journey, the driver submits a report once a month: the odometer reading with a photo, optionally private kilometres, and refuelling with the company card or their own money with a receipt. The summary shows kilometres driven, consumption and the amount to reimburse. Until the driver submits the report for a finished month, it shows as a task in the app and on the phone, where refuelling can also be entered afterwards with a photo of the receipt."
+        },
+        {
+          "type": "new",
+          "cs": "Výkazy týmu pro vedoucí a Měsíční výkazy pro správce: kdo má odevzdáno, kdo je po termínu, co čeká na schválení, souhrn kilometrů a částek k proplacení, tisk a export. Schvalování (vedoucí, správce, nebo žádné) se nastavuje v Nastavení. Fronta připomínek pošle jedním klikem e-mail všem, komu se blíží nebo prošel termín výkazu – kdo mezitím odevzdal nebo byl připomenutý nedávno, se nepředvybírá.",
+          "en": "Team reports for managers and Monthly reports for administrators: who has submitted, who is overdue, what awaits approval, totals of kilometres and amounts to reimburse, printing and export. Approval (manager, administrator or none) is set in Settings. The reminder queue sends one-click e-mails to everyone whose report deadline is near or past – anyone who has submitted in the meantime or was reminded recently is not preselected."
+        },
+        {
+          "type": "new",
+          "cs": "Měsíční výkazy jsou chráněné: každý výkaz vidí jen řidič, jeho vedoucí a správci – i přímo v SharePointu. Schválený výkaz se zapíše do knihy jízd jen se služebními kilometry a tankování do přehledu nákladů; soukromé kilometry a částky k proplacení zůstávají ve výkazu. Řidiče, vedoucího a vozidlo bere aplikace z přidělení a schválení ověřuje podle historie verzí – výkaz upravený mimo aplikaci po schválení do knihy jízd nezapíše a správce ho uvidí k ruční kontrole.",
+          "en": "Monthly reports are protected: each report is visible only to the driver, their manager and administrators – also directly in SharePoint. An approved report goes into the journey log with business kilometres only and refuelling into the cost overview; private kilometres and amounts to reimburse stay in the report. The app takes the driver, manager and vehicle from the assignment and verifies approval from the version history – a report changed outside the app after approval is not written to the journey log and the administrator sees it for manual review."
+        },
+        {
+          "type": "new",
+          "cs": "Nová obrazovka Začínáme provede zavedením aplikace krok za krokem: správce od instalace a rolí přes lokality, vozidla a přidělená auta až po oznámení zaměstnancům; dispečer, vedoucí týmu i řidič mají vlastní cestu. Stav každého kroku pozná aplikace sama z dat, ukázková data se nepočítají. U kroku je Otevřít (rovnou na místo) a Ukaž mi to (krátká prohlídka, která nic neuloží). Průvodce aplikací má nové kapitoly k přiděleným autům a výkazům a nápověda nová témata pro vedoucí týmu, výkazy, Teams, QR samolepky, Datové seznamy a ukázková data – každý vidí otázky ke své roli.",
+          "en": "A new Getting started screen guides you through rolling out the app step by step: the administrator from installation and roles through locations, vehicles and assigned cars to announcing the app to employees; the dispatcher, team manager and driver each have their own path. The app works out the state of each step from the data itself, and sample data does not count. Each step has Open (straight to the right place) and Show me (a short tour that saves nothing). The app tour has new chapters on assigned cars and reports, and the help has new topics for team managers, reports, Teams, QR stickers, Data lists and sample data – everyone sees the questions for their role."
+        },
+        {
+          "type": "improved",
+          "cs": "Uživatel bez role si může zarezervovat auto: jeho rezervace vždy čeká na schválení a své rezervace vidí a může zrušit v Moje rezervace.",
+          "en": "A user without a role can book a car: their reservation always waits for approval, and they can see and cancel their reservations in My reservations."
+        },
+        {
+          "type": "improved",
+          "cs": "Stránka „Roadmapa“ se změnila na „Co je nového“: přehledný výpis toho, co v jednotlivých vydaných verzích přibylo, co se vylepšilo a co opravilo. Aplikace si díky tomu nic nenačítá z veřejného internetu.",
+          "en": "The Roadmap page is now What’s new: a clear list of what each released version added, improved and fixed. As a result, the app no longer loads anything from the public internet."
+        },
+        {
+          "type": "improved",
+          "cs": "Formulář nové rezervace je širší a rozdělený do čtyř číslovaných částí: vlevo vozidlo (u dispečera i to, pro koho rezervuje), vpravo termín, cesta a spolucestující. Zvolené vozidlo zůstává na očích a hlavička ukazuje souhrn – vozidlo, termín a pro koho. Panely s detailem rezervace, schválení, předání a incidentu jsou širší a sahají až ke spodnímu okraji okna a hlavičky obrazovek jsou jednotné včetně drobečkové navigace i během načítání.",
+          "en": "The new reservation form is wider and split into four numbered parts: the vehicle on the left (for dispatchers also who the booking is for), and the date, route and passengers on the right. The chosen vehicle stays in view and the header shows a summary – vehicle, date and for whom. Detail panels for reservations, approvals, handovers and incidents are wider and reach the bottom of the window, and screen headers are consistent, including breadcrumbs while loading."
+        },
+        {
+          "type": "improved",
+          "cs": "Odkazy z EP365 Workplace – dlaždice ve spouštěči aplikací, karty upozornění i záznamy o vytvoření, schválení a zamítnutí rezervace – vedou na stránku, kde Vozový park skutečně běží, a otevřou konkrétní vozidlo, incident nebo rezervace ke schválení. Upozornění (propadlá a blížící se STK, otevřené incidenty, rezervace ke schválení) dostanou jen dispečeři a správci, kteří je v aplikaci smějí otevřít.",
+          "en": "Links from EP365 Workplace – app launcher tiles, alert cards and entries about created, approved and rejected reservations – lead to the page where Fleet actually runs and open the specific vehicle, incident or reservations awaiting approval. Alerts (expired and upcoming inspections, open incidents, reservations awaiting approval) go only to dispatchers and administrators, who are allowed to open them in the app."
+        },
+        {
+          "type": "fixed",
+          "cs": "Microsoft Teams: rezervace, jejich schválení, předání vozidla, hlášení nehod i kontroly se v Teams zapisují za vás – dřív mohl takový záznam připadnout jinému uživateli webu. Když se váš účet na webu Vozového parku nepodaří ověřit, aplikace to řekne a nabídne nový pokus. Odkazy vzniklé v Teams (e-maily, úkoly, sdílení, QR samolepky) vedou na stránku Vozového parku v SharePointu, ne na hostitelskou stránku Teams.",
+          "en": "Microsoft Teams: reservations, approvals, vehicle handovers, incident reports and inspections are recorded under your name in Teams – previously such a record could be attributed to another user of the site. If your account on the Fleet site cannot be verified, the app says so and offers a retry. Links created in Teams (e-mails, tasks, sharing, QR stickers) lead to the Fleet page in SharePoint, not to the Teams host page."
+        },
+        {
+          "type": "improved",
+          "cs": "Přísnější oprávnění: stránky webu jsou pro dispečery a řidiče jen ke čtení (úpravy si ponechávají správci aplikace, vlastníci a členové webu) a platební údaje vozidel – tankovací kartu a leasing – vidí jen správci a dispečeři, i přímo v SharePointu. Změna role se projeví hned po obnovení stránky a nově přidaný člen skupiny dostane roli do dvou minut. V Nastavení → Verze & informace → Datové seznamy uvidíte u každého seznamu a knihovny, jak je chráněný, kolik má položek a skutečně změřená oprávnění.",
+          "en": "Tighter permissions: site pages are read-only for dispatchers and drivers (app administrators, site owners and members keep editing rights), and vehicle payment details – the fuel card and leasing – are visible only to administrators and dispatchers, also directly in SharePoint. A role change takes effect as soon as the page is refreshed, and a newly added group member gets their role within two minutes. Settings → Version & info → Data lists shows for every list and library how it is protected, how many items it has and the actually measured permissions."
+        },
+        {
+          "type": "improved",
+          "cs": "Jazyk: uživatelé se slovenským Microsoft 365 vidí aplikaci česky, aplikace si pamatuje jazyk Workplace a otevírá se rovnou v něm (i při krátkém výpadku jeho nastavení) a anglická verze je úplná – paleta příkazů, drobečková navigace, hlášky i tisk QR kódů. Opravené skloňování počtů a české uvozovky v nápovědě a průvodci.",
+          "en": "Language: users with Slovak Microsoft 365 see the app in Czech, the app remembers the Workplace language and opens in it straight away (even during a short outage of its settings), and the English version is complete – command palette, breadcrumbs, messages and QR code printing. Corrected plural forms and Czech quotation marks in the help and tour."
+        },
+        {
+          "type": "improved",
+          "cs": "Při prvním spuštění a po aktualizaci datových struktur aplikace místo prázdné plochy ukazuje, co právě dělá, a požádá, ať stránku nezavíráte. Při pozastavené licenci ukáže jen oznámení s tlačítkem pro nové ověření a po skončení pozastavení se sama znovu načte.",
+          "en": "On first start and after a data structure update, the app shows what it is doing instead of a blank screen and asks you not to close the page. With a suspended licence it shows only a notice with a button to re-check the licence, and reloads itself once the suspension ends."
+        },
+        {
+          "type": "improved",
+          "cs": "Číslo pojistky má řidič po ruce přímo u nehody: při hlášení incidentu se po výběru vozidla ukáže pojišťovna, číslo pojistky, číslo havarijního pojištění a jejich platnost. Na mobilu jsou tytéž údaje v Přihrádce vozidla. Čísla pojistek se nově evidují u vozidla.",
+          "en": "The driver has the policy number at hand right at the accident: when reporting an incident, selecting the vehicle shows the insurer, the policy number, the comprehensive insurance number and their validity. On mobile the same details are in the vehicle glovebox. Policy numbers are now recorded with the vehicle."
+        },
+        {
+          "type": "fixed",
+          "cs": "Spolehlivější práce s daty: když se nepodaří načíst související údaje, aplikace nenabídne krok, který by mohl data zdvojit, a řekne proč. Souběžné úpravy rezervací, incidentů, lokalit a vozidel jsou chráněné – aplikace řekne, že záznam mezitím změnil někdo jiný, místo tichého přepsání. Seznamy mají indexy, takže rezervace, předání i kniha jízd fungují i po překročení 5 000 záznamů. Rezervaci nejde zrušit po převzetí auta, navazující termín (8–12 a 12–16) je volný všude stejně, vymazané údaje vozidla a incidentu se opravdu smažou a chyby při ukládání jsou vidět.",
+          "en": "More reliable data handling: when related details cannot be loaded, the app does not offer a step that could duplicate data, and explains why. Concurrent edits of reservations, incidents, locations and vehicles are protected – the app tells you the record was changed by someone else instead of silently overwriting it. Lists are indexed, so reservations, handovers and the journey log keep working beyond 5,000 records. A reservation can no longer be cancelled after the car is picked up, back-to-back slots (8–12 and 12–16) are treated as free everywhere, cleared vehicle and incident fields are really cleared, and save errors are shown."
+        },
+        {
+          "type": "fixed",
+          "cs": "Telefon: po převzetí jde zahájit jízdu a auto vrátit, ranní tankování se uloží, hlášení závady nepředvybírá cizí auto a rozpracovaný formulář se při odchodu neztratí bez potvrzení. Tlačítka a vybrané volby mají barvu tlačítek z firemního motivu.",
+          "en": "Phone: after pick-up you can start the journey and return the car, a morning refuel is saved, defect reporting no longer preselects someone else’s car, and an unfinished form is not lost without confirmation when leaving. Buttons and selected options use the button colour of the company theme."
+        },
+        {
+          "type": "fixed",
+          "cs": "Termíny v kartě vozidla (STK, pojištění, leasing, servis, přezutí) a platnost dálničních známek se při úpravě ukazují ve správný den. Dokumenty a fotky s # nebo % v názvu jdou nahrát k vozidlu, předání i nehodě a otevřít. Mapa rezervací si pamatuje polohu i u adres s # nebo & a u velmi dlouhých adres.",
+          "en": "Dates in the vehicle card (inspection, insurance, leasing, service, tyre change) and motorway vignette validity are shown on the correct day when editing. Documents and photos with # or % in the name can be uploaded to a vehicle, handover or incident and opened. The reservation map remembers the location of addresses containing # or & and of very long addresses."
+        }
+      ]
+    },
+    {
       "version": "1.10",
       "date": "2026-09-16",
       "changes": [
