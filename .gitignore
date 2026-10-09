@@ -215,10 +215,9 @@
 !academy/content/*/wrap/*/*.json
 
 # Průvodce aplikacemi pro partnery (cdn.easyportal365.cz/partner/pruvodce/) – kontejner u partnera
-# načítá guide.js (pokrývá !*.js), animované ukázky aplikací a písma. Zdroj a builder žijí
+# načítá guide.js a ukázky anim/*.js (obojí pokrývá !*.js) a písma. Zdroj a builder žijí
 # v ep365-docs/partner-guide (private). Bezpečné a ZÁMĚRNĚ veřejné: obsah veřejného webu
 # + scénáře a „Jak prodávat“, ukázky na fiktivních datech. ⚠ Žádné partnerské podmínky,
 # marže ani jména zákazníků.
 !partner/pruvodce/build.json
-!partner/pruvodce/anim/*.html
 !partner/pruvodce/fonts/*.woff2
