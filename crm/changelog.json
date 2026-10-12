@@ -4,6 +4,87 @@
   "name": "EP365 CRM",
   "entries": [
     {
+      "version": "1.20",
+      "date": "2026-10-12",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "CRM v Microsoft Teams – jako osobní aplikace i záložka v kanálu týmu, na počítači i v mobilu, se stejnými daty a oprávněními jako na SharePointu.",
+          "en": "CRM in Microsoft Teams — as a personal app and as a tab in a team channel, on desktop and mobile, with the same data and permissions as in SharePoint."
+        },
+        {
+          "type": "new",
+          "cs": "Začínáme – kroky pro správce (fakturační údaje, tým, číselníky, propojení s Outlookem a Mailchimpem, testovací data, oznámení týmu) a pro obchodníka (první firma, kontakt, nabídka, úkol, aktivita, faktura). Stav každého kroku CRM pozná samo z dat a každý krok vede přímo na místo.",
+          "en": "Getting started — steps for administrators (billing details, team, code lists, connecting Outlook and Mailchimp, sample data, announcing it to the team) and for salespeople (first company, contact, deal, task, activity, invoice). The CRM works out each step’s state from the data, and every step takes you straight to the right place."
+        },
+        {
+          "type": "new",
+          "cs": "Nové Úkoly – agenda dne se schůzkami z Outlooku, soukromé úkoly chráněné oprávněním SharePointu, kategorie s vlastní záložkou, ID úkolu, hromadné akce a zobrazení Týden a Nástěnka s přetahováním.",
+          "en": "New Tasks — a day agenda with your Outlook meetings, private tasks protected by SharePoint permissions, categories with their own tab, task IDs, bulk actions, and Week and Board views with drag and drop."
+        },
+        {
+          "type": "new",
+          "cs": "Přehledné formuláře u nabídky, úkolu, kontaktu, firmy, smlouvy, předplatného, produktu, aktivity, kampaně, šablony e-mailu, akce a webináře – vlevo souhrn, vpravo vždy jen jeden krok, s tipy z dat CRM, rychlými volbami a dotazem při zavření s neuloženými změnami. Novou firmu doplní ARES podle IČO, z úkolu jde rovnou založit nabídku.",
+          "en": "Clear guided forms for deals, tasks, contacts, companies, contracts, subscriptions, products, activities, campaigns, email templates, events and webinars — a summary on the left and one step at a time on the right, with tips from your CRM data, quick picks and a prompt when closing with unsaved changes. A new company is filled in from ARES by its company ID, and you can create a deal straight from a task."
+        },
+        {
+          "type": "new",
+          "cs": "Vystavení faktury průvodcem – DUZP a splatnost, celá nabídka, platební milník nebo vlastní částka, kontrola, kolik už je vyfakturováno, a číslo dokladu předem. Na obrazovce Faktury přibylo tlačítko Nová faktura s výběrem nabídky.",
+          "en": "Issuing an invoice with a wizard — tax point date and due date, the whole deal, a payment milestone or a custom amount, a check of what has already been invoiced, and the invoice number shown in advance. The Invoices screen has a new New invoice button that starts by choosing a deal."
+        },
+        {
+          "type": "improved",
+          "cs": "Telefon – detaily pod sebou, spodní lišta s hledáním a Nastavením, jen počty, které chtějí pozornost, Fokus dne nahoře.",
+          "en": "Phone — details stacked vertically, a bottom bar with search and Settings, only the counts that need attention, and Focus of the day at the top."
+        },
+        {
+          "type": "improved",
+          "cs": "Seznamy dat v Nastavení ukazují skutečný stav a oprávnění; stránky webu jsou pro obchodníky jen ke čtení.",
+          "en": "Data lists in Settings show their real state and permissions; site pages are read-only for salespeople."
+        },
+        {
+          "type": "improved",
+          "cs": "Role a licence – změna role platí hned po obnovení stránky, nový člen skupiny dostane roli do dvou minut, pozastavená licence ukáže jen oznámení.",
+          "en": "Roles and licence — a role change applies as soon as you refresh the page, a new group member gets their role within two minutes, and a suspended licence shows only a notice."
+        },
+        {
+          "type": "improved",
+          "cs": "EP365 Workplace – karta úkolů po termínu jen pro ty, kdo smějí do Úkolů; odkazy z Workplace vedou přímo na stránku CRM.",
+          "en": "EP365 Workplace — the overdue tasks card appears only to people allowed into Tasks, and links from Workplace lead straight to the CRM page."
+        },
+        {
+          "type": "improved",
+          "cs": "Nápověda a průvodce odpovídají nové podobě CRM, hledání v nápovědě funguje i bez diakritiky; seznam nabídek se řadí sestupně podle data uzavření.",
+          "en": "Help and the app tour match the new CRM, help search works without diacritics, and the deal list is sorted by close date, newest first."
+        },
+        {
+          "type": "fixed",
+          "cs": "Předplatné s roční cenou produktu už nedává dvanáctkrát vyšší MRR.",
+          "en": "A subscription for a product with an annual price no longer shows twelve times the MRR."
+        },
+        {
+          "type": "fixed",
+          "cs": "Kampaň neodešle e-mail kontaktu, který se těsně předtím odhlásil v Mailchimpu; když rozeslání selže, nevznikne druhá kampaň.",
+          "en": "A campaign no longer emails a contact who unsubscribed in Mailchimp just before sending, and a failed send no longer creates a second campaign."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nová nabídka i nový kontakt mají vlastníka a změna vlastníka úkolu i kontaktu se uloží správně.",
+          "en": "New deals and new contacts have an owner, and changing the owner of a task or contact is saved correctly."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zpětně zapsaná aktivita nepřepíše novější „Poslední kontakt“.",
+          "en": "An activity logged retroactively no longer overwrites a more recent “Last contact”."
+        },
+        {
+          "type": "fixed",
+          "cs": "Drobnosti: skloňování počtů, popisky na Přehledu, hromadné akce už neposouvají řádky, „Vygenerovat dokument“ jen pro role s úpravou.",
+          "en": "Small fixes: correct plural forms, Overview labels, bulk actions no longer shift rows, and “Generate document” only for roles that can edit."
+        }
+      ]
+    },
+    {
       "version": "1.19",
       "date": "2026-09-28",
       "changes": [
