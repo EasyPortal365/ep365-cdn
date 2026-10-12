@@ -240,6 +240,26 @@ let PIN_INFO = '';
   });
   if (vadne.length) fatal('soupis pinu ma ' + vadne.length + ' vadnych zaznamu (indexy ' + vadne.slice(0, 5).join(',') + ') — necteme ho po castech.');
   let pocet = 0; PINNED.forEach(s => { pocet += s.size; });
+
+  // Piny v CIZICH tenantech (2026-10-12): sweep vidi jen nas tenant, takze tichou verzi
+  // pinutou u zakaznika by prorez po keepVersions dalsich buildech smazal a loader by
+  // u nej tise spadl na posledni ostre vydani. Soupis vede ruka (privatni repo, BEZ jmen
+  // zakazniku) – kazdy rucni pin u zakaznika se do nej zapise.
+  const EXT = path.resolve(path.dirname(PIN_STATE), 'pin-external.json');
+  let extPocet = 0;
+  if (fs.existsSync(EXT)) {
+    let ext = null;
+    try { ext = JSON.parse(fs.readFileSync(EXT, 'utf8')); } catch (e) { fatal('soupis pinu u zakazniku neni platny JSON: ' + EXT); }
+    if (!ext || !Array.isArray(ext.pins)) fatal('soupis pinu u zakazniku nema pole pins: ' + EXT);
+    const vadneExt = [];
+    ext.pins.forEach((p, i) => {
+      if (!p || typeof p.app !== 'string' || typeof p.version !== 'string' || !VER_RE.test(p.version)) { vadneExt.push(i); return; }
+      if (!PINNED.has(p.app)) PINNED.set(p.app, new Set());
+      PINNED.get(p.app).add(p.version);
+      extPocet++;
+    });
+    if (vadneExt.length) fatal('soupis pinu u zakazniku ma vadne zaznamy (indexy ' + vadneExt.slice(0, 5).join(',') + '): ' + EXT);
+  }
   if (!pocet) fatal('sweep nenasel ANI JEDEN pin. U nas je kazda bezici appka pinuta, takze to je '
     + 'skoro jiste vada sweepu (spatny kontrakt listu, jina identita) — ne stav "neni co chranit".');
 
@@ -251,7 +271,8 @@ let PIN_INFO = '';
   }));
 
   PIN_INFO = 'Pin guard OK: soupis z ' + st.sweptAt + ' (stari ' + ageD.toFixed(1) + ' dnu), '
-    + (st.websSeen != null ? st.websSeen : '?') + ' webu, ' + pocet + ' pinu ve ' + PINNED.size + ' appkach.';
+    + (st.websSeen != null ? st.websSeen : '?') + ' webu, ' + pocet + ' pinu ve ' + PINNED.size + ' appkach'
+    + (extPocet ? ' + ' + extPocet + ' pinu u zakazniku (pin-external.json).' : '; pin-external.json ' + (fs.existsSync(EXT) ? 'prazdny.' : 'NENALEZEN – piny u zakazniku nechranene.'));
 }
 // #endregion PIN-GUARD
 
