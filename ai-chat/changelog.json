@@ -4,6 +4,102 @@
   "name": "EP365 AI Asistent",
   "entries": [
     {
+      "version": "1.58",
+      "date": "2026-10-21",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "Přesné výpočty nad tabulkami: k přiloženému Excelu nebo CSV a k registrovaným seznamům SharePointu se zeptáte na součty, průměry, počty, pořadí nebo přehledy po měsících a kategoriích. Čísla spočítá aplikace přesně nad celou tabulkou a AI je jen komentuje. Pod odpovědí je karta Výpočet s tabulkou, u vhodných výsledků s grafem, s vysvětlením „Jak jsem počítala“ a s tlačítky Stáhnout .xlsx a Zkopírovat. Co se spočítat nedá, karta řekne a číslo nevymyslí.",
+          "en": "Exact calculations over tables: ask about sums, averages, counts, rankings or overviews by month and category for an attached Excel or CSV file or a registered SharePoint list. The app computes the numbers exactly over the whole table and the AI only comments on them. Below the answer is a Calculation card with the table, a chart where it fits, a “How I calculated it” line and Download .xlsx and Copy buttons. What cannot be calculated, the card says so — it never makes up a number."
+        },
+        {
+          "type": "new",
+          "cs": "Přemýšlet důkladně: přepínač vedle Zdrojů pod polem zprávy, se kterým AI nad složitými otázkami, rozbory a porovnáními přemýšlí déle a pečlivěji. Odpověď přijde o něco později, AI úkon je pořád jeden. Ukáže se jen u modelu, který přemýšlet umí; správce ho může vypnout v Nastavení → Parametry AI.",
+          "en": "Think thoroughly: a switch next to Sources below the message box that makes the AI think longer and more carefully about complex questions, analyses and comparisons. The answer arrives a little later and it is still one AI action. It appears only with a model that can reason; the administrator can turn it off in Settings → AI parameters."
+        },
+        {
+          "type": "new",
+          "cs": "Obrázky: napíšete „Nakresli…“, „Vygeneruj obrázek…“ nebo jen krátce popíšete motiv a asistent vytvoří obrázek obrázkovým modelem vaší AI služby. Obrázek se uloží do konverzace (vidíte ho jen vy), kliknutím ho zvětšíte a stáhnete. Pod obrázkem ho upravíte – napíšete, co změnit, zvolíte jinou variantu, formát na šířku či na výšku nebo styl (akvarel, fotografie, kreslený, 3D, olejomalba), nebo štětcem označíte oblast, která se má změnit. Jeden obrázek nebo úprava je jeden AI úkon.",
+          "en": "Images: write “Draw…”, “Generate an image…” or just briefly describe the subject and the assistant creates an image with the image model of your AI service. The image is stored in the conversation (only you can see it); click to enlarge and download. Below the image you can edit it — describe what to change, pick another variant, landscape or portrait format or a style (watercolor, photo, cartoon, 3D, oil painting), or mark the area to change with a brush. One image or edit is one AI action."
+        },
+        {
+          "type": "new",
+          "cs": "Akce se SharePointem: v Prompt Studiu ve scénáři SharePoint asistent podle vašeho popisu založí nové zobrazení seznamu nebo knihovny, barevně zvýrazní sloupec (s náhledem na vašich datech a možností vrátit původní vzhled), přidá sloupec – typ vyberete ze standardních typů SharePointu (text, číslo, měna, datum a čas, volba, více voleb, osoba, odkaz a další) –, založí novou knihovnu nebo seznam, navrhne a doplní sloupce podle obsahu dokumentů, ukáže přehled knihovny a vysvětlí, co v ní smíte a koho požádat o přístup. Vždy se nejdřív ukáže karta s návrhem a v SharePointu se nic nezmění, dokud ho nepotvrdíte.",
+          "en": "SharePoint actions: in Prompt Studio, SharePoint scenario, the assistant follows your description to create a new list or library view, color-highlight a column (with a preview on your data and an option to restore the original look), add a column — you pick the type from the standard SharePoint types (text, number, currency, date and time, choice, multiple choices, person, link and more) —, create a new library or list, suggest and fill columns from document content, show a library overview and explain what you can do there and whom to ask for access. A card with the proposal always comes first and nothing changes in SharePoint until you confirm it."
+        },
+        {
+          "type": "new",
+          "cs": "Porovnání verzí dokumentu: vyberete dokument ze SharePointu a dvě jeho verze (Prompt Studio → SharePoint → Porovnat verze dokumentu). Karta Porovnání verzí ukáže, kdo a kdy verze uložil, jejich velikost a komentář a přesný rozdíl textu – přidané zeleně, odebrané přeškrtnuté červeně. Rozdíl spočítá aplikace, asistent k němu napíše shrnutí, co se věcně změnilo a na co si dát pozor.",
+          "en": "Document version comparison: pick a SharePoint document and two of its versions (Prompt Studio → SharePoint → Compare document versions). The Version comparison card shows who saved the versions and when, their size and comment, and the exact text difference — added text in green, removed text struck through in red. The app computes the difference and the assistant adds a summary of what actually changed and what to watch out for."
+        },
+        {
+          "type": "new",
+          "cs": "Plovoucí AI Asistent na stránkách SharePointu nabízí všechno, co v daném místě umí: čtyři zkratky nad polem pro psaní a ostatní pod „Další akce…“, s krátkým popisem a jen ty, na které máte oprávnění. U vybraného dokumentu porovná aktuální verzi s předchozí (i když napíšete „porovnej verze“), v knihovně a seznamu nabídne i akce se SharePointem – nové zobrazení, obarvení sloupce, přidání sloupce a „Proč to (ne)vidím“.",
+          "en": "The floating AI Assistant on SharePoint pages offers everything it can do in that place: four shortcuts above the message box and the rest under “More actions…”, each with a short description and only those you have permission for. For a selected document it compares the current version with the previous one (also when you type “compare versions”), and in libraries and lists it offers SharePoint actions too — a new view, column highlighting, adding a column and “Why can I (not) see it”."
+        },
+        {
+          "type": "new",
+          "cs": "AI Asistent v ostatních aplikacích EasyPortal 365: otevře se přímo na stránce i z jiné aplikace, rovnou s otázkou – třeba z pásu „Zeptejte se“ v HR portálu, kde odpovídá z firemních dokumentů. Aplikace, která sama odpověď nezná, může otázku AI Asistentovi předat. Konverzace se ukládá stejně jako v aplikaci a dá se v ní pokračovat.",
+          "en": "AI Assistant in other EasyPortal 365 apps: it opens right on the page from another app, with the question ready — for example from the “Ask” bar in the HR portal, where it answers from company documents. An app that does not know the answer itself can hand the question over to the AI Assistant. The conversation is saved just like in the app and you can continue it."
+        },
+        {
+          "type": "new",
+          "cs": "Zeptáte-li se na své e-maily, schůzky, úkoly z To Do nebo Teams zprávy v konverzaci, kde ten zdroj není zapnutý, asistent si nic nevymyslí a pod odpovědí nabídne „Zapnout a odpovědět“ – jedním klikem zdroj zapnete a dostanete odpověď z vašich dat.",
+          "en": "If you ask about your e-mails, meetings, To Do tasks or Teams messages in a conversation where that source is not turned on, the assistant does not make anything up and offers “Turn on and answer” below the reply — one click turns the source on and you get the answer from your data."
+        },
+        {
+          "type": "new",
+          "cs": "Odpověď, kterou AI ukončila na limitu délky, má pod sebou poznámku, že může být neúplná, a radu, jak si vyžádat zbytek; správce z ní přejde rovnou k nastavení limitu.",
+          "en": "An answer the AI stopped at the length limit gets a note that it may be incomplete and a tip on how to ask for the rest; administrators can go straight to the limit setting from it."
+        },
+        {
+          "type": "new",
+          "cs": "Připnuté podklady projektu najdete v konverzaci projektu nad polem pro psaní a přiložíte je jedním klikem („Přiložit“ nebo „Přiložit vše“) – jen ty, které asistent smí použít podle hranice zdrojů a označení „mimo AI“.",
+          "en": "Pinned project materials appear above the message box in the project conversation and you attach them with one click (“Attach” or “Attach all”) — only those the assistant may use under the source boundary and the “excluded from AI” label."
+        },
+        {
+          "type": "new",
+          "cs": "Pro správce: výběr AI modelu ze seznamu, který nabízí AI služba (hlavní model, model pro interní kroky a model pro obrázky, u každého je vidět, zda umí přemýšlet), nová volba „SharePoint zapnutý v nových konverzacích“ a sekce Datové seznamy, která ukáže, kde AI Asistent drží svá data, kolik v nich je položek a zda oprávnění odpovídají záměru. Nápověda pro správce popisuje, jak nasadit novější model v Azure.",
+          "en": "For administrators: choosing the AI model from the list offered by the AI service (main model, model for internal steps and model for images, each showing whether it can reason), a new option “SharePoint on in new conversations” and a Data lists section showing where the AI Assistant keeps its data, how many items there are and whether permissions match the intent. The admin help explains how to deploy a newer model in Azure."
+        },
+        {
+          "type": "improved",
+          "cs": "Nový vzhled pole pro psaní – bílá pilulka s jiskřičkou a kulatým tlačítkem odeslání, stejná v aplikaci, v plovoucím okně i v HR portálu. Přepínač celé obrazovky a řada ikon (odkaz, nápověda, hlášení chyby, návrh funkce) jsou v hlavičce každé obrazovky včetně úvodní; z celé obrazovky se vrátíte i klávesou Esc.",
+          "en": "A new look for the message box — a white pill with a sparkle and a round send button, the same in the app, the floating window and the HR portal. The full-screen toggle and the row of icons (link, help, report a bug, suggest a feature) are in the header of every screen including the start screen; Esc also leaves full screen."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozepsaná práce se neztratí: nastavení, projekt, šablona promptu, úloha v Prompt Studiu i rozepsané hlášení chyby se před odchodem zeptají, zda pokračovat, nebo změny zahodit. Když se při ukládání přeruší spojení, aplikace místo technické hlášky srozumitelně řekne, co se stalo a co zkontrolovat.",
+          "en": "Work in progress is not lost: settings, a project, a prompt template, a Prompt Studio task and an unfinished bug report ask before you leave whether to continue or discard the changes. When the connection drops while saving, the app says clearly what happened and what to check instead of a technical message."
+        },
+        {
+          "type": "improved",
+          "cs": "Dohled správce: Konverzace uživatelů jsou přehledná tabulka s řazením podle sloupců a stránkováním. Záznam využití AI celý vidí jen správci (uživatel vidí svůj), změna role se projeví hned po obnovení stránky a nově přidaný uživatel nebo správce má přístup do dvou minut.",
+          "en": "Administrator oversight: User conversations are a clear table with column sorting and paging. Only administrators see the whole AI usage log (users see their own), a role change takes effect right after a page refresh and a newly added user or administrator gets access within two minutes."
+        },
+        {
+          "type": "improved",
+          "cs": "Plovoucí AI Asistent se na stránkách SharePointu načítá vždy v aktuální verzi, přebírá globální motiv z Workplace a na novějším vzhledu SharePointu se připne k pravému okraji. Hromadné archivování a mazání konverzací má tlačítka v pruhu u spodního okraje seznamu.",
+          "en": "The floating AI Assistant always loads in the current version on SharePoint pages, takes over the global theme from Workplace and docks to the right edge in the newer SharePoint layout. Bulk archiving and deleting of conversations has its buttons in a bar at the bottom of the list."
+        },
+        {
+          "type": "improved",
+          "cs": "Jazyk: anglická verze je celá anglicky (stránkování, hlášky zdrojů, chyby pošty a kalendáře), česká aplikace se otevře česky hned od začátku, počty se správně skloňují a asistent vás oslovuje v 5. pádě („Dobrý den, Kamile.“). Při pozastavené licenci se ukáže jen srozumitelné oznámení s tlačítkem pro nové ověření.",
+          "en": "Language: the English version is fully English (paging, source messages, mail and calendar errors), the Czech app opens in Czech from the very start, counts are inflected correctly and the assistant addresses you in the Czech vocative. With a suspended licence only a clear notice with a button to re-check the licence appears."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odpovědi ze SharePointu znovu nacházejí stránky a dokumenty, které vrací i běžné hledání v SharePointu – u novějších modelů se dřív do hledání posílala celá otázka a výsledek byl prázdný.",
+          "en": "Answers from SharePoint again find the pages and documents that regular SharePoint search returns — with newer models the whole question used to be sent to search and the result came back empty."
+        },
+        {
+          "type": "fixed",
+          "cs": "Založení úkolu do To Do a přehled úkolů znovu fungují (Microsoft 365 začal odmítat dřívější způsob čtení), připnutí dokumentu ze SharePointu do projektu funguje a dotaz se po krátkém výpadku AI služby zopakuje sám. Denní limit, který se nepodaří přečíst, se ukáže jako „?“ místo odhadu.",
+          "en": "Creating a To Do task and the task overview work again (Microsoft 365 started rejecting the earlier way of reading them), pinning a SharePoint document to a project works and a question is retried automatically after a short AI service outage. A daily limit that cannot be read is shown as “?” instead of an estimate."
+        }
+      ]
+    },
+    {
       "version": "1.57",
       "date": "2026-09-28",
       "changes": [
