@@ -612,8 +612,12 @@ try {
         if ($OpenAiAccountName -eq '') { $OpenAiAccountName = $FunctionAppName + '-openai' }
         Write-Step ('Azure OpenAI ucet "' + $OpenAiAccountName + '" (' + $OpenAiLocation + ')')
 
-        $accCount = az cognitiveservices account list -g $ResourceGroupName --query ("length([?name=='" + $OpenAiAccountName + "'])") -o tsv
+        # Jen seznam jmen a pocitani v PowerShellu: `az` je na Windows az.cmd a zavorky v JMESPath
+        # dotazu ("length([?name==...])") rozbiji jeho IF ( ... ) blok - cmd hlasi
+        # "-o was unexpected at this time." (naostro 2026-10-21, nove nasazeni s novym OpenAI uctem).
+        $accNames = @(az cognitiveservices account list -g $ResourceGroupName --query '[].name' -o tsv)
         Assert-LastExit 'Kontrola existence Azure OpenAI uctu selhala.'
+        $accCount = @($accNames | Where-Object { ([string]$_).Trim() -eq $OpenAiAccountName }).Count
 
         if ([int]$accCount -eq 0) {
             # Smazany Azure OpenAI ucet drzi svoje jmeno dal (soft-delete) - v seznamu aktivnich
@@ -663,8 +667,10 @@ try {
             Write-Host 'Ucet uz existuje - preskakuji vytvoreni.'
         }
 
-        $depCount = az cognitiveservices account deployment list -g $ResourceGroupName -n $OpenAiAccountName --query ("length([?name=='" + $AzureOpenAiDeployment + "'])") -o tsv
+        # Bez zavorek v dotazu - viz kontrola uctu vyse (az.cmd).
+        $depNames = @(az cognitiveservices account deployment list -g $ResourceGroupName -n $OpenAiAccountName --query '[].name' -o tsv)
         Assert-LastExit 'Kontrola existence model deploymentu selhala.'
+        $depCount = @($depNames | Where-Object { ([string]$_).Trim() -eq $AzureOpenAiDeployment }).Count
 
         if ([int]$depCount -eq 0) {
             # Verze modelu: kdyz nezadana explicitne, zjisti nejnovejsi GA verzi v regionu.
