@@ -1,0 +1,135 @@
+﻿Datum;Objednávka;Region;Obchodník;Produkt;Množství;Cena za kus (Kč);Částka (Kč)
+4. 1. 2026;OBJ-2026-001;Brno;Lucie Marková;Školení;2;12 500;25 000
+5. 1. 2026;OBJ-2026-002;Praha;Jana Horáková;Licence Základ;16;1 990;31 840
+8. 1. 2026;OBJ-2026-003;Praha;Jana Horáková;Licence Plus;22;3 490;76 780
+13. 1. 2026;OBJ-2026-004;Praha;Jana Horáková;Školení;2;12 500;25 000
+13. 1. 2026;OBJ-2026-005;Praha;Jana Horáková;Školení;2;12 500;25 000
+15. 1. 2026;OBJ-2026-006;Ostrava;Martin Kolář;Podpora na rok;2;18 900;37 800
+17. 1. 2026;OBJ-2026-007;Praha;Tomáš Veselý;Licence Základ;30;1 990;59 700
+17. 1. 2026;OBJ-2026-008;Praha;Tomáš Veselý;Podpora na rok;1;18 900;18 900
+20. 1. 2026;OBJ-2026-009;Praha;Tomáš Veselý;Školení;1;12 500;12 500
+21. 1. 2026;OBJ-2026-010;Brno;Lucie Marková;Licence Základ;33;1 990;65 670
+21. 1. 2026;OBJ-2026-011;Plzeň;Eva Benešová;Licence Základ;5;1 990;9 950
+22. 1. 2026;OBJ-2026-012;Ostrava;Martin Kolář;Licence Základ;17;1 990;33 830
+22. 1. 2026;OBJ-2026-013;Plzeň;Eva Benešová;Podpora na rok;2;18 900;37 800
+25. 1. 2026;OBJ-2026-014;Plzeň;Eva Benešová;Licence Plus;5;3 490;17 450
+26. 1. 2026;OBJ-2026-015;Ostrava;Martin Kolář;Licence Základ;38;1 990;75 620
+27. 1. 2026;OBJ-2026-016;Brno;Lucie Marková;Školení;2;12 500;25 000
+27. 1. 2026;OBJ-2026-017;Brno;Lucie Marková;Licence Plus;19;3 490;66 310
+27. 1. 2026;OBJ-2026-018;Ostrava;Martin Kolář;Licence Plus;7;3 490;24 430
+1. 2. 2026;OBJ-2026-019;Brno;Lucie Marková;Licence Základ;28;1 990;55 720
+3. 2. 2026;OBJ-2026-020;Brno;Lucie Marková;Licence Plus;11;3 490;38 390
+4. 2. 2026;OBJ-2026-021;Brno;Lucie Marková;Licence Plus;6;3 490;20 940
+5. 2. 2026;OBJ-2026-022;Ostrava;Martin Kolář;Licence Plus;11;3 490;38 390
+8. 2. 2026;OBJ-2026-023;Ostrava;Martin Kolář;Licence Základ;16;1 990;31 840
+10. 2. 2026;OBJ-2026-024;Ostrava;Martin Kolář;Školení;3;12 500;37 500
+11. 2. 2026;OBJ-2026-025;Brno;Lucie Marková;Licence Základ;26;1 990;51 740
+11. 2. 2026;OBJ-2026-026;Plzeň;Eva Benešová;Licence Základ;25;1 990;49 750
+11. 2. 2026;OBJ-2026-027;Praha;Tomáš Veselý;Podpora na rok;2;18 900;37 800
+13. 2. 2026;OBJ-2026-028;Praha;Jana Horáková;Školení;1;12 500;12 500
+14. 2. 2026;OBJ-2026-029;Brno;Lucie Marková;Podpora na rok;2;18 900;37 800
+15. 2. 2026;OBJ-2026-030;Plzeň;Eva Benešová;Licence Základ;15;1 990;29 850
+15. 2. 2026;OBJ-2026-031;Praha;Jana Horáková;Licence Plus;8;3 490;27 920
+16. 2. 2026;OBJ-2026-032;Praha;Jana Horáková;Školení;3;12 500;37 500
+19. 2. 2026;OBJ-2026-033;Ostrava;Martin Kolář;Podpora na rok;2;18 900;37 800
+19. 2. 2026;OBJ-2026-034;Praha;Tomáš Veselý;Licence Plus;23;3 490;80 270
+21. 2. 2026;OBJ-2026-035;Plzeň;Eva Benešová;Podpora na rok;2;18 900;37 800
+22. 2. 2026;OBJ-2026-036;Praha;Jana Horáková;Školení;2;12 500;25 000
+25. 2. 2026;OBJ-2026-037;Praha;Tomáš Veselý;Školení;1;12 500;12 500
+2. 3. 2026;OBJ-2026-038;Praha;Tomáš Veselý;Licence Základ;40;1 990;79 600
+5. 3. 2026;OBJ-2026-039;Praha;Jana Horáková;Podpora na rok;2;18 900;37 800
+6. 3. 2026;OBJ-2026-040;Praha;Jana Horáková;Školení;2;12 500;25 000
+6. 3. 2026;OBJ-2026-041;Praha;Jana Horáková;Licence Plus;3;3 490;10 470
+9. 3. 2026;OBJ-2026-042;Ostrava;Martin Kolář;Licence Základ;19;1 990;37 810
+9. 3. 2026;OBJ-2026-043;Plzeň;Eva Benešová;Podpora na rok;2;18 900;37 800
+10. 3. 2026;OBJ-2026-044;Brno;Lucie Marková;Licence Základ;10;1 990;19 900
+12. 3. 2026;OBJ-2026-045;Plzeň;Eva Benešová;Licence Základ;27;1 990;53 730
+13. 3. 2026;OBJ-2026-046;Brno;Lucie Marková;Školení;1;12 500;12 500
+13. 3. 2026;OBJ-2026-047;Praha;Tomáš Veselý;Licence Základ;31;1 990;61 690
+14. 3. 2026;OBJ-2026-048;Praha;Jana Horáková;Podpora na rok;2;18 900;37 800
+15. 3. 2026;OBJ-2026-049;Brno;Lucie Marková;Licence Plus;22;3 490;76 780
+15. 3. 2026;OBJ-2026-050;Ostrava;Martin Kolář;Licence Základ;34;1 990;67 660
+17. 3. 2026;OBJ-2026-051;Ostrava;Martin Kolář;Podpora na rok;2;18 900;37 800
+22. 3. 2026;OBJ-2026-052;Brno;Lucie Marková;Licence Plus;19;3 490;66 310
+22. 3. 2026;OBJ-2026-053;Praha;Tomáš Veselý;Licence Plus;17;3 490;59 330
+23. 3. 2026;OBJ-2026-054;Brno;Lucie Marková;Licence Základ;30;1 990;59 700
+24. 3. 2026;OBJ-2026-055;Plzeň;Eva Benešová;Podpora na rok;2;18 900;37 800
+26. 3. 2026;OBJ-2026-056;Ostrava;Martin Kolář;Licence Základ;9;1 990;17 910
+27. 3. 2026;OBJ-2026-057;Brno;Lucie Marková;Školení;2;12 500;25 000
+27. 3. 2026;OBJ-2026-058;Praha;Tomáš Veselý;Licence Plus;13;3 490;45 370
+3. 4. 2026;OBJ-2026-059;Ostrava;Martin Kolář;Školení;1;12 500;12 500
+5. 4. 2026;OBJ-2026-060;Brno;Lucie Marková;Licence Plus;22;3 490;76 780
+6. 4. 2026;OBJ-2026-061;Ostrava;Martin Kolář;Školení;1;12 500;12 500
+6. 4. 2026;OBJ-2026-062;Plzeň;Eva Benešová;Licence Základ;27;1 990;53 730
+10. 4. 2026;OBJ-2026-063;Praha;Jana Horáková;Licence Základ;30;1 990;59 700
+11. 4. 2026;OBJ-2026-064;Praha;Jana Horáková;Licence Základ;19;1 990;37 810
+13. 4. 2026;OBJ-2026-065;Ostrava;Martin Kolář;Licence Plus;11;3 490;38 390
+13. 4. 2026;OBJ-2026-066;Plzeň;Eva Benešová;Licence Plus;15;3 490;52 350
+15. 4. 2026;OBJ-2026-067;Brno;Lucie Marková;Školení;2;12 500;25 000
+17. 4. 2026;OBJ-2026-068;Brno;Lucie Marková;Školení;3;12 500;37 500
+20. 4. 2026;OBJ-2026-069;Brno;Lucie Marková;Licence Plus;20;3 490;69 800
+23. 4. 2026;OBJ-2026-070;Plzeň;Eva Benešová;Licence Základ;24;1 990;47 760
+23. 4. 2026;OBJ-2026-071;Praha;Tomáš Veselý;Licence Základ;36;1 990;71 640
+23. 4. 2026;OBJ-2026-072;Praha;Jana Horáková;Licence Plus;14;3 490;48 860
+23. 4. 2026;OBJ-2026-073;Praha;Jana Horáková;Školení;2;12 500;25 000
+24. 4. 2026;OBJ-2026-074;Ostrava;Martin Kolář;Licence Plus;4;3 490;13 960
+25. 4. 2026;OBJ-2026-075;Brno;Lucie Marková;Podpora na rok;2;18 900;37 800
+25. 4. 2026;OBJ-2026-076;Praha;Tomáš Veselý;Podpora na rok;2;18 900;37 800
+25. 4. 2026;OBJ-2026-077;Praha;Jana Horáková;Školení;2;12 500;25 000
+26. 4. 2026;OBJ-2026-078;Brno;Lucie Marková;Licence Plus;21;3 490;73 290
+28. 4. 2026;OBJ-2026-079;Brno;Lucie Marková;Licence Základ;8;1 990;15 920
+28. 4. 2026;OBJ-2026-080;Plzeň;Eva Benešová;Podpora na rok;1;18 900;18 900
+28. 4. 2026;OBJ-2026-081;Praha;Tomáš Veselý;Licence Plus;5;3 490;17 450
+1. 5. 2026;OBJ-2026-082;Brno;Lucie Marková;Školení;1;12 500;12 500
+1. 5. 2026;OBJ-2026-083;Brno;Lucie Marková;Školení;2;12 500;25 000
+2. 5. 2026;OBJ-2026-084;Brno;Lucie Marková;Licence Plus;12;3 490;41 880
+4. 5. 2026;OBJ-2026-085;Brno;Lucie Marková;Licence Plus;19;3 490;66 310
+4. 5. 2026;OBJ-2026-086;Brno;Lucie Marková;Školení;1;12 500;12 500
+6. 5. 2026;OBJ-2026-087;Ostrava;Martin Kolář;Podpora na rok;1;18 900;18 900
+6. 5. 2026;OBJ-2026-088;Plzeň;Eva Benešová;Licence Plus;22;3 490;76 780
+6. 5. 2026;OBJ-2026-089;Praha;Tomáš Veselý;Licence Plus;20;3 490;69 800
+6. 5. 2026;OBJ-2026-090;Praha;Tomáš Veselý;Licence Plus;8;3 490;27 920
+7. 5. 2026;OBJ-2026-091;Ostrava;Martin Kolář;Licence Plus;16;3 490;55 840
+8. 5. 2026;OBJ-2026-092;Brno;Lucie Marková;Licence Základ;27;1 990;53 730
+8. 5. 2026;OBJ-2026-093;Brno;Lucie Marková;Licence Plus;17;3 490;59 330
+9. 5. 2026;OBJ-2026-094;Praha;Tomáš Veselý;Licence Základ;29;1 990;57 710
+10. 5. 2026;OBJ-2026-095;Praha;Jana Horáková;Licence Plus;25;3 490;87 250
+13. 5. 2026;OBJ-2026-096;Praha;Jana Horáková;Podpora na rok;1;18 900;18 900
+17. 5. 2026;OBJ-2026-097;Ostrava;Martin Kolář;Podpora na rok;1;18 900;18 900
+19. 5. 2026;OBJ-2026-098;Brno;Lucie Marková;Licence Plus;9;3 490;31 410
+19. 5. 2026;OBJ-2026-099;Ostrava;Martin Kolář;Podpora na rok;1;18 900;18 900
+20. 5. 2026;OBJ-2026-100;Praha;Jana Horáková;Školení;3;12 500;37 500
+23. 5. 2026;OBJ-2026-101;Brno;Lucie Marková;Licence Plus;7;3 490;24 430
+23. 5. 2026;OBJ-2026-102;Plzeň;Eva Benešová;Školení;1;12 500;12 500
+23. 5. 2026;OBJ-2026-103;Plzeň;Eva Benešová;Licence Základ;20;1 990;39 800
+24. 5. 2026;OBJ-2026-104;Praha;Tomáš Veselý;Licence Základ;39;1 990;77 610
+26. 5. 2026;OBJ-2026-105;Praha;Jana Horáková;Podpora na rok;1;18 900;18 900
+27. 5. 2026;OBJ-2026-106;Plzeň;Eva Benešová;Podpora na rok;2;18 900;37 800
+3. 6. 2026;OBJ-2026-107;Brno;Lucie Marková;Školení;1;12 500;12 500
+3. 6. 2026;OBJ-2026-108;Praha;Tomáš Veselý;Licence Plus;8;3 490;27 920
+4. 6. 2026;OBJ-2026-109;Praha;Jana Horáková;Licence Základ;32;1 990;63 680
+5. 6. 2026;OBJ-2026-110;Ostrava;Martin Kolář;Licence Základ;32;1 990;63 680
+7. 6. 2026;OBJ-2026-111;Brno;Lucie Marková;Podpora na rok;2;18 900;37 800
+7. 6. 2026;OBJ-2026-112;Plzeň;Eva Benešová;Podpora na rok;1;18 900;18 900
+9. 6. 2026;OBJ-2026-113;Praha;Tomáš Veselý;Podpora na rok;2;18 900;37 800
+10. 6. 2026;OBJ-2026-114;Plzeň;Eva Benešová;Licence Plus;21;3 490;73 290
+10. 6. 2026;OBJ-2026-115;Plzeň;Eva Benešová;Licence Základ;26;1 990;51 740
+12. 6. 2026;OBJ-2026-116;Praha;Tomáš Veselý;Školení;2;12 500;25 000
+12. 6. 2026;OBJ-2026-117;Praha;Jana Horáková;Licence Plus;23;3 490;80 270
+14. 6. 2026;OBJ-2026-118;Brno;Lucie Marková;Podpora na rok;1;18 900;18 900
+14. 6. 2026;OBJ-2026-119;Brno;Lucie Marková;Podpora na rok;2;18 900;37 800
+14. 6. 2026;OBJ-2026-120;Plzeň;Eva Benešová;Školení;1;12 500;12 500
+15. 6. 2026;OBJ-2026-121;Brno;Lucie Marková;Licence Plus;10;3 490;34 900
+15. 6. 2026;OBJ-2026-122;Brno;Lucie Marková;Licence Plus;14;3 490;48 860
+17. 6. 2026;OBJ-2026-123;Ostrava;Martin Kolář;Licence Základ;23;1 990;45 770
+20. 6. 2026;OBJ-2026-124;Brno;Lucie Marková;Podpora na rok;1;18 900;18 900
+21. 6. 2026;OBJ-2026-125;Ostrava;Martin Kolář;Licence Základ;25;1 990;49 750
+22. 6. 2026;OBJ-2026-126;Brno;Lucie Marková;Školení;3;12 500;37 500
+22. 6. 2026;OBJ-2026-127;Ostrava;Martin Kolář;Školení;3;12 500;37 500
+23. 6. 2026;OBJ-2026-128;Brno;Lucie Marková;Licence Základ;18;1 990;35 820
+24. 6. 2026;OBJ-2026-129;Brno;Lucie Marková;Školení;2;12 500;25 000
+24. 6. 2026;OBJ-2026-130;Praha;Tomáš Veselý;Podpora na rok;1;18 900;18 900
+27. 6. 2026;OBJ-2026-131;Praha;Tomáš Veselý;Podpora na rok;1;18 900;18 900
+28. 6. 2026;OBJ-2026-132;Brno;Lucie Marková;Licence Plus;3;3 490;10 470
+28. 6. 2026;OBJ-2026-133;Praha;Tomáš Veselý;Licence Plus;16;3 490;55 840
+28. 6. 2026;OBJ-2026-134;Praha;Jana Horáková;Licence Plus;10;3 490;34 900

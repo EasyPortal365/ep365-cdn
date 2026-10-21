@@ -151,9 +151,10 @@
 # (cdn.easyportal365.cz/ai-chat/samples/). Appka je z prohlížeče správce stáhne
 # a nahraje do knihovny na jeho webu — binárku do SharePointu jinak nedostaneme
 # než přes veřejnou HTTPS URL (lekce §25.5). Bezpečné: vlastní vymyšlený firemní
-# obsah (benefity, směrnice, zápis z porady), žádná zákaznická ani osobní data.
+# obsah (benefity, směrnice, zápis z porady, tabulka prodejů), žádná zákaznická ani osobní data.
 !ai-chat/samples/*.pdf
 !ai-chat/samples/*.docx
+!ai-chat/samples/*.csv
 !ai-chat/samples/manifest.json
 
 # Firemní písma (cdn.easyportal365.cz/fonts/) — hostujeme je sami, aby prohlížeče

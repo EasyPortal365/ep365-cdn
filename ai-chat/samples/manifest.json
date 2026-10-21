@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "note": "Ukázkové dokumenty pro tlačítko „Ukázková data\" v EP365 AI Asistentu. Appka je stáhne z CDN a nahraje do knihovny na webu správce. Obsah je vymyšlený – žádná zákaznická ani osobní data.",
+  "version": 3,
+  "note": "Ukázkové dokumenty pro tlačítko „Ukázková data“ v EP365 AI Asistentu. Appka je stáhne z CDN a nahraje do knihovny na webu správce. Obsah je vymyšlený – žádná zákaznická ani osobní data.",
   "libraryTitle": "AI ukázky",
   "libraryDescription": "Ukázkové dokumenty pro vyzkoušení AI Asistenta. Můžete je kdykoli smazat.",
   "files": [
@@ -22,6 +22,13 @@
       "title": "Zápis z porady vedení (18. 8. 2026)",
       "kind": "docx",
       "demonstrates": "Vytěžení úkolů z textu – kdo má co udělat a do kdy."
+    },
+    {
+      "name": "Prodeje-2026.csv",
+      "title": "Prodeje 2026 (tabulka)",
+      "kind": "csv",
+      "bytes": 10369,
+      "demonstrates": "Přesné výpočty nad tabulkou – součty podle regionu, měsíce nebo obchodníka spočítá aplikace nad všemi řádky, AI je jen komentuje."
     }
   ]
 }
