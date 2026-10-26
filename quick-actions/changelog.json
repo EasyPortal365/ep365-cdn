@@ -4,6 +4,57 @@
   "name": "EP365 Quick Actions",
   "entries": [
     {
+      "version": "1.3",
+      "date": "2026-10-26",
+      "changes": [
+        {
+          "type": "fixed",
+          "cs": "Okna akcí (třeba odeslání dokumentu e-mailem nebo přehled oprávnění) už nepřekrývají horní lištu SharePointu. Když operace trvá neobvykle dlouho, okno nabídne tlačítko Zavřít, takže v něm nikdy nezůstanete zaseknutí.",
+          "en": "Action windows (such as sending a document by email or the permissions overview) no longer cover the SharePoint top bar. When an operation takes unusually long, the window offers a Close button, so you never get stuck in it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když dokument odesíláte do Řízených dokumentů a stejný soubor už ve frontě publikace je, odkaz ho otevře tak, jak ho otevře klik ve frontě: vlastní koncept k dokončení, schvalovateli dokument ke schválení, ostatním náhled. Dosud se vždy otevřel editor konceptu – i u dokumentu, který čeká na schválení, nebo u cizího konceptu.",
+          "en": "When you send a document to Controlled documents and the same file is already in the publication queue, the link now opens it the way a click in the queue does: your own draft ready to finish, a document awaiting approval for the approver, a preview for everyone else. Until now it always opened the draft editor — even for a document awaiting approval or someone else’s draft."
+        },
+        {
+          "type": "improved",
+          "cs": "Když se při odesílání dokumentu do Řízených dokumentů nebo při nahrávání nové verze přeruší spojení se SharePointem, okno to řekne srozumitelně: nedá se poznat, jestli se změna uložila, a je dobré stránku obnovit a stav zkontrolovat. Dosud ukázalo technickou hlášku „Failed to fetch“ nebo jen „nezdařilo se“.",
+          "en": "When the connection to SharePoint drops while sending a document to Controlled documents or uploading a new version, the window now says so in plain words: it cannot tell whether the change was saved, and you should reload the page and check. Previously it showed the technical message “Failed to fetch” or just “failed”."
+        },
+        {
+          "type": "new",
+          "cs": "Nová stránka „EP365 Quick Actions – správa“: správce ji vloží jako webpart na libovolnou stránku a nastaví Quick Actions pro celý tenant – na kterých webech se nabídka ukáže (všude, jen na vybraných, nebo všude kromě vybraných), zda v knihovnách a v seznamech a komu (všem, nebo jen vybraným lidem a skupinám). Stránku přináší aktualizovaný balíček aplikace: správce tenantu ho jednou nahraje do katalogu aplikací SharePointu a pro zacílení na skupiny schválí oprávnění GroupMember.Read.All.",
+          "en": "New page “EP365 Quick Actions — administration”: an administrator adds it as a web part to any page and sets up Quick Actions for the whole tenant — on which sites the menu appears (everywhere, only on selected sites, or everywhere except selected ones), whether in libraries and lists, and for whom (everyone, or only selected people and groups). The page comes with an updated app package: a tenant administrator uploads it once to the SharePoint app catalog and, for group targeting, approves the GroupMember.Read.All permission."
+        },
+        {
+          "type": "new",
+          "cs": "Jednotlivé akce jde v celém tenantu vypnout – třeba odeslání e-mailem nebo kontrolu citlivých údajů, pokud je ve firmě nechcete nabízet.",
+          "en": "Individual actions can be switched off across the tenant — for example sending by email or the sensitive data check, if you do not want to offer them in your organisation."
+        },
+        {
+          "type": "new",
+          "cs": "Jazyk nabídky a jejích oken určuje správce: automaticky (podle jazyka Workplace, jinak podle jazyka uživatele v Microsoft 365), vždy česky, nebo vždy anglicky.",
+          "en": "The administrator decides the language of the menu and its windows: automatic (following the Workplace language, otherwise the user’s Microsoft 365 language), always Czech, or always English."
+        },
+        {
+          "type": "new",
+          "cs": "Na stránce správy je i licence (Quick Actions jsou zdarma), přehled běžící verze a Správa verzí pro celý tenant – novou verzi aktivujete nebo se vrátíte ke starší bez nahrávání balíčku.",
+          "en": "The administration page also shows the licence (Quick Actions are free), the running version and Version management for the whole tenant — activate a new version or go back to an earlier one without uploading a package."
+        },
+        {
+          "type": "fixed",
+          "cs": "V anglické verzi okna Řízených dokumentů se data zobrazují anglicky (Oct 3, 2026), ne v českém tvaru. U položek seznamu už pod odkazem není prázdný řádek.",
+          "en": "In the English version of the Controlled documents window, dates are shown in English format (Oct 3, 2026) instead of the Czech one. List items no longer show an empty line below the link."
+        },
+        {
+          "type": "fixed",
+          "cs": "Položka „EP365 Quick Actions“ se po výběru dokumentu nebo položky seznamu spolehlivě ukáže i v aktuální verzi SharePointu.",
+          "en": "The “EP365 Quick Actions” menu item reliably appears after you select a document or list item, including in the current version of SharePoint."
+        }
+      ]
+    },
+    {
       "version": "1.2",
       "date": "2026-10-09",
       "changes": [
