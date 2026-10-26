@@ -49,8 +49,8 @@
         },
         {
           "type": "fixed",
-          "cs": "Položka „EP365 Quick Actions“ se po výběru dokumentu nebo položky seznamu spolehlivě ukáže i v aktuální verzi SharePointu.",
-          "en": "The “EP365 Quick Actions” menu item reliably appears after you select a document or list item, including in the current version of SharePoint."
+          "cs": "Položka „EP365 Quick Actions“ se po výběru dokumentu nebo položky seznamu opět spolehlivě ukáže – po předchozí aktualizaci se v nabídce nemusela objevit vůbec.",
+          "en": "The “EP365 Quick Actions” menu item reliably appears again after you select a document or list item — after the previous update it might not have shown up at all."
         }
       ]
     },
