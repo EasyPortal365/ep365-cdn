@@ -1,0 +1,1 @@
+Jazyková data: tessdata (4.0.0_best_int) z balíčků @tesseract.js-data/{ces,eng,deu} 1.0.0 (MIT), původ https://github.com/tesseract-ocr/tessdata (Apache-2.0).

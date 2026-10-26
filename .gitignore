@@ -222,3 +222,11 @@
 # marže ani jména zákazníků.
 !partner/pruvodce/build.json
 !partner/pruvodce/fonts/*.woff2
+
+# Knihovny třetích stran, které si appka načítá za běhu ze SVÉ složky (<app>/vendor/<knihovna>-<verze>/;
+# tenantní CSP povoluje skripty jen z adresářů appek, lekce §86). Skripty pokrývá !*.js, tady jsou
+# jazyková data OCR (tesseract, *.traineddata.gz) a licenční texty knihoven. Bezpečné: veřejné
+# balíčky z npm beze změny, žádný náš zdroják ani data.
+!*/vendor/**/*.traineddata.gz
+!*/vendor/**/LICENSE*
+!*/vendor/**/SOURCE.txt
