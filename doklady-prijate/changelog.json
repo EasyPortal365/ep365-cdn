@@ -1,0 +1,18 @@
+{
+  "schema": 2,
+  "app": "ep365-doklady-prijate",
+  "name": "EP365 Doklady přijaté",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-10-27",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "První vydání EP365 Doklady přijaté – přijaté faktury a účtenky od příjmu po export do účetnictví, přímo ve vašem Microsoft 365. Doklady přicházejí ze sdílených schránek, z knihoven, kam ukládá skener, ručním nahráním (i fotkou z telefonu) a jako účtenky od zaměstnanců. Aplikace je přečte v prohlížeči bez umělé inteligence – z elektronické faktury ISDOC, z QR Platby, z textu PDF a u skenů a fotek přes OCR – a umí rozdělit PDF s víc doklady. Účtárna kontroluje přečtené hodnoty vedle originálu (zeleně ověřené, jantarově k ověření), aplikace se učí z jejích oprav, hlídá nový bankovní účet nebo jiné DIČ dodavatele a ověření v registru plátců DPH otevře jedním klikem. Evidence dodavatelů se plní sama z dokladů. Schvalování podle středisek: věcnou správnost potvrdí schvalovatel střediska, nad limitem ještě příkazce operace; zástupy, předání čekajících dokladů jinému schvalovateli, e-maily a připomínky. Schválené doklady odejdou do účetnictví po dávkách – ZIP s originály, souborem pro import (ISDOC, POHODA, Money S3 nebo ABRA Flexi) a přehledem v Excelu. Obrazovka Náklady ukáže, kolik firma utratila za měsíc, čtvrtletí nebo rok, podle středisek a dodavatelů, a výhled splatností na 90 dní. Role správce, účtárna, schvalovatel a zaměstnanec, vlastní pole dokladu, víc firem v jedné aplikaci a průvodce aplikací.",
+          "en": "First release of EP365 Received documents — received invoices and receipts from intake to export to accounting, right in your Microsoft 365. Documents come from shared mailboxes, from libraries your scanner saves to, by manual upload (including a photo from the phone) and as receipts from employees. The app reads them in the browser without AI — from an ISDOC e-invoice, a QR payment code, PDF text and, for scans and photos, OCR — and can split a PDF holding several documents. Accounting checks the values next to the original (green verified, amber to verify), the app learns from their corrections, flags a new bank account or a different VAT ID of a supplier and opens the VAT payer register check in one click. The supplier register fills itself from documents. Approval by cost centre: the cost centre approver confirms factual correctness, above the limit the authorizer as well; deputies, handing pending documents over to another approver, e-mails and reminders. Approved documents go to accounting in batches — a ZIP with the originals, an import file (ISDOC, POHODA, Money S3 or ABRA Flexi) and an Excel overview. The Costs screen shows how much the company spent in a month, quarter or year, by cost centre and supplier, and a 90-day due-date outlook. Administrator, accounting, approver and employee roles, custom document fields, several companies in one app and an app tour."
+        }
+      ]
+    }
+  ]
+}
