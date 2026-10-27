@@ -88,6 +88,7 @@
     "description": "Akademie – e-learning Microsoft 365 a EasyPortal 365: krátké situace z praxe s animovanými ukázkami a kvízem, přehled aplikací a průběh každého zaměstnance."
   },
   "ep365-doklady-prijate": {
-    "description": "Doklady přijaté – faktury a účtenky od dodavatelů přečtené v prohlížeči, kontrola účtárnou, schvalování a export do účetnictví (ISDOC, Excel)."
+    "description": "Doklady přijaté – faktury a účtenky od dodavatelů přečtené v prohlížeči, kontrola účtárnou, schvalování a export do účetnictví (POHODA, Money S3, ABRA Flexi nebo ISDOC, přehled v Excelu).",
+    "webUrl": "https://easyportal365.cz/aplikace/doklady-prijate/"
   }
 }
