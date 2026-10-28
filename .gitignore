@@ -230,3 +230,10 @@
 !*/vendor/**/*.traineddata.gz
 !*/vendor/**/LICENSE*
 !*/vendor/**/SOURCE.txt
+
+# Hlas pruvodce aplikaci (cdn.easyportal365.cz/tour-voice/<app>/<jazyk>/, DS 10.51 rezim Prehrat):
+# MP3 pod otiskem mluveneho textu + manifest.json s delkami. Generuje `npm run tour:voice` v app repu
+# (Azure Speech, klic mimo repa). Bezpecne a ZAMERNE verejne: mluvene texty pruvodce, ktere jsou
+# tak jako tak v bundlu appky; zadna data zakazniku.
+!tour-voice/*/*/*.mp3
+!tour-voice/*/*/manifest.json
