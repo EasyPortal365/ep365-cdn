@@ -12,6 +12,9 @@
  * Pravidlo (bezpečné by construction):
  *   • VŽDY zůstane každá verze uvedená v `<app>/releases.json` = ostré vydání,
  *     které si tahá zákazník bez pinu. Smazat ji = rozbít zákazníka.
+ *     S `--keep-releases N` (politika `keepReleases`) jen N číselně nejnovějších
+ *     ostrých na disku: k nim se správce vrací kartou Správa verzí; starší ostrá
+ *     zůstane jen s pinem (náš tenant nebo pin-external.json).
  *   • VŽDY zůstane každá verze, na kterou míří PIN v našem tenantu (viz níž).
  *   • VŽDY zůstane N nejnovějších verzí (default 15).
  *   • Cokoli jiného je stará tichá verze, ke které se nikdo nedostane.
@@ -51,6 +54,7 @@
  *   node tools/prune-versions.mjs --keep 15       # jiný počet ponechaných
  *   node tools/prune-versions.mjs --not-apps governance   # složky, které nejsou appky
  *   node tools/prune-versions.mjs --app ai-chat   # jen jedna appka
+ *   node tools/prune-versions.mjs --keep-releases 3   # z ostrých jen 3 nejnovější (+ pinuté)
  *   node tools/prune-versions.mjs --apply         # provede `git rm -r`
  *   node tools/prune-versions.mjs --pin-state <cesta>      # jiný soupis pinů
  *   node tools/prune-versions.mjs --max-age-days 7         # jiné stáří sweepu
@@ -100,6 +104,15 @@ const KEEP_APP = (() => {
   return m;
 })();
 const keepFor = app => (KEEP_APP.has(app) ? KEEP_APP.get(app) : KEEP);
+// --keep-releases N : z ostrych vydani (releases.json) chranit jen N ciselne nejnovejsich,
+// ktere na CDN lezi (politika keepReleases; rozhodnuti Kamiho 2026-10-29 – navrat ke
+// starym verzim se omezuje). Bez prepinace = vsechna ostra vydani jako driv. Pinute
+// verze (nas tenant i pin-external.json) chrani pin guard dal vzdy, i mimo okno.
+const KEEP_RELEASES = (() => {
+  const i = args.indexOf('--keep-releases');
+  const n = i !== -1 ? parseInt(args[i + 1], 10) : NaN;
+  return isNaN(n) ? Infinity : Math.max(1, n);
+})();
 
 const VER_RE = /^\d+(\.\d+)*$/;
 
@@ -282,6 +295,15 @@ let freed = 0;
 let skipped = [];
 const keptByApp = new Map();     // app -> verze, ktere po prorezu zustanou (vstup pro uloziste)
 const delByApp = new Map();      // app -> verze, ktere tenhle prorez maze
+const relDropByApp = new Map();  // app -> ostre verze mimo --keep-releases, ktere jdou pryc i z releases.json
+
+// releases.json ve tvaru, jaky pise publikace (psReleasesJson v @ep365/provisioning
+// publish-kit.js = vystup ConvertTo-Json): diff po prorezu ukaze jen odebrane radky.
+function releasesJsonText(list) {
+  const obj = (o, indent) => '{\n' + Object.keys(o).map(k => ' '.repeat(indent + 4) + JSON.stringify(k) + ':  ' + JSON.stringify(o[k])).join(',\n') + '\n' + ' '.repeat(indent) + '}';
+  if (list.length === 1) return '[' + obj(list[0], 0) + ']';
+  return '[\n' + list.map(o => '    ' + obj(o, 4)).join(',\n') + '\n]';
+}
 
 for (const app of apps) {
   const appDir = path.join(ROOT, app);
@@ -301,6 +323,11 @@ for (const app of apps) {
 
   const keepNewest = new Set(versions.slice(0, keepFor(app)));
   const pinned = PINNED.get(app) || new Set();
+  // Okno ostrych vydani: pocita se jen z verzi, ktere na disku jsou (`versions` je serazene
+  // od nejnovejsi), takze nejnovejsi ostra = to, co bere zakaznik bez pinu, zustane vzdy.
+  const vsechnyOstre = versions.filter(v => released.has(v));
+  const ostreMimoOkno = vsechnyOstre.slice(KEEP_RELEASES);
+  ostreMimoOkno.forEach(v => released.delete(v));
   // Pin mimo okno --keep = jediny duvod, proc tenhle radek existuje (#250).
   const pinnedMimoOkno = versions.filter(v => pinned.has(v) && !keepNewest.has(v) && !released.has(v));
   const del = versions.filter(v => !keepNewest.has(v) && !released.has(v) && !pinned.has(v));
@@ -312,6 +339,11 @@ for (const app of apps) {
 
   const pozn = [];
   if (released.size) pozn.push(`${released.size} ostrych`); else pozn.push('zadne ostre vydani');
+  const ostreZachranenePinem = ostreMimoOkno.filter(v => pinned.has(v));
+  const ostrePryc = ostreMimoOkno.filter(v => del.indexOf(v) !== -1);
+  if (ostrePryc.length) relDropByApp.set(app, ostrePryc);
+  if (ostreMimoOkno.length) pozn.push(`${ostreMimoOkno.length - ostreZachranenePinem.length} starych ostrych pryc`);
+  if (ostreZachranenePinem.length) pozn.push(`OSTRA ZACHRANENA PINEM: ${ostreZachranenePinem.join(' ')}`);
   if (pinned.size) pozn.push(`${pinned.size} pinu`);
   if (pinnedMimoOkno.length) pozn.push(`ZACHRANENO PINEM: ${pinnedMimoOkno.join(' ')}`);
 
@@ -438,6 +470,12 @@ if (trackedSet) {
   console.log(`\nUvolni ${freed.toFixed(1)} MB ve ${toDelete.length} verznich slozkach (--keep ${KEEP}). ⚠ Nepodarilo se zjistit, co z toho git trackuje - uloziste se proto neprorezava.`);
 }
 if (skipped.length) console.log(`⚠ Preskoceno (necitelny releases.json): ${skipped.join(', ')}`);
+// Ostra verze bez slozky v releases.json zustat nesmi: karta Sprava verzi by ji dal nabizela
+// k navratu (mrtvy pin) a loader by ji bral do zalozni rady. Radek jde pryc se slozkou.
+if (relDropByApp.size) {
+  console.log(`\nZ releases.json pryc (--keep-releases ${KEEP_RELEASES}):`);
+  relDropByApp.forEach((vs, app) => console.log(`  ${app}: ${vs.join(', ')}`));
+}
 
 if (!APPLY) {
   console.log('\nPLAN (nic nesmazano). Spust s --apply.');
@@ -464,6 +502,27 @@ if (untracked) console.log(`Preskakuji ${untracked} netrackovanych slozek (nejso
 // POŘADÍ: nejdřív verzní složky, AŽ POTOM úložiště. Kdyby `git rm` spadl v půlce,
 // zbydou nanejvýš neodkazované soubory v úložišti (smete je příští prořez) — nikdy
 // verze, jejíž manifest míří na soubor, který už je pryč.
+// releases.json se prepisuje pred mazanim slozek: commit nese oboji naraz, takze na Pages
+// nikdy nevisi radek bez slozky ani naopak.
+const novaVydani = new Map();
+relDropByApp.forEach((vs, app) => {
+  const text = fs.readFileSync(path.join(ROOT, app, 'releases.json'), 'utf8');
+  const raw = JSON.parse(text.replace(/^﻿/, ''));
+  const list = Array.isArray(raw) ? raw.filter(r => !(r && typeof r === 'object' && vs.indexOf(String(r.version)) !== -1)) : null;
+  if (!list || !list.length || !list.every(r => r && typeof r === 'object')) {
+    console.error(`\nPROREZ ZASTAVEN (nic nesmazano): ${app}/releases.json neni pole zaznamu {version, date}, nebo by zustal prazdny.`);
+    process.exit(1);
+  }
+  // Rucne psany soubor (quick-actions) konci novym radkem - ten se zachova.
+  novaVydani.set(app, releasesJsonText(list) + (/\n\s*$/.test(text) ? '\n' : ''));
+});
+relDropByApp.forEach((vs, app) => {
+  const list = JSON.parse(novaVydani.get(app));
+  fs.writeFileSync(path.join(ROOT, app, 'releases.json'), novaVydani.get(app), 'utf8');
+  execFileSync('git', ['-C', ROOT, 'add', '--', app + '/releases.json'], { stdio: 'inherit' });
+  console.log(`  ${app}/releases.json: odebrano ${vs.length}, zustava ${list.length}`);
+});
+
 // `git rm -r` po davkach — prilis dlouha prikazova radka spadne na Windows limitu.
 const BATCH = 40;
 for (let i = 0; i < tracked.length; i += BATCH) {

@@ -102,7 +102,7 @@ const pred = trackedMB();
 if (pred === null) konec('nepodarilo se zmerit velikost trackovaneho obsahu (git ls-tree) - bez cisla se prorez neplanuje');
 console.log('Politika: ' + POLICY);
 console.log('  bundly --keep ' + KEEP_BUNDLES + ' --protect ' + (PROTECT.join(',') || '(nic)') + ' | verze --keep ' + KEEP_VERSIONS
-  + ' | prahy ' + WARN_MB + '/' + LIMIT_MB + ' MB | vzory rozsireni ' + (PATTERNS.join(' ') || '(zadne)'));
+  + ' | ostre --keep-releases ' + (pol.keepReleases !== undefined ? pol.keepReleases : 'vsechny') + ' | prahy ' + WARN_MB + '/' + LIMIT_MB + ' MB | vzory rozsireni ' + (PATTERNS.join(' ') || '(zadne)'));
 console.log('CDN pred prorezem: ' + pred.toFixed(1) + ' MB trackovaneho obsahu (Pages limit ~1 GB)');
 console.log('Rezim: ' + (APPLY ? 'APPLY (maze)' : 'PLAN (nic se nemaze)') + '\n');
 
@@ -138,8 +138,11 @@ const notAppsArg = notApps.length ? ['--not-apps', notApps.join(',')] : [];
 const perApp = (pol.keepVersionsPerApp && typeof pol.keepVersionsPerApp === 'object') ? pol.keepVersionsPerApp : {};
 const perAppPairs = Object.keys(perApp).filter(a => typeof perApp[a] === 'number' && perApp[a] > 0).map(a => a + '=' + perApp[a]);
 const perAppArg = perAppPairs.length ? ['--keep-app', perAppPairs.join(',')] : [];
+// `keepReleases` je nepovinne: bez nej se chrani vsechna ostra vydani z releases.json (stav do 2026-10-29).
+if (pol.keepReleases !== undefined && !(typeof pol.keepReleases === 'number' && pol.keepReleases >= 1)) konec('politika ma neplatne "keepReleases" (cislo >= 1, nebo pole vynechat)');
+const keepRelArg = pol.keepReleases !== undefined ? ['--keep-releases', String(pol.keepReleases)] : [];
 krok('4/5 prorez verznich slozek runtime kanalu', 'prune-versions.mjs',
-  ['--keep', String(KEEP_VERSIONS)].concat(notAppsArg, perAppArg, APPLY ? ['--apply'] : []));
+  ['--keep', String(KEEP_VERSIONS)].concat(notAppsArg, perAppArg, keepRelArg, APPLY ? ['--apply'] : []));
 
 // ------------------------------------------------------------ 5. verdikt -----
 console.log('--- 5/5 velikost po prorezu ---');

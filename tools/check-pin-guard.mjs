@@ -186,6 +186,43 @@ console.log('3) Vadny soupis pinu = tvrda chyba, ne tiche preskoceni');
   uklid(root);
 }
 
+// ============================================== 4. OKNO OSTRYCH VYDANI ===
+// --keep-releases 2: z ostrych 1.0.0.1 / .2 / .3 / .4 / .5 zustanou dve nejnovejsi (.5, .4) a .3,
+// protoze na ni miri pin. Okno tichych verzi --keep 3 drzi .20-.18, takze .1 a .2 MUSI zmizet.
+console.log('4) --keep-releases: stare ostre pryc, nejnovejsi ostre a pinuta ostra zustanou');
+{
+  const root = postavCdn('okno-ostrych');
+  if (napisVarianty(root)) {
+    const ostre = ['1.0.0.1', '1.0.0.2', '1.0.0.3', '1.0.0.4', '1.0.0.5'].map(v => ({ version: v }));
+    fs.writeFileSync(path.join(root, 'demo', 'releases.json'), JSON.stringify(ostre, null, 2), 'utf8');
+    execFileSync('git', ['-C', root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qam', 'ostre'], { stdio: 'ignore' });
+    const ps = pinState(root);
+    const plan = spust(root, 'prune-versions.mjs', ['--keep', '3', '--keep-releases', '2', '--pin-state', ps]);
+    ok(plan.kod === 0 && zije(root, '1.0.0.1'), 'plan bez --apply nic nesmazal');
+    const r = spust(root, 'prune-versions.mjs', ['--keep', '3', '--keep-releases', '2', '--pin-state', ps, '--apply']);
+    ok(r.kod === 0, 'prorez dobehl (exit ' + r.kod + ')');
+    ok(zije(root, '1.0.0.5') && zije(root, '1.0.0.4'), 'dve nejnovejsi ostre (1.0.0.5, 1.0.0.4) zustaly');
+    ok(zije(root, PIN), 'ostra ' + PIN + ' mimo okno zustala, protoze na ni miri pin');
+    ok(!zije(root, '1.0.0.1') && !zije(root, '1.0.0.2'), 'stare ostre 1.0.0.1 a 1.0.0.2 smazany');
+    ok(zije(root, '1.0.0.20') && zije(root, '1.0.0.18') && !zije(root, '1.0.0.17'), 'okno tichych --keep 3 plati dal');
+    ok(r.out.indexOf('OSTRA ZACHRANENA PINEM: ' + PIN) !== -1, 'vypis rekl, ze ostrou verzi zachranil pin');
+    const rel = JSON.parse(fs.readFileSync(path.join(root, 'demo', 'releases.json'), 'utf8')).map(x => x.version);
+    ok(rel.join(',') === '1.0.0.3,1.0.0.4,1.0.0.5', 'releases.json nese jen verze, ktere na CDN zustaly (dostal ' + rel.join(',') + ')');
+    const staged = execFileSync('git', ['-C', root, 'diff', '--cached', '--name-only', '--', 'demo/releases.json'], { encoding: 'utf8' }).trim();
+    ok(staged === 'demo/releases.json', 'zmena releases.json je pripravena ke commitu spolu s mazanim slozek');
+    // Bez prepinace se chovani nemeni: kazda ostra je chranena.
+    const root2 = postavCdn('okno-ostrych-default');
+    if (napisVarianty(root2)) {
+      fs.writeFileSync(path.join(root2, 'demo', 'releases.json'), JSON.stringify(ostre, null, 2), 'utf8');
+      execFileSync('git', ['-C', root2, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-qam', 'ostre'], { stdio: 'ignore' });
+      const r2 = spust(root2, 'prune-versions.mjs', ['--keep', '3', '--pin-state', pinState(root2), '--apply']);
+      ok(r2.kod === 0 && ['1.0.0.1', '1.0.0.2', '1.0.0.3', '1.0.0.4', '1.0.0.5'].every(v => zije(root2, v)), 'bez --keep-releases zustala vsechna ostra vydani');
+    }
+    uklid(root2);
+  }
+  uklid(root);
+}
+
 console.log(chyby ? '\nVERDIKT: ' + chyby + ' CHYBA/CHYBY - NEPOUSTET prune-versions --apply'
                   : '\nVERDIKT: OK — pin guard chrani pinute verze a protipriklad to dokazuje');
 process.exit(chyby ? 1 : 0);
