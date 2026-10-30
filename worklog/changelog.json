@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.3",
-      "date": "2026-09-10",
+      "date": "2026-10-30",
       "changes": [
         {
           "type": "new",
@@ -71,6 +71,76 @@
           "type": "improved",
           "cs": "Drobnosti, které se počítají. Formuláře Nahlásit chybu a Navrhnout funkci mají formátovaný popis a přílohy, takže snímek obrazovky stačí přetáhnout; když se hlášení nepodaří odeslat přímo z aplikace, uvidíte technický detail toho, co Microsoft 365 odpověděl. Export do CSV má nové pořadí sloupců (Zákazník, Datum, Popis, Hodiny hned zleva) a fakturovatelnost je samostatný sloupec. Sjednotili jsme také název: centrální rozcestník se všude jmenuje EasyPortal 365 Workplace, a roadmapa ukazuje jen to, co posuzujeme, plánujeme a na čem pracujeme – hotové věci najdete u příslušné verze v části Co je nového.",
           "en": "Small things that add up. The Report a bug and Suggest a feature forms support formatted descriptions and attachments, so a screen capture can simply be dragged in; when a report cannot be sent straight from the app, you see the technical detail of what Microsoft 365 replied. CSV export has a new column order (Customer, Date, Description, Hours right at the left) and billability is a separate column. We have also unified the naming: the central hub is called EasyPortal 365 Workplace everywhere, and the roadmap shows only what is under review, planned and in progress – finished items appear with their version under What’s new."
+        },
+        {
+          "type": "new",
+          "cs": "Stránka projektu. Projekt se otevírá jako samostatná stránka s vlastním odkazem. Nahoře je jeden pruh postupu – hodiny z rozpočtu, splněná akceptační kritéria, hotové úkoly týmu a kolik úkolů čeká na klienta – a obsah je rozdělený do záložek Plán, Úkoly, Výkazy, Lidé a O projektu. V plánu má každý milník hodiny s pruhem čerpání, kritéria a úkoly; klik na řádek rozbalí kritéria k odškrtnutí, úkoly milníku a jeho výkazy. Milník se zakládá i upravuje přímo v tabulce, na telefonu jsou milníky jako karty. Pole „Zeptat se na tento projekt“ rozumí dotazu bez názvu („kolik zbývá“, „milníky po termínu“). Nový projekt se zakládá vedeným formulářem po krocích a po založení nabídne rovnou přidat milníky.",
+          "en": "Project page. A project now opens as a page of its own with its own link. At the top a single progress strip shows the hours used from the budget, acceptance criteria met, team tasks done and how many tasks are waiting on the client, and the content is split into the tabs Plan, Tasks, Timesheets, People and About. In the plan every milestone shows its hours with a usage bar, its criteria and its tasks; clicking a row expands the criteria to tick off, the milestone’s tasks and its timesheets. Milestones are created and edited right in the table, and on the phone they appear as cards. The “Ask about this project” field understands questions without a name (“how much is left”, “overdue milestones”). A new project is created with a step-by-step guided form, which then offers to add milestones straight away."
+        },
+        {
+          "type": "new",
+          "cs": "Úkoly klienta a akceptační kritéria. U úkolu zvolíte, kdo ho plní – náš tým, nebo klient (třeba dodání přístupů, podkladů nebo schválení), u klienta volitelně se jménem osoby. Přepínač „Na klientovi“ ukáže, co na zákazníkovi čeká, i s počtem otevřených. Úkol i milník mají akceptační kritéria jako zaškrtávací seznam: body zapíšete v úpravě, v detailu je odškrtáváte a u každého splněného bodu zůstane, kdo a kdy ho splnil. Karta úkolu ukáže postup („Kritéria 2/5“).",
+          "en": "Client tasks and acceptance criteria. On a task you choose who completes it — our team or the client (supplying access, documents or a sign-off, for example), optionally with the name of the person at the client. The “On the client” switch shows what is waiting on the client, with the number of open tasks. Tasks and milestones have acceptance criteria as a checklist: you write the items when editing, tick them off in the detail, and each ticked item keeps who ticked it and when. The task card shows progress (“Criteria 2/5”)."
+        },
+        {
+          "type": "new",
+          "cs": "Oblasti milníků a rozpis rozpočtu podle činnosti. Milníky jde seskupit podle oblasti – třeba u nacenění rozděleného do desítek požadavků; tabulka milníků pak ukáže každou oblast s mezisoučtem a formulář výkazu nabídne milníky po oblastech. Rozpočet milníku jde rozepsat podle typů práce (vývoj, testování, analýza…) a tabulka ukáže u každé činnosti vykázané hodiny proti jejímu rozpočtu – u milníku, oblasti i celého projektu. Výkaz pro zákazníka (Word) u takového projektu začíná souhrnem podle oblasti a milníku a CSV dostane sloupec Oblast.",
+          "en": "Milestone areas and budget breakdown by activity. Milestones can be grouped by area — for example for an estimate split into dozens of requirements; the milestone table then shows each area with a subtotal, and the timesheet form offers milestones by area. A milestone budget can be broken down by work type (development, testing, analysis…), and the table shows the hours logged for each activity against its budget — for the milestone, the area and the whole project. For such a project the customer timesheet (Word) starts with a summary by area and milestone, and the CSV gets an Area column."
+        },
+        {
+          "type": "new",
+          "cs": "Rozpočet milníku při zápisu hodin. Formulář výkazu na milník s rozpočtem ukáže rozpočet, kolik je na něm už vykázáno a kolik zbude po tomto zápisu – v rychlém zápisu, v novém výkazu, při úpravě i v mobilu. Počítají se hodiny celého týmu bez zamítnutých výkazů; zápis, který by rozpočet překročil, formulář označí, ale nezablokuje. Karta projektu s více milníky s rozpočtem ukáže souhrn jejich rozpočtů a seznam projektů i Přehled berou jako aktuální milník tentýž.",
+          "en": "Milestone budget while logging time. The timesheet form for a milestone with a budget shows the budget, how much has already been logged on it and how much will be left after this entry — in quick entry, in a new entry, when editing and on mobile. It counts the whole team’s hours without rejected entries, and flags an entry that would exceed the budget without blocking it. The card of a project with several budgeted milestones shows their combined budget, and the project list and the Overview now treat the same milestone as the current one."
+        },
+        {
+          "type": "new",
+          "cs": "Pomocník. Nová obrazovka v nabídce pod Přehledem: napíšete, co potřebujete, běžnou češtinou – „kolik mám tento týden hodin“, „kdo neodeslal výkazy“, „milníky přes rozpočet“, „co vyfakturovat tento měsíc“ – a dostanete odpověď číslem, grafem s větou, co čísla znamenají, a hotové akce: otevřít seznam s filtrem, stránku projektu nebo předvyplněný formulář (uloží se až po potvrzení). Ve Výkazech týmu, Schvalování, Fakturaci, Mém výkazu a Úkolech je místo hledání jedno pole pro hledání i pokyn („koncepty minulý měsíc“, „po termínu“). Pomocník není AI: rozumí slovníku Worklogu a počítá ve vašem prohlížeči nad vašimi daty.",
+          "en": "Assistant. A new screen in the menu below the Overview: type what you need in plain Czech — such as how many hours you have this week, who has not submitted timesheets, milestones over budget or what to invoice this month — and get the answer as a number, a chart with a sentence explaining it, and ready actions: open a list with a filter, the project page or a pre-filled form (saved only after you confirm). In Team timesheets, Approvals, Invoicing, My timesheet and Tasks, search is now one field for both searching and instructions (“drafts last month”, “overdue”). The Assistant is not AI: it understands Worklog’s vocabulary and calculates in your browser over your data."
+        },
+        {
+          "type": "new",
+          "cs": "Můj výkaz za předchozí měsíce. Nad seznamem si vyberete období – šipkami po měsíci, nebo rozbalovačem až dva roky zpět – a karta ukáže měsíc i součet jeho hodin, i na telefonu. Když máte neodeslané nebo vrácené výkazy v jiném měsíci, upozorní na ně pruh „Otevřené výkazy máte i v září (2)“ a klik na měsíc na něj seznam přepne. Ukázková data obsahují výkazy i ze dvou předchozích měsíců a používají jen smyšlené firmy a IČO.",
+          "en": "My timesheet for earlier months. Above the list you pick the period — one month at a time with the arrows, or up to two years back from the drop-down — and the card shows the month and its total hours, on the phone too. When you have unsent or returned timesheets in another month, a strip points them out (“You also have open timesheets in September (2)”) and clicking the month switches the list to it. The sample data include timesheets from the two previous months and use only fictitious companies and company IDs."
+        },
+        {
+          "type": "improved",
+          "cs": "Role a oprávnění. Projektový vedoucí upravuje jen projekty, které vede, a schvaluje na nich hodiny – i za kolegu, kterého zastupuje; projekty a zákazníky, které mu správce přiřadí, vidí a může na ně vykazovat. Ostatní projekty nevidí a Přehled mu počítá jen s jeho projekty. Vlastní hodiny vedoucího schvaluje správce a při jejich odeslání dostanou e-mail správci. Pevnou cenu milníku vidí a mění jen role, které vidí sazby (správce a fakturant). Kdo má na webu jen čtení (Návštěvníci webu), výkazy nevidí – jsou podkladem mezd – a vedoucí, fakturanti i spolupracovníci mají stránky webu jen ke čtení. Změna role se projeví po obnovení stránky, nově přidaný člověk dostane roli do dvou minut. Nastavení má sekci Datové seznamy, která ukáže, kde který seznam leží a jestli jeho oprávnění v SharePointu odpovídají.",
+          "en": "Roles and permissions. A project lead edits only the projects they lead and approves hours on them — also for a colleague they stand in for; projects and customers the administrator assigns to them are visible and open for logging time. Other projects are hidden from them, and the Overview counts only their projects. A lead’s own hours are approved by the administrator, and the administrators get an email when they are submitted. A milestone’s fixed price is visible and editable only for the roles that see rates (administrator and biller). People with read-only access to the site (Site visitors) cannot see timesheets — they are the basis for payroll — and leads, billers and contributors have read-only access to the site’s pages. A role change takes effect after refreshing the page, and a newly added person gets their role within two minutes. Settings has a Data lists section showing where each list lives and whether its SharePoint permissions are as they should be."
+        },
+        {
+          "type": "improved",
+          "cs": "Schvalování a výkazy týmu podle milníku. Schvalování ukazuje u každého výkazu milník a podle milníku jde i hledat; milník je i v e-mailech o schválení a na telefonu. Výkazy týmu jde u zvoleného projektu filtrovat podle milníku, ukážou souhrn podle oblasti a milníku a CSV dostane sloupec Úkol, když jsou výkazy na úkolech. Nový výkaz otevřený z úkolu, milníku nebo projektu má rovnou vyplněného zákazníka.",
+          "en": "Approvals and team timesheets by milestone. Approvals show the milestone for each timesheet, and you can search by it; the milestone also appears in the approval emails and on mobile. Team timesheets can be filtered by milestone for a selected project, show a summary by area and milestone, and the CSV gets a Task column when timesheets are logged on tasks. A new timesheet opened from a task, milestone or project has the customer filled in straight away."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozepsaná práce se neztratí. Výkaz, úkol, zákazník, projekt, milník, rychlý zápis, import, Nastavení i hlášení chyby se před zavřením nebo odchodem (i tlačítkem Zpět v prohlížeči) zeptají, jestli změny zahodit. Smazání se vždy nejdřív zeptá oknem aplikace s výchozí volbou Zrušit. Lišta hromadných akcí ve Výkazech týmu a v Mém výkazu plave u spodního okraje okna, takže řádky při výběru neposkakují, a výběr zrušíte klávesou Esc.",
+          "en": "Unsaved work is no longer lost. Timesheets, tasks, customers, projects, milestones, quick entry, import, Settings and bug reports ask whether to discard changes before closing or leaving (including the browser’s Back button). Deleting always asks first in an app dialog with Cancel as the default. The bulk action bar in Team timesheets and My timesheet floats at the bottom of the window, so rows no longer jump when you select them, and Esc clears the selection."
+        },
+        {
+          "type": "improved",
+          "cs": "Obrazovka „Co je nového“ (dřív Roadmapa) ukazuje vaši verzi a změny v jednotlivých vydáních. Čte jen náš vlastní obsah, takže funguje i za firemní proxy a nepřestane odpovídat po několika otevřeních z jedné sítě.",
+          "en": "The “What’s new” screen (formerly Roadmap) shows your version and the changes in each release. It reads only our own content, so it works behind a corporate proxy too and no longer stops responding after a few openings from one network."
+        },
+        {
+          "type": "improved",
+          "cs": "Vzhled a přístupnost. Formulář Nový výkaz je na širším panelu ve dvou sloupcích, levý panel aplikace je o kousek širší a hlavičky obrazovek jsou jednotné. Aktivní volby ve filtrech berou barvu z firemního motivu Workplace. Při prvním spuštění a aktualizaci aplikace ukáže, co právě dělá; při pozastavené licenci jen oznámení s tlačítkem pro nové ověření. Nedostupná tlačítka čtečka obrazovky hlásí jako nedostupná a počty se v textech správně skloňují.",
+          "en": "Look and accessibility. The New timesheet form is on a wider panel in two columns, the app’s left panel is slightly wider and screen headers are consistent. Active filter choices take their colour from the Workplace corporate theme. On first start and during an update the app shows what it is doing; with a suspended licence it shows only a notice with a button to verify the licence again. Screen readers announce unavailable buttons as unavailable, and counts are correctly inflected in Czech texts."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se data nepodaří načíst nebo se přeruší spojení se SharePointem, aplikace to řekne srozumitelnou větou – Přehled, přehled využití, karta „Kdo kolik vykázal“, Můj výkaz, Schvalování i Fakturace už v takovém případě neukazují nuly ani prázdné seznamy, ale chybový stav s možností načíst znovu.",
+          "en": "When data cannot be loaded or the connection to SharePoint drops, the app now says so in a plain sentence — the Overview, the usage overview, the “Who logged how much” card, My timesheet, Approvals and Invoicing no longer show zeros or empty lists in that case, but an error state with the option to load again."
+        },
+        {
+          "type": "fixed",
+          "cs": "Microsoft Teams a Workplace: v Teams se výkazy, schválení i úkoly zapisují vždy za vás, Worklog zůstává ve své kartě Teams i po obnovení a najde svůj web i při jiném názvu registru. Odkazy a karty „Můj den“ z Workplace vedou přímo na stránku s Worklogem a seznamy aplikace nerozbije ani jejich přejmenování v SharePointu.",
+          "en": "Microsoft Teams and Workplace: in Teams, timesheets, approvals and tasks are always recorded under your account, Worklog stays in its Teams tab even after a refresh, and it finds its site even when the registry has a different name. Links and “My day” cards from Workplace lead straight to the page with Worklog, and renaming the app’s lists in SharePoint no longer breaks it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Čísla s desetinnou čárkou (7,25) se ukládají správně a hodiny se zobrazují až na dvě desetinná místa. Opětovné uložení sazby se stejným datem „Platná od“ upraví tuto verzi, místo aby přidalo další. Název končící tečkou už neukazuje dvě tečky.",
+          "en": "Numbers with a decimal comma (7,25) are saved correctly, and hours are shown with up to two decimal places. Saving a rate again with the same “Valid from” date updates that version instead of adding another. A name ending with a full stop no longer shows two of them."
         }
       ]
     },
