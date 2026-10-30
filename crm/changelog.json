@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.20",
-      "date": "2026-10-12",
+      "date": "2026-10-30",
       "changes": [
         {
           "type": "new",
@@ -81,6 +81,86 @@
           "type": "fixed",
           "cs": "Drobnosti: skloňování počtů, popisky na Přehledu, hromadné akce už neposouvají řádky, „Vygenerovat dokument“ jen pro role s úpravou.",
           "en": "Small fixes: correct plural forms, Overview labels, bulk actions no longer shift rows, and “Generate document” only for roles that can edit."
+        },
+        {
+          "type": "new",
+          "cs": "Můj den na Přehledu – schůzky z Outlooku spárované s kontakty a firmami v CRM a seřazený seznam Hoří, Dnes, Posunout obchod a Péče o vztahy. U každé položky je akce, která ji rovnou vyřídí. „Projít den“ vás provede krok za krokem, večer nabídne „Uzavřít den“. Správce a manažer přepíná Já / Tým. Nahrazuje dřívější Fokus dne.",
+          "en": "My day on the Overview — meetings from Outlook matched to contacts and companies in CRM, and an ordered list of Urgent, Today, Move deals forward and Relationship care. Every item has an action that handles it right away. “Walk through the day” takes you step by step, and in the evening it offers “Close the day”. Admins and managers switch between Me and Team. Replaces the former Day focus."
+        },
+        {
+          "type": "new",
+          "cs": "Pomocník – napíšete, co potřebujete („kdo nám dluží“, „shrň firmu…“, „nový úkol zavolat…“), a CRM to najde, spočítá nebo připraví. Rozumí obdobím, podmínkám nad poli seznamů a navazujícím dotazům. Najdete ho na vlastní obrazovce, nad každým seznamem, v detailu firmy, nabídky a kontaktu i ve vyhledávání (⌘K).",
+          "en": "Assistant — type what you need (“who owes us”, “summarise company…”, “new task to call…”) and the CRM finds it, counts it or prepares it. It understands periods, conditions on list fields and follow-up questions. You find it on its own screen, above every list, in the company, deal and contact detail, and in search (⌘K)."
+        },
+        {
+          "type": "new",
+          "cs": "Pomocník umí víc než odpovědět: knihovna hotových dotazů, grafy s větou, co čísla znamenají, brífink před schůzkou se „zdravím vztahu“, tisk a uložení do PDF, sdílení dotazu kolegovi a Moje dotazy připnuté na Přehled. Správce ho naučí slova vaší firmy.",
+          "en": "The Assistant does more than answer: a library of ready-made queries, charts with a sentence on what the numbers mean, a meeting briefing with “relationship health”, printing and saving to PDF, sharing a query with a colleague, and My queries pinned to the Overview. An admin can teach it your company’s words."
+        },
+        {
+          "type": "new",
+          "cs": "Sekce Příjmy pro správce a finanční roli – skutečnost z faktur a výhled po měsících a typech příjmů, s loňskem a cílem, a Cash do 30 / 60 / 90 dní. Nahrazuje obrazovky Vedení a Očekávané příjmy; staré odkazy vedou sem. U čísel je (i) s vysvětlením a odkazem do Nápovědy.",
+          "en": "A Revenue section for admins and the finance role — actuals from invoices and the outlook by month and revenue type, with last year and the target, and Cash within 30 / 60 / 90 days. It replaces the Management and Expected revenue screens; old links lead here. Numbers have an (i) with an explanation and a link to Help."
+        },
+        {
+          "type": "new",
+          "cs": "Fakturační plán – pro každý měsíc ukáže, co je k fakturaci ze smluv, předplatných a milníků nabídek, co už je vystavené a co zbývá. Tlačítko „Vystavit fakturu“ připraví fakturu se správnými položkami. Každá položka faktury nese typ příjmu.",
+          "en": "Billing plan — for each month it shows what is due for invoicing from contracts, subscriptions and deal milestones, what has already been issued and what remains. “Issue invoice” prepares an invoice with the right items. Every invoice item carries a revenue type."
+        },
+        {
+          "type": "new",
+          "cs": "Faktury – vystavení i bez nabídky s ručními položkami, pokročilé filtry podle období a odběratele a částky všude bez DPH jako u nabídek a smluv. Každá faktura z nabídky s více milníky má vlastní DUZP. Nástěnka ukazuje, kolik je letos vyfakturováno, uhrazeno a co čeká na úhradu.",
+          "en": "Invoices — issue them without a deal too, with manual items, advanced filters by period and customer, and amounts excl. VAT everywhere, like deals and contracts. Every invoice from a deal with several milestones has its own date of taxable supply. The Dashboard shows how much has been invoiced and paid this year and what is awaiting payment."
+        },
+        {
+          "type": "new",
+          "cs": "Detail firmy má záložku Faktury – kolik jsme firmě vyfakturovali celkem, letos proti loňsku ke stejnému dni, co je nezaplacené a co po splatnosti, a seznam jejích faktur. Záložku vidí správci CRM a finanční role.",
+          "en": "The company detail has an Invoices tab — how much we have invoiced the company in total, this year against last year to the same day, what is unpaid and what is overdue, and the list of its invoices. CRM admins and finance roles see the tab."
+        },
+        {
+          "type": "new",
+          "cs": "Úkoly mají konverzaci s @zmínkou kolegy, historii změn a sledující – kolegy, kteří chtějí vědět, co se s úkolem děje (záložka Sleduji, volitelně e-mail při změně stavu, vlastníka nebo termínu). V zobrazení Týden a Nástěnka jsou dokončené úkoly skryté a vrátí je přepínač.",
+          "en": "Tasks have a conversation with @mentions of colleagues, a change history and followers — colleagues who want to know what happens with a task (the Following tab, optionally an email when the status, owner or due date changes). In the Week and Board views completed tasks are hidden and a switch brings them back."
+        },
+        {
+          "type": "new",
+          "cs": "Trychtýře na Přehledu ukazují skutečnou konverzi mezi fázemi za zvolené období, s filtry Zdroj a Linie. Řádek Příjmy na Přehledu přidává nabídky před uzavřením do 30 dnů a Nabídky mají nad seznamem souhrnné dlaždice – otevřené, vážená pipeline a vyhráno letos s úspěšností.",
+          "en": "The funnels on the Overview show the real conversion between stages for the chosen period, with Source and Line filters. The Revenue row on the Overview adds deals closing within 30 days, and Deals have summary tiles above the list — open, weighted pipeline and won this year with the win rate."
+        },
+        {
+          "type": "new",
+          "cs": "CRM je i v angličtině a v němčině. Jazyk se volí automaticky podle jazyka hubu, jinak podle účtu Microsoft 365 každého uživatele; pevný jazyk pro celou organizaci nastaví správce v Nastavení.",
+          "en": "The CRM is also available in English and German. The language is chosen automatically from the hub language, otherwise from each user’s Microsoft 365 account; an admin can set a fixed language for the whole organisation in Settings."
+        },
+        {
+          "type": "new",
+          "cs": "Průvodce s hlasem – na každé hlavní obrazovce vás provede krok za krokem a mluví česky, německy nebo anglicky podle jazyka aplikace. Přibyly i kapitoly o příjmech a fakturaci.",
+          "en": "A guided tour with voice — on every main screen it takes you step by step and speaks Czech, German or English according to the app language. New chapters on revenue and invoicing have been added too."
+        },
+        {
+          "type": "new",
+          "cs": "Předplatné jde zkopírovat do nového – kopie převezme firmu, produkt, počet, cenu, DPH a splatnost. Při změně produktu se změní i název, pokud vznikl z původního produktu.",
+          "en": "A subscription can be copied into a new one — the copy takes over the company, product, quantity, price, VAT and due day. When you change the product, the name changes with it if it came from the original product."
+        },
+        {
+          "type": "improved",
+          "cs": "Mailchimp: nedoručitelné adresy mají v Kontaktech vlastní filtr (jde uložit do segmentu) a uložení kontaktu už nepřepíše stav synchronizace, který se mezitím změnil.",
+          "en": "Mailchimp: undeliverable addresses have their own filter in Contacts (it can be saved as a segment), and saving a contact no longer overwrites a synchronisation status that changed in the meantime."
+        },
+        {
+          "type": "improved",
+          "cs": "Formuláře a panely: rozepsané údaje se neztratí bez zeptání (ani při přechodu jinam, přes ⌘K nebo tlačítkem Zpět), poslední krok hned řekne, jestli je vše připravené, a po založení firmy můžete rovnou přidat kontakt. Seznamy jsou nahoře kompaktnější – hledání a Pomocník sdílí jedno pole.",
+          "en": "Forms and panels: unsaved input is never lost without asking (not even when you move elsewhere, via ⌘K or the Back button), the last step tells you right away whether everything is ready, and after creating a company you can add a contact straight away. Lists are more compact at the top — search and the Assistant share one field."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobnosti: Začínáme zmizí z menu po splnění všech kroků, pozdrav na Přehledu vás oslovuje v 5. pádě, levé menu a barvy jsou sjednocené s ostatními aplikacemi EasyPortal 365 a testovací data ukážou i Příjmy.",
+          "en": "Small things: Getting started disappears from the menu once all steps are done, the greeting on the Overview uses the vocative form of your name in Czech, the left menu and colours match the other EasyPortal 365 apps, and sample data show Revenue too."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se při ukládání přeruší spojení se SharePointem, aplikace místo technické hlášky řekne, co se stalo a co udělat. Smazání testovacích dat maže i související částky a historii fází.",
+          "en": "When the connection to SharePoint drops during saving, the app tells you what happened and what to do instead of a technical message. Deleting sample data also deletes the related amounts and stage history."
         }
       ]
     },
