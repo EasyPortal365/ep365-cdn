@@ -1,12 +1,12 @@
 {
   "schema": 1,
   "channel": "stable",
-  "version": "1.10.4",
-  "zip": "ep365-chat-function-1.10.4.zip",
-  "sha256": "552a9b419eb3c6e2947a3c8065aab7b11ca81c0c39d0ea11d8d9adb4a7e0f5e0",
-  "size": 8957301,
-  "published": "2026-10-21T15:22:45.442Z",
+  "version": "1.11.0",
+  "zip": "ep365-chat-function-1.11.0.zip",
+  "sha256": "8d1efdafe6b1c7f6eb400efc4c73a2d70bf77d48345f66220aff424005773a9d",
+  "size": 8962321,
+  "published": "2026-10-30T07:49:59.262Z",
   "rollback": false,
   "kid": "ep365-16a5328498af0c7b",
-  "sig": "IRyHMQVaF9t2DoZthlPwMBnk2b4hF1aTbQCfRfYLDOKHNiX3rgvNDcrQBAEUSCjHTSFS3iJ0oqhbqA8bd4psAQ=="
+  "sig": "EGND3JDnIxZZPJSyAg6uu4BiErrch3OnR9hlEcMycd6G3T6zq4krgSYKUf20gChMeJZUjvAlijiZRfGIT463CA=="
 }
