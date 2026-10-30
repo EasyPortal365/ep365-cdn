@@ -108,15 +108,20 @@ else entry.date = today;
 
 // `since` (cislo tiche verze) a `docs` (vyjimka z brany pokryti) jsou nase interni stopa -
 // do zakaznicke karty nepatri, proto se kopiruje jen type/cs/en
+// Nové změny jdou NA ZAČÁTEK karty: u ostrého vydání v běžící řadě by jinak skončily pod
+// staršími body téže řady a na webu /novinky i v „Co je nového“ by karta s novým datem
+// začínala změnami z minulého vydání (Worklog 1.3.0.40, 31. 10. 2026).
 let added = 0; let skipped = 0;
+const fresh = [];
 for (const c of pending) {
-  const dup = entry.changes.filter(x => x.cs === c.cs).length > 0;
+  const dup = entry.changes.concat(fresh).filter(x => x.cs === c.cs).length > 0;
   if (dup) { skipped++; continue; }
   const card = { type: c.type, cs: c.cs };
   if (c.en) card.en = c.en;
-  entry.changes.push(card);
+  fresh.push(card);
   added++;
 }
+entry.changes = fresh.concat(entry.changes);
 
 const silent = [];
 pending.forEach(c => { if (c.since && silent.indexOf(c.since) === -1) silent.push(c.since); });
