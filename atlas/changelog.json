@@ -4,9 +4,14 @@
   "name": "EP365 Atlas",
   "entries": [
     {
-      "version": "1.14",
+      "version": "1.15",
       "date": "2026-11-03",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Pracovní množina webů pro velké tenanty: v Nastavení zapnete, že Atlas do hloubky prochází, hodnotí a prohledává obsah jen u webů, na kterých se opravdu pracuje. Množinu navrhne sám podle aktivity (zobrazení, změny dokumentů, sestavy využití SharePointu a Teams) a vy ji upravíte – připnete weby, které chcete hlídat vždy (i podle vzoru adresy nebo hubu), a vynecháte ty, které ne. Inventář dál zná všechny weby, takže neaktivní weby najde a nabídne k archivaci. Mimo množinu se sdílené a citlivé soubory jen spočítají a nálezy webů, které z množiny vypadly, se pozastaví. Každá dotčená obrazovka nahoře ukáže, kolik webů z kolika se hodnotí.",
+          "en": "Working set of sites for large tenants: in Settings you can make Atlas scan in depth, evaluate and search content only on sites people actually work on. Atlas proposes the set from activity (views, document changes, SharePoint and Teams usage reports) and you adjust it — pin sites you always want checked (also by address pattern or hub) and exclude those you don’t. The inventory still knows all sites, so inactive sites are found and offered for archiving. Outside the set, shared and sensitive files are only counted, and findings of sites that left the set are paused. Each affected screen shows at the top how many sites out of how many are evaluated."
+        },
         {
           "type": "new",
           "cs": "Power Platform. Nová obrazovka pro správce ukáže prostředí Power Platform a jestli je pokrývá zásada DLP, aplikace Power Apps a připojení. Atlas z nich hlídá prostředí bez DLP, aplikace po lidech, kteří odešli, aplikace sdílené s celou organizací a nefunkční připojení; nálezy se po nápravě zavřou samy. Stačí, aby účet, který spouští sken, měl roli správce Power Platform nebo globálního správce. Toky Power Automate celého tenantu Microsoft aplikacím v SharePointu nevydává – obrazovka to řekne a nálezy k tokům se nehodnotí.",
@@ -106,7 +111,13 @@
           "type": "improved",
           "cs": "Šablona webu přenese i dlouhý text. Víceřádkové sloupce knihoven, které ve vzoru drží víc než 255 znaků, založí Správce webů na novém webu stejně – delší popis se tam při úpravě neodmítne.",
           "en": "Site templates keep long text. Multi-line library columns that hold more than 255 characters on the model site are created the same way by Site Manager on the new site, so longer descriptions are not rejected when edited."
-        },
+        }
+      ]
+    },
+    {
+      "version": "1.14",
+      "date": "2026-10-30",
+      "changes": [
         {
           "type": "new",
           "cs": "Rozcestník a nové menu. Nová úvodní stránka hned ukáže, co potřebuje pozornost – kritické nálezy, přenos obsahu, který nedojel celý, kritické nálezy na farmě nebo nové události z hlídek, každou věc s jednou akcí – a dlaždice všech oblastí Atlasu se stavem v jedné větě. Menu je nově seskupené do sbalitelných oblastí: rozbalená je vždy ta, ve které právě jste, sbalené ukazují nejvážnější počet a na telefonu je navigace ve spodní liště. Dosavadní Přehled se skóre zdraví zůstává jako samostatná položka.",
