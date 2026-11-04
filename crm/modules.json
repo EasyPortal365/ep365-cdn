@@ -1,0 +1,13 @@
+{
+  "$comment": "Katalog modulů na míru v CRM (@ep365/crm-modules, parseModuleCatalog). CRM ho stahuje jen při licenci s položkou features; adresy mimo cdn.easyportal365.cz zahodí. Nový modul = nová položka zde, bez vydání CRM.",
+  "modules": [
+    {
+      "id": "training",
+      "feature": "training",
+      "title": { "cs": "Realizace školení", "en": "Training delivery", "de": "Schulungsdurchführung" },
+      "cdnBase": "https://cdn.easyportal365.cz/training/",
+      "settingsList": "EP365TrainingSettings",
+      "lsPrefix": "ep365tr_rtver_"
+    }
+  ]
+}

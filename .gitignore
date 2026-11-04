@@ -30,6 +30,10 @@
 !tools/publish-changelog.mjs
 !tools/promote-release.mjs
 
+# Katalog modulů na míru v CRM (cdn.easyportal365.cz/crm/modules.json, @ep365/crm-modules).
+# Bezpečné: id modulu, položka licence, název a adresa na téže CDN – žádná data zákazníka.
+!crm/modules.json
+
 # Ikona položky menu EP365 Quick Actions (extension manifest neumí data: URI —
 # SharePoint je resolvuje relativně k CDN base → 503; ikona musí být soubor).
 # Bezpečné: statické SVG bez skriptů.
