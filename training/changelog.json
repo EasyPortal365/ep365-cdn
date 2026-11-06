@@ -1,0 +1,48 @@
+{
+  "schema": 2,
+  "app": "ep365-training",
+  "name": "EP365 Realizace školení",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-11-06",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "První vydání Realizace školení: zakázky vzdělávací firmy od vyhrané nabídky přes termíny, lektory a přípravu až po vyhodnocení s klientem a fakturaci. Běží přímo v levém menu EP365 CRM (zapíná ji správce CRM, když ji má firma v licenci) a lektoři mají vlastní lektorský portál jen se svými zakázkami a termíny.",
+          "en": "First release of Training delivery: a training company's orders from the won deal through dates, lecturers and preparation to the client evaluation and invoicing. It runs right in the left menu of EP365 CRM (the CRM administrator turns it on when the company has it in its licence), and lecturers get their own lecturer portal with only their orders and dates."
+        },
+        {
+          "type": "new",
+          "cs": "Zakázky a projektový list: novou zakázku založíte průvodcem z vyhrané nabídky v CRM nebo s klientem z firem CRM (hledá se i bez diakritiky). Projektový list ukáže klienta, lidi, termíny, přípravu, historii a vyhodnocení; zakázku v něm upravíte („před → po“), posunete její stav, přidáte nebo odeberete termín s lektorem (kolizi ukáže před uložením), odškrtáte přípravu podle šablony typu školení a připíšete poznámku do historie. Po posledním termínu se zapíše vyhodnocení s klientem.",
+          "en": "Orders and the project sheet: create a new order with a wizard from a won deal in the CRM or with a client from the CRM companies (search works without diacritics). The project sheet shows the client, people, dates, preparation, history and evaluation; there you edit the order (“before → after”), move its status, add or remove a date with a lecturer (clashes show before saving), tick off preparation from the training-type template and add a note to the history. After the last date you record the client evaluation."
+        },
+        {
+          "type": "new",
+          "cs": "Kalendář obsazenosti a lektoři: měsíční mřížka na jeden nebo dva měsíce s řádky podle zakázek, lektorů nebo typů školení – barva je typ školení, v řádcích lektorů jsou vidět volné dny i dvě zakázky v jeden den. Vytížení lektora je vidět jako dny proti kapacitě („7 z 12 dní“) i po měsících. Lektory zakládáte a upravujete v aplikaci, karta lektora ukáže nadcházející a proběhlá školení a týmu i průměrné hodnocení z vyhodnocení s klientem.",
+          "en": "Occupancy calendar and lecturers: a monthly grid for one or two months with rows by orders, lecturers or training types — the colour is the training type, and lecturer rows show free days as well as two orders on the same day. Lecturer load is shown as days against capacity (“7 of 12 days”) and by month. You create and edit lecturers in the app; the lecturer card shows upcoming and past trainings and, for the team, the average rating from client evaluations."
+        },
+        {
+          "type": "new",
+          "cs": "Fakturace: milníky fakturace převezmete z platebního kalendáře nabídky v CRM nebo zadáte ručně a ve chvíli, kdy je čas fakturovat, je vedení nebo obchod uvolní. Účtárna je uvidí ve frontě K fakturaci a doklad vystaví průvodcem faktury CRM předvyplněným z milníku; číslo dokladu a zaplacení se čtou z CRM. Ceny a milníky leží v oddělených seznamech s vlastními oprávněními, takže je lektor nepřečte ani přímo v SharePointu.",
+          "en": "Invoicing: take billing milestones from the deal’s payment schedule in the CRM or enter them by hand, and when it is time to invoice, management or sales release them. Accounting sees them in the To invoice queue and issues the document with the CRM invoice wizard prefilled from the milestone; the document number and payment are read from the CRM. Prices and milestones sit in separate lists with their own permissions, so a lecturer cannot read them even directly in SharePoint."
+        },
+        {
+          "type": "new",
+          "cs": "Přehled realizace: kolik školení a školicích dnů je v tomto měsíci, jak jsou vytížení lektoři, co se učí tento týden, kterým zakázkám chybí příprava před termínem a které čekají na vyhodnocení. Vedení a obchod vidí i peníze z milníků (lze fakturovat, po splatnosti, očekáváno) a v CRM má tým pod čísly blok Dnes a zítra s úkoly z CRM u firem a nabídek běžících zakázek.",
+          "en": "Delivery overview: how many trainings and training days there are this month, how loaded the lecturers are, what is taught this week, which orders lack preparation before their date and which are waiting for evaluation. Management and sales also see money from milestones (ready to invoice, overdue, expected), and inside the CRM the team gets a Today and tomorrow block below the numbers with CRM tasks for the companies and deals of running orders."
+        },
+        {
+          "type": "new",
+          "cs": "Role a přístup: pět rolí, které se sčítají – vedení, produkce, obchod, účtárna a lektor. Lektor vidí jen svou práci i v samotném SharePointu a svou část přípravy si odškrtává sám. Nastavení → Datové seznamy změří, jestli oprávnění seznamů odpovídají, a Náhled očima uživatele ukáže aplikaci tak, jak ji vidí konkrétní člověk nebo role – u osoby ověří v SharePointu, co jí opravdu otevře, a upozorní na rozpor.",
+          "en": "Roles and access: five roles that add up — management, production, sales, accounting and lecturer. A lecturer sees only their own work, even in SharePoint itself, and ticks off their part of the preparation themselves. Settings → Data lists measures whether list permissions are as they should be, and View as user shows the app the way a specific person or role sees it — for a person it checks in SharePoint what really opens for them and flags any mismatch."
+        },
+        {
+          "type": "new",
+          "cs": "Nastavení a vyzkoušení: číslování zakázek, výchozí hodnoty a to, kolik dní před termínem se hlídá příprava, nastavíte v Nastavení; typy školení se šablonami přípravy drží číselník aplikace. Ukázková data na vyzkoušení založí správce jedním tlačítkem a stejně je odstraní – skutečných zakázek se to nedotkne. Neuložené změny se bez zeptání neztratí a hledání (i Ctrl+K) nerozlišuje diakritiku.",
+          "en": "Settings and trying it out: order numbering, default values and how many days before a date preparation is watched are set in Settings; training types with their preparation templates live in the app’s code list. The administrator creates sample data with one button and removes it the same way — real orders are not touched. Unsaved changes are never lost without asking, and search (including Ctrl+K) ignores diacritics."
+        }
+      ]
+    }
+  ]
+}
