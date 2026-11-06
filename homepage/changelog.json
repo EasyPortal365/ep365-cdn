@@ -5,8 +5,143 @@
   "entries": [
     {
       "version": "1.31",
-      "date": "2026-09-28",
+      "date": "2026-11-06",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Upozornění v „Můj den“, která aplikace určí jen pro některé role (například schvalování ve Vozovém parku), dostanou jen lidé s touto rolí – i když ji mají přes skupinu v Microsoft 365. Ostatním se nezobrazí a nekončí po kliknutí na „Přístup odepřen“.",
+          "en": "Notices in “My day” that an app meant only for certain roles (such as approvals in Fleet) now reach only people with that role — even when they have it through a Microsoft 365 group. Others no longer see them and no longer end up on “Access denied” after clicking."
+        },
+        {
+          "type": "improved",
+          "cs": "Datové seznamy mají ve Správě aplikace vlastní sekci: u každého seznamu Workplace vidíte účel, počet položek, jestli je v Obsahu webu skrytý a jestli jeho oprávnění opravdu sedí – měřeno, ne odhadnuto. Na hubu jsou tu i globální seznamy sdílené všemi aplikacemi EasyPortal 365 a u Dotazů a námětů karta ukáže, jestli soukromá vlákna nečte někdo navíc.",
+          "en": "Data lists now have their own section in App management: for every Workplace list you see its purpose, item count, whether it is hidden in Site contents and whether its permissions really match — measured, not guessed. On the hub it also shows the global lists shared by all EasyPortal 365 apps, and for Questions & ideas it shows whether anyone else can read private threads."
+        },
+        {
+          "type": "improved",
+          "cs": "Počty v textech se správně skloňují – například ve správě oznámení („Přečetli 3 z 5 lidí“, „1 čtenář“), v e-mailu o novém dotazu („1 pracovní den“), ve frontě Dotazů a námětů („Očekávaná reakce do 1 pracovního dne“), v Mapě stránek nebo v kontrole zdrojů aktualit.",
+          "en": "Counts in texts now use the correct grammatical forms — for example in announcement management (“1 reader”, “1 person”), in the new question e-mail (“1 business day”), in the Site map, in the Questions & ideas queue and in the news source check."
+        },
+        {
+          "type": "improved",
+          "cs": "Hláška o neaktivní licenci je stejná jako v ostatních aplikacích EasyPortal 365 a v jazyce rozhraní: „Licence EP365 Workplace není aktivní – aplikace je jen pro čtení.“ Firemní identita místo technického názvu skupiny mluví o roli „Správce značky“.",
+          "en": "The inactive-license message is the same as in the other EasyPortal 365 apps and in the interface language: “The EP365 Workplace license is not active — the app is read-only.” Company identity now refers to the “Brand manager” role instead of a technical group name."
+        },
+        {
+          "type": "improved",
+          "cs": "V anglické verzi je anglicky i tlačítko Zavřít v paletě příkazů, popis navigace v hlavičce a hláška, když se nepodaří načíst přehled novinek. Anglické texty v celé aplikaci mají anglickou pomlčku.",
+          "en": "In the English version, the Close button in the command palette, the header navigation label and the message shown when What’s new cannot be loaded are now in English too. English texts throughout the app use the English dash."
+        },
+        {
+          "type": "fixed",
+          "cs": "AI asistent v editoru Aktualit znovu nachází stránky a dokumenty, které vrací i běžné hledání v SharePointu. S modelem GPT-5 mini se dřív stávalo, že se zadání do vyhledávání poslalo doslova celé a hledání nenašlo nic.",
+          "en": "The AI assistant in the News editor again finds the pages and documents that regular SharePoint search returns. With the GPT-5 mini model the whole request was sometimes sent to search word for word and the search found nothing."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozepsaná práce se bez zeptání neztratí – zavření panelu, přepnutí záložky, rychlé hledání ⌘K, Zpět v prohlížeči i obnovení stránky se nad neuloženými změnami zeptají, jestli pokračovat v úpravě, nebo změny zahodit. Platí pro dotazy a odpovědi, hlášení chyb, editory obsahu sekcí, Správu aplikace, Globální konfiguraci i úpravu profilu.",
+          "en": "Unsaved work is never lost without asking — closing a panel, switching tabs, quick search ⌘K, browser Back and refreshing the page ask whether to keep editing or discard the changes. This covers questions and replies, bug reports, section content editors, Application management, Global configuration and profile editing."
+        },
+        {
+          "type": "improved",
+          "cs": "Mazání a další nevratné akce se ptají v okně aplikace s bezpečnější volbou předvybranou a panel se během ukládání nezavře. Když se uložení nepodaří, zpráva se ukáže přímo u tlačítka Uložit.",
+          "en": "Deleting and other irreversible actions ask in an app window with the safer choice preselected, and a panel stays open while saving. When saving fails, the message appears right by the Save button."
+        },
+        {
+          "type": "fixed",
+          "cs": "Pole Cesty mimo AI v Globální konfiguraci opět ukazuje uložené cesty – dřív se zobrazilo prázdné a jeho uložení by je smazalo. Smazání hodnoty klasifikace a citlivého výrazu se nově ptá.",
+          "en": "The Paths excluded from AI field in Global configuration shows the saved paths again — it used to appear empty and saving it would have erased them. Deleting a classification value or a sensitive term now asks first."
+        },
+        {
+          "type": "fixed",
+          "cs": "Editory aktualit a oznámení už neukazují dvě tlačítka Uložit a Přehled webu se při načítání nezužuje.",
+          "en": "The news and announcement editors no longer show two Save buttons, and the site overview no longer changes width while loading."
+        },
+        {
+          "type": "fixed",
+          "cs": "Termíny úkolů z To Do v Můj den se už neukazují o den dřív – úkol na 28. 7. byl v Praze vidět jako 27. 7.",
+          "en": "Due dates of To Do tasks in My day are no longer shown a day early — a task due on 28 July used to appear as 27 July in Prague."
+        },
+        {
+          "type": "fixed",
+          "cs": "Úkoly z To Do v Můj den se znovu načítají – Microsoft 365 začal odmítat způsob, jakým aplikace četla seznamy úkolů.",
+          "en": "To Do tasks in My day load again — Microsoft 365 started rejecting the way the app read task lists."
+        },
+        {
+          "type": "improved",
+          "cs": "Průvodce aplikací při ztmavení stránky nezakrývá horní lištu SharePointu.",
+          "en": "The app tour no longer darkens the SharePoint top bar."
+        },
+        {
+          "type": "improved",
+          "cs": "Když se při ukládání přeruší spojení se SharePointem, aplikace místo technické hlášky „Failed to fetch“ řekne, co se stalo: nedá se říct, jestli se změna uložila – obnovte stránku a záznam zkontrolujte. Platí pro hlasování v anketách, Dotazy a náměty, aktuality, nastavení aplikace i Globální konfiguraci.",
+          "en": "When the connection to SharePoint drops while saving, the app no longer shows the technical message “Failed to fetch” but says what happened: there is no way to tell whether the change was saved — reload the page and check the record. This applies to poll votes, Questions & ideas, news, app settings and Global configuration."
+        },
+        {
+          "type": "fixed",
+          "cs": "V Microsoft Teams začínají dotaz na zahození rozepsaného hlášení chyby a průvodce aplikací u horního okraje – dřív nad nimi zůstával prázdný pruh.",
+          "en": "In Microsoft Teams, the prompt to discard an unfinished bug report and the app tour now start at the top edge — previously an empty strip remained above them."
+        },
+        {
+          "type": "improved",
+          "cs": "Výchozí tyrkysový motiv je sladěný s ostatními aplikacemi EasyPortal 365 – odkazy, popisky sekcí a zvýraznění mají stejný sytější odstín a mátová barva zvýraznění je jemnější. Vlastní firemní barvy se nemění.",
+          "en": "The default teal theme now matches the other EasyPortal 365 apps — links, section labels and highlights use the same deeper shade, and the mint highlight color is softer. Custom company colors do not change."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení sekce bez vlastního obsahu (např. Aktuality bez editoru) je úzký panel jako ostatní formuláře, pole jsou bílá a tlačítko Uložit je vidět pořád – zešedlé, dokud nic nezměníte.",
+          "en": "Section settings without their own content are a narrow panel like other forms, the fields are white and the Save button is always visible — greyed out until you change something."
+        },
+        {
+          "type": "improved",
+          "cs": "Vítáme mezi námi: ve vzhledu Tváře přibyl vedle „Pozdravit“ i e-mail, tlačítka nesou ikonu chatu a obálky a popisek „další noví kolegové“ místo „tento měsíc také“.",
+          "en": "Welcome aboard: the Faces look now offers email next to “Say hi”, buttons carry chat and envelope icons, and the label reads “more new colleagues” instead of “also this month”."
+        },
+        {
+          "type": "improved",
+          "cs": "Dotazy a náměty – detail pro řešitele: nad polem odpovědi se ukážou podobné zveřejněné odpovědi a tlačítkem Vložit je převezmete. Rozepsanou odpověď uložíte jako koncept a tlačítko Odeslat a uzavřít pošle odpověď tazateli a dotaz uzavře.",
+          "en": "Questions & Ideas — details for solvers: similar published answers appear above the answer field and you take them over with Insert. Save an unfinished answer as a draft; the Send and close button sends the answer to the author and closes the question."
+        },
+        {
+          "type": "fixed",
+          "cs": "Kolečko Nastavení sekce sedí na rohu karty, takže při najetí myší už nezakrývá tlačítka v hlavičce sekce (třeba Poděkovat).",
+          "en": "The section settings gear sits on the corner of the card, so on hover it no longer covers the buttons in the section header (such as Say thanks)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když se při ukládání vlastního profilu přeruší spojení s Microsoft 365, hláška už netvrdí, že se data nenačetla – řekne, že nejde poznat, jestli se změna provedla, a poradí obnovit stránku a profil zkontrolovat.",
+          "en": "When the connection to Microsoft 365 drops while saving your own profile, the message no longer claims that data did not load — it tells you it cannot be told whether the change was made and suggests refreshing the page and checking your profile."
+        },
+        {
+          "type": "new",
+          "cs": "Můj den ukazuje i změny ve sledovaných místech. Kdo si v Quick Actions nastavil Sledovat změny u dokumentu, složky nebo knihovny, uvidí ve sloupci Včera blok „Ve sledovaném“ s počtem novinek a třemi nejnovějšími změnami; jedním klikem otevře celý souhrn Moje odběry. Kdo nic nesleduje, blok neuvidí.",
+          "en": "My day now also shows changes in followed places. If you set up Follow changes on a document, folder or library in Quick Actions, the Yesterday column shows an “In followed places” block with the number of news and the three latest changes; one click opens the full My follows digest. If you follow nothing, the block doesn’t appear."
+        },
+        {
+          "type": "improved",
+          "cs": "Týmový web otevírá Workplace tím, kvůli čemu tam lidé jdou: nahoře rozcestník knihoven, pod ním nejnovější dokumenty. Aktuality, rychlé odkazy a události si správce přidá, když je web opravdu používá.",
+          "en": "A team site now opens Workplace with what people come for: the library directory at the top and the latest documents below it. The admin adds news, quick links and events when the site actually uses them."
+        },
+        {
+          "type": "improved",
+          "cs": "Pozdrav je na týmovém webu kompaktní – název webu, označení „Týmový web“ a vaše role zůstanou, datum, svátek a počasí se vejdou do jednoho řádku, takže knihovny a dokumenty jsou vidět bez posouvání. V nastavení sekce Pozdrav jde velikost hlavičky zvolit ručně.",
+          "en": "The greeting is compact on a team site — the site name, the “Team site” label and your role stay, while the date, name day and weather fit on one line, so libraries and documents are visible without scrolling. The header size can be chosen manually in the Greeting section settings."
+        },
+        {
+          "type": "improved",
+          "cs": "Sekce, ve které zatím nic není, čtenáři nevidí – plocha neukazuje prázdná místa. Kdo smí upravovat obsah, sekci dál vidí i s poznámkou, že ji čtenáři uvidí, až v ní něco bude.",
+          "en": "A section with nothing in it yet is hidden from readers, so the page shows no empty spots. People who can edit content still see it, with a note that readers will see it once it has content."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozcestník knihoven ukazuje všechny knihovny webu včetně prázdných v husté mřížce dlaždic, řazené abecedně. Každá dlaždice nese počet položek a jedním klikem vede rovnou do knihovny; Nejnovější dokumenty u každého souboru ukazují, ze které knihovny je.",
+          "en": "The library directory shows all libraries of the site, including empty ones, in a dense grid of tiles sorted alphabetically. Each tile shows the item count and opens the library with one click; Recent documents show which library each file comes from."
+        },
+        {
+          "type": "new",
+          "cs": "Soubory i celé složky jde přetáhnout přímo na dlaždici knihovny – nahrají se do jejího kořene a struktura složek se zachová. Když už soubor stejného jména v knihovně je, nový se uloží jako „Název (2)“ a původní zůstane. Po nahrání uvidíte, kolik souborů a kam se nahrálo, a co se nepodařilo i proč; jeden nepovedený soubor nezastaví ostatní.",
+          "en": "Files and whole folders can be dragged straight onto a library tile — they are uploaded to the library root and the folder structure is kept. If a file with the same name is already there, the new one is saved as “Name (2)” and the original stays. After the upload you see how many files went where, and what failed and why; one failed file does not stop the others."
+        },
         {
           "type": "improved",
           "cs": "Firemní barva funguje i ve světlém odstínu. Když je hlavní firemní barva světlá (třeba žlutá), přepne se pás s Pozdravem sám na světlou variantu s tmavým textem, takže pozdrav zůstane čitelný; přepínač „Světlý hero“ v editoru motivu to u světlé barvy řekne a je zapnutý automaticky. U tmavé firemní barvy se nic nemění. Tlačítka a zvolené volby v barvě motivu mají na světlé barvě tmavý text v celém Workplace a firemní barvu nově mají i tlačítka ve Správě aplikace a Globální konfiguraci, avatary v Rolích, přepínač období v Návštěvnosti, volby v Dotazech a námětech a jazykové záložky obsahu.",
