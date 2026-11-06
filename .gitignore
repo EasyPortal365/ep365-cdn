@@ -241,3 +241,6 @@
 # tak jako tak v bundlu appky; zadna data zakazniku.
 !tour-voice/*/*/*.mp3
 !tour-voice/*/*/manifest.json
+# Sdilene zvuky pruvodce (hudba E a efekty klik/prechod, @ep365/ui tourSound.ts od 0.25.0) –
+# generovane kodem, zadne cizi nahravky ani data zakazniku.
+!tour-voice/_zvuky/*.mp3
