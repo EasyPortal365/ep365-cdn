@@ -76,11 +76,34 @@ if (!existsSync(src)) fail('nenalezen ' + src);
 let data;
 try { data = JSON.parse(readFileSync(src, 'utf8')); } catch (e) { fail('CHANGELOG.json neni validni JSON: ' + e.message); }
 
-const pending = Array.isArray(data.pending) ? data.pending : [];
-if (pending.length === 0) fail('pending je prazdny - neni co povysit (zmeny tichych verzi se pisou do "pending")');
+const allPending = Array.isArray(data.pending) ? data.pending : [];
+if (allPending.length === 0) fail('pending je prazdny - neni co povysit (zmeny tichych verzi se pisou do "pending")');
 
-// ── Brana pokryti ── meri TYZ nacteny `data`, ne druhe cteni souboru.
-const cov = checkFeatureCoverage({ app: repo, repo: join(APPS_ROOT, repo), data });
+// ── Jen to, co ve vydavanem buildu JE ── (ai-chat 2026-11-07: kod dalsi tiche verze 1.58.0.18
+// hotovy a jeho karty v pending, ostre vydani overeneho buildu 1.58.0.17 ceka na nedeli).
+// Karta se `since` vyssim nez postavena verze (config/app-version.json) patri do PRISTIHO vydani:
+// zustava v pending a do zakaznicke karty se nedostane. Karta bez `since` jde jako dosud.
+function verParts(v) { return String(v || '').split('.').map(n => parseInt(n, 10) || 0); }
+function verCmp(a, b) {
+  const x = verParts(a); const y = verParts(b);
+  for (let i = 0; i < Math.max(x.length, y.length); i++) { const d = (x[i] || 0) - (y[i] || 0); if (d) return d; }
+  return 0;
+}
+let builtVersion = '';
+try { builtVersion = JSON.parse(readFileSync(join(APPS_ROOT, repo, 'config', 'app-version.json'), 'utf8')).version || ''; } catch { builtVersion = ''; }
+const pending = builtVersion ? allPending.filter(c => !c.since || verCmp(c.since, builtVersion) <= 0) : allPending;
+const held = builtVersion ? allPending.filter(c => c.since && verCmp(c.since, builtVersion) > 0) : [];
+if (!builtVersion) console.log('(config/app-version.json nenacten - pending se bere cely, bez porovnani since)');
+if (held.length) {
+  console.log('Zustava v pending (since novejsi nez postaveny build ' + builtVersion + '): ' + held.length);
+  held.forEach(c => console.log('   - [' + c.since + '] ' + ascii(String(c.cs || '')).slice(0, 90)));
+  console.log('');
+}
+if (pending.length === 0) fail('vse v pending je z tichych verzi novejsich nez postaveny build ' + builtVersion + ' - neni co povysit');
+
+// ── Brana pokryti ── meri TYZ nacteny `data`, ne druhe cteni souboru – ale jen karty, ktere
+// jdou do teto karty (odlozene z novejsi tiche verze se meri az pri svem vydani).
+const cov = checkFeatureCoverage({ app: repo, repo: join(APPS_ROOT, repo), data: Object.assign({}, data, { pending }) });
 console.log(formatReport(cov).join('\n'));
 console.log('');
 let skipNote = null;
@@ -137,7 +160,7 @@ if (dryRun) {
   process.exit(0);
 }
 
-data.pending = [];
+data.pending = held;
 writeFileSync(src, JSON.stringify(data, null, 2) + '\n', 'utf8');
 try { JSON.parse(readFileSync(src, 'utf8')); } catch (e) { fail('zapsany JSON je rozbity: ' + e.message); }
 
