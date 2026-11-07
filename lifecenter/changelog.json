@@ -5,8 +5,98 @@
   "entries": [
     {
       "version": "1.20",
-      "date": "2026-10-07",
+      "date": "2026-11-07",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Průvodce s hlasem na každé obrazovce. V hlavičce obrazovek je tlačítko ▶ „Přehrát průvodce“: průvodce sám projde obrazovku odshora dolů, zvýrazní každou část a česky nebo anglicky, podle jazyka rozhraní, řekne, k čemu slouží. Najdete ho na Rozcestníku, v situaci a článku, ve vyhledávání, u garantů, v nápovědě, na obrazovkách přidělených situací a povinných školení i ve správě obsahu – každý jen na obrazovkách, které smí používat. Kdykoli ho pozastavíte, ztlumíte nebo ukončíte.",
+          "en": "A voiced guide on every screen. Screen headers have a ▶ “Play the guide” button: the guide walks through the screen from top to bottom, highlights each part and explains what it is for, in Czech or English depending on the interface language. It is on Home, in situations and articles, in search, guarantors, help, the assigned situation and mandatory training screens and in content management — everyone sees it only on the screens they may use. You can pause, mute or close it at any time."
+        },
+        {
+          "type": "new",
+          "cs": "Začínáme – průvodce zavedením Centra krok za krokem. Obrazovka provede správce od úvodního nastavení přes role, situace, návody a garanty až po přidělování, povinná školení a spuštění pro zaměstnance (19 kroků v pěti fázích). Stav každého kroku Centrum zjišťuje samo z toho, co na webu už je, ukázková data se do pokroku nepočítají. U kroku je tlačítko, které vás vezme přímo na místo, a „Ukaž mi to“, které vás tam provede bublinami (nic za vás neuloží). Vlastní cesty mají i autoři a schvalovatelé, HR a přidělovatelé a zaměstnanci; postup sdílí celý tým správců a volitelné kroky jde přeskočit. Ve fázi spuštění je připravený text oznámení pro e-mail a Teams. Na Rozcestníku je místo nabídky „Jste tu poprvé?“ karta Začínáme s průběhem a dalším krokem; odkaz v menu zmizí, jakmile je vše splněné, a Začínáme dál najdete v Nápovědě, v Nastavení a v rychlých příkazech (⌘K).",
+          "en": "Getting started — a step-by-step guide to rolling out the Centre. The screen takes administrators from the initial setup through roles, situations, guides and guarantors to assigning, mandatory training and the launch for employees (19 steps in five phases). The Centre works out each step’s state from what is already on the site; sample data never counts. Each step has a button that takes you straight to the place and “Show me”, which guides you there with bubbles (it never saves anything for you). Authors and approvers, HR and assigners, and employees have their own paths too; progress is shared by the whole administrator team and optional steps can be skipped. The launch phase includes a ready-made announcement for e-mail and Teams. Instead of the “First time here?” offer, Home shows a Getting started card with progress and the next step; the menu link disappears once everything is done, and Getting started stays available from Help, Settings and quick commands (⌘K)."
+        },
+        {
+          "type": "new",
+          "cs": "Hromadné přidělení jde upravit. V detailu dávky jsou tlačítka „Změnit termín“ a „Zrušit“. Obě se týkají všech, kdo ještě nesplnili a které spravujete – nejdřív uvidíte jmenovitý seznam, pak průběh a výsledek po lidech. Kdo už splnil, splnění si ponechá; do historie každého přidělení se zapíše důvod. Zrušení uzavře i úkoly ve Workplace a sady dokumentů v Řízených dokumentech, stejně jako u jednotlivého přidělení. Zrušené dávky mají v přehledu štítek a vlastní filtr.",
+          "en": "Group assignments can be edited. The group detail has “Change deadline” and “Cancel” buttons. Both apply to everyone who has not completed it yet and whom you manage — you first see the list of names, then the progress and the result per person. Whoever has completed it keeps the completion; the reason goes to the history of each assignment. Cancelling also closes Workplace tasks and document sets in Controlled documents, just like for a single assignment. Cancelled groups have a label and their own filter in the overview."
+        },
+        {
+          "type": "new",
+          "cs": "Kdo situaci má. Ve Všech situacích ukazuje štítek „přiděleno N lidem“ s iniciálami, kolik lidí situaci právě plní; klik vede do Přehledu plnění s filtrem situace. V Přehledu plnění vyberete konkrétního člověka a uvidíte jeho přidělené situace s počty aktivních, po termínu a splněných. U důvěrné situace jen počet, bez jmen.",
+          "en": "Who has a situation. In All situations the “assigned to N people” label with initials shows how many people are working on a situation; a click opens the Progress overview filtered to it. In the Progress overview you can pick a particular person and see their assigned situations with counts of active, overdue and completed. A confidential situation shows only the count, without names."
+        },
+        {
+          "type": "improved",
+          "cs": "Přidělení situace vede po krocích (situace, termíny, komu, lidé v krocích, zpráva a volby) s krátkým souhrnem každého kroku vlevo. Přidělíte z posledního kroku Shrnutí, kde hned vidíte, co ještě chybí, nebo komu a co přesně přijde – a na závěr dostanete potvrzení s dalšími kroky.",
+          "en": "Assigning a situation goes step by step (situation, dates, to whom, people in steps, message and options) with a short summary of each step on the left. You assign from the last step, Summary, where you see straight away what is still missing, or who receives what — followed by a confirmation with next steps."
+        },
+        {
+          "type": "improved",
+          "cs": "Situace a povinná školení se zakládají a upravují snáz. Novou situaci i nové povinné školení založíte jedním formulářem – situace i její plán vzniknou najednou. Plán situace se upravuje po sekcích (Parametry, Vlastník, Opakování, Kroky) se značkou změněných sekcí a shrnutím změn před uložením. Povinná školení spravuje správce Centra přímo v jejich přehledu: tlačítko „Nové povinné školení“ má opakování předem zapnuté (12 měsíců, celá firma), každá karta školení má tužku pro úpravu a v detailu je tlačítko „Upravit školení“.",
+          "en": "Situations and mandatory trainings are easier to create and edit. A new situation or a new mandatory training is created with one form — the situation and its plan at once. A situation plan is edited by sections (Parameters, Owner, Recurrence, Steps) with changed sections marked and a summary of the changes before saving. The Centre administrator manages mandatory trainings right in their overview: “New mandatory training” has recurrence already on (12 months, whole company), every training card has a pencil for editing, and the training detail has an “Edit training” button."
+        },
+        {
+          "type": "improved",
+          "cs": "Tlačítka pro přidělování vysvětlí, proč nejdou použít. „Přidělit“, „Přidělit skupině“ a „Doplnit lidi“ se bez oprávnění buď nezobrazila, nebo vypadala aktivně a nic nedělala. Teď jsou vidět jako zamčená a po najetí myší (a v pruhu nad seznamem) řeknou, co chybí – role Přidělovatel, zařazení do skupiny HR, nebo role vedoucího.",
+          "en": "Assigning buttons explain why they cannot be used. Without permission, “Assign”, “Assign to a group” and “Add people” used to be either hidden or look active and do nothing. They now show as locked and, on hover (and in a banner above the list), say what is missing — the Assigner role, membership in the HR group, or the manager role."
+        },
+        {
+          "type": "improved",
+          "cs": "Publikum „Všichni v adresáři“ a přidělování podle oddělení nebo skupiny počítají jen účty s licencí. Sdílené schránky, místnosti a servisní účty se tak nezapočítávají do povinných školení jako „nikdy“ a nenabízejí se k přidělení.",
+          "en": "The “Everyone in the directory” audience and assigning by department or group count only licensed accounts. Shared mailboxes, rooms and service accounts are no longer counted as “never” in mandatory trainings and are not offered for assignment."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozepsaná práce se neztratí bez dotazu. Editory návodů, situací, garantů a plánů, přidělování, nastavení, důvod u kroku i rozepsané hlášení chyby nebo návrh funkce se před zavřením, odchodem jinam, zavřením karty prohlížeče nebo obnovením stránky zeptají, co dál. Klávesa Esc v dialogu „Neuložené změny“ zavře jen dialog a nechá vás pokračovat v úpravě. Mazání a podobná potvrzení používají okno aplikace místo okna prohlížeče.",
+          "en": "Work in progress is not lost without asking. The guide, situation, guarantor and plan editors, assigning, settings, the reason on a step and an unsent bug report or feature suggestion ask what to do before you close, go elsewhere, close the browser tab or reload the page. The Esc key in the “Unsaved changes” dialog closes only the dialog and lets you keep editing. Deleting and similar confirmations use the application’s dialog instead of the browser’s."
+        },
+        {
+          "type": "improved",
+          "cs": "Hromadné akce nad výběrem jsou v pruhu u spodního okraje okna – v Přehledu plnění (Připomenout), v detailu povinného školení (Přidělit vybraným), ve Frontě připomínek (Odeslat) a v Seznamu článků (změna stavu, smazání). Dřív se lišta objevila nad tabulkou až po prvním zaškrtnutí a posunula řádky, takže další klik mohl trefit jiný řádek. Pruh se ovládá všude stejně: vlevo počet vybraných, vpravo „Zrušit výběr“ a klávesa Esc výběr zruší; Esc v potvrzení smazání zruší jen potvrzení.",
+          "en": "Bulk actions on a selection are in a bar at the bottom of the window — in Progress overview (Remind), the mandatory training detail (Assign to selected), the Reminder queue (Send) and the Article list (change status, delete). Previously the bar appeared above the table only after the first tick and pushed the rows down, so the next click could hit a different row. The bar works the same everywhere: the number of selected items on the left, “Clear selection” on the right, and Esc clears the selection; Esc in the delete confirmation cancels only the confirmation."
+        },
+        {
+          "type": "improved",
+          "cs": "Centrum se otevře rovnou v jazyce Workplace. Kdo má účet Microsoft 365 v angličtině a firma má Workplace nastavený česky, viděl při každém otevření pár sekund anglické menu. Centrum si poslední jazyk Workplace pamatuje a začíná v něm – i když se nastavení Workplace jednou nepodaří přečíst. Vlastní volba jazyka v Centru má dál přednost.",
+          "en": "The Centre opens straight in the Workplace language. Users with an English Microsoft 365 account on a Czech Workplace used to see the English menu for a few seconds on every start. The Centre remembers the last Workplace language and starts in it — even when the Workplace settings cannot be read once. Your own language choice in the Centre still takes precedence."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení je přehlednější. Skupina SharePointu pro roli HR a IT se vybírá ze seznamu skupin webu místo ručního zápisu názvu a výběr řekne, když uložená skupina na webu už není. Datové seznamy vypadají a fungují stejně jako v ostatních aplikacích EasyPortal 365: u každého seznamu a knihovny je ochrana, počet položek a ověřený stav oprávnění, tlačítko „Zkontrolovat“ načte stav znovu a souhrn nahoře rozliší v pořádku, nesoulad a „nepodařilo se ověřit“.",
+          "en": "Settings are clearer. The SharePoint group for the HR and IT roles is picked from the list of the site’s groups instead of typing its name, and the picker says so if the saved group no longer exists on the site. Data lists look and work the same as in the other EasyPortal 365 apps: every list and library shows its protection, item count and verified permission state, “Check” reloads the state, and the summary at the top distinguishes fine, mismatch and “could not be verified”."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobná vylepšení: formulář garanta se vejde bez vodorovného posuvníku a garantované situace se vybírají stejně jako jinde ve správě obsahu; hledání v Nápovědě, ve výběru situací u návodu a na Prezenční listině nezávisí na diakritice („skoleni“ najde „Školení“); výchozí tyrkysový motiv používá stejné barvy jako ostatní aplikace EasyPortal 365; průvodce aplikací při ztmavení stránky nezakrývá horní lištu SharePointu.",
+          "en": "Smaller improvements: the guarantor form fits without a horizontal scrollbar and covered situations are picked the same way as elsewhere in content management; searching in Help, in the situation picker of a guide and on the Attendance sheet ignores Czech diacritics; the default teal theme uses the same colours as the other EasyPortal 365 apps; the app tour no longer darkens the SharePoint top bar."
+        },
+        {
+          "type": "fixed",
+          "cs": "Anglická verze je anglicky celá – výběr osob a skupin, hlášky po odeslání e-mailů a pozvánek, chyby a upozornění při přidělování, v editoru plánu, u opakovaného školení a v Nastavení, upozornění na neaktivní licenci i interpunkce. V české verzi se české uvozovky všude zavírají správně, počty dnů, měsíců a lidí se skloňují („1 den“, „2 dny“, „5 dní“) a hlášky o oprávněních odkazují na roli v Nastavení → Role uživatelů místo technického názvu skupiny.",
+          "en": "The English version is fully in English — picking people and groups, messages after sending e-mails and invitations, errors and warnings when assigning, in the plan editor, for recurring training and in Settings, notices about an inactive licence, and punctuation. In the Czech version quotation marks are closed correctly everywhere, counts of days, months and people are declined properly, and permission messages point to the role in Settings → User roles instead of a technical group name."
+        },
+        {
+          "type": "fixed",
+          "cs": "Srozumitelnější hlášky při potížích. Když se přeruší spojení se SharePointem, aplikace u ukládání řekne, že se nedá říct, jestli se změna uložila, a že je potřeba stránku obnovit a záznam zkontrolovat; u načítání, že se data nenačetla – místo technické hlášky „Failed to fetch“. Když se při zrušení přidělení nepodaří odvolat pozvánku v kalendáři, aplikace to řekne.",
+          "en": "Clearer messages when something goes wrong. When the connection to SharePoint drops, the app says when saving that it cannot tell whether the change was saved and that you should reload the page and check the record, and when loading that the data did not load — instead of a technical “Failed to fetch”. When cancelling an assignment fails to withdraw the calendar invitation, the app says so."
+        },
+        {
+          "type": "fixed",
+          "cs": "Smazaný obsah se už nepočítá. Uložené a Rozečtené nezapočítávají smazané návody a nevedou na hlášku „Článek nenalezen“; smazaná životní situace se nepočítá do odznaku „Moje situace“ ani do přehledu Sleduji a na Rozcestníku nepřepne nadpis na „Vaše situace“ nad samými doporučenými.",
+          "en": "Deleted content is no longer counted. Saved and In progress do not count deleted guides and no longer lead to “Article not found”; a deleted life situation does not count towards the “My situations” badge or the Following overview and does not switch the Home heading to “Your situations” above recommended ones only."
+        },
+        {
+          "type": "fixed",
+          "cs": "Ukázková data zůstanou ukázkou i po propojení se situací, změně stavu nebo schválení – smazání ukázky je pak opravdu odklidí. Příznak ukázky shodí jen úprava obsahu v editoru.",
+          "en": "Sample data stays sample data after linking to a situation, a status change or approval, so deleting the sample really removes it. Only editing the content in the editor clears the sample flag."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rozložení obrazovek: na detailu situace se tlačítka a ikony v hlavičce na užším okně zalomí na další řádek a nepřetékají mimo obrazovku; v detailu přidělení jdou tlačítka na užší kartě kroku pod text, takže se název kroku neláme po slovech; detail povinného školení má hlavičku s drobečkovou navigací i při načítání a při chybě čtení.",
+          "en": "Screen layout: on the situation detail the header buttons and icons wrap to the next line in a narrower window and no longer overflow off the screen; in assignment details the buttons on a narrower step card move below the text, so the step name no longer breaks word by word; the mandatory training detail shows its header with breadcrumbs while loading and when reading fails."
+        },
         {
           "type": "new",
           "cs": "Povinná školení. Situaci jde nastavit jako opakované školení – třeba BOZP každých 12 měsíců – s publikem (všichni, skupina nebo oddělení) a lhůtou pro nové lidi. Nový přehled Povinná školení ukazuje u každého člověka, jestli má školení platné, kdy mu vyprší, jestli propadlo, nebo ho nikdy neměl, s exportem a tiskem pro audit. Z detailu školení jedním krokem obnovíte nové kolo lidem, kterým platnost končí, a těm, kdo ho ještě nemají. Školení přidělíte i jen vybraným lidem nebo jednomu člověku tlačítkem Přidělit v jeho řádku. Platnost se počítá od posledního splnění a poslední doklad o školení se nikdy nemaže.",
