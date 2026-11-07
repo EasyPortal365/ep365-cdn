@@ -102,7 +102,8 @@ const pred = trackedMB();
 if (pred === null) konec('nepodarilo se zmerit velikost trackovaneho obsahu (git ls-tree) - bez cisla se prorez neplanuje');
 console.log('Politika: ' + POLICY);
 console.log('  bundly --keep ' + KEEP_BUNDLES + ' --protect ' + (PROTECT.join(',') || '(nic)') + ' | verze --keep ' + KEEP_VERSIONS
-  + ' | ostre --keep-releases ' + (pol.keepReleases !== undefined ? pol.keepReleases : 'vsechny') + ' | prahy ' + WARN_MB + '/' + LIMIT_MB + ' MB | vzory rozsireni ' + (PATTERNS.join(' ') || '(zadne)'));
+  + ' | ostre --keep-releases ' + (pol.keepReleases !== undefined ? pol.keepReleases : 'vsechny')
+  + ' | tiche starsi nez ostra pryc po ' + (pol.silentAfterReleaseDays !== undefined ? pol.silentAfterReleaseDays + ' dnech' : '(vypnuto)') + ' | prahy ' + WARN_MB + '/' + LIMIT_MB + ' MB | vzory rozsireni ' + (PATTERNS.join(' ') || '(zadne)'));
 console.log('CDN pred prorezem: ' + pred.toFixed(1) + ' MB trackovaneho obsahu (Pages limit ~1 GB)');
 console.log('Rezim: ' + (APPLY ? 'APPLY (maze)' : 'PLAN (nic se nemaze)') + '\n');
 
@@ -141,8 +142,12 @@ const perAppArg = perAppPairs.length ? ['--keep-app', perAppPairs.join(',')] : [
 // `keepReleases` je nepovinne: bez nej se chrani vsechna ostra vydani z releases.json (stav do 2026-10-29).
 if (pol.keepReleases !== undefined && !(typeof pol.keepReleases === 'number' && pol.keepReleases >= 1)) konec('politika ma neplatne "keepReleases" (cislo >= 1, nebo pole vynechat)');
 const keepRelArg = pol.keepReleases !== undefined ? ['--keep-releases', String(pol.keepReleases)] : [];
+// `silentAfterReleaseDays` je nepovinne (Kami 2026-11-07): tiche verze STARSI nez posledni ostra
+// zmizi, jakmile je ta ostra N dni venku. Bez pole se tiche drzi jen oknem keepVersions.
+if (pol.silentAfterReleaseDays !== undefined && !(typeof pol.silentAfterReleaseDays === 'number' && pol.silentAfterReleaseDays >= 1)) konec('politika ma neplatne "silentAfterReleaseDays" (cislo >= 1, nebo pole vynechat)');
+const graceArg = pol.silentAfterReleaseDays !== undefined ? ['--silent-after-release-days', String(pol.silentAfterReleaseDays)] : [];
 krok('4/5 prorez verznich slozek runtime kanalu', 'prune-versions.mjs',
-  ['--keep', String(KEEP_VERSIONS)].concat(notAppsArg, perAppArg, keepRelArg, APPLY ? ['--apply'] : []));
+  ['--keep', String(KEEP_VERSIONS)].concat(notAppsArg, perAppArg, keepRelArg, graceArg, APPLY ? ['--apply'] : []));
 
 // ------------------------------------------------------------ 5. verdikt -----
 console.log('--- 5/5 velikost po prorezu ---');

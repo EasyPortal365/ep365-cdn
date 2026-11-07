@@ -113,6 +113,16 @@ const KEEP_RELEASES = (() => {
   const n = i !== -1 ? parseInt(args[i + 1], 10) : NaN;
   return isNaN(n) ? Infinity : Math.max(1, n);
 })();
+// --silent-after-release-days N : tiche verze STARSI nez nejnovejsi ostra vypadnou z okna --keep,
+// jakmile je ta ostra N dni venku (politika silentAfterReleaseDays; Kami 2026-11-07: zakaznici
+// jedou jen na ostrych, k tiche starsi verzi se po tydnu nikdo nevraci). Tiche NOVEJSI nez ostra
+// (rozpracovana prace) drzi okno --keep dal. Ostre z okna --keep-releases a pinute verze
+// chrani jejich vlastni pravidla – tohle zuzuje jen okno --keep.
+const SILENT_GRACE_DAYS = (() => {
+  const i = args.indexOf('--silent-after-release-days');
+  const n = i !== -1 ? parseInt(args[i + 1], 10) : NaN;
+  return isNaN(n) ? Infinity : Math.max(1, n);
+})();
 
 const VER_RE = /^\d+(\.\d+)*$/;
 
@@ -138,6 +148,16 @@ function dirSizeMB(dir) {
   };
   try { walk(dir); } catch { /* nedostupné = 0 */ }
   return total / (1024 * 1024);
+}
+
+/** Datum ostrého vydání verze z releases.json (ms), nebo NaN, když ho nevíme. */
+function releaseDate(appDir, version) {
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(appDir, 'releases.json'), 'utf8'));
+    const list = Array.isArray(raw) ? raw : (raw.releases || []);
+    const r = list.find(x => x && String(x.version) === version);
+    return r && r.date ? Date.parse(r.date) : NaN;
+  } catch (e) { return NaN; }
 }
 
 /** Verze, které NESMÍ zmizet: vše z releases.json (ostrá vydání). */
@@ -326,6 +346,17 @@ for (const app of apps) {
   // Okno ostrych vydani: pocita se jen z verzi, ktere na disku jsou (`versions` je serazene
   // od nejnovejsi), takze nejnovejsi ostra = to, co bere zakaznik bez pinu, zustane vzdy.
   const vsechnyOstre = versions.filter(v => released.has(v));
+  // Tiche starsi nez nejnovejsi ostra: po SILENT_GRACE_DAYS od jejiho vydani je okno --keep
+  // nedrzi. Nezname datum = nevime, jak dlouho je venku -> okno plati jako driv.
+  let tichePoOstre = [];
+  if (SILENT_GRACE_DAYS !== Infinity && vsechnyOstre.length) {
+    const posledniOstra = vsechnyOstre[0];
+    const kdy = releaseDate(appDir, posledniOstra);
+    if (!isNaN(kdy) && (Date.now() - kdy) / 86400000 >= SILENT_GRACE_DAYS) {
+      tichePoOstre = versions.filter(v => keepNewest.has(v) && !released.has(v) && cmpVer(v, posledniOstra) < 0);
+      tichePoOstre.forEach(v => keepNewest.delete(v));
+    }
+  }
   const ostreMimoOkno = vsechnyOstre.slice(KEEP_RELEASES);
   ostreMimoOkno.forEach(v => released.delete(v));
   // Pin mimo okno --keep = jediny duvod, proc tenhle radek existuje (#250).
@@ -346,6 +377,7 @@ for (const app of apps) {
   if (ostreZachranenePinem.length) pozn.push(`OSTRA ZACHRANENA PINEM: ${ostreZachranenePinem.join(' ')}`);
   if (pinned.size) pozn.push(`${pinned.size} pinu`);
   if (pinnedMimoOkno.length) pozn.push(`ZACHRANENO PINEM: ${pinnedMimoOkno.join(' ')}`);
+  if (tichePoOstre.length) pozn.push(`${tichePoOstre.length} tichych starsich nez ostra ${vsechnyOstre[0]} (> ${SILENT_GRACE_DAYS} d)`);
 
   rows.push({
     app, verzi: versions.length,
