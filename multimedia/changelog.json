@@ -5,8 +5,98 @@
   "entries": [
     {
       "version": "1.15",
-      "date": "2026-09-10",
+      "date": "2026-11-08",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Mediální centrum jde zvětšit na celou obrazovku – první ikonou vpravo v hlavičce každé obrazovky i na rozcestníku. Aplikace pak vyplní celé okno pod horní lištou SharePointu, posouvá se jen obsah a další klik (nebo klávesa Esc) ji vrátí zpět. Volbu si aplikace pamatuje pro daný web. Na telefonu a v Teams se ikona nezobrazuje – tam má aplikace celou plochu sama.",
+          "en": "The Media Center can be expanded to full screen — with the first icon on the right of every screen header and on the home page. The app then fills the whole window below the SharePoint top bar, only the content scrolls, and another click (or the Esc key) returns it to normal. The app remembers the choice for the site. The icon is not shown on phones and in Teams, where the app already has the whole area."
+        },
+        {
+          "type": "improved",
+          "cs": "Nahrávání médií i zakládání kolekcí jsou formuláře po krocích. Nahrávání se mění podle typu (fotka, video, brand, dokument, hromadně) a před nahráním ukáže shrnutí; po nahrání uvidíte, co prošlo, co ne a proč, a „Zkusit znovu“ nahraje jen neúspěšné soubory. Zrušit uprostřed nahrávání se nejdřív zeptá, „Zastavit nahrávání“ opravdu zastaví další soubory a opakované nahrání nevytváří v knihovně duplicity. Kolekce se zakládá po krocích Kolekce, Zařazení, Obal a Shrnutí a upravuje po sekcích se souhrnem; smazání kolekce potvrzuje okno s předvybraným Zrušit.",
+          "en": "Uploading media and creating collections are step-by-step forms. Uploading adapts to the type (photo, video, brand, document, bulk) and shows a summary before uploading; afterwards you see what went through, what did not and why — and “Try again” uploads only the failed files. Cancel during an upload asks first, “Stop uploading” really stops the remaining files, and retrying no longer creates duplicates in the library. A collection is created in the steps Collection, Placement, Cover and Summary and edited by sections with a summary; deleting a collection is confirmed in a window with Cancel preselected."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozepsaná práce se bez zeptání neztratí: zavření panelu, přechod jinam, přepnutí sekce Nastavení, ⌘K i Zpět v prohlížeči se nejdřív zeptají, jestli pokračovat v úpravě, nebo změny zahodit. Platí pro nahrávání, kolekce, úpravu média, Nastavení i rozepsané hlášení chyby nebo návrh funkce. Klávesa Esc v tomto dotazu práci ponechá a panel pod ním zůstane otevřený. Mazání a další potvrzení jsou okna aplikace místo okének prohlížeče, s předvybranou bezpečnější volbou.",
+          "en": "Unsaved work is never lost without asking: closing a panel, moving elsewhere, switching a Settings section, ⌘K and the browser Back button first ask whether to keep editing or discard the changes. This covers uploading, collections, media editing, Settings and an unsent bug report or feature suggestion. Pressing Esc in this prompt keeps your work and the panel underneath stays open. Deleting and other confirmations use app windows instead of browser pop-ups, with the safer choice preselected."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení je přehlednější – média, kolekce a brand se spravují přímo tam, kde je vidíte. Karta Obsah vás jedním klikem dovede do Knihovny médií, Kolekcí nebo Brand centra a staré odkazy na zrušené sekce Nastavení vedou na ni. Verze & informace → Datové seznamy ukazuje u každého seznamu a knihovny, jakou ochranu má mít, kolik má položek, jestli je skrytý, a změřený verdikt „oprávnění OK“, nebo kdo má přístup navíc; „chybí“ přitom odlišuje od „nepodařilo se přečíst“.",
+          "en": "Settings are tidier — media, collections and brand are managed right where you see them. The Content card takes you to the Media library, Collections or the Brand center in one click, and old links to the removed settings sections lead to it. Version & info → Data lists shows for every list and library the intended protection, the number of items, whether it is hidden, and the measured verdict “permissions OK” or who has extra access; it tells “missing” apart from “could not be read”."
+        },
+        {
+          "type": "improved",
+          "cs": "Lišta hromadných akcí v Knihovně má jednotný vzhled jako v ostatních aplikacích – bílá s tyrkysovým okrajem a s tlačítkem Zrušit výběr; výběr zruší i klávesa Esc. Chyba stažení ZIP se ukáže přímo v liště a lišta už nezakrývá poslední řadu médií ani stránkování.",
+          "en": "The bulk actions bar in the Library looks the same as in the other apps — white with a teal border and a Clear selection button; the Esc key also clears the selection. A ZIP download error is shown right in the bar, and the bar no longer covers the last row of media or the pagination."
+        },
+        {
+          "type": "improved",
+          "cs": "Kroky průvodce aplikací ukazují na konkrétní prvek obrazovky, o kterém mluví, a průvodce při ztmavení stránky nezakrývá horní lištu SharePointu.",
+          "en": "The app tour’s steps point at the specific element of the screen they talk about, and the tour no longer darkens the SharePoint top bar."
+        },
+        {
+          "type": "improved",
+          "cs": "Vzhled sjednocený s ostatními aplikacemi EasyPortal 365: zvýrazněná věta nadpisu je vždy na vlastním řádku, stránka Brand má kompaktní hlavičku, boční panely (nahrávání, kolekce, brand i hromadné akce) jsou širší a levý panel má stejnou šířku jako jinde. Výchozí tyrkysový motiv používá sjednocené odstíny a tipy v nápovědě i odznaky na světlém podkladu barvy motivu jsou čitelné i u světlých firemních barev. Přetažení souborů na Knihovnu nezakrývá horní lištu SharePointu.",
+          "en": "The look is aligned with the other EasyPortal 365 apps: the highlighted sentence of a heading is always on its own line, the Brand page has a compact header, side panels (upload, collections, brand and bulk actions) are wider and the left panel has the same width as elsewhere. The default teal theme uses the unified shades, and tips in Help and badges on a light tint of the theme colour stay readable even with light company colours. Dragging files onto the Library no longer covers the SharePoint top bar."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace řekne, co se děje, místo prázdné plochy nebo technické hlášky. Při prvním spuštění a po aktualizaci, kdy připravuje své seznamy, ukáže, co právě dělá a že to může chvíli trvat. Když se přeruší spojení se SharePointem, místo anglického „Failed to fetch“ řekne, že se data nenačetla, nebo že se při ukládání nedá říct, jestli se změna uložila – a poradí obnovit stránku a záznam zkontrolovat. Když se nepodaří ověřit, jestli jste správce aplikace (například při výpadku sítě), řekne to, místo aby hlásila „Přístup odepřen“.",
+          "en": "The app says what is going on instead of showing an empty area or a technical message. On first start and after an update, while it prepares its lists, it shows what it is doing and that it may take a while. When the connection to SharePoint drops, instead of the browser message “Failed to fetch” it says that the data did not load, or that there is no way to tell whether a change was saved — and advises reloading the page and checking the record. When it cannot verify whether you are an administrator (for example during a network outage), it says so instead of reporting “Access denied”."
+        },
+        {
+          "type": "improved",
+          "cs": "Uživatelé se slovenským jazykem Microsoft 365 vidí aplikaci česky – dosud ji viděli anglicky; vlastní volba jazyka i jazyk nastavený pro všechny aplikace ve Workplace mají dál přednost. Mediální centrum se otevírá rovnou v jazyce Workplace, bez několika sekund angličtiny na začátku, a poslední známý jazyk si pamatuje i ve chvíli, kdy se nastavení Workplace krátce nepodaří přečíst. Anglická verze je anglicky celá (paleta příkazů, navigace v hlavičce, výběr osob a skupin i hlášky včetně hlášky o neaktivní licenci) a texty mají správné tvary k počtu („1 médium“, „2 soubory“) a české uvozovky.",
+          "en": "Users whose Microsoft 365 language is Slovak see the app in Czech — until now they saw it in English; a user’s own language choice and the language set for all apps in Workplace still take precedence. The Media Center opens directly in the Workplace language, without a few seconds of English at the start, and keeps the last known language even when the Workplace settings briefly cannot be read. The English version is fully in English (command palette, header navigation, people and group picker and messages including the inactive licence notice) and uses the English dash, and texts use the correct word forms for counts."
+        },
+        {
+          "type": "improved",
+          "cs": "Stránka „Roadmapa“ se jmenuje „Co je nového“ a nese přehled vydaných verzí se zvýrazněnou verzí, kterou právě máte. Když se přehled nepodaří načíst, stránka to řekne, místo aby vypadala prázdná. Aplikace tím nevolá žádnou službu mimo váš tenant a naši distribuční síť.",
+          "en": "The “Roadmap” page is now called “What’s new” and shows the overview of released versions with your current one highlighted. When the overview cannot be loaded, the page says so instead of looking empty. The application therefore no longer calls any service outside your tenant and our distribution network."
+        },
+        {
+          "type": "improved",
+          "cs": "Odebrání role (třeba ze správců) se projeví hned po obnovení stránky – aplikace roli při každém otevření znovu ověří. Kdo byl právě přidán mezi správce Mediálního centra, dostane správcovskou roli do dvou minut, ne až za půl hodiny.",
+          "en": "Removing a role (for example from administrators) takes effect as soon as you reload the page — the app re-checks the role every time it opens. Someone just added to the Media Center administrators gets the administrator role within two minutes rather than after half an hour."
+        },
+        {
+          "type": "improved",
+          "cs": "Pozdrav na úvodní stránce oslovuje křestním jménem v 5. pádě („Dobré ráno, Jano.“). U jmen, kde si tvarem nejsme jistí, zůstává jméno beze změny.",
+          "en": "In the Czech version, the greeting on the home page addresses you by your first name in the Czech vocative case. Names whose form is uncertain stay unchanged."
+        },
+        {
+          "type": "fixed",
+          "cs": "Microsoft Teams: oblíbené položky a naposledy zobrazené se v Teams ukládají a načítají za vás – dosud mohly připadnout jinému uživateli webu, protože Teams předával číslo vašeho účtu z jiného webu SharePointu. Když se váš účet na webu Mediálního centra nepodaří ověřit, aplikace to řekne a nabídne nový pokus. Odkazy zkopírované nebo odeslané z Teams (na médium či obrazovku, e-mailem, sdílením do Teams) vedou na stránku, kde Mediální centrum na SharePointu běží – ne na technickou stránku Teams ani jen na úvod webu; adresu webu mimo vaši organizaci aplikace nepoužije a řekne proč. Přepínání obrazovek v Teams už nemění adresu, kterou Teams potřebuje.",
+          "en": "Microsoft Teams: favourites and recently viewed items are saved and loaded under your name in Teams — until now they could end up with another user of the site, because Teams passed your account number from a different SharePoint site. If your account cannot be verified on the Media Center site, the app says so and offers to try again. Links copied or sent from Teams (to a media item or a screen, by e-mail, shared to Teams) lead to the page where the Media Center runs in SharePoint — not to the technical Teams page or just the site home; the app will not use a site address outside your organization and says why. Switching screens in Teams no longer changes the address Teams relies on."
+        },
+        {
+          "type": "fixed",
+          "cs": "Datum kolekce a datum expirace média zadané přímo ve formuláři SharePointu se v aplikaci ukazuje správně – editor ho dosud ukázal o den dřív a jeho uložení datum o den posunulo. Správa média v poslední den platnosti už nehlásí, že je datum v minulosti: médium platí celý poslední den a expirované je až po půlnoci.",
+          "en": "A collection date or media expiry date entered directly in the SharePoint form shows correctly in the app — until now the editor showed it one day earlier and saving it moved the date by a day. On the last day of validity, media management no longer says the date is in the past: the media stays valid for the whole last day and expires after midnight."
+        },
+        {
+          "type": "fixed",
+          "cs": "Import z existující složky zvládne složky i soubory s # nebo % v názvu (třeba „Akce #12“ nebo „Sleva 20%.jpg“) – dřív náhled složky nebo kopie souboru skončily chybou; kopie v mediálním centru má místo # a % podtržítko. Média s takovým názvem, nahraná do knihovny přímo v SharePointu, se v aplikaci zobrazí, přehrají i stáhnou (i v ZIP) a funguje u nich přímý odkaz i historie verzí.",
+          "en": "Import from an existing folder handles folders and files with # or % in their name (such as “Event #12” or “Discount 20%.jpg”) — until now the folder preview or the file copy ended with an error; the copy in the media center gets an underscore instead of # and %. Media with such a name uploaded to the library directly in SharePoint display, play and download in the app (including ZIP download), and their direct link and version history work."
+        },
+        {
+          "type": "fixed",
+          "cs": "Výběr štítků a kolekcí během načítání neukazuje „číselník je prázdný“ ani „bez kolekce“ a nenabízí založení nového štítku nebo kolekce – dosud tak šlo omylem založit štítek či kolekci, které už existují. Vybrané štítky se do načtení číselníku neoznačují jako smazané. Hromadné přiřazení do kolekce nezaloží druhou kolekci téhož jména: když napíšete název existující kolekce (i s jinou velikostí písmen), média se přiřadí do ní.",
+          "en": "While tags or collections are loading, the pickers no longer say “the tag list is empty” or “no collection” and do not offer creating a new tag or collection — until now a tag or collection that already exists could be created again by mistake. Selected tags are no longer marked as deleted before the tag list loads. Bulk assignment to a collection no longer creates a second collection with the same name: when you type the name of an existing collection (even in different letter case), the media are assigned to it."
+        },
+        {
+          "type": "fixed",
+          "cs": "Odkazy na Mediální centrum z Workplace (dlaždice aplikace i upozornění na expirující média) vedou na stránku, kde aplikace je, ne na úvodní stránku webu. Tlačítko Teams v prohlížeči médií funguje i v desktopové aplikaci Teams a tlačítko E-mail otevře poštovního klienta přímo – stejně jako na stránce média. V seznamovém zobrazení knihovny otevře Enter nebo mezerník na tlačítku ⓘ kartu s detailem média, ne prohlížeč. Název média končící tečkou se v nadpisu už nezobrazuje se dvěma tečkami a datum platnosti licence v Nastavení se řídí místním časem.",
+          "en": "Links to the Media Center from Workplace (the app tile and the notices about expiring media) lead to the page where the app is, not to the site home page. The Teams button in the media viewer also works in the Teams desktop app, and the E-mail button opens your mail client directly — just like on the media page. In the library list view, Enter or the space bar on the ⓘ button opens the media detail card, not the viewer. A media title ending with a full stop no longer shows two full stops in the heading, and the licence validity date in Settings follows local time."
+        },
+        {
+          "type": "fixed",
+          "cs": "Testovací data: smazání uklidí i čítače zobrazení a stažení a oblíbená média, maže i ve velké knihovně všechno (ne jen prvních pět tisíc položek) a odepřený přístup ohlásí jako chybu místo „hotovo“. Vytvoření řekne, které části přeskočilo, protože už data mají, a brand podklady se při opakovaném spuštění nezdvojí.",
+          "en": "Test data: deleting it also clears view and download counters and favourites, removes everything even in a large library (not just the first five thousand items) and reports denied access as an error instead of “done”. Creating it says which parts it skipped because they already have data, and brand assets are not duplicated on a repeated run."
+        },
         {
           "type": "new",
           "cs": "Detail média se otevírá jako plnohodnotná stránka místo úzkého panelu – větší náhled, metadata i hotové odkazy pro vložení na jednom místě. Seznamový režim knihovny navíc reaguje na najetí myší a dá se ovládat klávesnicí.",
