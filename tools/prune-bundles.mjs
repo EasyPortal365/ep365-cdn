@@ -128,9 +128,15 @@ licCandidates = app => [...trackedFlat].filter(p => p.indexOf(app + '/') === 0).
 // nezavisle overeni nize.
 let licKept = () => false;
 // #region LICENSE-KEEP
-licKept = (app, bundle, files, marked, lic) => files.indexOf(bundle) !== -1
-  ? marked.has(bundle) && refersTo(app, bundle, lic)     // bundle na disku: zustava s nim, jen kdyz odkazuje
-  : trackedFlat.has(app + '/' + bundle);                 // bundle v gitu, lokalne smazany: nesahat
+// Licenci jmenuje i jiny ponechany soubor nez "jeji" bundle: stabilni loader
+// (`ep-365-<app>-loader.js`) je kopie bundlu webpartu pod jinym jmenem a nese jeho hlavicku
+// "see ep-365-<app>-web-part_<hash>.js.LICENSE.txt", i kdyz hashovany bundle na disku neni.
+// Naostro 2026-11-08 (lifecenter po ostrem vydani): licence vypadala jako sirotek, prorez ji
+// naplanoval a zastavilo ho az nezavisle overeni.
+licKept = (app, bundle, files, marked, lic) => [...marked].some(m => m !== bundle && refersTo(app, m, lic))
+  || (files.indexOf(bundle) !== -1
+    ? marked.has(bundle) && refersTo(app, bundle, lic)     // bundle na disku: zustava s nim, jen kdyz odkazuje
+    : trackedFlat.has(app + '/' + bundle));                // bundle v gitu, lokalne smazany: nesahat
 // #endregion LICENSE-KEEP
 
 const sweep = [];
