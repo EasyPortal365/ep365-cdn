@@ -44,8 +44,8 @@
         },
         {
           "type": "new",
-          "cs": "Nový zdroj OneDrive: asistent najde i vaše vlastní soubory v OneDrivu – třeba „najdi moji nabídku z minulého měsíce“. Hledá vaším účtem a jen ve vašem OneDrivu a nic nemění. Správce ho zapíná v Nastavení → OneDrive (ve výchozím stavu je vypnutý). Se zapnutou hranicí zdrojů se soubory z OneDrivu vynechají a asistent to řekne.",
-          "en": "New OneDrive source: the assistant also finds your own files in OneDrive — for example “find my quote from last month”. It searches with your account and only in your OneDrive, and changes nothing. Your admin turns it on in Settings → OneDrive (off by default). With a source boundary on, OneDrive files are left out and the assistant says so."
+          "cs": "Nový zdroj OneDrive: asistent najde i vaše vlastní soubory v OneDrivu – třeba „najdi moji nabídku z minulého měsíce“. Hledá vaším účtem a jen ve vašem OneDrivu a nic nemění. Správce ho zapíná v Nastavení → OneDrive (ve výchozím stavu je vypnutý). V Prompt Studiu pro něj přibyla dlaždice Moje soubory s úlohami Najít můj soubor, Na čem jsem pracoval, Moje soubory k projektu a Moje i firemní podklady. Se zapnutou hranicí zdrojů se soubory z OneDrivu vynechají a asistent to řekne.",
+          "en": "New OneDrive source: the assistant also finds your own files in OneDrive — for example “find my quote from last month”. It searches with your account and only in your OneDrive, and changes nothing. Your admin turns it on in Settings → OneDrive (off by default). Prompt Studio gets a My files tile for it with the tasks Find my file, What I have been working on, My files for a project and My files and company documents. With a source boundary on, OneDrive files are left out and the assistant says so."
         },
         {
           "type": "new",
