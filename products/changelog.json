@@ -5,8 +5,78 @@
   "entries": [
     {
       "version": "1.3",
-      "date": "2026-09-10",
+      "date": "2026-11-10",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Nový produkt založíte formulářem po krocích: Produkt, Prezentace, Cena, Zveřejnění a Shrnutí. Povinný je jen název, vlevo vidíte, co už je vyplněné a komu bude produkt vidět, a po založení pokračujete rovnou do editoru, na stránku produktu nebo k dalšímu produktu. Po krocích vede i rozesílání novinek – od obsahu přes příjemce ke shrnutí – a na konci řekne, kdo e-mail dostal a kdo ne.",
+          "en": "You create a new product with a step-by-step form: Product, Presentation, Price, Publishing and Summary. Only the name is required, on the left you see what is already filled in and who will see the product, and after creating it you continue straight to the editor, to the product page or to the next product. The news mailing is guided step by step as well – from content through recipients to a summary – and at the end it tells you who received the e-mail and who did not."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace před spuštěním ověří digitální podpis svého kódu. Kód, který podpisem neprojde, se nespustí a aplikace místo toho srozumitelně řekne, že verzi nebylo možné ověřit.",
+          "en": "Before it starts, the app verifies the digital signature of its code. Code that fails the signature check does not run, and the app says plainly that the version could not be verified instead."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozesílání novinek je spolehlivější. Drží tempo, které Microsoft 365 u schránky dovolí (30 zpráv za minutu), předem odhadne, jak dlouho potrvá, a když Microsoft odesílání dočasně omezí, počká a zkusí to znovu; najednou jde rozeslat nejvýš 300 e-mailů. Výsledek se po rozeslání neztratí a ukáže, kolik e-mailů neodešlo a komu. Když se novinky některé aplikace nepodaří načíst, přehled Verze aplikací i newsletter to řeknou – neúplný newsletter jde rozeslat jen po výslovném potvrzení a kampaň v CRM to poznamená. Přerušené spojení s Microsoft 365 popíše srozumitelná věta včetně toho, že se nedá poznat, jestli e-mail odešel. Patička každého e-mailu říká, že jde o obchodní sdělení a jak ho odmítnout.",
+          "en": "The news mailing is more reliable. It keeps to the pace Microsoft 365 allows for the mailbox (30 messages a minute), estimates up front how long it will take, and when Microsoft temporarily throttles sending it waits and tries again; at most 300 e-mails can go out at once. The result is no longer lost after sending and shows how many e-mails failed and to whom. When the news of an app cannot be loaded, both the Application versions overview and the newsletter say so – an incomplete newsletter can only be sent after explicit confirmation and the CRM campaign notes it. A lost connection to Microsoft 365 is described in a plain sentence, including that it cannot be told whether the e-mail went out. The footer of every e-mail says it is a commercial message and how to opt out."
+        },
+        {
+          "type": "improved",
+          "cs": "Obrazovka Roadmapa se změnila na Co je nového: ukazuje vaši verzi a změny v jednotlivých vydaných verzích. Čte jen náš vlastní obsah, takže funguje i za firemní proxy a nepřestane odpovídat po několika otevřeních z jedné firemní sítě, jak se dřív stávalo s veřejným GitHubem. Když se seznam nepodaří načíst, řekne to, místo aby tvrdila, že nic nepřibylo.",
+          "en": "The Roadmap screen has become What’s new: it shows your version and the changes in each released version. It reads only our own content, so it works behind a corporate proxy as well and no longer stops responding after a few opens from one company network, as used to happen with public GitHub. When the list cannot be loaded, it says so instead of claiming nothing has been added."
+        },
+        {
+          "type": "improved",
+          "cs": "Práce s katalogem: tabulku produktů řadíte klikem na záhlaví sloupce, druhým klikem pořadí obrátíte; výběr Řadit zůstal u dlaždic. Pruh hromadných akcí plave u spodního okraje okna, nezakryje poslední řádek ani stránkování a má tlačítko Zrušit výběr; Esc v pruhu výběr zruší, v otevřené nabídce zavře jen nabídku. Mezerník na zaškrtávátku v řádku tabulky produkt vybere, místo aby otevřel jeho detail.",
+          "en": "Working with the catalog: you sort the product table by clicking a column header, a second click reverses the order; the Sort picker stays with the tiles. The bulk action bar floats at the bottom edge of the window, does not cover the last row or the pagination and has a Clear selection button; Esc in the bar clears the selection, in an open menu it closes only the menu. The space bar on a row checkbox selects the product instead of opening its detail."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozepsaná práce se neztratí omylem. Když od neuložených změn odcházíte – křížkem, z menu, přes ⌘K i tlačítkem Zpět –, aplikace se zeptá, jestli chcete pokračovat v úpravě, nebo změny zahodit; Esc v tom dotazu znamená Pokračovat v úpravě. Totéž hlídá rozepsané hlášení chyby nebo návrh funkce. Smazání souboru, odebrání kategorie i odebrání správce se nejdřív zeptá.",
+          "en": "Unfinished work is not lost by accident. When you leave unsaved changes – with the cross, from the menu, via ⌘K or with the Back button – the app asks whether you want to keep editing or discard the changes; Esc in that prompt means Keep editing. The same applies to an unfinished bug report or feature idea. Deleting a file, removing a category and removing an administrator ask first."
+        },
+        {
+          "type": "improved",
+          "cs": "Srozumitelné hlášky místo tichých chyb. Přerušené spojení se SharePointem popíše věta, u ukládání i s tím, že se nedá poznat, jestli se změna uložila – dosud se ukázalo „Failed to fetch“. Editor řekne, když se nepodaří načíst soubory produktu (dřív ukázal „Zatím žádné přílohy“), detail produktu po chybě nabídne Zkusit znovu a hromadný import jmenuje řádky, které se nepodařilo uložit. Při spuštění je vidět, že se aplikace načítá, a když se katalog připravuje, požádá o nezavírání stránky.",
+          "en": "Clear messages instead of silent errors. A lost connection to SharePoint is described in a sentence, and when saving also with the note that it cannot be told whether the change was saved – until now it showed “Failed to fetch”. The editor says when the product files cannot be loaded (it used to show “No attachments yet”), the product detail offers Try again after an error and the bulk import names the rows it could not save. At start-up you can see that the app is loading, and while the catalog is being prepared it asks you not to close the page."
+        },
+        {
+          "type": "improved",
+          "cs": "Role a přístupy. Nový správce dostane svou roli do dvou minut a změna role se projeví hned po obnovení stránky. Editoři obsahu mají na stránkách webu jen čtení, takže už nemohou omylem upravit nebo smazat stránku s katalogem; knihovnu technické dokumentace dál plní, ale její nastavení měnit nemohou. Když se při první instalaci nepodaří nastavit oprávnění, aplikace je dokončí při dalším otevření. Při pozastavené licenci ukáže jen oznámení s tlačítkem pro nové ověření a po skončení pozastavení se katalog načte sám. Výchozí číselníky se nezaloží dvakrát, ani když je zakládají dva správci naráz.",
+          "en": "Roles and access. A new administrator gets the role within two minutes and a role change takes effect right after the page is refreshed. Content editors have read-only access to the site pages, so they can no longer edit or delete the catalog page by mistake; they still fill the technical documentation library but cannot change its settings. When permissions cannot be set during the first installation, the app completes them the next time it opens. With a suspended licence it shows only a notice with a button to verify the licence again, and once the suspension ends the catalog loads by itself. The default lookup lists are not created twice, even when two administrators create them at the same time."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení → Verze a informace → Datové seznamy změří u každého seznamu a knihovny skutečná oprávnění na webu: ukáže ochranu („zapisují jen správci“, „jen správci a tým“), počet položek, jestli je seznam skrytý, a verdikt „oprávnění OK“, nebo kdo má přístup navíc.",
+          "en": "Settings → Version and information → Data lists measures the actual permissions of every list and library on the site: it shows the protection (“only administrators write”, “only administrators and the team”), the item count, whether the list is hidden, and the verdict “permissions OK” or who has extra access."
+        },
+        {
+          "type": "improved",
+          "cs": "Vzhled a navigace jako v ostatních aplikacích EP365. Detail produktu, Verze aplikací a Obecné materiály mají kompaktní hlavičku, takže obsah začíná výš; zvýrazněná druhá věta nadpisu je všude na vlastním řádku. Hlavička s drobečkovou navigací je vidět i během načítání, při chybě a u hlášení „nenalezeno“ či „nemáte oprávnění“ a detail produktu při načítání ukazuje obrys stránky. Po přepnutí obrazovky začíná nová obrazovka nahoře. Levý panel má stejnou šířku jako jinde, aktivní volby a tlačítka berou barvu z firemního motivu Workplace a název, který sám končí tečkou, už nemá v nadpisu dvě tečky.",
+          "en": "Look and navigation as in the other EP365 apps. The product detail, Application versions and General materials have a compact header, so the content starts higher; the highlighted second sentence of the heading is on its own line everywhere. The header with breadcrumbs is visible while loading, on errors and with “not found” or “no permission” messages, and the product detail shows the page outline while loading. After switching screens the new screen starts at the top. The left panel has the same width as elsewhere, active options and buttons take their colour from the Workplace company theme, and a name that itself ends with a full stop no longer shows two full stops in the heading."
+        },
+        {
+          "type": "improved",
+          "cs": "Průvodce aplikací ukazuje v každém kroku na konkrétní prvek obrazovky, o kterém mluví, a při ztmavení stránky nezakrývá horní lištu SharePointu.",
+          "en": "The app guide points to the specific screen element each step talks about and no longer covers the SharePoint top bar when it dims the page."
+        },
+        {
+          "type": "improved",
+          "cs": "Dlaždice Produktového katalogu v Aplikacích EP365 Workplace vede přímo na stránku s katalogem, i když katalog běží na podstránce webu. Odkaz se opraví při příštím otevření katalogu.",
+          "en": "The Product catalog tile in EP365 Workplace Apps leads straight to the catalog page, even when the catalog runs on a subpage of the site. The link is corrected the next time the catalog is opened."
+        },
+        {
+          "type": "fixed",
+          "cs": "Microsoft Teams: katalog se v Teams otevře nad svým webem – dřív vždy skončil hláškou, že tu aplikace není. Odkaz ke sdílení otevřený z Teams vede na stránku katalogu na SharePointu, takže ho kolega otevře i mimo Teams. Vlastník nového i zkopírovaného produktu a v CRM i vlastník kampaně a autor e-mailových aktivit se zapisují za vás, ne za jiného uživatele webu. Registr Workplace i své seznamy aplikace hledá podle adresy, takže je nerozbije ani přejmenování v SharePointu.",
+          "en": "Microsoft Teams: the catalog opens in Teams over its own site – it used to always end with a message that the app is not here. A sharing link opened from Teams leads to the catalog page in SharePoint, so a colleague can open it outside Teams too. The owner of a new or copied product and, in the CRM, the campaign owner and the author of e-mail activities are recorded as you, not as another user of the site. The app finds the Workplace registry and its own lists by address, so renaming them in SharePoint does not break it either."
+        },
+        {
+          "type": "fixed",
+          "cs": "Texty mají správné tvary k počtu („1 produkt“, „3 řady“, „2 produkty mají…“) a české uvozovky se všude zavírají správně. Hláška o neaktivní licenci uvádí název Produktový katalog.",
+          "en": "Texts use the correct plural forms (“1 product”, “3 series”, “2 products have…”) and Czech quotation marks are closed correctly everywhere. The inactive licence message names the Product catalog."
+        },
         {
           "type": "new",
           "cs": "Přehled verzí aplikací a rozesílání novinek zákazníkům. V Nastavení – CRM propojení zapnete sekci Verze aplikací: uvidíte, na jaké verzi je která aplikace EasyPortal 365, co bylo v poslední vydané řadě nového a kolik zákazníků ji podle CRM používá. Odtud také rozešlete souhrn novinek – průvodce ve třech krocích nabídne verze, které jste ještě neposílali, sestaví příjemce ze zákazníků v CRM a každému pošle jen novinky k aplikacím, které má. Kdo si hromadné e-maily nepřeje, se do rozeslání nedostane; kdo nemá e-mail, se vypíše, ať je jasné, kdo zprávu nedostal. Rozeslání se zapíše do CRM jako kampaň včetně jednotlivých e-mailů u kontaktů. Verze i texty novinek se čtou přímo z veřejného úložiště, kam je ukládá vydání každé aplikace, a e-maily odkazují na easyportal365.cz/novinky.",
