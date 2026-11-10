@@ -46,6 +46,14 @@
 !*/releases.json
 !*/*/manifest.json
 
+# Podepsany index vydani (<app>/trust.json, TECH-DEBT #514): otisky manifestu a skriptu
+# kazde verze, nejnovejsi ostra verze, bezpecnostni podlaha a zakazane verze + podpis ES256.
+# Zavadec z .sppkg spusti jen to, co tu ma otisk. ZAMERNE verejne: jen verze a otisky
+# verejnych souboru. tools/trust-keys.json = VEREJNE klice pro kontrolu v sign-trust.mjs;
+# soukromy klic sem nikdy nepatri (zije mimo repa, accounts-inventory v ep365-docs).
+!*/trust.json
+!tools/trust-keys.json
+
 # Pravidla CHANGELOG.json a jejich kontrola. Bezpečné: čistě validace tvaru, žádná
 # data — texty samotné žijí v CHANGELOG.json app repa. `changelog-rules.mjs` je
 # JEDINÝ zdroj pravidel (§43), volají ho publish-changelog i check-pending; ten

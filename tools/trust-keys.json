@@ -1,0 +1,7 @@
+{
+  "poznamka": "Verejne klice podpisu indexu vydani (trust.json, TECH-DEBT #514). Musi sedet s @ep365/cdn-trust src/keys.ts v ep365-shared - zavadec v .sppkg veri jen klicum odtamtud; tenhle soubor pouziva jen sign-trust.mjs ke kontrole.",
+  "keys": [
+    { "kid": "ep365cdn-8aebedc5bbe949a1", "role": "provozni", "jwk": { "kty": "EC", "crv": "P-256", "x": "YdUSH_F-J09Ix7wrUC40Pwze_vdSyI5lL6hR8H2HmW4", "y": "pQ_-jsMr4V7YQ34HWMHv0YfbGAmlc90DXWfqZPZrxx0" } },
+    { "kid": "ep365cdn-4f44b177d4bfb6ca", "role": "zalozni", "jwk": { "kty": "EC", "crv": "P-256", "x": "skQ6FpvvnTnCG4qKshsppnBAXjNIo2Gj1iCRQL4za58", "y": "DKzCEkMPUvPiYrry1BufoZDBWxDuvISgNTBzBJU5XE0" } }
+  ]
+}
