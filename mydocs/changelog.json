@@ -5,8 +5,18 @@
   "entries": [
     {
       "version": "1.4",
-      "date": "2026-11-07",
+      "date": "2026-11-10",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Nápověda a průvodce aplikací odpovídají tomu, jak aplikace skutečně funguje. Otázka „Kde aplikace ukládá svá data?“ vyjmenuje všech sedm seznamů a vede do Nastavení → Verze & informace → Datové seznamy s ochranou, počtem položek, verdiktem oprávnění a tlačítkem Zkontrolovat. Nápověda popisuje spodní lištu na telefonu, celé menu u dokumentu (i odeslání e-mailem, rezervaci, přesun do složky a do koše), sekci Testovací data, kartu Správa verzí a to, jak se řeší soubor stejného jména v obou cestách uložení. Průvodce už netvrdí, že akce v menu dokument nemění, vyjmenuje všechny sekce Nastavení a u námětů vede na stránku Co je nového místo veřejné roadmapy.",
+          "en": "The help and the app tour now match how the app really works. The question “Where does the app store its data?” lists all seven lists and points to Settings → Version & info → Data lists with their protection, number of items, permissions verdict and the Check button. The help describes the bottom bar on phones, the full document menu (including sending by e-mail, check-out, moving to a folder and to the recycle bin), the Test data section, the Version management card and how a file with the same name is handled on both saving paths. The tour no longer claims that menu actions never change the document, lists every Settings section and points suggestions to the What’s new page instead of the public roadmap."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace před spuštěním ověří digitální podpis svého kódu. Kód, který podpisem neprojde, se nespustí a aplikace místo toho srozumitelně řekne, že verzi nebylo možné ověřit. Nápověda vysvětluje, co v takovém případě dělat.",
+          "en": "Before it starts, the app verifies the digital signature of its code. Code that fails the signature check does not run, and the app says plainly that the version could not be verified instead. The help explains what to do in that case."
+        },
         {
           "type": "new",
           "cs": "Průvodce uložením umí víc cílů naráz. V kroku Pro koho zaškrtnete všechny cíle, kam dokument patří – cíle organizace, vaše cíle i oblíbená místa – a do každého se uloží samostatná kopie. Shrnutí u každého cíle ukáže, zda do něj máte právo zápisu a zda tam soubor stejného jména už není, povinná pole knihoven vyplníte jednou; když se do některého cíle uložit nepodaří, výsledek řekne do kterého a proč a ostatní kopie zůstanou uložené. V krocích Co to je a Pro koho je nad nabídkou hledání a řazení – typ najdete podle názvu i skupiny, cíl podle okruhu i cesty knihovny, bez ohledu na diakritiku. Na poslední obrazovce je u každého uloženého dokumentu odkaz „Zpřístupnit dalším lidem…“, který otevře Oprávnění a přístup nad právě uloženým souborem; přidávat lidi může ten, kdo na cílovém místě řídí oprávnění.",
