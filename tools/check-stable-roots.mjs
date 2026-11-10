@@ -147,7 +147,10 @@ for (const app of apps) {
 
   // Predpovedi pro zkousku chovani pri PROBE_KEEP.
   const keepProbe = new Set(order.slice(0, PROBE_KEEP));
-  const withRule = markFrom(dir, files, roots.filter(f => isStableRoot(f) || keepProbe.has(info(f).commit))).size;
+  // Pravidlo prorezu ma dve casti: stabilni koren X.js A jeho nemenna kopie s otiskem X_<hash>.js
+  // (.sppkg 10.1, #514). Kopii drzi prorez i bez --protect-patterns, takze ji predpoved musi znat.
+  const isPinnedCopy = f => { const m = /^(.+)_[0-9a-f]{20}\.js$/.exec(f); return !!m && files.indexOf(m[1] + '.js') !== -1; };
+  const withRule = markFrom(dir, files, roots.filter(f => isStableRoot(f) || isPinnedCopy(f) || keepProbe.has(info(f).commit))).size;
   const withoutRule = markFrom(dir, files, roots.filter(f => keepProbe.has(info(f).commit))).size;
 
   report.push({ app, files: files.length, roots: roots.length, stable, withRule, withoutRule });
@@ -231,6 +234,13 @@ function selfTest() {
     // Bundle ROZSIRENI: hashovany, v NEJSTARSIM commitu (mimo okno) — na nej miri .sppkg primo (23.10).
     const widget = path.join(root, 'demo', 'ep-365-demo-widget_' + 'b'.repeat(20) + '.js');
     fs.writeFileSync(widget, '// bundle rozsireni (application customizer) - hash z nasazeneho .sppkg\n');
+    // Zavadec s otiskem (#514): `X_<hash>.js` vedle stabilniho `X.js` (druhy zavadec, jmeno mimo vzory)
+    // musi prezit VZDY; stejne stary hashovany koren BEZ stabilniho souseda odejde (protipriklad).
+    fs.writeFileSync(path.join(root, 'demo', 'ep-365-demo-request.js'), '// druhy stabilni zavadec\n');
+    const pinnedCopy = path.join(root, 'demo', 'ep-365-demo-request_' + 'c'.repeat(20) + '.js');
+    fs.writeFileSync(pinnedCopy, '// nemenna kopie s otiskem v .sppkg 10.1\n');
+    const orphan = path.join(root, 'demo', 'ep-365-demo-orphan_' + 'd'.repeat(20) + '.js');
+    fs.writeFileSync(orphan, '// hashovany koren bez stabilniho souseda\n');
     commit('demo: loader');
     for (let i = 0; i < HASHED; i++) {
       const h = (i + 10).toString(16);
@@ -249,7 +259,9 @@ function selfTest() {
       { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
     const widgetGoneWithout = !fs.existsSync(widget);
     const survived2 = fs.existsSync(loader);
-    return { ok: true, survived: survived && survived2, widgetKept, widgetGoneWithout, others, out: (r.stdout || '') + (r.stderr || '') + (r2.stdout || '') + (r2.stderr || '') };
+    const pinnedKept = fs.existsSync(pinnedCopy);
+    const orphanGone = !fs.existsSync(orphan);
+    return { ok: true, survived: survived && survived2, widgetKept, widgetGoneWithout, pinnedKept, orphanGone, others, out: (r.stdout || '') + (r.stderr || '') + (r2.stdout || '') + (r2.stderr || '') };
   } catch (e) {
     return { ok: false, reason: String(e && e.message ? e.message : e) };
   } finally {
@@ -271,7 +283,7 @@ if (!st.ok) {
   console.log('  ! ZKOUSKA NEPROBEHLA: ' + st.reason);
   console.log('    (chyba prostredi, ne dukaz vady - ale plati jen zkouska na zivych datech nize)');
 } else if (st.survived) {
-  console.log(`  Skutecny prune-bundles --apply nechal loader na disku (zbylo ${st.others} z 7 souboru) -> pravidlo ZIJE.`);
+  console.log(`  Skutecny prune-bundles --apply nechal loader na disku (zbylo ${st.others} z 10 souboru) -> pravidlo ZIJE.`);
   proofs++;
 } else {
   console.log('  Skutecny prune-bundles --apply loader SMAZAL -> pravidlo v prorezu NENI.');
@@ -288,6 +300,17 @@ if (st.ok) {
   } else {
     console.log('  Bundle rozsireni prezil i BEZ vzoru -> zkouska nic nemeri (soubor nebyl mimo okno?).');
     selfFail.push('synteticka zkouska: protipriklad neprosel, vzor se nedokazal');
+  }
+  // Zavadec s otiskem (#514): X_<hash>.js vedle X.js prezije oba behy; soused bez X.js ne.
+  if (st.pinnedKept && st.orphanGone) {
+    console.log('  Zavadec s otiskem X_<hash>.js vedle X.js mimo okno PREZIL, stejne stary koren bez X.js SMAZAN -> pravidlo drzi a neni no-op.');
+    proofs++;
+  } else if (!st.pinnedKept) {
+    console.log('  Zavadec s otiskem X_<hash>.js vedle X.js byl SMAZAN -> .sppkg 10.1 by u zakaznika nenabehl.');
+    selfFail.push('synteticka zkouska: prorez smazal zavadec s otiskem (X_<hash>.js vedle X.js)');
+  } else {
+    console.log('  Hashovany koren bez stabilniho souseda prezil -> zkouska zavadece s otiskem nic nemeri.');
+    selfFail.push('synteticka zkouska: protipriklad k zavadeci s otiskem neprosel');
   }
   if (PATTERNS.length) console.log('  Politika prorezu drzi vzory: ' + PATTERNS.join(' '));
   else console.log('  ! Prorez pobezi BEZ vzoru bundlu rozsireni (politika je neprodava) - hashovany kontrakt .sppkg neni chraneny.');

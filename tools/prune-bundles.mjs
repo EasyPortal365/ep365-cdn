@@ -53,6 +53,15 @@
 //   (jsou male, radove desitky KB); uklidit je jde az s novym .sppkg, ktery miri jinam.
 //   Vzory prichazeji z politiky (ep365-docs, `protectRootPatterns`), ne odsud.
 //
+// ZAVADEC S OTISKEM (X_<hash>.js vedle X.js)
+//   .sppkg 10.1 miri na NEMENNOU kopii stabilniho korene: vedle `X.js` lezi `X_<hash>.js` se
+//   stejnymi bajty, jako mel `X.js` v buildu, ze ktereho .sppkg je, a manifest v App Catalogu
+//   ji nese s `integrity`. Ktery hash je u zakaznika nasazeny, z CDN nepoznas – smazany =
+//   appka u tenantu s timhle .sppkg nenabehne. Proto se VZDY drzi kazdy hashovany koren, jehoz
+//   jmeno bez `_<hash>` je stabilni koren teze appky. Plati pro hlavni zavadec i pro dalsi
+//   zavadece (druhy webpart, skorapky rozsireni), bez ohledu na tvar jmena – vzor podle jmena
+//   by kazdou novou appku musel znat predem.
+//
 // LICENCE (<x>.js.LICENSE.txt)
 //   Licence knihoven tretich stran lezi vedle sveho bundlu a plati, jen kdyz na ni bundle
 //   odkazuje ("For license information please see <x>.js.LICENSE.txt"). Zustava licence
@@ -199,7 +208,9 @@ for (const app of apps) {
   const marked = new Set();
   // Bundle ROZSIRENI = hashovany kontrakt .sppkg (viz hlavicka "ROZSIRENI"): drzi se VZDY.
   const isExtensionBundle = f => PATTERNS.some(p => f.indexOf(p) !== -1);
-  const queue = roots.filter(f => isStableRoot(f) || isExtensionBundle(f) || keepCommits.has(info(f).commit));
+  // Zavadec s otiskem (viz hlavicka): `X_<hash>.js`, vedle ktereho lezi stabilni `X.js`.
+  const isPinnedCopy = f => { const m = /^(.+)_[0-9a-f]{20}\.js$/.exec(f); return !!m && files.indexOf(m[1] + '.js') !== -1; };
+  const queue = roots.filter(f => isStableRoot(f) || isExtensionBundle(f) || isPinnedCopy(f) || keepCommits.has(info(f).commit));
   while (queue.length) {
     const f = queue.pop();
     if (marked.has(f)) continue;
