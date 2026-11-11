@@ -53,6 +53,9 @@
 # soukromy klic sem nikdy nepatri (zije mimo repa, accounts-inventory v ep365-docs).
 !*/trust.json
 !tools/trust-keys.json
+# Podpis licencnich souboru licenses/*.json (TECH-DEBT #515): VEREJNE klice, kterym appky
+# veri (kopie LICENSE_KEYS z @ep365/license), pro kontrolu v tools/sign-licenses.mjs.
+!tools/license-keys.json
 
 # Pravidla CHANGELOG.json a jejich kontrola. Bezpečné: čistě validace tvaru, žádná
 # data — texty samotné žijí v CHANGELOG.json app repa. `changelog-rules.mjs` je

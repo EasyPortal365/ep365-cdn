@@ -1,0 +1,15 @@
+{
+  "$comment": "Verejne klice podpisu licencnich souboru licenses/*.json (TECH-DEBT #515). Zdroj pravdy: ep365-shared/packages/license/src/signature.ts (LICENSE_KEYS) – shodu hlida test balicku @ep365/license. Soukrome klice jsou mimo repa (ep365-docs/00-continuity/accounts-inventory.md). Rotace: novy klic nejdriv sem a do balicku, vydat appky, teprve pak jim podepisovat.",
+  "keys": [
+    {
+      "kid": "ep365lic-ac67adf5f21415ce",
+      "role": "provozni",
+      "jwk": { "kty": "EC", "crv": "P-256", "x": "10m9SPbucBN9zIkhoWfF4KETVJx4rO7SLdKa0BXG-P4", "y": "MjcE3_mBDdlqaIRNq293HjJr2prPbagv6o3F3CJ-74I" }
+    },
+    {
+      "kid": "ep365lic-51699c95d10037f2",
+      "role": "zalozni",
+      "jwk": { "kty": "EC", "crv": "P-256", "x": "Tp6hRFdqFa2YuMkG_kUtWniwppbBW0sMVxEzmCoCgCY", "y": "e48ePVL7C5xFgiezOWGfsrvEmujKFK-hkcFTDNmOcJ4" }
+    }
+  ]
+}
