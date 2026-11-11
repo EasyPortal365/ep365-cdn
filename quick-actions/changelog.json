@@ -34,8 +34,8 @@
         },
         {
           "type": "improved",
-          "cs": "Quick Actions i stránka správy před spuštěním ověří digitální podpis svého kódu – i částí, které se načítají až za běhu. Kód, který podpisem neprojde, se nespustí a místo toho se srozumitelně ukáže, že verzi nebylo možné ověřit.",
-          "en": "Before they start, Quick Actions and the administration page verify the digital signature of their code — including the parts loaded later on demand. Code that fails the signature check does not run, and a plain message says that the version could not be verified instead."
+          "cs": "Ověřený kód: Quick Actions i stránka správy spouštějí jen verze ze seznamu vydání podepsaného EasyPortal 365. Na stránce správy prohlížeč před spuštěním ověří otisk veškerého kódu, v seznamech a knihovnách otisk částí, které se načítají až za běhu. Co kontrolou neprojde, se nespustí a místo toho se srozumitelně ukáže, že verzi nebylo možné ověřit.",
+          "en": "Verified code: Quick Actions and the administration page run only versions from the release list signed by EasyPortal 365. On the administration page the browser checks the fingerprint of all code before it runs; in lists and libraries, the fingerprint of the parts loaded later on demand. Anything that fails the check does not run, and a plain message says that the version could not be verified instead."
         },
         {
           "type": "fixed",
