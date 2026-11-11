@@ -5,8 +5,43 @@
   "entries": [
     {
       "version": "1.7",
-      "date": "2026-11-03",
+      "date": "2026-11-11",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Pohled žadatele: kdo není správce ani schvalovatel, uvidí po otevření aplikace jen své žádosti a své weby. Přehled ukáže, co čeká na rozhodnutí a kterým webům končí platnost, „Moje žádosti“ všechny podané žádosti o nový web i o změnu a „Moje weby“ weby, které vlastní nebo které vznikly z jeho žádosti – odtud požádá o nového vlastníka, delší platnost nebo uzavření. Do aplikace se žadatel dostane i bez členství ve webu Řízených webů; z evidence čte jen své položky a přístup k nim mu aplikace nastaví sama při průchodu správce. Webpart „Žádost o nový web“ má odkaz „Otevřít Site Manager“ a z detailu žádosti vede rovnou do aplikace.",
+          "en": "Requester view: anyone who is not an administrator or approver sees only their own requests and sites when they open the app. The Overview shows what is waiting for a decision and which sites are about to expire, “My requests” lists every request for a new site or a change, and “My sites” lists the sites they own or that were created from their request — from there they request a new owner, a longer validity or closure. Requesters can open the app without being members of the Site Manager site; from the registry they read only their own entries, and the app grants that access by itself when an administrator opens it. The “Request a new site” web part has an “Open Site Manager” link and the request detail leads straight into the app."
+        },
+        {
+          "type": "improved",
+          "cs": "Stažená žádost se už nemaže: označí se jako „Staženo“, zůstane v evidenci jako stopa a v seznamu žádostí i v Přehledu využití má vlastní stav. Stáhnout čekající žádost o nový web i o změnu může žadatel sám z aplikace.",
+          "en": "A withdrawn request is no longer deleted: it is marked as “Withdrawn”, stays in the records as a trace and has its own status in the request list and in the Usage overview. Requesters can withdraw a pending request for a new site or a change themselves in the app."
+        },
+        {
+          "type": "improved",
+          "cs": "Vlastník webu, který není členem webu Řízených webů, teď potvrdí platnost svého webu a vyřídí revizi přístupů – stačí mu role Žadatelé; přístup ke své revizi dostane, jakmile aplikaci otevře správce. Potvrzení platnosti a odpovědi v revizích vidí jen jejich autor, správci a schvalovatelé (dřív je mohli číst všichni s přístupem k webu aplikace). Chybějící záznamy ve změnovém logu doplní aplikace sama.",
+          "en": "A site owner who is not a member of the Site Manager site can now confirm their site’s validity and complete an access review — the Requesters role is enough; access to their review is granted as soon as an administrator opens the app. Validity confirmations and review answers are visible only to their author, administrators and approvers (previously everyone with access to the app site could read them). The app fills in missing change log entries by itself."
+        },
+        {
+          "type": "fixed",
+          "cs": "Správu verzí může správce použít i tehdy, když licence aplikace není aktivní – aktivovat jde i verze, která problém s licencí opravuje.",
+          "en": "An administrator can use Version management even when the app license is not active — including activating a version that fixes the license problem."
+        },
+        {
+          "type": "improved",
+          "cs": "Průvodce: kroky kapitol ukazují na konkrétní prvek obrazovky, o kterém mluví – přepínač, filtr, tlačítko nebo seznam – místo zvýraznění celé obrazovky.",
+          "en": "Guide: chapter steps now point at the specific element of the screen they talk about — a switch, filter, button or list — instead of highlighting the whole screen."
+        },
+        {
+          "type": "fixed",
+          "cs": "Správné tvary počtů v šablonách webů – „Všechny 3 weby odpovídají šabloně“ místo „Všech 3 webů odpovídá“, „2 objekty dnes dědí oprávnění a přestanou“, „přeskočí se 2 složky“ a „2 větve se nepodařilo přečíst“.",
+          "en": "Correct number forms in the Czech texts of site templates (for example “3 sites match the template”, “2 folders are skipped”)."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace i webpart „Žádost o nový web“ před spuštěním ověří digitální podpis svého kódu. Kód, který podpisem neprojde, se nespustí a místo toho se srozumitelně ukáže, že verzi nebylo možné ověřit. Nápověda vysvětluje, co v takovém případě dělat.",
+          "en": "Before they start, the app and the “Request a new site” web part verify the digital signature of their code. Code that fails the signature check does not run, and a plain message says that the version could not be verified instead. The help explains what to do in that case."
+        },
         {
           "type": "improved",
           "cs": "Anglická verze aplikace nese jednotný název EP365 Site Manager – na obrazovkách, v nápovědě, v e-mailech i ve webpartu Žádost o nový web (dřív se tam místy objevoval název „Governed Sites“).",
