@@ -5,8 +5,38 @@
   "entries": [
     {
       "version": "1.3",
-      "date": "2026-10-26",
+      "date": "2026-11-11",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Nová akce Milníky a verze: libovolnou verzi dokumentu pojmenujete („Odesláno zákazníkovi“, „Schváleno vedením“), přidáte k ní poznámku a pošlete na ni odkaz – kolega po otevření odkazu uvidí kartu milníku a může verzi stáhnout nebo porovnat s aktuální. Dva milníky porovnáte mezi sebou a v Porovnat verze jsou milníky nahoře se jménem. Dokument se pojmenováním nemění a nevzniká nová verze; milník vidí jen ten, kdo smí dokument číst. Verzi, kterou mezitím smazal limit verzí, dialog poctivě označí.",
+          "en": "New action Milestones and versions: name any version of a document (“Sent to customer”, “Approved by management”), add a note and send a link to it — a colleague who opens the link sees the milestone card and can download the version or compare it with the current one. Compare two milestones with each other; in Compare versions, milestones are listed first with their names. Naming does not change the document or create a new version, and only people who can read the document see its milestones. A version that the version limit has since removed is clearly marked."
+        },
+        {
+          "type": "improved",
+          "cs": "Porovnat verze ukazuje u starších verzí i jejich autora a kromě data také čas – verze z jednoho dne se tak snadno rozliší.",
+          "en": "Compare versions now shows the author of older versions too, and the time as well as the date — versions from the same day are easy to tell apart."
+        },
+        {
+          "type": "new",
+          "cs": "Nová akce Proč to nejde najít: u dokumentu řekne, jestli ho najdete vy, kolegové ve vyhledávání a jestli ho použije AI – a když ne, proč a co s tím. Pozná dokument, který je pořád jen koncept, rezervovaný soubor, čekající schválení, vlastní oprávnění, knihovnu nebo web vyřazené z vyhledávání, klasifikaci „mimo AI“, knihovnu mimo zdroje AI Chatu i PDF, které je jen sken bez textu. U každé příčiny nabídne krok – publikovat hlavní verzi, vrátit se změnami (vždy s potvrzením), otevřít nastavení nebo oprávnění. Co z vaší pozice ověřit nejde, poctivě přizná. Stejná obrazovka se otevře i z Přehledu dokumentu odkazem „Proč a co s tím“.",
+          "en": "New action Why can’t it be found: tells you whether you find the document, whether colleagues find it in search and whether AI uses it — and if not, why and what to do. It recognises a document that is still only a draft, a checked-out file, pending approval, unique permissions, a library or site excluded from search, an “outside AI” classification, a library outside the AI Chat sources and a PDF that is only a scan without text. Each cause comes with a step — publish a major version, check in (always with confirmation), open the settings or permissions. Whatever cannot be verified from your position is stated honestly. The same screen opens from Document overview via “Why, and what to do”."
+        },
+        {
+          "type": "new",
+          "cs": "Nová akce Sledovat změny – náhrada upozornění SharePointu, která Microsoft ruší. U dokumentu nebo složky si jedním klikem nastavíte sledování jí samotné nebo celé knihovny, zvolíte denní či týdenní souhrn a zda chcete jen nové dokumenty; vlastní změny se nehlásí. Změny ze všech sledovaných míst napříč weby najdete v Moje odběry – položka v nabídce ukazuje počet novinek. Sledování nedává přístup: v souhrnu jsou jen dokumenty, které smíte otevřít. Akci zapne správce tlačítkem ve Správě Quick Actions; nic neběží mimo prohlížeč a nic se neposílá e-mailem.",
+          "en": "New action Follow changes — a replacement for SharePoint alerts, which Microsoft is retiring. On a document or folder, follow it or the whole library in one click, choose a daily or weekly digest and whether you want new documents only; your own changes aren’t reported. Changes from all followed places across sites are in My follows — the menu item shows how many are new. Following doesn’t grant access: the digest lists only documents you may open. An administrator switches it on with one button in Quick Actions administration; nothing runs outside the browser and nothing is sent by email."
+        },
+        {
+          "type": "new",
+          "cs": "Nová akce Najít a nahradit (skupina Úpravy): nad vybranými dokumenty Word nebo jednou složkou najde text a nahradí ho jiným – třeba nový název firmy nebo adresu ve všech vzorech smluv. Nejdřív ukáže náhled s počtem míst a ukázkou změny v každém souboru (soubor jde vynechat) a řekne, co přeskočí a proč: rezervovaný soubor, PDF, starý formát .doc, šifrovaný dokument. Volby: jen celá slova, rozlišovat velká a malá písmena, včetně záhlaví a zápatí a zápis jako sledované změny. Najde i text, který Word uvnitř rozdělil (kontrola pravopisu, změna formátu), a formátování zachová. Každý změněný soubor dostane novou verzi s poznámkou, co se změnilo; soubor, který se mezitím změnil, se nezmění. Běh se zapíše do protokolu knihovny, odkud jde vrátit celý běh i jednotlivé soubory. Vydaný řízený dokument se nemění – u zdrojového souboru akce připomene vydat novou verzi.",
+          "en": "New action Find and replace (Editing group): finds text in the selected Word documents or one folder and replaces it — for example a new company name or address in all contract templates. It first shows a preview with the number of places and a sample of the change in each file (any file can be left out) and says what it skips and why: a checked-out file, PDF, the old .doc format, an encrypted document. Options: whole words only, match case, include headers and footers, and record as tracked changes. It also finds text that Word split internally (spell check, a formatting change) and keeps the formatting. Each changed file gets a new version with a comment saying what changed; a file that changed in the meantime is left alone. The run is recorded in the library log, where the whole run or single files can be undone. A published controlled document is never changed — for its source file the action reminds you to publish a new version."
+        },
+        {
+          "type": "improved",
+          "cs": "Quick Actions i stránka správy před spuštěním ověří digitální podpis svého kódu – i částí, které se načítají až za běhu. Kód, který podpisem neprojde, se nespustí a místo toho se srozumitelně ukáže, že verzi nebylo možné ověřit.",
+          "en": "Before they start, Quick Actions and the administration page verify the digital signature of their code — including the parts loaded later on demand. Code that fails the signature check does not run, and a plain message says that the version could not be verified instead."
+        },
         {
           "type": "fixed",
           "cs": "Okna akcí (třeba odeslání dokumentu e-mailem nebo přehled oprávnění) už nepřekrývají horní lištu SharePointu. Když operace trvá neobvykle dlouho, okno nabídne tlačítko Zavřít, takže v něm nikdy nezůstanete zaseknutí.",
