@@ -4,6 +4,77 @@
   "name": "EP365 HR portál",
   "entries": [
     {
+      "version": "2.0",
+      "date": "2026-11-12",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "HR pracoviště má záložky Přehled, Lidé a situace, Komunikace a Dotazy. Na Přehledu je Fronta HR: kroky přidělených situací s termínem do 14 dnů potvrdíte tlačítkem Hotovo (i víc najednou), kolegovi, kterému krok patří, pošlete připomínku e-mailem a dovolené ke schválení i dotazy zaměstnanců mají souhrnný řádek s proklikem. Hlídané termíny ukážou milníky a schůzky z plánů na příštích 30 dní a opakovaná školení, kterým končí platnost. Záložky se přepínají v pruhu pozdravu a jdou sdílet odkazem; správce je dostane předvolbou HR pracoviště v Nastavení → Rozvržení, kde každou záložku upraví i přejmenuje.",
+          "en": "The HR workspace has tabs Overview, People and situations, Communication and Questions. Overview holds the HR queue: steps of assigned situations due within 14 days are confirmed with Done (several at once, too), the colleague who owns a step gets an e-mail reminder, and leave approvals and employee questions have a summary row with a link. Watched dates show milestones and meetings from plans for the next 30 days and recurring trainings that are about to expire. Tabs switch in the greeting band and can be shared by link; the administrator gets them by applying the HR workspace preset in Settings → Layout, where each tab can be edited and renamed."
+        },
+        {
+          "type": "new",
+          "cs": "Životní situace přímo v HR portálu. Situaci přidělíte vedeným formulářem o šesti krocích – člověk (i budoucí zaměstnanec bez účtu), situace, termíny, vedoucí a buddy, zpráva a volby, shrnutí. Klik na člověka ve Frontě HR, v kalendáři nebo na tabuli otevře detail přidělení s průběhem, lidmi, historií a kroky: kroky se tu potvrzují, vracejí a připomínají, u přidělení jde změnit termín nebo ho zrušit. Záložka Lidé a situace má tabuli nástupů, změn a odchodů (seznam i kalendář), hromadná přidělení s připomínkou všem, kdo ještě nemají splněno, a plány situací s rychlým přidělením. Zápis jde stejnou cestou jako v Centru životních situací, se stejnými pravidly, oprávněními a historií.",
+          "en": "Life situations right in the HR portal. Assign a situation with a six-step guided form – person (including a future employee without an account), situation, dates, manager and buddy, message and options, summary. Clicking a person in the HR queue, the calendar or the board opens the assignment detail with progress, people, history and steps: steps are confirmed, returned and reminded here, and the whole assignment can get a new due date or be cancelled. The People and situations tab has a board of joiners, changes and leavers (list and calendar), bulk assignments with a reminder to everyone who has not finished yet, and situation plans with quick assignment. Everything is written the same way as in the Life Situations Center, with the same rules, permissions and history."
+        },
+        {
+          "type": "new",
+          "cs": "Aktuality a komunikace přímo v HR portálu. Aktualitu napíšete stejným editorem jako ve Workplace – titulek, perex, text, obrázek, cílení na oddělení, pobočku nebo roli, platnost a překlady; s AI Asistentem ji napíše AI z pár vět zadání. Záložka Komunikace na HR pracovišti ukáže aktuality (koncepty, naplánované, zveřejněné), oznámení s počtem potvrzení přečtení a připomínkou e-mailem těm, kdo ještě nepotvrdili, export seznamu do CSV a správu nováčků v sekci Vítáme mezi námi.",
+          "en": "News and communication right in the HR portal. Write a news post with the same editor as in Workplace – title, lead, text, image, targeting by department, branch or role, validity and translations; with AI Assistant the AI drafts it from a few sentences. The Communication tab of the HR workspace shows news (drafts, scheduled, published), announcements with the number of read confirmations and an e-mail reminder to those who have not confirmed yet, CSV export and management of newcomers in the Welcome section."
+        },
+        {
+          "type": "new",
+          "cs": "Dotazy zaměstnanců vyřídíte přímo v HR portálu – na záložce Dotazy na HR pracovišti a Dotazy a náměty na Portálu zaměstnance. Řešitel vidí frontu svých oblastí, odpoví (tazateli přijde e-mail), přidá interní poznámku, rozepsanou odpověď uloží jako koncept, změní stav nebo odpověď zveřejní pro všechny; nad polem odpovědi vidí podobné zveřejněné odpovědi a tlačítkem Vložit je převezme. S AI Asistentem připraví tlačítko Navrhnout odpověď text z otázky, konverzace a podobných odpovědí – nic neodešle, drží se podkladů a co z nich neplyne, označí k doplnění. Zaměstnanec tu najde své dotazy i veřejné odpovědi.",
+          "en": "Employee questions are handled right in the HR portal – on the Questions tab of the HR workspace and the Questions and ideas tab of the Employee portal. The resolver sees the queue of their areas, replies (the requester gets an e-mail), adds an internal note, saves a draft, changes the status or publishes the answer for everyone; above the reply field they see similar published answers and take one over with Insert. With AI Assistant, Suggest a reply drafts text from the question, the conversation and similar answers – it sends nothing, sticks to the sources and marks what they do not cover for completion. Employees find their own questions and public answers here."
+        },
+        {
+          "type": "new",
+          "cs": "Portál zaměstnance má záložky Domů, Moje věci, Dotazy a náměty a Lidé. Své kroky přidělených situací potvrdíte tlačítkem Hotovo přímo v kartách Vaše cesta a Tento týden a detail přidělení (Celý plán nebo klik na situaci v Přiděleno vám) ukáže všechny kroky. Na záložce Lidé najdete kolegu podle jména, pozice nebo oddělení, svůj tým a kontakty na HR a napíšete jim v Teams nebo e-mailem; s Absencí uvidíte i to, kdo je dnes v práci. Karta Volno a nepřítomnost ukáže vaše žádosti o volno a kdo je mimo kancelář, karta Čeká na vás potvrdí oznámení nebo otevře odpověď na dotaz přímo na řádku. Správce záložky dostane předvolbou Portál zaměstnance v Nastavení → Rozvržení.",
+          "en": "The Employee portal has tabs Home, My things, Questions and ideas and People. Confirm your own steps of assigned situations with Done right in the Your journey and This week cards; the assignment details (Full plan or a click on the situation in Assigned to you) show all steps. On the People tab you find a colleague by name, position or department, your team and HR contacts, and message them in Teams or by e-mail; with Absence you also see who is at work today. The Time off and absence card shows your leave requests and who is out of office, and the Waiting for you card confirms an announcement or opens an answer to your question right on the row. The administrator gets the tabs by applying the Employee portal preset in Settings → Layout."
+        },
+        {
+          "type": "new",
+          "cs": "Akce, pochvaly a nováčci: na akce se přihlásíte přímo z portálu a vidíte, kolik kolegů se přihlásilo; akce může mít omezený počet míst („12 z 25 míst“, při plné kapacitě se přihlášení zamkne, odhlásit se jde vždy). Pochvalu pošlete konkrétnímu kolegovi z adresáře a ten dostane e-mail. Novému kolegovi napíšete z karty Vítáme mezi námi – Pozdravit otevře chat v Teams s předvyplněným pozdravem, obálka e-mail.",
+          "en": "Events, praise and newcomers: sign up for events right from the portal and see how many colleagues are going; an event can have limited capacity (“12 of 25 places”, sign-up locks when full, cancelling always works). Send praise to a specific colleague from the directory and they get an e-mail. Message a new colleague from the Welcome card – Greet opens a Teams chat with a prefilled greeting, the envelope an e-mail."
+        },
+        {
+          "type": "improved",
+          "cs": "Pás Zeptejte se odpovídá přímo na stránce: otázka se položí v panelu AI Asistenta vpravo a odpověď vychází z firemních dokumentů ve zdroji SharePoint – tam, kde ho AI Asistent má zapnutý, a v mezích jeho hranice zdrojů. Tlačítko Položit dotaz vás přesune k sekci Dotazy a náměty a otázku předvyplní. Potřebuje AI Asistenta ve verzi, která to umí; jinak ho panel nabídne v nové záložce.",
+          "en": "The Ask band answers right on the page: the question goes to the AI Assistant panel on the right and the answer comes from company documents in the SharePoint source – where AI Assistant has it enabled and within its source boundary. Ask a question takes you to the Questions and ideas section with the question prefilled. It needs an AI Assistant version that supports this; otherwise the panel offers it in a new tab."
+        },
+        {
+          "type": "new",
+          "cs": "Průvodce aplikací – krátké kapitoly přímo na stránce ukážou, kde co je: zaměstnanci pozdrav, hledání Ctrl+K, cestu a životní situace, HR jeho plochu a správci Rozvržení, ukázková data a správu verzí. Představí jen sekce, které na stránce opravdu máte, a nic za vás neuloží ani neodešle. Spustíte ho z Nápovědy, z hledání Ctrl+K nebo z Nastavení → O aplikaci; při první návštěvě ho nabídne karta nad plochou.",
+          "en": "App guide – short chapters right on the page show where things are: the greeting, Ctrl+K search, the journey and life situations for employees, the workspace for HR, and Layout, sample data and version management for administrators. It only presents sections you actually have on the page and never saves or sends anything for you. Start it from Help, from Ctrl+K search or from Settings → About; on your first visit a card above the page offers it."
+        },
+        {
+          "type": "new",
+          "cs": "Nastavení: Datové seznamy ukážou, kde HR portál drží data, kolik mají položek, jestli jsou skryté a jestli sedí jejich oprávnění – stav se měří, ne odhaduje. V Nastavení → Obecné zadáte adresu vlastního systému dovolených, pokud nemáte Absenci; povede na něj tlačítko Dovolené v Rychlých akcích HR. Nastavení sekce je v úzkém panelu a tlačítko Uložit je vidět pořád. Na webu bez Workplace si HR portál seznamy pro zapnuté sekce připraví sám, když stránku otevře správce.",
+          "en": "Settings: Data lists show where the HR portal keeps data, how many items they have, whether they are hidden and whether their permissions match – the state is measured, not estimated. In Settings → General you enter the address of your own leave system if you do not use Absence; the Leave button in HR quick actions leads there. Section settings open in a narrow panel and the Save button is always visible. On a site without Workplace the HR portal prepares the lists for enabled sections itself when an administrator opens the page."
+        },
+        {
+          "type": "new",
+          "cs": "Režim celé obrazovky a telefon: první ikona v řadě ikon v pozdravu roztáhne HR portál přes celé okno prohlížeče a volbu si pamatuje pro každý web (v Teams a na telefonu se nenabízí). Na telefonu jsou záložky portálu dole na dosah palce a seznamy HR pracoviště se ukazují jako přehledné karty.",
+          "en": "Full screen and phone: the first icon in the greeting's icon row stretches the HR portal across the whole browser window and remembers the choice for each site (not offered in Teams and on phones). On a phone the portal tabs sit at the bottom within thumb reach and HR workspace lists show as clear cards."
+        },
+        {
+          "type": "improved",
+          "cs": "HR portál před spuštěním ověří digitální podpis svého kódu, i částí načítaných za běhu: neověřený kód se nespustí a aplikace srozumitelně řekne proč – vašich dat ani nastavení se to nedotkne. Stejně ověřuje podpis licenčního souboru, takže licenci nejde podvrhnout ani pozměnit. Ověřování kódu se projeví po nahrání nového balíčku aplikace do katalogu aplikací; panel AI Asistenta v pásu Zeptejte se ověřuje kód hned. Texty při načítání aplikace jsou i anglicky.",
+          "en": "Before it starts, the HR portal verifies the digital signature of its code, including parts loaded at run time: unverified code does not run and the app clearly says why – your data and settings are not affected. It verifies the signature of the licence file the same way, so a licence cannot be forged or altered. Code verification takes effect after the new app package is uploaded to the app catalog; the AI Assistant panel in the Ask band verifies code right away. Loading texts are now in English, too."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozepsaný obsah v panelech ani rozepsané hlášení chyby se bez zeptání neztratí – zavření panelu, Zpět v prohlížeči i obnovení stránky se zeptají, zda pokračovat, nebo změny zahodit. Mazání se potvrzuje v okně aplikace s bezpečnější volbou předvybranou a chyba uložení se ukáže u tlačítka Uložit. Když se přeruší spojení se SharePointem, portál místo technické hlášky řekne, jestli se data jen nenačetla, nebo jestli nejde poznat, zda se změna uložila, a poradí, co dál.",
+          "en": "Unsaved content in panels and an unfinished bug report are never lost without asking – closing the panel, browser Back and page reload ask whether to keep editing or discard the changes. Deleting is confirmed in an app dialog with the safer option preselected, and a save error shows next to the Save button. When the connection to SharePoint drops, the portal says instead of a technical message whether data just did not load or whether it cannot tell if a change was saved, and advises what to do."
+        },
+        {
+          "type": "improved",
+          "cs": "Drobná vylepšení: hledání v sekci Knihovny dokumentů a v přehledu, kdo oznámení přečetl, nerozlišuje diakritiku („bartova“ najde „Bártová“), počty se správně skloňují i u jedničky a anglická verze má všechny hlášky anglicky. Vzhled: karty s čísly v pozdravu odpovídají ostatním aplikacím, procenta nepřetékají z karty, v HR kalendáři se jméno nepřekrývá se štítkem a kolečko Nastavení sekce nezakrývá tlačítka v hlavičce sekce.",
+          "en": "Small improvements: search in the Document libraries section and in the list of who read an announcement ignores diacritics (“bartova” finds “Bártová”), counts use the correct singular form and the English version has all messages in English. Appearance: number cards in the greeting match the other apps, percentages no longer overflow the card, names in the HR calendar no longer overlap labels and the section settings gear no longer covers buttons in the section header."
+        }
+      ]
+    },
+    {
       "version": "1.0",
       "date": "2026-09-28",
       "changes": [
