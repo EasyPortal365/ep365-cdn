@@ -1,6 +1,6 @@
 {
  "alg": "ES256",
  "kid": "ep365cdn-8aebedc5bbe949a1",
- "doc": "{\"schema\":1,\"app\":\"assets\",\"seq\":1,\"issuedAt\":\"2026-11-12T12:39:21.755Z\",\"latest\":\"1.0.0.0\",\"versions\":{\"1.0.0.0\":{\"manifest\":\"sha384-7rpI1c50vtxYnqEYbGF53aZSSnErVB4q3nkdpIYJEuFiRxsLbkYMlraHFilFQ+Vz\",\"scripts\":{\"ep-365-assets-app\":\"sha384-g5cj37r82lJq8R+pOsP8Q50eNLwUo0a4QPjUKkk5R+KqXMrMOzpbchs3wIHfgQvn\"}}}}",
- "sig": "8ORR7XPr061V5NMOEy1oO8DA+J0+kiSS8UeHJXkE0TY8hR+BSdpdPYJ7DVYXQ9Ge4eBi0NWtcPLFaRkJ3mWK4A=="
+ "doc": "{\"schema\":1,\"app\":\"assets\",\"seq\":2,\"issuedAt\":\"2026-11-12T13:27:29.032Z\",\"latest\":\"1.0.0.0\",\"versions\":{\"1.0.0.0\":{\"manifest\":\"sha384-7rpI1c50vtxYnqEYbGF53aZSSnErVB4q3nkdpIYJEuFiRxsLbkYMlraHFilFQ+Vz\",\"scripts\":{\"ep-365-assets-app\":\"sha384-g5cj37r82lJq8R+pOsP8Q50eNLwUo0a4QPjUKkk5R+KqXMrMOzpbchs3wIHfgQvn\"}},\"1.0.0.1\":{\"manifest\":\"sha384-UcRmiZa8RcnCPCLA4n4xHOkgLV9STQLU25DLtsSKau/BlemXJCNPaIBopVJ5amvh\",\"scripts\":{\"ep-365-assets-app\":\"sha384-YYJXkUAJeUIY3sVdZYpVC+TSaag4/qWm/nDJvfKe5Cn6BKgpzQzW5CsEl0nQgCv7\"}}}}",
+ "sig": "JyK6TN5mR40MvzE3V0Q58ZqSIglwpMZA4AUkS2IE4tTKf6pXduZoR4ZnmD9KMTYlx03rMDZ6QEXHSkKWKBVSqQ=="
 }
