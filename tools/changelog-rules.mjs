@@ -99,6 +99,12 @@ export function collectIssues(data, appId) {
       // (U+201C), takze zakaz by shodil i spravny anglicky text. Jen v pending: vydane karty se
       // neprepisuji, i kdyz tu vadu nesou (rozhodnuti #189, stejne jako ASCII uvozovky vyse).
       if (typeof c.en === 'string' && c.en.indexOf('„') !== -1) bad('pending: en text obsahuje ceskou uvozovku („) - v anglictine patri “ ”');
+      // En-dash s mezerami ( – ) v ANGLICKEM textu: anglicky patri em-dash (—), cesky en-dash (–).
+      // Vznika, kdyz se ceska veta prelozi i s pomlckou (naostro 2026-11-12: 17 karet z jedne davky
+      // a 8 starsich v sesti appkach; chytil to jen typograficky test CRM). Jen v pending: vydane
+      // karty se neprepisuji (rozhodnuti #189). Hlida se jen pomlcka S MEZERAMI – rozsah 9–17 h
+      // bez mezer je v anglictine spravne en-dash.
+      if (typeof c.en === 'string' && c.en.indexOf(' – ') !== -1) bad('pending: en text obsahuje en-dash s mezerami ( – ) - v anglictine patri em-dash (—)');
       // Cesky text BEZ JEDINE diakritiky je skoro jiste psany strojem, ne clovekem: vznikne,
       // kdyz karty generuje skript napsany v ASCII (naostro 2026-09-07, 11 karet z jedne davky).
       // `promote-release` texty NIJAK neupravuje, takze by k zakaznikovi odesly presne takhle.

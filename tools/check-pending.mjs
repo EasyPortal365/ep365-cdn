@@ -69,6 +69,7 @@ if (argv.indexOf('--selftest') !== -1) {
     ['ASCII uvozovka v cs', { ...okBase, pending: [{ type: 'new', cs: 'Sekce "Prehled" je nova' }] }],
     ['ceska uvozovka v en', { ...okBase, pending: [{ type: 'new', cs: 'Tlačítko „Uložit“ je nové', en: 'The „Save“ button is new' }] }],
     ['em-dash v cs', { ...okBase, pending: [{ type: 'new', cs: 'Text — dalsi' }] }],
+    ['en-dash s mezerami v en', { ...okBase, pending: [{ type: 'new', cs: 'Text – další', en: 'Text – more' }] }],
     ['pending bez cs', { ...okBase, pending: [{ type: 'new', en: 'Text' }] }],
     ['since neni cislo verze', { ...okBase, pending: [{ type: 'new', cs: 'Text', since: 'nekdy' }] }]
   ];
@@ -88,7 +89,9 @@ if (argv.indexOf('--selftest') !== -1) {
   // otviraci “ je tentyz znak jako ceska zaviraci, pravidlo pro en ji proto hlasit nesmi.
   const clean = collectIssues({ ...okBase, pending: [
     { type: 'improved', cs: 'Text', since: '1.0.0.2' },
-    { type: 'new', cs: 'Tlačítko „Uložit“ je nové', en: 'The “Save” button is new', since: '1.0.0.2' }
+    { type: 'new', cs: 'Tlačítko „Uložit“ je nové', en: 'The “Save” button is new', since: '1.0.0.2' },
+    // en-dash BEZ mezer (rozsah) je v anglictine spravne, em-dash s mezerami take
+    { type: 'new', cs: 'Služba 9–17 h – nově i o víkendu', en: 'Service 9–17 h — now also at weekends', since: '1.0.0.2' }
   ] }, 'ep365-test');
   if (clean.length) { console.log('    X    cisty vstup hlasi nalez: ' + clean[0]); failed++; }
   else console.log('    ok   cisty vstup je bez nalezu');
