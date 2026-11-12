@@ -90,5 +90,8 @@
   "ep365-doklady-prijate": {
     "description": "Doklady přijaté – faktury a účtenky od dodavatelů přečtené v prohlížeči, kontrola účtárnou, schvalování a export do účetnictví (POHODA, Money S3, ABRA Flexi nebo ISDOC, přehled v Excelu).",
     "webUrl": "https://easyportal365.cz/aplikace/doklady-prijate/"
+  },
+  "ep365-assets": {
+    "description": "Evidence majetku – firemní majetek, kdo má co svěřené, předávací protokoly s potvrzením v aplikaci, štítky QR, inventura, záruky a servis. Součást HR doplňku."
   }
 }
