@@ -264,3 +264,10 @@
 # Sdilene zvuky pruvodce (hudba E a efekty klik/prechod, @ep365/ui tourSound.ts od 0.25.0) –
 # generovane kodem, zadne cizi nahravky ani data zakazniku.
 !tour-voice/_zvuky/*.mp3
+
+# Poslech clanku blogu easyportal365.cz (cdn.easyportal365.cz/blog-audio/<jazyk>/<slug>.mp3 + <slug>.json
+# s casy slov pro zvyraznovani cteneho textu; hudba v pozadi hudba-rhodes.mp3). Generuje nastroj blog-audio
+# (mimo repa, Azure Speech, klic mimo repa). Bezpecne a ZAMERNE verejne: mluveny text verejnych clanku, zadna data.
+!blog-audio/*.mp3
+!blog-audio/*/*.mp3
+!blog-audio/*/*.json
