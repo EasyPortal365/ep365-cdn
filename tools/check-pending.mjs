@@ -127,7 +127,15 @@ for (const repo of repos) {
     continue;
   }
 
-  const issues = collectIssues(data, repo);
+  let issues = collectIssues(data, repo);
+  // Appka pred prvnim zverejnenym changelogem (na CDN chybi <slozka>/changelog.json) ma
+  // entries legitimne prazdne – prvni kartu zalozi az promote-release. Tichemu vydani to
+  // nebrani; publish-changelog.mjs prazdne entries dal odmitne (2026-11-12, academy).
+  const cdnChangelog = join(__dirname, '..', repo.replace(/^ep365-/, ''), 'changelog.json');
+  if (!existsSync(cdnChangelog) && Array.isArray(data.entries) && data.entries.length === 0
+      && Array.isArray(data.pending) && data.pending.length) {
+    issues = issues.filter(m => m !== 'entries musi byt neprazdne pole');
+  }
   // Tvar pending hlasime zvlast: pole = OK, objekt = ticha ztrata, chybi = nic nesbira.
   const shape = data.pending === undefined ? '-'
     : Array.isArray(data.pending) ? String(data.pending.length)
