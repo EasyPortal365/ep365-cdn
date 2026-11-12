@@ -23,9 +23,6 @@
     "description": "Workplace – úvodní stránka intranetu i týmových webů, šablony dokumentových knihoven a klasifikace obsahu.",
     "webUrl": "https://easyportal365.cz/aplikace/workplace/"
   },
-  "ep365-hub": {
-    "description": "EP365 Hub – launchpad aplikací, úkoly a globální prompty."
-  },
   "ep365-identity": {
     "description": "Správa EntraID skupin a uživatelů – klasifikace, správci, taxonomie a přehled celého adresáře.",
     "webUrl": "https://easyportal365.cz/aplikace/identity-manager/"
