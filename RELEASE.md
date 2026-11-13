@@ -1,6 +1,10 @@
 # Údržba ep365-cdn
 
-Tohle repo je statický web na GitHub Pages (`cdn.easyportal365.cz`) s limitem ~1 GB na **publikovaný**
+Tohle repo je zdroj statického webu `cdn.easyportal365.cz`. Od 15. 11. 2026 ho servíruje Azure Front Door
+nad Azure Blob Storage: každý push na `main` nahraje workflow `.github/workflows/deploy-azure.yml`
+(`tools/deploy-blob.mjs` – bajty přímo z git blobů, pořadí obsah → ukazatele → mazání; noční ověření,
+`tools/verify-live.mjs` pro kontrolu přes HTTP). GitHub Pages běží do konce paralelního běhu jako záloha
+a do té doby platí jeho limit ~1 GB na **publikovaný**
 obsah. Publikace jen přidává, takže se musí pravidelně prořezávat — a prořez sdíleného veřejného CDN
 musí být bezpečný **z konstrukce, ne z opatrnosti**: smazaný soubor rozbije appku u zákazníka, který
 na něj pořád míří, a projeví se to až ve chvíli, kdy tu funkci někdo otevře.
@@ -18,7 +22,8 @@ node tools/prune-versions.mjs --keep 15               # 3. verzni slozky <app>/<
 node tools/prune-versions.mjs --keep 15 --apply       #    provede git rm
 ```
 
-Pak commit a push a ověření, že Pages build doběhl (`built`).
+Pak commit a push a ověření, že doběhl běh `deploy-azure.yml` (mazání se propíše i do Azure) a během
+paralelního běhu i Pages build (`built`).
 
 - **Commit dělej bez `git add`** — prořezové skripty si `git rm` stagují samy. `git add -A` ve sdíleném
   repu smete pod tvůj commit i rozpracovanou práci jiné session. Před každým commitem sem si přečti
@@ -26,7 +31,8 @@ Pak commit a push a ověření, že Pages build doběhl (`built`).
 - `prune-bundles.mjs` umí `--protect a,b` pro složky s nasazením, jehož verzi neznáme. **Který seznam
   to je a proč, patří do interní evidence, ne sem** — tohle repo je veřejné.
 - Obojí maže jen z pracovního stromu; soubory zůstávají v git historii
-  (`git checkout <commit> -- <cesta>`), protože limit Pages měří publikovaný web, ne historii.
+  (`git checkout <commit> -- <cesta>`), protože limit Pages měří publikovaný web, ne historii (a do Azure
+  se nahrává jen strom `main`).
 
 ## `check-stable-roots.mjs` — kdy a proč
 
