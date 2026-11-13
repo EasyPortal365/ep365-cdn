@@ -1,0 +1,47 @@
+name: CDN do Azure
+
+# Obsah repa -> Azure Blob Storage ep365cdnweu ($web) za Azure Front Door (cdn.easyportal365.cz).
+# push na main = rozdil od posledniho nasazeni; noc = overeni bajt po bajtu; rucne = deploy / full / verify.
+# Prihlaseni bez tajemstvi: federovana identita Entra app "ep365-cdn-deploy" (jen vetev main),
+# role Storage Blob Data Contributor jen na storage ucet ep365cdnweu.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'deploy = rozdil od posledniho nasazeni, full = dorovnat cely obsah, verify = jen overit'
+        type: choice
+        options: [deploy, full, verify]
+        default: deploy
+  schedule:
+    - cron: '23 2 * * *'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: cdn-azure
+  cancel-in-progress: false
+
+jobs:
+  cdn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      AZURE_CLIENT_ID: 202cbf1a-efeb-4fa3-9332-037beb703b25
+      AZURE_TENANT_ID: 66c95b26-3137-477a-a6fa-e6f2eb255247
+      STORAGE_ACCOUNT: ep365cdnweu
+    steps:
+      - name: Blobless klon (stromy hned, obsah souboru jen podle potreby)
+        run: |
+          git clone --filter=blob:none --no-checkout --single-branch --branch main "https://github.com/${GITHUB_REPOSITORY}.git" cdn
+          cd cdn
+          git -c core.autocrlf=false checkout HEAD -- tools/azure-blob-lib.mjs tools/deploy-blob.mjs
+          node --version
+      - name: Nasazeni / overeni
+        working-directory: cdn
+        run: node tools/deploy-blob.mjs --mode "${MODE}"
+        env:
+          MODE: ${{ github.event_name == 'schedule' && 'verify' || inputs.mode || 'deploy' }}
