@@ -3,7 +3,8 @@
 // Spousti ho workflow .github/workflows/deploy-azure.yml v cerstvem blobless klonu (Linux).
 // LOKALNE V PRACOVNIM REPU NESPOUSTET: checkout by prepsal pracovni strom.
 //
-//   node tools/deploy-blob.mjs [--mode deploy|full|verify] [--sha <commit>]
+//   node tools/deploy-blob.mjs [--mode deploy|full|verify|state] [--sha <commit>]
+//   (state = jen vypise SHA posledniho nasazeni – pro verify-live.mjs ve workflow)
 //
 // deploy  (vychozi) rozdil od posledniho nasazeneho commitu (deploy/state.json) do HEAD:
 //         nahraje pridane/zmenene soubory, smaze odstranene. Bez stavu nebo pri prepsane historii -> full.
@@ -60,6 +61,7 @@ async function main() {
   await ensureContainer(token, STATE_CONTAINER);
   const stateText = await getBlobText(token, STATE_CONTAINER, STATE_BLOB);
   const state = stateText ? JSON.parse(stateText) : null;
+  if (mode === 'state') { process.stdout.write((state ? state.sha : tip) + '\n'); return; }
   console.log(`Rezim ${mode}, HEAD ${tip.slice(0, 12)}, nasazeno ${state ? state.sha.slice(0, 12) + ' (' + state.deployedAt + ')' : '–'}`);
 
   if (mode === 'verify') return verify(token, state ? state.sha : tip);
@@ -123,6 +125,7 @@ async function main() {
 
 async function verify(token, sha) {
   console.log(`Overuji $web proti commitu ${sha.slice(0, 12)}…`);
+  try { git('cat-file', '-e', `${sha}^{commit}`); } catch { git('fetch', '-q', '--depth', '1', 'origin', sha); }
   const head = tree(sha);
   const blobs = await listBlobs(token, WEB);
   checkout(sha, [...head.keys()]);
