@@ -5,8 +5,38 @@
   "entries": [
     {
       "version": "1.18",
-      "date": "2026-11-07",
+      "date": "2026-11-14",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Aplikace i anglicky tam, kde dosud mluvila jen česky. Upozornění na dokumenty ke schválení a po termínu na úvodní stránce Workplace se zobrazují v jazyce čtenáře – kdo má Workplace anglicky, uvidí je anglicky (projeví se po aktualizaci Workplace). Nastavení webové části při úpravě stránky, její popis v nabídce webových částí i popis aplikace v katalogu aplikací jsou česky i anglicky podle jazyka Microsoftu 365 – projeví se po instalaci aktualizovaného balíčku aplikace a uložené nastavení webových částí zůstává beze změny.",
+          "en": "The application in English where it used to speak only Czech. Notices about documents awaiting approval or overdue on the Workplace home page appear in the reader’s language — anyone using Workplace in English sees them in English (takes effect once Workplace is updated). The web part settings shown when editing a page, the web part description in the toolbox and the app description in the app catalog are in Czech or English according to the Microsoft 365 language — this takes effect once the updated app package is installed, and saved web part settings stay unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Víc položek na stránku. Seznamy nabízejí 10, 15, 20, 50 nebo 100 položek na stránku i zobrazení všech; výchozí je 15.",
+          "en": "More items per page. Lists offer 10, 15, 20, 50 or 100 items per page or all items; the default is 15."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověřený kód a podepsaná licence. Před spuštěním aplikace se ověří podpis a otisk každého souboru, který se načítá z CDN; kód, který neprojde, se nespustí a aplikace to srozumitelně oznámí (projeví se po nahrání nového balíčku aplikace do katalogu aplikací). Licenční soubor nese digitální podpis EasyPortal 365 a aplikace ho před použitím ověří, takže licenci nejde podvrhnout ani pozměnit. Při načítání členů skupin Entra ID a podřízených pro potvrzení za jiného člověka posílá aplikace přihlašovací údaje jen na Microsoft Graph.",
+          "en": "Verified code and a signed licence. Before the application starts, the signature and fingerprint of every file loaded from the CDN are verified; code that fails the check does not run and the application says so clearly (takes effect once the new app package is uploaded to the app catalog). The licence file carries an EasyPortal 365 digital signature, which the application checks before using it, so the licence cannot be forged or altered. When loading Entra ID group members and direct reports for confirmations on behalf of another person, the application sends sign-in credentials only to Microsoft Graph."
+        },
+        {
+          "type": "improved",
+          "cs": "Nová obrazovka začíná nahoře. Po přechodu na jinou obrazovku se stránka vrátí na začátek aplikace, takže hlavička nové obrazovky je hned vidět – dřív zůstala odrolovaná tam, kde uživatel opustil předchozí obrazovku.",
+          "en": "A new screen starts at the top. After moving to another screen, the page returns to the start of the application, so the header of the new screen is visible right away — previously it stayed scrolled where you left the previous screen."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vyhledávání a české tvary počtů. Krátký výpadek vyhledávání SharePointu už nepřeruší hledání v obsahu dokumentů ani výběr lidí a příjemců – aplikace dotaz po pár sekundách sama zopakuje, a když vyhledávání neodpovídá ani potom, řekne, že jde o dočasný výpadek služby. Přehled potvrzení, evidenční balíček, e-mail o eskalaci a kontrolní otázky píšou počty ve správném tvaru, například „2 osoby se seznámily“ nebo „5 kontrolních otázek“.",
+          "en": "Search and Czech plural forms. A short SharePoint search outage no longer interrupts the search in document content or the people and recipient pickers — the application retries the query by itself after a few seconds, and if search still does not respond, it says this is a temporary service outage. The acknowledgement overview, evidence pack, escalation e-mail and check questions use the correct Czech plural forms for counts."
+        },
+        {
+          "type": "improved",
+          "cs": "Moje dokumenty a Plnění sad mají v levém menu podstránky. Pod Mými dokumenty najdete Ke splnění, K prostudování a Potvrzené – řádek zkratek „Časté“ v hlavičce nahradilo menu. Plnění sad se dělí na Po lidech a Po sadách místo dvou záložek na stránce. Dřívější odkazy z e-mailů, úkolů, kalendáře i jiných aplikací vedou dál na stejné místo.",
+          "en": "My documents and Set progress have sub-pages in the left menu. Under My documents you find To do, To read and Confirmed — the “Frequent” shortcut row in the header has been replaced by the menu. Set progress is split into By people and By sets instead of two tabs on the page. Earlier links from e-mails, tasks, the calendar and other apps still lead to the same place."
+        },
         {
           "type": "new",
           "cs": "Řízené výtisky. Papírovou kopii řízeného dokumentu vydáte s evidencí – každá strana nese razítko s číslem výtisku, verzí, držitelem, místem a QR kódem. Po naskenování a přihlášení do Microsoft 365 QR kód ukáže, jestli výtisk platí, nebo kterou verzí ho nahradit. Při nové verzi se výtisky staré verze označí „K výměně“, držitelům pošlete upozornění s úkolem a náhrady vydáte jedním tlačítkem. Držitel výměnu potvrdí v sekci Moje výtisky, vydavatel ji může zapsat za něj (i ztracený výtisk). Přehled všech výtisků pro audit je v Reportingu (CSV a přehled k tisku) a výtisky jsou i v evidenčním balíčku. Výtisk pro informaci vytisknete bez evidence s razítkem „platí jen v den tisku“. Evidence se založí, až aplikaci po aktualizaci otevře správce.",
