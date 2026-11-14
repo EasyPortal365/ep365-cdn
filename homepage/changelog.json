@@ -5,8 +5,43 @@
   "entries": [
     {
       "version": "1.31",
-      "date": "2026-11-06",
+      "date": "2026-11-14",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Upozornění z aplikací a nastavení webové části i anglicky. Upozornění z ostatních aplikací v Mém dni a na úvodní stránce se zobrazují v jazyce, který máte ve Workplace zvolený – česky nebo anglicky; aplikace, které anglické znění ještě nemají, zůstávají česky. Nastavení webové části při úpravě stránky, její popis v nabídce webových částí i popis aplikace v katalogu aplikací jsou česky i anglicky podle jazyka Microsoftu 365 – projeví se po instalaci aktualizovaného balíčku aplikace a uložené nastavení webových částí zůstává beze změny.",
+          "en": "Notices from the apps and web part settings in English too. Notices from the other apps in My day and on the home page appear in the language you use in Workplace — Czech or English; apps that do not provide English wording yet stay in Czech. The web part settings shown when editing a page, the web part description in the toolbox and the app description in the app catalog are in Czech or English according to the Microsoft 365 language — this takes effect once the updated app package is installed, and saved web part settings stay unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Víc položek na stránku. Seznamy nabízejí 10, 15, 20, 50 nebo 100 položek na stránku i zobrazení všech; výchozí je 15. Počet, který jste si už zvolili, zůstává.",
+          "en": "More items per page. Lists offer 10, 15, 20, 50 or 100 items per page or all items; the default is 15. A page size you have already chosen stays."
+        },
+        {
+          "type": "improved",
+          "cs": "Hledání bez ohledu na diakritiku. V rychlém hledání ⌘K, v Seznamu kontaktů, v Mých aktivitách, v Dotazech a námětech, v obsahu webu, v nápovědě, ve výběru webů v nastavení i v přehledu, kdo oznámení přečetl, najdete „Bártová“, i když napíšete „bartova“.",
+          "en": "Search regardless of diacritics. In the ⌘K quick search, the Directory, My activities, Questions and ideas, site contents, help, the site picker in settings and the list of who has read an announcement, typing “bartova” finds “Bártová”."
+        },
+        {
+          "type": "improved",
+          "cs": "Kontrola IČO ve Firemní identitě. Globální konfigurace EP365 → Firemní identita kontroluje IČO, které se tiskne do patičky dokumentů: s IČO, které neexistuje (nesedí kontrolní součet), se identita neuloží a u pole i u tlačítka Uložit je vidět, co opravit. Dřív uložené IČO uložení nezastaví, u pole se jen ukáže upozornění.",
+          "en": "Company ID check in Company identity. EP365 global configuration → Company identity checks the company ID (IČO) printed in document footers: an identity with an ID that does not exist (the checksum does not match) is not saved, and both the field and the Save button say what to correct. A previously saved ID does not block saving; the field only shows a warning."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověřený kód a podepsaná licence. Před spuštěním Workplace se ověří podpis a otisk každého souboru, který se načítá z CDN; kód, který neprojde, se nespustí a aplikace to srozumitelně oznámí (projeví se po nahrání nového balíčku aplikace do katalogu aplikací). Licenční soubor nese digitální podpis EasyPortal 365 a aplikace ho před použitím ověří, takže licenci nejde podvrhnout ani pozměnit.",
+          "en": "Verified code and a signed license. Before Workplace starts, the signature and fingerprint of every file loaded from the CDN are verified; code that fails the check does not run and the app says so clearly (takes effect once the new app package is uploaded to the app catalog). The license file carries an EasyPortal 365 digital signature, which the app checks before using it, so the license cannot be forged or altered."
+        },
+        {
+          "type": "improved",
+          "cs": "Nová záložka začíná nahoře. Po přechodu na jinou záložku Workplace nebo do Nastavení, Přehledu využití a Globální konfigurace – z lišty i z hledání ⌘K – se stránka vrátí na začátek Workplace, takže obsah je hned vidět. Dřív zůstala odrolovaná tam, kde byla předchozí záložka. Oznámení bez odkazu vybrané v hledání ⌘K teď stránku opravdu vrátí na začátek.",
+          "en": "A new tab starts at the top. After moving to another Workplace tab or to Settings, Usage overview and Global configuration — from the bar or from ⌘K search — the page returns to the start of Workplace, so the content is visible right away. Previously it stayed scrolled where the previous tab was. An announcement without a link chosen in ⌘K search now really takes the page back to the start."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vyhledávání SharePointu a tvary počtů. Krátký výpadek vyhledávání SharePointu už nepřeruší přehled nejčtenějšího obsahu ani hledání knihoven v Nastavení – Workplace dotaz po pár sekundách sám zopakuje. Pulse anketa píše počet hlasů ve správném tvaru, „3 hlasy“ místo „3 hlasů“.",
+          "en": "SharePoint search and Czech word forms. A short SharePoint search outage no longer interrupts the most-read content overview or the library search in Settings — Workplace retries the query by itself after a few seconds. The Pulse survey uses the correct Czech word form for 2 to 4 votes."
+        },
         {
           "type": "improved",
           "cs": "Upozornění v „Můj den“, která aplikace určí jen pro některé role (například schvalování ve Vozovém parku), dostanou jen lidé s touto rolí – i když ji mají přes skupinu v Microsoft 365. Ostatním se nezobrazí a nekončí po kliknutí na „Přístup odepřen“.",
