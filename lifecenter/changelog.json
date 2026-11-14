@@ -5,8 +5,23 @@
   "entries": [
     {
       "version": "1.20",
-      "date": "2026-11-07",
+      "date": "2026-11-14",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Upozornění ve Workplace a nastavení webové části i anglicky. Upozornění Centra na úvodní stránce Workplace se zobrazují v jazyce čtenáře – kdo má Workplace anglicky, uvidí je anglicky (projeví se po aktualizaci Workplace). Nastavení webové části při úpravě stránky, její popis v nabídce webových částí i popis aplikace v katalogu aplikací jsou česky i anglicky podle jazyka Microsoftu 365 – projeví se po instalaci aktualizovaného balíčku aplikace a uložené nastavení webových částí zůstává beze změny.",
+          "en": "Workplace notices and web part settings in English too. Centre notices on the Workplace home page appear in the reader’s language — anyone using Workplace in English sees them in English (takes effect once Workplace is updated). The web part settings shown when editing a page, the web part description in the toolbox and the app description in the app catalog are in Czech or English according to the Microsoft 365 language — this takes effect once the updated app package is installed, and saved web part settings stay unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověřený kód a podepsaná licence. Před spuštěním aplikace se ověří podpis a otisk každého souboru, který se načítá z CDN; kód, který neprojde, se nespustí a aplikace to srozumitelně oznámí (projeví se po nahrání nového balíčku aplikace do katalogu aplikací). Licenční soubor nese digitální podpis EasyPortal 365 a aplikace ho před použitím ověří, takže licenci nejde podvrhnout ani pozměnit.",
+          "en": "Verified code and a signed licence. Before the app starts, the signature and fingerprint of every file loaded from the CDN are verified; code that fails the check does not run and the app says so clearly (takes effect once the new app package is uploaded to the app catalog). The licence file carries an EasyPortal 365 digital signature, which the app checks before using it, so the licence cannot be forged or altered."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přepínání obrazovek a prázdná úvodní stránka. Po přechodu z menu, z odkazu nebo tlačítky Zpět a Vpřed se stránka vrátí na začátek Centra – dřív zůstala odrolovaná a nová obrazovka se otevřela uprostřed; změna filtru nebo záložky na téže obrazovce stránkou nehýbe. Prázdná úvodní stránka už netvrdí, že se ukázková data založí sama – řekne, že životní situace přidá správce, nebo pro vyzkoušení založí ukázková data v Nastavení → Testovací data.",
+          "en": "Switching screens and the empty home page. After moving from the menu, from a link or with the Back and Forward buttons, the page returns to the start of the Centre — previously it stayed scrolled down and the new screen opened in the middle; changing a filter or tab on the same screen does not move the page. The empty home page no longer says that sample data is created automatically — it says that an administrator adds life situations, or creates sample data to try the Centre in Settings → Test data."
+        },
         {
           "type": "new",
           "cs": "Průvodce s hlasem na každé obrazovce. V hlavičce obrazovek je tlačítko ▶ „Přehrát průvodce“: průvodce sám projde obrazovku odshora dolů, zvýrazní každou část a česky nebo anglicky, podle jazyka rozhraní, řekne, k čemu slouží. Najdete ho na Rozcestníku, v situaci a článku, ve vyhledávání, u garantů, v nápovědě, na obrazovkách přidělených situací a povinných školení i ve správě obsahu – každý jen na obrazovkách, které smí používat. Kdykoli ho pozastavíte, ztlumíte nebo ukončíte.",
