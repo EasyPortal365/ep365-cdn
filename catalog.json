@@ -89,6 +89,7 @@
     "webUrl": "https://easyportal365.cz/aplikace/doklady-prijate/"
   },
   "ep365-assets": {
-    "description": "Evidence majetku – firemní majetek, kdo má co svěřené, předávací protokoly s potvrzením v aplikaci, štítky QR, inventura, záruky a servis. Součást HR doplňku."
+    "description": "Evidence majetku – firemní majetek, kdo má co svěřené, předávací protokoly s potvrzením v aplikaci, štítky QR, inventura, záruky a servis. Samostatně i jako součást HR doplňku.",
+    "webUrl": "https://easyportal365.cz/aplikace/evidence-majetku/"
   }
 }
