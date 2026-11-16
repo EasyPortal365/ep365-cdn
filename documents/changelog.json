@@ -9,6 +9,21 @@
       "changes": [
         {
           "type": "fixed",
+          "cs": "Potvrzení seznámení zapsané z papíru se započte jen tehdy, když aplikace ověří, že ho zapsal někdo oprávněný (správce nebo přímý nadřízený). Když se to v danou chvíli ověřit nepodaří, potvrzení se zatím nepočítá a nese jantarový štítek „z papíru – čeká na ověření“. Započte se samo, jakmile ověření projde – v přehledu, exportu i evidenčním balíčku.",
+          "en": "A paper confirmation of acknowledgement now counts only when the app verifies it was recorded by someone authorised (an administrator or the person’s direct manager). If this cannot be verified at the moment, the confirmation does not count yet and carries an amber “from paper — awaiting verification” label. It counts automatically once verification succeeds — in the overview, the export and the evidence pack."
+        },
+        {
+          "type": "fixed",
+          "cs": "IP adresu a zařízení, které aplikace v přísném režimu NIS2 ukládá k potvrzení seznámení, teď vidí jen správci aplikace. Ukládají se do zvláštního seznamu s omezeným přístupem; zaměstnanec vidí jen svůj záznam. V přehledu potvrzení, exportu i evidenčním balíčku je správce najde jako dosud.",
+          "en": "The IP address and device that the app records with an acknowledgement in strict NIS2 mode are now visible to application administrators only. They are stored in a separate list with restricted access; an employee sees only their own record. Administrators find them in the acknowledgement overview, the export and the evidence pack as before."
+        },
+        {
+          "type": "improved",
+          "cs": "Detail dokumentu ve správě ukazuje i „Schválil (podle historie verzí)“ – kdo dokument skutečně schválil podle záznamu SharePointu, a kdy. Když se údaj neshoduje s polem „Schválil/a“ nebo dokument schválením vůbec neprošel, aplikace na to upozorní.",
+          "en": "The document detail in management now also shows “Approved by (version history)” — who actually approved the document according to the SharePoint record, and when. If this does not match the “Approved by” field, or the document never went through approval, the app points it out."
+        },
+        {
+          "type": "fixed",
           "cs": "Běžní zaměstnanci už po nové instalaci aplikace nevidí hlášení „Členství se nepodařilo ověřit“. Aplikace jejich roli pozná spolehlivě i tam, kde SharePoint seznam členů skupin neukazuje.",
           "en": "Regular employees no longer see the “membership could not be verified” notice after a fresh installation. The app recognises their role reliably even where SharePoint does not show group member lists."
         },
