@@ -5,8 +5,93 @@
   "entries": [
     {
       "version": "1.1",
-      "date": "2026-11-10",
+      "date": "2026-11-16",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Panely s detailem a formuláři mají jednotnou podobu napříč aplikacemi EasyPortal 365: druh záznamu nad názvem, dlouhý název se zalomí místo zkrácení, tlačítka Upravit, Kopírovat odkaz a Zavřít na stejném místě. Na telefonu mají tlačítka větší plochu pro prst a panel víc místa pro obsah.",
+          "en": "Detail and form panels look the same across EasyPortal 365 apps: the record type above the title, long titles wrap instead of being cut off, and the Edit, Copy link and Close buttons sit in the same place. On phones the buttons are easier to tap and the panel leaves more room for content."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zpřísnili jsme ochranu citlivých údajů o úrazech. Seznam členů skupiny zraněných zaměstnanců už neuvidí vedení, mistři ani další uživatelé webu. Historie případu už neuvádí druh ani částky nároků, údaje pojistné události ani názvy dokumentů v chráněných složkách. Souhrn statistiky pro vedení sloučí pracoviště, části těla a další skupiny s méně než třemi úrazy do „Ostatní“. Do dokumentů případu se převezmou jen obrázky, videa a PDF – od zraněného jen to, co poslal účet zapsaný u jeho případu.",
+          "en": "We have tightened the protection of sensitive injury data. Management, foremen and other site users can no longer see the members of the injured employees group. The case history no longer shows the type or amounts of claims, insurance claim details or the names of documents in protected folders. The statistics summary for management merges workplaces, body parts and other groups with fewer than three injuries into “Other”. Only images, videos and PDFs are taken over into the case documents — from the injured person only what was sent by the account recorded on their case."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nápověda u pracovišť v Nastavení a hlas průvodce přesně říkají, co dělá zúžený přehled mistra: zúží jeho seznam na vlastní provoz kvůli přehlednosti, není to ochrana dat.",
+          "en": "The help for workplaces in Settings and the guide’s voice now say exactly what a foreman’s narrowed view does: it narrows their list to their own operation for clarity — it is not data protection."
+        },
+        {
+          "type": "fixed",
+          "cs": "Smazání ukázkových dat uklidí i to, co jste si na ukázkových případech vyzkoušeli – záznamy v historii, fotky poslané z telefonu a vyjádření a doklady zraněných v Mém úrazu. Skutečné úrazy a jejich historie zůstávají beze změny. Smaže se jen to, co ukázka sama založila – skutečný zápis zůstane, i když do něj někdo dopíše označení ukázky.",
+          "en": "Deleting the sample data now also removes what you tried out on the sample cases — history entries, photos sent from a phone and the injured person’s statements and documents in My injury. Real injuries and their history stay unchanged. Only what the sample created itself is deleted — a real entry stays, even if someone adds the sample label to it."
+        },
+        {
+          "type": "improved",
+          "cs": "Statistika a rizika má v levém menu dvě podstránky: Přehled (čísla ročníku, vývoj, srovnání s předchozími ročníky a sestavy) a Příčiny a místa (postava, pracoviště × měsíc a žebříčky podle zdroje, pracoviště a délky zaměstnání). Výběr ročníku a tisk jsou na obou. Dřívější odkazy na statistiku vedou dál na Přehled; postřehy o pracovišti a zdroji úrazu na úvodní obrazovce otevírají rovnou Příčiny a místa.",
+          "en": "Statistics and risks now has two subpages in the left menu: Overview (the year’s figures, trend, comparison with previous years and reports) and Causes and places (body map, workplace × month and rankings by source, workplace and length of employment). The year picker and printing are on both. Earlier links to the statistics still open the Overview; observations about a workplace or injury source on the home screen now open Causes and places directly."
+        },
+        {
+          "type": "improved",
+          "cs": "Upozornění aplikace na úvodní stránce Workplace se zobrazují v jazyce čtenáře – kdo má Workplace anglicky, uvidí je anglicky. Projeví se po aktualizaci Workplace.",
+          "en": "The app’s notifications on the Workplace home page appear in the reader’s language — anyone using Workplace in English sees them in English. Takes effect once Workplace is updated."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení webové části při úpravě stránky, její popis v nabídce webových částí i popis aplikace v katalogu aplikací jsou i anglicky – kdo má Microsoft 365 v angličtině, už tam neuvidí české texty. Anglicky jsou i hlášení, která se ukazují při načítání aplikace. Projeví se po instalaci aktualizovaného balíčku aplikace; uložené nastavení webových částí zůstává beze změny.",
+          "en": "The web part settings shown when editing a page, the web part description in the toolbox and the app description in the app catalog are now available in English too — users with Microsoft 365 in English no longer see Czech texts there. Messages shown while the app is loading are in English too. This takes effect once the updated app package is installed; saved web part settings stay unchanged."
+        },
+        {
+          "type": "fixed",
+          "cs": "Obrazovka přípravy po aktualizaci aplikace už netvrdí, že jde o první spuštění – řekne, že aplikace zakládá nebo doplňuje seznamy, a že po aktualizaci to obvykle trvá jen chvíli.",
+          "en": "After an app update, the preparation screen no longer says this is the first start — it says the app is creating or adding lists and that after an update this usually takes only a moment."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení → Údaje o firmě kontroluje IČO: s IČO, které neexistuje (nesedí kontrolní součet), se nastavení neuloží a aplikace u pole řekne, co opravit. Dřív uložené IČO uložení nezastaví, jen se u pole ukáže upozornění.",
+          "en": "Settings → Company details checks the company ID (IČO): settings with an ID that does not exist (the checksum does not match) are not saved, and the app says at the field what to correct. A previously saved ID does not block saving; the field only shows a warning."
+        },
+        {
+          "type": "improved",
+          "cs": "Užší oprávnění technika BOZP: skupina technika BOZP má na webu i na seznamech aplikace místo Úplného řízení vlastní úroveň „EP365 Technik BOZP“ – Úpravy a navíc čtení a úpravu cizích záznamů tam, kde ostatní vidí nebo upravují jen svoje. Oprávnění SharePointu a členství ve Vlastnících webu mění jen vlastník webu. Dosavadní Úplné řízení aplikace odebere sama – na webu i na všech seznamech – jakmile ji po aktualizaci poprvé otevře vlastník webu nebo technik BOZP.",
+          "en": "Narrower permissions for the safety officer: instead of Full Control, the safety officer group now has its own level “EP365 Technik BOZP” on the site and on the app lists — Edit plus reading and editing other people’s records where everyone else sees or edits only their own. SharePoint permissions and membership of the site owners are changed only by the site owner. The app removes the existing Full Control itself — on the site and on all lists — as soon as the site owner or the safety officer first opens it after the update."
+        },
+        {
+          "type": "fixed",
+          "cs": "Technik BOZP teď může v Nastavení → Role přidávat a odebírat členy rolí a tlačítkem „Zpřístupnit zraněnému“ dát zraněnému přístup, i když skupiny nezakládal sám. Dřív to SharePoint dovolil jen tomu, kdo aplikaci na webu poprvé spustil, a správci kolekce webů. Skupiny rolí nově spravuje skupina technika BOZP; roli Mzdové údaje dál jen vlastník webu.",
+          "en": "The safety officer can now add and remove role members in Settings → Roles and give the injured employee access with “Give access to the injured employee”, even if they did not create the groups. Before, SharePoint allowed this only to whoever first ran the app on the site and to site collection administrators. The role groups are now managed by the safety officer group; the Payroll data role is still managed only by the site owner."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověřování kódu aplikace: před spuštěním aplikace se ověří podpis a otisk každého souboru, který se načítá z CDN. Kód, který neprojde, se nespustí a aplikace to srozumitelně oznámí. Projeví se po nahrání nového balíčku aplikace do katalogu aplikací.",
+          "en": "App code verification: before the app starts, the signature and fingerprint of every file loaded from the CDN are verified. Code that fails the check does not run and the app says so clearly. Takes effect once the new app package is uploaded to the app catalog."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověřování licence: licenční soubor nese digitální podpis EasyPortal 365 a aplikace ho před použitím ověří. Soubor, který podpisem neprojde, nepřijme a srozumitelně to oznámí – licenci tak nejde podvrhnout ani pozměnit.",
+          "en": "License verification: the license file carries an EasyPortal 365 digital signature, which the app checks before using it. A file that fails the check is rejected and the app says so clearly — the license cannot be forged or altered."
+        },
+        {
+          "type": "fixed",
+          "cs": "Krátký výpadek vyhledávání SharePointu už nepřeruší hledání lidí při přidávání do rolí – aplikace dotaz po pár sekundách sama zopakuje.",
+          "en": "A short SharePoint search outage no longer interrupts the people search when adding someone to a role — the app retries the query by itself after a few seconds."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hledání přes ⌘K (Ctrl+K) filtruje podle zadaného textu i obrazovky a akce, ne jen záznamy – na „lhůty“ ukáže jen obrazovku „Lhůty a odeslání“ a nalezené záznamy. Dřív paleta ukazovala na každý dotaz všechny obrazovky a hledané až pod nimi.",
+          "en": "The ⌘K (Ctrl+K) search now filters screens and actions by the text you type, not just records — typing a name or case number shows the matching cases and only the screens whose name matches. Before, it listed every screen for any query, with the matches below them."
+        },
+        {
+          "type": "fixed",
+          "cs": "Uživatelé bez práva spravovat oprávnění webu už při otevření aplikace nezkoušejí kroky přípravy, které smí udělat jen správce. Odpadnou tím zbytečné dotazy na SharePoint, které by stejně skončily odepřením přístupu, i jejich opakování; správci se příprava dokončí jako dřív.",
+          "en": "Users without permission to manage site permissions no longer attempt setup steps that only an admin can perform when they open the app. This removes unnecessary requests to SharePoint that would end in access denied anyway, and their repetition; for admins, setup completes as before."
+        },
+        {
+          "type": "improved",
+          "cs": "Přepnutí obrazovky začíná nahoře: po přechodu na jinou obrazovku se stránka SharePointu vrátí na začátek aplikace, takže hlavička nové obrazovky je hned vidět. Dřív zůstala odrolovaná tam, kde uživatel opustil předchozí obrazovku, a nová se otevřela uprostřed.",
+          "en": "Switching screens starts at the top: after moving to another screen, the SharePoint page returns to the start of the app, so the header of the new screen is visible right away. Previously it stayed scrolled where you left the previous screen, and the new one opened in the middle."
+        },
         {
           "type": "new",
           "cs": "Menu a Přehled podle role. Každý má v menu na prvním místě to, co ve své roli dělá – mistr hlášení úrazu, knihu, skoro-nehody, testy a opatření, personalistika záznamy, nemoci z povolání, testy a pojistné události. Ostatní obrazovky, které role smí otevřít, jsou ve sbalené skupině „Další“ a v hledání ⌘K – přístupy se tím nemění. Přehled v hlavičce řekne, kolik věcí na vás čeká, a pod ní je seznam „Na vás čeká“ seřazený podle naléhavosti: lhůty, posouzení a schválení u technika BOZP, vrácená opatření a skoro-nehody a nedokončená hlášení u mistra, testy k rozhodnutí u personalistiky. Každý řádek vede rovnou tam, kde se věc vyřizuje. Vpravo jsou čísla podle role: technik BOZP a mistr vidí dny bez úrazu za celou firmu i po lokalitách, mistr navíc skoro-nehody za 90 dní, personalistika pojistné události a testy. Mistr má nahoře tři velké akce (nahlásit úraz, nahlásit skoro-nehodu, zapsat test) a technik BOZP filtr Lokalita. Nápověda „Kdo co v aplikaci smí?“ ukazuje u každé role, co smí, co nesmí a co má v menu na prvním místě.",
