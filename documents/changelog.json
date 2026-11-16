@@ -5,8 +5,53 @@
   "entries": [
     {
       "version": "1.18",
-      "date": "2026-11-14",
+      "date": "2026-11-16",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Potvrzení seznámení se počítají podle toho, kdo je skutečně zapsal a kdy. Potvrzení za jiného člověka platí jen od správce nebo vedoucího, čas potvrzení odpovídá okamžiku zápisu.",
+          "en": "Acknowledgments are counted by who actually recorded them and when. An acknowledgment on behalf of someone else only counts when recorded by an admin or manager, and its time matches the moment it was recorded."
+        },
+        {
+          "type": "fixed",
+          "cs": "Záznamy o řízených výtiscích se ověřují i přes skupiny Entra ID a čas události odpovídá okamžiku zápisu. Doklad o papírovém potvrzení se otevře jen z úložiště dokladů aplikace.",
+          "en": "Controlled-print records are also verified through Entra ID groups, and the event time matches the moment it was recorded. A paper acknowledgment proof only opens from the app’s proof library."
+        },
+        {
+          "type": "fixed",
+          "cs": "Běžní uživatelé už při první návštěvě aplikace nečekají na nastavování oprávnění, které smí dokončit jen správce webu – aplikace se jim načte rychleji a v pozadí se nic marně neopakuje.",
+          "en": "Regular users no longer wait for permission setup that only a site admin can complete on their first visit – the app loads faster and nothing is retried in the background in vain."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přepnutí jazyka aplikace v Nastavení → Obecné se znovu uloží a aplikace se hned přepne do zvoleného jazyka.",
+          "en": "Switching the application language in Settings → General is saved again and the application switches to the chosen language straight away."
+        },
+        {
+          "type": "fixed",
+          "cs": "V Mých dokumentech se u termínu potvrzení po termínu už nezdvojuje počet dní.",
+          "en": "In My documents, the number of days past the confirmation deadline is no longer shown twice."
+        },
+        {
+          "type": "improved",
+          "cs": "Ukázková data (Nastavení → Testovací data) mají u každého z 26 dokumentů skutečné PDF s čitelným názvem v jazyce aplikace a ukázková potvrzení odpovídají intervalu obnovy dokumentu.",
+          "en": "Sample data (Settings → Sample data) now include a real PDF for each of the 26 documents, with a readable name in the application language, and the sample confirmations match each document’s renewal interval."
+        },
+        {
+          "type": "fixed",
+          "cs": "Když potvrzení dokumentu vyprší a je třeba ho obnovit, karta v Mých dokumentech to tak i napíše („Potvrzení vypršelo · potvrďte znovu“) a ukáže nový termín – dřív hlásila původní termín jako dávno prošlý.",
+          "en": "When a confirmation expires and has to be renewed, the card in My documents now says so (“Confirmation expired · confirm again”) and shows the new deadline — previously it reported the original deadline as long overdue."
+        },
+        {
+          "type": "fixed",
+          "cs": "Vlastní ikony kategorií se kontrolují přísněji – při nahrání i při každém zobrazení.",
+          "en": "Custom category icons are checked more strictly – both on upload and every time they are shown."
+        },
+        {
+          "type": "improved",
+          "cs": "Anglický název aplikace je nově Controlled Documents a typ dokumentu Controlled document (dřív Managed). Česky se nic nemění a stávající dokumenty i nastavení zůstávají, jak jsou. Nový název v nabídce webových částí a v katalogu aplikací se ukáže po nahrání aktualizovaného balíčku aplikace.",
+          "en": "In English the application is now called Controlled Documents and the document type is Controlled document (previously Managed). Nothing changes in Czech, and existing documents and settings stay as they are. The new name appears in the web part toolbox and the app catalog once the updated app package is uploaded."
+        },
         {
           "type": "improved",
           "cs": "Aplikace i anglicky tam, kde dosud mluvila jen česky. Upozornění na dokumenty ke schválení a po termínu na úvodní stránce Workplace se zobrazují v jazyce čtenáře – kdo má Workplace anglicky, uvidí je anglicky (projeví se po aktualizaci Workplace). Nastavení webové části při úpravě stránky, její popis v nabídce webových částí i popis aplikace v katalogu aplikací jsou česky i anglicky podle jazyka Microsoftu 365 – projeví se po instalaci aktualizovaného balíčku aplikace a uložené nastavení webových částí zůstává beze změny.",
@@ -160,7 +205,7 @@
         {
           "type": "fixed",
           "cs": "Odkazy a drobné opravy. Odkazy v e-mailech, v úkolech a záznamech ve Workplace a ve sdílení vedou vždy na stránku Řízených dokumentů a upozornění ve Workplace na dokumenty ke schválení a po termínu otevřou rovnou pohled Ke schválení, případně Dashboard compliance. Datum v názvu exportu i platnost licence se řídí místním časem, Enter nebo mezerník na „Připomenout“ připomínku opravdu odešle, promazání dat aplikace smaže i soubory s # nebo % v názvu, české texty mají správné uvozovky a přehled datových seznamů správně uvádí, že je knihovna souborů v Obsahu webu skrytá.",
-          "en": "Links and small fixes. Links in e-mails, in Workplace tasks and entries and in share links always lead to the Managed Documents page, and Workplace notices about documents awaiting approval or overdue open the Approval view or the compliance Dashboard directly. The date in export file names and the licence validity follow local time, Enter or Space on “Remind” really sends the reminder, clearing the application data also deletes files with # or % in their name, Czech texts use proper quotation marks, and the data lists overview correctly shows that the file library is hidden in Site contents."
+          "en": "Links and small fixes. Links in e-mails, in Workplace tasks and entries and in share links always lead to the Controlled Documents page, and Workplace notices about documents awaiting approval or overdue open the Approval view or the compliance Dashboard directly. The date in export file names and the licence validity follow local time, Enter or Space on “Remind” really sends the reminder, clearing the application data also deletes files with # or % in their name, Czech texts use proper quotation marks, and the data lists overview correctly shows that the file library is hidden in Site contents."
         }
       ]
     },
