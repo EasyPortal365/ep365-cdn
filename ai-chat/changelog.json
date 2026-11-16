@@ -5,8 +5,98 @@
   "entries": [
     {
       "version": "2.0",
-      "date": "2026-11-09",
+      "date": "2026-11-16",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Výsledek rutiny může přijít i jako karta do Teams – do chatu se sebou, do vybraného chatu nebo do kanálu týmu. Karta nese krátké shrnutí a tlačítko, které otevře celou konverzaci v AI Asistentovi; u e-mailu i tlačítko do Outlooku. Rutina, která hlídá poštu, umí poslat kartu za každý nový e-mail zvlášť a kontrolovat průběžně každých 5 až 60 minut. Nové podmínky pošty: jen zprávy poslané přímo vám, bez hromadné pošty, s vysokou důležitostí, s přílohou nebo se slovem v textu. Zkušební kartou si cíl ověříte předem – aplikace potvrdí, že karta v Teams je, a nabídne odkaz, který chat s ní otevře. Teams na vlastní zprávy neupozorňuje, a tak vám může dát vědět aplikace oznámením z prohlížeče – klik na něj otevře kartu v Teams. Hotový vzor „Důležité e-maily do Teams“ je v Galerii.",
+          "en": "A routine result can also arrive as a card in Teams — in your chat with yourself, in a chosen chat or in a team channel. The card carries a short summary and a button that opens the whole conversation in AI Assistant; for an e-mail also a button to Outlook. A routine that watches your mail can send one card per new e-mail and check continuously every 5 to 60 minutes. New mail conditions: only messages sent directly to you, without bulk mail, with high importance, with an attachment or with a word in the text. A test card checks the target in advance — the app confirms the card is in Teams and offers a link that opens the chat with it. Teams does not notify you about your own messages, so the app can let you know with a browser notification — clicking it opens the card in Teams. A ready-made “Important emails to Teams” template is in the Gallery."
+        },
+        {
+          "type": "improved",
+          "cs": "Rutiny mají vlastní hledání: pole nahoře v okně najde rutinu podle slova z názvu nebo otázky ve vašich rutinách, v Galerii i ve Firemních (vzory z Galerie česky i anglicky). Odhad spotřeby je srozumitelnější – „odhad do 66 AI úkonů měsíčně (3 na běh × 22 běhů)“; měsíční číslo není limit, strop platí jen na jeden běh. Volby v editoru mají ikony: u „Odkud čerpat“ tytéž jako výběr zdrojů v chatu a u „Poslat i do Teams“ ikonu podle toho, kdo kartu uvidí.",
+          "en": "Routines now have their own search: the field at the top of the window finds a routine by a word from its name or question in your routines, the Gallery and Company (Gallery templates in English and Czech). The usage estimate is clearer — “estimate: up to 66 AI actions a month (3 per run × 22 runs)”; the monthly figure is not a limit, the cap applies to a single run only. Editor options have icons: “Where to look” uses the same ones as the source picker in the chat, and “Also send to Teams” shows who will see the card."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rutina, kterou přerušilo zavření nebo obnovení stránky, se už netváří jako zastavená: karta ukáže „Přerušeno“ s vysvětlením a rutina v čase se týž den při dalším otevření aplikace připraví znovu. Stejně poctivě se přerušení ukáže i u Samostatné práce a Rešerše.",
+          "en": "A routine interrupted by closing or reloading the page no longer looks as if it had been stopped: the card shows “Interrupted” with an explanation, and a scheduled routine is prepared again the next time you open the app that day. Work on your own and Research show an interruption just as honestly."
+        },
+        {
+          "type": "new",
+          "cs": "Témata dotazů s upřednostněnými zdroji: správce v Přehledu využití → Témata dotazů založí téma (třeba HR benefity nebo Projektové řízení), přidá klíčová slova a přiřadí mu weby nebo knihovny. Když se otázka tématu týká, asistent hledá nejdřív tam – mírně (výsledky odtud se posunou výš), silně (aspoň třetina podkladů odtud) nebo nejdřív jen tady. Hranice zdrojů platí dál a nic nového se nezpřístupní: každý dál najde jen to, k čemu má oprávnění. Pod odpovědí je vidět, že asistent hledal nejdřív v místech tématu, a tlačítkem „Hledat bez upřednostnění“ se dá zeptat znovu bez nich. Zkušební otázka v editoru tématu ukáže rozdíl předem a bez AI. Upřednostnění se dá v Nastavení → SharePoint vypnout.",
+          "en": "Query topics with preferred sources: in Usage overview → Query topics an administrator creates a topic (e.g. HR benefits or Project management), adds keywords and assigns sites or libraries to it. When a question is about the topic, the assistant searches there first — mildly (results from there move up), strongly (at least a third of the material from there) or there first only. The source boundary still applies and nothing new becomes accessible: everyone still finds only what they are permitted to see. Under the answer you can see that the assistant searched the topic’s places first, and the “Search without preference” button asks again without them. A test question in the topic editor shows the difference in advance, without AI. The preference can be turned off in Settings → SharePoint."
+        },
+        {
+          "type": "new",
+          "cs": "Můj týden umí ukázat i příští týden: přepínač Tento týden · Příští týden v pravé koloně. O víkendu a v pátek odpoledne se přehled otevře rovnou na příštím týdnu a „Shrň mi příští týden“ připraví kartu Shrnutí týdne na něj.",
+          "en": "My week can also show next week: a This week · Next week switch in the right column. At the weekend and on Friday afternoon the overview opens on next week right away, and “Summarize next week” prepares a Week brief card for it."
+        },
+        {
+          "type": "improved",
+          "cs": "Na telefonu má AI Asistent spodní lištu: Nová konverzace, Konverzace, K dořešení, Nápověda a Hledat, ostatní obrazovky jsou pod „Více“. Seznam konverzací se otevře z lišty odkudkoli.",
+          "en": "On a phone, AI Assistant has a bottom bar: New conversation, Chats, To resolve, Help and Search, with the other screens under “More”. The conversation list opens from the bar on any screen."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehled využití má místo deseti záložek šest podstránek v levém menu pod svou položkou: Souhrn (čísla za období, uživatelé a šablony), Náklady, Využití AI, Přínos AI, Mezery a rozpory a Zdroje a audit. Každá podstránka má vlastní odkaz, který můžete poslat kolegovi, a funguje i v ⌘K. Zvolené období zůstává stejné při přechodu mezi Souhrnem a Náklady. Dřívější odkazy na Přehled využití vedou dál na Souhrn. Pás „Nevíte, kde začít?“ na úvodní obrazovce má jediné tlačítko Otevřít Prompt Studio, které otevře Studio rovnou na scénářích s lekcemi, rutinami a asistenty. Ve výběru režimu odpovědi je „Jak odpovědět“ nadpis nabídky a u každé volby (Běžně, Důkladná rešerše, Pracuj samostatně, Přemýšlet důkladně) je krátký popis, co dělá.",
+          "en": "The usage overview now has six subpages in the left menu under its item instead of ten tabs: Summary (figures for the period, users and templates), Costs, AI usage, AI benefit, Gaps and conflicts, and Sources and audit. Each subpage has its own link you can send to a colleague, and you can reach it from ⌘K too. The selected period stays the same when you move between Summary and Costs. Earlier links to the usage overview still lead to Summary. The “Not sure where to start?” strip on the start screen has a single Open Prompt Studio button, which opens the Studio straight on the scenarios with lessons, routines and assistants. In the answer mode picker, “How to answer” is the menu heading and each option (Normal, Deep research, Work on your own, Think thoroughly) shows a short description of what it does."
+        },
+        {
+          "type": "new",
+          "cs": "Částky v Přehledu využití, ve Využití AI a u měsíčního rozpočtu můžete zobrazit v korunách, eurech nebo dolarech: Nastavení aplikace → Parametry AI → Měna zobrazení. Kurz zadáte sami (výchozí je kurz ČNB, odkaz na aktuální kurzy je u pole). Ceny tokenů a rozpočet se dál zadávají v dolarech, jak je účtuje Azure – mění se jen zobrazení, uložená data zůstávají stejná.",
+          "en": "Amounts in Usage overview, AI usage and the monthly budget can now be shown in Czech crowns, euros or US dollars: App settings → AI parameters → Display currency. You enter the exchange rate yourself (the default is the Czech National Bank rate, with a link to current rates next to the field). Token prices and the budget are still entered in US dollars, as Azure bills them — only the display changes, stored data stays the same."
+        },
+        {
+          "type": "improved",
+          "cs": "Anglické rozhraní je anglicky i tam, kde dosud zůstávala čeština: plovoucí tlačítko asistenta a jeho popisek, pruh „Jste na stránce…“ s rychlými akcemi (Shrň tuto stránku, Vypíchni hlavní body…), všechny připravené úlohy a asistenti v Prompt Studiu – název, popis i text, který se vloží do zprávy – a příklady polí u šablon dokumentů. Šablona Wordu smí mít i anglické názvy polí: {today}, {meeting_title}, {meeting_date}, {attendees} nebo seznam s koncovkou „_list“ a polem {item}; české názvy fungují dál. Hledání v Prompt Studiu najde i lekce a hledá v obou jazycích – český výraz v anglickém rozhraní (nebo naopak) připravenou úlohu stejně najde.",
+          "en": "The English interface is now in English in the places that were still Czech: the floating assistant button and its tooltip, the “You are on the page…” bar with its quick actions (Summarise this page, Highlight the key points…), all ready-made tasks and assistants in Prompt Studio — title, description and the text inserted into the message — and the field examples for document templates. A Word template can also use English field names: {today}, {meeting_title}, {meeting_date}, {attendees} or a list ending in “_list” with an {item} field; the Czech names keep working. Search in Prompt Studio now finds lessons too and searches in both languages — a Czech word in the English interface (or the other way round) still finds the ready-made task."
+        },
+        {
+          "type": "fixed",
+          "cs": "Asistent odpovídá v jazyce, ve kterém se ho zeptáte – na anglický dotaz anglicky, i když aplikace běží česky nebo jsou nalezené firemní dokumenty v češtině. Platí i pro Samostatnou práci a pro návrhy seznamů, sloupců a popisů datových seznamů. Kdo chce odpovědi vždy v jednom jazyce, napíše to do svého pokynu (např. „Vždy odpovídej česky“).",
+          "en": "The assistant answers in the language you ask in — an English question gets an English answer even when the app runs in Czech or the company documents it found are in Czech. The same goes for Work on your own and for suggested lists, columns and data list descriptions. If you want answers always in one language, say so in your own instruction (e.g. “Always answer in English”)."
+        },
+        {
+          "type": "fixed",
+          "cs": "„Zkusit znovu“ znovu hledá ve firemních zdrojích, poště a kalendáři stejně jako původní dotaz – dřív odpovídalo jen z obecných znalostí. Odpověď vzniklá s „Přemýšlet důkladně“ se zopakuje se stejnou důkladností.",
+          "en": "“Try again” searches your company sources, mail and calendar again, just like the original question — before, it answered from general knowledge only. An answer created with “Think thoroughly” is repeated with the same depth."
+        },
+        {
+          "type": "fixed",
+          "cs": "Krátký výpadek vyhledávání SharePointu už nepřeruší hledání ve firemním obsahu, hledání osob, výběr webů, přehled využití webu ani přidávání lidí do rolí – aplikace dotaz po pár sekundách sama zopakuje. Když vyhledávání neodpovídá ani potom, hláška řekne, že jde o dočasný výpadek služby.",
+          "en": "A short SharePoint search outage no longer interrupts the search in company content, the people search, the site picker, the site usage overview or adding people to roles — the app retries the query by itself after a few seconds. If search still does not respond, the message says it is a temporary service outage."
+        },
+        {
+          "type": "improved",
+          "cs": "Čtení webových stránek je připravené na novější AI službu, která seznam povolených webů ukáže jen přihlášenému uživateli. Asistent pak adresu pošle službě k posouzení a odmítnutou adresu oznámí srozumitelně ve vašem jazyce.",
+          "en": "Reading web pages is ready for a newer AI service that shows the list of allowed sites only to a signed-in user. The assistant then sends the address to the service to decide and reports a refused address clearly in your language."
+        },
+        {
+          "type": "improved",
+          "cs": "Rozpory mezi zdroji: u změny stavu rozporu je vidět, kdo ji udělal. Jméno se ukáže jen u změny ověřené přihlášením k AI službě; změnu bez ověření aplikace označí „Autor neověřen“. Projeví se po aktualizaci AI služby.",
+          "en": "Conflicts between sources: a change of a conflict's state shows who made it. The name appears only for a change verified by sign-in to the AI service; a change without verification is marked “Author unverified”. Takes effect once the AI service is updated."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení › Oprávnění aplikace: příkazy PowerShellu pro správce, které oprávnění udělí rovnou, teď obsahují všech 17 oprávnění Microsoft Graphu, o která aplikace žádá – dřív jen šest z nich.",
+          "en": "Settings › App permissions: the PowerShell commands that let an admin grant the permissions directly now include all 17 Microsoft Graph permissions the app requests — previously only six of them."
+        },
+        {
+          "type": "improved",
+          "cs": "Bezpečnější spuštění a připojení: před spuštěním AI Asistenta – v aplikaci na stránce, v plovoucím widgetu i v tlačítku „Zeptat se AI“ v seznamech a knihovnách – se ověří podpis a otisk každého souboru z CDN, i částí načítaných až za běhu (projeví se po nahrání nového balíčku aplikace do katalogu aplikací). Licenční soubor nese digitální podpis EasyPortal 365, takže licenci nejde podvrhnout ani pozměnit. Otázky, podklady i přihlašovací token jdou jen na adresu AI služby, kterou uložil správce webu, nebo na adresu z Workplace, a nastavení z Workplace se čte jen z Workplace, který správce uložil. Jinou adresu nebo jiný Workplace ve vlastnostech webpartu aplikace nepoužije a správci ji ukáže v Nastavení → Plovoucí widget, kde ji může vědomě převzít. Plovoucí widget se při selhání ověření licence chová stejně jako aplikace na stránce.",
+          "en": "Safer start and connection: before AI Assistant starts — in the app on a page, in the floating widget and in the “Zeptat se AI” (Ask AI) button in lists and libraries — the signature and fingerprint of every file from the CDN are verified, including parts loaded later on demand (takes effect once the new app package is uploaded to the app catalog). The license file carries an EasyPortal 365 digital signature, so the license cannot be forged or altered. Questions, attachments and the sign-in token go only to the AI service address saved by the site admin or to the address from Workplace, and Workplace settings are read only from the Workplace the admin saved. A different address or Workplace in the web part properties is not used; the admin sees it in Settings → Floating widget and can apply it deliberately. When the license check fails, the floating widget behaves like the app on a page."
+        },
+        {
+          "type": "fixed",
+          "cs": "Osobní data aplikace – nastavení, paměť, vlastní pokyn, rutiny, konverzace, projekty a vlastní šablony – se načítají jen z položek, které jste v SharePointu vytvořili vy. Záznamy v auditu Firemních znalostí ukazují osobu, která je skutečně zapsala. Rutiny: rutinu, kterou naposledy změnil jiný účet, aplikace nespustí sama ani z ní nepošle kartu do Teams, dokud ji znovu neuložíte, a upozorní vás na to. Rutina spuštěná sama čte jen zdroje, které jste u ní vybrali, a dodržuje nastavení e-mailů od externích odesílatelů, hranici zdrojů i obsah označený „mimo AI“.",
+          "en": "The app’s personal data — settings, memory, your own instruction, routines, conversations, projects and your own templates — is loaded only from items you created yourself in SharePoint. Records in the Company knowledge audit show the person who actually wrote them. Routines: a routine last changed by another account is not run automatically and sends no card to Teams until you save it again, and the app tells you so. A routine that runs on its own reads only the sources you chose for it and respects the setting for e-mails from external senders, the source boundary and content marked “not for AI”."
+        },
+        {
+          "type": "fixed",
+          "cs": "Pevnější oddělení podkladů od vašeho dotazu: text dokumentů, e-mailů, zpráv Teams i přehledu Můj den a Můj týden se asistentovi předává vždy jako podklad, nikdy jako zadání – ani když obsahuje skryté znaky nebo text, který vypadá jako pokyn aplikace. Obsah „mimo AI“: když se štítek dokumentu nebo nastavení organizace nepodaří ověřit (například při krátkém výpadku SharePointu), aplikace takový obsah do odpovědi nepoužije a řekne vám to. Výstupy: karta do Teams přebírá předmět a odesílatele e-mailu jako prostý text, kopie tabulky z karty Výpočet vloží do Excelu vzorce jako text a pole šablony Word se plní jen textem. Nastavení soukromí a Přehled využití přesně popisují, kdo konverzace a hodnocení v SharePointu vidí.",
+          "en": "Stronger separation of material from your question: text from documents, e-mails, Teams messages and the My day and My week overview always reaches the assistant as material, never as instructions — even when it contains hidden characters or text that looks like an app instruction. Content “not for AI”: when a document’s label or the organisation’s setting cannot be verified (for example during a short SharePoint outage), the app leaves that content out of the answer and tells you so. Outputs: the Teams card takes an e-mail’s subject and sender as plain text, copying a table from the Calculation card pastes formulas into Excel as text, and Word template fields are filled with text only. Privacy settings and Usage overview now describe exactly who can see conversations and ratings in SharePoint."
+        },
         {
           "type": "new",
           "cs": "Rutiny: opakovanou práci svěříte asistentovi. V Prompt Studiu na záložce Rutiny vyberete hotovou rutinu z galerie (třeba Ranní start, Týden dopředu, Páteční report nebo Odpověď od zákazníka), firemní rutinu, kterou připravil správce, nebo si v pěti krocích nastavíte vlastní: kdy se spustí (v zadaný čas, v pracovní dny, týdně nebo měsíčně, před schůzkou nebo po ní, když přijde e-mail od určitého odesílatele, změní se položka v seznamu či knihovně nebo webová stránka, případně jen ručně), co má udělat, v jaké podobě výsledek chcete (text, karta Můj den nebo karta Můj týden) a kolik smí stát. Před uložením ji vyzkoušíte. Rutiny běží, když máte aplikaci otevřenou; výsledek čeká jako nová konverzace a kroužek kolem avatara na úvodní obrazovce ukáže, kolik výsledků je připraveno. Hlídání pošty, seznamů a stránek AI nepotřebuje – AI úkony se započítají, jen když se něco našlo, a každá rutina má strop AI úkonů na jeden běh a odhad za měsíc. Když tři výsledky za sebou zůstanou nepřečtené, aplikace se zeptá, jestli rutinu pozastavit; hotový vzor z galerie si jednou vyzkoušíte tlačítkem Vyzkoušet hned. Z odpovědi v konverzaci rutinu založíte tlačítkem Opakovat pravidelně.",
