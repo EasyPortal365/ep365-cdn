@@ -23,7 +23,11 @@
  *
  * POUZITI
  *   node tools/sign-trust.mjs --app <app> [--min-safe <ver>] [--revoke <ver>[,<ver>]]
- *                             [--unrevoke <ver>] [--key <cesta.pem>] [--dry-run]
+ *                             [--unrevoke <ver>] [--drop <ver>[,<ver>]] [--add <ver>] [--bootstrap]
+ *                             [--key <cesta.pem>] [--dry-run]
+ *   Podepisuje PRIRUSTEK: nova verze jen ze stage gitu (= co prave pridala publikace),
+ *   uz podepsane verze se stejnymi otisky, ostra verze jen s releases.json ve stage.
+ *   --bootstrap = prvni index appky z celeho repa (jen bez predchoziho trust.json).
  *   node tools/sign-trust.mjs --app <app> --verify-live [--timeout-s 300]
  *   Klic: --key, jinak env EP365_CDN_SIGNING_KEY, jinak ~/.ep365/signing/ep365-cdn-2026.pem.
  *
@@ -100,6 +104,21 @@ function entriesFor(read, versions, warn) {
     out[v] = { manifest: sri(mBuf), scripts };
   }
   return out;
+}
+
+/** Cesty appky ve stage gitu (= co tahle publikace prave pridala `git add`). */
+function stagedPaths() {
+  const r = spawnSync('git', ['-C', CDN_REPO, 'diff', '--cached', '--name-only', '--', app + '/'], { encoding: 'utf8' });
+  if (r.status !== 0) fail('git diff --cached selhal – nevim, co tahle publikace pridala');
+  return r.stdout.split('\n').map(s => s.trim().replace(/\\/g, '/')).filter(Boolean);
+}
+
+/** Shodny zaznam verze (otisk manifestu i vsech skriptu). */
+function sameEntry(a, b) {
+  if (!a || !b || a.manifest !== b.manifest) return false;
+  const ka = Object.keys(a.scripts || {}).sort(), kb = Object.keys(b.scripts || {}).sort();
+  if (ka.join('\n') !== kb.join('\n')) return false;
+  return ka.every(k => a.scripts[k] === b.scripts[k]);
 }
 
 function listVersions() {
@@ -180,8 +199,45 @@ async function main() {
 
   const warn = [];
   const versions = entriesFor(read, listVersions(), warn);
+
+  // 🔒 PODEPISUJE SE PRIRUSTEK, NE STAV REPA (audit jadra 2026-11-16, K2).
+  // Do 16. 11. se index skladal od nuly ze VSEHO, co bylo v gitu: kdo mel push do
+  // ep365-cdn, pridal slozku verze (a navrch releases.json) a pristi rutinni
+  // publikace ji podepsala nasim klicem – #514 tim padal. Ted:
+  //   - verze, ktera uz v podepsanem indexu je, musi mit tytez otisky (jinak STOP),
+  //     pokud ji tento beh sam znovu nenahral (je ve stage);
+  //   - nova verze se podepise jen tehdy, kdyz ji tento beh pridal (je ve stage =
+  //     `git add` z publikace), commitnuta cizi verze se vynecha;
+  //   - nejnovejsi ostra verze se smi zmenit jen s releases.json ve stage.
+  // Prvni index appky bez predchoziho trust.json: jen verze ve stage, nebo vedome --bootstrap.
+  const staged = stagedPaths();
+  const stagedVers = new Set(staged.map(p => p.slice(app.length + 1).split('/')[0]).filter(v => VER_RE.test(v)));
+  // Ruční obnova (publikace commitla verzi a spadla před podpisem): vědomé --add <ver>.
+  (arg('--add') || '').split(',').filter(Boolean).forEach(v => { if (!VER_RE.test(v)) fail('--add: ' + v + ' neni verze'); stagedVers.add(v); });
+  const releasesStaged = staged.indexOf(app + '/releases.json') !== -1;
+  const bootstrap = has('--bootstrap') && !prev;
+  if (has('--bootstrap') && prev) fail('--bootstrap jen pro appku bez predchoziho trust.json');
+  const drops = (arg('--drop') || '').split(',').filter(Boolean);
+  const changed = [];
+  for (const v of Object.keys(versions)) {
+    if (drops.indexOf(v) !== -1) { delete versions[v]; warn.push(v + ': vyrazeno (--drop)'); continue; }
+    const before = prev && prev.versions ? prev.versions[v] : null;
+    if (before) {
+      if (!stagedVers.has(v) && !sameEntry(before, versions[v])) changed.push(v);
+    } else if (!stagedVers.has(v) && !bootstrap) {
+      delete versions[v];
+      warn.push(v + ': nova verze, kterou tento beh nepridal (neni ve stage) – nepodepisuje se');
+    }
+  }
+  if (changed.length) fail('otisky uz podepsanych verzi se v repu zmenily mimo tuto publikaci: ' + changed.join(', ')
+    + ' – mozny podvrh na CDN. Proverit `git log -- ' + app + '/`; vyradit z indexu: --drop <ver>');
+
   const latest = latestPublic(read) || (prev && prev.latest);
   if (!latest) fail('nejde urcit nejnovejsi ostrou verzi (releases.json chybi)');
+  if (!bootstrap && (prev ? latest !== prev.latest : true) && !releasesStaged) {
+    fail('releases.json uvadi nejnovejsi ostrou verzi ' + latest + (prev ? ', podepsany index ' + prev.latest : '')
+      + ', ale releases.json neni ve stage tohoto behu – ostra verze se meni jen publikaci (publish:cdn:public)');
+  }
   if (!versions[latest]) fail('nejnovejsi ostra verze ' + latest + ' neni mezi podepsatelnymi verzemi' + (warn.length ? ' (' + warn.join('; ') + ')' : ''));
 
   let minSafe = prev && prev.minSafe;

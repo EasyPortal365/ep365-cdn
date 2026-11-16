@@ -58,6 +58,8 @@ try {
   const read = () => JSON.parse(fs.readFileSync(path.join(root, app, 'trust.json'), 'utf8'));
 
   let r = run();
+  ok(r.status === 1 && /nepodepisuje se|neni ve stage/.test(r.stdout + r.stderr), 'prvni index bez --bootstrap z commitnutych verzi odmitnut');
+  r = run('--bootstrap');
   ok(r.status === 0, 'podpis projde\n' + r.stdout + r.stderr);
   let s = read();
   const pub = createPublicKey({ key: JSON.parse(fs.readFileSync(path.join(root, 'tools', 'trust-keys.json'), 'utf8')).keys[0].jwk, format: 'jwk' });
@@ -85,6 +87,49 @@ try {
   ok(r.status === 1 && /zakazanych/.test(r.stderr), 'zakazat nejnovejsi ostrou verzi nejde');
   r = spawnSync(process.execPath, [path.join(root, 'tools', 'sign-trust.mjs'), '--app', app, '--key', otherFile], { encoding: 'utf8' });
   ok(r.status === 1 && /neni v tools\/trust-keys\.json/.test(r.stderr), 'klic mimo trust-keys.json odmitnut');
+
+  // ── Prirustek (audit jadra 2026-11-16, K2): cizi commit do repa se nepodepise ──
+  git('add', app + '/trust.json');
+  git('commit', '-q', '-m', 'trust');
+  const goodTrust = fs.readFileSync(path.join(root, app, 'trust.json'));
+  // a) utocnik commitne novou verzi 1.0.0.4 -> rutinni podpis ji NESMI zahrnout
+  w(app + '/1.0.0.4/manifest.json', manifest('1.0.0.4', 'e_dddddddddddddddddddd.js'));
+  w(app + '/chunks/e_dddddddddddddddddddd.js', 'EVIL\n');
+  git('add', app + '/1.0.0.4', app + '/chunks/e_dddddddddddddddddddd.js');
+  git('commit', '-q', '-m', 'cizi verze');
+  r = run();
+  d = JSON.parse(read().doc);
+  ok(r.status === 0 && !d.versions['1.0.0.4'] && /1\.0\.0\.4: nova verze, kterou tento beh nepridal/.test(r.stdout), 'commitnuta cizi verze se nepodepise');
+  fs.writeFileSync(path.join(root, app, 'trust.json'), goodTrust);
+  // b) tataz verze pridana publikaci (ve stage) se podepise
+  w(app + '/1.0.0.5/manifest.json', manifest('1.0.0.5', 'e_eeeeeeeeeeeeeeeeeeee.js'));
+  w(app + '/chunks/e_eeeeeeeeeeeeeeeeeeee.js', 'E\n');
+  git('add', app + '/1.0.0.5', app + '/chunks/e_eeeeeeeeeeeeeeeeeeee.js');
+  r = run();
+  d = JSON.parse(read().doc);
+  ok(r.status === 0 && !!d.versions['1.0.0.5'] && !d.versions['1.0.0.4'], 'verze ve stage tohoto behu se podepise, cizi commitnuta ne');
+  git('reset', '-q', '--', app + '/1.0.0.5', app + '/chunks/e_eeeeeeeeeeeeeeeeeeee.js');
+  fs.rmSync(path.join(root, app, '1.0.0.5'), { recursive: true, force: true });
+  fs.writeFileSync(path.join(root, app, 'trust.json'), goodTrust);
+  // c) utocnik commitne jine bajty uz podepsane verze -> STOP
+  w(app + '/chunks/e_bbbbbbbbbbbbbbbbbbbb.js', 'EVIL\n');
+  git('add', app + '/chunks/e_bbbbbbbbbbbbbbbbbbbb.js');
+  git('commit', '-q', '-m', 'podvrh bundlu');
+  r = run();
+  ok(r.status === 1 && /otisky uz podepsanych verzi .*1\.0\.0\.2/.test(r.stderr), 'zmeneny bundle podepsane verze = stop');
+  r = run('--drop', '1.0.0.2');
+  ok(r.status === 1 && /nejnovejsi ostra verze 1\.0\.0\.2 neni mezi podepsatelnymi/.test(r.stderr), '--drop nejnovejsi ostre verze neprojde');
+  git('revert', '--no-edit', 'HEAD');
+  // d) utocnik commitne releases.json s jinou nejnovejsi verzi -> STOP
+  w(app + '/releases.json', JSON.stringify([{ version: '1.0.0.1', date: '2026-11-12' }]));
+  git('add', app + '/releases.json');
+  git('commit', '-q', '-m', 'cizi releases');
+  r = run();
+  ok(r.status === 1 && /releases\.json neni ve stage/.test(r.stderr), 'zmena ostre verze commitem mimo publikaci = stop');
+  git('revert', '--no-edit', 'HEAD');
+  fs.writeFileSync(path.join(root, app, 'trust.json'), goodTrust);
+  r = run('--bootstrap');
+  ok(r.status === 1 && /--bootstrap jen pro appku bez/.test(r.stderr), '--bootstrap nad existujicim indexem odmitnut');
 
   // podvrzeny predchozi index (napr. utocnik snizil podlahu primo v souboru) -> nepodepisovat nad nim
   s = read();
