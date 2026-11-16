@@ -409,7 +409,7 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
     <label>SharePoint weby, kde aplikace poběží</label>
     <textarea id="in-site" rows="3" maxlength="300" placeholder="https://contoso.sharepoint.com/sites/intranet&#10;https://contoso.sharepoint.com/sites/hr" spellcheck="false"></textarea>
     <div class="hint">Nepovinné, jeden web na řádek (další jde doplnit později). Každý web má vlastní data a nastavení, Azure backend je společný; k AI Asistentovi se dostanou členové webu.</div>
-    <div class="err">Každý web musí začínat adresou SharePointu výše (max. cca 3 weby – další doplníme spolu).</div>
+    <div class="err">Každý web musí začínat adresou SharePointu výše a obsahovat jen znaky adresy, bez mezer (max. cca 3 weby – další doplníme spolu).</div>
   </div>
 
   <h3>Cesta nasazení Azure části</h3>
@@ -475,9 +475,10 @@ ol.steps{list-style:none;margin:12px 0 16px;padding:0}
       <div class="hint">Portál → váš Azure OpenAI resource → Keys and Endpoint. Klíč sem NEzadávejte – použije se až při nasazení.</div>
       <div class="err">Očekávám https adresu.</div>
     </div>
-    <div class="field">
+    <div class="field" id="f-oaidep">
       <label>Název model deploymentu</label>
       <input type="text" id="in-oaidep" maxlength="64" placeholder="gpt-5-mini" spellcheck="false">
+      <div class="err">Jen písmena, číslice, tečka, pomlčka a podtržítko – tak, jak je název uveden v Microsoft Foundry.</div>
       <div class="hint">Microsoft Foundry (dřív Azure AI Foundry) → Deployments. Deployment musí mít <strong>Tokens per Minute Rate Limit</strong> alespoň <strong>100K</strong> – jeden dotaz nad dokumenty může mít až kolem 30 000 tokenů. U pay-per-token nasazení (DataZoneStandard, GlobalStandard, Standard) se platí za spotřebované tokeny, ne za tento strop.</div>
     </div>
   </div>
@@ -690,7 +691,8 @@ function collectForm(){
   ok = setInvalid('f-email', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) && ok;
   ok = setInvalid('f-tenant', !GUID_RE.test(tenant)) && ok;
   ok = setInvalid('f-origin', !/^https:\/\/[a-z0-9-]+\.sharepoint\.com$/.test(origin)) && ok;
-  ok = setInvalid('f-site', site.length > 300 || sites.some(function(s){ var l = s.toLowerCase(); return l.indexOf(origin + '/') !== 0 && l !== origin; })) && ok;
+  ok = setInvalid('f-site', site.length > 300 || sites.some(function(s){ var l = s.toLowerCase(); return (l.indexOf(origin + '/') !== 0 && l !== origin) || !/^[A-Za-z0-9\-._~:/%]+$/.test(s); })) && ok;
+  ok = setInvalid('f-oaidep', hasOai && !!oaiDep && !/^[A-Za-z0-9._-]+$/.test(oaiDep)) && ok;
   ok = setInvalid('f-rg', !NAME_RE.test(rg)) && ok;
   ok = setInvalid('f-func', !NAME_RE.test(func)) && ok;
   ok = setInvalid('f-oaiep', hasOai && !!oaiEp && !/^https:\/\/[a-z0-9.-]+$/.test(oaiEp)) && ok;
@@ -813,6 +815,9 @@ function checkStatus(requestId, manual){
 // ---------------------------------------------------------------------------
 // Průvodce (schváleno) — generuje kroky dle dat žádosti
 // ---------------------------------------------------------------------------
+// Hodnota do PowerShell příkazu: VŽDY v jednoduchých uvozovkách (v "…" by $(…) spustilo příkaz).
+// PowerShell bere jako apostrof i typografické ‘ ’ ‚ ‛ – zdvojí se všechny.
+function psq(v){ return "'" + String(v == null ? '' : v).replace(/['\u2018\u2019\u201A\u201B]/g, function(c){ return c + c; }) + "'"; }
 function copyBtnHtml(){ return '<button type="button" class="copy-btn"><span>Kopírovat</span></button>'; }
 var WARN_IC = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
 
@@ -822,11 +827,11 @@ function buildPath1(d){
   // jako příkaz („máme“ bez endpointu = skript Azure OpenAI založí).
   var ownAoai = !!(d.hasOpenAi && d.openAiEndpoint);
   var dep = d.openAiDeployment || 'gpt-5-mini';
-  var params = '-ResourceGroupName "' + d.rgName + '" -FunctionAppName "' + d.funcName + '" `\n    -AllowedOrigin "' + d.spOrigin + '"';
-  if (d.location && d.location !== 'westeurope') params += ' `\n    -Location "' + d.location + '"';
-  if (!ownAoai && d.openAiLocation && d.openAiLocation !== 'swedencentral') params += ' `\n    -OpenAiLocation "' + d.openAiLocation + '"';
+  var params = '-ResourceGroupName ' + psq(d.rgName) + ' -FunctionAppName ' + psq(d.funcName) + ' `\n    -AllowedOrigin ' + psq(d.spOrigin) + '';
+  if (d.location && d.location !== 'westeurope') params += ' `\n    -Location ' + psq(d.location) + '';
+  if (!ownAoai && d.openAiLocation && d.openAiLocation !== 'swedencentral') params += ' `\n    -OpenAiLocation ' + psq(d.openAiLocation) + '';
   if (ownAoai) {
-    params += ' `\n    -AzureOpenAiEndpoint "' + d.openAiEndpoint + '" `\n    -AzureOpenAiKey "VLOZTE-VAS-KLIC" `\n    -AzureOpenAiDeployment "' + dep + '"';
+    params += ' `\n    -AzureOpenAiEndpoint ' + psq(d.openAiEndpoint) + ' `\n    -AzureOpenAiKey "VLOZTE-VAS-KLIC" `\n    -AzureOpenAiDeployment ' + psq(dep) + '';
   }
   var cmd = 'iwr ' + CDN_BASE + '/deploy-azure.ps1 -OutFile deploy-azure.ps1\n./deploy-azure.ps1 ' + params;
   return '<section class="card"><h2><span class="sec-badge">A</span>Azure backend – Cloud Shell skript</h2>'
@@ -899,8 +904,8 @@ function buildEnrich(d){
   if (!d.enrich) return '';
   var site = String(d.siteUrl || '').split(/\s*;\s*/).filter(Boolean)[0] || 'https://…/sites/vas-web';
   var cmd = 'iwr ' + CDN_BASE + '/setup-enrichment.ps1 -OutFile setup-enrichment.ps1\n'
-    + './setup-enrichment.ps1 -FunctionAppName "' + d.funcName + '" -ResourceGroupName "' + d.rgName + '" `\n'
-    + '    -SettingsSiteUrl "' + site + '" `\n'
+    + './setup-enrichment.ps1 -FunctionAppName ' + psq(d.funcName) + ' -ResourceGroupName ' + psq(d.rgName) + ' `\n'
+    + '    -SettingsSiteUrl ' + psq(site) + ' `\n'
     + '    -LibrarySiteUrls @("https://…/sites/web-s-knihovnami")';
   return '<section class="card"><h2><span class="sec-badge">C</span>Znalostní příprava (zvolili jste)</h2>'
     + '<p>Po zprovoznění chatu spusťte v Cloud Shellu (přihlášený účet musí umět spravovat'
