@@ -9,6 +9,41 @@
       "changes": [
         {
           "type": "fixed",
+          "cs": "Běžní zaměstnanci už po nové instalaci aplikace nevidí hlášení „Členství se nepodařilo ověřit“. Aplikace jejich roli pozná spolehlivě i tam, kde SharePoint seznam členů skupin neukazuje.",
+          "en": "Regular employees no longer see the “membership could not be verified” notice after a fresh installation. The app recognises their role reliably even where SharePoint does not show group member lists."
+        },
+        {
+          "type": "fixed",
+          "cs": "Po odeslání dokumentu ke schválení i po jeho zamítnutí aplikace napíše, jestli e-mail schvalovateli nebo vydavateli opravdu odešel – a když ne, srozumitelně proč (například účet bez poštovní schránky).",
+          "en": "After a document is submitted for approval or rejected, the app says whether the e-mail to the approver or publisher really went out — and if not, why, in plain words (for example an account without a mailbox)."
+        },
+        {
+          "type": "fixed",
+          "cs": "Rychlé hledání (Ctrl+K) najde i zveřejněné dokumenty podle názvu, kategorie a typu, ne jen obrazovky a akce.",
+          "en": "Quick search (Ctrl+K) now also finds published documents by name, category and type, not just screens and actions."
+        },
+        {
+          "type": "fixed",
+          "cs": "Hlavička obrazovky Ke schválení během načítání netvrdí, že nic nečeká.",
+          "en": "The For approval header no longer claims that nothing is waiting while the list is still loading."
+        },
+        {
+          "type": "fixed",
+          "cs": "Přehled jednotlivce ukazuje jméno vybraného člověka místo jeho přihlašovací adresy.",
+          "en": "The individual report shows the selected person’s name instead of their sign-in address."
+        },
+        {
+          "type": "improved",
+          "cs": "Počty se skloňují správně („1 člen“, „2 členové“, „5 dokumentů“) v distribučních skupinách, kategoriích, výběru adresátů i při vytváření a mazání ukázkových dat. Texty v Nastavení, sestavách a nápovědě jsou pročištěné v češtině i angličtině.",
+          "en": "Counts now use the right word form in distribution groups, categories, the recipient picker and while sample data are created or deleted. Texts in Settings, reports and help have been polished in Czech and English."
+        },
+        {
+          "type": "improved",
+          "cs": "Dlaždice a karty v Mých dokumentech a na přehledech se lépe přizpůsobí užší stránce – nic se nepřekrývá ani neuřezává.",
+          "en": "Tiles and cards in My documents and on the overviews adapt better to a narrower page — nothing overlaps or gets cut off."
+        },
+        {
+          "type": "fixed",
           "cs": "Potvrzení seznámení se počítají podle toho, kdo je skutečně zapsal a kdy. Potvrzení za jiného člověka platí jen od správce nebo vedoucího, čas potvrzení odpovídá okamžiku zápisu.",
           "en": "Acknowledgments are counted by who actually recorded them and when. An acknowledgment on behalf of someone else only counts when recorded by an admin or manager, and its time matches the moment it was recorded."
         },
