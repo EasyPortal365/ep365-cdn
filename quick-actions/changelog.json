@@ -5,8 +5,43 @@
   "entries": [
     {
       "version": "1.3",
-      "date": "2026-11-11",
+      "date": "2026-11-16",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Popis aplikace v katalogu aplikací je i anglicky – kdo má Microsoft 365 v angličtině, už tam neuvidí české texty. Projeví se po instalaci aktualizovaného balíčku aplikace; uložené nastavení webových částí zůstává beze změny.",
+          "en": "The app description in the app catalog is now available in English too — users with Microsoft 365 in English no longer see Czech texts there. This takes effect once the updated app package is installed; saved settings stay unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "V seznamech a knihovnách Quick Actions nově ověřují i hlavní část aplikace: stáhnou ji, porovnají její otisk se seznamem vydání podepsaným EasyPortal 365 a teprve pak ji spustí. Kód, který kontrolou neprojde, se nespustí a místo něj se ukáže, že verzi nebylo možné ověřit.",
+          "en": "In lists and libraries, Quick Actions now also verify the main part of the app: they download it, compare its fingerprint with the release list signed by EasyPortal 365 and only then run it. Code that fails the check does not run — you see a message that the version could not be verified instead."
+        },
+        {
+          "type": "improved",
+          "cs": "Stránka Quick Actions – správa píše „Načítám…“ i případné hlášky o nespuštění stejným jazykem jako zbytek aplikace, tedy podle nastavení Quick Actions nebo Workplace. Dřív se řídila jen jazykem vašeho Microsoft 365.",
+          "en": "The Quick Actions administration page now shows its loading text and any start-up messages in the same language as the rest of the app, following the Quick Actions or Workplace setting. Before, it only followed your Microsoft 365 language."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace Řízené dokumenty má v anglických textech nový název Controlled Documents (dřív Managed Documents). Česky se nic nemění.",
+          "en": "The Controlled Documents application (previously Managed Documents) appears under its new English name throughout. Nothing changes in Czech."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nastavení Quick Actions pro celý tenant funguje i bez Workplace. Ukládá se do katalogu aplikací a měnit ho smí jen jeho správce. Kde je nastavení uložené na webu Workplace či kořenovém webu tenantu z dřívějška, platí dál beze změny, včetně volby verze. Stránka správy už běžnému uživateli neukazuje chybu „HTTP 403“ ani „Nastavení můžete jen prohlížet“, když nastavení vůbec nevidí – místo toho vysvětlí, kde nastavení je a kdo ho mění. Karta Správa verzí v katalogu aplikací pravdivě řekne, že běží nejnovější vydaná verze. Nic se nemaže a nic není potřeba spouštět.",
+          "en": "Tenant-wide Quick Actions settings now work without Workplace too. They are stored in the app catalog and only its administrator can change them. Where settings were saved earlier on the Workplace site or the tenant root site, they keep working unchanged, including the version choice. The administration page no longer shows ordinary users an “HTTP 403” error or “You can view these settings only” when they cannot see the settings at all — it explains where the settings live and who changes them instead. With settings in the app catalog, the Version management card truthfully says that the latest release runs. Nothing is deleted and nothing needs to be run."
+        },
+        {
+          "type": "improved",
+          "cs": "Sekce Verze a informace na stránce správy má novou kartu „Kde je nastavení a kdo ho mění“: kde je nastavení uložené (na webu Workplace či kořenovém webu tenantu, nebo v katalogu aplikací), kdo ho smí měnit, co vidí ostatní uživatelé, proč se v katalogu aplikací nedá volit verze a co dělat, když nejde uložit.",
+          "en": "The Version & info section of the administration page has a new card, “Where the settings live and who changes them”: where the settings are stored (on the Workplace site or the tenant root site, or in the app catalog), who may change them, what other users see, why the version can’t be chosen when they are in the app catalog and what to do when saving fails."
+        },
+        {
+          "type": "fixed",
+          "cs": "V tenantu bez Workplace už akce Odeslat do Řízených dokumentů neukazuje hlášku, že se kontrolu nepodařilo provést, jen proto, že uživatel nečte kořenový web. Aplikaci Řízené dokumenty pak Quick Actions hledají na tomtéž webu. Jazyk a firemní slovník citlivých výrazů se nečtou z webu, kam uživatel nemá přístup.",
+          "en": "In a tenant without Workplace, Send to Controlled Documents no longer says the check failed just because the user cannot read the root site. Quick Actions then look for the Controlled Documents app on the same site. The language and the company list of sensitive terms are no longer read from a site the user has no access to."
+        },
         {
           "type": "new",
           "cs": "Nová akce Milníky a verze: libovolnou verzi dokumentu pojmenujete („Odesláno zákazníkovi“, „Schváleno vedením“), přidáte k ní poznámku a pošlete na ni odkaz – kolega po otevření odkazu uvidí kartu milníku a může verzi stáhnout nebo porovnat s aktuální. Dva milníky porovnáte mezi sebou a v Porovnat verze jsou milníky nahoře se jménem. Dokument se pojmenováním nemění a nevzniká nová verze; milník vidí jen ten, kdo smí dokument číst. Verzi, kterou mezitím smazal limit verzí, dialog poctivě označí.",
@@ -45,12 +80,12 @@
         {
           "type": "fixed",
           "cs": "Když dokument odesíláte do Řízených dokumentů a stejný soubor už ve frontě publikace je, odkaz ho otevře tak, jak ho otevře klik ve frontě: vlastní koncept k dokončení, schvalovateli dokument ke schválení, ostatním náhled. Dosud se vždy otevřel editor konceptu – i u dokumentu, který čeká na schválení, nebo u cizího konceptu.",
-          "en": "When you send a document to Controlled documents and the same file is already in the publication queue, the link now opens it the way a click in the queue does: your own draft ready to finish, a document awaiting approval for the approver, a preview for everyone else. Until now it always opened the draft editor — even for a document awaiting approval or someone else’s draft."
+          "en": "When you send a document to Controlled Documents and the same file is already in the publication queue, the link now opens it the way a click in the queue does: your own draft ready to finish, a document awaiting approval for the approver, a preview for everyone else. Until now it always opened the draft editor — even for a document awaiting approval or someone else’s draft."
         },
         {
           "type": "improved",
           "cs": "Když se při odesílání dokumentu do Řízených dokumentů nebo při nahrávání nové verze přeruší spojení se SharePointem, okno to řekne srozumitelně: nedá se poznat, jestli se změna uložila, a je dobré stránku obnovit a stav zkontrolovat. Dosud ukázalo technickou hlášku „Failed to fetch“ nebo jen „nezdařilo se“.",
-          "en": "When the connection to SharePoint drops while sending a document to Controlled documents or uploading a new version, the window now says so in plain words: it cannot tell whether the change was saved, and you should reload the page and check. Previously it showed the technical message “Failed to fetch” or just “failed”."
+          "en": "When the connection to SharePoint drops while sending a document to Controlled Documents or uploading a new version, the window now says so in plain words: it cannot tell whether the change was saved, and you should reload the page and check. Previously it showed the technical message “Failed to fetch” or just “failed”."
         },
         {
           "type": "new",
@@ -75,7 +110,7 @@
         {
           "type": "fixed",
           "cs": "V anglické verzi okna Řízených dokumentů se data zobrazují anglicky (Oct 3, 2026), ne v českém tvaru. U položek seznamu už pod odkazem není prázdný řádek.",
-          "en": "In the English version of the Controlled documents window, dates are shown in English format (Oct 3, 2026) instead of the Czech one. List items no longer show an empty line below the link."
+          "en": "In the English version of the Controlled Documents window, dates are shown in English format (Oct 3, 2026) instead of the Czech one. List items no longer show an empty line below the link."
         },
         {
           "type": "fixed",
@@ -101,7 +136,7 @@
         {
           "type": "fixed",
           "cs": "Soubory a složky s # nebo % v názvu (třeba „Faktura #12.pdf“ nebo složka „Sleva 20%“) zvládnou akce Odeslat do Řízených dokumentů včetně nahrání nové verze, Porovnat verze dokumentu, Přehled dokumentu, Oprávnění a přístup i Kontrola citlivých údajů – dřív u takového souboru selhaly.",
-          "en": "Files and folders with # or % in their name (such as “Invoice #12.pdf” or a folder “Discount 20%”) now work with Send to Managed Documents including uploading a new version, Compare document versions, Document overview, Permissions and access and the Sensitive data check — until now these actions failed for such a file."
+          "en": "Files and folders with # or % in their name (such as “Invoice #12.pdf” or a folder “Discount 20%”) now work with Send to Controlled Documents including uploading a new version, Compare document versions, Document overview, Permissions and access and the Sensitive data check — until now these actions failed for such a file."
         },
         {
           "type": "improved",
@@ -111,12 +146,12 @@
         {
           "type": "fixed",
           "cs": "Odeslat do Řízených dokumentů se nabídne i na webu bez Workplace, když jsou Řízené dokumenty nasazené na tomtéž webu – dosud je akce hledala jen v přehledu aplikací Workplace a na takovém webu se vůbec neukázala. Tlačítko pro dokončení publikace po odeslání vede přímo na stránku s aplikací, ne na úvodní stránku webu.",
-          "en": "Send to Managed Documents is now offered on a site without Workplace when Managed Documents are installed on the same site — until now the action looked for them only in the Workplace app list and did not appear at all on such a site. After sending, the button for finishing the publication leads straight to the page with the app, not to the site home page."
+          "en": "Send to Controlled Documents is now offered on a site without Workplace when Controlled Documents are installed on the same site — until now the action looked for them only in the Workplace app list and did not appear at all on such a site. After sending, the button for finishing the publication leads straight to the page with the app, not to the site home page."
         },
         {
           "type": "fixed",
           "cs": "Odeslat do Řízených dokumentů a tlačítko pro dokončení publikace vedou vždy na stránku s celou aplikací Řízené dokumenty – dosud mohly skončit na stránce, kde je jen malý rámeček „K seznámení“.",
-          "en": "Send to Managed Documents and the button for finishing the publication now always lead to the page with the full Managed Documents app — until now they could end up on a page that shows only the small “To acknowledge” box."
+          "en": "Send to Controlled Documents and the button for finishing the publication now always lead to the page with the full Controlled Documents app — until now they could end up on a page that shows only the small “To acknowledge” box."
         },
         {
           "type": "improved",
@@ -137,12 +172,12 @@
         {
           "type": "fixed",
           "cs": "Odesílání do Řízených dokumentů je spolehlivější. Dokument se přiřadí tomu, kdo ho poslal, akce míří vždy na tu instalaci Řízených dokumentů, která patří k webu, odkud dokument odchází, a krátký výpadek už ji nenechá na deset minut zmizet z nabídky. Když se nepodaří ověřit oprávnění k publikaci, akce v nabídce zůstane a řekne to – dřív zmizela bez vysvětlení.",
-          "en": "Sending to Controlled documents is more reliable. A document is attributed to whoever sent it, the action always targets the Controlled documents installation belonging to the site the document comes from, and a brief outage no longer makes it disappear from the menu for ten minutes. When publishing permissions cannot be verified, the action stays in the menu and says so — it used to vanish without explanation."
+          "en": "Sending to Controlled Documents is more reliable. A document is attributed to whoever sent it, the action always targets the Controlled Documents installation belonging to the site the document comes from, and a brief outage no longer makes it disappear from the menu for ten minutes. When publishing permissions cannot be verified, the action stays in the menu and says so — it used to vanish without explanation."
         },
         {
           "type": "fixed",
           "cs": "Rozdělaná akce nezmizí uprostřed práce. Dialog Oprávnění, okno Odeslat do Řízených dokumentů ani panel akce se během probíhající změny nezavřou klávesou Esc ani kliknutím vedle okna.",
-          "en": "Work in progress no longer disappears. The Permissions dialog, the Send to Controlled documents window and the action panel no longer close on Esc or a click outside while a change is running."
+          "en": "Work in progress no longer disappears. The Permissions dialog, the Send to Controlled Documents window and the action panel no longer close on Esc or a click outside while a change is running."
         },
         {
           "type": "fixed",
@@ -178,7 +213,7 @@
         {
           "type": "new",
           "cs": "První vydání EP365 Quick Actions – bezplatné akce v kontextovém menu SharePointu, které SharePoint sám nemá. V knihovnách i seznamech, v SharePointu i v knihovnách zobrazených v Microsoft Teams, pro celý tenant jedním balíčkem. Akce: kopírování přímého odkazu, uložení jako PDF, tisk, sloučení výběru do jednoho PDF, odeslání e-mailem (odkaz vždy, příloha po schválení oprávnění), porovnání dvou verzí dokumentu, správa oprávnění včetně ověření přístupu konkrétního uživatele a obnovení dědění s náhledem dopadu (dokumenty i složky), přehled dokumentu (návštěvnost, stav vyhledávání, klasifikace), nalezení kopií souboru napříč tenantem a kontrola citlivých údajů přímo v prohlížeči (rodná čísla, čísla účtů, IBAN, platební karty, telefony, hesla a klíče, hromadné e-maily, témata GDPR a firemní slovník výrazů – nic se nikam neodesílá, nálezy jsou maskované). S aplikací Řízené dokumenty navíc odeslání dokumentu do fronty publikace.",
-          "en": "First release of EP365 Quick Actions — free actions in the SharePoint context menu that SharePoint itself lacks. In libraries and lists, in SharePoint and in libraries shown in Microsoft Teams, tenant-wide with a single package. Actions: copy a direct link, save as PDF, print, merge a selection into one PDF, send by e-mail (link always, attachment after a permission approval), compare two document versions, manage permissions including checking a specific user’s access and restoring inheritance with an impact preview (documents and folders), document overview (views, search status, classification), finding file copies across the tenant, and a sensitive data check right in the browser (personal identification numbers, bank accounts, IBANs, payment cards, phones, passwords and keys, bulk e-mail lists, GDPR topics and a company term dictionary — nothing is sent anywhere, findings are masked). With the Managed Documents app, documents can also be sent to the publication queue."
+          "en": "First release of EP365 Quick Actions — free actions in the SharePoint context menu that SharePoint itself lacks. In libraries and lists, in SharePoint and in libraries shown in Microsoft Teams, tenant-wide with a single package. Actions: copy a direct link, save as PDF, print, merge a selection into one PDF, send by e-mail (link always, attachment after a permission approval), compare two document versions, manage permissions including checking a specific user’s access and restoring inheritance with an impact preview (documents and folders), document overview (views, search status, classification), finding file copies across the tenant, and a sensitive data check right in the browser (personal identification numbers, bank accounts, IBANs, payment cards, phones, passwords and keys, bulk e-mail lists, GDPR topics and a company term dictionary — nothing is sent anywhere, findings are masked). With the Controlled Documents app, documents can also be sent to the publication queue."
         }
       ]
     }
