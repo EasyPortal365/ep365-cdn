@@ -11,7 +11,7 @@
 import { spawn } from 'node:child_process';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { contentType, isPublished, CACHE_CONTROL } from './azure-blob-lib.mjs';
+import { contentType, isPublished, cacheControlFor } from './azure-blob-lib.mjs';
 
 const args = process.argv.slice(2);
 const arg = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
@@ -67,7 +67,7 @@ async function check({ p, oid }) {
     const ct = (res.headers.get('content-type') || '').toLowerCase().replace(/\s+/g, '');
     if (strictType && ct !== contentType(p).toLowerCase().replace(/\s+/g, '')) issues.push(`Content-Type=${ct}`);
     const cc = res.headers.get('cache-control') || '';
-    if (!cc.includes(CACHE_CONTROL)) issues.push(`Cache-Control=${cc}`);
+    if (cc.replace(/\s+/g, '') !== cacheControlFor(p).replace(/\s+/g, '')) issues.push(`Cache-Control=${cc}`);
   }
   if (issues.length) problems.push(`${p}: ${issues.join('; ')}`); else { ok++; bytes += body.length; }
 }

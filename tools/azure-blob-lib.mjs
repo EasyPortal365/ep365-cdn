@@ -16,6 +16,19 @@ const XMS_VERSION = '2023-11-03';
 // overwritten-stable-bundle-keeps-serving-old-code). Nemenit bez revize cache-bustingu.
 export const CACHE_CONTROL = 'max-age=600';
 
+// Indexy, ktere se meni PRI KAZDE publikaci a nesou pevnou adresu (trust.json, versions.json,
+// releases.json, catalog.json, changelog.json): Front Door drzi kopii podle max-age=600 ve DVOU
+// vrstvach (X-Cache-Info L1_T2), takze po publikaci vracel az ~12 min stary trust.json; zavadec
+// pak novou tichou verzi v indexu nenasel a spadl na ostrou (naostro 2026-11-16, audit AI).
+// `s-maxage` ma u Front Dooru prednost pred max-age (MS Learn: front-door-caching, Cache
+// expiration) – okraj drzi kopii 60 s, prohlizec dal 600 s (zavadec cte s cache:'no-cache').
+export const CACHE_CONTROL_INDEX = 'max-age=600, s-maxage=60';
+const INDEX_FILES = new Set(['trust.json', 'versions.json', 'releases.json', 'catalog.json', 'changelog.json']);
+export function cacheControlFor(p) {
+  const base = String(p).split('/').pop();
+  return INDEX_FILES.has(base) ? CACHE_CONTROL_INDEX : CACHE_CONTROL;
+}
+
 const MIME = {
   '.js': 'application/javascript; charset=utf-8',
   '.mjs': 'application/javascript; charset=utf-8',

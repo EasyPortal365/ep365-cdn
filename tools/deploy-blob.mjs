@@ -17,7 +17,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  WEB, STATE_CONTAINER, STATE_BLOB, CACHE_CONTROL, contentType, isPublished, phaseOf, gitBlobSha1, md5b64,
+  WEB, STATE_CONTAINER, STATE_BLOB, cacheControlFor, contentType, isPublished, phaseOf, gitBlobSha1, md5b64,
   getToken, putBlob, deleteBlob, getBlobText, ensureContainer, listBlobs, pool,
 } from './azure-blob-lib.mjs';
 
@@ -96,7 +96,7 @@ async function main() {
       const b = blobs.get(p);
       if (!b) { upload.push(p); continue; }
       const buf = readExact(p, oid);
-      if (b.md5 !== md5b64(buf) || b.type !== contentType(p) || b.cache !== CACHE_CONTROL) upload.push(p);
+      if (b.md5 !== md5b64(buf) || b.type !== contentType(p) || b.cache !== cacheControlFor(p)) upload.push(p);
     }
     for (const name of blobs.keys()) if (!head.has(name)) remove.push(name);
   }
@@ -111,7 +111,7 @@ async function main() {
     await pool(items, CONCURRENCY, async (p) => {
       const buf = readExact(p, head.get(p));
       bytes += buf.length;
-      await putBlob(token, WEB, p, buf);
+      await putBlob(token, WEB, p, buf, { cacheControl: cacheControlFor(p) });
     });
   }
   if (remove.length) {
@@ -135,7 +135,7 @@ async function verify(token, sha) {
     if (!b) { missing.push(p); continue; }
     const buf = readExact(p, oid);
     if (b.md5 !== md5b64(buf) || b.size !== buf.length) diff.push(p);
-    else if (b.type !== contentType(p) || b.cache !== CACHE_CONTROL) meta.push(`${p} (${b.type}; ${b.cache})`);
+    else if (b.type !== contentType(p) || b.cache !== cacheControlFor(p)) meta.push(`${p} (${b.type}; ${b.cache})`);
   }
   for (const name of blobs.keys()) if (!head.has(name)) extra.push(name);
   console.log(`Souboru ve stromu ${head.size}, v $web ${blobs.size}; chybi ${missing.length}, jiny obsah ${diff.length}, jine hlavicky ${meta.length}, navic ${extra.length}`);
