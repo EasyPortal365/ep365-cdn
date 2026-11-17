@@ -76,9 +76,14 @@ export function contentType(p) {
 }
 
 // Soubory repa, ktere se na CDN nenahravaji (jen konfigurace repa / GitHub Pages).
+// Audit jadra 2026-11 (E5): nastroje publikace (`tools/`) a provozni dokumentace repa
+// (`README.md` kdekoli, `RELEASE.md`) na CDN nepatri – nic tajneho, ale utocnik by videl
+// presne, co publikace spousti. Licencni texty knihoven (`LICENSE*.md`) zustavaji u kodu.
 export function isPublished(p) {
-  if (p.startsWith('.github/')) return false;
+  if (p.startsWith('.github/') || p.startsWith('tools/')) return false;
   if (p === '.gitignore' || p === '.nojekyll' || p === 'CNAME' || p === '.publish.lock') return false;
+  const base = p.split('/').pop();
+  if (base === 'README.md' || p === 'RELEASE.md') return false;
   return true;
 }
 

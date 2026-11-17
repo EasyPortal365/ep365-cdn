@@ -4,7 +4,7 @@
  * Duvod: Front Door drzel trust.json podle max-age=600 az ~12 min po publikaci (lekce 46.1).
  *   node tools/azure-blob-cache.test.mjs      # 0 = OK
  */
-import { cacheControlFor, CACHE_CONTROL, CACHE_CONTROL_INDEX } from './azure-blob-lib.mjs';
+import { cacheControlFor, CACHE_CONTROL, CACHE_CONTROL_INDEX, isPublished } from './azure-blob-lib.mjs';
 
 const cases = [
   ['documents/trust.json', CACHE_CONTROL_INDEX],
@@ -24,5 +24,10 @@ for (const [p, want] of cases) {
   if (got !== want) { fails++; console.error('FAIL: ' + p + ' -> ' + got + ' (cekano ' + want + ')'); }
 }
 if (!/s-maxage=\d+/.test(CACHE_CONTROL_INDEX) || !CACHE_CONTROL_INDEX.includes(CACHE_CONTROL)) { fails++; console.error('FAIL: CACHE_CONTROL_INDEX musi nest max-age prohlizece i s-maxage okraje'); }
+// E5 (audit jadra 2026-11): co se na CDN NEnahrava – a protipriklady, ktere nahrat MUSI.
+const notPublished = ['tools/deploy-blob.mjs', 'tools/trust-keys.json', 'README.md', 'RELEASE.md', 'tour-voice/_zvuky/README.md', '.github/workflows/deploy-azure.yml', '.publish.lock'];
+const published = ['documents/trust.json', 'fonts/LICENSE.md', 'doklady-prijate/vendor/tesseract-5.1.1/LICENSE-tesseract.js.md', 'versions.json', 'crm/tools/x.js', 'docs/RELEASE.md'];
+for (const p of notPublished) if (isPublished(p)) { fails++; console.error('FAIL: ' + p + ' by se nahral na CDN'); }
+for (const p of published) if (!isPublished(p)) { fails++; console.error('FAIL: ' + p + ' by na CDN chybel'); }
 if (fails) { console.error('azure-blob-cache: ' + fails + ' selhani'); process.exit(1); }
 console.log('azure-blob-cache: OK (' + cases.length + ' cest)');
