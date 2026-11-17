@@ -5,8 +5,53 @@
   "entries": [
     {
       "version": "1.9",
-      "date": "2026-11-11",
+      "date": "2026-11-17",
       "changes": [
+        {
+          "type": "improved",
+          "cs": "Panely s detailem a formuláři mají jednotnou podobu napříč aplikacemi EasyPortal 365: druh záznamu nad názvem, dlouhý název se zalomí místo zkrácení, tlačítka Upravit, Kopírovat odkaz a Zavřít na stejném místě. Na telefonu mají tlačítka větší plochu pro prst a panel víc místa pro obsah.",
+          "en": "Detail and form panels look the same across EasyPortal 365 apps: the record type above the title, long titles wrap instead of being cut off, and the Edit, Copy link and Close buttons sit in the same place. On phones the buttons are easier to tap and the panel leaves more room for content."
+        },
+        {
+          "type": "fixed",
+          "cs": "Běžní uživatelé už při první návštěvě aplikace nečekají na nastavování oprávnění, které smí dokončit jen správce webu – aplikace se jim načte rychleji a v pozadí se nic marně neopakuje.",
+          "en": "Regular users no longer wait for permission setup that only a site admin can complete on their first visit — the app loads faster and nothing is retried in the background in vain."
+        },
+        {
+          "type": "fixed",
+          "cs": "Smazání testovacích dat uklidí i historii změn úkolů, aktivit a plánů akcí, které jste si na ukázce vyzkoušeli.",
+          "en": "Deleting the test data now also removes the change history of the tasks, activities and event plans you tried out on the sample."
+        },
+        {
+          "type": "improved",
+          "cs": "Upozornění aplikace na úvodní stránce Workplace se zobrazují v jazyce čtenáře – kdo má Workplace anglicky, uvidí je anglicky. Projeví se po aktualizaci Workplace.",
+          "en": "The app’s notifications on the Workplace home page appear in the reader’s language — anyone using Workplace in English sees them in English. Takes effect once Workplace is updated."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení webové části při úpravě stránky, její popis v nabídce webových částí i popis aplikace v katalogu aplikací jsou i anglicky – kdo má Microsoft 365 v angličtině, už tam neuvidí české texty. Anglicky jsou i hlášení, která se ukazují při načítání aplikace. Projeví se po instalaci aktualizovaného balíčku aplikace; uložené nastavení webových částí zůstává beze změny.",
+          "en": "The web part settings shown when editing a page, the web part description in the toolbox and the app description in the app catalog are now available in English too — users with Microsoft 365 in English no longer see Czech texts there. Messages shown while the app is loading are in English too. This takes effect once the updated app package is installed; saved web part settings stay unchanged."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověřování licence: licenční soubor nese digitální podpis EasyPortal 365 a aplikace ho před použitím ověří. Soubor, který podpisem neprojde, nepřijme a srozumitelně to oznámí – licenci tak nejde podvrhnout ani pozměnit.",
+          "en": "License verification: the license file carries an EasyPortal 365 digital signature, which the app checks before using it. A file that fails the check is rejected and the app says so clearly — the license cannot be forged or altered."
+        },
+        {
+          "type": "fixed",
+          "cs": "Krátký výpadek vyhledávání SharePointu už nepřeruší hledání lidí při přidávání do rolí – aplikace dotaz po pár sekundách sama zopakuje.",
+          "en": "A short SharePoint search outage no longer interrupts the people search when adding someone to a role — the app retries the query by itself after a few seconds."
+        },
+        {
+          "type": "improved",
+          "cs": "Přepnutí obrazovky začíná nahoře: po přechodu na jinou obrazovku se stránka SharePointu vrátí na začátek aplikace, takže hlavička nové obrazovky je hned vidět. Dřív zůstala odrolovaná tam, kde uživatel opustil předchozí obrazovku, a nová se otevřela uprostřed.",
+          "en": "Switching screens starts at the top: after moving to another screen, the SharePoint page returns to the start of the app, so the header of the new screen is visible right away. Previously it stayed scrolled where you left the previous screen, and the new one opened in the middle."
+        },
+        {
+          "type": "fixed",
+          "cs": "Bezpečnější propojení s AI Asistentem. Zadání a podklady příspěvku se posílají jen na adresu služby AI, kterou určuje hub vaší organizace. Když adresa pochází z webu, který hubem není, správce to uvidí v Nastavení → AI a prompty.",
+          "en": "Safer connection to the AI Assistant. Post briefs and source material go only to the AI service address set by your organisation’s hub. If the address comes from a site that is not a hub, admins see a notice in Settings → AI and prompts."
+        },
         {
           "type": "new",
           "cs": "Verze textu u příspěvku: v detailu příspěvku uvidíte všechna uložená znění textu – původní text, znění vrácené s připomínkou i to, které se schválilo a vyšlo, a kdo a kdy je napsal. Vybrané znění aplikace postaví vedle aktuálního textu (nebo vedle předchozího znění): odpovídající odstavce jsou v jednom řádku, co ubylo, je vlevo červeně, co přibylo, vpravo zeleně – i ve vlastních textech pro sítě. Kdo chce změny vidět v jednom textu, přepne si na V jednom textu. Starší znění jde tlačítkem Vrátit tento text (s potvrzením) vrátit: uloží se jako nové a aktuální text zůstane v historii. U starších příspěvků začíná historie dnem, kdy se u seznamu příspěvků zapnula historie verzí.",
