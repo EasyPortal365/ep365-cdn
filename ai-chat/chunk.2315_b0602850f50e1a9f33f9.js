@@ -1,3 +1,0 @@
-/*! (c) 2026 EasyPortal 365. All rights reserved. Unauthorized copying, modification or redistribution is prohibited. https://easyportal365.cz */
-"use strict";(self.webpackJsonp_f58798c0e5e552e54c5358fcd46cb981=self.webpackJsonp_f58798c0e5e552e54c5358fcd46cb981||[]).push([[2315],{22315:(e,t,n)=>{n.d(t,{diagram:()=>r});var a=n(27354),i=(n(92434),n(94207),n(47748),n(97013),n(98757),n(97470),n(39832),n(39090),n(24389),n(23851),n(61365),n(13515),n(91636),n(41313),n(94680),n(53993),(0,n(42743).K)(e=>`${(0,a.vM)(e)}\n  .swimlane.cluster rect {\n    stroke: ${e.clusterBorder} !important;\n  }\n  [data-look="neo"].cluster rect {\n    filter: none;\n  }\n`,"getStyles")),r=(0,a.yr)({defaultLayout:"swimlane",styles:i})}
-}]);
