@@ -5,8 +5,63 @@
   "entries": [
     {
       "version": "1.4",
-      "date": "2026-11-10",
+      "date": "2026-11-17",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Náhled uvnitř aplikace ukazuje dokumenty Office, PDF, obrázky a textové soubory. Ostatní typy souborů se otevřou v nové záložce.",
+          "en": "The in-app preview shows Office documents, PDFs, images and text files. Other file types open in a new tab."
+        },
+        {
+          "type": "fixed",
+          "cs": "Tisk z náhledu pracuje jen s PDF a obrázky, které umí vytisknout.",
+          "en": "Printing from the preview only works with PDFs and images it can print."
+        },
+        {
+          "type": "fixed",
+          "cs": "Adresa hubu z nastavení webové části se použije jen tehdy, když jde o skutečný hub vaší organizace. Jinak aplikace pracuje bez hubu.",
+          "en": "The hub address from the web part settings is only used when it is an actual hub of your organization. Otherwise the app works without a hub."
+        },
+        {
+          "type": "fixed",
+          "cs": "Běžní uživatelé už při první návštěvě aplikace nečekají na nastavování oprávnění, které smí dokončit jen správce webu – aplikace se jim načte rychleji a v pozadí se nic marně neopakuje.",
+          "en": "Regular users no longer wait for permission setup that only a site admin can complete on their first visit – the app loads faster and nothing is retried in the background in vain."
+        },
+        {
+          "type": "improved",
+          "cs": "Seznamy nabízejí 10, 15, 20, 50 nebo 100 položek na stránku i zobrazení všech; výchozí je 15. Počet, který jste si už zvolili, zůstává.",
+          "en": "Lists offer 10, 15, 20, 50 or 100 items per page or all items; the default is 15. A page size you have already chosen stays."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení webové části při úpravě stránky, její popis v nabídce webových částí i popis aplikace v katalogu aplikací jsou i anglicky – kdo má Microsoft 365 v angličtině, už tam neuvidí české texty. Anglicky jsou i hlášení, která se ukazují při načítání aplikace. Projeví se po instalaci aktualizovaného balíčku aplikace; uložené nastavení webových částí zůstává beze změny.",
+          "en": "The web part settings shown when editing a page, the web part description in the toolbox and the app description in the app catalog are now available in English too — users with Microsoft 365 in English no longer see Czech texts there. Messages shown while the app is loading are in English too. This takes effect once the updated app package is installed; saved web part settings stay unchanged."
+        },
+        {
+          "type": "fixed",
+          "cs": "Krátký výpadek vyhledávání SharePointu už nezablokuje seznam webů v sekci Místa, výběr místa při ukládání ani výpis dokumentů – aplikace dotaz po pár sekundách sama zopakuje. Když vyhledávání neodpovídá ani potom, hláška řekne, že jde o dočasný výpadek služby, a hned vedle je tlačítko Zkusit znovu, takže není potřeba obnovovat celou stránku.",
+          "en": "A short SharePoint search outage no longer blocks the site list under Places, the place picker when saving or the document list — the app retries the query by itself after a few seconds. If search still does not respond, the message says it is a temporary service outage and offers a Try again button right next to it, so there is no need to reload the whole page."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověřování licence: licenční soubor nese digitální podpis EasyPortal 365 a aplikace ho před použitím ověří. Soubor, který podpisem neprojde, nepřijme a srozumitelně to oznámí – licenci tak nejde podvrhnout ani pozměnit.",
+          "en": "License verification: the license file carries an EasyPortal 365 digital signature, which the app checks before using it. A file that fails the check is rejected and the app says so clearly — the license cannot be forged or altered."
+        },
+        {
+          "type": "improved",
+          "cs": "Přepnutí obrazovky začíná nahoře: po přechodu na jinou obrazovku se stránka SharePointu vrátí na začátek aplikace, takže hlavička nové obrazovky je hned vidět. Dřív zůstala odrolovaná tam, kde uživatel opustil předchozí obrazovku, a nová se otevřela uprostřed.",
+          "en": "Switching screens starts at the top: after moving to another screen, the SharePoint page returns to the start of the app, so the header of the new screen is visible right away. Previously it stayed scrolled where you left the previous screen, and the new one opened in the middle."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace Řízené dokumenty má v anglických textech nový název Controlled Documents (dřív Managed Documents). Česky se nic nemění.",
+          "en": "The Controlled Documents application (previously Managed Documents) appears under its new English name throughout. Nothing changes in Czech."
+        },
+        {
+          "type": "improved",
+          "cs": "Před odesláním do Řízených dokumentů potvrzení ukáže, na který web dokument půjde a odkud aplikace tu adresu má. Nastavení → Ukládání správcům doporučí adresu Řízených dokumentů vyplnit (jedním klikem převezme nalezenou) – cíl předání se pak bere jen odtud.",
+          "en": "Before a document is sent to Controlled Documents, the confirmation now shows which site it goes to and where the app got that address. Settings → Saving recommends that administrators fill in the Controlled Documents address (one click takes over the one found) — the hand-off target is then taken from there only."
+        },
         {
           "type": "fixed",
           "cs": "Nápověda a průvodce aplikací odpovídají tomu, jak aplikace skutečně funguje. Otázka „Kde aplikace ukládá svá data?“ vyjmenuje všech sedm seznamů a vede do Nastavení → Verze & informace → Datové seznamy s ochranou, počtem položek, verdiktem oprávnění a tlačítkem Zkontrolovat. Nápověda popisuje spodní lištu na telefonu, celé menu u dokumentu (i odeslání e-mailem, rezervaci, přesun do složky a do koše), sekci Testovací data, kartu Správa verzí a to, jak se řeší soubor stejného jména v obou cestách uložení. Průvodce už netvrdí, že akce v menu dokument nemění, vyjmenuje všechny sekce Nastavení a u námětů vede na stránku Co je nového místo veřejné roadmapy.",
@@ -30,7 +85,7 @@
         {
           "type": "improved",
           "cs": "Řízené dokumenty fungují i bez Workplace. Odeslání do Řízených dokumentů a řízené typy v průvodci uložením si Řízené dokumenty najdou samy na stejném webu, včetně stránky, na které běží; když jsou jinde, zadá správce jejich adresu v Nastavení → Ukládání, kde je i vidět, odkud se právě berou, a adresu jde před uložením ověřit. Odkazy do Řízených dokumentů (štítky seznámení, upozornění na dokumenty k seznámení, dokončení publikace) vedou vždy na stránku s celou aplikací.",
-          "en": "Managed Documents work without Workplace too. Sending to Managed Documents and managed types in the save wizard find Managed Documents on the same site by themselves, including the page they run on; when they run elsewhere, the administrator enters their address in Settings → Saving, which also shows where they are currently taken from, and the address can be checked before it is saved. Links to Managed Documents (acknowledgement labels, the notice about documents to acknowledge, finishing a publication) always lead to the page with the full application."
+          "en": "Controlled Documents work without Workplace too. Sending to Controlled Documents and controlled types in the save wizard find Controlled Documents on the same site by themselves, including the page they run on; when they run elsewhere, the administrator enters their address in Settings → Saving, which also shows where they are currently taken from, and the address can be checked before it is saved. Links to Controlled Documents (acknowledgement labels, the notice about documents to acknowledge, finishing a publication) always lead to the page with the full application."
         },
         {
           "type": "improved",
@@ -60,7 +115,7 @@
         {
           "type": "fixed",
           "cs": "Seznámení odpovídá Řízeným dokumentům. Štítky seznámení u dokumentů a upozornění „Máte N dokumentů k seznámení“ ukazují aktuální stav včetně dokumentů, u kterých vypršela platnost seznámení – dřív mohly chybět nově přidělené dokumenty a potvrzený dokument dál čekal. Účty bez poštovní schránky (typicky správcovské) aplikace rozpozná stejně jako Řízené dokumenty: vidí typy a pravidla, které správce zpřístupnil přímo jim, a dokument odeslaný do Řízených dokumentů najdou ve frontě publikace mezi svými.",
-          "en": "Acknowledgements match Managed Documents. The acknowledgement labels on documents and the “You have N documents to acknowledge” notice show the current state, including documents whose acknowledgement has expired — previously newly assigned documents could be missing and a confirmed document was still shown as waiting. Accounts without a mailbox (typically administrator accounts) are recognised the same way as in Managed Documents: they see the types and rules the administrator made available to them personally, and a document they send to Managed Documents shows up among their own items in the publication queue."
+          "en": "Acknowledgements match Controlled Documents. The acknowledgement labels on documents and the “You have N documents to acknowledge” notice show the current state, including documents whose acknowledgement has expired — previously newly assigned documents could be missing and a confirmed document was still shown as waiting. Accounts without a mailbox (typically administrator accounts) are recognised the same way as in Controlled Documents: they see the types and rules the administrator made available to them personally, and a document they send to Controlled Documents shows up among their own items in the publication queue."
         },
         {
           "type": "fixed",
@@ -70,7 +125,7 @@
         {
           "type": "fixed",
           "cs": "Soubory a složky s # nebo % v názvu fungují. U souborů jako „Faktura #12.pdf“ nebo „Sleva 20%.docx“ jde dokument otevřít i v aplikaci, stáhnout, zkopírovat odkaz, zobrazit náhled obrázku, podrobnosti, přehled, verze a oprávnění, přesunout, přesunout do koše, rezervovat a vrátit (i s # a % v komentáři), uložit jako PDF, vytisknout nebo odeslat do Řízených dokumentů; složku s takovým názvem jde otevřít, nahrávat do ní a zakládat v ní podsložky. Dřív taková akce skončila chybou nebo otevřela jiné místo. Vložit odkaz při výběru knihovny zvládne i adresu s #, % nebo +. Nadpis knihovny, jejíž název končí tečkou, už nemá na konci dvě tečky.",
-          "en": "Files and folders with # or % in their name now work. For files such as “Invoice #12.pdf” or “Discount 20%.docx” you can open the document, also in its app, download it, copy its link, see the image preview, details, overview, versions and permissions, move it, move it to the recycle bin, check it out and back in (with # and % in the comment too), save it as PDF, print it or send it to Managed Documents; a folder with such a name can be opened, uploaded to and given subfolders. Previously such an action failed or opened a different place. Paste link when choosing a library also handles an address with #, % or +. The heading of a library whose name ends with a full stop no longer ends with two full stops."
+          "en": "Files and folders with # or % in their name now work. For files such as “Invoice #12.pdf” or “Discount 20%.docx” you can open the document, also in its app, download it, copy its link, see the image preview, details, overview, versions and permissions, move it, move it to the recycle bin, check it out and back in (with # and % in the comment too), save it as PDF, print it or send it to Controlled Documents; a folder with such a name can be opened, uploaded to and given subfolders. Previously such an action failed or opened a different place. Paste link when choosing a library also handles an address with #, % or +. The heading of a library whose name ends with a full stop no longer ends with two full stops."
         },
         {
           "type": "fixed",
@@ -80,7 +135,7 @@
         {
           "type": "fixed",
           "cs": "Odeslat e-mailem jako odkaz v prohlížeči otevře nový e-mail jen v Outlooku na webu – dřív se otevřel ještě druhý ve výchozím poštovním programu. „Vytisknout souhrn“ v Porovnat verze dokumentu, Oprávnění a přístup a Kontrole citlivých údajů souhrn opět vytiskne, a když prohlížeč okno pro tisk zablokuje, dialog to řekne. Texty mají správné tvary k počtu („Odeslat 2 dokumenty“, „+ 1 další“), české uvozovky se všude zavírají správně a hláška o odesílání do Řízených dokumentů uvádí roli Vydavatelé místo technického názvu skupiny.",
-          "en": "Send by e-mail as a link in the browser now opens the new e-mail only in Outlook on the web — previously a second one also opened in the default mail program. “Print summary” in Compare document versions, Permissions and access and the Sensitive data check prints the summary again, and when the browser blocks the print window, the dialog says so. Texts use the correct Czech word forms for counts, Czech quotation marks are closed properly everywhere, and the message about sending to Managed Documents shows the Publishers role instead of the technical group name."
+          "en": "Send by e-mail as a link in the browser now opens the new e-mail only in Outlook on the web — previously a second one also opened in the default mail program. “Print summary” in Compare document versions, Permissions and access and the Sensitive data check prints the summary again, and when the browser blocks the print window, the dialog says so. Texts use the correct Czech word forms for counts, Czech quotation marks are closed properly everywhere, and the message about sending to Controlled Documents shows the Publishers role instead of the technical group name."
         },
         {
           "type": "improved",
@@ -110,7 +165,7 @@
         {
           "type": "improved",
           "cs": "Na telefonu se aplikace ovládá stejně jako ostatní aplikace EP365 – spodní lišta má nově i tlačítko Hledat. Přechod do Řízených dokumentů po odeslání dokumentu do fronty publikace funguje i v aplikaci Teams.",
-          "en": "On phones the app is operated like every other EP365 app — the bottom bar now includes a Search button. Moving to Controlled documents after sending a document to the publishing queue also works inside the Teams app."
+          "en": "On phones the app is operated like every other EP365 app — the bottom bar now includes a Search button. Moving to Controlled Documents after sending a document to the publishing queue also works inside the Teams app."
         },
         {
           "type": "improved",
@@ -146,7 +201,7 @@
         {
           "type": "new",
           "cs": "Odeslání dokumentu do Řízených dokumentů se teď nejdřív zeptá. Potvrzení říká, co se stane: soubor se zkopíruje a založí se z něj koncept ve frontě publikace, originál zůstává tam, kde je. U výběru vypisuje, které dokumenty půjdou. Zaškrtnutím „Po odeslání rovnou dokončit publikaci“ vás aplikace po odeslání přepne do Řízených dokumentů a otevře rovnou kartu dokumentu, kde nastavíte, komu se přiřadí a do kdy se s ním mají lidé seznámit; u hromadného odeslání se otevře fronta publikace. Volba se pamatuje. Když se něco nepovede, zůstane hláška u akce a nikam se nepřechází – u dávky se dozvíte, kolik dokumentů z kolika prošlo.",
-          "en": "Sending a document to Managed Documents now asks first. The confirmation says what will happen: the file is copied and a draft is created in the publishing queue, while the original stays where it is. For a selection it lists the documents that will go. Ticking „Finish publishing right away“ switches you to Managed Documents after sending and opens the document card, where you set who it is assigned to and by when people should acknowledge it; a bulk send opens the publishing queue. The choice is remembered. If something fails, the message stays with the action and nothing navigates away — for a batch you learn how many of the documents went through."
+          "en": "Sending a document to Controlled Documents now asks first. The confirmation says what will happen: the file is copied and a draft is created in the publishing queue, while the original stays where it is. For a selection it lists the documents that will go. Ticking „Finish publishing right away“ switches you to Controlled Documents after sending and opens the document card, where you set who it is assigned to and by when people should acknowledge it; a bulk send opens the publishing queue. The choice is remembered. If something fails, the message stays with the action and nothing navigates away — for a batch you learn how many of the documents went through."
         },
         {
           "type": "new",
@@ -197,7 +252,7 @@
         {
           "type": "new",
           "cs": "V přehledu můžete vybrat víc dokumentů najednou – zaškrtávátkem u řádku, nebo v hlavičce celou stránku. Nad seznamem se objeví lišta s počtem a hromadné akce nabídne i menu u řádku: stáhnout, kopírovat odkazy, kontrola citlivých údajů, odeslat do Řízených dokumentů a přesunout do koše. U mazání se počítá jen s dokumenty, na které máte právo – ostatní se vynechají a aplikace to řekne dopředu. Potvrzení vypisuje, co přesně zmizí. Výběr platí nad zobrazenými řádky a při změně stránky nebo filtru se ruší.",
-          "en": "You can now select several documents at once — with the checkbox on a row, or the whole page from the header. A bar with the count appears above the list and the row menu offers the bulk actions too: download, copy links, sensitive-data check, send to Managed Documents and move to the recycle bin. Deletion counts only documents you may delete — the rest are skipped and the app says so up front. The confirmation lists exactly what will disappear. The selection applies to the displayed rows and is cleared when the page or filter changes."
+          "en": "You can now select several documents at once — with the checkbox on a row, or the whole page from the header. A bar with the count appears above the list and the row menu offers the bulk actions too: download, copy links, sensitive-data check, send to Controlled Documents and move to the recycle bin. Deletion counts only documents you may delete — the rest are skipped and the app says so up front. The confirmation lists exactly what will disappear. The selection applies to the displayed rows and is cleared when the page or filter changes."
         },
         {
           "type": "fixed",
@@ -247,7 +302,7 @@
         {
           "type": "new",
           "cs": "Stavy seznámení přímo v přehledu – u dokumentů, které čekají na vaše potvrzení v Řízených dokumentech, se nově zobrazuje štítek „K seznámení do…“, „Seznámení po termínu“ nebo „Seznámeno“ s datem. Nad seznamem najdete celkový počet čekajících seznámení včetně dokumentů, které v přehledu nejsou, a proklik rovnou do Řízených dokumentů.",
-          "en": "Acknowledgement status right in the overview — documents awaiting your confirmation in Managed Documents now carry a badge reading „to acknowledge by…“, „overdue“ or „acknowledged“ with the date. Above the list you will find the total number of pending acknowledgements, including documents not shown here, and a link straight to Managed Documents."
+          "en": "Acknowledgement status right in the overview — documents awaiting your confirmation in Controlled Documents now carry a badge reading „to acknowledge by…“, „overdue“ or „acknowledged“ with the date. Above the list you will find the total number of pending acknowledgements, including documents not shown here, and a link straight to Controlled Documents."
         },
         {
           "type": "new",
@@ -329,7 +384,7 @@
         {
           "type": "new",
           "cs": "První vydání aplikace Moje dokumenty. Nabízí osobní přehled všech dokumentů, ke kterým máte v Microsoft 365 přístup – napříč weby a knihovnami, s hledáním v názvech i obsahu, filtry, řazením a panelem míst s oblíbenými a nedávno použitými knihovnami. U každého dokumentu máte po ruce náhled, uložení do PDF, tisk, stažení, odkaz, cestu do knihovny i informace o něm (aktivita, verze, kdo má přístup, kontrola citlivých údajů). Průvodce uložením pak nový soubor uloží tam, kam podle pravidel vaší organizace patří: řeknete, co dokument je a pro koho, a aplikace určí knihovnu, předem ověří vaše právo zápisu a doplní metadata; směrnice předá k publikaci do Řízených dokumentů. Vlastní typy a cíle ukládání si může přidat každý sám pro sebe, správce navíc určuje, komu se které nabídnou. Součástí je nápověda s více než padesáti odpověďmi a interaktivní průvodce aplikací.",
-          "en": "First release of My Documents. It gives you a personal overview of every document you can access in Microsoft 365 — across sites and libraries, with search in names and content, filters, sorting and a places panel holding your favourite and recently used libraries. Every document offers a preview, save as PDF, print, download, a link, a path to its library and insights about it (activity, versions, who has access, a sensitive-data check). The guided upload then files a new document where your organisation’s rules say it belongs: you say what it is and who it is for, and the app resolves the library, verifies your write permission up front and fills in metadata; directives are handed over to Managed Documents for publication. Everyone can add personal document types and storage targets, and administrators decide who is offered which. In-app help with over fifty answers and an interactive tour are included."
+          "en": "First release of My Documents. It gives you a personal overview of every document you can access in Microsoft 365 — across sites and libraries, with search in names and content, filters, sorting and a places panel holding your favourite and recently used libraries. Every document offers a preview, save as PDF, print, download, a link, a path to its library and insights about it (activity, versions, who has access, a sensitive-data check). The guided upload then files a new document where your organisation’s rules say it belongs: you say what it is and who it is for, and the app resolves the library, verifies your write permission up front and fills in metadata; directives are handed over to Controlled Documents for publication. Everyone can add personal document types and storage targets, and administrators decide who is offered which. In-app help with over fifty answers and an interactive tour are included."
         }
       ]
     }
