@@ -101,8 +101,8 @@ function commit(root, msg) {
   execFileSync('git', ['-C', root, '-c', 'core.safecrlf=false', 'add', '-A'], { stdio: 'ignore' });
   execFileSync('git', ['-C', root, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '--allow-empty', '-m', msg], { stdio: 'ignore' });
 }
-function spust(root, tool, argy) {
-  const r = spawnSync(process.execPath, [path.join(root, 'tools', tool)].concat(argy), { encoding: 'utf8' });
+function spust(root, tool, argy, env) {
+  const r = spawnSync(process.execPath, [path.join(root, 'tools', tool)].concat(argy), { encoding: 'utf8', env: Object.assign({}, process.env, { EP365_PRUNE_LOCK_ID: '' }, env || {}) });
   return { kod: r.status, out: (r.stdout || '') + (r.stderr || '') };
 }
 /** Jako spust, ale NEBLOKUJE smycku udalosti - lokalni HTTP server v tomhle procesu musi odpovidat. */
@@ -364,6 +364,15 @@ console.log('B4) Fail-closed: z uloziste se nemaze nic, kdyz nevime, co odkazuje
   const z = postavProrez('zamek', null, (root) => fs.writeFileSync(path.join(root, '.publish.lock'), '', 'utf8'));
   const r3 = prorez(z);
   ok(r3.kod === 0 && r3.out.indexOf('bezi publikace') !== -1 && [z.E, z.O2].every(c => vPoolu(z.root, c)), 'B4c bezici publikace (.publish.lock) -> uloziste nedotcene');
+
+  // B4e: zamek drzi VOLAJICI prune-cdn (ID v EP365_PRUNE_LOCK_ID) -> uloziste se prorezava.
+  const zv = postavProrez('zamek-vlastni', null, (root) => fs.writeFileSync(path.join(root, '.publish.lock'), 'prune-cdn pid=4242 2026-11-17T00:00:00.000Z\n', 'utf8'));
+  const r5 = spust(zv.root, 'prune-versions.mjs', ['--keep', '3', '--pin-state', zv.ps, '--apply'], { EP365_PRUNE_LOCK_ID: 'prune-cdn pid=4242' });
+  ok(r5.kod === 0 && r5.out.indexOf('bezi publikace') === -1 && !vPoolu(zv.root, zv.E) && vPoolu(zv.root, zv.S), 'B4e vlastni zamek volajiciho prune-cdn -> uloziste PROREZANO (sirotek pryc, sdileny zustal)');
+  // B4f: jine ID (pid=1 jako predpona pid=1234 se nesmi chytit) -> cizi publikace, uloziste nedotcene.
+  const zc = postavProrez('zamek-cizi', null, (root) => fs.writeFileSync(path.join(root, '.publish.lock'), 'publish-cdn pid=1234 2026-11-17T00:00:00.000Z\n', 'utf8'));
+  const r6 = spust(zc.root, 'prune-versions.mjs', ['--keep', '3', '--pin-state', zc.ps, '--apply'], { EP365_PRUNE_LOCK_ID: 'publish-cdn pid=1' });
+  ok(r6.kod === 0 && r6.out.indexOf('bezi publikace') !== -1 && vPoolu(zc.root, zc.E), 'B4f cizi zamek (jine ID, i shodna predpona) -> uloziste nedotcene');
 
   const p = postavProrez('plan');
   const r4 = prorez(p, []);

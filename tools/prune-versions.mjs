@@ -399,11 +399,17 @@ const poolProblems = [];
 const poolVerifyFailed = [];
 let poolFreed = 0;
 const PUBLISH_LOCK = path.join(ROOT, '.publish.lock');
+/** Zamek zalozil volajici prune-cdn (EP365_PRUNE_LOCK_ID = prvni slovo zaznamu v zamku), ne publikace. */
+function zamekJeVolajiciho() {
+  const id = process.env.EP365_PRUNE_LOCK_ID;
+  if (!id) return false;
+  try { return fs.readFileSync(PUBLISH_LOCK, 'utf8').indexOf(id + ' ') === 0; } catch (e) { return false; }
+}
 for (const app of apps) {
   if (!fs.existsSync(path.join(ROOT, app, POOL_DIR))) continue;
   // Bezici publikace pise do uloziste DRIV nez manifest - soubor, na ktery jeste nic
   // nemiri, by tu vypadal jako sirotek. Zamek = v ulozisti se nemaze nic.
-  if (fs.existsSync(PUBLISH_LOCK)) {
+  if (fs.existsSync(PUBLISH_LOCK) && !zamekJeVolajiciho()) {
     let min = '?';
     try { min = ((Date.now() - fs.statSync(PUBLISH_LOCK).mtimeMs) / 60000).toFixed(0); } catch (e) { /* jen do hlasky */ }
     poolProblems.push(app + ': prave bezi publikace (.publish.lock, stary ' + min + ' min; nad 25 min = mrtvy, smaz ho) - uloziste neprorezavam');

@@ -99,6 +99,9 @@ function vezmiZamek() {
       fs.writeSync(fd, id + ' ' + new Date().toISOString() + '\n');
       fs.closeSync(fd);
       zamekId = id;
+      // Kroky (prune-versions) bezi jako deti a zamek uvidi taky: podle ID poznaji, ze je NAS,
+      // ne bezici publikace (jinak by se uloziste <app>/chunks/ neprorezalo nikdy, 17. 11. 2026).
+      process.env.EP365_PRUNE_LOCK_ID = id;
       process.on('exit', pustZamek);
       ['SIGINT', 'SIGTERM'].forEach(s => process.on(s, () => { pustZamek(); process.exit(130); }));
       console.log('Zamek .publish.lock ziskan (' + id + ')');
