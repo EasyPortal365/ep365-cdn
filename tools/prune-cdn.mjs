@@ -36,6 +36,8 @@
  *   node tools/prune-cdn.mjs --apply         # provede oba prorezy (git rm)
  *   node tools/prune-cdn.mjs --policy <path> # jina politika (testy)
  *
+ * ZAMEK: `--apply` bere `.publish.lock` jako publish-cdn (ceka max 40 min), PLAN ne.
+ *
  * PO `--apply` COMMITNI BEZ `git add`
  *   Oba prorezy si `git rm` staguji samy. `git add -A` / `git add .` by ve sdilenem
  *   CDN repu smetlo rozpracovane soubory jine session pod tvuj commit (§31.1).
@@ -61,6 +63,57 @@ const POLICY = (() => {
 })();
 
 function konec(m) { console.error('\nPROREZ ZASTAVEN\n  ' + m); process.exit(1); }
+
+// ------------------------------------------------------- zamek .publish.lock ---
+// `--apply` maze verze a chunky TEZE appky, do ktere muze prave publikovat jina session
+// (publish-cdn drzi `.publish.lock` po celou dobu zapisu). Bez zamku prorez spocital odkazy
+// na chunk drive, nez publikace dopsala manifest nove verze -> smazany chunk, na ktery nova
+// verze miri (404). Proto `--apply` bere TENTYZ zamek jako publikace (lekce 31.9) a drzi ho
+// do konce behu. PLAN nic nemaze a zamek nebere.
+//   EP365_PUBLISH_LOCK_HELD=1  zamek drzi volajici obal - prorez ho nezaklada ani nemaze
+//   PRUNE_LOCK_WAIT_MIN=<n>    jak dlouho cekat na cizi zamek (vychozi 40 min jako publikace)
+const LOCK = path.join(ROOT, '.publish.lock');
+let zamekId = null;
+function zamekInfo() {
+  try {
+    const st = fs.statSync(LOCK);
+    const t = fs.readFileSync(LOCK, 'utf8').trim();
+    return { ageMin: (Date.now() - st.mtimeMs) / 60000, text: t || 'drzitel neznamy (prazdny soubor)' };
+  } catch (e) { return null; }
+}
+function pustZamek() {
+  if (!zamekId) return;
+  try { if (fs.readFileSync(LOCK, 'utf8').indexOf(zamekId + ' ') === 0) fs.unlinkSync(LOCK); } catch (e) { /* uz neni */ }
+  zamekId = null;
+}
+function vezmiZamek() {
+  if (process.env.EP365_PUBLISH_LOCK_HELD && zamekInfo()) { console.log('Zamek .publish.lock drzi volajici (EP365_PUBLISH_LOCK_HELD) - prorez ho nezaklada ani nemaze.'); return; }
+  const raw = process.env.PRUNE_LOCK_WAIT_MIN;
+  const w = raw === undefined || raw === '' ? 40 : Number(raw);
+  const waitMin = w >= 0 ? w : 40;
+  const deadline = Date.now() + waitMin * 60000;
+  const id = 'prune-cdn pid=' + process.pid;
+  for (;;) {
+    try {
+      const fd = fs.openSync(LOCK, 'wx');
+      fs.writeSync(fd, id + ' ' + new Date().toISOString() + '\n');
+      fs.closeSync(fd);
+      zamekId = id;
+      process.on('exit', pustZamek);
+      ['SIGINT', 'SIGTERM'].forEach(s => process.on(s, () => { pustZamek(); process.exit(130); }));
+      console.log('Zamek .publish.lock ziskan (' + id + ')');
+      return;
+    } catch (e) {
+      if (e.code !== 'EEXIST') konec('zamek .publish.lock nejde zalozit: ' + e.message);
+      const i = zamekInfo();
+      const kdo = i ? i.text + ' (' + i.ageMin.toFixed(1) + ' min)' : '?';
+      if (Date.now() >= deadline) konec('zamek .publish.lock drzi ' + kdo + ' - prave publikuje jina session. Prorez pust az po ni; kdyz nikdo nepublikuje a zamek je stary, smaz ho rucne.');
+      console.log('Zamek .publish.lock drzi: ' + kdo + ' - cekam');
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 15000);
+    }
+  }
+}
+if (APPLY) vezmiZamek();
 
 // ------------------------------------------------------------- 0. politika ---
 let pol = null;
