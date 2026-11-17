@@ -3,5 +3,8 @@
   "iv": "2itXHezUhDl2kLIr",
   "data": "q9zG6qboFFVB/3XApG3EWJtLqoAPwJPPTNt3ZF2YeW08QvM30lmdqSIwuJgyz3Z5xuBCMFPvVpbkFMokORPp6gSC12atJl5vbtQtux+3tHxAL1I67sviCyxJ3IA42A7LT/dADC9nly1GdCMt5johtyrvY1ZCiRF5BA0VyffMHKZN1VwlOXyQVeYsVJBxmXT1JvVvFEVkNo/MQnmCg9kNDHWdrMztdMYT5szrsJyzl23CBA//1Yig919Wzzoww8nzPDJNv7cn2iQUcSiHCsajc406uVQZN/srX3sloHb5KJngLD7hGWsO3jOQOMztfxPBpzfaptHOcmCuMfg2IcqoFCZJd55h",
   "kid": "ep365lic-ac67adf5f21415ce",
-  "sig": "BSEWq9Tq3f2kEe0jkbswX3GEgrfjLm4TjjB4sNotNh0pS7CC/eeRLdNWAalZyBFoj+UXzm9FEjbttICY6R98fw=="
+  "sig": "DrD0H+AXwCQwGCpjM5kiqPTHsmGDK1qmT7aDCmNGEywsaKgH7nUxks3oxUzyCYy6M+uhgm8+uQD1etp254ks1w==",
+  "iat": "2026-11-17T09:25:01.733Z",
+  "exp": "2027-12-22T09:25:01.733Z",
+  "sig2": "dAI/wdvOBdahKzrfVRoYyrHtipDtQbQOwvryYpRRwkUNE+epbdr5G/u2jeCcAP+RQ/GJc5anY29xjZjQQb8Qhw=="
 }

@@ -3,5 +3,8 @@
   "iv": "V9LF8PpNmgNiEPjn",
   "data": "kCTaqovprukKIPJ8oDJd7vKEHQimaksN6d5Gmo99cHYlhLqcjnlUssObp4Z7U2Hra7t/vEWyywxRy9WN6lMMBZZF3LeqcYMOVOjToARzTs6cE9TuqF2wfUjPs26lJe5jdPYk15PMxcAhe1CDTgA9E9VgwJoebv7Lki+Bwize0kBWKHUfsY1su0ENwhAvlBtJHkg6fbvkFbGaBdLipEe+PB2QPMwcFwXTlgcmXCAi4Em3AVBCxJm28C9vcO7zYzntv4GuPUzLCtyj",
   "kid": "ep365lic-ac67adf5f21415ce",
-  "sig": "VK8yV0rLIfgnM9Inbb4jOFr054bI3Dp/LRwnwhc/4zdepJRr/45p0gjZbA4iaEZvd4KCov4dinv/gEe/qnlNiQ=="
+  "sig": "Uv2LnLzrPeF6KKAPaHt5yJqCosKqvywxiMByTTnla7f96icp2zsSo68sxiWk5LTSoeiHIculptnTRiagi9bj3A==",
+  "iat": "2026-11-17T09:25:01.733Z",
+  "exp": "2027-12-22T09:25:01.733Z",
+  "sig2": "C16hv4C+ZR0m6AMH4KmLzR4Qd6mS+6zjpU2VzNjgEqW9KHHeEIHrhp0xRLbtQFvzV4kGZDgLAxADFq7HB3bNdA=="
 }
