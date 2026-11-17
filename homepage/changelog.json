@@ -5,8 +5,23 @@
   "entries": [
     {
       "version": "1.31",
-      "date": "2026-11-14",
+      "date": "2026-11-17",
       "changes": [
+        {
+          "type": "fixed",
+          "cs": "Běžní uživatelé už při první návštěvě aplikace nečekají na nastavování oprávnění, které smí dokončit jen správce webu – aplikace se jim načte rychleji a v pozadí se nic marně neopakuje.",
+          "en": "Regular users no longer wait for permission setup that only a site admin can complete on their first visit – the app loads faster and nothing is retried in the background in vain."
+        },
+        {
+          "type": "fixed",
+          "cs": "Bezpečnější motiv a odkazy. Do vzhledu stránek se z firemního motivu dostanou jen platné barvy, odkazy v Mých úkolech vedou jen do SharePointu vaší organizace a souhrn dne se odešle jen na zabezpečenou (https) adresu služby AI z globální konfigurace.",
+          "en": "Safer theme and links. Only valid colours from the company theme reach the page styling, links in My tasks lead only to your organisation's SharePoint, and the day summary is sent only to a secure (https) AI service address from the global configuration."
+        },
+        {
+          "type": "fixed",
+          "cs": "Bezpečnější propojení s AI. Souhrn dne, Aktuality a přílohy se posílají jen na adresu služby AI, kterou určuje hub vaší organizace. Když adresa pochází z webu, který hubem není, správce to uvidí v Globální konfiguraci u adresy AI. Na webu bez hubu, kde adresu prokazatelně uložil někdo jiný než vlastník nebo správce webu, se AI nevolá a aplikace řekne proč; na ostatních webech AI funguje jako dřív.",
+          "en": "Safer AI connection. The day summary, News and attachments go only to the AI service address set by your organisation’s hub. If the address comes from a site that is not a hub, admins see a notice next to the AI address in Global configuration. On a site without a hub where the address was demonstrably saved by someone other than a site owner or admin, AI is not called and the app says why; everywhere else AI works as before."
+        },
         {
           "type": "improved",
           "cs": "Upozornění z aplikací a nastavení webové části i anglicky. Upozornění z ostatních aplikací v Mém dni a na úvodní stránce se zobrazují v jazyce, který máte ve Workplace zvolený – česky nebo anglicky; aplikace, které anglické znění ještě nemají, zůstávají česky. Nastavení webové části při úpravě stránky, její popis v nabídce webových částí i popis aplikace v katalogu aplikací jsou česky i anglicky podle jazyka Microsoftu 365 – projeví se po instalaci aktualizovaného balíčku aplikace a uložené nastavení webových částí zůstává beze změny.",
@@ -297,7 +312,7 @@
         {
           "type": "new",
           "cs": "Nová sekce „Dokumenty k seznámení“ – co po vás chtějí Řízené dokumenty, uvidíte hned na úvodní stránce: název, kategorie, termín a stav, přičemž co je po termínu, svítí červeně; klik otevře dokument rovnou tam, kde se seznámení potvrzuje, a sekce ukazuje výhradně vaše vlastní přiřazení. Ve Správě obsahu přibyla záložka Typy dokumentů, kde centrálně určíte, jaké typy dokumentů firma zná a kam se který ukládá pro který okruh lidí. A pododdíl Citlivé výrazy nese firemní slovník výrazů – například kódová označení projektů –, které pak Kontrola citlivých údajů v bezplatné aplikaci EP365 Quick Actions hledá v dokumentech navíc k vestavěným detektorům.",
-          "en": "A new “Documents to acknowledge” section – what Controlled documents needs from you is visible right on the home page: the title, category, deadline and status, with anything overdue in red; a click opens the document where acknowledgement is confirmed, and the section shows only your own assignments. Content administration gained a Document types tab where you centrally define which document types the company knows and where each is stored for which group of people. And a Sensitive terms subsection holds a company glossary of terms – project code names, say – which the Sensitive data check in the free EP365 Quick Actions app then looks for in documents in addition to the built-in detectors."
+          "en": "A new “Documents to acknowledge” section – what Controlled Documents needs from you is visible right on the home page: the title, category, deadline and status, with anything overdue in red; a click opens the document where acknowledgement is confirmed, and the section shows only your own assignments. Content administration gained a Document types tab where you centrally define which document types the company knows and where each is stored for which group of people. And a Sensitive terms subsection holds a company glossary of terms – project code names, say – which the Sensitive data check in the free EP365 Quick Actions app then looks for in documents in addition to the built-in detectors."
         },
         {
           "type": "improved",
