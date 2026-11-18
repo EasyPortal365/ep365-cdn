@@ -187,10 +187,14 @@ krok('2b/5 kontrola verejnych stranek (zakazane retezce)', 'check-public-pages.m
 
 // --------------------------------------------------------------- 3.-4. rez ---
 // Smazane soubory, ktere uz byly ve stagi PRED prorezem, nejsou nase - commit je nesmi vzit.
+// Patri sem i `<app>/releases.json`, ktere prune-versions (--keep-releases) prepise a stagne:
+// 18. 11. 2026 commit bral jen smazane cesty a zkracene releases.json zustaly ve stagi
+// (pet souboru, doplneno rucnim commitem dba52bc0).
 function stagedDeletions() {
+  const git = filter => execFileSync('git', ['-C', ROOT, 'diff', '--cached', '--name-only', '--diff-filter=' + filter, '-z'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+    .split('\0').filter(Boolean);
   try {
-    return execFileSync('git', ['-C', ROOT, 'diff', '--cached', '--name-only', '--diff-filter=D', '-z'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-      .split('\0').filter(Boolean);
+    return git('D').concat(git('M').filter(p => /^[^/]+\/releases\.json$/.test(p)));
   } catch (e) { konec('nepodarilo se precist stage (git diff --cached): ' + e.message); return []; }
 }
 const predRezem = APPLY ? new Set(stagedDeletions()) : new Set();
@@ -232,7 +236,7 @@ if (APPLY) {
   } else {
     const list = path.join(ROOT, '.git', 'prune-pathspec.txt');
     fs.writeFileSync(list, nase.join('\0') + '\0');
-    const msg = 'prune: ' + nase.length + ' souboru (stare verze + sdilene uloziste, pin guard OK)';
+    const msg = 'prune: ' + nase.length + ' souboru (stare verze + sdilene uloziste + releases.json, pin guard OK)';
     const c = spawnSync('git', ['-C', ROOT, 'commit', '-q', '-m', msg, '--pathspec-from-file=' + list, '--pathspec-file-nul'], { stdio: 'inherit' });
     try { fs.unlinkSync(list); } catch (e) { /* uz neni */ }
     if (c.status !== 0) konec('git commit prorezu selhal (kod ' + c.status + ') - smazane soubory zustavaji ve stagi; commitni je pathspec, ne `git add`.');
