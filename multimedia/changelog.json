@@ -8,6 +8,11 @@
       "date": "2026-11-18",
       "changes": [
         {
+          "type": "fixed",
+          "cs": "Uložení úpravy videa už nesmaže jeho plakát, když je uložený na jiném webu (třeba ve OneDrivu). Plakát se změní jen tehdy, když nahrajete nový.",
+          "en": "Saving changes to a video no longer removes its poster image when the poster is stored on another site (for example in OneDrive). The poster only changes when you upload a new one."
+        },
+        {
           "type": "new",
           "cs": "Historie verzí média: v detailu média v sekci Správa ukazuje Verze souboru u každé verze datum a čas, kdo ji uložil, velikost a poznámku k verzi, pokud ji soubor má (třeba „logo v2.4 – nová barva“). Kteroukoli verzi otevřete nebo stáhnete a starší verzi obnovíte – po potvrzení se z ní stane nová aktuální verze, dosavadní historie zůstane a název, popis ani štítky média se nemění.",
           "en": "Media version history: on the media detail page, File versions in the Management section shows the date and time of each version, who saved it, its size and the version note, if the file has one (for example “logo v2.4 — new colour”). You can open or download any version and restore an earlier one — after you confirm, it becomes the new current version, the existing history stays and the title, description and tags of the media do not change."
