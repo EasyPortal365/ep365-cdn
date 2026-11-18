@@ -1,19 +1,19 @@
 {
-  "id": "40b9da41-80aa-494c-88a3-0eb7be20ec47",
-  "alias": "AiChatAppLibrary",
+  "id": "b7e5dadc-ff0c-4183-b733-b6a2263b576d",
+  "alias": "FleetAppLibrary",
   "componentType": "Library",
-  "version": "1.6.0",
+  "version": "1.6.6",
   "manifestVersion": 2,
   "requiresCustomScript": false,
   "loaderConfig": {
     "internalModuleBaseUrls": [
-      "https://cdn.easyportal365.cz/ai-chat/chunks/"
+      "https://cdn.easyportal365.cz/fleet/chunks/"
     ],
-    "entryModuleId": "ep-365-ai-chat-app",
+    "entryModuleId": "ep-365-fleet-app",
     "scriptResources": {
-      "ep-365-ai-chat-app": {
+      "ep-365-fleet-app": {
         "type": "path",
-        "path": "ep-365-ai-chat-app_5351f03511f38988cdfc.js"
+        "path": "ep-365-fleet-app_0562bb97fc9953469fcd.js"
       },
       "react": {
         "type": "component",
@@ -28,11 +28,6 @@
       "@microsoft/sp-http": {
         "type": "component",
         "id": "c07208f0-ea3b-4c1a-9965-ac1b825211a6",
-        "version": "1.22.2"
-      },
-      "@microsoft/sp-loader": {
-        "type": "component",
-        "id": "1c6c9123-7aac-41f3-a376-3caea41ed83f",
         "version": "1.22.2"
       }
     }
