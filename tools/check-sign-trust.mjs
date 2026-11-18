@@ -104,10 +104,14 @@ try {
   // b) tataz verze pridana publikaci (ve stage) se podepise
   w(app + '/1.0.0.5/manifest.json', manifest('1.0.0.5', 'e_eeeeeeeeeeeeeeeeeeee.js'));
   w(app + '/chunks/e_eeeeeeeeeeeeeeeeeeee.js', 'E\n');
+  const provText = '{"appId":"ep365-demo","version":3,"lists":[]}';
+  w(app + '/1.0.0.5/provisioning-manifest.json', provText);
   git('add', app + '/1.0.0.5', app + '/chunks/e_eeeeeeeeeeeeeeeeeeee.js');
   r = run();
   d = JSON.parse(read().doc);
   ok(r.status === 0 && !!d.versions['1.0.0.5'] && !d.versions['1.0.0.4'], 'verze ve stage tohoto behu se podepise, cizi commitnuta ne');
+  ok(d.versions['1.0.0.5'].provisioning === sri(Buffer.from(provText)), 'manifest schematu verze (Nasazeni EP365) ma otisk v indexu');
+  ok(d.versions['1.0.0.2'].provisioning === undefined, 'verze bez manifestu schematu otisk nema (zadny prazdny klic)');
   git('reset', '-q', '--', app + '/1.0.0.5', app + '/chunks/e_eeeeeeeeeeeeeeeeeeee.js');
   fs.rmSync(path.join(root, app, '1.0.0.5'), { recursive: true, force: true });
   fs.writeFileSync(path.join(root, app, 'trust.json'), goodTrust);
@@ -119,6 +123,13 @@ try {
   ok(r.status === 1 && /otisky uz podepsanych verzi .*1\.0\.0\.2/.test(r.stderr), 'zmeneny bundle podepsane verze = stop');
   r = run('--drop', '1.0.0.2');
   ok(r.status === 1 && /nejnovejsi ostra verze 1\.0\.0\.2 neni mezi podepsatelnymi/.test(r.stderr), '--drop nejnovejsi ostre verze neprojde');
+  git('revert', '--no-edit', 'HEAD');
+  // c2) utocnik commitne manifest schematu (Nasazeni EP365) do uz podepsane verze mimo stage -> STOP
+  w(app + '/1.0.0.2/provisioning-manifest.json', '{"appId":"ep365-demo","version":99,"lists":[]}');
+  git('add', app + '/1.0.0.2/provisioning-manifest.json');
+  git('commit', '-q', '-m', 'podvrh manifestu schematu');
+  r = run();
+  ok(r.status === 1 && /otisky uz podepsanych verzi .*1\.0\.0\.2/.test(r.stderr), 'manifest schematu commitnuty do podepsane verze = stop');
   git('revert', '--no-edit', 'HEAD');
   // d) utocnik commitne releases.json s jinou nejnovejsi verzi -> STOP
   w(app + '/releases.json', JSON.stringify([{ version: '1.0.0.1', date: '2026-11-12' }]));

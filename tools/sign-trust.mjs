@@ -102,6 +102,10 @@ function entriesFor(read, versions, warn) {
     }
     if (bad) { warn.push(v + ': ' + bad + ' – vynechano'); continue; }
     out[v] = { manifest: sri(mBuf), scripts };
+    // Manifest schematu webu (Nasazeni EP365, faze 2) – jen kdyz ho verze ma. Zavadec ho
+    // nepouziva; overuje ho `fetchPublishedManifest` v @ep365/provisioning.
+    const pBuf = read(app + '/' + v + '/provisioning-manifest.json');
+    if (pBuf) out[v].provisioning = sri(pBuf);
   }
   return out;
 }
@@ -116,6 +120,7 @@ function stagedPaths() {
 /** Shodny zaznam verze (otisk manifestu i vsech skriptu). */
 function sameEntry(a, b) {
   if (!a || !b || a.manifest !== b.manifest) return false;
+  if ((a.provisioning || '') !== (b.provisioning || '')) return false;
   const ka = Object.keys(a.scripts || {}).sort(), kb = Object.keys(b.scripts || {}).sort();
   if (ka.join('\n') !== kb.join('\n')) return false;
   return ka.every(k => a.scripts[k] === b.scripts[k]);
