@@ -38,9 +38,10 @@
  *
  * ZAMEK: `--apply` bere `.publish.lock` jako publish-cdn (ceka max 40 min), PLAN ne.
  *
- * PO `--apply` COMMITNI BEZ `git add`
- *   Oba prorezy si `git rm` staguji samy. `git add -A` / `git add .` by ve sdilenem
- *   CDN repu smetlo rozpracovane soubory jine session pod tvuj commit (§31.1).
+ * `--apply` COMMITNE A PUSHNE SAM (uvnitr zamku, pathspec jen smazanych cest)
+ *   Oba prorezy si `git rm` staguji samy; commit bere jen cesty, ktere smazal tento beh.
+ *   Rucni commit po prorezu nedelej: bezi mimo zamek a `git commit` bez pathspec smete
+ *   rozpracovane soubory publikace, ktera si zamek mezitim vzala (§31.1, 18. 11. 2026).
  *
  * NAVRATOVY KOD
  *   0 = probehlo (nebo v planu nic k mazani); 1 = brana neprosla / pres limit
@@ -185,6 +186,14 @@ krok('2c/5 kontrola sdileneho uloziste chunku (protipriklad)', 'check-chunk-pool
 krok('2b/5 kontrola verejnych stranek (zakazane retezce)', 'check-public-pages.mjs', []);
 
 // --------------------------------------------------------------- 3.-4. rez ---
+// Smazane soubory, ktere uz byly ve stagi PRED prorezem, nejsou nase - commit je nesmi vzit.
+function stagedDeletions() {
+  try {
+    return execFileSync('git', ['-C', ROOT, 'diff', '--cached', '--name-only', '--diff-filter=D', '-z'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+      .split('\0').filter(Boolean);
+  } catch (e) { konec('nepodarilo se precist stage (git diff --cached): ' + e.message); return []; }
+}
+const predRezem = APPLY ? new Set(stagedDeletions()) : new Set();
 const protectArg = PROTECT.length ? ['--protect', PROTECT.join(',')] : [];
 krok('3/5 prorez bundlu v koreni appek', 'prune-bundles.mjs',
   ['--keep', String(KEEP_BUNDLES)].concat(protectArg, patternArg, APPLY ? ['--apply'] : []));
@@ -212,9 +221,25 @@ if (po === null) konec('nepodarilo se zmerit velikost po prorezu');
 console.log('CDN: ' + pred.toFixed(1) + ' MB -> ' + po.toFixed(1) + ' MB'
   + (APPLY ? '' : '  (PLAN - cislo se nezmenilo, mazani neprobehlo)'));
 
+// Commit + push uvnitr zamku a jen s nasimi cestami (pathspec). Rucni commit PO prorezu byl
+// mimo zamek: 18. 11. 2026 do nej `git commit` bez pathspec smetl rozpracovane soubory
+// soubezne publikace fleet, ktera si zamek vzala hned po prorezu (par. 31.1).
 if (APPLY) {
-  console.log('\nCommitni BEZ `git add` - oba prorezy si `git rm` staguji samy.');
-  console.log('Nejdriv `git status` / `git diff --cached --name-only`: cizi staged soubory NECHAT te session (par. 31.1).');
+  const nase = stagedDeletions().filter(p => !predRezem.has(p));
+  if (!nase.length) {
+    console.log('\nProrez nic nesmazal - neni co commitovat.');
+  } else {
+    const list = path.join(ROOT, '.git', 'prune-pathspec.txt');
+    fs.writeFileSync(list, nase.join('\0') + '\0');
+    const msg = 'prune: ' + nase.length + ' souboru (stare verze + sdilene uloziste, pin guard OK)';
+    const c = spawnSync('git', ['-C', ROOT, 'commit', '-q', '-m', msg, '--pathspec-from-file=' + list, '--pathspec-file-nul'], { stdio: 'inherit' });
+    try { fs.unlinkSync(list); } catch (e) { /* uz neni */ }
+    if (c.status !== 0) konec('git commit prorezu selhal (kod ' + c.status + ') - smazane soubory zustavaji ve stagi; commitni je pathspec, ne `git add`.');
+    console.log('\nCommit prorezu: ' + nase.length + ' smazanych souboru (jen nase cesty, cizi stage nechana).');
+    const p = spawnSync('git', ['-C', ROOT, 'push', '-q'], { stdio: 'inherit' });
+    if (p.status !== 0) console.error('! push selhal (kod ' + p.status + ') - commit je lokalne; `git pull --rebase` + `git push` rucne.');
+    else console.log('Pushed (prorez).');
+  }
 }
 if (po > LIMIT_MB) {
   console.error('\n!!! CDN je PRES LIMIT (' + po.toFixed(1) + ' > ' + LIMIT_MB + ' MB). Pages prestane deployovat VSEM appkam.');
