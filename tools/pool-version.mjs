@@ -182,6 +182,7 @@ let IGNORED = new Set();
 // #region POOL-IGNORED
 IGNORED = ignoredPaths(lic.map(l => poolRel + '/' + l).concat(lic.map(l => verRel + '/' + l)));
 // #endregion POOL-IGNORED
+const SCHEMA_MANIFEST = 'provisioning-manifest.json';
 const licDir = (layout) => layout === 'pool' ? poolRel : verRel;
 const licIgnored = (layout, l) => IGNORED.has(licDir(layout) + '/' + l);
 const licWant = (layout) => layout === 'pool' ? want.licPool : want.licVer;
@@ -207,6 +208,9 @@ function headHas(layout, head) {
     if (p.indexOf(verRel + '/') !== 0) continue;
     const name = p.slice(verRel.length + 1);
     if (isLicenseName(name)) { if (!headLicenseOk(expLic, name, blob)) return false; continue; }
+    // Manifest schematu webu (Nasazeni EP365) dopisuje publikace AZ po tomto nastroji a neni
+    // soucasti buildu verze; jeho obsah hlida otisk v trust.json (sign-trust.mjs), ne tento pocet.
+    if (name === SCHEMA_MANIFEST) continue;
     n++;
   }
   if (n !== exp.size) return false;

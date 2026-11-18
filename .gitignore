@@ -45,6 +45,11 @@
 # manifest dané verze (stejná metadata, která dřív vezl .sppkg — žádné secrets).
 !*/releases.json
 !*/*/manifest.json
+# Manifest schematu webu dane verze (<app>/<verze>/provisioning-manifest.json, Nasazeni EP365):
+# seznamy, sloupce a verze schematu, ktere aplikace na webu zaklada - zadna data ani secrets.
+# Obrazovka Nasazeni EP365 podle nej porovna weby s tim, co aplikace chce; otisk je v trust.json.
+# pool-version.mjs ho v kontrole HEAD nepocita (dopisuje ho publikace az po nem).
+!*/*/provisioning-manifest.json
 
 # Podepsany index vydani (<app>/trust.json, TECH-DEBT #514): otisky manifestu a skriptu
 # kazde verze, nejnovejsi ostra verze, bezpecnostni podlaha a zakazane verze + podpis ES256.

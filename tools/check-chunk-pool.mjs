@@ -261,6 +261,37 @@ console.log('A12) Soubor obnoveny z gitu lezi na disku s CRLF (core.autocrlf) - 
   ok(r.kod === 0 && r.out.indexOf('ULOZISTE') !== -1 && r.out.indexOf('1 znovu pouzitych') !== -1, 'A12 soubor s CRLF na disku a LF v HEAD se znovu pouzije, ne konflikt (exit ' + r.kod + ')');
 }
 
+console.log('A13) Manifest schematu webu (provisioning-manifest.json) ve slozce verze - publikace ho dopisuje az po pool-version');
+{
+  const root = postavCdn('schema');
+  const cs = chunk('schema', 'chunk schematu\n');
+  const b2 = build('1.0.0.2', [cs]);
+  const b4 = build('1.0.0.4', [cs]);
+  let r = publikuj(root, '1.0.0.2', b2.dir, ['--apply']);
+  r = publikuj(root, '1.0.0.4', b4.dir, ['--apply', '--no-pool']);
+  commit(root, 'v2 + v4');
+  const schema = '{"appId":"ep365-demo","version":3,"lists":[]}';
+  fs.writeFileSync(path.join(root, APP, '1.0.0.2', 'provisioning-manifest.json'), schema, 'utf8');
+  fs.writeFileSync(path.join(root, APP, '1.0.0.4', 'provisioning-manifest.json'), schema, 'utf8');
+  commit(root, 'manifesty schematu');
+  r = spust(root, 'pool-version.mjs', ['--app', APP, '--version', '1.0.0.2', '--src', b2.dir, '--verify-head']);
+  ok(r.kod === 0 && r.out.indexOf('ULOZISTE') !== -1, 'A13 --verify-head: verze v ulozisti s manifestem schematu navic projde (exit ' + r.kod + ')');
+  r = spust(root, 'pool-version.mjs', ['--app', APP, '--version', '1.0.0.4', '--src', b4.dir, '--verify-head']);
+  ok(r.kod === 0 && r.out.indexOf('SAMOSTATNA') !== -1, 'A13 --verify-head: samostatna verze s manifestem schematu navic projde (exit ' + r.kod + ')');
+  r = publikuj(root, '1.0.0.2', b2.dir, ['--apply']);
+  ok(r.kod === 0 && r.out.indexOf('SHODNY') !== -1, 'A13 znovu 1.0.0.2 s manifestem schematu v HEAD: SHODNY (exit ' + r.kod + ')');
+  git(root, ['checkout', '-q', '--', '.']);
+  fs.writeFileSync(path.join(root, APP, '1.0.0.2', 'jiny.json'), '{}', 'utf8');
+  commit(root, 'cizi soubor ve verzi');
+  r = spust(root, 'pool-version.mjs', ['--app', APP, '--version', '1.0.0.2', '--src', b2.dir, '--verify-head']);
+  ok(r.kod === 1, 'A13 --verify-head: JINY soubor navic ve verzi = stop (exit ' + r.kod + ')');
+  fs.mkdirSync(path.join(root, APP, '1.0.0.4', 'sub'), { recursive: true });
+  fs.writeFileSync(path.join(root, APP, '1.0.0.4', 'sub', 'provisioning-manifest.json'), schema, 'utf8');
+  commit(root, 'manifest schematu v podslozce');
+  r = spust(root, 'pool-version.mjs', ['--app', APP, '--version', '1.0.0.4', '--src', b4.dir, '--verify-head']);
+  ok(r.kod === 1, 'A13 --verify-head: tentyz nazev v podslozce verze se pocita = stop (exit ' + r.kod + ')');
+}
+
 // ============================================================== B. PROREZ ===
 // v1 samostatna (ostra) | v2 [B2: S,O2] | v3 [B3: P] (pin) | v4 [B4] | v5 [B5: S] | v6 [B6] | v7 [B7: N7 -> T]
 // --keep 3 -> zustanou v5,v6,v7 + v1 (ostra) + v3 (pin); pryc v2,v4.
