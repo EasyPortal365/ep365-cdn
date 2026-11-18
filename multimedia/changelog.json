@@ -5,8 +5,63 @@
   "entries": [
     {
       "version": "1.15",
-      "date": "2026-11-08",
+      "date": "2026-11-18",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Historie verzí média: v detailu média v sekci Správa ukazuje Verze souboru u každé verze datum a čas, kdo ji uložil, velikost a poznámku k verzi, pokud ji soubor má (třeba „logo v2.4 – nová barva“). Kteroukoli verzi otevřete nebo stáhnete a starší verzi obnovíte – po potvrzení se z ní stane nová aktuální verze, dosavadní historie zůstane a název, popis ani štítky média se nemění.",
+          "en": "Media version history: on the media detail page, File versions in the Management section shows the date and time of each version, who saved it, its size and the version note, if the file has one (for example “logo v2.4 — new colour”). You can open or download any version and restore an earlier one — after you confirm, it becomes the new current version, the existing history stays and the title, description and tags of the media do not change."
+        },
+        {
+          "type": "new",
+          "cs": "Nová část Nastavení → Nasazení EP365: přehled aplikací EP365 na všech webech, ke kterým máte přístup – u každé aplikace verze datových struktur na webu a verze, kterou potřebuje kód, který web skutečně načítá. Čekající weby dorovnáte jedním tlačítkem Aktualizovat vše: přidávají se jen seznamy a sloupce, nic se nemaže, a zastavit jde po aktuálním webu.",
+          "en": "New Settings → EP365 deployment section: an overview of EP365 apps on every site you can access — for each app, the version of the site data structures and the version the code the site actually loads needs. Bring waiting sites up to date with one Update all button: only lists and columns are added, nothing is deleted, and you can stop after the current site."
+        },
+        {
+          "type": "fixed",
+          "cs": "Knihovna médií znovu načítá u každého souboru typ, kolekci, štítky, popis, adresu videa a datum expirace. Videa z YouTube, Vimea a Streamu se tak přehrají přímo v aplikaci, filtry podle typu a kolekcí ukazují správné výsledky a média po expiraci se opět skrývají.",
+          "en": "The media library once again loads each file’s type, collection, tags, description, video address and expiry date. Videos from YouTube, Vimeo and Stream play right in the app, the type and collection filters show the right results, and expired media are hidden again."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení má přehlednější levý panel: sekce jsou ve třech skupinách – Obsah, Aplikace a Správa – a vypadají stejně jako v dalších aplikacích EasyPortal 365. Každá sekce má vlastní odkaz, takže sdílený odkaz, Zpět v prohlížeči i obnovení stránky otevřou přímo ji, a sekci najdete i přes ⌘K podle názvu. Na telefonu se Nastavení otevře jako přehledný seznam sekcí. Dosavadní odkazy na Nastavení fungují dál.",
+          "en": "Settings have a clearer left panel: the sections are in three groups — Content, Application and Administration — and look the same as in other EasyPortal 365 apps. Each section has its own link, so a shared link, Back in the browser and a page refresh open that very section, and you can also find a section by name with ⌘K. On a phone, Settings open as a tidy list of sections. Existing links to Settings keep working."
+        },
+        {
+          "type": "improved",
+          "cs": "Pohodlnější práce se seznamy a panely. Hledání nerozlišuje diakritiku – v paletě ⌘K, v Knihovně, v kolekcích i ve štítcích najdete „Bártová“, i když napíšete „bartova“. Seznamy nabízejí 10, 15, 20, 50 nebo 100 položek na stránku i zobrazení všech. Panely s detailem a formuláři mají jednotnou podobu napříč aplikacemi EasyPortal 365 a na telefonu větší tlačítka. Po přechodu na jinou obrazovku začíná stránka nahoře, takže hlavička nové obrazovky je hned vidět.",
+          "en": "Lists and panels are easier to work with. Search ignores diacritics — in the ⌘K palette, the Library, collections and tags, typing “bartova” finds “Bártová”. Lists offer 10, 15, 20, 50 or 100 items per page or all items. Detail and form panels look the same across EasyPortal 365 apps and have larger buttons on phones. After moving to another screen the page starts at the top, so the header of the new screen is visible right away."
+        },
+        {
+          "type": "improved",
+          "cs": "Anglické rozhraní je anglicky i tam, kde zůstávala čeština: data v detailu média, v prohlížeči, u kolekcí, v Přehledu využití a u expirace, upozornění aplikace na úvodní stránce Workplace (po aktualizaci Workplace), nastavení webové části při úpravě stránky a popis aplikace v katalogu aplikací (po instalaci aktualizovaného balíčku aplikace; uložené nastavení webových částí zůstává). Počty mají v textech správné tvary, třeba „1 položka“ a „3 položky“.",
+          "en": "The English interface is now English in places where Czech remained: dates on the media detail page, in the viewer, on collections, in Usage overview and for expiry, the app’s notifications on the Workplace home page (once Workplace is updated), the web part settings when editing a page and the app description in the app catalog (once the updated app package is installed; saved web part settings stay unchanged). Counts use the correct word forms."
+        },
+        {
+          "type": "improved",
+          "cs": "Ověřování kódu a licence: před spuštěním aplikace se ověří podpis a otisk každého souboru, který se načítá z CDN, a licenční soubor nese digitální podpis EasyPortal 365. Kód nebo licence, které ověřením neprojdou, se nepoužijí a aplikace to srozumitelně oznámí. Novou verzi a licenci aplikace načte do pár minut po vydání a správce v Nastavení včas uvidí upozornění, kdyby licenční soubor potřeboval obnovit. Ověření kódu se projeví po nahrání nového balíčku aplikace do katalogu aplikací.",
+          "en": "Code and licence verification: before the app starts, the signature and fingerprint of every file loaded from the CDN are verified, and the licence file carries an EasyPortal 365 digital signature. Code or a licence that fails the check is not used and the app says so clearly. The app picks up a new version and licence within minutes of release, and admins see a notice in Settings in good time if the licence file needs renewing. Code verification takes effect once the new app package is uploaded to the app catalog."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zpevnili jsme zabezpečení obsahu: přehrávač vkládá jen videa z YouTube, Vimea a Streamu vaší organizace, náhledy médií se načítají jen z vaší organizace a z náhledů YouTube a Vimea a prohlížeč médií zobrazí v rámu jen soubor, který je opravdu PDF. Názvy souborů v ZIP při hromadném stažení jsou bezpečné pro rozbalení.",
+          "en": "We strengthened content security: the player embeds only videos from YouTube, Vimeo and your organization’s Stream, media thumbnails load only from your organization and from YouTube and Vimeo previews, and the media viewer shows only genuine PDF files in its frame. File names in the ZIP of a bulk download are safe to extract."
+        },
+        {
+          "type": "improved",
+          "cs": "Bezpečnější mazání: smazaná média, kolekce a další záznamy jdou do koše webu, odkud je lze obnovit. Mazání ukázkových dat v Nastavení odstraní jen ukázku vytvořenou tlačítkem „Vytvořit testovací data“ – vaše vlastní média, kolekce a brand balíčky zůstanou na místě, i když je s ukázkou propojíte. Ukázku založenou v dřívějších verzích smažete ručně.",
+          "en": "Safer deleting: deleted media, collections and other records go to the site recycle bin, where they can be restored. Deleting sample data in Settings removes only the sample created with the “Create test data” button — your own media, collections and brand kits stay in place, even if you linked them to the sample. A sample created in earlier versions can be deleted by hand."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlejší start pro běžné uživatele: aplikace u nich nečeká na nastavování oprávnění, které smí dokončit jen správce webu. Když nová verze potřebuje doplnit seznamy nebo sloupce webu a otevře ji uživatel bez oprávnění, aplikace dál běží a klidně oznámí, že aktualizace čeká na správce webu – ten ji dokončí automaticky při svém příštím otevření aplikace.",
+          "en": "Faster start for regular users: the app no longer waits for permission setup that only a site admin can complete. When a new version needs to add lists or columns to the site and it is opened by a user without permission, the app keeps working and calmly says the update is waiting for a site owner, who completes it automatically the next time they open the app."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nápověda a průvodce aplikací odpovídají tomu, jak Mediální centrum skutečně funguje: popisují zvětšení na celou obrazovku, promítání kolekce v Kiosku, detail média jako samostatnou stránku, naposledy prohlížená média uložená u vašeho účtu a správně i expiraci médií. Nápověda vysvětluje, kdo může v SharePointu měnit a mazat média v hlavní knihovně a jak smazané médium obnovit z koše webu, a najde i dotaz bez diakritiky.",
+          "en": "Help and the app tour match how the Media Center really works: they describe expanding the app to full screen, showing a collection in Kiosk, the media detail as a page of its own, recently viewed media stored with your account and media expiry correctly. Help explains who can change and delete media in the main library in SharePoint and how to restore deleted media from the site recycle bin, and also finds a query typed without diacritics."
+        },
         {
           "type": "new",
           "cs": "Mediální centrum jde zvětšit na celou obrazovku – první ikonou vpravo v hlavičce každé obrazovky i na rozcestníku. Aplikace pak vyplní celé okno pod horní lištou SharePointu, posouvá se jen obsah a další klik (nebo klávesa Esc) ji vrátí zpět. Volbu si aplikace pamatuje pro daný web. Na telefonu a v Teams se ikona nezobrazuje – tam má aplikace celou plochu sama.",
