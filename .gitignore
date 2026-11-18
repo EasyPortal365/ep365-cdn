@@ -176,6 +176,11 @@
 !ai-chat/samples/*.docx
 !ai-chat/samples/*.csv
 !ai-chat/samples/manifest.json
+# Anglická sada (EN appka, knihovna „AI samples"), tentýž vymyšlený obsah.
+!ai-chat/samples/en/*.pdf
+!ai-chat/samples/en/*.docx
+!ai-chat/samples/en/*.csv
+!ai-chat/samples/en/manifest.json
 
 # Firemní písma (cdn.easyportal365.cz/fonts/) — hostujeme je sami, aby prohlížeče
 # uživatelů nechodily na Google Fonts. Generuje tools/fetch-fonts.mjs.

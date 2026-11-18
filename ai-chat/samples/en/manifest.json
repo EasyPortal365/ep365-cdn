@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "note": "English sample documents for the “Sample data” button in the EP365 AI Assistant. The app downloads them from the CDN and uploads them to the AI samples library on the administrator’s site. The content is fictional — no customer or personal data.",
+  "libraryTitle": "AI samples",
+  "libraryDescription": "Sample documents for trying out the AI Assistant. You can delete them at any time.",
+  "files": [
+    {
+      "name": "Employee-benefits-2026.pdf",
+      "title": "Employee benefits 2026",
+      "kind": "pdf",
+      "bytes": 137855,
+      "demonstrates": "Reading data from an image inside a PDF, with a page citation. The registration code and the amounts are ONLY in the image on page 3, not in the text layer."
+    },
+    {
+      "name": "Work-from-home-policy.docx",
+      "title": "Policy: Working from home",
+      "kind": "docx",
+      "demonstrates": "Company knowledge over Word — questions about rules, scope and allowances."
+    },
+    {
+      "name": "Management-meeting-minutes-2026-08-18.docx",
+      "title": "Management meeting minutes (18 August 2026)",
+      "kind": "docx",
+      "demonstrates": "Extracting tasks from text — who has to do what and by when."
+    },
+    {
+      "name": "Training-rules-2024.docx",
+      "title": "Training rules (2024)",
+      "kind": "docx",
+      "demonstrates": "Conflicting sources — the older rules give a different certification amount and retention period than Employee benefits 2026."
+    },
+    {
+      "name": "Sales-2026.csv",
+      "title": "Sales 2026 (table)",
+      "kind": "csv",
+      "bytes": 9122,
+      "demonstrates": "Exact calculations over a table — totals by region, month or salesperson are calculated by the app over every row; the AI only comments on them."
+    }
+  ]
+}

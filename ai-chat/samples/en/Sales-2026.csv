@@ -1,0 +1,135 @@
+﻿Date,Order,Region,Salesperson,Product,Quantity,Unit price (EUR),Amount (EUR)
+2026-01-04,ORD-2026-001,South,Olivia Grant,Training,2,499,998
+2026-01-05,ORD-2026-002,North,Sarah Mitchell,Basic licence,16,79,1264
+2026-01-08,ORD-2026-003,North,Sarah Mitchell,Plus licence,22,139,3058
+2026-01-13,ORD-2026-004,North,Sarah Mitchell,Training,2,499,998
+2026-01-13,ORD-2026-005,North,Sarah Mitchell,Training,2,499,998
+2026-01-15,ORD-2026-006,East,Thomas Reed,Annual support,2,749,1498
+2026-01-17,ORD-2026-007,North,James Porter,Basic licence,30,79,2370
+2026-01-17,ORD-2026-008,North,James Porter,Annual support,1,749,749
+2026-01-20,ORD-2026-009,North,James Porter,Training,1,499,499
+2026-01-21,ORD-2026-010,South,Olivia Grant,Basic licence,33,79,2607
+2026-01-21,ORD-2026-011,West,Hannah Walsh,Basic licence,5,79,395
+2026-01-22,ORD-2026-012,East,Thomas Reed,Basic licence,17,79,1343
+2026-01-22,ORD-2026-013,West,Hannah Walsh,Annual support,2,749,1498
+2026-01-25,ORD-2026-014,West,Hannah Walsh,Plus licence,5,139,695
+2026-01-26,ORD-2026-015,East,Thomas Reed,Basic licence,38,79,3002
+2026-01-27,ORD-2026-016,East,Thomas Reed,Plus licence,7,139,973
+2026-01-27,ORD-2026-017,South,Olivia Grant,Training,2,499,998
+2026-01-27,ORD-2026-018,South,Olivia Grant,Plus licence,19,139,2641
+2026-02-01,ORD-2026-019,South,Olivia Grant,Basic licence,28,79,2212
+2026-02-03,ORD-2026-020,South,Olivia Grant,Plus licence,11,139,1529
+2026-02-04,ORD-2026-021,South,Olivia Grant,Plus licence,6,139,834
+2026-02-05,ORD-2026-022,East,Thomas Reed,Plus licence,11,139,1529
+2026-02-08,ORD-2026-023,East,Thomas Reed,Basic licence,16,79,1264
+2026-02-10,ORD-2026-024,East,Thomas Reed,Training,3,499,1497
+2026-02-11,ORD-2026-025,North,James Porter,Annual support,2,749,1498
+2026-02-11,ORD-2026-026,South,Olivia Grant,Basic licence,26,79,2054
+2026-02-11,ORD-2026-027,West,Hannah Walsh,Basic licence,25,79,1975
+2026-02-13,ORD-2026-028,North,Sarah Mitchell,Training,1,499,499
+2026-02-14,ORD-2026-029,South,Olivia Grant,Annual support,2,749,1498
+2026-02-15,ORD-2026-030,North,Sarah Mitchell,Plus licence,8,139,1112
+2026-02-15,ORD-2026-031,West,Hannah Walsh,Basic licence,15,79,1185
+2026-02-16,ORD-2026-032,North,Sarah Mitchell,Training,3,499,1497
+2026-02-19,ORD-2026-033,East,Thomas Reed,Annual support,2,749,1498
+2026-02-19,ORD-2026-034,North,James Porter,Plus licence,23,139,3197
+2026-02-21,ORD-2026-035,West,Hannah Walsh,Annual support,2,749,1498
+2026-02-22,ORD-2026-036,North,Sarah Mitchell,Training,2,499,998
+2026-02-25,ORD-2026-037,North,James Porter,Training,1,499,499
+2026-03-02,ORD-2026-038,North,James Porter,Basic licence,40,79,3160
+2026-03-05,ORD-2026-039,North,Sarah Mitchell,Annual support,2,749,1498
+2026-03-06,ORD-2026-040,North,Sarah Mitchell,Training,2,499,998
+2026-03-06,ORD-2026-041,North,Sarah Mitchell,Plus licence,3,139,417
+2026-03-09,ORD-2026-042,East,Thomas Reed,Basic licence,19,79,1501
+2026-03-09,ORD-2026-043,West,Hannah Walsh,Annual support,2,749,1498
+2026-03-10,ORD-2026-044,South,Olivia Grant,Basic licence,10,79,790
+2026-03-12,ORD-2026-045,West,Hannah Walsh,Basic licence,27,79,2133
+2026-03-13,ORD-2026-046,North,James Porter,Basic licence,31,79,2449
+2026-03-13,ORD-2026-047,South,Olivia Grant,Training,1,499,499
+2026-03-14,ORD-2026-048,North,Sarah Mitchell,Annual support,2,749,1498
+2026-03-15,ORD-2026-049,East,Thomas Reed,Basic licence,34,79,2686
+2026-03-15,ORD-2026-050,South,Olivia Grant,Plus licence,22,139,3058
+2026-03-17,ORD-2026-051,East,Thomas Reed,Annual support,2,749,1498
+2026-03-22,ORD-2026-052,North,James Porter,Plus licence,17,139,2363
+2026-03-22,ORD-2026-053,South,Olivia Grant,Plus licence,19,139,2641
+2026-03-23,ORD-2026-054,South,Olivia Grant,Basic licence,30,79,2370
+2026-03-24,ORD-2026-055,West,Hannah Walsh,Annual support,2,749,1498
+2026-03-26,ORD-2026-056,East,Thomas Reed,Basic licence,9,79,711
+2026-03-27,ORD-2026-057,North,James Porter,Plus licence,13,139,1807
+2026-03-27,ORD-2026-058,South,Olivia Grant,Training,2,499,998
+2026-04-03,ORD-2026-059,East,Thomas Reed,Training,1,499,499
+2026-04-05,ORD-2026-060,South,Olivia Grant,Plus licence,22,139,3058
+2026-04-06,ORD-2026-061,East,Thomas Reed,Training,1,499,499
+2026-04-06,ORD-2026-062,West,Hannah Walsh,Basic licence,27,79,2133
+2026-04-10,ORD-2026-063,North,Sarah Mitchell,Basic licence,30,79,2370
+2026-04-11,ORD-2026-064,North,Sarah Mitchell,Basic licence,19,79,1501
+2026-04-13,ORD-2026-065,East,Thomas Reed,Plus licence,11,139,1529
+2026-04-13,ORD-2026-066,West,Hannah Walsh,Plus licence,15,139,2085
+2026-04-15,ORD-2026-067,South,Olivia Grant,Training,2,499,998
+2026-04-17,ORD-2026-068,South,Olivia Grant,Training,3,499,1497
+2026-04-20,ORD-2026-069,South,Olivia Grant,Plus licence,20,139,2780
+2026-04-23,ORD-2026-070,North,James Porter,Basic licence,36,79,2844
+2026-04-23,ORD-2026-071,North,Sarah Mitchell,Plus licence,14,139,1946
+2026-04-23,ORD-2026-072,North,Sarah Mitchell,Training,2,499,998
+2026-04-23,ORD-2026-073,West,Hannah Walsh,Basic licence,24,79,1896
+2026-04-24,ORD-2026-074,East,Thomas Reed,Plus licence,4,139,556
+2026-04-25,ORD-2026-075,North,James Porter,Annual support,2,749,1498
+2026-04-25,ORD-2026-076,North,Sarah Mitchell,Training,2,499,998
+2026-04-25,ORD-2026-077,South,Olivia Grant,Annual support,2,749,1498
+2026-04-26,ORD-2026-078,South,Olivia Grant,Plus licence,21,139,2919
+2026-04-28,ORD-2026-079,North,James Porter,Plus licence,5,139,695
+2026-04-28,ORD-2026-080,South,Olivia Grant,Basic licence,8,79,632
+2026-04-28,ORD-2026-081,West,Hannah Walsh,Annual support,1,749,749
+2026-05-01,ORD-2026-082,South,Olivia Grant,Training,1,499,499
+2026-05-01,ORD-2026-083,South,Olivia Grant,Training,2,499,998
+2026-05-02,ORD-2026-084,South,Olivia Grant,Plus licence,12,139,1668
+2026-05-04,ORD-2026-085,South,Olivia Grant,Plus licence,19,139,2641
+2026-05-04,ORD-2026-086,South,Olivia Grant,Training,1,499,499
+2026-05-06,ORD-2026-087,East,Thomas Reed,Annual support,1,749,749
+2026-05-06,ORD-2026-088,North,James Porter,Plus licence,20,139,2780
+2026-05-06,ORD-2026-089,North,James Porter,Plus licence,8,139,1112
+2026-05-06,ORD-2026-090,West,Hannah Walsh,Plus licence,22,139,3058
+2026-05-07,ORD-2026-091,East,Thomas Reed,Plus licence,16,139,2224
+2026-05-08,ORD-2026-092,South,Olivia Grant,Basic licence,27,79,2133
+2026-05-08,ORD-2026-093,South,Olivia Grant,Plus licence,17,139,2363
+2026-05-09,ORD-2026-094,North,James Porter,Basic licence,29,79,2291
+2026-05-10,ORD-2026-095,North,Sarah Mitchell,Plus licence,25,139,3475
+2026-05-13,ORD-2026-096,North,Sarah Mitchell,Annual support,1,749,749
+2026-05-17,ORD-2026-097,East,Thomas Reed,Annual support,1,749,749
+2026-05-19,ORD-2026-098,East,Thomas Reed,Annual support,1,749,749
+2026-05-19,ORD-2026-099,South,Olivia Grant,Plus licence,9,139,1251
+2026-05-20,ORD-2026-100,North,Sarah Mitchell,Training,3,499,1497
+2026-05-23,ORD-2026-101,South,Olivia Grant,Plus licence,7,139,973
+2026-05-23,ORD-2026-102,West,Hannah Walsh,Training,1,499,499
+2026-05-23,ORD-2026-103,West,Hannah Walsh,Basic licence,20,79,1580
+2026-05-24,ORD-2026-104,North,James Porter,Basic licence,39,79,3081
+2026-05-26,ORD-2026-105,North,Sarah Mitchell,Annual support,1,749,749
+2026-05-27,ORD-2026-106,West,Hannah Walsh,Annual support,2,749,1498
+2026-06-03,ORD-2026-107,North,James Porter,Plus licence,8,139,1112
+2026-06-03,ORD-2026-108,South,Olivia Grant,Training,1,499,499
+2026-06-04,ORD-2026-109,North,Sarah Mitchell,Basic licence,32,79,2528
+2026-06-05,ORD-2026-110,East,Thomas Reed,Basic licence,32,79,2528
+2026-06-07,ORD-2026-111,South,Olivia Grant,Annual support,2,749,1498
+2026-06-07,ORD-2026-112,West,Hannah Walsh,Annual support,1,749,749
+2026-06-09,ORD-2026-113,North,James Porter,Annual support,2,749,1498
+2026-06-10,ORD-2026-114,West,Hannah Walsh,Plus licence,21,139,2919
+2026-06-10,ORD-2026-115,West,Hannah Walsh,Basic licence,26,79,2054
+2026-06-12,ORD-2026-116,North,James Porter,Training,2,499,998
+2026-06-12,ORD-2026-117,North,Sarah Mitchell,Plus licence,23,139,3197
+2026-06-14,ORD-2026-118,South,Olivia Grant,Annual support,1,749,749
+2026-06-14,ORD-2026-119,South,Olivia Grant,Annual support,2,749,1498
+2026-06-14,ORD-2026-120,West,Hannah Walsh,Training,1,499,499
+2026-06-15,ORD-2026-121,South,Olivia Grant,Plus licence,10,139,1390
+2026-06-15,ORD-2026-122,South,Olivia Grant,Plus licence,14,139,1946
+2026-06-17,ORD-2026-123,East,Thomas Reed,Basic licence,23,79,1817
+2026-06-20,ORD-2026-124,South,Olivia Grant,Annual support,1,749,749
+2026-06-21,ORD-2026-125,East,Thomas Reed,Basic licence,25,79,1975
+2026-06-22,ORD-2026-126,East,Thomas Reed,Training,3,499,1497
+2026-06-22,ORD-2026-127,South,Olivia Grant,Training,3,499,1497
+2026-06-23,ORD-2026-128,South,Olivia Grant,Basic licence,18,79,1422
+2026-06-24,ORD-2026-129,North,James Porter,Annual support,1,749,749
+2026-06-24,ORD-2026-130,South,Olivia Grant,Training,2,499,998
+2026-06-27,ORD-2026-131,North,James Porter,Annual support,1,749,749
+2026-06-28,ORD-2026-132,North,James Porter,Plus licence,16,139,2224
+2026-06-28,ORD-2026-133,North,Sarah Mitchell,Plus licence,10,139,1390
+2026-06-28,ORD-2026-134,South,Olivia Grant,Plus licence,3,139,417
