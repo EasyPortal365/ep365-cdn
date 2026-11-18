@@ -5,8 +5,33 @@
   "entries": [
     {
       "version": "2.6",
-      "date": "2026-11-14",
+      "date": "2026-11-18",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Nová část Nastavení → Nasazení EP365: přehled aplikací EP365 na všech webech, ke kterým máte přístup – u každé aplikace verze datových struktur na webu a verze, kterou potřebuje kód, který web skutečně načítá. Čekající weby dorovnáte jedním tlačítkem Aktualizovat vše: přidávají se jen seznamy a sloupce, nic se nemaže, a zastavit jde po aktuálním webu.",
+          "en": "New Settings → EP365 deployment section: an overview of EP365 apps on every site you can access — for each app, the version of the site data structures and the version the code the site actually loads needs. Bring waiting sites up to date with one Update all button: only lists and columns are added, nothing is deleted, and you can stop after the current site."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení aplikace je přehlednější: sekce jsou v levém panelu seskupené do skupin Aplikace, Governance a Správa. Každá sekce má vlastní odkaz, takže kolegovi pošlete adresu přímo na ni a tlačítko Zpět v prohlížeči vrátí předchozí sekci. Správce najde sekce i přes ⌘K a na telefonu se Nastavení otevře jako přehledný seznam. Dřívější odkazy na Nastavení fungují dál.",
+          "en": "App settings are easier to find your way around: sections in the left panel are grouped into App, Governance and Administration. Each section has its own link, so you can send a colleague the address of that exact section, and the browser Back button returns to the previous one. Admins can also reach sections through ⌘K, and on a phone Settings opens as a clear list. Earlier links to Settings keep working."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zpevnili jsme akce správce nad skupinami. Přidání správců skupiny mezi vlastníky, recertifikace a přiřazení stewardů vychází jen z údajů, které uložil správce aplikace (včetně správců kolekce webu) nebo vlastník skupiny, a účet se před přidáním ověří v Entra ID podle identifikátoru i adresy. Údaje uložené před touto verzí platí jako dřív. Údaje o skupině, které po ní změnil někdo jiný, Identity označí jako nález a akce z nich nespustí – správce je zkontroluje a znovu uloží. Audit a žádosti ukazují skutečného autora záznamu. Přidělení přístupu v SharePointu znovu nepřidává úroveň, kterou člověk na místě má, zrušení odkazu pro sdílení zruší vždy přesně odkaz, který jste viděli, a pojistka proti odebrání vlastní správy oprávnění počítá i se skupinami Entra ID, jejichž jste členem.",
+          "en": "We hardened administrator actions on groups. Adding group managers as owners, recertification and steward assignment rely only on data saved by an app administrator (including site collection administrators) or a group owner, and each account is verified in Entra ID by both its identifier and address before it is added. Data saved before this version keeps working as before. Group data changed afterwards by anyone else is flagged as a finding and no action runs from it — an administrator reviews it and saves it again. The audit and requests show the actual author of each record. Granting access in SharePoint no longer adds a level the person already has, removing a sharing link always removes exactly the link you saw, and the safeguard against removing your own path to managing permissions also counts Entra ID groups you are a member of."
+        },
+        {
+          "type": "improved",
+          "cs": "Rychlejší start pro běžné uživatele: aplikace u nich nečeká na nastavování oprávnění, které smí dokončit jen správce webu. Když nová verze potřebuje doplnit seznamy nebo sloupce webu a otevře ji uživatel bez oprávnění, aplikace dál běží a klidně oznámí, že aktualizace čeká na správce webu – ten ji dokončí automaticky při svém příštím otevření aplikace. Smazání ukázkových dat ponechá útvar, na který se odkazuje žádost o skupinu, a vypíše ho jako ponechaný.",
+          "en": "Faster start for regular users: the app no longer waits for permission setup that only a site admin can complete. When a new version needs to add lists or columns to the site and it is opened by a user without permission, the app keeps working and calmly says the update is waiting for a site owner, who completes it automatically the next time they open the app. Deleting sample data keeps a unit that a group request refers to and lists it as kept."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace spolehlivěji načítá svou aktuální verzi a licenci: po vydání novinky se k ní dostanete do pár minut a starší licenční soubor už nemůže nahradit novější. Správce aplikace v Nastavení včas uvidí upozornění, kdyby licenční soubor potřeboval obnovit.",
+          "en": "The app loads its current version and licence more reliably: after an update you get it within minutes, and an older licence file can no longer replace a newer one. App admins see a notice in Settings in good time if the licence file needs renewing."
+        },
         {
           "type": "improved",
           "cs": "Upozornění ve Workplace a popis aplikace i anglicky. Upozornění aplikace na úvodní stránce Workplace (recertifikace, porušení pravidel útvaru, žádosti o skupinu) se zobrazují v jazyce čtenáře – kdo má Workplace anglicky, uvidí je anglicky (projeví se po aktualizaci Workplace). Popis webové části v nabídce webových částí i popis aplikace v katalogu aplikací jsou česky i anglicky podle jazyka Microsoftu 365 – projeví se po instalaci aktualizovaného balíčku aplikace a uložené nastavení webových částí zůstává beze změny.",
