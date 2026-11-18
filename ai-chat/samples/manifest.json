@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "note": "Ukázkové dokumenty pro tlačítko „Ukázková data“ v EP365 AI Asistentu. Appka je stáhne z CDN a nahraje do knihovny na webu správce. Obsah je vymyšlený – žádná zákaznická ani osobní data.",
   "libraryTitle": "AI ukázky",
   "libraryDescription": "Ukázkové dokumenty pro vyzkoušení AI Asistenta. Můžete je kdykoli smazat.",
@@ -33,7 +33,7 @@
       "name": "Prodeje-2026.csv",
       "title": "Prodeje 2026 (tabulka)",
       "kind": "csv",
-      "bytes": 10369,
+      "bytes": 10234,
       "demonstrates": "Přesné výpočty nad tabulkou – součty podle regionu, měsíce nebo obchodníka spočítá aplikace nad všemi řádky, AI je jen komentuje."
     }
   ]

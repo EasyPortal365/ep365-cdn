@@ -33,7 +33,7 @@
       "name": "Sales-2026.csv",
       "title": "Sales 2026 (table)",
       "kind": "csv",
-      "bytes": 9122,
+      "bytes": 8987,
       "demonstrates": "Exact calculations over a table — totals by region, month or salesperson are calculated by the app over every row; the AI only comments on them."
     }
   ]
