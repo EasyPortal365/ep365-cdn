@@ -216,10 +216,11 @@ krok('4/5 prorez verznich slozek runtime kanalu', 'prune-versions.mjs',
 
 // ------------------------------------------------------------ 5. verdikt -----
 console.log('--- 5/5 velikost po prorezu ---');
-const po = trackedMB();
+// trackedMB() meri HEAD - pri --apply je smazani jen ve stagi, takze skutecne cislo
+// po prorezu da az mereni PO commitu nize (18. 11. 2026 hlasilo 820.5 -> 820.5, ve skutecnosti 786.5).
+let po = trackedMB();
 if (po === null) konec('nepodarilo se zmerit velikost po prorezu');
-console.log('CDN: ' + pred.toFixed(1) + ' MB -> ' + po.toFixed(1) + ' MB'
-  + (APPLY ? '' : '  (PLAN - cislo se nezmenilo, mazani neprobehlo)'));
+if (!APPLY) console.log('CDN: ' + pred.toFixed(1) + ' MB -> ' + po.toFixed(1) + ' MB  (PLAN - cislo se nezmenilo, mazani neprobehlo)');
 
 // Commit + push uvnitr zamku a jen s nasimi cestami (pathspec). Rucni commit PO prorezu byl
 // mimo zamek: 18. 11. 2026 do nej `git commit` bez pathspec smetl rozpracovane soubory
@@ -239,7 +240,10 @@ if (APPLY) {
     const p = spawnSync('git', ['-C', ROOT, 'push', '-q'], { stdio: 'inherit' });
     if (p.status !== 0) console.error('! push selhal (kod ' + p.status + ') - commit je lokalne; `git pull --rebase` + `git push` rucne.');
     else console.log('Pushed (prorez).');
+    const poCommitu = trackedMB();
+    if (poCommitu !== null) po = poCommitu;
   }
+  console.log('CDN: ' + pred.toFixed(1) + ' MB -> ' + po.toFixed(1) + ' MB');
 }
 if (po > LIMIT_MB) {
   console.error('\n!!! CDN je PRES LIMIT (' + po.toFixed(1) + ' > ' + LIMIT_MB + ' MB). Pages prestane deployovat VSEM appkam.');
