@@ -71,7 +71,14 @@
     Volitelny. URL release zip balicku s kodem funkce. Kdyz je zadany, kod se NEbuildi
     ze zdrojaku, ale stahne se tento zip a nasadi pres zip deploy. Kdyz neni zadany
     a skript nebezi v repu se zdrojaky, pouzije se aktualni release zip z CDN
-    EasyPortal365 automaticky.
+    EasyPortal365 automaticky - a skript pred nasazenim overi jeho SHA256 proti otisku
+    zapsanemu primo ve skriptu ($CdnPackageSha256). Nesedi-li, nic nenasadi.
+
+.PARAMETER PackageSha256
+    Volitelny. Ocekavany SHA256 zipu z -PackageUrl (64 hex znaku, napr. radek ze
+    checksums.txt). Se zadanym otiskem skript zip, ktery nesedi, nenasadi. Bez nej
+    (napr. navrat na predchozi verzi z CDN) zip porovna aspon s checksums.txt na CDN -
+    to odhali poskozene stazeni, ne podvrh na CDN - a vypise varovani.
 
 .PARAMETER Location
     Azure region pro Function App a podpurne zdroje. Default: westeurope.
@@ -222,6 +229,9 @@ param(
     [string]$AllowedOrigin,
 
     [string]$PackageUrl = '',
+
+    [ValidatePattern('^$|^[0-9a-fA-F]{64}$')]
+    [string]$PackageSha256 = '',
 
     [string]$Location = 'westeurope',
     [string]$SubscriptionId = '',
@@ -385,7 +395,11 @@ if ($AzureOpenAiDeployment -eq '') { $AzureOpenAiDeployment = $OpenAiModelName }
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
 # (viz scripts/build-release-zip.ps1).
 $CdnTemplateUrl = 'https://cdn.easyportal365.cz/chat-function/main.json'
-$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.14.10.zip'
+$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.14.11.zip'
+# SHA256 zipu z $CdnPackageUrl - drzi ho build-release-zip.ps1 spolu s URL. Bezpecnostni
+# audit 2026-11-16 (E-2): zip z CDN se pred config-zip overi proti tomuto otisku. Otisk
+# je v kopii skriptu z repa, ne vedle zipu na CDN, takze prepsany zip na CDN neprojde.
+$CdnPackageSha256 = '11bb9fa44cd65f2097b36273d5ad33786d6604a6b01ef632d257b5712b45c94d'
 
 # Docasna slozka - $env:TEMP na Windows, GetTempPath() v Azure Cloud Shellu (Linux)
 $TempBase = $env:TEMP
@@ -1185,6 +1199,40 @@ try {
             Write-Host ('Stahuji balicek: ' + $resolvedPackageUrl)
             Invoke-WebRequest -Uri $resolvedPackageUrl -OutFile $tmpZip -UseBasicParsing
             $zipSizeMb = [math]::Round((Get-Item $tmpZip).Length / 1MB, 1)
+            # -- Kontrola otisku PRED nasazenim (E-2) --
+            $actualSha = (Get-FileHash -Algorithm SHA256 -Path $tmpZip).Hash.ToLowerInvariant()
+            $expectedSha = ''
+            $shaSource = ''
+            if ($PackageSha256 -ne '') {
+                $expectedSha = $PackageSha256.ToLowerInvariant(); $shaSource = 'parametr -PackageSha256'
+            }
+            elseif ($resolvedPackageUrl -eq $CdnPackageUrl) {
+                $expectedSha = $CdnPackageSha256.ToLowerInvariant(); $shaSource = 'otisk ve skriptu ($CdnPackageSha256)'
+            }
+            if ($expectedSha -ne '') {
+                if ($actualSha -ne $expectedSha) {
+                    throw ('Otisk stazeneho balicku nesedi (' + $shaSource + '): ocekavan ' + $expectedSha + ', stazen ' + $actualSha + '. Balicek NENASAZEN - stahnete skript znovu, nebo nas kontaktujte.')
+                }
+                Write-Host ('Otisk balicku overen (' + $shaSource + '): ' + $actualSha)
+            }
+            else {
+                $zipName = [System.IO.Path]::GetFileName(([Uri]$resolvedPackageUrl).AbsolutePath)
+                $listed = ''
+                try {
+                    $sumsUrl = $resolvedPackageUrl.Substring(0, $resolvedPackageUrl.LastIndexOf('/') + 1) + 'checksums.txt'
+                    $sums = (Invoke-WebRequest -Uri $sumsUrl -UseBasicParsing).Content
+                    if ($sums -is [byte[]]) { $sums = [System.Text.Encoding]::UTF8.GetString($sums) }
+                    foreach ($line in ($sums -split "`n")) {
+                        $parts = $line.Trim() -split '\s+'
+                        if ($parts.Count -ge 2 -and $parts[1] -eq $zipName) { $listed = $parts[0].ToLowerInvariant() }
+                    }
+                }
+                catch { $listed = '' }
+                if ($listed -ne '' -and $listed -ne $actualSha) {
+                    throw ('Otisk stazeneho balicku nesedi s checksums.txt (' + $listed + ' / ' + $actualSha + '). Balicek NENASAZEN.')
+                }
+                Write-Host ('Upozorneni: balicek z -PackageUrl overen jen proti checksums.txt vedle nej' + $(if ($listed -eq '') { ' (otisk tam nenalezen)' } else { '' }) + ' - pro overeni proti podvrhu zadejte -PackageSha256. SHA256: ' + $actualSha) -ForegroundColor Yellow
+            }
             Write-Host ('Stazeno ' + $zipSizeMb + ' MB. Nahravam do Function App (config-zip)...')
             az functionapp deployment source config-zip `
                 --resource-group $ResourceGroupName `
