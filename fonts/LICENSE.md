@@ -28,6 +28,13 @@ Prohlížeč si podle `unicode-range` stáhne jen ten subset, který stránka po
 - **JetBrains Mono** — jen přímý řez
 - **Fraunces** — jen kurzíva
 
+### `pdf/` – statické řezy TTF pro PDF faktury z CRM
+
+PDF vkládá písmo do souboru (podmnožinu znaků) a woff2 to neumí – proto vedle variabilních
+woff2 leží tři statické řezy TTF: `PlusJakartaSans-Regular.ttf`, `PlusJakartaSans-Bold.ttf`
+a `Manrope-ExtraBold.ttf`. Licence stejná (SIL OFL 1.1); vložení do dokumentu OFL výslovně
+dovoluje. Soubory se negenerují skriptem – při aktualizaci se nahradí ručně stejnými jmény.
+
 Chybějící řez není chyba, ale úspora: flotila je takhle používá. Když bude potřeba další,
 doplní se do `tools/fetch-fonts.mjs` a soubory se přegenerují; do té doby prohlížeč
 použije systémové písmo z náhradního řetězce.

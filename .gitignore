@@ -188,6 +188,10 @@
 !fonts/*.woff2
 !fonts/ep365-fonts.css
 !fonts/LICENSE.md
+# Statické řezy TTF pro PDF faktury z CRM (vkládají se do PDF – woff2 PDF neumí).
+# Bezpečné: písma pod SIL OFL 1.1, viz fonts/LICENSE.md.
+!fonts/pdf/
+!fonts/pdf/*.ttf
 !tools/
 !tools/*.mjs
 # Knihovna pro vykreslení diagramů v našich HTML dokumentech (mermaid, OFL/MIT).
