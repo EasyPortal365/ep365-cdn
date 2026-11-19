@@ -285,3 +285,9 @@
 !blog-audio/*.mp3
 !blog-audio/*/*.mp3
 !blog-audio/*/*.json
+
+# EP365 AI Asistent pro Office (doplněk Office): stálá stránka panelu, na kterou míří manifest
+# a přesměrování v Entra ID, a ikony tlačítka v pásu karet. Bezpečné: statické HTML bez dat
+# zákazníka (konfigurace jde z manifestu správce), PNG ikony.
+!ai-office/taskpane.html
+!ai-office/assets/*.png

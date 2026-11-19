@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>EP365 AI Asistent pro Office</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <style>
+    :root { --navy:#002163; --teal:#00A8B0; --line:#E0E6EF; --muted:#4A5874; --bg2:#F4F7FB; --red:#D14343; }
+    body { margin:0; padding:12px; font:13px/1.45 "Segoe UI", system-ui, sans-serif; color:var(--navy); background:#fff; }
+    h1 { font-size:16px; margin:0 0 8px; }
+    h2 { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:14px 0 6px; }
+    section { border:1px solid var(--line); border-radius:8px; padding:8px; margin-bottom:8px; }
+    button { border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--navy); padding:5px 10px; margin:2px 2px 2px 0; cursor:pointer; font:inherit; }
+    button.primary { background:var(--navy); color:#fff; border-color:var(--navy); }
+    #log { white-space:pre-wrap; font:11px/1.4 Consolas, monospace; background:var(--bg2); border-radius:8px; padding:6px; max-height:420px; overflow:auto; }
+    #confirm { display:none; border:2px solid var(--teal); background:#E4F7F6; }
+    .host { display:none; }
+  </style>
+</head>
+<body>
+  <h1>EP365 AI Asistent – brána webu</h1>
+  <div id="info" style="font-size:11px;color:var(--muted)">Načítám Office…</div>
+
+  <section id="confirm">
+    <strong>Potvrdit zápis do dokumentu</strong>
+    <div id="confirmText"></div>
+    <button class="primary" id="confirmYes">Provést</button>
+    <button id="confirmNo">Zrušit</button>
+  </section>
+
+  <h2>Přihlášení a funkce AI</h2>
+  <section>
+    <button class="primary" id="btnToken">Token (NAA)</button>
+    <button id="btnVersion">/api/version</button>
+    <button id="btnChat">/api/chat (stream)</button>
+    <button id="btnClass">Klasifikace (SharePoint)</button>
+  </section>
+
+  <div class="host" data-host="Word">
+    <h2>Word</h2>
+    <section>
+      <button id="wRead">Přečíst tělo a výběr</button>
+      <button id="wReplace">Nahradit 1. odstavec (sledované změny)</button>
+      <button id="wPara">Vložit odstavec</button>
+      <button id="wComment">Komentář</button>
+      <button id="wChanges">Výpis sledovaných změn</button>
+    </section>
+  </div>
+
+  <div class="host" data-host="PowerPoint">
+    <h2>PowerPoint</h2>
+    <section>
+      <button id="pRead">Přečíst texty snímků</button>
+      <button id="pLayout">Přidat snímek z rozvržení</button>
+      <button id="pDelete">Smazat přidaný snímek</button>
+    </section>
+  </div>
+
+  <div class="host" data-host="Excel">
+    <h2>Excel</h2>
+    <section>
+      <button id="xRead">Přečíst použitou oblast</button>
+      <button id="xFormula">Zapsat vzorec pod oblast</button>
+    </section>
+  </div>
+
+  <h2>Záznam <button id="copy" style="float:right">Kopírovat záznam</button></h2>
+  <div id="log"></div>
+  <script src="gate.js?v=1"></script>
+</body>
+</html>
