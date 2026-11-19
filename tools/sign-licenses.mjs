@@ -7,8 +7,9 @@
  *   tenantId. Kdo ovladne push do ep365-cdn, vyrobi platne zasifrovany soubor s libovolnym
  *   obsahem. Od @ep365/license 0.6.0 appky soubor bez platneho ES256 podpisu odmitnou
  *   (Invalid, bez grace). Tenhle nastroj podepisuje soubory, ktere uz na CDN jsou,
- *   a overuje je lokalne i zive. Novy a zmeneny soubor podepisuje uz Control Center
- *   (Licence → Ulozit vse) a gen-license-files.js.
+ *   a overuje je lokalne i zive. Novy a zmeneny soubor podepisuje gen-license-files.js
+ *   (obal ep365-docs/scripts/licence/publish-licenses.mjs). Control Center od 2026-11-19
+ *   nepodepisuje (TECH-DEBT #578) – jen upravi registry.
  *
  * CO SE PODEPISUJE (shodne s ep365-shared/packages/license/src/signature.ts)
  *   'ep365-license-sig-v1' \n <nazev souboru bez .json, lowercase> \n <v> \n <iv> \n <data>
