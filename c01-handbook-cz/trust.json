@@ -1,0 +1,6 @@
+{
+ "alg": "ES256",
+ "kid": "ep365cdn-8aebedc5bbe949a1",
+ "doc": "{\"schema\":1,\"app\":\"c01-handbook-cz\",\"seq\":1,\"issuedAt\":\"2026-11-20T08:21:33.559Z\",\"latest\":\"1.0.0.0\",\"versions\":{\"1.0.0.0\":{\"manifest\":\"sha384-xqkv+SCi9PQgAE37ytgggtsUt4rVBLZrJqaJqKqIVMYxxfR1LMKnrAefV0OdG1FK\",\"scripts\":{\"ep-365-c01-handbook-cz-app\":\"sha384-56IImnDLpdL7Z9ciEtyIw+kWH9cAeyw76UdWN90Ao5saMGtlQ2vgJhC3pPh1u7r/\"},\"provisioning\":\"sha384-XjHWthGV0kL0kR8pTYqrnO888vmqDEZjLe0Ga0KEKqmAnv1EOlSWK+slvl//sNJv\"}}}",
+ "sig": "ofTBxpACn+Bvt87LkN8UUrLtOE/Q7c3JqS/HCPEniEgU+oVAYIMcZBVkovCr+h/4B/LD9lyBZ+/RvKJIGvwFzQ=="
+}
