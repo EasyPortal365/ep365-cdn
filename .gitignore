@@ -295,3 +295,9 @@
 # zákazníka (konfigurace jde z manifestu správce), PNG ikony.
 !ai-office/taskpane.html
 !ai-office/assets/*.png
+
+# Skript pro stavajici zakazniky (doplnek Office): doplni registraci "EP365 AI Function" o presmerovani
+# panelu a opravneni, funkci AI o puvod panelu. Otisk SHA-256 je v NAZVU souboru a v AI Asistentovi
+# (Nastaveni > Doplnek Office), prikaz pro Cloud Shell ho pred spustenim overi. Bezpecne: ASCII skript
+# bez tajnych hodnot (zdroj ep365-ai-office/scripts/setup-office-addin.ps1). Stare verze NEMAZAT.
+!ai-office/scripts/setup-office-addin-*.ps1
