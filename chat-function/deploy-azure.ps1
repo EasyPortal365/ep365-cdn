@@ -13,7 +13,7 @@
          App Settings) - lokalni infra/main.bicep, nebo (kdyz skript nebezi v repu)
          ARM sablona z CDN EasyPortal365.
       5. Nasazeni kodu funkce (vzdy s WEBSITE_RUN_FROM_PACKAGE=1, viz nize):
-         - v repu se zdrojaky: build (npm) + func publish / zip deploy jako dosud;
+         - v repu se zdrojaky: build (npm) + zip deploy behovych souboru (jako CI);
          - mimo repo (napr. Azure Cloud Shell): stazeni hotoveho release zipu z CDN
            EasyPortal365 a zip deploy - Node.js NENI potreba.
       6. Smoke test - zkusebni dotaz na /api/chat (overi endpoint, klic i model;
@@ -53,8 +53,7 @@
         (v Azure Cloud Shellu uz je)
       - ucet s pravy vytvaret resource groups a prostredky v subscription
       - kvota pro Azure OpenAI v cilovem regionu (jen kdyz se ucet vytvari novy)
-      - JEN pri behu v repu se zdrojaky: Node.js 22 + npm (build kodu); volitelne
-        Azure Functions Core Tools v4 (func) - rychlejsi publikace
+      - JEN pri behu v repu se zdrojaky: Node.js 22 + npm (build kodu)
 
 .PARAMETER ResourceGroupName
     Povinny. Nazev resource group (vytvori se, pokud neexistuje).
@@ -395,11 +394,11 @@ if ($AzureOpenAiDeployment -eq '') { $AzureOpenAiDeployment = $OpenAiModelName }
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
 # (viz scripts/build-release-zip.ps1).
 $CdnTemplateUrl = 'https://cdn.easyportal365.cz/chat-function/main.json'
-$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.14.11.zip'
+$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.14.12.zip'
 # SHA256 zipu z $CdnPackageUrl - drzi ho build-release-zip.ps1 spolu s URL. Bezpecnostni
 # audit 2026-11-16 (E-2): zip z CDN se pred config-zip overi proti tomuto otisku. Otisk
 # je v kopii skriptu z repa, ne vedle zipu na CDN, takze prepsany zip na CDN neprojde.
-$CdnPackageSha256 = '11bb9fa44cd65f2097b36273d5ad33786d6604a6b01ef632d257b5712b45c94d'
+$CdnPackageSha256 = 'f03646a2b1fb4b9aee106d036bacebe01477affbc9907e5366febf6326fcea40'
 
 # Docasna slozka - $env:TEMP na Windows, GetTempPath() v Azure Cloud Shellu (Linux)
 $TempBase = $env:TEMP
@@ -1262,51 +1261,48 @@ try {
             npm run build
             Assert-LastExit 'npm run build selhalo.'
 
-            $funcCmd = Get-Command func -ErrorAction SilentlyContinue
-            if ($null -ne $funcCmd) {
-                Write-Host 'Azure Functions Core Tools nalezeny - publikuji pres "func azure functionapp publish"...'
-                func azure functionapp publish $FunctionAppName
-                Assert-LastExit 'Publikace pres func selhala.'
-            }
-            else {
-                Write-Host 'Azure Functions Core Tools (func) nenalezeny - pouzivam fallback zip deploy.'
-                $tmpId = [Guid]::NewGuid().ToString('N')
-                $tmpDir = Join-Path $TempBase ('ep365-chat-deploy-' + $tmpId)
-                $zipPath = Join-Path $TempBase ('ep365-chat-deploy-' + $tmpId + '.zip')
+            # Vzdy zip s vyberem behovych souboru - stejny jako CI (deploy.yml) a build-release-zip.ps1.
+            # Drive se s nalezenymi Azure Functions Core Tools publikovalo pres func publish, ktere
+            # nahralo cely adresar repa (zdrojaky, testy, dev zavislosti; repo nema .funcignore) -
+            # audit 2026-11. Core Tools proto tento skript nepotrebuje.
+            $tmpId = [Guid]::NewGuid().ToString('N')
+            $tmpDir = Join-Path $TempBase ('ep365-chat-deploy-' + $tmpId)
+            $zipPath = Join-Path $TempBase ('ep365-chat-deploy-' + $tmpId + '.zip')
 
-                New-Item -ItemType Directory -Path $tmpDir | Out-Null
+            New-Item -ItemType Directory -Path $tmpDir | Out-Null
+            try {
+                Write-Host 'Pripravuji docasnou kopii (host.json, package.json, dist, produkcni node_modules)...'
+                Copy-Item (Join-Path $repoRoot 'host.json') $tmpDir
+                Copy-Item (Join-Path $repoRoot 'package.json') $tmpDir
+                Copy-Item (Join-Path $repoRoot 'package-lock.json') $tmpDir
+                Copy-Item (Join-Path $repoRoot 'dist') (Join-Path $tmpDir 'dist') -Recurse
+
+                Push-Location $tmpDir
                 try {
-                    Write-Host 'Pripravuji docasnou kopii (host.json, package.json, dist, produkcni node_modules)...'
-                    Copy-Item (Join-Path $repoRoot 'host.json') $tmpDir
-                    Copy-Item (Join-Path $repoRoot 'package.json') $tmpDir
-                    Copy-Item (Join-Path $repoRoot 'package-lock.json') $tmpDir
-                    Copy-Item (Join-Path $repoRoot 'dist') (Join-Path $tmpDir 'dist') -Recurse
-
-                    Push-Location $tmpDir
-                    try {
-                        Write-Host 'npm ci --omit=dev (produkcni zavislosti do docasne kopie)...'
-                        npm ci --omit=dev
-                        Assert-LastExit 'npm ci --omit=dev selhalo.'
-                    }
-                    finally {
-                        Pop-Location
-                    }
-
-                    Write-Host 'Vytvarim zip balicek...'
-                    if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
-                    Compress-Archive -Path (Join-Path $tmpDir '*') -DestinationPath $zipPath
-
-                    Write-Host 'Nahravam zip do Function App (config-zip)...'
-                    az functionapp deployment source config-zip `
-                        --resource-group $ResourceGroupName `
-                        --name $FunctionAppName `
-                        --src $zipPath -o none
-                    Assert-LastExit 'Zip deploy selhal.'
+                    # --omit=optional: pdfjs-dist 3.x si jako volitelne tahne canvas (+ node-pre-gyp + tar
+                    # s nalezy npm audit); behu nechybi - sjednoceno s CI a build-release-zip.ps1.
+                    Write-Host 'npm ci --omit=dev --omit=optional (produkcni zavislosti do docasne kopie)...'
+                    npm ci --omit=dev --omit=optional
+                    Assert-LastExit 'npm ci --omit=dev --omit=optional selhalo.'
                 }
                 finally {
-                    if (Test-Path $tmpDir) { Remove-Item $tmpDir -Recurse -Force }
-                    if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
+                    Pop-Location
                 }
+
+                Write-Host 'Vytvarim zip balicek...'
+                if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
+                Compress-Archive -Path (Join-Path $tmpDir '*') -DestinationPath $zipPath
+
+                Write-Host 'Nahravam zip do Function App (config-zip)...'
+                az functionapp deployment source config-zip `
+                    --resource-group $ResourceGroupName `
+                    --name $FunctionAppName `
+                    --src $zipPath -o none
+                Assert-LastExit 'Zip deploy selhal.'
+            }
+            finally {
+                if (Test-Path $tmpDir) { Remove-Item $tmpDir -Recurse -Force }
+                if (Test-Path $zipPath) { Remove-Item $zipPath -Force }
             }
         }
         finally {
