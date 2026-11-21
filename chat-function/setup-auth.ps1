@@ -46,6 +46,11 @@
     Rezim brany: optional (vychozi) overi token, kdyz prijde; required bez tokenu
     odmita; off vypina. Zacnete VZDY na optional - viz poznamka na konci skriptu.
 
+.PARAMETER EnforceClients
+    Vynutit seznam povolenych klientu (claim azp): token pro funkci prijme jen od
+    SharePoint Framework principalu a od registrace funkce same (doplnek EP365 AI
+    Asistent pro Office). Bez prepinace se klient jen zapisuje do souhrnu v logu.
+
 .PARAMETER SubscriptionId
     Volitelne prepnuti subscription pred praci.
 
@@ -61,6 +66,7 @@ param(
     [Parameter(Mandatory = $true)] [string] $ResourceGroup,
     [Parameter(Mandatory = $true)] [string] $FunctionAppName,
     [ValidateSet('optional', 'required', 'off')] [string] $Mode = 'optional',
+    [switch] $EnforceClients,
     [string] $SubscriptionId
 )
 
@@ -232,6 +238,13 @@ az functionapp config appsettings set --name $FunctionAppName --resource-group $
     "EP365_AUTH_AUDIENCE=$appClientId" `
     "EP365_AUTH_TENANT_ID=$tenantId" `
     "EP365_AUTH_MODE=$Mode" | Out-Null
+
+if ($EnforceClients) {
+    # Registrace funkce (audience) se do seznamu pridava ve funkci automaticky.
+    az functionapp config appsettings set --name $FunctionAppName --resource-group $ResourceGroup --settings `
+        "EP365_AUTH_ALLOWED_CLIENTS=$SPFX_PRINCIPAL" | Out-Null
+    Write-Ok "EP365_AUTH_ALLOWED_CLIENTS = $SPFX_PRINCIPAL (+ registrace funkce)"
+}
 
 Write-Ok "EP365_AUTH_AUDIENCE  = $appClientId"
 Write-Ok "EP365_AUTH_TENANT_ID = $tenantId"
