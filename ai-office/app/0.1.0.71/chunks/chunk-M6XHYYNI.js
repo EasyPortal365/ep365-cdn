@@ -1,1 +1,0 @@
-var r="cs";function s(t){let n=String(t||"").trim().toLowerCase();return n.startsWith("cs")||n.startsWith("sk")?"cs":"en"}function g(t){r=t}function o(){return r}function u(t,n){return r==="en"?n:t}function a(t,n,e){if(r==="en")return`${t} ${t===1?e[0]:e[1]}`;let i=t===1?n[0]:t>=2&&t<=4?n[1]:n[2];return`${t} ${i}`}export{s as a,g as b,o as c,u as d,a as e};
