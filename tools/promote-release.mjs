@@ -90,7 +90,11 @@ function verCmp(a, b) {
   return 0;
 }
 let builtVersion = '';
-try { builtVersion = JSON.parse(readFileSync(join(APPS_ROOT, repo, 'config', 'app-version.json'), 'utf8')).version || ''; } catch { builtVersion = ''; }
+// SPFx appky config/app-version.json; appka mimo SPFx (doplněk Office) version.json v kořeni repa.
+for (const rel of [['config', 'app-version.json'], ['version.json']]) {
+  if (builtVersion) break;
+  try { builtVersion = JSON.parse(readFileSync(join(APPS_ROOT, repo, ...rel), 'utf8')).version || ''; } catch { builtVersion = ''; }
+}
 const pending = builtVersion ? allPending.filter(c => !c.since || verCmp(c.since, builtVersion) <= 0) : allPending;
 const held = builtVersion ? allPending.filter(c => c.since && verCmp(c.since, builtVersion) > 0) : [];
 if (!builtVersion) console.log('(config/app-version.json nenacten - pending se bere cely, bez porovnani since)');
