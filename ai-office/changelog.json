@@ -1,0 +1,68 @@
+{
+  "schema": 2,
+  "app": "ep365-ai-office",
+  "name": "EP365 AI Asistent pro Office",
+  "entries": [
+    {
+      "version": "1.0",
+      "date": "2026-11-23",
+      "changes": [
+        {
+          "type": "new",
+          "cs": "AI Asistent přímo ve Wordu, Excelu, PowerPointu a Outlooku. V panelu vedle dokumentu shrne a zkontroluje obsah, odpoví na otázky k němu a navrhne změny. Jak pracuje, volíte nahoře v panelu: „Ke schválení“ (každou změnu nejdřív uvidíte jako kartu „bylo / bude“), „Psát rovnou“ nebo „Jen odpovídat“. Zapsaný návrh vrátíte celý tlačítkem Vrátit změny; ve Wordu jdou změny i jako sledované změny.",
+          "en": "The AI Assistant right inside Word, Excel, PowerPoint and Outlook. In a panel next to your document it summarizes and reviews the content, answers questions about it and proposes changes. You choose how it works at the top of the panel: “For approval” (you see every change first as a “before / after” card), “Write directly” or “Answer only”. Undo changes reverts a whole written proposal; in Word, changes can also go in as tracked changes."
+        },
+        {
+          "type": "new",
+          "cs": "Platí pravidla vaší organizace: dokument nebo soubor, který správce vyřadil z AI („mimo AI“), asistent nepřečte, pokyny ukryté v dokumentu neplní a denní limit AI úkonů nastavený v AI Asistentovi platí i v Office. Rodná čísla, IBAN a čísla platebních karet a účtů panel před odesláním sám najde a skryje – AI dostane jen zástupky. Ve Wordu je umí i anonymizovat přímo v dokumentu.",
+          "en": "Your organization’s rules apply: the assistant does not read a document or file your administrator excluded from AI (“outside AI”), it does not follow instructions hidden in a document, and the daily AI action limit set in the AI Assistant applies in Office too. Before sending, the panel itself finds and hides birth numbers, IBANs and card and account numbers — the AI only gets placeholders. In Word it can also anonymize them right in the document."
+        },
+        {
+          "type": "new",
+          "cs": "Nabídka se přizpůsobí tomu, co máte otevřené a vybrané – textu, tabulce, obrázku, buňce se vzorcem, grafu nebo snímku. K označenému textu nabídne přepsat, zkrátit, rozvést, opravit, přeložit, vysvětlit, napsat formálněji, přátelštěji nebo jako e-mail i vlastní pokyn; výsledek nahradí výběr, vloží se pod něj, nebo ho zkopírujete. Navazující dotaz („a teď to zkrať“) upraví předchozí odpověď.",
+          "en": "The offer adapts to what you have open and selected — text, a table, a picture, a cell with a formula, a chart or a slide. For selected text it offers to rewrite, shorten, expand, correct, translate or explain it, make it more formal, friendlier or an e-mail, or follow your own instruction; the result replaces the selection, goes below it, or you copy it. A follow-up (“now make it shorter”) edits the previous answer."
+        },
+        {
+          "type": "new",
+          "cs": "Firemní podklady a prompty: přepínač SharePoint přidá k odpovědi obsah z míst, která povolil správce, s odkazy na zdroje – ve Wordu i jako poznámky pod čarou. K dotazu připojíte soubory z počítače, SharePointu nebo OneDrivu. Firemní, sdílené i vlastní prompty a role z AI Asistenta vložíte jedním klikem.",
+          "en": "Company sources and prompts: the SharePoint switch adds content from the places your administrator allowed, with links to the sources — in Word also as footnotes. You can attach files from your computer, SharePoint or OneDrive to a question. Company, shared and personal prompts and roles from the AI Assistant are one click away."
+        },
+        {
+          "type": "new",
+          "cs": "Word – revize a schvalování: kontrola proti firemnímu vzoru (odchylky jako komentáře, opravy jako sledované změny), kontrola konzistence částek, dat, jmen, pojmů a odkazů na články, porovnání se schválenou verzí, shrnutí pro schvalovatele, návrhy odpovědí na komentáře a doporučení, které sledované změny přijmout.",
+          "en": "Word — review and approval: checking against a company template (deviations as comments, corrections as tracked changes), consistency checks of amounts, dates, names, terms and clause references, comparison with the approved version, a summary for approvers, suggested replies to comments and a recommendation on which tracked changes to accept."
+        },
+        {
+          "type": "new",
+          "cs": "Word – psaní a úpravy: formátování styly vašeho dokumentu (nadpisy, seznamy, úklid ručně formátovaného textu), vyplnění polí šablony z konverzace a podkladů – co asistent neví, nechá prázdné a řekne, co chybí –, popisy obrázků pro čtečky obrazovky a překlad celého dokumentu se zachovaným formátováním.",
+          "en": "Word — writing and editing: formatting with your document’s styles (headings, lists, tidying manually formatted text), filling template fields from the conversation and your sources — what the assistant does not know it leaves empty and tells you what is missing — picture descriptions for screen readers, and translating the whole document with its formatting kept."
+        },
+        {
+          "type": "new",
+          "cs": "Excel – data a vzorce: graf, tabulka Excelu i kontingenční tabulka z popisu, čištění dat, formát čísel a podmíněné zvýraznění, rozbalovací seznamy a ověření dat, vysvětlení a návrh vzorců. Karta změn ukáže, které buňky se změní a jak.",
+          "en": "Excel — data and formulas: a chart, an Excel table or a PivotTable from a description, data cleanup, number formats and conditional highlighting, drop-down lists and data validation, explaining and suggesting formulas. The change card shows which cells change and how."
+        },
+        {
+          "type": "new",
+          "cs": "Excel – kontrola a přehledy: audit listu najde chybné a odlišné vzorce i čísla zapsaná natvrdo a označí je komentáři, souhrnný list ze všech listů sešitu vznikne se vzorci na původní data a zprávu Trendy a výkyvy píše asistent z čísel, která spočítá panel – čísla ve zprávě sedí s listem.",
+          "en": "Excel — checks and overviews: a sheet audit finds broken and inconsistent formulas and hard-coded numbers and marks them with comments, a summary sheet across all sheets is built with formulas pointing to the original data, and the Trends and outliers report is written from figures the panel calculates — so the numbers match the sheet."
+        },
+        {
+          "type": "new",
+          "cs": "PowerPoint: prezentace z dokumentu v rozvrženích vaší firemní předlohy, tabulky na snímku, úklid přeplněných snímků, popisy obrázků pro čtečky obrazovky a překlad celé prezentace jedním návrhem, který vrátíte jedním tlačítkem.",
+          "en": "PowerPoint: a presentation from a document in your company template’s layouts, tables on a slide, tidying overcrowded slides, picture descriptions for screen readers, and translating the whole presentation as one proposal you can undo with one button."
+        },
+        {
+          "type": "new",
+          "cs": "Outlook (samostatný doplněk, správce ho nasadí druhým manifestem): shrnutí zprávy i celého vlákna, úkoly a termíny, koncept odpovědi – i s údaji z firemních dokumentů –, návrh schůzky do kalendáře a návrh štítku citlivosti. Nic se neodešle samo: odpověď otevře jako koncept a schůzku uložíte sami.",
+          "en": "Outlook (a separate add-in your administrator deploys with a second manifest): summaries of a message or a whole thread, tasks and deadlines, a reply draft — also with details from company documents — a meeting proposal for your calendar and a sensitivity label suggestion. Nothing is sent automatically: the reply opens as a draft and you save the meeting yourself."
+        },
+        {
+          "type": "new",
+          "cs": "Panel mluví česky i anglicky podle jazyka, ve kterém používáte Office. Text do dokumentu píše asistent v jazyce dokumentu, pokud nežádáte překlad.",
+          "en": "The panel speaks Czech and English, following the language you use Office in. The assistant writes text into the document in the document’s language unless you ask for a translation."
+        }
+      ]
+    }
+  ]
+}
