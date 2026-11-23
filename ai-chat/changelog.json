@@ -5,8 +5,133 @@
   "entries": [
     {
       "version": "2.0",
-      "date": "2026-11-16",
+      "date": "2026-11-23",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Nová sekce Nastavení › Doplněk Office (jen pro správce): AI Asistenta do Wordu, Excelu, PowerPointu a Outlooku nasadíte sami. Přehled ukáže, co aplikace zjistila sama (verze funkce AI, ID registrace, tenant, web), stav tří kroků a jeden další krok. Každý krok má vlastní obrazovku – příkaz pro Azure Cloud Shell (nejdřív zkouška, pak naostro; skript se před spuštěním ověří podle otisku a pod účtem s rolí pro souhlas za organizaci udělí i souhlas správce), souhlas správce a manifesty pro Centrum pro správu Microsoft 365. Outlook je samostatný doplněk – lidem se objeví až po nahrání druhého manifestu. Hotový krok si označíte (se jménem a datem, jde vrátit). Podle Microsoftu se doplněk lidem objeví za 24–72 hodin.",
+          "en": "New section Settings › Office add-in (administrators only): you deploy the AI Assistant to Word, Excel, PowerPoint and Outlook yourself. The overview shows what the app detected on its own (AI function version, app registration ID, tenant, site), the state of three steps and one next step. Each step has its own screen — a command for Azure Cloud Shell (first a dry run, then for real; the script is verified by its hash before it runs and, under an account that can consent for the organization, also grants admin consent), admin consent and the manifests for the Microsoft 365 admin center. Outlook is a separate add-in — people see it only after the second manifest is uploaded. You mark a finished step yourself (with name and date, reversible). According to Microsoft the add-in appears within 24–72 hours."
+        },
+        {
+          "type": "new",
+          "cs": "Rutina hlídá i to, co se objeví: zmínky o vás a nové zprávy v chatech a kanálech Teams, novou pozvánku v kalendáři, nový soubor v OneDrivu a přepis skončené schůzky. Kontrola běží bez AI a pod vaším účtem, AI úkony se spotřebují jen při nálezu – odhad spotřeby to tak i počítá. Volitelně jen od určitého odesílatele, se slovem v textu nebo od lidí mimo firmu; zpráva od někoho mimo organizaci se v podkladech označí, nebo se vynechá podle nastavení správce. Najdete to v editoru rutiny v kroku Kdy › Když se něco objeví.",
+          "en": "A routine can also watch for things that happen: mentions of you and new messages in Teams chats and channels, a new calendar invitation, a new OneDrive file and the transcript of a finished meeting. The check runs without AI under your account; AI actions are only used when something turns up — and the usage estimate counts it that way. Optionally only from a certain sender, with a word in the text or from people outside the company; a message from outside the organization is marked in the sources, or left out if the administrator set it so. You find it in the routine editor under When › When something appears."
+        },
+        {
+          "type": "new",
+          "cs": "Rutina smí sama uložit koncept e-mailu do Outlooku a úkol do Microsoft To Do – zapnete to u rutiny v kroku Kam s výsledkem › Co smí rutina uložit sama. Uloží nejvýš 3 koncepty a 3 úkoly za běh a napíše, co uložila. E-mail nikdy neodejde: koncept čeká ve složce Koncepty, až ho odešlete sami. Schůzky rutina dál jen navrhuje ke schválení.",
+          "en": "A routine may save an e-mail draft to Outlook and a task to Microsoft To Do on its own — you turn it on in the routine under Where the result goes › What the routine may save itself. It saves at most 3 drafts and 3 tasks per run and tells you what it saved. An e-mail is never sent: the draft waits in Drafts until you send it yourself. Meetings are still only proposed for approval."
+        },
+        {
+          "type": "new",
+          "cs": "Rutina z věty a nové vzory: napíšete-li do pole zprávy větu s opakováním („Každé pondělí v 8 mi shrň poštu“), nabídne se Vytvořit rutinu s předvyplněným termínem a pokynem. Přibylo šest vzorů rutin pro Teams a schůzky (Zmínky o mně v Teams, Hlídání kanálu, Zápis z přepisu schůzky a další) a šest úloh v galerii (Na co jsem neodpověděl, Předávka před dovolenou, E-mail po schůzce z přepisu…). Vzory jen čtou a navrhují, do Teams nic neposílají.",
+          "en": "A routine from a sentence and new templates: when you type a sentence with a repetition in the message box (“Every Monday at 8 summarize my mail”), Create routine is offered with the schedule and instruction filled in. Six new routine templates for Teams and meetings (Mentions of me in Teams, Channel watch, Minutes from a meeting transcript and more) and six tasks in the gallery (What I have not replied to, Handover before holiday, E-mail after a meeting from the transcript…). Templates only read and propose; they send nothing to Teams."
+        },
+        {
+          "type": "improved",
+          "cs": "Rutiny mají víc možností: víc dní v týdnu, každý 2.–4. týden, opakování během dne po 1–4 hodinách a jednorázový termín. Můžete jich mít až 50, z toho 25 aktivních, s pokynem až 8 000 znaků; pamatuje se posledních 20 výsledků a hlídání pošty nebo Teams po delší pauze dožene až 3 dny zpátky. Rutina odpovídá v jazyce svého zadání.",
+          "en": "Routines have more options: several days a week, every 2nd–4th week, repetition during the day every 1–4 hours and a one-off date. You can have up to 50, 25 of them active, with instructions up to 8,000 characters; the last 20 results are kept and watching mail or Teams catches up to 3 days after a longer pause. A routine answers in the language its instruction is written in."
+        },
+        {
+          "type": "new",
+          "cs": "Historie běhů rutin v Prompt Studiu: každý běh s výsledkem, kdo ho spustil, kolik AI úkonů stál a jestli odešla karta do Teams; nahoře termíny na 7 dní dopředu. Se zapnutým auditem je v Přehledu využití › Audit karta Rutiny. Když Microsoft 365 odmítne kartu do Teams, hláška ukáže jeho přesnou odpověď.",
+          "en": "Routine run history in Prompt Studio: every run with its result, who started it, how many AI actions it cost and whether a Teams card was sent; at the top, the schedule for the next 7 days. With auditing on, Usage overview › Audit has a Routines card. When Microsoft 365 rejects a Teams card, the message shows its exact response."
+        },
+        {
+          "type": "new",
+          "cs": "Nová část Nastavení › Nasazení EP365: přehled aplikací EP365 na všech webech, ke kterým máte přístup, s verzí datových struktur a verzí, kterou potřebuje načtený kód. Čekající weby dorovnáte tlačítkem Aktualizovat vše – přidávají se jen seznamy a sloupce, nic se nemaže. Když aktualizaci webu nemůže dokončit uživatel bez oprávnění, aplikace mu dál běží a dokončí ji správce webu při příštím otevření.",
+          "en": "New part Settings › EP365 deployment: an overview of EP365 apps on all sites you can access, with the version of the data structures and the version the loaded code needs. You bring waiting sites up to date with Update all — only lists and columns are added, nothing is deleted. When a user without permission cannot finish a site update, the app keeps running for them and the site administrator finishes it on the next visit."
+        },
+        {
+          "type": "improved",
+          "cs": "Bezpečnější role skupin AI na webu: Uživatelé AI mají na webu jen Čtení a zapisují jen do seznamů AI Asistenta, Správci AI mají místo Úplného řízení Úpravy a členy obou skupin dál spravují sami; oprávnění webu mění jen Vlastníci webu. Na existujících webech to aplikace srovná sama při první návštěvě vlastníka webu a ruční úrovně oprávnění nechá být. Knihovny s vlastními oprávněními, kde mají skupiny AI víc než na webu, ukáže v Nastavení › Správa rolí – rozhodnutí nechává na vás.",
+          "en": "Safer roles for the AI groups on the site: AI users have only Read on the site and write only to the AI Assistant lists, AI administrators get Edit instead of Full Control and still manage the members of both groups; site permissions are changed only by site owners. On existing sites the app aligns this on the site owner’s first visit and leaves manual permission levels alone. Libraries with their own permissions where the AI groups have more than on the site are shown in Settings › Role management — the decision stays with you."
+        },
+        {
+          "type": "fixed",
+          "cs": "Individuální denní limity vidí jen správci AI a člověk, kterého se týkají. Stávající výjimky se při první návštěvě vlastníka webu přesunou samy a platí beze změny.",
+          "en": "Individual daily limits are visible only to AI administrators and the person they apply to. Existing exceptions move on the first visit of the site owner and stay as they were."
+        },
+        {
+          "type": "improved",
+          "cs": "Denní limit AI úkonů na osobu hlídá i AI služba vaší organizace – stejně pro aplikaci, widget i doplněk Office. Po vyčerpání uvidíte hned hlášku, že pokračovat můžete zítra. „Zkusit znovu“ a „Odpovědět znovu“ se do limitu počítají jako další AI úkon, takže počítadlo v aplikaci sedí s AI službou.",
+          "en": "The daily AI action limit per person is also enforced by your organization’s AI service — the same for the app, the widget and the Office add-in. When it is used up you immediately see that you can continue tomorrow. “Try again” and “Answer again” count as another AI action, so the counter in the app matches the AI service."
+        },
+        {
+          "type": "new",
+          "cs": "Autoritativní zdroje i bez EP365 Workplace: v Nastavení › SharePoint zadá správce přímo pro web místa s ověřeným obsahem (web nebo knihovnu, i s mezerou v názvu, volitelně skupiny Entra ID). Rozšířit, Upřednostnit, Pouze autoritativní i upozornění na rozpory fungují stejně jako s centrálními zdroji; s Workplace se seznamy sčítají a centrální nastavení má přednost.",
+          "en": "Authoritative sources without EP365 Workplace: in Settings › SharePoint the administrator enters places with verified content directly for the site (a site or library, also with a space in its name, optionally Entra ID groups). Extend, Prefer, Authoritative only and conflict warnings work the same as with central sources; with Workplace the lists add up and the central settings win."
+        },
+        {
+          "type": "new",
+          "cs": "Citlivostní štítky Microsoft Purview: v Nastavení › SharePoint vyberete štítky, se kterými dokument do podkladů AI nesmí – pro hledání i pro dokumenty vybrané uživatelem; počítají se do údaje „Mimo AI“ pod odpovědí. Tlačítko „Ověřit štítky v obsahu“ řekne, zda SharePoint štítky u dokumentů hlásí. Štítky vyžadují odpovídající licenci Microsoft 365 (například E3 nebo Business Premium).",
+          "en": "Microsoft Purview sensitivity labels: in Settings › SharePoint you choose labels whose documents must not be used as AI sources — for search and for documents a user picks; they count towards “Outside AI” below an answer. The “Check labels in content” button tells you whether SharePoint reports labels on documents. Labels require a matching Microsoft 365 licence (for example E3 or Business Premium)."
+        },
+        {
+          "type": "improved",
+          "cs": "Přehlednější Nastavení: příbuzné sekce jsou v levém panelu pod společnou rozbalovací položkou (Model a chování, SharePoint, Pošta, Teams a OneDrive, Soukromí a dohled, Kontrola a oprávnění) a dlouhé sekce se rozdělily na menší části. Témata dotazů jsou hned za SharePointem a z mezery ve znalostech je založíte tlačítkem „Vytvořit téma“. Pod obsahem jsou tlačítka Předchozí a Další, každá část je v ⌘K a uložené odkazy fungují dál.",
+          "en": "A clearer Settings: related sections sit in the left panel under a shared expandable item (Model and behaviour, SharePoint, Mail, Teams and OneDrive, Privacy and oversight, Review and permissions) and long sections are split into smaller parts. Query topics come right after SharePoint and you create one from a knowledge gap with “Create topic”. Previous and Next buttons sit below the content, every part is in ⌘K and saved links keep working."
+        },
+        {
+          "type": "improved",
+          "cs": "Adresy AI služby vaší organizace jsou zapsané v licenci a správce v Nastavení › Obecné vidí, zda adresa uložená na webu licenci odpovídá. Při nesouladu AI Asistent zatím funguje dál a nesoulad nahlásí dodavateli (jen adresu služby, web a verzi aplikace).",
+          "en": "The AI service addresses of your organization are recorded in the licence, and the administrator sees in Settings › General whether the address stored on the site matches it. On a mismatch the AI Assistant keeps working for now and reports it to the supplier (only the service address, site and app version)."
+        },
+        {
+          "type": "improved",
+          "cs": "Předání z Mezer a rozporů zakládá ve Workplace úkol jen s obecným textem a odkazem do AI Asistenta – téma, příklady otázek ani názvy dokumentů v úkolu nejsou, protože úkoly ve Workplace vidí každý s přístupem do Workplace. Podrobnosti zůstávají v Přehledu využití a v e-mailu řešiteli.",
+          "en": "A handover from Gaps and conflicts creates a Workplace task with only a general text and a link to the AI Assistant — the topic, sample questions and document names are not in the task, because everyone with access to Workplace sees its tasks. The details stay in the Usage overview and in the e-mail to the person handling it."
+        },
+        {
+          "type": "improved",
+          "cs": "Lekce a ukázková data: lekce, které učí práci s polem zprávy, dotaz už neodešlou za vás – čeká v poli a nad ním je nápověda (přiložit vlastní soubor, nebo „Zkusit s ukázkou“). Lekce fungují i v nové prázdné konverzaci. Ukázková data se řídí jazykem aplikace: v angličtině se nahrají do knihovny „AI samples“, dřív nahrané české ukázky zůstávají v „AI ukázky“.",
+          "en": "Lessons and sample data: lessons that teach the message box no longer send the question for you — it waits in the box with a hint above it (attach your own file, or “Try with a sample”). Lessons also work in a new empty conversation. Sample data follows the app language: in English it is uploaded to the “AI samples” library, Czech samples uploaded earlier stay in “AI ukázky”."
+        },
+        {
+          "type": "improved",
+          "cs": "Projekty se snáz hledají: „Založit projekt“ je v levém panelu hned od první konverzace a nový projekt založíte odkudkoli příkazem „Nový projekt“ v ⌘K.",
+          "en": "Projects are easier to find: “Create project” is in the left panel from the first conversation, and you create a new project from anywhere with “New project” in ⌘K."
+        },
+        {
+          "type": "improved",
+          "cs": "Přesnější grafy a tabulky: o graf stačí požádat – asistent ho vykreslí s rozumnou výchozí volbou a doptá se nejvýš jednou. Tabulky CSV a Excel vybrané v knihovně čte celé až do limitu správce a dostane k nim souhrn spočítaný aplikací, takže součty sedí i u delších tabulek. „Dej to do tabulky“ vykreslí tabulku i u přehledu dokumentů a popisky os už se neořezávají ani u milionů.",
+          "en": "More accurate charts and tables: just ask for a chart — the assistant draws it with a sensible default and asks at most once. CSV and Excel tables picked in a library are read in full up to the administrator’s limit together with a summary calculated by the app, so totals match even for longer tables. “Put it in a table” draws a table for a document overview too, and axis labels are no longer cut off, even for millions."
+        },
+        {
+          "type": "fixed",
+          "cs": "Jazyk odpovědí: na anglický dotaz – i krátký pokyn nebo dotaz s českým jménem – asistent odpovídá anglicky celou odpovědí včetně nadpisů, návrhů a konceptů e-mailů. V anglickém rozhraní jsou anglicky i chybová hlášení AI služby, název výpočtu v kartě Výpočet a hodnoty v porovnání dokumentů, prompty mají v obou jazycích stejný počet úloh.",
+          "en": "Answer language: to an English question — even a short instruction or one with a Czech name — the assistant answers fully in English, including headings, suggestions and e-mail drafts. In the English interface the AI service error messages, the calculation name in the Calculation card and the values in document comparison are in English too, and prompts have the same number of tasks in both languages."
+        },
+        {
+          "type": "fixed",
+          "cs": "Pošta a kalendář spolehlivěji: ranní přehled, „Shrň mi den“, Můj den a poštovní rutiny vidí poštu z celé schránky včetně složek, kam ji třídí pravidla, „co mi přišlo“ neukazuje odeslané ani odstraněné zprávy a přehled dne ví, které schůzky už proběhly. Když zdroj není zapnutý, nabídne se „Zapnout a odpovědět“.",
+          "en": "Mail and calendar, more reliably: the morning briefing, “Summarize my day”, My day and mail routines see mail from the whole mailbox including folders sorted by rules, “what came in” no longer shows sent or deleted messages, and the day overview knows which meetings are already over. When a source is not turned on, “Turn on and answer” is offered."
+        },
+        {
+          "type": "fixed",
+          "cs": "Účty bez poštovní schránky, bez OneDrivu a hosté z jiné organizace: asistent rovnou řekne, co u účtu nejde (pošta, kalendář, Teams, OneDrive, úkoly To Do), a nabídne, co jde bez toho. Už netvrdí, že hledal a nic nenašel, ani neradí žádat o souhlas správce, který je udělený.",
+          "en": "Accounts without a mailbox, without OneDrive and guests from another organization: the assistant says right away what does not work for the account (mail, calendar, Teams, OneDrive, To Do tasks) and offers what works without it. It no longer claims it searched and found nothing, nor advises asking for admin consent that has been granted."
+        },
+        {
+          "type": "fixed",
+          "cs": "Dokument vybraný v knihovně zůstává podkladem celé konverzace, i na další stránce – nad polem ho uvidíte jako štítek „Pracuji s…“ a křížkem ho odeberete. Asistent bere centrální nastavení vždy z hubu, ke kterému web skutečně patří.",
+          "en": "A document picked in a library stays the source for the whole conversation, also on another page — you see it above the message box as a “Working with…” tag and remove it with the cross. The assistant always takes the central settings from the hub the site actually belongs to."
+        },
+        {
+          "type": "fixed",
+          "cs": "Čistší odpovědi: přehledné formátování i s jednodušším modelem AI (bez technických návěští, se správnou českou pomlčkou a uvozovkami), koncept e-mailu jako karta s variantami, rozpory mezi zdroji jako běžná věta a citace jen u zdrojů, které tvrzení opravdu dokládají. Úloha z Prompt Studia s nevyplněným nepovinným údajem už nevloží zástupný text.",
+          "en": "Cleaner answers: clear formatting even with a simpler AI model (no technical labels, correct Czech dashes and quotes), an e-mail draft as a card with variants, conflicts between sources as a plain sentence, and citations only for sources that really support the statement. A Prompt Studio task with an optional field left empty no longer inserts placeholder text."
+        },
+        {
+          "type": "fixed",
+          "cs": "Zkopírovaná odpověď a export do HTML zachovají odkaz i se zpětným apostrofem v adrese. Diagram od AI nemůže překrýt stránku ani načítat obsah odjinud.",
+          "en": "A copied answer and the HTML export keep a link even when its address contains a backtick. A diagram from the AI cannot cover the page or load content from elsewhere."
+        },
+        {
+          "type": "improved",
+          "cs": "Na telefonu je Přehled využití čitelný na celou šířku: souhrnná čísla ve dvou sloupcích, uživatelé jako karty a dlouhé adresy se nerozjedou za okraj.",
+          "en": "On a phone the Usage overview is readable across the full width: summary figures in two columns, users as cards, and long addresses no longer run off the edge."
+        },
         {
           "type": "new",
           "cs": "Výsledek rutiny může přijít i jako karta do Teams – do chatu se sebou, do vybraného chatu nebo do kanálu týmu. Karta nese krátké shrnutí a tlačítko, které otevře celou konverzaci v AI Asistentovi; u e-mailu i tlačítko do Outlooku. Rutina, která hlídá poštu, umí poslat kartu za každý nový e-mail zvlášť a kontrolovat průběžně každých 5 až 60 minut. Nové podmínky pošty: jen zprávy poslané přímo vám, bez hromadné pošty, s vysokou důležitostí, s přílohou nebo se slovem v textu. Zkušební kartou si cíl ověříte předem – aplikace potvrdí, že karta v Teams je, a nabídne odkaz, který chat s ní otevře. Teams na vlastní zprávy neupozorňuje, a tak vám může dát vědět aplikace oznámením z prohlížeče – klik na něj otevře kartu v Teams. Hotový vzor „Důležité e-maily do Teams“ je v Galerii.",
@@ -24,8 +149,8 @@
         },
         {
           "type": "new",
-          "cs": "Témata dotazů s upřednostněnými zdroji: správce v Přehledu využití → Témata dotazů založí téma (třeba HR benefity nebo Projektové řízení), přidá klíčová slova a přiřadí mu weby nebo knihovny. Když se otázka tématu týká, asistent hledá nejdřív tam – mírně (výsledky odtud se posunou výš), silně (aspoň třetina podkladů odtud) nebo nejdřív jen tady. Hranice zdrojů platí dál a nic nového se nezpřístupní: každý dál najde jen to, k čemu má oprávnění. Pod odpovědí je vidět, že asistent hledal nejdřív v místech tématu, a tlačítkem „Hledat bez upřednostnění“ se dá zeptat znovu bez nich. Zkušební otázka v editoru tématu ukáže rozdíl předem a bez AI. Upřednostnění se dá v Nastavení → SharePoint vypnout.",
-          "en": "Query topics with preferred sources: in Usage overview → Query topics an administrator creates a topic (e.g. HR benefits or Project management), adds keywords and assigns sites or libraries to it. When a question is about the topic, the assistant searches there first — mildly (results from there move up), strongly (at least a third of the material from there) or there first only. The source boundary still applies and nothing new becomes accessible: everyone still finds only what they are permitted to see. Under the answer you can see that the assistant searched the topic’s places first, and the “Search without preference” button asks again without them. A test question in the topic editor shows the difference in advance, without AI. The preference can be turned off in Settings → SharePoint."
+          "cs": "Témata dotazů s upřednostněnými zdroji: správce v Nastavení aplikace → Témata dotazů založí téma (třeba HR benefity nebo Projektové řízení), přidá klíčová slova a přiřadí mu weby nebo knihovny. Když se otázka tématu týká, asistent hledá nejdřív tam – mírně (výsledky odtud se posunou výš), silně (aspoň třetina podkladů odtud) nebo nejdřív jen tady. Hranice zdrojů platí dál a nic nového se nezpřístupní: každý dál najde jen to, k čemu má oprávnění. Pod odpovědí je vidět, že asistent hledal nejdřív v místech tématu, a tlačítkem „Hledat bez upřednostnění“ se dá zeptat znovu bez nich. Zkušební otázka v editoru tématu ukáže rozdíl předem a bez AI. Upřednostnění se dá v Nastavení → SharePoint vypnout.",
+          "en": "Query topics with preferred sources: in App settings → Query topics an administrator creates a topic (e.g. HR benefits or Project management), adds keywords and assigns sites or libraries to it. When a question is about the topic, the assistant searches there first — mildly (results from there move up), strongly (at least a third of the material from there) or there first only. The source boundary still applies and nothing new becomes accessible: everyone still finds only what they are permitted to see. Under the answer you can see that the assistant searched the topic’s places first, and the “Search without preference” button asks again without them. A test question in the topic editor shows the difference in advance, without AI. The preference can be turned off in Settings → SharePoint."
         },
         {
           "type": "new",
