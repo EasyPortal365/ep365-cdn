@@ -4,8 +4,8 @@
   "metadata": {
     "_generator": {
       "name": "bicep",
-      "version": "0.47.16.16243",
-      "templateHash": "3186023607072491667"
+      "version": "0.49.2.45890",
+      "templateHash": "2475034916358753786"
     },
     "poznamka": "ARM soubor infra/main.json je VYGENEROVANÝ z tohoto zdroje: az bicep build -f infra/main.bicep --outfile infra/main.json. main.json needitujte ručně – změny dělejte tady a přegenerujte, jinak se zdroj a artefakt tiše rozejdou. CDN kopie šablony pro tlačítko Deploy to Azure dostává při release vyplněný default packageUrl (viz scripts/build-release-zip.ps1)."
   },
@@ -48,11 +48,18 @@
         "description": "Origin SharePoint tenantu pro CORS, např. https://contoso.sharepoint.com (víc originů oddělte čárkou). Funkce je fail-closed — bez této hodnoty prohlížeč volání chatu odmítne."
       }
     },
+    "officeAddinOrigin": {
+      "type": "string",
+      "defaultValue": "https://ai-office.easyportal365.cz",
+      "metadata": {
+        "description": "Původ panelu doplňku EP365 AI Asistent pro Office (Word, PowerPoint, Excel). Přidá se k ALLOWED_ORIGIN, pokud tam ještě není – jinak by ho každé další nasazení smazalo. Prázdné = doplněk Office funkci volat nesmí."
+      }
+    },
     "packageUrl": {
       "type": "string",
-      "defaultValue": "https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.14.12.zip",
+      "defaultValue": "https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.14.16.zip",
       "metadata": {
-        "description": "VOLITELNÉ — URL release zip balíčku s kódem funkce. Vyplněné = WEBSITE_RUN_FROM_PACKAGE ukazuje na tento zip a kód se načte přímo z něj (cesta „Deploy to Azure“). Prázdné = WEBSITE_RUN_FROM_PACKAGE se nastaví na 1 a kód nasadíte zvlášť (deploy skript / zip deploy / func publish / GitHub Actions)."
+        "description": "VOLITELNÉ — URL release zip balíčku s kódem funkce. Vyplněné = šablona zip při nasazení JEDNOU stáhne a uloží do instance (ZipDeploy, cesta „Deploy to Azure“); další verze pak přicházejí podepsanou automatickou aktualizací. Prázdné = kód nasadíte zvlášť (deploy skript / zip deploy / func publish / GitHub Actions). WEBSITE_RUN_FROM_PACKAGE je v obou případech 1."
       }
     },
     "planSku": {
@@ -107,7 +114,7 @@
         "probe"
       ],
       "metadata": {
-        "description": "Automatické aktualizace kódu funkce (app setting EP365_AUTO_UPDATE): on = každou noc kontrola podepsaného manifestu na CDN EasyPortal365 a příprava nové verze (projeví se po příštím restartu), off = vypnuto, probe = jen zkouška zápisu a ověření kanálu, nic se nenasazuje. Funguje jen s prázdným packageUrl (WEBSITE_RUN_FROM_PACKAGE=1)."
+        "description": "Automatické aktualizace kódu funkce (app setting EP365_AUTO_UPDATE): on = každou noc kontrola podepsaného manifestu na CDN EasyPortal365 a příprava nové verze (projeví se po příštím restartu), off = vypnuto, probe = jen zkouška zápisu a ověření kanálu, nic se nenasazuje."
       }
     },
     "updateChannel": {
@@ -133,7 +140,8 @@
       "EP1": "ElasticPremium"
     },
     "usesContentShare": "[or(equals(parameters('planSku'), 'Y1'), equals(parameters('planSku'), 'EP1'))]",
-    "isDedicated": "[and(not(equals(parameters('planSku'), 'Y1')), not(equals(parameters('planSku'), 'EP1')))]"
+    "isDedicated": "[and(not(equals(parameters('planSku'), 'Y1')), not(equals(parameters('planSku'), 'EP1')))]",
+    "allowedOrigins": "[if(or(empty(parameters('officeAddinOrigin')), contains(toLower(parameters('allowedOrigin')), toLower(parameters('officeAddinOrigin')))), parameters('allowedOrigin'), format('{0},{1}', parameters('allowedOrigin'), parameters('officeAddinOrigin')))]"
   },
   "resources": [
     {
@@ -180,13 +188,25 @@
       "kind": "functionapp",
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', format('{0}-plan', parameters('functionAppName')))]",
-        "siteConfig": "[if(variables('isDedicated'), union(createObject('nodeVersion', '~22', 'appSettings', concat(createArray(createObject('name', 'AzureWebJobsStorage', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value))), if(variables('usesContentShare'), createArray(createObject('name', 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)), createObject('name', 'WEBSITE_CONTENTSHARE', 'value', parameters('functionAppName'))), createArray()), createArray(createObject('name', 'FUNCTIONS_EXTENSION_VERSION', 'value', '~4'), createObject('name', 'FUNCTIONS_WORKER_RUNTIME', 'value', 'node'), createObject('name', 'WEBSITE_NODE_DEFAULT_VERSION', 'value', '~22'), createObject('name', 'APPINSIGHTS_INSTRUMENTATIONKEY', 'value', reference(resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName'))), '2020-02-02').InstrumentationKey), createObject('name', 'AZURE_OPENAI_ENDPOINT', 'value', parameters('azureOpenAiEndpoint')), createObject('name', 'AZURE_OPENAI_KEY', 'value', parameters('azureOpenAiKey')), createObject('name', 'AZURE_OPENAI_DEPLOYMENT', 'value', parameters('azureOpenAiDeployment')), createObject('name', 'ALLOWED_ORIGIN', 'value', parameters('allowedOrigin')), createObject('name', 'AAD_TENANT_ID', 'value', parameters('aadTenantId')), createObject('name', 'AAD_CLIENT_ID', 'value', parameters('aadClientId')), createObject('name', 'AAD_CLIENT_SECRET', 'value', parameters('aadClientSecret')), createObject('name', 'EP365_SETTINGS_SITE_URL', 'value', parameters('settingsSiteUrl')), createObject('name', 'EP365_AUTO_UPDATE', 'value', parameters('autoUpdate')), createObject('name', 'EP365_UPDATE_CHANNEL', 'value', parameters('updateChannel')), createObject('name', 'WEBSITE_RUN_FROM_PACKAGE', 'value', if(empty(parameters('packageUrl')), '1', parameters('packageUrl')))))), createObject('alwaysOn', true())), createObject('nodeVersion', '~22', 'appSettings', concat(createArray(createObject('name', 'AzureWebJobsStorage', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value))), if(variables('usesContentShare'), createArray(createObject('name', 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)), createObject('name', 'WEBSITE_CONTENTSHARE', 'value', parameters('functionAppName'))), createArray()), createArray(createObject('name', 'FUNCTIONS_EXTENSION_VERSION', 'value', '~4'), createObject('name', 'FUNCTIONS_WORKER_RUNTIME', 'value', 'node'), createObject('name', 'WEBSITE_NODE_DEFAULT_VERSION', 'value', '~22'), createObject('name', 'APPINSIGHTS_INSTRUMENTATIONKEY', 'value', reference(resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName'))), '2020-02-02').InstrumentationKey), createObject('name', 'AZURE_OPENAI_ENDPOINT', 'value', parameters('azureOpenAiEndpoint')), createObject('name', 'AZURE_OPENAI_KEY', 'value', parameters('azureOpenAiKey')), createObject('name', 'AZURE_OPENAI_DEPLOYMENT', 'value', parameters('azureOpenAiDeployment')), createObject('name', 'ALLOWED_ORIGIN', 'value', parameters('allowedOrigin')), createObject('name', 'AAD_TENANT_ID', 'value', parameters('aadTenantId')), createObject('name', 'AAD_CLIENT_ID', 'value', parameters('aadClientId')), createObject('name', 'AAD_CLIENT_SECRET', 'value', parameters('aadClientSecret')), createObject('name', 'EP365_SETTINGS_SITE_URL', 'value', parameters('settingsSiteUrl')), createObject('name', 'EP365_AUTO_UPDATE', 'value', parameters('autoUpdate')), createObject('name', 'EP365_UPDATE_CHANNEL', 'value', parameters('updateChannel')), createObject('name', 'WEBSITE_RUN_FROM_PACKAGE', 'value', if(empty(parameters('packageUrl')), '1', parameters('packageUrl')))))))]",
+        "siteConfig": "[if(variables('isDedicated'), union(createObject('nodeVersion', '~22', 'appSettings', concat(createArray(createObject('name', 'AzureWebJobsStorage', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value))), if(variables('usesContentShare'), createArray(createObject('name', 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)), createObject('name', 'WEBSITE_CONTENTSHARE', 'value', parameters('functionAppName'))), createArray()), createArray(createObject('name', 'FUNCTIONS_EXTENSION_VERSION', 'value', '~4'), createObject('name', 'FUNCTIONS_WORKER_RUNTIME', 'value', 'node'), createObject('name', 'WEBSITE_NODE_DEFAULT_VERSION', 'value', '~22'), createObject('name', 'APPINSIGHTS_INSTRUMENTATIONKEY', 'value', reference(resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName'))), '2020-02-02').InstrumentationKey), createObject('name', 'AZURE_OPENAI_ENDPOINT', 'value', parameters('azureOpenAiEndpoint')), createObject('name', 'AZURE_OPENAI_KEY', 'value', parameters('azureOpenAiKey')), createObject('name', 'AZURE_OPENAI_DEPLOYMENT', 'value', parameters('azureOpenAiDeployment')), createObject('name', 'ALLOWED_ORIGIN', 'value', variables('allowedOrigins')), createObject('name', 'AAD_TENANT_ID', 'value', parameters('aadTenantId')), createObject('name', 'AAD_CLIENT_ID', 'value', parameters('aadClientId')), createObject('name', 'AAD_CLIENT_SECRET', 'value', parameters('aadClientSecret')), createObject('name', 'EP365_SETTINGS_SITE_URL', 'value', parameters('settingsSiteUrl')), createObject('name', 'EP365_AUTO_UPDATE', 'value', parameters('autoUpdate')), createObject('name', 'EP365_UPDATE_CHANNEL', 'value', parameters('updateChannel')), createObject('name', 'WEBSITE_RUN_FROM_PACKAGE', 'value', '1')))), createObject('alwaysOn', true())), createObject('nodeVersion', '~22', 'appSettings', concat(createArray(createObject('name', 'AzureWebJobsStorage', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value))), if(variables('usesContentShare'), createArray(createObject('name', 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING', 'value', format('DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.windows.net', variables('storageAccountName'), listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)), createObject('name', 'WEBSITE_CONTENTSHARE', 'value', parameters('functionAppName'))), createArray()), createArray(createObject('name', 'FUNCTIONS_EXTENSION_VERSION', 'value', '~4'), createObject('name', 'FUNCTIONS_WORKER_RUNTIME', 'value', 'node'), createObject('name', 'WEBSITE_NODE_DEFAULT_VERSION', 'value', '~22'), createObject('name', 'APPINSIGHTS_INSTRUMENTATIONKEY', 'value', reference(resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName'))), '2020-02-02').InstrumentationKey), createObject('name', 'AZURE_OPENAI_ENDPOINT', 'value', parameters('azureOpenAiEndpoint')), createObject('name', 'AZURE_OPENAI_KEY', 'value', parameters('azureOpenAiKey')), createObject('name', 'AZURE_OPENAI_DEPLOYMENT', 'value', parameters('azureOpenAiDeployment')), createObject('name', 'ALLOWED_ORIGIN', 'value', variables('allowedOrigins')), createObject('name', 'AAD_TENANT_ID', 'value', parameters('aadTenantId')), createObject('name', 'AAD_CLIENT_ID', 'value', parameters('aadClientId')), createObject('name', 'AAD_CLIENT_SECRET', 'value', parameters('aadClientSecret')), createObject('name', 'EP365_SETTINGS_SITE_URL', 'value', parameters('settingsSiteUrl')), createObject('name', 'EP365_AUTO_UPDATE', 'value', parameters('autoUpdate')), createObject('name', 'EP365_UPDATE_CHANNEL', 'value', parameters('updateChannel')), createObject('name', 'WEBSITE_RUN_FROM_PACKAGE', 'value', '1')))))]",
         "httpsOnly": true
       },
       "dependsOn": [
         "[resourceId('Microsoft.Insights/components', format('{0}-insights', parameters('functionAppName')))]",
         "[resourceId('Microsoft.Web/serverfarms', format('{0}-plan', parameters('functionAppName')))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+      ]
+    },
+    {
+      "condition": "[not(empty(parameters('packageUrl')))]",
+      "type": "Microsoft.Web/sites/extensions",
+      "apiVersion": "2023-01-01",
+      "name": "[format('{0}/{1}', parameters('functionAppName'), 'ZipDeploy')]",
+      "properties": {
+        "packageUri": "[parameters('packageUrl')]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
       ]
     }
   ],

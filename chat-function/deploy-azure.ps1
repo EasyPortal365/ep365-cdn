@@ -394,11 +394,11 @@ if ($AzureOpenAiDeployment -eq '') { $AzureOpenAiDeployment = $OpenAiModelName }
 # (typicky Azure Cloud Shell). URL zipu aktualizuje EasyPortal365 pri kazdem release
 # (viz scripts/build-release-zip.ps1).
 $CdnTemplateUrl = 'https://cdn.easyportal365.cz/chat-function/main.json'
-$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.14.12.zip'
+$CdnPackageUrl  = 'https://cdn.easyportal365.cz/chat-function/ep365-chat-function-1.14.16.zip'
 # SHA256 zipu z $CdnPackageUrl - drzi ho build-release-zip.ps1 spolu s URL. Bezpecnostni
 # audit 2026-11-16 (E-2): zip z CDN se pred config-zip overi proti tomuto otisku. Otisk
 # je v kopii skriptu z repa, ne vedle zipu na CDN, takze prepsany zip na CDN neprojde.
-$CdnPackageSha256 = 'f03646a2b1fb4b9aee106d036bacebe01477affbc9907e5366febf6326fcea40'
+$CdnPackageSha256 = '6df2065601190af831e4cf6e0e92d1c7de642154da7770fa29c65d1efa6b0e43'
 
 # Docasna slozka - $env:TEMP na Windows, GetTempPath() v Azure Cloud Shellu (Linux)
 $TempBase = $env:TEMP
