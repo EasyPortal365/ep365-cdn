@@ -4,7 +4,7 @@
  * Duvod: Front Door drzel trust.json podle max-age=600 az ~12 min po publikaci (lekce 46.1).
  *   node tools/azure-blob-cache.test.mjs      # 0 = OK
  */
-import { cacheControlFor, CACHE_CONTROL, CACHE_CONTROL_INDEX, isPublished } from './azure-blob-lib.mjs';
+import { cacheControlFor, CACHE_CONTROL, CACHE_CONTROL_INDEX, CACHE_CONTROL_NO_STORE, isPublished } from './azure-blob-lib.mjs';
 
 const cases = [
   ['documents/trust.json', CACHE_CONTROL_INDEX],
@@ -17,6 +17,10 @@ const cases = [
   ['documents/ep-365-documents-loader.js', CACHE_CONTROL],
   ['licenses/abc.json', CACHE_CONTROL],
   ['pages/trust.json.html', CACHE_CONTROL],
+  ['ai-office/assets/loader-a042a27a31.js', CACHE_CONTROL_NO_STORE],
+  ['ai-office/assets/icon-32.png', CACHE_CONTROL],
+  ['ai-office/app/1.0.0.6/app.js', CACHE_CONTROL],
+  ['documents/assets/loader-a042a27a31.js', CACHE_CONTROL],
 ];
 let fails = 0;
 for (const [p, want] of cases) {

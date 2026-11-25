@@ -24,8 +24,14 @@ export const CACHE_CONTROL = 'max-age=600';
 // expiration) – okraj drzi kopii 60 s, prohlizec dal 600 s (zavadec cte s cache:'no-cache').
 export const CACHE_CONTROL_INDEX = 'max-age=600, s-maxage=60';
 const INDEX_FILES = new Set(['trust.json', 'versions.json', 'releases.json', 'catalog.json', 'changelog.json']);
+// Zavadec panelu doplnku Office bez cache (2026-11-25): poskozena cache WebView2 (ERR_CACHE_READ_FAILURE)
+// ho jinak nenacte a samooprava v nem nema kde zacit. Ma 1 kB, stahuje se pri kazdem otevreni panelu.
+export const CACHE_CONTROL_NO_STORE = 'no-store';
+const NO_STORE = /^ai-office\/assets\/loader-[0-9a-f]{10}\.js$/;
 export function cacheControlFor(p) {
-  const base = String(p).split('/').pop();
+  const s = String(p);
+  if (NO_STORE.test(s)) return CACHE_CONTROL_NO_STORE;
+  const base = s.split('/').pop();
   return INDEX_FILES.has(base) ? CACHE_CONTROL_INDEX : CACHE_CONTROL;
 }
 
