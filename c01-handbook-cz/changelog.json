@@ -5,7 +5,7 @@
   "entries": [
     {
       "version": "1.0",
-      "date": "2026-11-26",
+      "date": "2026-11-27",
       "changes": [
         {
           "type": "new",
@@ -34,8 +34,8 @@
         },
         {
           "type": "new",
-          "cs": "Oběh dokumentu: připomínky po kolech s odpovědí autora u každé připomínky, kontrola QT podle kontrolního seznamu a schválení. Úkol se otevře rovnou jako rozhodnutí s náhledem a popisem změny. Kdo na verzi pracoval, ji nekontroluje ani neschvaluje.",
-          "en": "Document workflow: comment rounds with the author’s answer to each comment, QA check against a checklist and approval. A task opens directly as a decision with a preview and the change description. Whoever worked on a version never checks or approves it."
+          "cs": "Oběh dokumentu: připomínky po kolech s odpovědí autora u každé připomínky, kontrola QT podle kontrolního seznamu a schválení. Úkol se otevře rovnou jako rozhodnutí s náhledem a popisem změny. Kdo na verzi pracoval – i na první verzi a i úpravou souboru mimo aplikaci –, ji nekontroluje ani neschvaluje a ve výběru schvalovatele se nenabízí; když nikdo jiný nezbývá, formulář poradí, co udělat.",
+          "en": "Document workflow: comment rounds with the author’s answer to each comment, QA check against a checklist and approval. A task opens directly as a decision with a preview and the change description. Whoever worked on a version — including the first version and edits to the file outside the app — never checks or approves it and is not offered as approver; if nobody else is left, the form explains what to do."
         },
         {
           "type": "new",
@@ -44,8 +44,8 @@
         },
         {
           "type": "new",
-          "cs": "Vydání do Publikovaných: schválený dokument vydá člen skupiny QT nebo správce tlačítkem „Vydat do Publikovaných“ – samo se nic nevydá. Vydání přidělí číslo (například R1_01_0001), vyplní hlavičku Wordu a pojmenované buňky Excelu, převede dokument do PDF s čísly stran v obsahu, archivuje předchozí verzi a rozešle oznámení. Přerušené vydání se dokončí bez zdvojení.",
-          "en": "Publishing: a QA member or an administrator publishes an approved document with “Publish to Published” — nothing is published automatically. Publishing assigns the number (for example R1_01_0001), fills the Word header and named Excel cells, converts the document to PDF with page numbers in the contents, archives the previous version and sends the notice. An interrupted release finishes without duplicates."
+          "cs": "Vydání do Publikovaných: schválený dokument vydá během několika minut tok Power Automate, i když aplikaci nikdo z kvality neotevře; když se vydání nepodaří nebo do 30 minut nezačne, vydá ho člen skupiny QT nebo správce tlačítkem. Kdo vydává, se volí v Nastavení → Workflow; tok dodáváme jako balík k importu. Vydání přidělí číslo (například R1_01_0001), vyplní hlavičku Wordu a pojmenované buňky Excelu (u starších sešitů buňky vedle štítků v hlavičce listu), převede dokument do PDF s čísly stran v obsahu, archivuje předchozí verzi a rozešle oznámení. Soubor se jmenuje číslo_název_závody a nová verze ho přepíše, takže sdílené odkazy platí dál. Přerušené vydání se dokončí bez zdvojení.",
+          "en": "Publishing: a Power Automate flow publishes an approved document within a few minutes, even if nobody from quality opens the app; if publishing fails or does not start within 30 minutes, a QA member or an administrator publishes it with a button. Who publishes is set in Settings → Workflow; the flow comes as a package to import. Publishing assigns the number (for example R1_01_0001), fills the Word header and named Excel cells (in older workbooks the cell next to the labels in the sheet header), converts the document to PDF with page numbers in the contents, archives the previous version and sends the notice. The file is named number_title_plants and a new version overwrites it, so shared links keep working. An interrupted release finishes without duplicates."
         },
         {
           "type": "new",
@@ -54,8 +54,13 @@
         },
         {
           "type": "new",
-          "cs": "Revize: termín podle druhu dokumentu, úkol autorovi 30 dní předem, revize beze změny se schválením nebo se změnou jako nová verze. Záznam o revizi se zapíše do dokumentu a platný dokument nese štítek „Revidováno“.",
-          "en": "Review: due date by document type, a task for the author 30 days ahead, review without changes with approval or with changes as a new version. The review record is written into the document and a valid document shows a “Reviewed” tag."
+          "cs": "Revize: termín podle druhu dokumentu, úkol autorovi 30 dní předem, revize beze změny se schválením nebo se změnou jako nová verze. Záznam o revizi se zapíše do dokumentu (v Excelu do buněk EP365_RevizeProvedl, EP365_RevizeSchvalil a EP365_RevizeDatum) a platný dokument nese štítek „Revidováno“.",
+          "en": "Review: due date by document type, a task for the author 30 days ahead, review without changes with approval or with changes as a new version. The review record is written into the document (in Excel into the cells EP365_RevizeProvedl, EP365_RevizeSchvalil and EP365_RevizeDatum) and a valid document shows a “Reviewed” tag."
+        },
+        {
+          "type": "new",
+          "cs": "Úprava rozpracovaného souboru mimo aplikaci: detail dokumentu ukáže, kdo a kdy soubor upravil, a ten, kdo verzi vede, dostane e-mail – o témže zásahu jen jednou.",
+          "en": "Editing a work-in-progress file outside the app: the document detail shows who edited the file and when, and whoever leads the version gets an e-mail — only once for the same edit."
         },
         {
           "type": "new",
@@ -104,8 +109,8 @@
         },
         {
           "type": "improved",
-          "cs": "Spolehlivost: srozumitelné české hlášky, opakované pokusy při výpadku SharePointu, soubory do 150 MB a vadné soubory se zápisem do Průběhu – vydání ani archivace na nich neuvíznou.",
-          "en": "Reliability: clear messages, retries when SharePoint is unavailable, files up to 150 MB, and faulty files recorded in the progress log — neither publishing nor archiving gets stuck on them."
+          "cs": "Spolehlivost: srozumitelné české hlášky, opakované pokusy při výpadku SharePointu, soubory do 150 MB a vadné soubory se zápisem do Průběhu – vydání ani archivace na nich neuvíznou. Údaje dokumentu nepřepíše ani soubor převzatý z jiného dokumentu.",
+          "en": "Reliability: clear messages, retries when SharePoint is unavailable, files up to 150 MB, and faulty files recorded in the progress log — neither publishing nor archiving gets stuck on them. A file taken over from another document does not overwrite the document’s details either."
         }
       ]
     }
