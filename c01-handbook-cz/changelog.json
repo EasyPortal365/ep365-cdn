@@ -9,6 +9,26 @@
       "changes": [
         {
           "type": "new",
+          "cs": "Průvodce s hlasem pro každou obrazovku: tlačítko ▶ v hlavičce provede právě otevřenou obrazovkou – Publikované, Vyhledávání, Stránku procesu, Moje dokumenty, Moje úkoly, Ve zpracování, Řízené výtisky, archivy, Pomocníka, Přehled využití i Nápovědu.",
+          "en": "Voiced guide for every screen: the ▶ button in the header walks you through the screen you have open — Published, Search, Process page, My documents, My tasks, In progress, Controlled copies, archives, Assistant, Usage overview and Help."
+        },
+        {
+          "type": "improved",
+          "cs": "Průvodce a fronta Ve zpracování popisují vydání schválených dokumentů tak, jak skutečně probíhá: vydá je tok, jinak QT nebo správce.",
+          "en": "The guide and the In progress queue describe how approved documents are released: by the flow, otherwise by QT or the administrator."
+        },
+        {
+          "type": "new",
+          "cs": "Jméno v úvodním pozdravu: v Nastavení → Obecné zvolíte, jestli pozdrav na Domů oslovuje křestním jménem z profilu Microsoft 365, prvním nebo druhým slovem zobrazovaného jména (formát „Příjmení Jméno“), nebo bez jména. Jméno je vždy v 5. pádě a přípony jako EXT se v pozdravu neobjeví.",
+          "en": "Name in the greeting: in Settings → General you choose whether the Home greeting uses the first name from the Microsoft 365 profile, the first or second word of the display name (“Surname Name” format), or no name. Suffixes such as EXT never appear in the greeting."
+        },
+        {
+          "type": "improved",
+          "cs": "Aplikace si pamatuje zvětšení na celou obrazovku: když ji zvětšíte, při dalším otevření stránky naběhne rovnou zvětšená, dokud zvětšení nevypnete.",
+          "en": "The app remembers full screen: once you enlarge it, it opens enlarged next time until you switch full screen off."
+        },
+        {
+          "type": "new",
           "cs": "Stránka Domů: pozdrav, výběr závodu, dlaždice podle vaší role, panel „Čeká na vás“ s prvními úkoly, Nedávno publikované a kontaktní osoby.",
           "en": "Home page: greeting, plant selection, tiles for your role, a “Waiting for you” panel with your first tasks, Recently published and contact persons."
         },
