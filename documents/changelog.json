@@ -5,8 +5,93 @@
   "entries": [
     {
       "version": "1.18",
-      "date": "2026-11-16",
+      "date": "2026-11-27",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Řízení dokumentů v knihovně, kterou už máte: v Nastavení → Úložiště připojíte knihovnu SharePointu na tomto webu nebo jinde v tenantu a aplikace v ní řídí dokumenty na místě – soubory se nekopírují ani nepřesouvají a lidé v knihovně pracují jako dřív. Průvodce knihovnu zkontroluje (verze, schvalování obsahu, práva schvalovatelů) a co nevyhovuje, opraví až po potvrzení plánu a zapíše, jak zásah vrátit. Pak přiřadíte sloupce a kategorie a dnešní soubory zaregistrujete – verze schválené mimo aplikaci můžete převzít jako platné. Novou verzi upravíte přímo v knihovně a ke schválení ji pošlete v detailu dokumentu; schválením se v knihovně zveřejní. Karta Změněno mimo řízení ukáže, co se v knihovně stalo bez aplikace: rozpracované verze, verze schválené mimo aplikaci, přesunuté a chybějící soubory i soubory bez záznamu.",
+          "en": "Managing documents in a library you already have: in Settings → Storage you connect a SharePoint library on this site or elsewhere in the tenant, and the app manages the documents in it in place — files are not copied or moved, and people keep working in the library as before. The guide checks the library (versions, content approval, approvers’ rights) and fixes whatever does not fit only after you confirm a plan, recording how to undo each change. Then you match columns and categories and register today’s files — versions approved outside the app can be taken over as current. You edit a new version straight in the library and send it for approval in the document detail; approval publishes it in the library. The Changed outside the app card shows what happened in the library without the app: work-in-progress versions, versions approved outside the app, moved and missing files, and files not on record."
+        },
+        {
+          "type": "new",
+          "cs": "Import dokumentů (Nastavení → Import dokumentů): převezme dokumenty, které už máte v jiné knihovně na webu nebo v tenantu. Kategorii určíte výchozí volbou nebo podle složky, stav Platný pro dokumenty schválené mimo aplikaci nebo Koncept ke schválení. Volitelná tabulka CSV doplní číslo, garanta, oblasti, verzi a platnost. Nejdřív uvidíte náhled, co se založí, aktualizuje nebo přeskočí a proč; zapisuje se až po potvrzení a opakovaný import dokumenty nezdvojí.",
+          "en": "Document import (Settings → Document import): takes over documents you already keep in another library on this site or in the tenant. The category comes from a default choice or from the folder, and the status is Valid for documents approved outside the app or Draft for approval. An optional CSV table adds the number, owner, areas, version and validity. You first see a preview of what will be created, updated or skipped and why; nothing is written until you confirm, and running the import again does not duplicate documents."
+        },
+        {
+          "type": "new",
+          "cs": "Nová verze už platného dokumentu jde přes schválení. Vydavatel ji nahraje v detailu dokumentu na záložce Soubor, schvalovatel kategorie ji porovná s platnou verzí a schválí nebo zamítne. Do schválení platí a lidé čtou dosavadní verzi. Po schválení se samo otevře nové kolo seznámení stejným adresátům – u drobné opravy (překlep, formátování) jde zvolit, že dosavadní potvrzení platí dál. Označení verzí volíte sami: u nového dokumentu zadáte první verzi (výchozí v1.0, ale třeba i „Rev 0.1“) a u další verze vyberete drobnou, hlavní nebo vlastní označení.",
+          "en": "A new version of a document already in force now goes through approval. The publisher uploads it in the document detail on the File tab, the approver of the category compares it with the current version and approves or rejects it. Until then the current version stays in force and is what people read. Once approved, a new acknowledgement round opens automatically for the same recipients — for a minor correction (a typo, formatting) you can choose to keep the existing confirmations valid. You choose the version labels yourself: for a new document you enter the first version (v1.0 by default, or for example “Rev 0.1”), and for the next version you pick a minor, a major or your own label."
+        },
+        {
+          "type": "new",
+          "cs": "Číslo dokumentu: ve formuláři i v detailu dokumentu zadáte vlastní číslo (třeba SM-015) a aplikace ohlídá, aby se neopakovalo. Kategorie může mít prefix číselné řady – dokument bez vlastního čísla pak dostane další volné číslo při schválení. Tvar čísla (třeba SM-001 nebo SM-2026-001) nastavíte v Nastavení → Číslování a oblasti. U dokumentu dále uvedete garanta obsahu – kdo za obsah odpovídá – a zařadíte ho vedle kategorie do jedné nebo více oblastí (třeba útvar nebo proces); číselník oblastí spravuje správce tamtéž.",
+          "en": "Document number: in the form and in the document detail you enter your own number (SM-015, for example) and the app makes sure it is not repeated. A category can have a number series prefix — a document without its own number then gets the next free number on approval. You set the number format (SM-001 or SM-2026-001, for example) in Settings → Numbering and areas. On a document you can also name the content owner — who is responsible for its content — and put it into one or more areas next to its category (a department or a process, for example); the administrator manages the list of areas in the same place."
+        },
+        {
+          "type": "new",
+          "cs": "Automatické připomínky termínu seznámení: zapnete je v Nastavení → Lhůty a připomínky. Připomenou těm, kdo ještě nepotvrdili – před termínem, den po něm a pak jednou týdně, po termínu s upozorněním nadřízeným. Odesílají se při otevření aplikace správcem nebo vydavatelem, z jeho schránky, nejvýš jednou denně.",
+          "en": "Automatic acknowledgement reminders: turn them on in Settings → Deadlines & reminders. They remind those who have not confirmed yet — before the deadline, the day after it and then once a week, after the deadline with a notice to their line managers. They are sent when an administrator or publisher opens the app, from their mailbox, at most once a day."
+        },
+        {
+          "type": "new",
+          "cs": "Revize obsahu: u kategorie nastavíte, jak často se má obsah dokumentů ověřit (např. každých 12 měsíců). Termín revize uvidíte v detailu dokumentu a vydavatel dostane 30 dní předem úkol ve Workplace a e-mail.",
+          "en": "Content review: on a category you set how often the content of its documents should be checked (every 12 months, for example). The review date shows in the document detail, and the publisher gets a task in Workplace and an e-mail 30 days ahead."
+        },
+        {
+          "type": "new",
+          "cs": "Zástup jen v období a skupina jako schvalovatel: u kategorie nastavíte, od kdy do kdy zástup schvaluje místo schvalovatele (žádosti pak jdou jen jemu), a schvalovatelem může být i skupina Entra ID – žádost dostanou všichni její členové a vyřídí ji první z nich.",
+          "en": "Deputy for a period and a group as approver: on a category you set from when to when the deputy approves instead of the approver (requests then go to the deputy only), and the approver can also be an Entra ID group — every member gets the request and the first one handles it."
+        },
+        {
+          "type": "new",
+          "cs": "Nová část Nastavení → Nasazení EP365: přehled aplikací EP365 na všech webech, ke kterým máte přístup – u každé aplikace verze datových struktur na webu a verze, kterou potřebuje kód, který web skutečně načítá. Čekající weby dorovnáte jedním tlačítkem Aktualizovat vše: přidávají se jen seznamy a sloupce, nic se nemaže, a zastavit jde po aktuálním webu.",
+          "en": "New Settings → EP365 deployment section: an overview of EP365 apps on every site you can access — for each app, the version of the site data structures and the version the code the site actually loads needs. Bring waiting sites up to date with one Update all button: only lists and columns are added, nothing is deleted, and you can stop after the current site."
+        },
+        {
+          "type": "improved",
+          "cs": "Koncepty a nové verze dokumentů ke schválení leží ve vlastní složce, kterou otevřou jen vydavatelé, schvalovatelé a správci – ostatní zaměstnanci je neotevřou ani přímým odkazem. Dosavadní koncepty se do ní přesunou samy. Když schvalovatel nemá v úložišti právo zápisu, dokument po schválení přejde do stavu „Schváleno – čeká na zveřejnění“ (u nové verze do té doby platí ta dosavadní) a zveřejnění dokončí vydavatel nebo správce – samo při jejich příštím otevření aplikace, nebo tlačítkem Zveřejnit na nové záložce Ke zveřejnění ve Frontě publikace. Vydavatel o tom dostane e-mail.",
+          "en": "Drafts and new versions of documents awaiting approval are kept in their own folder that only publishers, approvers and administrators can open — other employees cannot open them, not even with a direct link. Existing drafts are moved there automatically. When the approver cannot write to the storage library, an approved document goes to the status “Approved — waiting to be published” (for a new version, the current one stays in force until then) and the publisher or an administrator completes the publication — by itself the next time they open the app, or with the Publish button on the new To publish tab in the Publication queue. The publisher gets an e-mail about it."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení aplikace má přehlednější levé menu: sekce jsou seřazené do skupin Pravidla, Vzhled a Správa. Sekci najdete i přes ⌘K / Ctrl+K, odkaz na otevřenou sekci vede rovnou na ni (i po obnovení stránky a tlačítkem Zpět) a na telefonu je Nastavení přehledný seznam sekcí.",
+          "en": "The application settings have a clearer left-hand menu: the sections are arranged into the groups Rules, Appearance and Administration. You can also find a section with ⌘K / Ctrl+K, a link to the open section leads straight to it (even after refreshing the page and with the Back button), and on a phone Settings is a clear list of sections."
+        },
+        {
+          "type": "improved",
+          "cs": "Když nová verze aplikace potřebuje doplnit seznamy nebo sloupce webu a otevře ji uživatel bez oprávnění tuto aktualizaci dokončit, aplikace dál běží a klidně oznámí, že aktualizace čeká na správce webu – ten ji dokončí automaticky při svém příštím otevření aplikace.",
+          "en": "When a new version of the app needs to add lists or columns to the site and it is opened by a user without permission to complete that update, the app keeps working and calmly says the update is waiting for a site owner, who completes it automatically the next time they open the app."
+        },
+        {
+          "type": "improved",
+          "cs": "Úkoly, které Řízené dokumenty zakládají ve Workplace (schválení, přepracování, potvrzení seznámení), nesou už jen název dokumentu a obecný popis. Popis dokumentu ani důvod zamítnutí do úkolu nepíšeme, protože úkoly ve Workplace může číst kdokoli s přístupem k hubu. Důvod zamítnutí najde vydavatel u dokumentu. Úkoly založené dřív se na obecný text přepíší samy, až jejich autor příště otevře Řízené dokumenty.",
+          "en": "Tasks that Controlled Documents creates in Workplace (approval, rework, acknowledgement) now carry only the document name and a general description. The document description and the rejection reason are no longer written into the task, because anyone with access to the hub can read Workplace tasks. The publisher finds the rejection reason on the document. Tasks created earlier are rewritten to the general text automatically the next time their author opens Controlled Documents."
+        },
+        {
+          "type": "fixed",
+          "cs": "Trvalé smazání dokumentu pošle do koše i soubory dřívějších verzí a úkoly k dokumentu ve Workplace; totéž platí pro úklid ukázkových dat. Úkol „Přepracujte dokument“ se po novém odeslání ke schválení sám uzavře.",
+          "en": "Permanently deleting a document also moves the files of its earlier versions and its tasks in Workplace to the recycle bin; the same applies to clearing the sample data. The “Rework the document” task closes itself once the document is sent for approval again."
+        },
+        {
+          "type": "fixed",
+          "cs": "Firemní údaje v e-mailech, motiv a odkazy na podporu se berou vždy z hubu, ke kterému web patří.",
+          "en": "Company details in emails, the theme and support links always come from the hub the site belongs to."
+        },
+        {
+          "type": "fixed",
+          "cs": "Náhled dokumentu pozná typ souboru jen podle jeho skutečného názvu, ne podle doplňku v adrese – soubor, který se za PDF jen vydává, se v náhledu nespustí.",
+          "en": "The document preview now determines the file type from the actual file name only, not from extra text in the address — a file merely posing as a PDF is not run in the preview."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace spolehlivěji načítá svou aktuální verzi a licenci: po vydání novinky se k ní dostanete do pár minut a starší licenční soubor už nemůže nahradit novější. Správce aplikace v Nastavení včas uvidí upozornění, kdyby licenční soubor potřeboval obnovit.",
+          "en": "The app loads its current version and licence more reliably: after an update you get it within minutes, and an older licence file can no longer replace a newer one. App admins see a notice in Settings in good time if the licence file needs renewing."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nápověda u oprávnění Microsoft Graph správně uvádí, kdo je schvaluje: globální správce (Global Administrator). Správci SharePointu na to role nestačí.",
+          "en": "The help for Microsoft Graph permissions now correctly states who approves them: a Global Administrator. The SharePoint Administrator role is not enough."
+        },
         {
           "type": "fixed",
           "cs": "Potvrzení seznámení zapsané z papíru se započte jen tehdy, když aplikace ověří, že ho zapsal někdo oprávněný (správce nebo přímý nadřízený). Když se to v danou chvíli ověřit nepodaří, potvrzení se zatím nepočítá a nese jantarový štítek „z papíru – čeká na ověření“. Započte se samo, jakmile ověření projde – v přehledu, exportu i evidenčním balíčku.",
