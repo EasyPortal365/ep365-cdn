@@ -6,14 +6,23 @@
   <meta name="robots" content="noindex">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://appsforoffice.microsoft.com https://ajax.aspnetcdn.com https://alcdn.msauth.net https://ai-office.easyportal365.cz https://cdn.easyportal365.cz; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https:; frame-src 'self' https://login.microsoftonline.com; base-uri 'none'; form-action 'none'">
   <meta name="ep365-version" content="1.0.0.1">
-  <meta name="ep365-early" content="1.0.0.25">
+  <meta name="ep365-early" content="1.0.0.26">
   <meta name="ep365-early-tenants" content="66c95b26-3137-477a-a6fa-e6f2eb255247">
   <meta name="ep365-mirrors" content="https://ai-office.easyportal365.cz/ https://cdn.easyportal365.cz/ai-office/">
   <title>EP365 AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link id="ep365-fonts" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;600&family=JetBrains+Mono:wght@600&family=Fraunces:ital@1&display=swap">
+  <style>html,body{margin:0;height:100%;background:#fff}
+.ep-splash{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#fff}
+.ep-splash svg{width:40px;height:40px}
+.ep-splash-bar{position:relative;width:72px;height:3px;border-radius:3px;background:#EAEFF6;overflow:hidden}
+.ep-splash-bar::after{content:'';position:absolute;top:0;left:-40%;width:40%;height:100%;border-radius:3px;background:#00CED7;animation:ep-splash 1.1s ease-in-out infinite}
+@keyframes ep-splash{to{left:100%}}</style>
   <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 </head>
 <body>
-  <div id="root">Načítám… · Loading…</div>
+  <div id="root"><div class="ep-splash" data-ep365-loader="1" role="status" aria-label="EP365 AI"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#00CED7"/><path d="M9 8h14a2.5 2.5 0 0 1 2.5 2.5v9A2.5 2.5 0 0 1 23 22H13.5L9.5 25.5V22H9a2.5 2.5 0 0 1-2.5-2.5v-9A2.5 2.5 0 0 1 9 8z" fill="#fff"/><path d="M15.5 10.2l1 3.8 3.8 1-3.8 1-1 3.8-1-3.8-3.8-1 3.8-1z" fill="#00CED7"/><path d="M21.6 17.4l.45 1.45 1.45.45-1.45.45-.45 1.45-.45-1.45-1.45-.45 1.45-.45z" fill="#00CED7"/></svg><div class="ep-splash-bar"></div></div></div>
   <script src="assets/loader-37c5ebe03f.js"></script>
 </body>
 </html>
