@@ -5,8 +5,58 @@
   "entries": [
     {
       "version": "1.4",
-      "date": "2026-11-17",
+      "date": "2026-11-27",
       "changes": [
+        {
+          "type": "new",
+          "cs": "Nová část Nastavení → Na tomto webu: pro každý web zvlášť si vyberete, čím aplikace začne – Mými soubory, knihovnami toho webu, nebo jednou konkrétní knihovnou. Na týmovém webu tak lidé rovnou vidí dokumenty, se kterými pracují.",
+          "en": "New Settings → On this site: for each site separately you choose what the app starts with — My files, that site’s libraries, or one specific library. On a team site people then see the documents they actually work with right away."
+        },
+        {
+          "type": "new",
+          "cs": "Průvodce uložením umí nabídnout nejdřív knihovny webu, na kterém jste. Oblíbená a nedávná místa, procházení webů i vložení odkazu zůstávají vedle – nabídka neomezuje, kam se smí ukládat.",
+          "en": "The upload guide can offer the libraries of the site you are on first. Favourite and recent places, browsing sites and pasting a link stay next to it — the shortlist does not limit where you may save."
+        },
+        {
+          "type": "new",
+          "cs": "Podtitulek v hlavičce aplikace jde nastavit pro jednotlivý web, takže na týmovém webu může nést jeho jméno.",
+          "en": "The subtitle in the app header can be set per site, so on a team site it can carry that site’s name."
+        },
+        {
+          "type": "fixed",
+          "cs": "Nabídka míst už neukazuje systémová úložiště SharePointu (Knihovna stylů, Prostředky webu, Šablony formulářů) ani úložiště prostředků EP365 – do těch dokumenty nepatří.",
+          "en": "The place picker no longer lists SharePoint’s system storage (Style Library, Site Assets, Form Templates) or the EP365 assets library — documents do not belong there."
+        },
+        {
+          "type": "fixed",
+          "cs": "Poslední otevřené místo si aplikace pamatuje pro každý web zvlášť. Dřív se volba z jednoho webu přenesla i na ostatní.",
+          "en": "The last place you opened is remembered per site. Previously a choice made on one site carried over to the others."
+        },
+        {
+          "type": "fixed",
+          "cs": "Firemní údaje, motiv, typy dokumentů a odkazy na podporu se berou vždy z hubu, ke kterému web patří.",
+          "en": "Company details, the theme, document types and support links always come from the hub the site belongs to."
+        },
+        {
+          "type": "new",
+          "cs": "Nová část Nastavení → Nasazení EP365: přehled aplikací EP365 na všech webech, ke kterým máte přístup – u každé aplikace verze datových struktur na webu a verze, kterou potřebuje kód, který web skutečně načítá. Čekající weby dorovnáte jedním tlačítkem Aktualizovat vše: přidávají se jen seznamy a sloupce, nic se nemaže, a zastavit jde po aktuálním webu.",
+          "en": "New Settings → EP365 deployment section: an overview of EP365 apps on every site you can access — for each app, the version of the site data structures and the version the code the site actually loads needs. Bring waiting sites up to date with one Update all button: only lists and columns are added, nothing is deleted, and you can stop after the current site."
+        },
+        {
+          "type": "improved",
+          "cs": "Nastavení aplikace má jednotný levý panel sekcí jako ostatní aplikace EasyPortal 365. Každá sekce má vlastní odkaz, takže kolegovi pošlete adresu přímo na ni, a v drobečkové navigaci vidíte, ve které sekci jste. Správce najde sekce i přes ⌘K a na telefonu se Nastavení otevře jako přehledný seznam sekcí. Dřívější odkazy na Nastavení fungují dál.",
+          "en": "App settings now use the same left-hand section panel as the other EasyPortal 365 apps. Each section has its own link, so you can send a colleague the address of that exact section, and the breadcrumb shows which section you are in. Admins can also reach sections through ⌘K, and on a phone Settings opens as a clear list of sections. Earlier links to Settings keep working."
+        },
+        {
+          "type": "improved",
+          "cs": "Když nová verze aplikace potřebuje doplnit seznamy nebo sloupce webu a otevře ji uživatel bez oprávnění tuto aktualizaci dokončit, aplikace dál běží a klidně oznámí, že aktualizace čeká na správce webu – ten ji dokončí automaticky při svém příštím otevření aplikace.",
+          "en": "When a new version of the app needs to add lists or columns to the site and it is opened by a user without permission to complete that update, the app keeps working and calmly says the update is waiting for a site owner, who completes it automatically the next time they open the app."
+        },
+        {
+          "type": "fixed",
+          "cs": "Aplikace spolehlivěji načítá svou aktuální verzi a licenci: po vydání novinky se k ní dostanete do pár minut a starší licenční soubor už nemůže nahradit novější. Správce aplikace v Nastavení včas uvidí upozornění, kdyby licenční soubor potřeboval obnovit.",
+          "en": "The app loads its current version and licence more reliably: after an update you get it within minutes, and an older licence file can no longer replace a newer one. App admins see a notice in Settings in good time if the licence file needs renewing."
+        },
         {
           "type": "fixed",
           "cs": "Náhled uvnitř aplikace ukazuje dokumenty Office, PDF, obrázky a textové soubory. Ostatní typy souborů se otevřou v nové záložce.",
